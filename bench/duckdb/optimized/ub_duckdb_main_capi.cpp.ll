@@ -1438,7 +1438,7 @@ lpad:                                             ; preds = %if.end5
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = extractvalue { ptr, i32 } %5, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #32
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches = icmp eq i32 %7, %8
   %9 = call ptr @__cxa_begin_catch(ptr %6) #32
   br i1 %matches, label %catch11, label %catch
@@ -1713,9 +1713,6 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #5
-
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
@@ -1724,7 +1721,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #32
   tail call void @_ZSt9terminatev() #33
   unreachable
@@ -1817,7 +1814,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches.i = icmp eq i32 %3, %4
   %5 = tail call ptr @__cxa_begin_catch(ptr %2) #32
   br i1 %matches.i, label %catch11.i, label %catch.i
@@ -1869,10 +1866,10 @@ terminate.lpad.i:                                 ; preds = %lpad15.i, %lpad7.i
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @duckdb_appender_error(ptr noundef readonly %appender) local_unnamed_addr #8 {
+define ptr @duckdb_appender_error(ptr noundef readonly %appender) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %appender, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1894,7 +1891,7 @@ return:                                           ; preds = %if.end2, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @duckdb_appender_begin_row(ptr nocapture noundef readnone %appender) local_unnamed_addr #9 {
+define noundef i32 @duckdb_appender_begin_row(ptr nocapture noundef readnone %appender) local_unnamed_addr #8 {
 entry:
   ret i32 0
 }
@@ -1924,7 +1921,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches.i = icmp eq i32 %3, %4
   %5 = tail call ptr @__cxa_begin_catch(ptr %2) #32
   br i1 %matches.i, label %catch11.i, label %catch.i
@@ -2002,7 +1999,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = extractvalue { ptr, i32 } %0, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches = icmp eq i32 %2, %3
   %4 = tail call ptr @__cxa_begin_catch(ptr %1) #32
   br i1 %matches, label %catch4, label %return.sink.split
@@ -2068,7 +2065,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = extractvalue { ptr, i32 } %0, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches = icmp eq i32 %2, %3
   %4 = tail call ptr @__cxa_begin_catch(ptr %1) #32
   br i1 %matches, label %catch3, label %return.sink.split
@@ -2134,7 +2131,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = extractvalue { ptr, i32 } %0, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches = icmp eq i32 %2, %3
   %4 = tail call ptr @__cxa_begin_catch(ptr %1) #32
   br i1 %matches, label %catch3, label %return.sink.split
@@ -2200,7 +2197,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = extractvalue { ptr, i32 } %0, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches = icmp eq i32 %2, %3
   %4 = tail call ptr @__cxa_begin_catch(ptr %1) #32
   br i1 %matches, label %catch3, label %return.sink.split
@@ -2266,7 +2263,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = extractvalue { ptr, i32 } %0, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches = icmp eq i32 %2, %3
   %4 = tail call ptr @__cxa_begin_catch(ptr %1) #32
   br i1 %matches, label %catch3, label %return.sink.split
@@ -2332,7 +2329,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = extractvalue { ptr, i32 } %0, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches = icmp eq i32 %2, %3
   %4 = tail call ptr @__cxa_begin_catch(ptr %1) #32
   br i1 %matches, label %catch3, label %return.sink.split
@@ -2372,7 +2369,7 @@ terminate.lpad:                                   ; preds = %lpad6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @duckdb_append_uint8(ptr noundef %appender, i8 noundef zeroext %value) local_unnamed_addr #0 {
@@ -2401,7 +2398,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = extractvalue { ptr, i32 } %0, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches = icmp eq i32 %2, %3
   %4 = tail call ptr @__cxa_begin_catch(ptr %1) #32
   br i1 %matches, label %catch3, label %return.sink.split
@@ -2467,7 +2464,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = extractvalue { ptr, i32 } %0, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches = icmp eq i32 %2, %3
   %4 = tail call ptr @__cxa_begin_catch(ptr %1) #32
   br i1 %matches, label %catch3, label %return.sink.split
@@ -2533,7 +2530,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = extractvalue { ptr, i32 } %0, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches = icmp eq i32 %2, %3
   %4 = tail call ptr @__cxa_begin_catch(ptr %1) #32
   br i1 %matches, label %catch3, label %return.sink.split
@@ -2599,7 +2596,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = extractvalue { ptr, i32 } %0, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches = icmp eq i32 %2, %3
   %4 = tail call ptr @__cxa_begin_catch(ptr %1) #32
   br i1 %matches, label %catch3, label %return.sink.split
@@ -2665,7 +2662,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = extractvalue { ptr, i32 } %0, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches = icmp eq i32 %2, %3
   %4 = tail call ptr @__cxa_begin_catch(ptr %1) #32
   br i1 %matches, label %catch3, label %return.sink.split
@@ -2731,7 +2728,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = extractvalue { ptr, i32 } %0, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches = icmp eq i32 %2, %3
   %4 = tail call ptr @__cxa_begin_catch(ptr %1) #32
   br i1 %matches, label %catch3, label %return.sink.split
@@ -2797,7 +2794,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = extractvalue { ptr, i32 } %0, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches = icmp eq i32 %2, %3
   %4 = tail call ptr @__cxa_begin_catch(ptr %1) #32
   br i1 %matches, label %catch4, label %return.sink.split
@@ -2863,7 +2860,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = extractvalue { ptr, i32 } %0, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches = icmp eq i32 %2, %3
   %4 = tail call ptr @__cxa_begin_catch(ptr %1) #32
   br i1 %matches, label %catch4, label %return.sink.split
@@ -2929,7 +2926,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = extractvalue { ptr, i32 } %0, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches = icmp eq i32 %2, %3
   %4 = tail call ptr @__cxa_begin_catch(ptr %1) #32
   br i1 %matches, label %catch4, label %return.sink.split
@@ -2995,7 +2992,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = extractvalue { ptr, i32 } %0, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches = icmp eq i32 %2, %3
   %4 = tail call ptr @__cxa_begin_catch(ptr %1) #32
   br i1 %matches, label %catch3, label %return.sink.split
@@ -3061,7 +3058,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = extractvalue { ptr, i32 } %0, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches = icmp eq i32 %2, %3
   %4 = tail call ptr @__cxa_begin_catch(ptr %1) #32
   br i1 %matches, label %catch3, label %return.sink.split
@@ -3127,7 +3124,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = extractvalue { ptr, i32 } %0, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches = icmp eq i32 %2, %3
   %4 = tail call ptr @__cxa_begin_catch(ptr %1) #32
   br i1 %matches, label %catch3, label %return.sink.split
@@ -3222,7 +3219,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
           catch ptr null
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = extractvalue { ptr, i32 } %0, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches = icmp eq i32 %2, %3
   %4 = tail call ptr @__cxa_begin_catch(ptr %1) #32
   br i1 %matches, label %catch3, label %return.sink.split
@@ -3299,7 +3296,7 @@ ehcleanup:                                        ; preds = %lpad1, %lpad
   resume { ptr, i32 } %.pn
 }
 
-declare void @_ZN6duckdb5Value4BLOBEPKhm(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, ptr noundef, i64 noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb5Value4BLOBEPKhm(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_Z22duckdb_append_internalIN6duckdb5ValueEE12duckdb_stateP16_duckdb_appenderT_(ptr noundef %appender, ptr noundef %value) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -3341,7 +3338,7 @@ catch.dispatch:                                   ; preds = %lpad3, %lpad
   %.pn = phi { ptr, i32 } [ %1, %lpad3 ], [ %0, %lpad ]
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %2 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %2 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches = icmp eq i32 %ehselector.slot.0, %2
   %3 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #32
   br i1 %matches, label %catch5, label %catch
@@ -3384,10 +3381,10 @@ terminate.lpad:                                   ; preds = %lpad8
   unreachable
 }
 
-declare void @_ZN6duckdb5ValueC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #11
+declare void @_ZN6duckdb5ValueC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #10
 
 ; Function Attrs: nounwind
-declare void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #12
+declare void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_appender_flush(ptr noundef %appender) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -3414,7 +3411,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches.i = icmp eq i32 %3, %4
   %5 = tail call ptr @__cxa_begin_catch(ptr %2) #32
   br i1 %matches.i, label %catch11.i, label %catch.i
@@ -3492,7 +3489,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %if.
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches.i = icmp eq i32 %3, %4
   %5 = tail call ptr @__cxa_begin_catch(ptr %2) #32
   br i1 %matches.i, label %catch11.i, label %catch.i
@@ -3653,7 +3650,7 @@ ehcleanup:                                        ; preds = %if.then.i.i22, %_ZN
   resume { ptr, i32 } %8
 }
 
-declare void @_ZN6duckdb10Connection5QueryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.15") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #11
+declare void @_ZN6duckdb10Connection5QueryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.15") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0 align 2
@@ -3729,7 +3726,7 @@ _ZN6duckdb10unique_ptrINS_23MaterializedQueryResultESt14default_deleteIS1_ELb1EE
   ret ptr %0
 }
 
-declare noundef zeroext i1 @_ZNK6duckdb15BaseQueryResult8HasErrorEv(ptr noundef nonnull align 8 dereferenceable(232)) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZNK6duckdb15BaseQueryResult8HasErrorEv(ptr noundef nonnull align 8 dereferenceable(232)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @duckdb_query_arrow_schema(ptr noundef %result, ptr noundef readonly %out_schema) local_unnamed_addr #0 {
@@ -3752,7 +3749,7 @@ return:                                           ; preds = %if.end, %entry
   ret i32 0
 }
 
-declare void @_ZN6duckdb14ArrowConverter13ToArrowSchemaEP11ArrowSchemaRKNS_6vectorINS_11LogicalTypeELb1EEERKNS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEERKNS_16ClientPropertiesE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(36)) local_unnamed_addr #11
+declare void @_ZN6duckdb14ArrowConverter13ToArrowSchemaEP11ArrowSchemaRKNS_6vectorINS_11LogicalTypeELb1EEERKNS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEERKNS_16ClientPropertiesE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(36)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_prepared_arrow_schema(ptr noundef %prepared, ptr noundef readonly %out_schema) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -4290,15 +4287,15 @@ _ZN6duckdb10unique_ptrINS_17PreparedStatementESt14default_deleteIS1_ELb1EE13Asse
   ret ptr %0
 }
 
-declare void @_ZNK6duckdb13ClientContext19GetClientPropertiesEv(ptr dead_on_unwind writable sret(%"struct.duckdb::ClientProperties") align 8, ptr noundef nonnull align 8 dereferenceable(592)) local_unnamed_addr #11
+declare void @_ZNK6duckdb13ClientContext19GetClientPropertiesEv(ptr dead_on_unwind writable sret(%"struct.duckdb::ClientProperties") align 8, ptr noundef nonnull align 8 dereferenceable(592)) local_unnamed_addr #10
 
-declare void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24), i8 noundef zeroext) unnamed_addr #11
+declare void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24), i8 noundef zeroext) unnamed_addr #10
 
 ; Function Attrs: nounwind
-declare void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #12
+declare void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !74
   %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
@@ -4347,7 +4344,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !76
   %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
@@ -4551,7 +4548,7 @@ lpad:                                             ; preds = %entry
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = extractvalue { ptr, i32 } %4, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #32
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6duckdb9ExceptionE) #32
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6duckdb9ExceptionE) #32
   %matches = icmp eq i32 %6, %7
   br i1 %matches, label %catch26, label %catch.fallthrough
 
@@ -4569,7 +4566,7 @@ invoke.cont31:                                    ; preds = %catch26
   br label %return
 
 catch.fallthrough:                                ; preds = %lpad
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches2 = icmp eq i32 %6, %9
   %10 = call ptr @__cxa_begin_catch(ptr %5) #32
   br i1 %matches2, label %catch16, label %catch
@@ -4685,7 +4682,7 @@ terminate.lpad:                                   ; preds = %lpad30, %lpad19, %e
   unreachable
 }
 
-declare noundef nonnull align 8 dereferenceable(88) ptr @_ZN6duckdb15BaseQueryResult14GetErrorObjectEv(ptr noundef nonnull align 8 dereferenceable(232)) local_unnamed_addr #11
+declare noundef nonnull align 8 dereferenceable(88) ptr @_ZN6duckdb15BaseQueryResult14GetErrorObjectEv(ptr noundef nonnull align 8 dereferenceable(232)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK6duckdb10unique_ptrINS_9DataChunkESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4758,7 +4755,7 @@ _ZN6duckdb10unique_ptrINS_9DataChunkESt14default_deleteIS1_ELb1EE13AssertNotNull
   ret ptr %0
 }
 
-declare void @_ZN6duckdb14ArrowConverter12ToArrowArrayERNS_9DataChunkEP10ArrowArrayNS_16ClientPropertiesE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb14ArrowConverter12ToArrowArrayERNS_9DataChunkEP10ArrowArrayNS_16ClientPropertiesE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6duckdb10unique_ptrINS_9DataChunkESt14default_deleteIS1_ELb1EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5020,7 +5017,7 @@ cleanup:                                          ; preds = %if.end, %entry
   ret i64 %retval.0
 }
 
-declare noundef i64 @_ZNK6duckdb23MaterializedQueryResult8RowCountEv(ptr noundef nonnull align 8 dereferenceable(425)) local_unnamed_addr #11
+declare noundef i64 @_ZNK6duckdb23MaterializedQueryResult8RowCountEv(ptr noundef nonnull align 8 dereferenceable(425)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @duckdb_arrow_column_count(ptr noundef nonnull %result) local_unnamed_addr #0 {
@@ -5030,7 +5027,7 @@ entry:
   ret i64 %call2
 }
 
-declare noundef i64 @_ZN6duckdb15BaseQueryResult11ColumnCountEv(ptr noundef nonnull align 8 dereferenceable(232)) local_unnamed_addr #11
+declare noundef i64 @_ZN6duckdb15BaseQueryResult11ColumnCountEv(ptr noundef nonnull align 8 dereferenceable(232)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @duckdb_arrow_rows_changed(ptr noundef nonnull %result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -5101,18 +5098,18 @@ cleanup:                                          ; preds = %invoke.cont14, %lan
   ret i64 %retval.0
 }
 
-declare noundef nonnull align 8 dereferenceable(97) ptr @_ZN6duckdb23MaterializedQueryResult10CollectionEv(ptr noundef nonnull align 8 dereferenceable(425)) local_unnamed_addr #11
+declare noundef nonnull align 8 dereferenceable(97) ptr @_ZN6duckdb23MaterializedQueryResult10CollectionEv(ptr noundef nonnull align 8 dereferenceable(425)) local_unnamed_addr #10
 
-declare void @_ZNK6duckdb20ColumnDataCollection7GetRowsEv(ptr dead_on_unwind writable sret(%"class.duckdb::ColumnDataRowCollection") align 8, ptr noundef nonnull align 8 dereferenceable(97)) local_unnamed_addr #11
+declare void @_ZNK6duckdb20ColumnDataCollection7GetRowsEv(ptr dead_on_unwind writable sret(%"class.duckdb::ColumnDataRowCollection") align 8, ptr noundef nonnull align 8 dereferenceable(97)) local_unnamed_addr #10
 
-declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb23ColumnDataRowCollectionixEm(ptr noundef nonnull align 8 dereferenceable(176), i64 noundef) local_unnamed_addr #11
+declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb23ColumnDataRowCollectionixEm(ptr noundef nonnull align 8 dereferenceable(176), i64 noundef) local_unnamed_addr #10
 
-declare void @_ZNK6duckdb13ColumnDataRow8GetValueEm(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) local_unnamed_addr #11
+declare void @_ZNK6duckdb13ColumnDataRow8GetValueEm(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) local_unnamed_addr #10
 
-declare noundef i64 @_ZNK6duckdb5Value8GetValueIlEET_v(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #11
+declare noundef i64 @_ZNK6duckdb5Value8GetValueIlEET_v(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #10
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6duckdb23ColumnDataRowCollectionD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb23ColumnDataRowCollectionD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scan_state = getelementptr inbounds i8, ptr %this, i64 48
   %column_ids.i = getelementptr inbounds i8, ptr %this, i64 152
@@ -5215,10 +5212,10 @@ entry:
   ret ptr %0
 }
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb15BaseQueryResult8GetErrorB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(232)) local_unnamed_addr #11
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb15BaseQueryResult8GetErrorB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(232)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @duckdb_destroy_arrow(ptr nocapture noundef %result) local_unnamed_addr #13 {
+define void @duckdb_destroy_arrow(ptr nocapture noundef %result) local_unnamed_addr #12 {
 entry:
   %0 = load ptr, ptr %result, align 8, !tbaa !3
   %tobool.not = icmp eq ptr %0, null
@@ -5335,9 +5332,9 @@ cleanup:                                          ; preds = %_ZNSt10unique_ptrIN
   ret i32 %retval.0
 }
 
-declare noundef zeroext i1 @_ZNK6duckdb17PreparedStatement8HasErrorEv(ptr noundef nonnull align 8 dereferenceable(224)) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZNK6duckdb17PreparedStatement8HasErrorEv(ptr noundef nonnull align 8 dereferenceable(224)) local_unnamed_addr #10
 
-declare void @_ZN6duckdb17PreparedStatement7ExecuteERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5ValueENS_33CaseInsensitiveStringHashFunctionENS_29CaseInsensitiveStringEqualityESaISt4pairIKS7_S8_EEEb(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.50") align 8, ptr noundef nonnull align 8 dereferenceable(224), ptr noundef nonnull align 8 dereferenceable(56), i1 noundef zeroext) local_unnamed_addr #11
+declare void @_ZN6duckdb17PreparedStatement7ExecuteERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5ValueENS_33CaseInsensitiveStringHashFunctionENS_29CaseInsensitiveStringEqualityESaISt4pairIKS7_S8_EEEb(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.50") align 8, ptr noundef nonnull align 8 dereferenceable(224), ptr noundef nonnull align 8 dereferenceable(56), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_arrow_scan(ptr noundef %connection, ptr noundef readonly %table_name, ptr noundef %arrow) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -5986,7 +5983,7 @@ cleanup:                                          ; preds = %if.then.i.i.i, %for
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN26arrow_array_stream_wrapper12_GLOBAL__N_118EmptySchemaReleaseEP11ArrowSchema(ptr nocapture noundef writeonly %schema) #15 {
+define internal void @_ZN26arrow_array_stream_wrapper12_GLOBAL__N_118EmptySchemaReleaseEP11ArrowSchema(ptr nocapture noundef writeonly %schema) #14 {
 entry:
   %release = getelementptr inbounds i8, ptr %schema, i64 56
   store ptr null, ptr %release, align 8, !tbaa !72
@@ -6018,7 +6015,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef range(i32 0, 2) i32 @_ZN26arrow_array_stream_wrapper12_GLOBAL__N_19GetSchemaEP16ArrowArrayStreamP11ArrowSchema(ptr nocapture noundef readonly %stream, ptr nocapture noundef writeonly %out) #16 {
+define internal noundef range(i32 0, 2) i32 @_ZN26arrow_array_stream_wrapper12_GLOBAL__N_19GetSchemaEP16ArrowArrayStreamP11ArrowSchema(ptr nocapture noundef readonly %stream, ptr nocapture noundef writeonly %out) #15 {
 entry:
   %private_data1 = getelementptr inbounds i8, ptr %stream, i64 32
   %0 = load ptr, ptr %private_data1, align 8, !tbaa !148
@@ -6038,7 +6035,7 @@ cleanup:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZN26arrow_array_stream_wrapper12_GLOBAL__N_17GetNextEP16ArrowArrayStreamP10ArrowArray(ptr nocapture noundef readonly %stream, ptr nocapture noundef writeonly %out) #16 {
+define internal noundef i32 @_ZN26arrow_array_stream_wrapper12_GLOBAL__N_17GetNextEP16ArrowArrayStreamP10ArrowArray(ptr nocapture noundef readonly %stream, ptr nocapture noundef writeonly %out) #15 {
 entry:
   %private_data1 = getelementptr inbounds i8, ptr %stream, i64 32
   %0 = load ptr, ptr %private_data1, align 8, !tbaa !148
@@ -6056,13 +6053,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noalias noundef ptr @_ZN26arrow_array_stream_wrapper12_GLOBAL__N_112GetLastErrorEP16ArrowArrayStream(ptr nocapture readnone %stream) #9 {
+define internal noalias noundef ptr @_ZN26arrow_array_stream_wrapper12_GLOBAL__N_112GetLastErrorEP16ArrowArrayStream(ptr nocapture readnone %stream) #8 {
 entry:
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN26arrow_array_stream_wrapper12_GLOBAL__N_17ReleaseEP16ArrowArrayStream(ptr nocapture noundef %stream) #13 {
+define internal void @_ZN26arrow_array_stream_wrapper12_GLOBAL__N_17ReleaseEP16ArrowArrayStream(ptr nocapture noundef %stream) #12 {
 entry:
   %private_data = getelementptr inbounds i8, ptr %stream, i64 32
   %0 = load ptr, ptr %private_data, align 8, !tbaa !148
@@ -6189,11 +6186,11 @@ return:                                           ; preds = %catch, %_ZNSt7__cxx
   ret i32 %retval.1
 }
 
-declare void @_ZN6duckdb8DBConfigC1Ev(ptr noundef nonnull align 8 dereferenceable(896)) unnamed_addr #11
+declare void @_ZN6duckdb8DBConfigC1Ev(ptr noundef nonnull align 8 dereferenceable(896)) unnamed_addr #10
 
-declare void @_ZN6duckdb8DBConfig15SetOptionByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(896), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #11
+declare void @_ZN6duckdb8DBConfig15SetOptionByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(896), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #10
 
-declare void @_ZN6duckdb5ValueC1EPKc(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #11
+declare void @_ZN6duckdb5ValueC1EPKc(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @duckdb_config_count() local_unnamed_addr #0 {
@@ -6202,7 +6199,7 @@ entry:
   ret i64 %call
 }
 
-declare noundef i64 @_ZN6duckdb8DBConfig14GetOptionCountEv() local_unnamed_addr #11
+declare noundef i64 @_ZN6duckdb8DBConfig14GetOptionCountEv() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_get_config_flag(i64 noundef %index, ptr noundef writeonly %out_name, ptr noundef writeonly %out_description) local_unnamed_addr #0 {
@@ -6235,7 +6232,7 @@ cleanup:                                          ; preds = %if.then5, %if.end3,
   ret i32 %retval.0
 }
 
-declare noundef ptr @_ZN6duckdb8DBConfig16GetOptionByIndexEm(i64 noundef) local_unnamed_addr #11
+declare noundef ptr @_ZN6duckdb8DBConfig16GetOptionByIndexEm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_set_config(ptr noundef %config, ptr noundef readonly %name, ptr noundef %option) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -6370,7 +6367,7 @@ return:                                           ; preds = %ehcleanup11, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @duckdb_destroy_config(ptr noundef %config) local_unnamed_addr #13 {
+define void @duckdb_destroy_config(ptr noundef %config) local_unnamed_addr #12 {
 entry:
   %tobool.not = icmp eq ptr %config, null
   br i1 %tobool.not, label %if.end3, label %if.end
@@ -6391,7 +6388,7 @@ if.end3:                                          ; preds = %delete.notnull, %if
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6duckdb8DBConfigD1Ev(ptr noundef nonnull align 8 dereferenceable(896)) unnamed_addr #12
+declare void @_ZN6duckdb8DBConfigD1Ev(ptr noundef nonnull align 8 dereferenceable(896)) unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @duckdb_create_data_chunk(ptr noundef readonly %ctypes, i64 noundef %column_count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -6513,14 +6510,14 @@ return:                                           ; preds = %_ZNSt6vectorIN6duck
   ret ptr %retval.0
 }
 
-declare void @_ZN6duckdb9DataChunkC1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #11
+declare void @_ZN6duckdb9DataChunkC1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #10
 
-declare void @_ZN6duckdb9DataChunk10InitializeERNS_9AllocatorERKNS_6vectorINS_11LogicalTypeELb1EEEm(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb9DataChunk10InitializeERNS_9AllocatorERKNS_6vectorINS_11LogicalTypeELb1EEEm(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) local_unnamed_addr #10
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb9Allocator16DefaultAllocatorEv() local_unnamed_addr #11
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb9Allocator16DefaultAllocatorEv() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @duckdb_destroy_data_chunk(ptr noundef %chunk) local_unnamed_addr #13 {
+define void @duckdb_destroy_data_chunk(ptr noundef %chunk) local_unnamed_addr #12 {
 entry:
   %tobool.not = icmp eq ptr %chunk, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -6541,7 +6538,7 @@ if.end:                                           ; preds = %delete.notnull, %la
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6duckdb9DataChunkD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #12
+declare void @_ZN6duckdb9DataChunkD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define void @duckdb_data_chunk_reset(ptr noundef %chunk) local_unnamed_addr #0 {
@@ -6557,10 +6554,10 @@ return:                                           ; preds = %if.end, %entry
   ret void
 }
 
-declare void @_ZN6duckdb9DataChunk5ResetEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #11
+declare void @_ZN6duckdb9DataChunk5ResetEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 -88686269585142075, 88686269585142076) i64 @duckdb_data_chunk_get_column_count(ptr noundef readonly %chunk) local_unnamed_addr #8 {
+define range(i64 -88686269585142075, 88686269585142076) i64 @duckdb_data_chunk_get_column_count(ptr noundef readonly %chunk) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %chunk, null
   br i1 %tobool.not, label %return, label %if.end
@@ -6685,7 +6682,7 @@ _ZN6duckdb6vectorINS_6VectorELb1EE3getILb1EEERS1_m.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @duckdb_data_chunk_get_size(ptr noundef readonly %chunk) local_unnamed_addr #8 {
+define i64 @duckdb_data_chunk_get_size(ptr noundef readonly %chunk) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %chunk, null
   br i1 %tobool.not, label %return, label %if.end
@@ -6701,7 +6698,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @duckdb_data_chunk_set_size(ptr noundef writeonly %chunk, i64 noundef %size) local_unnamed_addr #15 {
+define void @duckdb_data_chunk_set_size(ptr noundef writeonly %chunk, i64 noundef %size) local_unnamed_addr #14 {
 entry:
   %tobool.not = icmp eq ptr %chunk, null
   br i1 %tobool.not, label %return, label %if.end
@@ -6738,10 +6735,10 @@ return:                                           ; preds = %if.end, %entry
   ret ptr %retval.0
 }
 
-declare void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #11
+declare void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @duckdb_vector_get_data(ptr noundef readonly %vector) local_unnamed_addr #8 {
+define ptr @duckdb_vector_get_data(ptr noundef readonly %vector) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %vector, null
   br i1 %tobool.not, label %return, label %if.end
@@ -6757,7 +6754,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @duckdb_vector_get_validity(ptr noundef readonly %vector) local_unnamed_addr #8 {
+define ptr @duckdb_vector_get_validity(ptr noundef readonly %vector) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %vector, null
   br i1 %tobool.not, label %return, label %if.end
@@ -6840,9 +6837,9 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
 
-declare { i64, ptr } @_ZN6duckdb12StringVector9AddStringERNS_6VectorEPKcm(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef, i64 noundef) local_unnamed_addr #11
+declare { i64, ptr } @_ZN6duckdb12StringVector9AddStringERNS_6VectorEPKcm(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @duckdb_list_vector_get_child(ptr noundef %vector) local_unnamed_addr #0 {
@@ -6859,7 +6856,7 @@ return:                                           ; preds = %if.end, %entry
   ret ptr %retval.0
 }
 
-declare noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb10ListVector8GetEntryERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #11
+declare noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb10ListVector8GetEntryERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @duckdb_list_vector_get_size(ptr noundef %vector) local_unnamed_addr #0 {
@@ -6876,7 +6873,7 @@ return:                                           ; preds = %if.end, %entry
   ret i64 %retval.0
 }
 
-declare noundef i64 @_ZN6duckdb10ListVector11GetListSizeERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #11
+declare noundef i64 @_ZN6duckdb10ListVector11GetListSizeERKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_list_vector_set_size(ptr noundef %vector, i64 noundef %size) local_unnamed_addr #0 {
@@ -6893,7 +6890,7 @@ return:                                           ; preds = %if.end, %entry
   ret i32 %retval.0
 }
 
-declare void @_ZN6duckdb10ListVector11SetListSizeERNS_6VectorEm(ptr noundef nonnull align 8 dereferenceable(104), i64 noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb10ListVector11SetListSizeERNS_6VectorEm(ptr noundef nonnull align 8 dereferenceable(104), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_list_vector_reserve(ptr noundef %vector, i64 noundef %required_capacity) local_unnamed_addr #0 {
@@ -6910,7 +6907,7 @@ return:                                           ; preds = %if.end, %entry
   ret i32 %retval.0
 }
 
-declare void @_ZN6duckdb10ListVector7ReserveERNS_6VectorEm(ptr noundef nonnull align 8 dereferenceable(104), i64 noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb10ListVector7ReserveERNS_6VectorEm(ptr noundef nonnull align 8 dereferenceable(104), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define ptr @duckdb_struct_vector_get_child(ptr noundef %vector, i64 noundef %index) local_unnamed_addr #0 {
@@ -6929,7 +6926,7 @@ return:                                           ; preds = %if.end, %entry
   ret ptr %retval.0
 }
 
-declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb12StructVector10GetEntriesERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #11
+declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb12StructVector10GetEntriesERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_6VectorESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -7010,7 +7007,7 @@ _ZN6duckdb6vectorINS_10unique_ptrINS_6VectorESt14default_deleteIS2_ELb1EEELb1EE3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @duckdb_validity_row_is_valid(ptr noundef readonly %validity, i64 noundef %row) local_unnamed_addr #8 {
+define zeroext i1 @duckdb_validity_row_is_valid(ptr noundef readonly %validity, i64 noundef %row) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %validity, null
   br i1 %tobool.not, label %return, label %if.end
@@ -7031,7 +7028,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @duckdb_validity_set_row_validity(ptr noundef %validity, i64 noundef %row, i1 noundef zeroext %valid) local_unnamed_addr #18 {
+define void @duckdb_validity_set_row_validity(ptr noundef %validity, i64 noundef %row, i1 noundef zeroext %valid) local_unnamed_addr #17 {
 entry:
   %tobool.not.i = icmp eq ptr %validity, null
   br i1 %valid, label %if.then, label %if.else
@@ -7068,7 +7065,7 @@ if.end:                                           ; preds = %if.end.i4, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @duckdb_validity_set_row_valid(ptr noundef %validity, i64 noundef %row) local_unnamed_addr #18 {
+define void @duckdb_validity_set_row_valid(ptr noundef %validity, i64 noundef %row) local_unnamed_addr #17 {
 entry:
   %tobool.not = icmp eq ptr %validity, null
   br i1 %tobool.not, label %return, label %if.end
@@ -7088,7 +7085,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @duckdb_validity_set_row_invalid(ptr noundef %validity, i64 noundef %row) local_unnamed_addr #18 {
+define void @duckdb_validity_set_row_invalid(ptr noundef %validity, i64 noundef %row) local_unnamed_addr #17 {
 entry:
   %tobool.not = icmp eq ptr %validity, null
   br i1 %tobool.not, label %return, label %if.end
@@ -7136,7 +7133,7 @@ entry:
   ret i64 %retval.sroa.0.0.insert.insert
 }
 
-declare void @_ZN6duckdb4Date7ConvertENS_6date_tERiS2_S2_(i32, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #11
+declare void @_ZN6duckdb4Date7ConvertENS_6date_tERiS2_S2_(i32, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define i32 @duckdb_to_date(i64 %date.coerce) local_unnamed_addr #0 {
@@ -7152,7 +7149,7 @@ entry:
   ret i32 %call
 }
 
-declare i32 @_ZN6duckdb4Date8FromDateEiii(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #11
+declare i32 @_ZN6duckdb4Date8FromDateEiii(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define i64 @duckdb_from_time(i64 %time.coerce) local_unnamed_addr #0 {
@@ -7190,7 +7187,7 @@ entry:
   ret i64 %retval.sroa.0.0.insert.insert
 }
 
-declare void @_ZN6duckdb4Time7ConvertENS_7dtime_tERiS2_S2_S2_(i64, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #11
+declare void @_ZN6duckdb4Time7ConvertENS_7dtime_tERiS2_S2_S2_(i64, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define i64 @duckdb_to_time(i64 %time.coerce) local_unnamed_addr #0 {
@@ -7208,7 +7205,7 @@ entry:
   ret i64 %call
 }
 
-declare i64 @_ZN6duckdb4Time8FromTimeEiiii(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #11
+declare i64 @_ZN6duckdb4Time8FromTimeEiiii(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define { i64, i64 } @duckdb_from_timestamp(i64 %ts.coerce) local_unnamed_addr #0 {
@@ -7279,7 +7276,7 @@ entry:
   ret { i64, i64 } %.fca.1.insert
 }
 
-declare void @_ZN6duckdb9Timestamp7ConvertENS_11timestamp_tERNS_6date_tERNS_7dtime_tE(i64, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #11
+declare void @_ZN6duckdb9Timestamp7ConvertENS_11timestamp_tERNS_6date_tERNS_7dtime_tE(i64, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define i64 @duckdb_to_timestamp(i64 %ts.coerce0, i64 %ts.coerce1) local_unnamed_addr #0 {
@@ -7306,7 +7303,7 @@ entry:
   ret i64 %call12
 }
 
-declare i64 @_ZN6duckdb9Timestamp12FromDatetimeENS_6date_tENS_7dtime_tE(i32, i64) local_unnamed_addr #11
+declare i64 @_ZN6duckdb9Timestamp12FromDatetimeENS_6date_tENS_7dtime_tE(i32, i64) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_open_ext(ptr noundef %path, ptr nocapture noundef writeonly %out, ptr noundef %config, ptr noundef writeonly %error) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -7445,7 +7442,7 @@ ehcleanup21:                                      ; preds = %ehcleanup20, %lpad
   %exn.slot.3 = extractvalue { ptr, i32 } %.pn45.pn, 0
   %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn45.pn, 1
   call void @llvm.lifetime.end.p0(i64 896, ptr nonnull %default_config) #32
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches = icmp eq i32 %ehselector.slot.3, %11
   %12 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #32
   %tobool28.not = icmp eq ptr %error, null
@@ -7489,10 +7486,10 @@ cleanup:                                          ; preds = %delete.notnull34, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #19
+declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #18
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6duckdb12DatabaseDataD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #14 comdat align 2 {
+define linkonce_odr void @_ZN6duckdb12DatabaseDataD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #13 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %0, null
@@ -7516,7 +7513,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @duckdb_close(ptr noundef %database) local_unnamed_addr #13 {
+define void @duckdb_close(ptr noundef %database) local_unnamed_addr #12 {
 entry:
   %tobool.not = icmp eq ptr %database, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -7663,7 +7660,7 @@ _ZN6duckdb10unique_ptrINS_6DuckDBESt14default_deleteIS1_ELb1EE13AssertNotNullEb.
   ret ptr %0
 }
 
-declare void @_ZN6duckdb10ConnectionC1ERNS_6DuckDBE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #11
+declare void @_ZN6duckdb10ConnectionC1ERNS_6DuckDBE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define void @duckdb_interrupt(ptr noundef %connection) local_unnamed_addr #0 {
@@ -7679,7 +7676,7 @@ return:                                           ; preds = %if.end, %entry
   ret void
 }
 
-declare void @_ZN6duckdb10Connection9InterruptEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #11
+declare void @_ZN6duckdb10Connection9InterruptEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define void @duckdb_query_progress(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.duckdb_query_progress_type) align 8 %agg.result, ptr noundef readonly %connection) local_unnamed_addr #0 {
@@ -7709,16 +7706,16 @@ return:                                           ; preds = %if.end, %entry
   ret void
 }
 
-declare void @_ZN6duckdb13ClientContext16GetQueryProgressEv(ptr dead_on_unwind writable sret(%"struct.duckdb::QueryProgress") align 8, ptr noundef nonnull align 8 dereferenceable(592)) local_unnamed_addr #11
+declare void @_ZN6duckdb13ClientContext16GetQueryProgressEv(ptr dead_on_unwind writable sret(%"struct.duckdb::QueryProgress") align 8, ptr noundef nonnull align 8 dereferenceable(592)) local_unnamed_addr #10
 
-declare noundef i64 @_ZN6duckdb13QueryProgress21GetTotalRowsToProcessEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #11
+declare noundef i64 @_ZN6duckdb13QueryProgress21GetTotalRowsToProcessEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #10
 
-declare noundef i64 @_ZN6duckdb13QueryProgress17GetRowsProcesseedEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #11
+declare noundef i64 @_ZN6duckdb13QueryProgress17GetRowsProcesseedEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #10
 
-declare noundef double @_ZN6duckdb13QueryProgress13GetPercentageEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #11
+declare noundef double @_ZN6duckdb13QueryProgress13GetPercentageEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @duckdb_disconnect(ptr noundef %connection) local_unnamed_addr #13 {
+define void @duckdb_disconnect(ptr noundef %connection) local_unnamed_addr #12 {
 entry:
   %tobool.not = icmp eq ptr %connection, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -7739,7 +7736,7 @@ if.end:                                           ; preds = %delete.notnull, %la
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6duckdb10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #12
+declare void @_ZN6duckdb10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_query(ptr noundef %connection, ptr noundef readonly %query, ptr noundef writeonly %out) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -8021,10 +8018,10 @@ entry:
   ret ptr %call
 }
 
-declare noundef ptr @_ZN6duckdb6DuckDB14LibraryVersionEv() local_unnamed_addr #11
+declare noundef ptr @_ZN6duckdb6DuckDB14LibraryVersionEv() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @duckdb_destroy_value(ptr noundef %value) local_unnamed_addr #13 {
+define void @duckdb_destroy_value(ptr noundef %value) local_unnamed_addr #12 {
 entry:
   %tobool.not = icmp eq ptr %value, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -8153,7 +8150,7 @@ ehcleanup:                                        ; preds = %if.then.i.i10, %_ZN
   resume { ptr, i32 } %.pn
 }
 
-declare void @_ZN6duckdb5ValueC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #11
+declare void @_ZN6duckdb5ValueC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull ptr @duckdb_create_varchar(ptr noundef %text) local_unnamed_addr #0 {
@@ -8199,7 +8196,7 @@ ehcleanup:                                        ; preds = %lpad1, %lpad
   resume { ptr, i32 } %.pn
 }
 
-declare void @_ZN6duckdb5Value6BIGINTEl(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i64 noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb5Value6BIGINTEl(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noalias noundef ptr @duckdb_get_varchar(ptr noundef %value) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -8250,12 +8247,12 @@ ehcleanup:                                        ; preds = %lpad1, %lpad
   resume { ptr, i32 } %.pn
 }
 
-declare void @_ZNK6duckdb5Value13DefaultCastAsERKNS_11LogicalTypeEb(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext) local_unnamed_addr #11
+declare void @_ZNK6duckdb5Value13DefaultCastAsERKNS_11LogicalTypeEb(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb11StringValue3GetB5cxx11ERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #11
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb11StringValue3GetB5cxx11ERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #20
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @duckdb_get_int64(ptr noundef %value) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -8287,9 +8284,9 @@ cleanup:                                          ; preds = %if.end, %invoke.con
   ret i64 %retval.0
 }
 
-declare noundef zeroext i1 @_ZN6duckdb5Value16DefaultTryCastAsERKNS_11LogicalTypeEb(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb5Value16DefaultTryCastAsERKNS_11LogicalTypeEb(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef i64 @_ZN6duckdb11BigIntValue3GetERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #11
+declare noundef i64 @_ZN6duckdb11BigIntValue3GetERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @duckdb_create_struct_value(ptr noundef %type, ptr noundef readonly %values) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -8497,17 +8494,17 @@ return:                                           ; preds = %_ZNSt6vectorIN6duck
   ret ptr %retval.6
 }
 
-declare noundef i64 @_ZN6duckdb10StructType13GetChildCountERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #11
+declare noundef i64 @_ZN6duckdb10StructType13GetChildCountERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #10
 
-declare void @_ZN6duckdb5ValueC1ENS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #11
+declare void @_ZN6duckdb5ValueC1ENS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #10
 
-declare void @_ZN6duckdb5Value6STRUCTERKNS_11LogicalTypeENS_6vectorIS0_Lb1EEE(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb5Value6STRUCTERKNS_11LogicalTypeENS_6vectorIS0_Lb1EEE(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
-declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6duckdb5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #12
+declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6duckdb5ValueaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt6vectorIN6duckdb5ValueESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN6duckdb5ValueESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !125
   %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
@@ -8739,10 +8736,10 @@ return:                                           ; preds = %_ZNSt6vectorIN6duck
   ret ptr %retval.5
 }
 
-declare void @_ZN6duckdb5Value4LISTERKNS_11LogicalTypeENS_6vectorIS0_Lb1EEE(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb5Value4LISTERKNS_11LogicalTypeENS_6vectorIS0_Lb1EEE(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @_ZN6duckdb17ConvertCTypeToCPPE11DUCKDB_TYPE(i32 noundef %c_type) local_unnamed_addr #9 {
+define noundef zeroext i8 @_ZN6duckdb17ConvertCTypeToCPPE11DUCKDB_TYPE(i32 noundef %c_type) local_unnamed_addr #8 {
 entry:
   %switch.tableidx = add i32 %c_type, -1
   %0 = icmp ult i32 %switch.tableidx, 27
@@ -8760,7 +8757,7 @@ return:                                           ; preds = %switch.lookup, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 30) i32 @_ZN6duckdb17ConvertCPPTypeToCERKNS_11LogicalTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %sql_type) local_unnamed_addr #8 {
+define noundef range(i32 0, 30) i32 @_ZN6duckdb17ConvertCPPTypeToCERKNS_11LogicalTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %sql_type) local_unnamed_addr #7 {
 entry:
   %0 = load i8, ptr %sql_type, align 8, !tbaa !197
   switch i8 %0, label %sw.default [
@@ -8890,7 +8887,7 @@ return:                                           ; preds = %sw.default, %sw.bb2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZN6duckdb12GetCTypeSizeE11DUCKDB_TYPE(i32 noundef %type) local_unnamed_addr #9 {
+define noundef i64 @_ZN6duckdb12GetCTypeSizeE11DUCKDB_TYPE(i32 noundef %type) local_unnamed_addr #8 {
 entry:
   %switch.tableidx = add i32 %type, -1
   %0 = icmp ult i32 %switch.tableidx, 27
@@ -8908,7 +8905,7 @@ return:                                           ; preds = %switch.lookup, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN6duckdb16StatementTypeToCENS_13StatementTypeE(i8 noundef zeroext %statement_type) local_unnamed_addr #9 {
+define noundef i32 @_ZN6duckdb16StatementTypeToCENS_13StatementTypeE(i8 noundef zeroext %statement_type) local_unnamed_addr #8 {
 entry:
   %0 = icmp ult i8 %statement_type, 29
   br i1 %0, label %switch.lookup, label %return
@@ -8925,30 +8922,30 @@ return:                                           ; preds = %switch.lookup, %ent
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @duckdb_malloc(i64 noundef %size) local_unnamed_addr #21 {
+define noalias noundef ptr @duckdb_malloc(i64 noundef %size) local_unnamed_addr #20 {
 entry:
   %call = tail call noalias ptr @malloc(i64 noundef %size) #37
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @duckdb_free(ptr nocapture noundef %ptr) local_unnamed_addr #22 {
+define void @duckdb_free(ptr nocapture noundef %ptr) local_unnamed_addr #21 {
 entry:
   tail call void @free(ptr noundef %ptr) #32
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #23
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @duckdb_vector_size() local_unnamed_addr #9 {
+define noundef i64 @duckdb_vector_size() local_unnamed_addr #8 {
 entry:
   ret i64 2048
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define zeroext i1 @duckdb_string_is_inlined(i64 %string_p.coerce0, ptr nocapture readnone %string_p.coerce1) local_unnamed_addr #9 {
+define zeroext i1 @duckdb_string_is_inlined(i64 %string_p.coerce0, ptr nocapture readnone %string_p.coerce1) local_unnamed_addr #8 {
 entry:
   %string_p.sroa.0.0.extract.trunc = trunc i64 %string_p.coerce0 to i32
   %cmp.i = icmp ult i32 %string_p.sroa.0.0.extract.trunc, 13
@@ -9153,7 +9150,7 @@ return:                                           ; preds = %_ZN6duckdb25TryCast
   ret void
 }
 
-declare void @_ZN6duckdb17FetchDefaultValue9OperationI14duckdb_decimalEET_v(ptr dead_on_unwind writable sret(%struct.duckdb_decimal) align 8) local_unnamed_addr #11
+declare void @_ZN6duckdb17FetchDefaultValue9OperationI14duckdb_decimalEET_v(ptr dead_on_unwind writable sret(%struct.duckdb_decimal) align 8) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define { i64, i64 } @duckdb_double_to_hugeint(double noundef %val) local_unnamed_addr #0 {
@@ -9182,9 +9179,9 @@ if.end:                                           ; preds = %lor.lhs.false.if.en
   ret { i64, i64 } %.fca.1.insert
 }
 
-declare noundef zeroext i1 @_ZN6duckdb5Value14DoubleIsFiniteEd(double noundef) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb5Value14DoubleIsFiniteEd(double noundef) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7Hugeint10TryConvertIdEEbT_RNS_9hugeint_tE(double noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7Hugeint10TryConvertIdEEbT_RNS_9hugeint_tE(double noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define double @duckdb_decimal_to_double(ptr nocapture noundef readonly byval(%struct.duckdb_decimal) align 8 %val) local_unnamed_addr #0 {
@@ -9204,7 +9201,7 @@ entry:
   ret double %4
 }
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tEdEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64, i64, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tEdEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64, i64, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull ptr @duckdb_create_logical_type(i32 noundef %type) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -9277,9 +9274,9 @@ return:                                           ; preds = %invoke.cont, %entry
   ret ptr %retval.0
 }
 
-declare void @_ZN6duckdb11LogicalTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #11
+declare void @_ZN6duckdb11LogicalTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #10
 
-declare void @_ZN6duckdb11LogicalType4LISTERKS0_(ptr dead_on_unwind writable sret(%"struct.duckdb::LogicalType") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #11
+declare void @_ZN6duckdb11LogicalType4LISTERKS0_(ptr dead_on_unwind writable sret(%"struct.duckdb::LogicalType") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @duckdb_create_union_type(ptr noundef %member_types_p, ptr noundef readonly %member_names, i64 noundef %member_count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -9688,7 +9685,7 @@ return:                                           ; preds = %_ZNSt6vectorISt4pai
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %second = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %second) #32
@@ -9712,10 +9709,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   ret void
 }
 
-declare void @_ZN6duckdb11LogicalType5UNIONENS_6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES0_ELb1EEE(ptr dead_on_unwind writable sret(%"struct.duckdb::LogicalType") align 8, ptr noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb11LogicalType5UNIONENS_6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES0_ELb1EEE(ptr dead_on_unwind writable sret(%"struct.duckdb::LogicalType") align 8, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !223
   %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
@@ -10193,7 +10190,7 @@ return:                                           ; preds = %lor.lhs.false3, %fo
   ret ptr %retval.2
 }
 
-declare void @_ZN6duckdb11LogicalType6STRUCTENS_6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES0_ELb1EEE(ptr dead_on_unwind writable sret(%"struct.duckdb::LogicalType") align 8, ptr noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb11LogicalType6STRUCTENS_6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES0_ELb1EEE(ptr dead_on_unwind writable sret(%"struct.duckdb::LogicalType") align 8, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @duckdb_create_enum_type(ptr noundef readonly %member_names, i64 noundef %member_count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -10353,14 +10350,14 @@ return:                                           ; preds = %cleanup24, %entry
   ret ptr %retval.2
 }
 
-declare void @_ZN6duckdb6VectorC1ENS_11LogicalTypeEm(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef, i64 noundef) unnamed_addr #11
+declare void @_ZN6duckdb6VectorC1ENS_11LogicalTypeEm(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef, i64 noundef) unnamed_addr #10
 
-declare { i64, ptr } @_ZN6duckdb12StringVector15AddStringOrBlobERNS_6VectorENS_8string_tE(ptr noundef nonnull align 8 dereferenceable(104), i64, ptr) local_unnamed_addr #11
+declare { i64, ptr } @_ZN6duckdb12StringVector15AddStringOrBlobERNS_6VectorENS_8string_tE(ptr noundef nonnull align 8 dereferenceable(104), i64, ptr) local_unnamed_addr #10
 
-declare void @_ZN6duckdb11LogicalType4ENUMERNS_6VectorEm(ptr dead_on_unwind writable sret(%"struct.duckdb::LogicalType") align 8, ptr noundef nonnull align 8 dereferenceable(104), i64 noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb11LogicalType4ENUMERNS_6VectorEm(ptr dead_on_unwind writable sret(%"struct.duckdb::LogicalType") align 8, ptr noundef nonnull align 8 dereferenceable(104), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !132
@@ -10594,7 +10591,7 @@ return:                                           ; preds = %invoke.cont6, %entr
   ret ptr %retval.0
 }
 
-declare void @_ZN6duckdb11LogicalType3MAPES0_S0_(ptr dead_on_unwind writable sret(%"struct.duckdb::LogicalType") align 8, ptr noundef, ptr noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb11LogicalType3MAPES0_S0_(ptr dead_on_unwind writable sret(%"struct.duckdb::LogicalType") align 8, ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull ptr @duckdb_create_decimal_type(i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -10615,10 +10612,10 @@ lpad:                                             ; preds = %entry
   resume { ptr, i32 } %0
 }
 
-declare void @_ZN6duckdb11LogicalType7DECIMALEii(ptr dead_on_unwind writable sret(%"struct.duckdb::LogicalType") align 8, i32 noundef, i32 noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb11LogicalType7DECIMALEii(ptr dead_on_unwind writable sret(%"struct.duckdb::LogicalType") align 8, i32 noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @duckdb_get_type_id(ptr noundef readonly %type) local_unnamed_addr #8 {
+define noundef i32 @duckdb_get_type_id(ptr noundef readonly %type) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %type, null
   br i1 %tobool.not, label %return, label %if.end
@@ -10633,7 +10630,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @duckdb_destroy_logical_type(ptr noundef %type) local_unnamed_addr #13 {
+define void @duckdb_destroy_logical_type(ptr noundef %type) local_unnamed_addr #12 {
 entry:
   %tobool.not = icmp eq ptr %type, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -10673,7 +10670,7 @@ return:                                           ; preds = %if.end, %_ZL19Asser
   ret i8 %retval.0
 }
 
-declare noundef zeroext i8 @_ZN6duckdb11DecimalType8GetWidthERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #11
+declare noundef zeroext i8 @_ZN6duckdb11DecimalType8GetWidthERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i8 @duckdb_decimal_scale(ptr noundef %type) local_unnamed_addr #0 {
@@ -10695,10 +10692,10 @@ return:                                           ; preds = %if.end, %_ZL19Asser
   ret i8 %retval.0
 }
 
-declare noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #11
+declare noundef zeroext i8 @_ZN6duckdb11DecimalType8GetScaleERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 17) i32 @duckdb_decimal_internal_type(ptr noundef readonly %type) local_unnamed_addr #8 {
+define noundef range(i32 0, 17) i32 @duckdb_decimal_internal_type(ptr noundef readonly %type) local_unnamed_addr #7 {
 entry:
   %tobool.not.i = icmp eq ptr %type, null
   br i1 %tobool.not.i, label %return, label %_ZL19AssertLogicalTypeIdP20_duckdb_logical_typeN6duckdb13LogicalTypeIdE.exit
@@ -10736,7 +10733,7 @@ return:                                           ; preds = %sw.default, %sw.bb4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @duckdb_enum_internal_type(ptr noundef readonly %type) local_unnamed_addr #8 {
+define noundef i32 @duckdb_enum_internal_type(ptr noundef readonly %type) local_unnamed_addr #7 {
 entry:
   %tobool.not.i = icmp eq ptr %type, null
   br i1 %tobool.not.i, label %return, label %_ZL19AssertLogicalTypeIdP20_duckdb_logical_typeN6duckdb13LogicalTypeIdE.exit
@@ -10785,7 +10782,7 @@ return:                                           ; preds = %if.end, %_ZL19Asser
   ret i32 %retval.0
 }
 
-declare noundef i64 @_ZN6duckdb8EnumType7GetSizeERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #11
+declare noundef i64 @_ZN6duckdb8EnumType7GetSizeERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noalias ptr @duckdb_enum_dictionary_value(ptr noundef %type, i64 noundef %index) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -10825,9 +10822,9 @@ return:                                           ; preds = %invoke.cont, %_ZL19
   ret ptr %retval.0
 }
 
-declare noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb8EnumType20GetValuesInsertOrderERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #11
+declare noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb8EnumType20GetValuesInsertOrderERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #10
 
-declare void @_ZNK6duckdb6Vector8GetValueEm(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, ptr noundef nonnull align 8 dereferenceable(104), i64 noundef) local_unnamed_addr #11
+declare void @_ZNK6duckdb6Vector8GetValueEm(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, ptr noundef nonnull align 8 dereferenceable(104), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @duckdb_list_type_child_type(ptr noundef %type) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -10861,7 +10858,7 @@ return:                                           ; preds = %invoke.cont, %_ZL19
   ret ptr %retval.1
 }
 
-declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb8ListType12GetChildTypeERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #11
+declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb8ListType12GetChildTypeERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @duckdb_map_type_key_type(ptr noundef %type) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -10894,7 +10891,7 @@ return:                                           ; preds = %invoke.cont, %_ZL19
   ret ptr %retval.1
 }
 
-declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb7MapType7KeyTypeERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #11
+declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb7MapType7KeyTypeERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @duckdb_map_type_value_type(ptr noundef %type) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -10927,7 +10924,7 @@ return:                                           ; preds = %invoke.cont, %_ZL19
   ret ptr %retval.1
 }
 
-declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb7MapType9ValueTypeERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #11
+declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb7MapType9ValueTypeERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @duckdb_struct_type_child_count(ptr noundef %type) local_unnamed_addr #0 {
@@ -11009,7 +11006,7 @@ return:                                           ; preds = %if.end3, %_ZL19Asse
   ret ptr %retval.0
 }
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb9UnionType13GetMemberNameB5cxx11ERKNS_11LogicalTypeEm(ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) local_unnamed_addr #11
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb9UnionType13GetMemberNameB5cxx11ERKNS_11LogicalTypeEm(ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @duckdb_union_type_member_type(ptr noundef %type, i64 noundef %index) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -11048,7 +11045,7 @@ return:                                           ; preds = %invoke.cont, %_ZL19
   ret ptr %retval.0
 }
 
-declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb9UnionType13GetMemberTypeERKNS_11LogicalTypeEm(ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) local_unnamed_addr #11
+declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb9UnionType13GetMemberTypeERKNS_11LogicalTypeEm(ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noalias ptr @duckdb_struct_type_child_name(ptr noundef %type, i64 noundef %index) local_unnamed_addr #0 {
@@ -11073,7 +11070,7 @@ return:                                           ; preds = %if.end, %_ZL18Asser
   ret ptr %retval.0
 }
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb10StructType12GetChildNameB5cxx11ERKNS_11LogicalTypeEm(ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) local_unnamed_addr #11
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb10StructType12GetChildNameB5cxx11ERKNS_11LogicalTypeEm(ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noalias ptr @duckdb_logical_type_get_alias(ptr noundef nonnull %type) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -11111,9 +11108,9 @@ cleanup.done6:                                    ; preds = %_ZNSt7__cxx1112basi
   ret ptr %cond9
 }
 
-declare noundef zeroext i1 @_ZNK6duckdb11LogicalType8HasAliasEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZNK6duckdb11LogicalType8HasAliasEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #10
 
-declare void @_ZNK6duckdb11LogicalType8GetAliasB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #11
+declare void @_ZNK6duckdb11LogicalType8GetAliasB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @duckdb_struct_type_child_type(ptr noundef %type, i64 noundef %index) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -11147,7 +11144,7 @@ return:                                           ; preds = %invoke.cont, %_ZL18
   ret ptr %retval.1
 }
 
-declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb10StructType12GetChildTypeERKNS_11LogicalTypeEm(ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) local_unnamed_addr #11
+declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb10StructType12GetChildTypeERKNS_11LogicalTypeEm(ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @_Z32duckdb_pending_prepared_internalP26_duckdb_prepared_statementPP22_duckdb_pending_resultb(ptr noundef %prepared_statement, ptr noundef writeonly %out_result, i1 noundef zeroext %allow_streaming) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -11191,7 +11188,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #32
-  %4 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6duckdb9ExceptionE) #32
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6duckdb9ExceptionE) #32
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch23, label %catch.fallthrough
 
@@ -11246,7 +11243,7 @@ try.cont:                                         ; preds = %_ZNSt10unique_ptrIN
   br label %return
 
 catch.fallthrough:                                ; preds = %lpad
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches10 = icmp eq i32 %3, %10
   br i1 %matches10, label %catch, label %ehcleanup43
 
@@ -11345,7 +11342,7 @@ terminate.lpad:                                   ; preds = %ehcleanup35, %ehcle
   unreachable
 }
 
-declare void @_ZN6duckdb17PreparedStatement12PendingQueryERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5ValueENS_33CaseInsensitiveStringHashFunctionENS_29CaseInsensitiveStringEqualityESaISt4pairIKS7_S8_EEEb(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.460") align 8, ptr noundef nonnull align 8 dereferenceable(224), ptr noundef nonnull align 8 dereferenceable(56), i1 noundef zeroext) local_unnamed_addr #11
+declare void @_ZN6duckdb17PreparedStatement12PendingQueryERSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5ValueENS_33CaseInsensitiveStringHashFunctionENS_29CaseInsensitiveStringEqualityESaISt4pairIKS7_S8_EEEb(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.460") align 8, ptr noundef nonnull align 8 dereferenceable(224), ptr noundef nonnull align 8 dereferenceable(56), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb9make_uniqINS_18PendingQueryResultEJNS_14PreservedErrorEEEENS_11__unique_ifIT_Lb1EE15__unique_singleEDpOT0_(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.460") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %__args) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
@@ -11626,7 +11623,7 @@ ehcleanup:                                        ; preds = %if.then.i.i12, %_ZN
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6duckdb14PreservedErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb14PreservedErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !132
@@ -11717,7 +11714,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %if.t
   ret void
 }
 
-declare void @_ZN6duckdb14PreservedErrorC1ERKNS_9ExceptionE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(80)) unnamed_addr #11
+declare void @_ZN6duckdb14PreservedErrorC1ERKNS_9ExceptionE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(80)) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK6duckdb10unique_ptrINS_18PendingQueryResultESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -11843,7 +11840,7 @@ return:                                           ; preds = %_ZN6duckdb23Pending
   ret void
 }
 
-declare void @_ZN6duckdb18PendingQueryResult5CloseEv(ptr noundef nonnull align 8 dereferenceable(249)) local_unnamed_addr #11
+declare void @_ZN6duckdb18PendingQueryResult5CloseEv(ptr noundef nonnull align 8 dereferenceable(249)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define ptr @duckdb_pending_error(ptr noundef %pending_result) local_unnamed_addr #0 {
@@ -11906,7 +11903,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
           catch ptr @_ZTISt9exception
   %3 = extractvalue { ptr, i32 } %2, 0
   %4 = extractvalue { ptr, i32 } %2, 1
-  %5 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6duckdb9ExceptionE) #32
+  %5 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6duckdb9ExceptionE) #32
   %matches = icmp eq i32 %4, %5
   br i1 %matches, label %catch22, label %catch.fallthrough
 
@@ -11924,7 +11921,7 @@ invoke.cont30:                                    ; preds = %invoke.cont27
           to label %return.sink.split unwind label %lpad31
 
 catch.fallthrough:                                ; preds = %lpad
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #32
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %matches12 = icmp eq i32 %4, %7
   br i1 %matches12, label %catch, label %ehcleanup39
 
@@ -11995,9 +11992,9 @@ terminate.lpad:                                   ; preds = %ehcleanup34, %ehcle
   unreachable
 }
 
-declare noundef zeroext i8 @_ZN6duckdb18PendingQueryResult11ExecuteTaskEv(ptr noundef nonnull align 8 dereferenceable(249)) local_unnamed_addr #11
+declare noundef zeroext i8 @_ZN6duckdb18PendingQueryResult11ExecuteTaskEv(ptr noundef nonnull align 8 dereferenceable(249)) local_unnamed_addr #10
 
-declare void @_ZN6duckdb15BaseQueryResult8SetErrorENS_14PreservedErrorE(ptr noundef nonnull align 8 dereferenceable(232), ptr noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb15BaseQueryResult8SetErrorENS_14PreservedErrorE(ptr noundef nonnull align 8 dereferenceable(232), ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @duckdb_pending_execution_is_finished(i32 noundef %pending_state) local_unnamed_addr #0 {
@@ -12009,7 +12006,7 @@ entry:
   ret i1 %call7
 }
 
-declare noundef zeroext i1 @_ZN6duckdb18PendingQueryResult10IsFinishedENS_22PendingExecutionResultE(i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18PendingQueryResult10IsFinishedENS_22PendingExecutionResultE(i8 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_execute_pending(ptr noundef %pending_result, ptr noundef writeonly %out_result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -12124,7 +12121,7 @@ return:                                           ; preds = %_ZNKSt14default_del
   ret i32 %retval.1
 }
 
-declare void @_ZN6duckdb18PendingQueryResult7ExecuteEv(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.50") align 8, ptr noundef nonnull align 8 dereferenceable(249)) local_unnamed_addr #11
+declare void @_ZN6duckdb18PendingQueryResult7ExecuteEv(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.50") align 8, ptr noundef nonnull align 8 dereferenceable(249)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define range(i64 -1152921504606846976, 1152921504606846976) i64 @duckdb_extract_statements(ptr noundef %connection, ptr noundef readonly %query, ptr noundef writeonly %out_extracted_statements) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -12321,7 +12318,7 @@ ehcleanup:                                        ; preds = %if.then.i.i40, %_ZN
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp4) #32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #32
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6duckdb15ParserExceptionE) #32
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6duckdb15ParserExceptionE) #32
   %matches = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches, label %catch, label %ehcleanup21
 
@@ -12372,7 +12369,7 @@ terminate.lpad:                                   ; preds = %lpad13
   unreachable
 }
 
-declare void @_ZN6duckdb10Connection17ExtractStatementsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.duckdb::vector.469") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #11
+declare void @_ZN6duckdb10Connection17ExtractStatementsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.duckdb::vector.469") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_prepare_extracted_statement(ptr noundef %connection, ptr noundef %extracted_statements, i64 noundef %index, ptr noundef writeonly %out_prepared_statement) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -12482,7 +12479,7 @@ cleanup:                                          ; preds = %_ZNSt10unique_ptrIN
   ret i32 %retval.0
 }
 
-declare void @_ZN6duckdb10Connection7PrepareENS_10unique_ptrINS_12SQLStatementESt14default_deleteIS2_ELb1EEE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.118") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb10Connection7PrepareENS_10unique_ptrINS_12SQLStatementESt14default_deleteIS2_ELb1EEE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.118") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_12SQLStatementESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -12563,7 +12560,7 @@ _ZN6duckdb6vectorINS_10unique_ptrINS_12SQLStatementESt14default_deleteIS2_ELb1EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @duckdb_extract_statements_error(ptr noundef readonly %extracted_statements) local_unnamed_addr #8 {
+define ptr @duckdb_extract_statements_error(ptr noundef readonly %extracted_statements) local_unnamed_addr #7 {
 entry:
   %tobool.not = icmp eq ptr %extracted_statements, null
   br i1 %tobool.not, label %cleanup, label %lor.lhs.false
@@ -12727,7 +12724,7 @@ return:                                           ; preds = %_ZNSt7__cxx1112basi
   ret i32 %retval.0
 }
 
-declare void @_ZN6duckdb10Connection7PrepareERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.118") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #11
+declare void @_ZN6duckdb10Connection7PrepareERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.118") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define ptr @duckdb_prepare_error(ptr noundef %prepared_statement) local_unnamed_addr #0 {
@@ -12758,7 +12755,7 @@ cleanup:                                          ; preds = %if.end, %lor.lhs.fa
   ret ptr %retval.0
 }
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb14PreservedError7MessageB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #11
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb14PreservedError7MessageB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define i64 @duckdb_nparams(ptr noundef %prepared_statement) local_unnamed_addr #0 {
@@ -13240,7 +13237,7 @@ cleanup39:                                        ; preds = %_ZNSt7__cxx1112basi
   ret i32 %retval.2
 }
 
-declare noundef zeroext i1 @_ZN6duckdb21PreparedStatementData10TryGetTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(208), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb21PreparedStatementData10TryGetTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(208), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_clear_bindings(ptr noundef %prepared_statement) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -13753,7 +13750,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %if.
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(88) ptr @_ZN6duckdb14PreservedErroraSEOS0_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr noundef nonnull align 8 dereferenceable(88) ptr @_ZN6duckdb14PreservedErroraSEOS0_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load i64, ptr %0, align 8
   store i64 %1, ptr %this, align 8
@@ -14001,7 +13998,7 @@ _ZNSt10shared_ptrIN6duckdb9ExceptionEEaSEOS2_.exit: ; preds = %if.then7.i.i.i.i.
   ret ptr %this
 }
 
-declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6duckdb5ValueaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #11
+declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6duckdb5ValueaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_bind_parameter_index(ptr noundef %prepared_statement, ptr noundef writeonly %param_idx_out, ptr noundef readonly %name_p) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -14151,7 +14148,7 @@ cleanup35:                                        ; preds = %_ZNSt7__cxx1112basi
   ret i32 %retval.4
 }
 
-declare noundef zeroext i1 @_ZN6duckdb10StringUtil8CIEqualsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb10StringUtil8CIEqualsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_bind_boolean(ptr noundef %prepared_statement, i64 noundef %param_idx, i1 noundef zeroext %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -14176,7 +14173,7 @@ lpad:                                             ; preds = %entry
   resume { ptr, i32 } %0
 }
 
-declare void @_ZN6duckdb5Value7BOOLEANEa(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i8 noundef signext) local_unnamed_addr #11
+declare void @_ZN6duckdb5Value7BOOLEANEa(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i8 noundef signext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_bind_int8(ptr noundef %prepared_statement, i64 noundef %param_idx, i8 noundef signext %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -14200,7 +14197,7 @@ lpad:                                             ; preds = %entry
   resume { ptr, i32 } %0
 }
 
-declare void @_ZN6duckdb5Value7TINYINTEa(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i8 noundef signext) local_unnamed_addr #11
+declare void @_ZN6duckdb5Value7TINYINTEa(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i8 noundef signext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_bind_int16(ptr noundef %prepared_statement, i64 noundef %param_idx, i16 noundef signext %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -14224,7 +14221,7 @@ lpad:                                             ; preds = %entry
   resume { ptr, i32 } %0
 }
 
-declare void @_ZN6duckdb5Value8SMALLINTEs(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i16 noundef signext) local_unnamed_addr #11
+declare void @_ZN6duckdb5Value8SMALLINTEs(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i16 noundef signext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_bind_int32(ptr noundef %prepared_statement, i64 noundef %param_idx, i32 noundef %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -14248,7 +14245,7 @@ lpad:                                             ; preds = %entry
   resume { ptr, i32 } %0
 }
 
-declare void @_ZN6duckdb5Value7INTEGEREi(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i32 noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb5Value7INTEGEREi(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_bind_int64(ptr noundef %prepared_statement, i64 noundef %param_idx, i64 noundef %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -14294,7 +14291,7 @@ lpad:                                             ; preds = %entry
   resume { ptr, i32 } %0
 }
 
-declare void @_ZN6duckdb5Value7HUGEINTENS_9hugeint_tE(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i64, i64) local_unnamed_addr #11
+declare void @_ZN6duckdb5Value7HUGEINTENS_9hugeint_tE(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i64, i64) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_bind_uint8(ptr noundef %prepared_statement, i64 noundef %param_idx, i8 noundef zeroext %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -14318,7 +14315,7 @@ lpad:                                             ; preds = %entry
   resume { ptr, i32 } %0
 }
 
-declare void @_ZN6duckdb5Value8UTINYINTEh(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i8 noundef zeroext) local_unnamed_addr #11
+declare void @_ZN6duckdb5Value8UTINYINTEh(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i8 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_bind_uint16(ptr noundef %prepared_statement, i64 noundef %param_idx, i16 noundef zeroext %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -14342,7 +14339,7 @@ lpad:                                             ; preds = %entry
   resume { ptr, i32 } %0
 }
 
-declare void @_ZN6duckdb5Value9USMALLINTEt(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i16 noundef zeroext) local_unnamed_addr #11
+declare void @_ZN6duckdb5Value9USMALLINTEt(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i16 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_bind_uint32(ptr noundef %prepared_statement, i64 noundef %param_idx, i32 noundef %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -14366,7 +14363,7 @@ lpad:                                             ; preds = %entry
   resume { ptr, i32 } %0
 }
 
-declare void @_ZN6duckdb5Value8UINTEGEREj(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i32 noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb5Value8UINTEGEREj(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_bind_uint64(ptr noundef %prepared_statement, i64 noundef %param_idx, i64 noundef %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -14390,7 +14387,7 @@ lpad:                                             ; preds = %entry
   resume { ptr, i32 } %0
 }
 
-declare void @_ZN6duckdb5Value7UBIGINTEm(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i64 noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb5Value7UBIGINTEm(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_bind_float(ptr noundef %prepared_statement, i64 noundef %param_idx, float noundef %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -14414,7 +14411,7 @@ lpad:                                             ; preds = %entry
   resume { ptr, i32 } %0
 }
 
-declare void @_ZN6duckdb5Value5FLOATEf(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, float noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb5Value5FLOATEf(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, float noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_bind_double(ptr noundef %prepared_statement, i64 noundef %param_idx, double noundef %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -14438,7 +14435,7 @@ lpad:                                             ; preds = %entry
   resume { ptr, i32 } %0
 }
 
-declare void @_ZN6duckdb5Value6DOUBLEEd(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, double noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb5Value6DOUBLEEd(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, double noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_bind_date(ptr noundef %prepared_statement, i64 noundef %param_idx, i32 %val.coerce) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -14462,7 +14459,7 @@ lpad:                                             ; preds = %entry
   resume { ptr, i32 } %0
 }
 
-declare void @_ZN6duckdb5Value4DATEENS_6date_tE(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i32) local_unnamed_addr #11
+declare void @_ZN6duckdb5Value4DATEENS_6date_tE(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i32) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_bind_time(ptr noundef %prepared_statement, i64 noundef %param_idx, i64 %val.coerce) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -14486,7 +14483,7 @@ lpad:                                             ; preds = %entry
   resume { ptr, i32 } %0
 }
 
-declare void @_ZN6duckdb5Value4TIMEENS_7dtime_tE(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i64) local_unnamed_addr #11
+declare void @_ZN6duckdb5Value4TIMEENS_7dtime_tE(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i64) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_bind_timestamp(ptr noundef %prepared_statement, i64 noundef %param_idx, i64 %val.coerce) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -14510,7 +14507,7 @@ lpad:                                             ; preds = %entry
   resume { ptr, i32 } %0
 }
 
-declare void @_ZN6duckdb5Value9TIMESTAMPENS_11timestamp_tE(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i64) local_unnamed_addr #11
+declare void @_ZN6duckdb5Value9TIMESTAMPENS_11timestamp_tE(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i64) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_bind_interval(ptr noundef %prepared_statement, i64 noundef %param_idx, i64 %val.coerce0, i64 %val.coerce1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -14537,7 +14534,7 @@ lpad:                                             ; preds = %entry
   resume { ptr, i32 } %0
 }
 
-declare void @_ZN6duckdb5Value8INTERVALEiil(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb5Value8INTERVALEiil(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_bind_varchar(ptr noundef %prepared_statement, i64 noundef %param_idx, ptr noundef %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -14771,9 +14768,9 @@ ehcleanup:                                        ; preds = %lpad8, %lpad
   resume { ptr, i32 } %.pn
 }
 
-declare void @_ZN6duckdb5Value7DECIMALENS_9hugeint_tEhh(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i64, i64, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare void @_ZN6duckdb5Value7DECIMALENS_9hugeint_tEhh(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i64, i64, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare void @_ZN6duckdb5Value7DECIMALElhh(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i64 noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare void @_ZN6duckdb5Value7DECIMALElhh(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i64 noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @duckdb_bind_blob(ptr noundef %prepared_statement, i64 noundef %param_idx, ptr noundef %data, i64 noundef %length) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -15151,7 +15148,7 @@ return:                                           ; preds = %switch.lookup, %if.
   ret i32 %retval.0
 }
 
-declare noundef zeroext i8 @_ZN6duckdb17PreparedStatement16GetStatementTypeEv(ptr noundef nonnull align 8 dereferenceable(224)) local_unnamed_addr #11
+declare noundef zeroext i8 @_ZN6duckdb17PreparedStatement16GetStatementTypeEv(ptr noundef nonnull align 8 dereferenceable(224)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define void @duckdb_destroy_extracted(ptr noundef %extracted_statements) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -15234,14 +15231,14 @@ _Z14duckdb_destroyIN6duckdb24ExtractStatementsWrapperEEvPPv.exit: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @duckdb_destroy_prepare(ptr noundef %prepared_statement) local_unnamed_addr #13 {
+define void @duckdb_destroy_prepare(ptr noundef %prepared_statement) local_unnamed_addr #12 {
 entry:
   tail call void @_Z14duckdb_destroyIN6duckdb24PreparedStatementWrapperEEvPPv(ptr noundef %prepared_statement)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_Z14duckdb_destroyIN6duckdb24PreparedStatementWrapperEEvPPv(ptr noundef %wrapper) local_unnamed_addr #13 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_Z14duckdb_destroyIN6duckdb24PreparedStatementWrapperEEvPPv(ptr noundef %wrapper) local_unnamed_addr #12 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %wrapper, null
   br i1 %tobool.not, label %return, label %if.end
@@ -16260,7 +16257,7 @@ _ZN6duckdb10unique_ptrINS_16TableFunctionRefESt14default_deleteIS1_ELb1EE13Asser
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt6vectorIN6duckdb10unique_ptrINS0_16ParsedExpressionESt14default_deleteIS2_ELb1EEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN6duckdb10unique_ptrINS0_16ParsedExpressionESt14default_deleteIS2_ELb1EEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !320
   %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
@@ -16305,7 +16302,7 @@ _ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_16ParsedExpressionESt14default_dele
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6duckdb23CAPIReplacementScanInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb23CAPIReplacementScanInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %error = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %error, align 8, !tbaa !13
@@ -16595,7 +16592,7 @@ _ZN6duckdb10unique_ptrINS_23CAPIReplacementScanDataESt14default_deleteIS1_ELb1EE
   ret ptr %0
 }
 
-declare noundef nonnull align 8 dereferenceable(896) ptr @_ZN6duckdb8DBConfig9GetConfigERNS_16DatabaseInstanceE(ptr noundef nonnull align 8 dereferenceable(1088)) local_unnamed_addr #11
+declare noundef nonnull align 8 dereferenceable(896) ptr @_ZN6duckdb8DBConfig9GetConfigERNS_16DatabaseInstanceE(ptr noundef nonnull align 8 dereferenceable(1088)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK6duckdb10unique_ptrINS_6DuckDBESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -17373,7 +17370,7 @@ unreachable:                                      ; preds = %invoke.cont125
   unreachable
 }
 
-declare void @_ZNK6duckdb20ColumnDataCollection6ChunksENS_6vectorImLb1EEE(ptr dead_on_unwind writable sret(%"class.duckdb::ColumnDataChunkIterationHelper") align 8, ptr noundef nonnull align 8 dereferenceable(97), ptr noundef) local_unnamed_addr #11
+declare void @_ZNK6duckdb20ColumnDataCollection6ChunksENS_6vectorImLb1EEE(ptr dead_on_unwind writable sret(%"class.duckdb::ColumnDataChunkIterationHelper") align 8, ptr noundef nonnull align 8 dereferenceable(97), ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb30ColumnDataChunkIterationHelper5beginEv(ptr dead_on_unwind noalias writable sret(%"class.duckdb::ColumnDataChunkIterationHelper::ColumnDataChunkIterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -17453,14 +17450,14 @@ _ZNSt6vectorImSaImEED2Ev.exit5:                   ; preds = %if.then.i.i.i4, %lp
   resume { ptr, i32 } %4
 }
 
-declare noundef zeroext i1 @_ZNK6duckdb30ColumnDataChunkIterationHelper23ColumnDataChunkIteratorneERKS1_(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZNK6duckdb30ColumnDataChunkIterationHelper23ColumnDataChunkIteratorneERKS1_(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #10
 
-declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6duckdb30ColumnDataChunkIterationHelper23ColumnDataChunkIteratordeEv(ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #11
+declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6duckdb30ColumnDataChunkIterationHelper23ColumnDataChunkIteratordeEv(ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #10
 
-declare noundef nonnull align 8 dereferenceable(160) ptr @_ZN6duckdb30ColumnDataChunkIterationHelper23ColumnDataChunkIteratorppEv(ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #11
+declare noundef nonnull align 8 dereferenceable(160) ptr @_ZN6duckdb30ColumnDataChunkIterationHelper23ColumnDataChunkIteratorppEv(ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #10
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6duckdb30ColumnDataChunkIterationHelper23ColumnDataChunkIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb30ColumnDataChunkIterationHelper23ColumnDataChunkIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !132
@@ -25378,12 +25375,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %if
   ret void
 }
 
-declare void @_ZN6duckdb14TypeIdToStringB5cxx11ENS_12PhysicalTypeE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, i8 noundef zeroext) local_unnamed_addr #11
+declare void @_ZN6duckdb14TypeIdToStringB5cxx11ENS_12PhysicalTypeE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, i8 noundef zeroext) local_unnamed_addr #10
 
-declare void @_ZNSt13runtime_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #11
+declare void @_ZNSt13runtime_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #10
 
 ; Function Attrs: nounwind
-declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #12
+declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(280) ptr @_ZNK6duckdb10unique_ptrINS_11QueryResultESt14default_deleteIS1_ELb1EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -25652,7 +25649,7 @@ return:                                           ; preds = %for.body82, %switch
   ret i1 %retval.6
 }
 
-declare void @_ZN6duckdb17StreamQueryResult11MaterializeEv(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.15") align 8, ptr noundef nonnull align 8 dereferenceable(296)) local_unnamed_addr #11
+declare void @_ZN6duckdb17StreamQueryResult11MaterializeEv(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.15") align 8, ptr noundef nonnull align 8 dereferenceable(296)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -25732,7 +25729,7 @@ _ZN6duckdb6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EE3getI
   ret ptr %add.ptr.i.i
 }
 
-declare void @_ZN6duckdb23MaterializedQueryResult8GetValueEmm(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, ptr noundef nonnull align 8 dereferenceable(425), i64 noundef, i64 noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb23MaterializedQueryResult8GetValueEmm(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, ptr noundef nonnull align 8 dereferenceable(425), i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define void @duckdb_destroy_result(ptr nocapture noundef %result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -26061,7 +26058,7 @@ return:                                           ; preds = %invoke.cont, %lor.l
   ret i64 %retval.2
 }
 
-declare noundef i64 @_ZNK6duckdb5Value8GetValueImEET_v(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #11
+declare noundef i64 @_ZNK6duckdb5Value8GetValueImEET_v(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define ptr @duckdb_column_data(ptr noundef %result, i64 noundef %col) local_unnamed_addr #0 {
@@ -26173,7 +26170,7 @@ return:                                           ; preds = %if.end7, %if.end3, 
   ret i64 %retval.1
 }
 
-declare noundef i64 @_ZNK6duckdb20ColumnDataCollection10ChunkCountEv(ptr noundef nonnull align 8 dereferenceable(97)) local_unnamed_addr #11
+declare noundef i64 @_ZNK6duckdb20ColumnDataCollection10ChunkCountEv(ptr noundef nonnull align 8 dereferenceable(97)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define ptr @duckdb_result_get_chunk(ptr nocapture noundef readonly byval(%struct.duckdb_result) align 8 %result, i64 noundef %chunk_idx) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -26261,10 +26258,10 @@ return:                                           ; preds = %_ZNSt10unique_ptrIN
   ret ptr %retval.2
 }
 
-declare void @_ZNK6duckdb20ColumnDataCollection10FetchChunkEmRNS_9DataChunkE(ptr noundef nonnull align 8 dereferenceable(97), i64 noundef, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #11
+declare void @_ZNK6duckdb20ColumnDataCollection10FetchChunkEmRNS_9DataChunkE(ptr noundef nonnull align 8 dereferenceable(97), i64 noundef, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10unique_ptrIN6duckdb9DataChunkESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZNSt10unique_ptrIN6duckdb9DataChunkESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #12 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !3
   %cmp.not = icmp eq ptr %0, null
@@ -26431,7 +26428,7 @@ return:                                           ; preds = %_ZNSt10unique_ptrIN
   ret ptr %retval.2
 }
 
-declare noundef zeroext i1 @_ZN6duckdb17StreamQueryResult6IsOpenEv(ptr noundef nonnull align 8 dereferenceable(296)) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb17StreamQueryResult6IsOpenEv(ptr noundef nonnull align 8 dereferenceable(296)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6duckdb18CTableFunctionBindERNS_13ClientContextERNS_22TableFunctionBindInputERNS_6vectorINS_11LogicalTypeELb1EEERNS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.629") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(592) %context, ptr noundef nonnull align 8 dereferenceable(40) %input, ptr noundef nonnull align 8 dereferenceable(24) %return_types, ptr noundef nonnull align 8 dereferenceable(24) %names) #0 personality ptr @__gxx_personality_v0 {
@@ -26653,7 +26650,7 @@ _ZN6duckdb10unique_ptrINS_14CTableBindDataESt14default_deleteIS1_ELb1EE13AssertN
   ret ptr %0
 }
 
-declare void @_ZN6duckdb9ExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #11
+declare void @_ZN6duckdb9ExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6duckdb18CTableFunctionInitERNS_13ClientContextERNS_22TableFunctionInitInputE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.656") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %context, ptr noundef nonnull align 8 dereferenceable(48) %data_p) #0 personality ptr @__gxx_personality_v0 {
@@ -27448,10 +27445,10 @@ ehcleanup:                                        ; preds = %if.then.i.i24, %_ZN
   resume { ptr, i32 } %13
 }
 
-declare void @_ZN6duckdb13TableFunctionC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6vectorINS_11LogicalTypeELb1EEEPFvRNS_13ClientContextERNS_18TableFunctionInputERNS_9DataChunkEEPFNS_10unique_ptrINS_12FunctionDataESt14default_deleteISJ_ELb1EEESB_RNS_22TableFunctionBindInputERS9_RNS7_IS6_Lb1EEEEPFNSI_INS_24GlobalTableFunctionStateESK_ISU_ELb1EEESB_RNS_22TableFunctionInitInputEEPFNSI_INS_23LocalTableFunctionStateESK_IS11_ELb1EEERNS_16ExecutionContextESY_PSU_E(ptr noundef nonnull align 8 dereferenceable(360), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #11
+declare void @_ZN6duckdb13TableFunctionC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6vectorINS_11LogicalTypeELb1EEEPFvRNS_13ClientContextERNS_18TableFunctionInputERNS_9DataChunkEEPFNS_10unique_ptrINS_12FunctionDataESt14default_deleteISJ_ELb1EEESB_RNS_22TableFunctionBindInputERS9_RNS7_IS6_Lb1EEEEPFNSI_INS_24GlobalTableFunctionStateESK_ISU_ELb1EEESB_RNS_22TableFunctionInitInputEEPFNSI_INS_23LocalTableFunctionStateESK_IS11_ELb1EEERNS_16ExecutionContextESY_PSU_E(ptr noundef nonnull align 8 dereferenceable(360), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @duckdb_destroy_table_function(ptr noundef %function) local_unnamed_addr #13 {
+define void @duckdb_destroy_table_function(ptr noundef %function) local_unnamed_addr #12 {
 entry:
   %tobool.not = icmp eq ptr %function, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -27658,7 +27655,7 @@ eh.resume:                                        ; preds = %if.then.i.i7, %_ZNK
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %second = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %second) #32
@@ -27683,7 +27680,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @duckdb_table_function_set_extra_info(ptr noundef readonly %function, ptr noundef %extra_info, ptr noundef %destroy) local_unnamed_addr #24 {
+define void @duckdb_table_function_set_extra_info(ptr noundef readonly %function, ptr noundef %extra_info, ptr noundef %destroy) local_unnamed_addr #23 {
 entry:
   %tobool.not = icmp eq ptr %function, null
   br i1 %tobool.not, label %return, label %if.end
@@ -27702,7 +27699,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @duckdb_table_function_set_bind(ptr noundef readonly %function, ptr noundef %bind) local_unnamed_addr #24 {
+define void @duckdb_table_function_set_bind(ptr noundef readonly %function, ptr noundef %bind) local_unnamed_addr #23 {
 entry:
   %tobool = icmp ne ptr %function, null
   %tobool1 = icmp ne ptr %bind, null
@@ -27721,7 +27718,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @duckdb_table_function_set_init(ptr noundef readonly %function, ptr noundef %init) local_unnamed_addr #24 {
+define void @duckdb_table_function_set_init(ptr noundef readonly %function, ptr noundef %init) local_unnamed_addr #23 {
 entry:
   %tobool = icmp ne ptr %function, null
   %tobool1 = icmp ne ptr %init, null
@@ -27740,7 +27737,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @duckdb_table_function_set_local_init(ptr noundef readonly %function, ptr noundef %init) local_unnamed_addr #24 {
+define void @duckdb_table_function_set_local_init(ptr noundef readonly %function, ptr noundef %init) local_unnamed_addr #23 {
 entry:
   %tobool = icmp ne ptr %function, null
   %tobool1 = icmp ne ptr %init, null
@@ -27759,7 +27756,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @duckdb_table_function_set_function(ptr noundef readonly %table_function, ptr noundef %function) local_unnamed_addr #24 {
+define void @duckdb_table_function_set_function(ptr noundef readonly %table_function, ptr noundef %function) local_unnamed_addr #23 {
 entry:
   %tobool = icmp ne ptr %table_function, null
   %tobool1 = icmp ne ptr %function, null
@@ -27778,7 +27775,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @duckdb_table_function_supports_projection_pushdown(ptr noundef writeonly %table_function, i1 noundef zeroext %pushdown) local_unnamed_addr #15 {
+define void @duckdb_table_function_supports_projection_pushdown(ptr noundef writeonly %table_function, i1 noundef zeroext %pushdown) local_unnamed_addr #14 {
 entry:
   %tobool.not = icmp eq ptr %table_function, null
   br i1 %tobool.not, label %return, label %if.end
@@ -27902,10 +27899,10 @@ return:                                           ; preds = %cleanup, %entry
   ret i32 %retval.1
 }
 
-declare void @_ZN6duckdb13ClientContext24RunFunctionInTransactionERKSt8functionIFvvEEb(ptr noundef nonnull align 8 dereferenceable(592), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext) local_unnamed_addr #11
+declare void @_ZN6duckdb13ClientContext24RunFunctionInTransactionERKSt8functionIFvvEEb(ptr noundef nonnull align 8 dereferenceable(592), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @duckdb_bind_get_extra_info(ptr noundef readonly %info) local_unnamed_addr #25 {
+define ptr @duckdb_bind_get_extra_info(ptr noundef readonly %info) local_unnamed_addr #24 {
 entry:
   %tobool.not = icmp eq ptr %info, null
   br i1 %tobool.not, label %return, label %if.end
@@ -28086,7 +28083,7 @@ ehcleanup:                                        ; preds = %if.then.i.i24, %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i64 -144115188075855872, 144115188075855872) i64 @duckdb_bind_get_parameter_count(ptr noundef readonly %info) local_unnamed_addr #25 {
+define range(i64 -144115188075855872, 144115188075855872) i64 @duckdb_bind_get_parameter_count(ptr noundef readonly %info) local_unnamed_addr #24 {
 entry:
   %tobool.not = icmp eq ptr %info, null
   br i1 %tobool.not, label %return, label %if.end
@@ -28444,7 +28441,7 @@ return:                                           ; preds = %if.else, %_ZNSt7__c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @duckdb_bind_set_bind_data(ptr noundef readonly %info, ptr noundef %bind_data, ptr noundef %destroy) local_unnamed_addr #24 {
+define void @duckdb_bind_set_bind_data(ptr noundef readonly %info, ptr noundef %bind_data, ptr noundef %destroy) local_unnamed_addr #23 {
 entry:
   %tobool.not = icmp eq ptr %info, null
   br i1 %tobool.not, label %return, label %if.end
@@ -28530,7 +28527,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @duckdb_init_get_extra_info(ptr noundef readonly %info) local_unnamed_addr #25 {
+define ptr @duckdb_init_get_extra_info(ptr noundef readonly %info) local_unnamed_addr #24 {
 entry:
   %tobool.not = icmp eq ptr %info, null
   br i1 %tobool.not, label %return, label %if.end
@@ -28549,7 +28546,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @duckdb_init_get_bind_data(ptr noundef readonly %info) local_unnamed_addr #25 {
+define ptr @duckdb_init_get_bind_data(ptr noundef readonly %info) local_unnamed_addr #24 {
 entry:
   %tobool.not = icmp eq ptr %info, null
   br i1 %tobool.not, label %return, label %if.end
@@ -28566,7 +28563,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @duckdb_init_set_init_data(ptr noundef readonly %info, ptr noundef %init_data, ptr noundef %destroy) local_unnamed_addr #24 {
+define void @duckdb_init_set_init_data(ptr noundef readonly %info, ptr noundef %init_data, ptr noundef %destroy) local_unnamed_addr #23 {
 entry:
   %tobool.not = icmp eq ptr %info, null
   br i1 %tobool.not, label %return, label %if.end
@@ -28606,7 +28603,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i64 -1152921504606846976, 1152921504606846976) i64 @duckdb_init_get_column_count(ptr noundef readonly %info) local_unnamed_addr #25 {
+define range(i64 -1152921504606846976, 1152921504606846976) i64 @duckdb_init_get_column_count(ptr noundef readonly %info) local_unnamed_addr #24 {
 entry:
   %tobool.not = icmp eq ptr %info, null
   br i1 %tobool.not, label %return, label %if.end
@@ -28736,7 +28733,7 @@ _ZNK6duckdb6vectorImLb1EE3getILb1EEERKmm.exit:    ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @duckdb_init_set_max_threads(ptr noundef readonly %info, i64 noundef %max_threads) local_unnamed_addr #24 {
+define void @duckdb_init_set_max_threads(ptr noundef readonly %info, i64 noundef %max_threads) local_unnamed_addr #23 {
 entry:
   %tobool.not = icmp eq ptr %info, null
   br i1 %tobool.not, label %return, label %if.end
@@ -28753,7 +28750,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @duckdb_function_get_extra_info(ptr noundef readonly %info) local_unnamed_addr #25 {
+define ptr @duckdb_function_get_extra_info(ptr noundef readonly %info) local_unnamed_addr #24 {
 entry:
   %tobool.not = icmp eq ptr %info, null
   br i1 %tobool.not, label %return, label %if.end
@@ -28772,7 +28769,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @duckdb_function_get_bind_data(ptr noundef readonly %info) local_unnamed_addr #25 {
+define ptr @duckdb_function_get_bind_data(ptr noundef readonly %info) local_unnamed_addr #24 {
 entry:
   %tobool.not = icmp eq ptr %info, null
   br i1 %tobool.not, label %return, label %if.end
@@ -28789,7 +28786,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @duckdb_function_get_init_data(ptr noundef readonly %info) local_unnamed_addr #25 {
+define ptr @duckdb_function_get_init_data(ptr noundef readonly %info) local_unnamed_addr #24 {
 entry:
   %tobool.not = icmp eq ptr %info, null
   br i1 %tobool.not, label %return, label %if.end
@@ -28806,7 +28803,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @duckdb_function_get_local_init_data(ptr noundef readonly %info) local_unnamed_addr #25 {
+define ptr @duckdb_function_get_local_init_data(ptr noundef readonly %info) local_unnamed_addr #24 {
 entry:
   %tobool.not = icmp eq ptr %info, null
   br i1 %tobool.not, label %return, label %if.end
@@ -28861,9 +28858,9 @@ return:                                           ; preds = %if.end, %entry
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(112) ptr @_ZN6duckdb13TaskScheduler12GetSchedulerERNS_16DatabaseInstanceE(ptr noundef nonnull align 8 dereferenceable(1088)) local_unnamed_addr #11
+declare noundef nonnull align 8 dereferenceable(112) ptr @_ZN6duckdb13TaskScheduler12GetSchedulerERNS_16DatabaseInstanceE(ptr noundef nonnull align 8 dereferenceable(1088)) local_unnamed_addr #10
 
-declare void @_ZN6duckdb13TaskScheduler12ExecuteTasksEm(ptr noundef nonnull align 8 dereferenceable(112), i64 noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb13TaskScheduler12ExecuteTasksEm(ptr noundef nonnull align 8 dereferenceable(112), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @duckdb_create_task_state(ptr noundef %database) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -28922,7 +28919,7 @@ return:                                           ; preds = %if.end, %entry
   ret void
 }
 
-declare void @_ZN6duckdb13TaskScheduler14ExecuteForeverEPSt6atomicIbE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb13TaskScheduler14ExecuteForeverEPSt6atomicIbE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @duckdb_execute_n_tasks_state(ptr noundef readonly %state_p, i64 noundef %max_tasks) local_unnamed_addr #0 {
@@ -28943,7 +28940,7 @@ return:                                           ; preds = %if.end, %entry
   ret i64 %retval.0
 }
 
-declare noundef i64 @_ZN6duckdb13TaskScheduler12ExecuteTasksEPSt6atomicIbEm(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, i64 noundef) local_unnamed_addr #11
+declare noundef i64 @_ZN6duckdb13TaskScheduler12ExecuteTasksEPSt6atomicIbEm(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define void @duckdb_finish_execution(ptr noundef %state_p) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -29042,7 +29039,7 @@ _ZN6duckdb10unique_ptrISt6atomicIbESt14default_deleteIS2_ELb1EE13AssertNotNullEb
   ret ptr %0
 }
 
-declare void @_ZN6duckdb13TaskScheduler6SignalEm(ptr noundef nonnull align 8 dereferenceable(112), i64 noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb13TaskScheduler6SignalEm(ptr noundef nonnull align 8 dereferenceable(112), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define zeroext i1 @duckdb_task_state_is_finished(ptr noundef %state_p) local_unnamed_addr #0 {
@@ -29064,7 +29061,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @duckdb_destroy_task_state(ptr noundef %state_p) local_unnamed_addr #13 personality ptr @__gxx_personality_v0 {
+define void @duckdb_destroy_task_state(ptr noundef %state_p) local_unnamed_addr #12 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %state_p, null
   br i1 %tobool.not, label %return, label %delete.notnull
@@ -29103,7 +29100,7 @@ return:                                           ; preds = %if.end, %entry
   ret i1 %retval.0
 }
 
-declare noundef zeroext i1 @_ZN6duckdb13ClientContext19ExecutionIsFinishedEv(ptr noundef nonnull align 8 dereferenceable(592)) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb13ClientContext19ExecutionIsFinishedEv(ptr noundef nonnull align 8 dereferenceable(592)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @duckdb_value_boolean(ptr noundef %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 {
@@ -31596,7 +31593,7 @@ return:                                           ; preds = %if.end, %if.then
   ret void
 }
 
-declare noundef zeroext i1 @_Z13CanFetchValueP13duckdb_resultmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #11
+declare noundef zeroext i1 @_Z13CanFetchValueP13duckdb_resultmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb17GetInternalCValueI14duckdb_decimalNS_7TryCastEEET_P13duckdb_resultmm(ptr dead_on_unwind noalias writable sret(%struct.duckdb_decimal) align 8 %agg.result, ptr noundef %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -36392,7 +36389,7 @@ return:                                           ; preds = %if.end5, %if.then3,
   ret { ptr, i64 } %.fca.1.insert
 }
 
-declare { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v() local_unnamed_addr #11
+declare { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI13duckdb_stringEET_v() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define { ptr, i64 } @duckdb_value_blob(ptr noundef %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 {
@@ -36433,7 +36430,7 @@ return:                                           ; preds = %if.end, %if.then
   ret { ptr, i64 } %.fca.1.insert
 }
 
-declare { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI11duckdb_blobEET_v() local_unnamed_addr #11
+declare { ptr, i64 } @_ZN6duckdb17FetchDefaultValue9OperationI11duckdb_blobEET_v() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @duckdb_value_is_null(ptr noundef %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 {
@@ -36456,18 +36453,18 @@ return:                                           ; preds = %if.end, %entry
   ret i1 %retval.0
 }
 
-declare noundef zeroext i1 @_Z21CanUseDeprecatedFetchP13duckdb_resultmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #11
+declare noundef zeroext i1 @_Z21CanUseDeprecatedFetchP13duckdb_resultmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #10
 
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #11
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #10
 
-declare void @_ZN6duckdb14PreservedErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #11
+declare void @_ZN6duckdb14PreservedErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #10
 
 ; Function Attrs: nounwind
-declare void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #12
+declare void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #11
 
-declare void @_ZN6duckdb10Connection13TableFunctionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6vectorINS_5ValueELb1EEE(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.779") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #11
+declare void @_ZN6duckdb10Connection13TableFunctionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6vectorINS_5ValueELb1EEE(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.779") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #10
 
-declare void @_ZN6duckdb5Value7POINTEREm(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i64 noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb5Value7POINTEREm(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN26arrow_array_stream_wrapper12_GLOBAL__N_114FactoryGetNextEmRN6duckdb21ArrowStreamParametersE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.789") align 8 %agg.result, i64 noundef %stream_factory_ptr, ptr nocapture nonnull readnone align 8 %parameters) #0 personality ptr @__gxx_personality_v0 {
@@ -36508,10 +36505,10 @@ entry:
   ret void
 }
 
-declare void @_ZN6duckdb8Relation10CreateViewERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.779") align 8, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #11
+declare void @_ZN6duckdb8Relation10CreateViewERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.779") align 8, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt12__shared_ptrIN6duckdb8RelationELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt12__shared_ptrIN6duckdb8RelationELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_refcount = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount, align 8, !tbaa !132
@@ -36638,7 +36635,7 @@ _ZN6duckdb10unique_ptrINS_23ArrowArrayStreamWrapperESt14default_deleteIS1_ELb1EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN26arrow_array_stream_wrapper12_GLOBAL__N_118EmptyStreamReleaseEP16ArrowArrayStream(ptr nocapture noundef writeonly %stream) #15 {
+define internal void @_ZN26arrow_array_stream_wrapper12_GLOBAL__N_118EmptyStreamReleaseEP16ArrowArrayStream(ptr nocapture noundef writeonly %stream) #14 {
 entry:
   %release = getelementptr inbounds i8, ptr %stream, i64 24
   store ptr null, ptr %release, align 8, !tbaa !147
@@ -36646,7 +36643,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10unique_ptrIN6duckdb23ArrowArrayStreamWrapperESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt10unique_ptrIN6duckdb23ArrowArrayStreamWrapperESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !3
   %cmp.not = icmp eq ptr %0, null
@@ -36662,27 +36659,27 @@ if.end:                                           ; preds = %_ZNKSt14default_del
   ret void
 }
 
-declare void @_ZN6duckdb17InternalExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #11
+declare void @_ZN6duckdb17InternalExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #10
 
 ; Function Attrs: nounwind
-declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #12
+declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #11
 
 ; Function Attrs: nounwind
-declare void @_ZN6duckdb23ArrowArrayStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #12
+declare void @_ZN6duckdb23ArrowArrayStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #11
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #26
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #25
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #26
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #25
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #26
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #25
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable.i = load ptr, ptr %this, align 8, !tbaa !9
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
@@ -36720,7 +36717,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN26arrow_array_stream_wrapper12_GLOBAL__N_117EmptyArrayReleaseEP10ArrowArray(ptr nocapture noundef writeonly %array) #15 {
+define internal void @_ZN26arrow_array_stream_wrapper12_GLOBAL__N_117EmptyArrayReleaseEP10ArrowArray(ptr nocapture noundef writeonly %array) #14 {
 entry:
   %release = getelementptr inbounds i8, ptr %array, i64 64
   store ptr null, ptr %release, align 8, !tbaa !652
@@ -36728,7 +36725,7 @@ entry:
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6duckdb6DuckDBD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #12
+declare void @_ZN6duckdb6DuckDBD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN6duckdb5ValueESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %__x) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -36899,7 +36896,7 @@ terminate.lpad:                                   ; preds = %lpad2
   unreachable
 }
 
-declare noundef zeroext i1 @_ZN6duckdb16TryCastToDecimal9OperationIdNS_9hugeint_tEEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(double noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb16TryCastToDecimal9OperationIdNS_9hugeint_tEEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(double noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb21ToCDecimalCastWrapperIlE9OperationIdEEbT_R14duckdb_decimalPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(double noundef %input, ptr noundef nonnull align 8 dereferenceable(24) %result, ptr noundef %error, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -36955,11 +36952,11 @@ cleanup:                                          ; preds = %_ZN6duckdb7Hugeint7
   ret i1 %call
 }
 
-declare noundef zeroext i1 @_ZN6duckdb16TryCastToDecimal9OperationIdlEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(double noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb16TryCastToDecimal9OperationIdlEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(double noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7Hugeint10TryConvertIlEEbT_RNS_9hugeint_tE(i64 noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7Hugeint10TryConvertIlEEbT_RNS_9hugeint_tE(i64 noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #10
 
-declare void @_ZN6duckdb24ValueOutOfRangeExceptionC1EdNS_12PhysicalTypeES1_(ptr noundef nonnull align 8 dereferenceable(80), double noundef, i8 noundef zeroext, i8 noundef zeroext) unnamed_addr #11
+declare void @_ZN6duckdb24ValueOutOfRangeExceptionC1EdNS_12PhysicalTypeES1_(ptr noundef nonnull align 8 dereferenceable(80), double noundef, i8 noundef zeroext, i8 noundef zeroext) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb21ToCDecimalCastWrapperIiE9OperationIdEEbT_R14duckdb_decimalPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(double noundef %input, ptr noundef nonnull align 8 dereferenceable(24) %result, ptr noundef %error, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -37015,9 +37012,9 @@ cleanup:                                          ; preds = %_ZN6duckdb7Hugeint7
   ret i1 %call
 }
 
-declare noundef zeroext i1 @_ZN6duckdb16TryCastToDecimal9OperationIdiEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(double noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb16TryCastToDecimal9OperationIdiEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(double noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7Hugeint10TryConvertIiEEbT_RNS_9hugeint_tE(i32 noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7Hugeint10TryConvertIiEEbT_RNS_9hugeint_tE(i32 noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb21ToCDecimalCastWrapperIsE9OperationIdEEbT_R14duckdb_decimalPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(double noundef %input, ptr noundef nonnull align 8 dereferenceable(24) %result, ptr noundef %error, i8 noundef zeroext %width, i8 noundef zeroext %scale) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -37073,12 +37070,12 @@ cleanup:                                          ; preds = %_ZN6duckdb7Hugeint7
   ret i1 %call
 }
 
-declare noundef zeroext i1 @_ZN6duckdb16TryCastToDecimal9OperationIdsEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(double noundef, ptr noundef nonnull align 2 dereferenceable(2), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb16TryCastToDecimal9OperationIdsEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(double noundef, ptr noundef nonnull align 2 dereferenceable(2), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7Hugeint10TryConvertIsEEbT_RNS_9hugeint_tE(i16 noundef signext, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7Hugeint10TryConvertIsEEbT_RNS_9hugeint_tE(i16 noundef signext, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
-declare void @_ZN6duckdb11LogicalTypeC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #12
+declare void @_ZN6duckdb11LogicalTypeC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEESt6vectorISB_SaISB_EEEEPSB_ET0_T_SK_SJ_(ptr %__first.coerce, ptr %__last.coerce, ptr noundef %__result) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -37238,22 +37235,22 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char
   ret void
 }
 
-declare void @_ZN6duckdb14PreservedErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #11
+declare void @_ZN6duckdb14PreservedErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #10
 
 ; Function Attrs: nounwind
-declare void @_ZN6duckdb17PreparedStatementD1Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #12
+declare void @_ZN6duckdb17PreparedStatementD1Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
 
-declare void @_ZN6duckdb30ColumnDataChunkIterationHelper23ColumnDataChunkIteratorC1EPKNS_20ColumnDataCollectionENS_6vectorImLb1EEE(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef, ptr noundef) unnamed_addr #11
+declare void @_ZN6duckdb30ColumnDataChunkIterationHelper23ColumnDataChunkIteratorC1EPKNS_20ColumnDataCollectionENS_6vectorImLb1EEE(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef, ptr noundef) unnamed_addr #10
 
-declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #11
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #10
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #11
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #26
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -37592,7 +37589,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %if.
   br label %common.resume
 }
 
-declare void @_ZN6duckdb17InternalExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #11
+declare void @_ZN6duckdb17InternalExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb9Exception25ConstructMessageRecursiveImJmEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_RSt6vectorINS_20ExceptionFormatValueESaISB_EET_DpT0_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %msg, ptr noundef nonnull align 8 dereferenceable(24) %values, i64 noundef %param, i64 noundef %params) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -37701,7 +37698,7 @@ _ZN6duckdb20ExceptionFormatValueD2Ev.exit9:       ; preds = %if.then.i.i.i5, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt6vectorIN6duckdb20ExceptionFormatValueESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt6vectorIN6duckdb20ExceptionFormatValueESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !279
   %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
@@ -38045,11 +38042,11 @@ _ZNSt12_Vector_baseIN6duckdb20ExceptionFormatValueESaIS1_EE13_M_deallocateEPS1_m
   ret void
 }
 
-declare void @_ZN6duckdb20ExceptionFormatValueC1El(ptr noundef nonnull align 8 dereferenceable(56), i64 noundef) unnamed_addr #11
+declare void @_ZN6duckdb20ExceptionFormatValueC1El(ptr noundef nonnull align 8 dereferenceable(56), i64 noundef) unnamed_addr #10
 
-declare void @_ZN6duckdb9Exception25ConstructMessageRecursiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorINS_20ExceptionFormatValueESaISA_EE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #11
+declare void @_ZN6duckdb9Exception25ConstructMessageRecursiveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorINS_20ExceptionFormatValueESaISA_EE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #10
 
-declare void @_ZN6duckdb8AppenderC1ERNS_10ConnectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #11
+declare void @_ZN6duckdb8AppenderC1ERNS_10ConnectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(152) ptr @_ZNK6duckdb10unique_ptrINS_8AppenderESt14default_deleteIS1_ELb1EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -38122,7 +38119,7 @@ _ZN6duckdb10unique_ptrINS_8AppenderESt14default_deleteIS1_ELb1EE13AssertNotNullE
   ret ptr %0
 }
 
-declare void @_ZN6duckdb12BaseAppender6EndRowEv(ptr noundef nonnull align 8 dereferenceable(121)) local_unnamed_addr #11
+declare void @_ZN6duckdb12BaseAppender6EndRowEv(ptr noundef nonnull align 8 dereferenceable(121)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK6duckdb10unique_ptrINS_8AppenderESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -38195,51 +38192,51 @@ _ZN6duckdb10unique_ptrINS_8AppenderESt14default_deleteIS1_ELb1EE13AssertNotNullE
   ret ptr %0
 }
 
-declare void @_ZN6duckdb12BaseAppender6AppendIbEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i1 noundef zeroext) local_unnamed_addr #11
+declare void @_ZN6duckdb12BaseAppender6AppendIbEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i1 noundef zeroext) local_unnamed_addr #10
 
-declare void @_ZN6duckdb12BaseAppender6AppendIaEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i8 noundef signext) local_unnamed_addr #11
+declare void @_ZN6duckdb12BaseAppender6AppendIaEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i8 noundef signext) local_unnamed_addr #10
 
-declare void @_ZN6duckdb12BaseAppender6AppendIsEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i16 noundef signext) local_unnamed_addr #11
+declare void @_ZN6duckdb12BaseAppender6AppendIsEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i16 noundef signext) local_unnamed_addr #10
 
-declare void @_ZN6duckdb12BaseAppender6AppendIiEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i32 noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb12BaseAppender6AppendIiEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i32 noundef) local_unnamed_addr #10
 
-declare void @_ZN6duckdb12BaseAppender6AppendIlEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i64 noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb12BaseAppender6AppendIlEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i64 noundef) local_unnamed_addr #10
 
-declare void @_ZN6duckdb12BaseAppender6AppendINS_9hugeint_tEEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i64, i64) local_unnamed_addr #11
+declare void @_ZN6duckdb12BaseAppender6AppendINS_9hugeint_tEEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i64, i64) local_unnamed_addr #10
 
-declare void @_ZN6duckdb12BaseAppender6AppendIhEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i8 noundef zeroext) local_unnamed_addr #11
+declare void @_ZN6duckdb12BaseAppender6AppendIhEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i8 noundef zeroext) local_unnamed_addr #10
 
-declare void @_ZN6duckdb12BaseAppender6AppendItEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i16 noundef zeroext) local_unnamed_addr #11
+declare void @_ZN6duckdb12BaseAppender6AppendItEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i16 noundef zeroext) local_unnamed_addr #10
 
-declare void @_ZN6duckdb12BaseAppender6AppendIjEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i32 noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb12BaseAppender6AppendIjEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i32 noundef) local_unnamed_addr #10
 
-declare void @_ZN6duckdb12BaseAppender6AppendImEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i64 noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb12BaseAppender6AppendImEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i64 noundef) local_unnamed_addr #10
 
-declare void @_ZN6duckdb12BaseAppender6AppendIfEEvT_(ptr noundef nonnull align 8 dereferenceable(121), float noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb12BaseAppender6AppendIfEEvT_(ptr noundef nonnull align 8 dereferenceable(121), float noundef) local_unnamed_addr #10
 
-declare void @_ZN6duckdb12BaseAppender6AppendIdEEvT_(ptr noundef nonnull align 8 dereferenceable(121), double noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb12BaseAppender6AppendIdEEvT_(ptr noundef nonnull align 8 dereferenceable(121), double noundef) local_unnamed_addr #10
 
-declare void @_ZN6duckdb12BaseAppender6AppendINS_6date_tEEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i32) local_unnamed_addr #11
+declare void @_ZN6duckdb12BaseAppender6AppendINS_6date_tEEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i32) local_unnamed_addr #10
 
-declare void @_ZN6duckdb12BaseAppender6AppendINS_7dtime_tEEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i64) local_unnamed_addr #11
+declare void @_ZN6duckdb12BaseAppender6AppendINS_7dtime_tEEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i64) local_unnamed_addr #10
 
-declare void @_ZN6duckdb12BaseAppender6AppendINS_11timestamp_tEEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i64) local_unnamed_addr #11
+declare void @_ZN6duckdb12BaseAppender6AppendINS_11timestamp_tEEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i64) local_unnamed_addr #10
 
-declare void @_ZN6duckdb12BaseAppender6AppendINS_10interval_tEEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i64, i64) local_unnamed_addr #11
+declare void @_ZN6duckdb12BaseAppender6AppendINS_10interval_tEEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i64, i64) local_unnamed_addr #10
 
-declare void @_ZN6duckdb12BaseAppender6AppendIDnEEvT_(ptr noundef nonnull align 8 dereferenceable(121), ptr) local_unnamed_addr #11
+declare void @_ZN6duckdb12BaseAppender6AppendIDnEEvT_(ptr noundef nonnull align 8 dereferenceable(121), ptr) local_unnamed_addr #10
 
-declare void @_ZN6duckdb12BaseAppender6AppendIPKcEEvT_(ptr noundef nonnull align 8 dereferenceable(121), ptr noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb12BaseAppender6AppendIPKcEEvT_(ptr noundef nonnull align 8 dereferenceable(121), ptr noundef) local_unnamed_addr #10
 
-declare void @_ZN6duckdb12BaseAppender6AppendINS_8string_tEEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i64, ptr) local_unnamed_addr #11
+declare void @_ZN6duckdb12BaseAppender6AppendINS_8string_tEEEvT_(ptr noundef nonnull align 8 dereferenceable(121), i64, ptr) local_unnamed_addr #10
 
-declare void @_ZN6duckdb12BaseAppender6AppendINS_5ValueEEEvT_(ptr noundef nonnull align 8 dereferenceable(121), ptr noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb12BaseAppender6AppendINS_5ValueEEEvT_(ptr noundef nonnull align 8 dereferenceable(121), ptr noundef) local_unnamed_addr #10
 
-declare void @_ZN6duckdb12BaseAppender5FlushEv(ptr noundef nonnull align 8 dereferenceable(121)) local_unnamed_addr #11
+declare void @_ZN6duckdb12BaseAppender5FlushEv(ptr noundef nonnull align 8 dereferenceable(121)) local_unnamed_addr #10
 
-declare void @_ZN6duckdb12BaseAppender5CloseEv(ptr noundef nonnull align 8 dereferenceable(121)) local_unnamed_addr #11
+declare void @_ZN6duckdb12BaseAppender5CloseEv(ptr noundef nonnull align 8 dereferenceable(121)) local_unnamed_addr #10
 
-declare void @_ZN6duckdb12BaseAppender15AppendDataChunkERNS_9DataChunkE(ptr noundef nonnull align 8 dereferenceable(121), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #11
+declare void @_ZN6duckdb12BaseAppender15AppendDataChunkERNS_9DataChunkE(ptr noundef nonnull align 8 dereferenceable(121), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(24) %__args) local_unnamed_addr #0 comdat align 2 {
@@ -38550,14 +38547,14 @@ _ZNSt12__shared_ptrIN6duckdb21TemplatedValidityDataImEELN9__gnu_cxx12_Lock_polic
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 comdat align 2 {
 entry:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #35
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_impl.i, align 8, !tbaa !3
@@ -38574,14 +38571,14 @@ _ZNSt16allocator_traitsISaIvEE7destroyIN6duckdb21TemplatedValidityDataImEEEEvRS0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #35
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #13 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #12 comdat align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
@@ -38615,18 +38612,18 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #27
+declare void @llvm.trap() #26
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #17
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
 
-declare void @_ZN6duckdb6DuckDBC1EPKcPNS_8DBConfigE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) unnamed_addr #11
+declare void @_ZN6duckdb6DuckDBC1EPKcPNS_8DBConfigE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN6duckdb5ValueESaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(64) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -38756,7 +38753,7 @@ unreachable:                                      ; preds = %invoke.cont19
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6duckdb5ValueC1EOS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #12
+declare void @_ZN6duckdb5ValueC1EOS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN6duckdb5ValueESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(64) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -38885,7 +38882,7 @@ unreachable:                                      ; preds = %invoke.cont19
   unreachable
 }
 
-declare noundef zeroext i1 @_ZN6duckdb7Hugeint7TryCastIdEEbNS_9hugeint_tERT_(i64, i64, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7Hugeint7TryCastIdEEbNS_9hugeint_tERT_(i64, i64, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6duckdb11LogicalTypeEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(56) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -39108,11 +39105,11 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   ret void
 }
 
-declare void @_ZN6duckdb18PendingQueryResultC1ENS_14PreservedErrorE(ptr noundef nonnull align 8 dereferenceable(249), ptr noundef) unnamed_addr #11
+declare void @_ZN6duckdb18PendingQueryResultC1ENS_14PreservedErrorE(ptr noundef nonnull align 8 dereferenceable(249), ptr noundef) unnamed_addr #10
 
-declare noundef i64 @_ZN6duckdb10StringUtil6CIHashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #11
+declare noundef i64 @_ZN6duckdb10StringUtil6CIHashERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #10
 
-declare void @_ZN6duckdb21InvalidInputExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #11
+declare void @_ZN6duckdb21InvalidInputExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N6duckdb5ValueEESaISB_ENS_10_Select1stENS9_29CaseInsensitiveStringEqualityENS9_33CaseInsensitiveStringHashFunctionENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -39337,7 +39334,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6duckdb5ValueEESaISA_ENSt8__detail10_Select1stENS8_29CaseInsensitiveStringEqualityENS8_33CaseInsensitiveStringHashFunctionENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6duckdb5ValueEESaISA_ENSt8__detail10_Select1stENS8_29CaseInsensitiveStringEqualityENS8_33CaseInsensitiveStringHashFunctionENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_node = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_node, align 8, !tbaa !712
@@ -39462,7 +39459,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   resume { ptr, i32 } %.pn
 }
 
-declare { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #11
+declare { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6duckdb5ValueEESaISA_ENSt8__detail10_Select1stENS8_29CaseInsensitiveStringEqualityENS8_33CaseInsensitiveStringHashFunctionENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %__bkt_count) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -39711,7 +39708,7 @@ ehcleanup:                                        ; preds = %if.then.i.i10, %_ZN
   resume { ptr, i32 } %.pn
 }
 
-declare void @_ZN6duckdb15BinderExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #11
+declare void @_ZN6duckdb15BinderExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb9Exception25ConstructMessageRecursiveINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEES7_RKS7_RSt6vectorINS_20ExceptionFormatValueESaISB_EET_DpT0_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %msg, ptr noundef nonnull align 8 dereferenceable(24) %values, ptr noundef %param) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -39905,16 +39902,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %if.
   resume { ptr, i32 } %.pn
 }
 
-declare void @_ZN6duckdb20ExceptionFormatValue17CreateFormatValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES0_T_(ptr dead_on_unwind writable sret(%"struct.duckdb::ExceptionFormatValue") align 8, ptr noundef) local_unnamed_addr #11
+declare void @_ZN6duckdb20ExceptionFormatValue17CreateFormatValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES0_T_(ptr dead_on_unwind writable sret(%"struct.duckdb::ExceptionFormatValue") align 8, ptr noundef) local_unnamed_addr #10
 
-declare void @_ZN6duckdb16TableFunctionRefC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #11
+declare void @_ZN6duckdb16TableFunctionRefC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #10
 
-declare void @_ZN6duckdb18ConstantExpressionC1ENS_5ValueE(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef) unnamed_addr #11
+declare void @_ZN6duckdb18ConstantExpressionC1ENS_5ValueE(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef) unnamed_addr #10
 
-declare void @_ZN6duckdb18FunctionExpressionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6vectorINS_10unique_ptrINS_16ParsedExpressionESt14default_deleteISB_ELb1EEELb1EEESE_NSA_INS_13OrderModifierESC_ISG_ELb1EEEbbb(ptr noundef nonnull align 8 dereferenceable(209), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) unnamed_addr #11
+declare void @_ZN6duckdb18FunctionExpressionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6vectorINS_10unique_ptrINS_16ParsedExpressionESt14default_deleteISB_ELb1EEELb1EEESE_NSA_INS_13OrderModifierESC_ISG_ELb1EEEbbb(ptr noundef nonnull align 8 dereferenceable(209), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6duckdb23CAPIReplacementScanDataD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb23CAPIReplacementScanDataD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb23CAPIReplacementScanDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !9
   %delete_callback = getelementptr inbounds i8, ptr %this, i64 24
@@ -39940,7 +39937,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6duckdb23CAPIReplacementScanDataD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb23CAPIReplacementScanDataD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb23CAPIReplacementScanDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !9
   %delete_callback.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -40071,11 +40068,11 @@ _ZNSt12_Vector_baseIN6duckdb15ReplacementScanESaIS1_EE13_M_deallocateEPS1_m.exit
   ret void
 }
 
-declare i64 @_ZN6duckdb9Timestamp20FromEpochNanoSecondsEl(i64 noundef) local_unnamed_addr #11
+declare i64 @_ZN6duckdb9Timestamp20FromEpochNanoSecondsEl(i64 noundef) local_unnamed_addr #10
 
-declare i64 @_ZN6duckdb9Timestamp11FromEpochMsEl(i64 noundef) local_unnamed_addr #11
+declare i64 @_ZN6duckdb9Timestamp11FromEpochMsEl(i64 noundef) local_unnamed_addr #10
 
-declare i64 @_ZN6duckdb9Timestamp16FromEpochSecondsEl(i64 noundef) local_unnamed_addr #11
+declare i64 @_ZN6duckdb9Timestamp16FromEpochSecondsEl(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK6duckdb12optional_ptrINS_17TableFunctionInfoEE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -40149,7 +40146,7 @@ unreachable:                                      ; preds = %invoke.cont4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6duckdb14CTableBindDataD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb14CTableBindDataD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb14CTableBindDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !9
   %bind_data = getelementptr inbounds i8, ptr %this, i64 40
@@ -40192,7 +40189,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6duckdb14CTableBindDataD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb14CTableBindDataD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb14CTableBindDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !9
   %bind_data.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -40235,12 +40232,12 @@ _ZN6duckdb14CTableBindDataD2Ev.exit:              ; preds = %_ZNKSt14default_del
   ret void
 }
 
-declare void @_ZNK6duckdb17TableFunctionData4CopyEv(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.629") align 8, ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #11
+declare void @_ZNK6duckdb17TableFunctionData4CopyEv(ptr dead_on_unwind writable sret(%"class.duckdb::unique_ptr.629") align 8, ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #10
 
-declare noundef zeroext i1 @_ZNK6duckdb17TableFunctionData6EqualsERKNS_12FunctionDataE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #11
+declare noundef zeroext i1 @_ZNK6duckdb17TableFunctionData6EqualsERKNS_12FunctionDataE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #10
 
 ; Function Attrs: nounwind
-declare void @_ZN6duckdb17TableFunctionDataD2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #12
+declare void @_ZN6duckdb17TableFunctionDataD2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK6duckdb12optional_ptrIKNS_12FunctionDataEE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -40314,7 +40311,7 @@ unreachable:                                      ; preds = %invoke.cont4
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6duckdb20CTableGlobalInitDataD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb20CTableGlobalInitDataD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb20CTableGlobalInitDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !9
   %init_data = getelementptr inbounds i8, ptr %this, i64 8
@@ -40346,7 +40343,7 @@ _ZN6duckdb14CTableInitDataD2Ev.exit:              ; preds = %if.then.i, %land.lh
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6duckdb20CTableGlobalInitDataD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb20CTableGlobalInitDataD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb20CTableGlobalInitDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !9
   %init_data.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -40379,7 +40376,7 @@ _ZN6duckdb20CTableGlobalInitDataD2Ev.exit:        ; preds = %if.then.i.i, %land.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNK6duckdb20CTableGlobalInitData10MaxThreadsEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #13 comdat align 2 {
+define linkonce_odr noundef i64 @_ZNK6duckdb20CTableGlobalInitData10MaxThreadsEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #12 comdat align 2 {
 entry:
   %max_threads = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %max_threads, align 8, !tbaa !730
@@ -40387,10 +40384,10 @@ entry:
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6duckdb24GlobalTableFunctionStateD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #12
+declare void @_ZN6duckdb24GlobalTableFunctionStateD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #11
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6duckdb19CTableLocalInitDataD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb19CTableLocalInitDataD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb19CTableLocalInitDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !9
   %init_data = getelementptr inbounds i8, ptr %this, i64 8
@@ -40422,7 +40419,7 @@ _ZN6duckdb14CTableInitDataD2Ev.exit:              ; preds = %if.then.i, %land.lh
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6duckdb19CTableLocalInitDataD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb19CTableLocalInitDataD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb19CTableLocalInitDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !9
   %init_data.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -40455,7 +40452,7 @@ _ZN6duckdb19CTableLocalInitDataD2Ev.exit:         ; preds = %if.then.i.i, %land.
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6duckdb23LocalTableFunctionStateD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #12
+declare void @_ZN6duckdb23LocalTableFunctionStateD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK6duckdb12optional_ptrINS_24GlobalTableFunctionStateEE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -40600,20 +40597,20 @@ unreachable:                                      ; preds = %invoke.cont4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #12 comdat align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN6duckdb18CTableFunctionInfoESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN6duckdb18CTableFunctionInfoESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #12 comdat align 2 {
 entry:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #35
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN6duckdb18CTableFunctionInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN6duckdb18CTableFunctionInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %vtable.i.i = load ptr, ptr %_M_impl.i, align 8, !tbaa !9
@@ -40623,14 +40620,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN6duckdb18CTableFunctionInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN6duckdb18CTableFunctionInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb18CTableFunctionInfoESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #35
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN6duckdb18CTableFunctionInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #13 comdat align 2 {
+define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN6duckdb18CTableFunctionInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(16) %__ti) unnamed_addr #12 comdat align 2 {
 entry:
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   %cmp = icmp eq ptr %__ti, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
@@ -40662,7 +40659,7 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6duckdb18CTableFunctionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb18CTableFunctionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb18CTableFunctionInfoE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !9
   %extra_info = getelementptr inbounds i8, ptr %this, i64 40
@@ -40694,7 +40691,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6duckdb18CTableFunctionInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb18CTableFunctionInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 16) ({ [4 x ptr] }, ptr @_ZTVN6duckdb18CTableFunctionInfoE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !9
   %extra_info.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -40727,7 +40724,7 @@ _ZN6duckdb18CTableFunctionInfoD2Ev.exit:          ; preds = %if.then.i, %land.lh
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6duckdb17TableFunctionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #12
+declare void @_ZN6duckdb17TableFunctionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6duckdb11LogicalTypeEESaISA_ENSt8__detail10_Select1stENS8_29CaseInsensitiveStringEqualityENS8_33CaseInsensitiveStringHashFunctionENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJSA_EEES6_INSC_14_Node_iteratorISA_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -40999,7 +40996,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6duckdb11LogicalTypeEESaISA_ENSt8__detail10_Select1stENS8_29CaseInsensitiveStringEqualityENS8_33CaseInsensitiveStringHashFunctionENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6duckdb11LogicalTypeEESaISA_ENSt8__detail10_Select1stENS8_29CaseInsensitiveStringEqualityENS8_33CaseInsensitiveStringHashFunctionENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_node = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_node, align 8, !tbaa !735
@@ -41401,7 +41398,7 @@ ehcleanup.i.i.i:                                  ; preds = %lpad5.i.i.i, %lpad.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZ30duckdb_register_table_functionE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZ30duckdb_register_table_functionE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -41425,12 +41422,12 @@ sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, 
   ret i1 false
 }
 
-declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb7Catalog16GetSystemCatalogERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592)) local_unnamed_addr #11
+declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb7Catalog16GetSystemCatalogERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592)) local_unnamed_addr #10
 
-declare void @_ZN6duckdb23CreateTableFunctionInfoC1ENS_13TableFunctionE(ptr noundef nonnull align 8 dereferenceable(296), ptr noundef) unnamed_addr #11
+declare void @_ZN6duckdb23CreateTableFunctionInfoC1ENS_13TableFunctionE(ptr noundef nonnull align 8 dereferenceable(296), ptr noundef) unnamed_addr #10
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6duckdb13TableFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(360) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb13TableFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(360) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb13TableFunctionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !9
   %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 352
@@ -41487,10 +41484,10 @@ _ZNSt12__shared_ptrIN6duckdb17TableFunctionInfoELN9__gnu_cxx12_Lock_policyE2EED2
   ret void
 }
 
-declare ptr @_ZN6duckdb7Catalog19CreateTableFunctionERNS_13ClientContextERNS_23CreateTableFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(592), ptr noundef nonnull align 8 dereferenceable(296)) local_unnamed_addr #11
+declare ptr @_ZN6duckdb7Catalog19CreateTableFunctionERNS_13ClientContextERNS_23CreateTableFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(592), ptr noundef nonnull align 8 dereferenceable(296)) local_unnamed_addr #10
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6duckdb23CreateTableFunctionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb23CreateTableFunctionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN6duckdb23CreateTableFunctionInfoE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !9
   %functions = getelementptr inbounds i8, ptr %this, i64 240
@@ -41635,7 +41632,7 @@ lpad:                                             ; preds = %_ZN6duckdb14SimpleF
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6duckdb13TableFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(360) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb13TableFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(360) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 24) ({ [5 x ptr] }, ptr @_ZTVN6duckdb13TableFunctionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !9
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 352
@@ -41693,10 +41690,10 @@ _ZN6duckdb13TableFunctionD2Ev.exit:               ; preds = %if.then7.i.i.i.i, %
   ret void
 }
 
-declare void @_ZNK6duckdb28SimpleNamedParameterFunction8ToStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #11
+declare void @_ZNK6duckdb28SimpleNamedParameterFunction8ToStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #10
 
 ; Function Attrs: nounwind
-declare void @_ZN6duckdb14SimpleFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(144)) unnamed_addr #12
+declare void @_ZN6duckdb14SimpleFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(144)) unnamed_addr #11
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb8FunctionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -41817,7 +41814,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6duckdb8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #12
+declare void @_ZN6duckdb8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %__x) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -42083,7 +42080,7 @@ unreachable:                                      ; preds = %if.end40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6duckdb11LogicalTypeEESaISA_ENSt8__detail10_Select1stENS8_29CaseInsensitiveStringEqualityENS8_33CaseInsensitiveStringHashFunctionENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6duckdb11LogicalTypeEESaISA_ENSt8__detail10_Select1stENS8_29CaseInsensitiveStringEqualityENS8_33CaseInsensitiveStringHashFunctionENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i, align 8, !tbaa !741
@@ -42237,10 +42234,10 @@ unreachable:                                      ; preds = %invoke.cont10
 }
 
 ; Function Attrs: nounwind
-declare void @_ZN6duckdb28SimpleNamedParameterFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #12
+declare void @_ZN6duckdb28SimpleNamedParameterFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #11
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6duckdb18CreateFunctionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb18CreateFunctionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN6duckdb18CreateFunctionInfoE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !9
   %example = getelementptr inbounds i8, ptr %this, i64 208
@@ -42400,13 +42397,13 @@ _ZN6duckdb10CreateInfoD2Ev.exit:                  ; preds = %if.then.i.i9.i, %_Z
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6duckdb18CreateFunctionInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #14 comdat align 2 {
+define linkonce_odr void @_ZN6duckdb18CreateFunctionInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #13 comdat align 2 {
 entry:
   tail call void @llvm.trap() #33
   unreachable
 }
 
-declare void @_ZNK6duckdb10CreateInfo9SerializeERNS_10SerializerE(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 1) unnamed_addr #11
+declare void @_ZNK6duckdb10CreateInfo9SerializeERNS_10SerializerE(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 1) unnamed_addr #10
 
 declare void @_ZNK6duckdb10CreateInfo12GetAlterInfoEv() unnamed_addr
 
@@ -42712,7 +42709,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %if.
   resume { ptr, i32 } %.pn
 }
 
-declare noundef ptr @_ZN6duckdb8EnumUtil7ToCharsINS_13ParseInfoTypeEEEPKcT_(i8 noundef zeroext) local_unnamed_addr #11
+declare noundef ptr @_ZN6duckdb8EnumUtil7ToCharsINS_13ParseInfoTypeEEEPKcT_(i8 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -43186,27 +43183,27 @@ lpad.body:                                        ; preds = %cleanup.action.i, %
   ret i1 false
 }
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbbEEbT_RT0_b(i1 noundef zeroext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbbEEbT_RT0_b(i1 noundef zeroext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIabEEbT_RT0_b(i8 noundef signext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIabEEbT_RT0_b(i8 noundef signext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIsbEEbT_RT0_b(i16 noundef signext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIsbEEbT_RT0_b(i16 noundef signext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIibEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIibEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIlbEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIlbEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhbEEbT_RT0_b(i8 noundef zeroext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhbEEbT_RT0_b(i8 noundef zeroext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItbEEbT_RT0_b(i16 noundef zeroext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItbEEbT_RT0_b(i16 noundef zeroext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjbEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjbEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImbEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImbEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIfbEEbT_RT0_b(float noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIfbEEbT_RT0_b(float noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIdbEEbT_RT0_b(double noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIdbEEbT_RT0_b(double noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb23NotImplementedExceptionC2IJNS_12PhysicalTypeES2_EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %msg, i8 noundef zeroext %params, i8 noundef zeroext %params1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -43325,7 +43322,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %if.
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !9
   %raw_message_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -43368,7 +43365,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %if.t
   ret void
 }
 
-declare void @_ZN6duckdb23NotImplementedExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #11
+declare void @_ZN6duckdb23NotImplementedExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb9Exception25ConstructMessageRecursiveINS_12PhysicalTypeEJS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS8_RSt6vectorINS_20ExceptionFormatValueESaISC_EET_DpT0_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %msg, ptr noundef nonnull align 8 dereferenceable(24) %values, i8 noundef zeroext %param, i8 noundef zeroext %params) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -43476,7 +43473,7 @@ _ZN6duckdb20ExceptionFormatValueD2Ev.exit9:       ; preds = %if.then.i.i.i5, %_Z
   resume { ptr, i32 } %11
 }
 
-declare void @_ZN6duckdb20ExceptionFormatValue17CreateFormatValueINS_12PhysicalTypeEEES0_T_(ptr dead_on_unwind writable sret(%"struct.duckdb::ExceptionFormatValue") align 8, i8 noundef zeroext) local_unnamed_addr #11
+declare void @_ZN6duckdb20ExceptionFormatValue17CreateFormatValueINS_12PhysicalTypeEEES0_T_(ptr dead_on_unwind writable sret(%"struct.duckdb::ExceptionFormatValue") align 8, i8 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb9Exception25ConstructMessageRecursiveINS_12PhysicalTypeEJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS8_RSt6vectorINS_20ExceptionFormatValueESaISC_EET_DpT0_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %msg, ptr noundef nonnull align 8 dereferenceable(24) %values, i8 noundef zeroext %param) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -43584,7 +43581,7 @@ _ZN6duckdb20ExceptionFormatValueD2Ev.exit9:       ; preds = %if.then.i.i.i5, %_Z
   resume { ptr, i32 } %11
 }
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tEbEEbT_RT0_b(i64, i64, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tEbEEbT_RT0_b(i64, i64, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalIbEEbP13duckdb_resultRT_mm(ptr noundef %source, ptr noundef nonnull align 1 dereferenceable(1) %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -43697,15 +43694,15 @@ unreachable:                                      ; preds = %invoke.cont20
   unreachable
 }
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIsbEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIsbEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIibEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIibEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIlbEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIlbEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tEbEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64, i64, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tEbEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64, i64, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEbEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEbEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef signext i8 @_ZN6duckdb16TryCastCInternalINS_6date_tEaNS_7TryCastEEET0_P13duckdb_resultmm(ptr noundef %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -43999,29 +43996,29 @@ lpad.body:                                        ; preds = %cleanup.action.i, %
   ret i8 0
 }
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbaEEbT_RT0_b(i1 noundef zeroext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbaEEbT_RT0_b(i1 noundef zeroext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIaaEEbT_RT0_b(i8 noundef signext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIaaEEbT_RT0_b(i8 noundef signext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIsaEEbT_RT0_b(i16 noundef signext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIsaEEbT_RT0_b(i16 noundef signext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIiaEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIiaEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIlaEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIlaEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhaEEbT_RT0_b(i8 noundef zeroext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhaEEbT_RT0_b(i8 noundef zeroext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItaEEbT_RT0_b(i16 noundef zeroext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItaEEbT_RT0_b(i16 noundef zeroext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjaEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjaEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImaEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImaEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIfaEEbT_RT0_b(float noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIfaEEbT_RT0_b(float noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIdaEEbT_RT0_b(double noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIdaEEbT_RT0_b(double noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tEaEEbT_RT0_b(i64, i64, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tEaEEbT_RT0_b(i64, i64, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalIaEEbP13duckdb_resultRT_mm(ptr noundef %source, ptr noundef nonnull align 1 dereferenceable(1) %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -44134,15 +44131,15 @@ unreachable:                                      ; preds = %invoke.cont20
   unreachable
 }
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIsaEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIsaEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIiaEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIiaEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIlaEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIlaEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tEaEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64, i64, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tEaEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64, i64, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEaEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEaEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef signext i16 @_ZN6duckdb16TryCastCInternalINS_6date_tEsNS_7TryCastEEET0_P13duckdb_resultmm(ptr noundef %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -44436,29 +44433,29 @@ lpad.body:                                        ; preds = %cleanup.action.i, %
   ret i16 0
 }
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbsEEbT_RT0_b(i1 noundef zeroext, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbsEEbT_RT0_b(i1 noundef zeroext, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIasEEbT_RT0_b(i8 noundef signext, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIasEEbT_RT0_b(i8 noundef signext, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIssEEbT_RT0_b(i16 noundef signext, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIssEEbT_RT0_b(i16 noundef signext, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIisEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIisEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIlsEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIlsEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhsEEbT_RT0_b(i8 noundef zeroext, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhsEEbT_RT0_b(i8 noundef zeroext, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItsEEbT_RT0_b(i16 noundef zeroext, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItsEEbT_RT0_b(i16 noundef zeroext, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjsEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjsEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImsEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImsEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIfsEEbT_RT0_b(float noundef, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIfsEEbT_RT0_b(float noundef, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIdsEEbT_RT0_b(double noundef, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIdsEEbT_RT0_b(double noundef, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tEsEEbT_RT0_b(i64, i64, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tEsEEbT_RT0_b(i64, i64, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalIsEEbP13duckdb_resultRT_mm(ptr noundef %source, ptr noundef nonnull align 2 dereferenceable(2) %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -44571,15 +44568,15 @@ unreachable:                                      ; preds = %invoke.cont20
   unreachable
 }
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIssEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext, ptr noundef nonnull align 2 dereferenceable(2), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIssEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext, ptr noundef nonnull align 2 dereferenceable(2), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIisEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef, ptr noundef nonnull align 2 dereferenceable(2), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIisEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef, ptr noundef nonnull align 2 dereferenceable(2), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIlsEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef, ptr noundef nonnull align 2 dereferenceable(2), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIlsEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef, ptr noundef nonnull align 2 dereferenceable(2), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tEsEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64, i64, ptr noundef nonnull align 2 dereferenceable(2), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tEsEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64, i64, ptr noundef nonnull align 2 dereferenceable(2), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEsEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEsEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZN6duckdb16TryCastCInternalINS_6date_tEiNS_7TryCastEEET0_P13duckdb_resultmm(ptr noundef %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -44873,29 +44870,29 @@ lpad.body:                                        ; preds = %cleanup.action.i, %
   ret i32 0
 }
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbiEEbT_RT0_b(i1 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbiEEbT_RT0_b(i1 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIaiEEbT_RT0_b(i8 noundef signext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIaiEEbT_RT0_b(i8 noundef signext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIsiEEbT_RT0_b(i16 noundef signext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIsiEEbT_RT0_b(i16 noundef signext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIiiEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIiiEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIliEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIliEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhiEEbT_RT0_b(i8 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhiEEbT_RT0_b(i8 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItiEEbT_RT0_b(i16 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItiEEbT_RT0_b(i16 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjiEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjiEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImiEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImiEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIfiEEbT_RT0_b(float noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIfiEEbT_RT0_b(float noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIdiEEbT_RT0_b(double noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIdiEEbT_RT0_b(double noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tEiEEbT_RT0_b(i64, i64, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tEiEEbT_RT0_b(i64, i64, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalIiEEbP13duckdb_resultRT_mm(ptr noundef %source, ptr noundef nonnull align 4 dereferenceable(4) %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -45008,15 +45005,15 @@ unreachable:                                      ; preds = %invoke.cont20
   unreachable
 }
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIsiEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIsiEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIiiEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIiiEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIliEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIliEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tEiEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64, i64, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tEiEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64, i64, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEiEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEiEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZN6duckdb16TryCastCInternalINS_6date_tElNS_7TryCastEEET0_P13duckdb_resultmm(ptr noundef %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -45310,29 +45307,29 @@ lpad.body:                                        ; preds = %cleanup.action.i, %
   ret i64 0
 }
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIblEEbT_RT0_b(i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIblEEbT_RT0_b(i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIalEEbT_RT0_b(i8 noundef signext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIalEEbT_RT0_b(i8 noundef signext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIslEEbT_RT0_b(i16 noundef signext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIslEEbT_RT0_b(i16 noundef signext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIilEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIilEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIllEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIllEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhlEEbT_RT0_b(i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhlEEbT_RT0_b(i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItlEEbT_RT0_b(i16 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItlEEbT_RT0_b(i16 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjlEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjlEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImlEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImlEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIflEEbT_RT0_b(float noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIflEEbT_RT0_b(float noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIdlEEbT_RT0_b(double noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIdlEEbT_RT0_b(double noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tElEEbT_RT0_b(i64, i64, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tElEEbT_RT0_b(i64, i64, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalIlEEbP13duckdb_resultRT_mm(ptr noundef %source, ptr noundef nonnull align 8 dereferenceable(8) %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -45445,15 +45442,15 @@ unreachable:                                      ; preds = %invoke.cont20
   unreachable
 }
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIslEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIslEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIilEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIilEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIllEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIllEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tElEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64, i64, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tElEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64, i64, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tElEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tElEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb16TryCastCInternalIb14duckdb_decimalNS_7TryCastEEET0_P13duckdb_resultmm(ptr dead_on_unwind noalias writable sret(%struct.duckdb_decimal) align 8 %agg.result, ptr noundef %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -46943,7 +46940,7 @@ terminate.lpad:                                   ; preds = %lpad4
   unreachable
 }
 
-declare noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalI14duckdb_decimalEEbP13duckdb_resultRT_mm(ptr noundef, ptr noundef nonnull align 8 dereferenceable(24), i64 noundef, i64 noundef) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalI14duckdb_decimalEEbP13duckdb_resultRT_mm(ptr noundef, ptr noundef nonnull align 8 dereferenceable(24), i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb22FromCStringCastWrapperINS_7TryCastEE9OperationIPc14duckdb_decimalEEbT_RT0_(ptr noundef %input_str, ptr noundef nonnull align 8 dereferenceable(24) %result) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -48568,31 +48565,31 @@ terminate.lpad:                                   ; preds = %lpad5
   unreachable
 }
 
-declare void @_ZN6duckdb9hugeint_tC1El(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef) unnamed_addr #11
+declare void @_ZN6duckdb9hugeint_tC1El(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef) unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbNS_9hugeint_tEEEbT_RT0_b(i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbNS_9hugeint_tEEEbT_RT0_b(i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIaNS_9hugeint_tEEEbT_RT0_b(i8 noundef signext, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIaNS_9hugeint_tEEEbT_RT0_b(i8 noundef signext, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIsNS_9hugeint_tEEEbT_RT0_b(i16 noundef signext, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIsNS_9hugeint_tEEEbT_RT0_b(i16 noundef signext, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIiNS_9hugeint_tEEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIiNS_9hugeint_tEEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIlNS_9hugeint_tEEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIlNS_9hugeint_tEEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhNS_9hugeint_tEEEbT_RT0_b(i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhNS_9hugeint_tEEEbT_RT0_b(i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItNS_9hugeint_tEEEbT_RT0_b(i16 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItNS_9hugeint_tEEEbT_RT0_b(i16 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjNS_9hugeint_tEEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjNS_9hugeint_tEEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImNS_9hugeint_tEEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImNS_9hugeint_tEEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIfNS_9hugeint_tEEEbT_RT0_b(float noundef, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIfNS_9hugeint_tEEEbT_RT0_b(float noundef, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIdNS_9hugeint_tEEEbT_RT0_b(double noundef, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIdNS_9hugeint_tEEEbT_RT0_b(double noundef, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tES2_EEbT_RT0_b(i64, i64, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tES2_EEbT_RT0_b(i64, i64, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalINS_9hugeint_tEEEbP13duckdb_resultRT_mm(ptr noundef %source, ptr noundef nonnull align 8 dereferenceable(16) %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -48705,15 +48702,15 @@ unreachable:                                      ; preds = %invoke.cont20
   unreachable
 }
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIsNS_9hugeint_tEEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIsNS_9hugeint_tEEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIiNS_9hugeint_tEEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIiNS_9hugeint_tEEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIlNS_9hugeint_tEEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIlNS_9hugeint_tEEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tES2_EEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64, i64, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tES2_EEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64, i64, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tENS_9hugeint_tEEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tENS_9hugeint_tEEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i8 @_ZN6duckdb16TryCastCInternalINS_6date_tEhNS_7TryCastEEET0_P13duckdb_resultmm(ptr noundef %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -49007,29 +49004,29 @@ lpad.body:                                        ; preds = %cleanup.action.i, %
   ret i8 0
 }
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbhEEbT_RT0_b(i1 noundef zeroext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbhEEbT_RT0_b(i1 noundef zeroext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIahEEbT_RT0_b(i8 noundef signext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIahEEbT_RT0_b(i8 noundef signext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIshEEbT_RT0_b(i16 noundef signext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIshEEbT_RT0_b(i16 noundef signext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIihEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIihEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIlhEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIlhEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhhEEbT_RT0_b(i8 noundef zeroext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhhEEbT_RT0_b(i8 noundef zeroext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIthEEbT_RT0_b(i16 noundef zeroext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIthEEbT_RT0_b(i16 noundef zeroext, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjhEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjhEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImhEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImhEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIfhEEbT_RT0_b(float noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIfhEEbT_RT0_b(float noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIdhEEbT_RT0_b(double noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIdhEEbT_RT0_b(double noundef, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tEhEEbT_RT0_b(i64, i64, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tEhEEbT_RT0_b(i64, i64, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalIhEEbP13duckdb_resultRT_mm(ptr noundef %source, ptr noundef nonnull align 1 dereferenceable(1) %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -49142,15 +49139,15 @@ unreachable:                                      ; preds = %invoke.cont20
   unreachable
 }
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIshEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIshEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIihEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIihEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIlhEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIlhEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tEhEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64, i64, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tEhEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64, i64, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEhEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEhEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 1 dereferenceable(1), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i16 @_ZN6duckdb16TryCastCInternalINS_6date_tEtNS_7TryCastEEET0_P13duckdb_resultmm(ptr noundef %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -49444,29 +49441,29 @@ lpad.body:                                        ; preds = %cleanup.action.i, %
   ret i16 0
 }
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbtEEbT_RT0_b(i1 noundef zeroext, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbtEEbT_RT0_b(i1 noundef zeroext, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIatEEbT_RT0_b(i8 noundef signext, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIatEEbT_RT0_b(i8 noundef signext, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIstEEbT_RT0_b(i16 noundef signext, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIstEEbT_RT0_b(i16 noundef signext, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIitEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIitEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIltEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIltEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhtEEbT_RT0_b(i8 noundef zeroext, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhtEEbT_RT0_b(i8 noundef zeroext, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIttEEbT_RT0_b(i16 noundef zeroext, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIttEEbT_RT0_b(i16 noundef zeroext, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjtEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjtEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImtEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImtEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIftEEbT_RT0_b(float noundef, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIftEEbT_RT0_b(float noundef, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIdtEEbT_RT0_b(double noundef, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIdtEEbT_RT0_b(double noundef, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tEtEEbT_RT0_b(i64, i64, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tEtEEbT_RT0_b(i64, i64, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalItEEbP13duckdb_resultRT_mm(ptr noundef %source, ptr noundef nonnull align 2 dereferenceable(2) %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -49579,15 +49576,15 @@ unreachable:                                      ; preds = %invoke.cont20
   unreachable
 }
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIstEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext, ptr noundef nonnull align 2 dereferenceable(2), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIstEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext, ptr noundef nonnull align 2 dereferenceable(2), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIitEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef, ptr noundef nonnull align 2 dereferenceable(2), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIitEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef, ptr noundef nonnull align 2 dereferenceable(2), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIltEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef, ptr noundef nonnull align 2 dereferenceable(2), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIltEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef, ptr noundef nonnull align 2 dereferenceable(2), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tEtEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64, i64, ptr noundef nonnull align 2 dereferenceable(2), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tEtEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64, i64, ptr noundef nonnull align 2 dereferenceable(2), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEtEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEtEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZN6duckdb16TryCastCInternalINS_6date_tEjNS_7TryCastEEET0_P13duckdb_resultmm(ptr noundef %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -49881,29 +49878,29 @@ lpad.body:                                        ; preds = %cleanup.action.i, %
   ret i32 0
 }
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbjEEbT_RT0_b(i1 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbjEEbT_RT0_b(i1 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIajEEbT_RT0_b(i8 noundef signext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIajEEbT_RT0_b(i8 noundef signext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIsjEEbT_RT0_b(i16 noundef signext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIsjEEbT_RT0_b(i16 noundef signext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIijEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIijEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIljEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIljEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhjEEbT_RT0_b(i8 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhjEEbT_RT0_b(i8 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItjEEbT_RT0_b(i16 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItjEEbT_RT0_b(i16 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjjEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjjEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImjEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImjEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIfjEEbT_RT0_b(float noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIfjEEbT_RT0_b(float noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIdjEEbT_RT0_b(double noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIdjEEbT_RT0_b(double noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tEjEEbT_RT0_b(i64, i64, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tEjEEbT_RT0_b(i64, i64, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalIjEEbP13duckdb_resultRT_mm(ptr noundef %source, ptr noundef nonnull align 4 dereferenceable(4) %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -50016,15 +50013,15 @@ unreachable:                                      ; preds = %invoke.cont20
   unreachable
 }
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIsjEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIsjEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIijEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIijEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIljEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIljEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tEjEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64, i64, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tEjEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64, i64, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEjEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEjEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZN6duckdb16TryCastCInternalINS_6date_tEmNS_7TryCastEEET0_P13duckdb_resultmm(ptr noundef %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -50318,29 +50315,29 @@ lpad.body:                                        ; preds = %cleanup.action.i, %
   ret i64 0
 }
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbmEEbT_RT0_b(i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbmEEbT_RT0_b(i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIamEEbT_RT0_b(i8 noundef signext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIamEEbT_RT0_b(i8 noundef signext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIsmEEbT_RT0_b(i16 noundef signext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIsmEEbT_RT0_b(i16 noundef signext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIimEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIimEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIlmEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIlmEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhmEEbT_RT0_b(i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhmEEbT_RT0_b(i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItmEEbT_RT0_b(i16 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItmEEbT_RT0_b(i16 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjmEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjmEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImmEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImmEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIfmEEbT_RT0_b(float noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIfmEEbT_RT0_b(float noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIdmEEbT_RT0_b(double noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIdmEEbT_RT0_b(double noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tEmEEbT_RT0_b(i64, i64, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tEmEEbT_RT0_b(i64, i64, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalImEEbP13duckdb_resultRT_mm(ptr noundef %source, ptr noundef nonnull align 8 dereferenceable(8) %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -50453,15 +50450,15 @@ unreachable:                                      ; preds = %invoke.cont20
   unreachable
 }
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIsmEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIsmEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIimEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIimEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIlmEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIlmEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tEmEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64, i64, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tEmEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64, i64, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEmEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEmEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef float @_ZN6duckdb16TryCastCInternalINS_6date_tEfNS_7TryCastEEET0_P13duckdb_resultmm(ptr noundef %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -50755,29 +50752,29 @@ lpad.body:                                        ; preds = %cleanup.action.i, %
   ret float 0.000000e+00
 }
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbfEEbT_RT0_b(i1 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbfEEbT_RT0_b(i1 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIafEEbT_RT0_b(i8 noundef signext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIafEEbT_RT0_b(i8 noundef signext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIsfEEbT_RT0_b(i16 noundef signext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIsfEEbT_RT0_b(i16 noundef signext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIifEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIifEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIlfEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIlfEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhfEEbT_RT0_b(i8 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhfEEbT_RT0_b(i8 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItfEEbT_RT0_b(i16 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItfEEbT_RT0_b(i16 noundef zeroext, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjfEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjfEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImfEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImfEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIffEEbT_RT0_b(float noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIffEEbT_RT0_b(float noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIdfEEbT_RT0_b(double noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIdfEEbT_RT0_b(double noundef, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tEfEEbT_RT0_b(i64, i64, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tEfEEbT_RT0_b(i64, i64, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalIfEEbP13duckdb_resultRT_mm(ptr noundef %source, ptr noundef nonnull align 4 dereferenceable(4) %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -50890,15 +50887,15 @@ unreachable:                                      ; preds = %invoke.cont20
   unreachable
 }
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIsfEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIsfEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIifEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIifEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIlfEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIlfEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tEfEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64, i64, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationINS_9hugeint_tEfEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64, i64, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEfEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEfEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef double @_ZN6duckdb16TryCastCInternalINS_6date_tEdNS_7TryCastEEET0_P13duckdb_resultmm(ptr noundef %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -51192,29 +51189,29 @@ lpad.body:                                        ; preds = %cleanup.action.i, %
   ret double 0.000000e+00
 }
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbdEEbT_RT0_b(i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIbdEEbT_RT0_b(i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIadEEbT_RT0_b(i8 noundef signext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIadEEbT_RT0_b(i8 noundef signext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIsdEEbT_RT0_b(i16 noundef signext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIsdEEbT_RT0_b(i16 noundef signext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIidEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIidEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIldEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIldEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhdEEbT_RT0_b(i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIhdEEbT_RT0_b(i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItdEEbT_RT0_b(i16 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationItdEEbT_RT0_b(i16 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjdEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIjdEEbT_RT0_b(i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImdEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationImdEEbT_RT0_b(i64 noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIfdEEbT_RT0_b(float noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIfdEEbT_RT0_b(float noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIddEEbT_RT0_b(double noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationIddEEbT_RT0_b(double noundef, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tEdEEbT_RT0_b(i64, i64, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tEdEEbT_RT0_b(i64, i64, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalIdEEbP13duckdb_resultRT_mm(ptr noundef %source, ptr noundef nonnull align 8 dereferenceable(8) %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -51327,15 +51324,15 @@ unreachable:                                      ; preds = %invoke.cont20
   unreachable
 }
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIsdEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIsdEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i16 noundef signext, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIidEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIidEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIldEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb18TryCastFromDecimal9OperationIldEEbT_RT0_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEhh(i64 noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEdEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tEdEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare i32 @_ZN6duckdb17FetchDefaultValue9OperationINS_6date_tEEET_v() local_unnamed_addr #11
+declare i32 @_ZN6duckdb17FetchDefaultValue9OperationINS_6date_tEEET_v() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr i32 @_ZN6duckdb16TryCastCInternalIbNS_6date_tENS_7TryCastEEET0_P13duckdb_resultmm(ptr noundef %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -52731,9 +52728,9 @@ terminate.lpad:                                   ; preds = %lpad5
   unreachable
 }
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_6date_tES2_EEbT_RT0_b(i32, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_6date_tES2_EEbT_RT0_b(i32, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_11timestamp_tENS_6date_tEEEbT_RT0_b(i64, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_11timestamp_tENS_6date_tEEEbT_RT0_b(i64, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalINS_6date_tEEEbP13duckdb_resultRT_mm(ptr noundef %source, ptr noundef nonnull align 4 dereferenceable(4) %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -53043,11 +53040,11 @@ unreachable:                                      ; preds = %invoke.cont20
   unreachable
 }
 
-declare void @_ZN6duckdb23NotImplementedExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #11
+declare void @_ZN6duckdb23NotImplementedExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tENS_6date_tEEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tENS_6date_tEEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #10
 
-declare i64 @_ZN6duckdb17FetchDefaultValue9OperationINS_7dtime_tEEET_v() local_unnamed_addr #11
+declare i64 @_ZN6duckdb17FetchDefaultValue9OperationINS_7dtime_tEEET_v() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr i64 @_ZN6duckdb16TryCastCInternalIbNS_7dtime_tENS_7TryCastEEET0_P13duckdb_resultmm(ptr noundef %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -54443,9 +54440,9 @@ terminate.lpad:                                   ; preds = %lpad5
   unreachable
 }
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_7dtime_tES2_EEbT_RT0_b(i64, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_7dtime_tES2_EEbT_RT0_b(i64, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_11timestamp_tENS_7dtime_tEEEbT_RT0_b(i64, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_11timestamp_tENS_7dtime_tEEEbT_RT0_b(i64, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalINS_7dtime_tEEEbP13duckdb_resultRT_mm(ptr noundef %source, ptr noundef nonnull align 8 dereferenceable(8) %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -54755,9 +54752,9 @@ unreachable:                                      ; preds = %invoke.cont20
   unreachable
 }
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tENS_7dtime_tEEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tENS_7dtime_tEEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare i64 @_ZN6duckdb17FetchDefaultValue9OperationINS_11timestamp_tEEET_v() local_unnamed_addr #11
+declare i64 @_ZN6duckdb17FetchDefaultValue9OperationINS_11timestamp_tEEET_v() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr i64 @_ZN6duckdb16TryCastCInternalIbNS_11timestamp_tENS_7TryCastEEET0_P13duckdb_resultmm(ptr noundef %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -56153,9 +56150,9 @@ terminate.lpad:                                   ; preds = %lpad5
   unreachable
 }
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_6date_tENS_11timestamp_tEEEbT_RT0_b(i32, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_6date_tENS_11timestamp_tEEEbT_RT0_b(i32, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_11timestamp_tES2_EEbT_RT0_b(i64, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_11timestamp_tES2_EEbT_RT0_b(i64, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalINS_11timestamp_tEEEbP13duckdb_resultRT_mm(ptr noundef %source, ptr noundef nonnull align 8 dereferenceable(8) %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -56465,9 +56462,9 @@ unreachable:                                      ; preds = %invoke.cont20
   unreachable
 }
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tENS_11timestamp_tEEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_8string_tENS_11timestamp_tEEEbT_RT0_b(i64, ptr, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #10
 
-declare { i64, i64 } @_ZN6duckdb17FetchDefaultValue9OperationINS_10interval_tEEET_v() local_unnamed_addr #11
+declare { i64, i64 } @_ZN6duckdb17FetchDefaultValue9OperationINS_10interval_tEEET_v() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { i64, i64 } @_ZN6duckdb16TryCastCInternalIbNS_10interval_tENS_7TryCastEEET0_P13duckdb_resultmm(ptr noundef %result, i64 noundef %col, i64 noundef %row) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -58318,7 +58315,7 @@ unreachable:                                      ; preds = %invoke.cont20
   unreachable
 }
 
-declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_10interval_tES2_EEbT_RT0_b(i64, i64, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_10interval_tES2_EEbT_RT0_b(i64, i64, ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb22FromCStringCastWrapperINS_7TryCastEE9OperationIPcNS_10interval_tEEEbT_RT0_(ptr noundef %input_str, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -59785,9 +59782,9 @@ ehcleanup11:                                      ; preds = %lpad1, %lpad
   resume { ptr, i32 } %.pn.pn
 }
 
-declare void @_ZN6duckdb6VectorC1ENS_11LogicalTypeEPh(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef, ptr noundef) unnamed_addr #11
+declare void @_ZN6duckdb6VectorC1ENS_11LogicalTypeEPh(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef, ptr noundef) unnamed_addr #10
 
-declare { i64, ptr } @_ZN6duckdb10StringCast9OperationIbEENS_8string_tET_RNS_6VectorE(i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #11
+declare { i64, ptr } @_ZN6duckdb10StringCast9OperationIbEENS_8string_tET_RNS_6VectorE(i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10StringCastEE9OperationIa13duckdb_stringEEbT_RT0_(i8 noundef signext %input, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -59849,7 +59846,7 @@ ehcleanup11:                                      ; preds = %lpad1, %lpad
   resume { ptr, i32 } %.pn.pn
 }
 
-declare { i64, ptr } @_ZN6duckdb10StringCast9OperationIaEENS_8string_tET_RNS_6VectorE(i8 noundef signext, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #11
+declare { i64, ptr } @_ZN6duckdb10StringCast9OperationIaEENS_8string_tET_RNS_6VectorE(i8 noundef signext, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10StringCastEE9OperationIs13duckdb_stringEEbT_RT0_(i16 noundef signext %input, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -59911,7 +59908,7 @@ ehcleanup11:                                      ; preds = %lpad1, %lpad
   resume { ptr, i32 } %.pn.pn
 }
 
-declare { i64, ptr } @_ZN6duckdb10StringCast9OperationIsEENS_8string_tET_RNS_6VectorE(i16 noundef signext, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #11
+declare { i64, ptr } @_ZN6duckdb10StringCast9OperationIsEENS_8string_tET_RNS_6VectorE(i16 noundef signext, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10StringCastEE9OperationIi13duckdb_stringEEbT_RT0_(i32 noundef %input, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -59973,7 +59970,7 @@ ehcleanup11:                                      ; preds = %lpad1, %lpad
   resume { ptr, i32 } %.pn.pn
 }
 
-declare { i64, ptr } @_ZN6duckdb10StringCast9OperationIiEENS_8string_tET_RNS_6VectorE(i32 noundef, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #11
+declare { i64, ptr } @_ZN6duckdb10StringCast9OperationIiEENS_8string_tET_RNS_6VectorE(i32 noundef, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10StringCastEE9OperationIl13duckdb_stringEEbT_RT0_(i64 noundef %input, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -60035,7 +60032,7 @@ ehcleanup11:                                      ; preds = %lpad1, %lpad
   resume { ptr, i32 } %.pn.pn
 }
 
-declare { i64, ptr } @_ZN6duckdb10StringCast9OperationIlEENS_8string_tET_RNS_6VectorE(i64 noundef, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #11
+declare { i64, ptr } @_ZN6duckdb10StringCast9OperationIlEENS_8string_tET_RNS_6VectorE(i64 noundef, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10StringCastEE9OperationIh13duckdb_stringEEbT_RT0_(i8 noundef zeroext %input, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -60097,7 +60094,7 @@ ehcleanup11:                                      ; preds = %lpad1, %lpad
   resume { ptr, i32 } %.pn.pn
 }
 
-declare { i64, ptr } @_ZN6duckdb10StringCast9OperationIhEENS_8string_tET_RNS_6VectorE(i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #11
+declare { i64, ptr } @_ZN6duckdb10StringCast9OperationIhEENS_8string_tET_RNS_6VectorE(i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10StringCastEE9OperationIt13duckdb_stringEEbT_RT0_(i16 noundef zeroext %input, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -60159,7 +60156,7 @@ ehcleanup11:                                      ; preds = %lpad1, %lpad
   resume { ptr, i32 } %.pn.pn
 }
 
-declare { i64, ptr } @_ZN6duckdb10StringCast9OperationItEENS_8string_tET_RNS_6VectorE(i16 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #11
+declare { i64, ptr } @_ZN6duckdb10StringCast9OperationItEENS_8string_tET_RNS_6VectorE(i16 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10StringCastEE9OperationIj13duckdb_stringEEbT_RT0_(i32 noundef %input, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -60221,7 +60218,7 @@ ehcleanup11:                                      ; preds = %lpad1, %lpad
   resume { ptr, i32 } %.pn.pn
 }
 
-declare { i64, ptr } @_ZN6duckdb10StringCast9OperationIjEENS_8string_tET_RNS_6VectorE(i32 noundef, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #11
+declare { i64, ptr } @_ZN6duckdb10StringCast9OperationIjEENS_8string_tET_RNS_6VectorE(i32 noundef, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10StringCastEE9OperationIm13duckdb_stringEEbT_RT0_(i64 noundef %input, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -60283,7 +60280,7 @@ ehcleanup11:                                      ; preds = %lpad1, %lpad
   resume { ptr, i32 } %.pn.pn
 }
 
-declare { i64, ptr } @_ZN6duckdb10StringCast9OperationImEENS_8string_tET_RNS_6VectorE(i64 noundef, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #11
+declare { i64, ptr } @_ZN6duckdb10StringCast9OperationImEENS_8string_tET_RNS_6VectorE(i64 noundef, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10StringCastEE9OperationIf13duckdb_stringEEbT_RT0_(float noundef %input, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -60345,7 +60342,7 @@ ehcleanup11:                                      ; preds = %lpad1, %lpad
   resume { ptr, i32 } %.pn.pn
 }
 
-declare { i64, ptr } @_ZN6duckdb10StringCast9OperationIfEENS_8string_tET_RNS_6VectorE(float noundef, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #11
+declare { i64, ptr } @_ZN6duckdb10StringCast9OperationIfEENS_8string_tET_RNS_6VectorE(float noundef, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10StringCastEE9OperationId13duckdb_stringEEbT_RT0_(double noundef %input, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -60407,7 +60404,7 @@ ehcleanup11:                                      ; preds = %lpad1, %lpad
   resume { ptr, i32 } %.pn.pn
 }
 
-declare { i64, ptr } @_ZN6duckdb10StringCast9OperationIdEENS_8string_tET_RNS_6VectorE(double noundef, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #11
+declare { i64, ptr } @_ZN6duckdb10StringCast9OperationIdEENS_8string_tET_RNS_6VectorE(double noundef, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10StringCastEE9OperationINS_6date_tE13duckdb_stringEEbT_RT0_(i32 %input.coerce, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -60469,7 +60466,7 @@ ehcleanup14:                                      ; preds = %lpad3, %lpad
   resume { ptr, i32 } %.pn.pn
 }
 
-declare { i64, ptr } @_ZN6duckdb10StringCast9OperationINS_6date_tEEENS_8string_tET_RNS_6VectorE(i32, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #11
+declare { i64, ptr } @_ZN6duckdb10StringCast9OperationINS_6date_tEEENS_8string_tET_RNS_6VectorE(i32, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10StringCastEE9OperationINS_7dtime_tE13duckdb_stringEEbT_RT0_(i64 %input.coerce, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -60531,7 +60528,7 @@ ehcleanup14:                                      ; preds = %lpad3, %lpad
   resume { ptr, i32 } %.pn.pn
 }
 
-declare { i64, ptr } @_ZN6duckdb10StringCast9OperationINS_7dtime_tEEENS_8string_tET_RNS_6VectorE(i64, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #11
+declare { i64, ptr } @_ZN6duckdb10StringCast9OperationINS_7dtime_tEEENS_8string_tET_RNS_6VectorE(i64, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10StringCastEE9OperationINS_11timestamp_tE13duckdb_stringEEbT_RT0_(i64 %input.coerce, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -60593,7 +60590,7 @@ ehcleanup14:                                      ; preds = %lpad3, %lpad
   resume { ptr, i32 } %.pn.pn
 }
 
-declare { i64, ptr } @_ZN6duckdb10StringCast9OperationINS_11timestamp_tEEENS_8string_tET_RNS_6VectorE(i64, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #11
+declare { i64, ptr } @_ZN6duckdb10StringCast9OperationINS_11timestamp_tEEENS_8string_tET_RNS_6VectorE(i64, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10StringCastEE9OperationINS_9hugeint_tE13duckdb_stringEEbT_RT0_(i64 %input.coerce0, i64 %input.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -60655,9 +60652,9 @@ ehcleanup12:                                      ; preds = %lpad2, %lpad
   resume { ptr, i32 } %.pn.pn
 }
 
-declare { i64, ptr } @_ZN6duckdb10StringCast9OperationINS_9hugeint_tEEENS_8string_tET_RNS_6VectorE(i64, i64, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #11
+declare { i64, ptr } @_ZN6duckdb10StringCast9OperationINS_9hugeint_tEEENS_8string_tET_RNS_6VectorE(i64, i64, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalI13duckdb_stringEEbP13duckdb_resultRT_mm(ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i64 noundef) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb20CastDecimalCInternalI13duckdb_stringEEbP13duckdb_resultRT_mm(ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10StringCastEE9OperationINS_10interval_tE13duckdb_stringEEbT_RT0_(i64 %input.coerce0, i64 %input.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -60719,7 +60716,7 @@ ehcleanup12:                                      ; preds = %lpad2, %lpad
   resume { ptr, i32 } %.pn.pn
 }
 
-declare { i64, ptr } @_ZN6duckdb10StringCast9OperationINS_10interval_tEEENS_8string_tET_RNS_6VectorE(i64, i64, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #11
+declare { i64, ptr } @_ZN6duckdb10StringCast9OperationINS_10interval_tEEENS_8string_tET_RNS_6VectorE(i64, i64, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10StringCastEE9OperationINS_8string_tE13duckdb_stringEEbT_RT0_(i64 %input.coerce0, ptr %input.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %result) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -60781,53 +60778,56 @@ ehcleanup12:                                      ; preds = %lpad2, %lpad
   resume { ptr, i32 } %.pn.pn
 }
 
-declare { i64, ptr } @_ZN6duckdb10StringCast9OperationINS_8string_tEEES2_T_RNS_6VectorE(i64, ptr, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #11
+declare { i64, ptr } @_ZN6duckdb10StringCast9OperationINS_8string_tEEES2_T_RNS_6VectorE(i64, ptr, ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #10
 
-declare noundef zeroext i1 @_ZN6duckdb20FromCBlobCastWrapper9OperationI11duckdb_blob13duckdb_stringEEbT_RT0_(ptr, i64, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #11
+declare noundef zeroext i1 @_ZN6duckdb20FromCBlobCastWrapper9OperationI11duckdb_blob13duckdb_stringEEbT_RT0_(ptr, i64, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #28
+declare void @llvm.assume(i1 noundef) #27
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #29
+declare i64 @llvm.umax.i64(i64, i64) #28
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #29
+declare i64 @llvm.umin.i64(i64, i64) #28
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #30
+declare void @llvm.experimental.noalias.scope.decl(metadata) #29
+
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #30
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nosync nounwind memory(none) }
-attributes #6 = { noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #28 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #29 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #30 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #5 = { noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #28 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #29 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #30 = { nofree nosync nounwind memory(none) }
 attributes #31 = { builtin allocsize(0) }
 attributes #32 = { nounwind }
 attributes #33 = { noreturn nounwind }

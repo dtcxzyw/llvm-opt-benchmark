@@ -6993,7 +6993,7 @@ lpad6:                                            ; preds = %if.then
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
   %10 = extractvalue { ptr, i32 } %8, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI16tactic_exception) #16
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI16tactic_exception) #16
   %matches = icmp eq i32 %10, %11
   br i1 %matches, label %catch153, label %catch.fallthrough
 
@@ -7007,7 +7007,7 @@ invoke.cont156.invoke:                            ; preds = %catch147, %catch153
           to label %if.end163 unwind label %lpad.loopexit
 
 catch.fallthrough:                                ; preds = %lpad6
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI18rewriter_exception) #16
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI18rewriter_exception) #16
   %matches8 = icmp eq i32 %10, %13
   br i1 %matches8, label %catch147, label %catch.fallthrough9
 
@@ -7017,7 +7017,7 @@ catch147:                                         ; preds = %catch.fallthrough
           to label %invoke.cont156.invoke unwind label %lpad149
 
 catch.fallthrough9:                               ; preds = %catch.fallthrough
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI8z3_error) #16
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI8z3_error) #16
   %matches10 = icmp eq i32 %10, %15
   br i1 %matches10, label %catch106, label %catch.fallthrough11
 
@@ -7069,7 +7069,7 @@ invoke.cont128:                                   ; preds = %invoke.cont126
           to label %if.end145 unwind label %lpad109
 
 catch.fallthrough11:                              ; preds = %catch.fallthrough9
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI12z3_exception) #16
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI12z3_exception) #16
   %matches12 = icmp eq i32 %10, %18
   br i1 %matches12, label %catch69, label %catch.fallthrough13
 
@@ -7117,7 +7117,7 @@ invoke.cont89:                                    ; preds = %invoke.cont87
           to label %if.end104 unwind label %lpad72
 
 catch.fallthrough13:                              ; preds = %catch.fallthrough11
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #16
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #16
   %matches14 = icmp eq i32 %10, %21
   %22 = call ptr @__cxa_begin_catch(ptr %9) #16
   br i1 %matches14, label %catch35, label %catch
@@ -7789,9 +7789,6 @@ unreachable:                                      ; preds = %invoke.cont
 }
 
 declare void @_ZN4goalC1ERKS_(ptr noundef nonnull align 8 dereferenceable(124), ptr noundef nonnull align 8 dereferenceable(124)) unnamed_addr #0
-
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #12
 
 declare noundef i32 @_Z19get_verbosity_levelv() local_unnamed_addr #0
 
@@ -9452,7 +9449,7 @@ declare void @_ZN8reslimit10push_childEPS_(ptr noundef nonnull align 8 dereferen
 declare void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
@@ -9855,7 +9852,7 @@ catch.dispatch:                                   ; preds = %lpad4.loopexit, %lp
   %.pn16 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %.pn.i, %ehcleanup.i ], [ %lpad.loopexit55, %lpad4.loopexit ], [ %lpad.loopexit.split-lp56, %lpad4.loopexit.split-lp ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn16, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn16, 1
-  %59 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI16tactic_exception) #16
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI16tactic_exception) #16
   %matches = icmp eq i32 %ehselector.slot.1, %59
   br i1 %matches, label %catch71, label %catch.fallthrough
 
@@ -9880,7 +9877,7 @@ invoke.cont78:                                    ; preds = %if.then74
           to label %if.end83.invoke unwind label %lpad77
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %64 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI8z3_error) #16
+  %64 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI8z3_error) #16
   %matches41 = icmp eq i32 %ehselector.slot.1, %64
   br i1 %matches41, label %catch58, label %catch.fallthrough42
 
@@ -9905,7 +9902,7 @@ invoke.cont65:                                    ; preds = %if.then61
   br label %if.end83.invoke
 
 catch.fallthrough42:                              ; preds = %catch.fallthrough
-  %69 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI12z3_exception) #16
+  %69 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI12z3_exception) #16
   %matches43 = icmp eq i32 %ehselector.slot.1, %69
   br i1 %matches43, label %catch, label %ehcleanup87
 
@@ -13276,7 +13273,7 @@ lpad3:                                            ; preds = %invoke.cont4
           catch ptr @_ZTI12z3_exception
   %14 = extractvalue { ptr, i32 } %13, 0
   %15 = extractvalue { ptr, i32 } %13, 1
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI16tactic_exception) #16
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI16tactic_exception) #16
   %matches = icmp eq i32 %15, %16
   br i1 %matches, label %catch42, label %catch.fallthrough
 
@@ -13327,7 +13324,7 @@ invoke.cont54:                                    ; preds = %if.then50
           to label %if.end58 unwind label %lpad53
 
 catch.fallthrough:                                ; preds = %lpad3
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI8z3_error) #16
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI8z3_error) #16
   %matches7 = icmp eq i32 %15, %31
   br i1 %matches7, label %catch23, label %catch.fallthrough8
 
@@ -13378,7 +13375,7 @@ invoke.cont35:                                    ; preds = %if.then31
   br label %if.end37
 
 catch.fallthrough8:                               ; preds = %catch.fallthrough
-  %46 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI12z3_exception) #16
+  %46 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI12z3_exception) #16
   %matches9 = icmp eq i32 %15, %46
   br i1 %matches9, label %catch, label %ehcleanup159
 
@@ -19559,12 +19556,15 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_tactical.cpp() #14 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_tactical.cpp() #13 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
   ret void
 }
+
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
@@ -19584,9 +19584,9 @@ attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #10 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nofree nosync nounwind memory(none) }
-attributes #13 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nosync nounwind memory(none) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nounwind }
 attributes #17 = { noreturn }

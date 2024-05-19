@@ -1427,7 +1427,7 @@ lpad22:                                           ; preds = %if.then25, %sw.bb20
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = extractvalue { ptr, i32 } %17, 1
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches = icmp eq i32 %19, %20
   %21 = call ptr @__cxa_begin_catch(ptr %18) #22
   br i1 %matches, label %catch41, label %catch
@@ -1802,15 +1802,12 @@ declare void @_ZN4absl12log_internal15LogMessageFatalC1EPKciSt17basic_string_vie
 ; Function Attrs: noreturn nounwind
 declare void @_ZN4absl12log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #9
-
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
   tail call void @_ZSt9terminatev() #23
   unreachable
@@ -1819,7 +1816,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
 
 declare void @_ZN7testing8internal18FormatFileLocationB5cxx11EPKci(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, i32 noundef) local_unnamed_addr #0
 
@@ -1827,7 +1824,7 @@ declare void @_ZN7testing8internal18FormatFileLocationB5cxx11EPKci(ptr sret(%"cl
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #10
 
 declare void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
@@ -1841,19 +1838,19 @@ declare void @_ZNK7testing8internal12AssertHelperaSERKNS_7MessageE(ptr noundef n
 declare void @_ZN7testing8internal12AssertHelperD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN17absl_log_internal35CHECKTest_TestLogicExpressions_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17absl_log_internal35CHECKTest_TestLogicExpressions_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN17absl_log_internal49CHECKTest_TestPlacementsInCompoundStatements_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #12 align 2 {
+define dso_local void @_ZN17absl_log_internal49CHECKTest_TestPlacementsInCompoundStatements_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN17absl_log_internal34CHECKTest_TestBoolConvertible_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #12 align 2 {
+define dso_local void @_ZN17absl_log_internal34CHECKTest_TestBoolConvertible_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 {
 entry:
   ret void
 }
@@ -2089,7 +2086,7 @@ lpad51:                                           ; preds = %if.then54, %sw.bb49
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
   %29 = extractvalue { ptr, i32 } %27, 1
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches = icmp eq i32 %29, %30
   %31 = call ptr @__cxa_begin_catch(ptr %28) #22
   br i1 %matches, label %catch90, label %catch
@@ -2542,7 +2539,7 @@ lpad28:                                           ; preds = %if.then31, %sw.bb26
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
   %31 = extractvalue { ptr, i32 } %29, 1
-  %32 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches = icmp eq i32 %31, %32
   %33 = call ptr @__cxa_begin_catch(ptr %30) #22
   br i1 %matches, label %catch42, label %catch
@@ -3002,7 +2999,7 @@ lpad28:                                           ; preds = %if.then31, %sw.bb26
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
   %31 = extractvalue { ptr, i32 } %29, 1
-  %32 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches = icmp eq i32 %31, %32
   %33 = call ptr @__cxa_begin_catch(ptr %30) #22
   br i1 %matches, label %catch50, label %catch
@@ -3410,7 +3407,7 @@ lpad28:                                           ; preds = %cond.false.i, %whil
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
   %33 = extractvalue { ptr, i32 } %31, 1
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches = icmp eq i32 %33, %34
   %35 = call ptr @__cxa_begin_catch(ptr %32) #22
   br i1 %matches, label %catch59, label %catch
@@ -3789,7 +3786,7 @@ lpad141:                                          ; preds = %while.cond145, %whi
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
   %96 = extractvalue { ptr, i32 } %94, 1
-  %97 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches170 = icmp eq i32 %96, %97
   %98 = call ptr @__cxa_begin_catch(ptr %95) #22
   br i1 %matches170, label %catch181, label %catch171
@@ -4335,7 +4332,7 @@ lpad28:                                           ; preds = %while.body, %while.
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
   %33 = extractvalue { ptr, i32 } %31, 1
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches = icmp eq i32 %33, %34
   %35 = call ptr @__cxa_begin_catch(ptr %32) #22
   br i1 %matches, label %catch53, label %catch
@@ -4718,7 +4715,7 @@ lpad135:                                          ; preds = %while.body144, %whi
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
   %96 = extractvalue { ptr, i32 } %94, 1
-  %97 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches160 = icmp eq i32 %96, %97
   %98 = call ptr @__cxa_begin_catch(ptr %95) #22
   br i1 %matches160, label %catch171, label %catch161
@@ -5211,7 +5208,7 @@ lpad28:                                           ; preds = %for.body, %if.then3
           catch ptr null
   %exn.slot.2 = extractvalue { ptr, i32 } %34, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %34, 1
-  %35 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches = icmp eq i32 %ehselector.slot.2, %35
   %36 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #22
   br i1 %matches, label %catch70, label %catch
@@ -5461,7 +5458,7 @@ ehcleanup7:                                       ; preds = %lpad, %lpad.i, %ehc
 declare i64 @_ZN4absl23FailedPreconditionErrorESt17basic_string_viewIcSt11char_traitsIcEE(i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZN4absl15status_internal19MakeCheckFailStringB5cxx11EPKNS_6StatusEPKc(ptr noundef, ptr noundef) local_unnamed_addr #13
+declare noundef ptr @_ZN4absl15status_internal19MakeCheckFailStringB5cxx11EPKNS_6StatusEPKc(ptr noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN17absl_log_internal38CHECKTest_TestMacroExpansionComma_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -5676,7 +5673,7 @@ lpad28:                                           ; preds = %if.then31, %sw.bb26
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
   %31 = extractvalue { ptr, i32 } %29, 1
-  %32 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches = icmp eq i32 %31, %32
   %33 = call ptr @__cxa_begin_catch(ptr %30) #22
   br i1 %matches, label %catch50, label %catch
@@ -6151,7 +6148,7 @@ lpad28:                                           ; preds = %while.cond, %while.
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
   %33 = extractvalue { ptr, i32 } %31, 1
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches = icmp eq i32 %33, %34
   %35 = call ptr @__cxa_begin_catch(ptr %32) #22
   br i1 %matches, label %catch61, label %catch
@@ -6530,7 +6527,7 @@ lpad143:                                          ; preds = %while.cond147, %whi
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
   %96 = extractvalue { ptr, i32 } %94, 1
-  %97 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches176 = icmp eq i32 %96, %97
   %98 = call ptr @__cxa_begin_catch(ptr %95) #22
   br i1 %matches176, label %catch187, label %catch177
@@ -7076,7 +7073,7 @@ lpad28:                                           ; preds = %while.body, %while.
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
   %33 = extractvalue { ptr, i32 } %31, 1
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches = icmp eq i32 %33, %34
   %35 = call ptr @__cxa_begin_catch(ptr %32) #22
   br i1 %matches, label %catch53, label %catch
@@ -7459,7 +7456,7 @@ lpad135:                                          ; preds = %while.body144, %whi
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
   %96 = extractvalue { ptr, i32 } %94, 1
-  %97 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches160 = icmp eq i32 %96, %97
   %98 = call ptr @__cxa_begin_catch(ptr %95) #22
   br i1 %matches160, label %catch171, label %catch161
@@ -8041,7 +8038,7 @@ catch.dispatch:                                   ; preds = %lpad40, %lpad28
   %.pn4 = phi { ptr, i32 } [ %30, %lpad40 ], [ %29, %lpad28 ]
   %exn.slot.4 = extractvalue { ptr, i32 } %.pn4, 0
   %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn4, 1
-  %33 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches = icmp eq i32 %ehselector.slot.4, %33
   %34 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #22
   br i1 %matches, label %catch73, label %catch
@@ -8643,7 +8640,7 @@ lpad40:                                           ; preds = %if.then43, %sw.bb38
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
   %40 = extractvalue { ptr, i32 } %38, 1
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches = icmp eq i32 %40, %41
   %42 = call ptr @__cxa_begin_catch(ptr %39) #22
   br i1 %matches, label %catch70, label %catch
@@ -8891,7 +8888,7 @@ ehcleanup7:                                       ; preds = %lpad, %lpad.i, %ehc
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @"_ZZN17absl_log_internal35CHECKTest_TestSecondaryFailure_Test8TestBodyEvENK3$_0clEv"() unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN17absl_log_internal35CHECKTest_TestSecondaryFailure_Test8TestBodyEvENK3$_0clEv"() unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::log_internal::LogMessageFatal", align 8
   call void @_ZN4absl12log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull @.str.4, i32 noundef 213, i64 5, ptr nonnull @.str.7) #24
@@ -9220,7 +9217,7 @@ lpad40:                                           ; preds = %if.then43, %sw.bb38
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
   %40 = extractvalue { ptr, i32 } %38, 1
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches = icmp eq i32 %40, %41
   %42 = call ptr @__cxa_begin_catch(ptr %39) #22
   br i1 %matches, label %catch67, label %catch
@@ -9408,7 +9405,7 @@ terminate.lpad:                                   ; preds = %lpad70, %lpad61
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @"_ZZN17absl_log_internal44CHECKTest_TestSecondaryFailureInMessage_Test8TestBodyEvENK3$_0clEv"() unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN17absl_log_internal44CHECKTest_TestSecondaryFailureInMessage_Test8TestBodyEvENK3$_0clEv"() unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::log_internal::LogMessageFatal", align 8
   call void @_ZN4absl12log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull @.str.4, i32 noundef 222, i64 5, ptr nonnull @.str.7) #24
@@ -9427,19 +9424,19 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN17absl_log_internal45CHECKTest_TestBinaryChecksWithPrimitives_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17absl_log_internal45CHECKTest_TestBinaryChecksWithPrimitives_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 while.end119:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN17absl_log_internal45CHECKTest_TestBinaryChecksWithEnumValues_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17absl_log_internal45CHECKTest_TestBinaryChecksWithEnumValues_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 while.end135:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN17absl_log_internal42CHECKTest_TestBinaryChecksWithNullptr_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17absl_log_internal42CHECKTest_TestBinaryChecksWithNullptr_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 while.end59:
   ret void
 }
@@ -9611,7 +9608,7 @@ lpad22:                                           ; preds = %cond.false.i, %whil
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
   %21 = extractvalue { ptr, i32 } %19, 1
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches = icmp eq i32 %21, %22
   %23 = call ptr @__cxa_begin_catch(ptr %20) #22
   br i1 %matches, label %catch50, label %catch
@@ -9907,7 +9904,7 @@ lpad122:                                          ; preds = %cond.false.i92, %wh
           catch ptr null
   %71 = extractvalue { ptr, i32 } %70, 0
   %72 = extractvalue { ptr, i32 } %70, 1
-  %73 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %73 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches153 = icmp eq i32 %72, %73
   %74 = call ptr @__cxa_begin_catch(ptr %71) #22
   br i1 %matches153, label %catch164, label %catch154
@@ -10237,7 +10234,7 @@ lpad247.body:                                     ; preds = %lpad.i.i, %lpad247
   %eh.lpad-body = phi { ptr, i32 } [ %122, %lpad247 ], [ %119, %lpad.i.i ]
   %123 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %124 = extractvalue { ptr, i32 } %eh.lpad-body, 1
-  %125 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %125 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches278 = icmp eq i32 %124, %125
   %126 = call ptr @__cxa_begin_catch(ptr %123) #22
   br i1 %matches278, label %catch289, label %catch279
@@ -10567,7 +10564,7 @@ lpad370.body:                                     ; preds = %lpad.i.i183, %lpad3
   %eh.lpad-body192 = phi { ptr, i32 } [ %174, %lpad370 ], [ %171, %lpad.i.i183 ]
   %175 = extractvalue { ptr, i32 } %eh.lpad-body192, 0
   %176 = extractvalue { ptr, i32 } %eh.lpad-body192, 1
-  %177 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %177 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches401 = icmp eq i32 %176, %177
   %178 = call ptr @__cxa_begin_catch(ptr %175) #22
   br i1 %matches401, label %catch412, label %catch402
@@ -10863,7 +10860,7 @@ lpad495:                                          ; preds = %cond.false.i235, %w
           catch ptr null
   %226 = extractvalue { ptr, i32 } %225, 0
   %227 = extractvalue { ptr, i32 } %225, 1
-  %228 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %228 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches526 = icmp eq i32 %227, %228
   %229 = call ptr @__cxa_begin_catch(ptr %226) #22
   br i1 %matches526, label %catch537, label %catch527
@@ -11159,7 +11156,7 @@ lpad618:                                          ; preds = %cond.false.i280, %w
           catch ptr null
   %277 = extractvalue { ptr, i32 } %276, 0
   %278 = extractvalue { ptr, i32 } %276, 1
-  %279 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %279 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches649 = icmp eq i32 %278, %279
   %280 = call ptr @__cxa_begin_catch(ptr %277) #22
   br i1 %matches649, label %catch660, label %catch650
@@ -11492,7 +11489,7 @@ lpad22:                                           ; preds = %cond.false.i, %whil
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
   %21 = extractvalue { ptr, i32 } %19, 1
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches = icmp eq i32 %21, %22
   %23 = call ptr @__cxa_begin_catch(ptr %20) #22
   br i1 %matches, label %catch48, label %catch
@@ -11788,7 +11785,7 @@ lpad120:                                          ; preds = %cond.false.i66, %wh
           catch ptr null
   %71 = extractvalue { ptr, i32 } %70, 0
   %72 = extractvalue { ptr, i32 } %70, 1
-  %73 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %73 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches149 = icmp eq i32 %72, %73
   %74 = call ptr @__cxa_begin_catch(ptr %71) #22
   br i1 %matches149, label %catch160, label %catch150
@@ -12084,7 +12081,7 @@ lpad241:                                          ; preds = %cond.false.i111, %w
           catch ptr null
   %122 = extractvalue { ptr, i32 } %121, 0
   %123 = extractvalue { ptr, i32 } %121, 1
-  %124 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %124 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches270 = icmp eq i32 %123, %124
   %125 = call ptr @__cxa_begin_catch(ptr %122) #22
   br i1 %matches270, label %catch281, label %catch271
@@ -12380,7 +12377,7 @@ lpad362:                                          ; preds = %while.cond366, %whi
           catch ptr null
   %173 = extractvalue { ptr, i32 } %172, 0
   %174 = extractvalue { ptr, i32 } %172, 1
-  %175 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %175 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches392 = icmp eq i32 %174, %175
   %176 = call ptr @__cxa_begin_catch(ptr %173) #22
   br i1 %matches392, label %catch403, label %catch393
@@ -12974,31 +12971,31 @@ while.end110:                                     ; preds = %while.end96
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN17absl_log_internal25CHECKTest_TestDCHECK_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #12 align 2 {
+define dso_local void @_ZN17absl_log_internal25CHECKTest_TestDCHECK_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN17absl_log_internal25CHECKTest_TestQCHECK_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17absl_log_internal25CHECKTest_TestQCHECK_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 while.end263:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN17absl_log_internal55CHECKTest_TestQCHECKPlacementsInCompoundStatements_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17absl_log_internal55CHECKTest_TestQCHECKPlacementsInCompoundStatements_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 while.end:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN17absl_log_internal36CHECKTest_TestUserDefinedCompOp_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17absl_log_internal36CHECKTest_TestUserDefinedCompOp_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 while.end99:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN17absl_log_internal32CHECKTest_TestCheckInMethod_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17absl_log_internal32CHECKTest_TestCheckInMethod_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 _ZN17absl_log_internal14ComparableType15MethodWithCheckEi.exit:
   ret void
 }
@@ -13233,7 +13230,7 @@ lpad28:                                           ; preds = %cond.false.i, %whil
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
   %35 = extractvalue { ptr, i32 } %33, 1
-  %36 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches = icmp eq i32 %35, %36
   %37 = call ptr @__cxa_begin_catch(ptr %34) #22
   br i1 %matches, label %catch57, label %catch
@@ -14812,7 +14809,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -14971,7 +14968,7 @@ declare void @_ZN7testing8internal8GTestLogC1ENS0_16GTestLogSeverityEPKci(ptr no
 declare void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN17absl_log_internal35CHECKTest_TestLogicExpressions_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #6 comdat align 2 {
@@ -15981,7 +15978,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #17
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -16510,7 +16507,7 @@ _ZNSt12_Vector_baseIN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_trai
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #17
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7testing8internal10NotMatcherINS_18PolymorphicMatcherINS0_16HasSubstrMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEcvNS_7MatcherIT_EEIRKS9_EEv(ptr noalias sret(%"class.testing::Matcher") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -17251,7 +17248,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsI
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_check_test.cc() #18 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_check_test.cc() #17 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i727 = alloca %"struct.testing::internal::CodeLocation", align 8
   %ref.tmp.i728 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19669,6 +19666,9 @@ __cxx_global_var_init.190.exit:                   ; preds = %invoke.cont10.i751
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #18
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
@@ -19693,16 +19693,16 @@ attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #6 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nosync nounwind memory(none) }
-attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nofree nosync nounwind memory(none) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

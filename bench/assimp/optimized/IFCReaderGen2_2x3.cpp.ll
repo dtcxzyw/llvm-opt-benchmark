@@ -503,7 +503,7 @@ lpad6:                                            ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %28 = extractvalue { ptr, i32 } %27, 0
   %29 = extractvalue { ptr, i32 } %27, 1
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %29, %30
   br i1 %matches, label %catch, label %ehcleanup29
 
@@ -662,7 +662,7 @@ lpad33:                                           ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %48 = extractvalue { ptr, i32 } %47, 0
   %49 = extractvalue { ptr, i32 } %47, 1
-  %50 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %50 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches37 = icmp eq i32 %49, %50
   br i1 %matches37, label %catch38, label %ehcleanup68
 
@@ -814,15 +814,12 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #4
-
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
   tail call void @_ZSt9terminatev() #18
   unreachable
@@ -1076,7 +1073,7 @@ lpad13:                                           ; preds = %if.end12
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %13 = extractvalue { ptr, i32 } %12, 0
   %14 = extractvalue { ptr, i32 } %12, 1
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %14, %15
   br i1 %matches, label %catch, label %ehcleanup36
 
@@ -1249,7 +1246,7 @@ unreachable:                                      ; preds = %invoke.cont25, %inv
 declare noundef i64 @_ZN6Assimp4STEP11GenericFillINS_3IFC10Schema_2x332IfcTopologicalRepresentationItemEEEmRKNS0_2DBERKNS0_7EXPRESS4LISTEPT_(ptr noundef nonnull align 8 dereferenceable(376), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #6
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i64 @_ZN6Assimp4STEP11GenericFillINS_3IFC10Schema_2x326IfcStructuralSurfaceMemberEEEmRKNS0_2DBERKNS0_7EXPRESS4LISTEPT_(ptr noundef nonnull align 8 dereferenceable(376) %db, ptr noundef nonnull align 8 dereferenceable(32) %params, ptr noundef %in) local_unnamed_addr #0 {
@@ -1414,7 +1411,7 @@ lpad19:                                           ; preds = %if.end18
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %14 = extractvalue { ptr, i32 } %13, 0
   %15 = extractvalue { ptr, i32 } %13, 1
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %15, %16
   br i1 %matches, label %catch, label %ehcleanup42
 
@@ -1797,7 +1794,7 @@ lpad6:                                            ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %28 = extractvalue { ptr, i32 } %27, 0
   %29 = extractvalue { ptr, i32 } %27, 1
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %29, %30
   br i1 %matches, label %catch, label %ehcleanup29
 
@@ -1956,7 +1953,7 @@ lpad33:                                           ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %48 = extractvalue { ptr, i32 } %47, 0
   %49 = extractvalue { ptr, i32 } %47, 1
-  %50 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %50 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches37 = icmp eq i32 %49, %50
   br i1 %matches37, label %catch38, label %ehcleanup68
 
@@ -2276,7 +2273,7 @@ lpad6:                                            ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %27 = extractvalue { ptr, i32 } %26, 0
   %28 = extractvalue { ptr, i32 } %26, 1
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %28, %29
   br i1 %matches, label %catch, label %ehcleanup29
 
@@ -2466,7 +2463,7 @@ lpad33:                                           ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %53 = extractvalue { ptr, i32 } %52, 0
   %54 = extractvalue { ptr, i32 } %52, 1
-  %55 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %55 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches37 = icmp eq i32 %54, %55
   br i1 %matches37, label %catch38, label %ehcleanup68
 
@@ -2624,7 +2621,7 @@ lpad73:                                           ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %73 = extractvalue { ptr, i32 } %72, 0
   %74 = extractvalue { ptr, i32 } %72, 1
-  %75 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %75 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches77 = icmp eq i32 %74, %75
   br i1 %matches77, label %catch78, label %ehcleanup108
 
@@ -2865,7 +2862,7 @@ lpad9:                                            ; preds = %if.end8
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %12 = extractvalue { ptr, i32 } %11, 0
   %13 = extractvalue { ptr, i32 } %11, 1
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %13, %14
   br i1 %matches, label %catch, label %ehcleanup32
 
@@ -3068,7 +3065,7 @@ lpad43:                                           ; preds = %if.end42
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %41 = extractvalue { ptr, i32 } %40, 0
   %42 = extractvalue { ptr, i32 } %40, 1
-  %43 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %43 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches47 = icmp eq i32 %42, %43
   br i1 %matches47, label %catch48, label %ehcleanup78
 
@@ -3271,7 +3268,7 @@ lpad90:                                           ; preds = %if.end89
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %70 = extractvalue { ptr, i32 } %69, 0
   %71 = extractvalue { ptr, i32 } %69, 1
-  %72 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %72 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches94 = icmp eq i32 %71, %72
   br i1 %matches94, label %catch95, label %ehcleanup125
 
@@ -3474,7 +3471,7 @@ lpad137:                                          ; preds = %if.end136
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %99 = extractvalue { ptr, i32 } %98, 0
   %100 = extractvalue { ptr, i32 } %98, 1
-  %101 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches141 = icmp eq i32 %100, %101
   br i1 %matches141, label %catch142, label %ehcleanup172
 
@@ -3677,7 +3674,7 @@ lpad184:                                          ; preds = %if.end183
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %128 = extractvalue { ptr, i32 } %127, 0
   %129 = extractvalue { ptr, i32 } %127, 1
-  %130 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %130 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches188 = icmp eq i32 %129, %130
   br i1 %matches188, label %catch189, label %ehcleanup219
 
@@ -4131,7 +4128,7 @@ lpad13:                                           ; preds = %if.end12
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %13 = extractvalue { ptr, i32 } %12, 0
   %14 = extractvalue { ptr, i32 } %12, 1
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %14, %15
   br i1 %matches, label %catch, label %ehcleanup36
 
@@ -4339,7 +4336,7 @@ lpad53:                                           ; preds = %if.end52
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %43 = extractvalue { ptr, i32 } %42, 0
   %44 = extractvalue { ptr, i32 } %42, 1
-  %45 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %45 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches57 = icmp eq i32 %44, %45
   br i1 %matches57, label %catch58, label %ehcleanup88
 
@@ -4547,7 +4544,7 @@ lpad106:                                          ; preds = %if.end105
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %73 = extractvalue { ptr, i32 } %72, 0
   %74 = extractvalue { ptr, i32 } %72, 1
-  %75 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %75 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches110 = icmp eq i32 %74, %75
   br i1 %matches110, label %catch111, label %ehcleanup141
 
@@ -5414,7 +5411,7 @@ lpad6:                                            ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %21 = extractvalue { ptr, i32 } %20, 0
   %22 = extractvalue { ptr, i32 } %20, 1
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %22, %23
   br i1 %matches, label %catch, label %ehcleanup29
 
@@ -5728,7 +5725,7 @@ lpad6:                                            ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %28 = extractvalue { ptr, i32 } %27, 0
   %29 = extractvalue { ptr, i32 } %27, 1
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %29, %30
   br i1 %matches, label %catch, label %ehcleanup29
 
@@ -5887,7 +5884,7 @@ lpad33:                                           ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %48 = extractvalue { ptr, i32 } %47, 0
   %49 = extractvalue { ptr, i32 } %47, 1
-  %50 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %50 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches37 = icmp eq i32 %49, %50
   br i1 %matches37, label %catch38, label %ehcleanup68
 
@@ -6212,7 +6209,7 @@ lpad6:                                            ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %28 = extractvalue { ptr, i32 } %27, 0
   %29 = extractvalue { ptr, i32 } %27, 1
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %29, %30
   br i1 %matches, label %catch, label %ehcleanup29
 
@@ -6371,7 +6368,7 @@ lpad33:                                           ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %48 = extractvalue { ptr, i32 } %47, 0
   %49 = extractvalue { ptr, i32 } %47, 1
-  %50 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %50 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches37 = icmp eq i32 %49, %50
   br i1 %matches37, label %catch38, label %ehcleanup68
 
@@ -6590,7 +6587,7 @@ lpad9:                                            ; preds = %if.end8
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %12 = extractvalue { ptr, i32 } %11, 0
   %13 = extractvalue { ptr, i32 } %11, 1
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %13, %14
   br i1 %matches, label %catch, label %ehcleanup32
 
@@ -6793,7 +6790,7 @@ lpad43:                                           ; preds = %if.end42
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %41 = extractvalue { ptr, i32 } %40, 0
   %42 = extractvalue { ptr, i32 } %40, 1
-  %43 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %43 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches47 = icmp eq i32 %42, %43
   br i1 %matches47, label %catch48, label %ehcleanup78
 
@@ -7155,7 +7152,7 @@ lpad9:                                            ; preds = %if.end8
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %12 = extractvalue { ptr, i32 } %11, 0
   %13 = extractvalue { ptr, i32 } %11, 1
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %13, %14
   br i1 %matches, label %catch, label %ehcleanup32
 
@@ -7515,7 +7512,7 @@ lpad6:                                            ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %21 = extractvalue { ptr, i32 } %20, 0
   %22 = extractvalue { ptr, i32 } %20, 1
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %22, %23
   br i1 %matches, label %catch, label %ehcleanup29
 
@@ -7798,7 +7795,7 @@ lpad6:                                            ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %21 = extractvalue { ptr, i32 } %20, 0
   %22 = extractvalue { ptr, i32 } %20, 1
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %22, %23
   br i1 %matches, label %catch, label %ehcleanup29
 
@@ -8043,7 +8040,7 @@ lpad19:                                           ; preds = %if.end18
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %14 = extractvalue { ptr, i32 } %13, 0
   %15 = extractvalue { ptr, i32 } %13, 1
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %15, %16
   br i1 %matches, label %catch, label %ehcleanup42
 
@@ -8257,7 +8254,7 @@ lpad65:                                           ; preds = %if.end64
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %44 = extractvalue { ptr, i32 } %43, 0
   %45 = extractvalue { ptr, i32 } %43, 1
-  %46 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %46 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches69 = icmp eq i32 %45, %46
   br i1 %matches69, label %catch70, label %ehcleanup100
 
@@ -8553,7 +8550,7 @@ lpad13:                                           ; preds = %if.end12
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %13 = extractvalue { ptr, i32 } %12, 0
   %14 = extractvalue { ptr, i32 } %12, 1
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %14, %15
   br i1 %matches, label %catch, label %ehcleanup36
 
@@ -8767,7 +8764,7 @@ lpad60:                                           ; preds = %if.end59
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %43 = extractvalue { ptr, i32 } %42, 0
   %44 = extractvalue { ptr, i32 } %42, 1
-  %45 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %45 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches64 = icmp eq i32 %44, %45
   br i1 %matches64, label %catch65, label %ehcleanup95
 
@@ -9197,7 +9194,7 @@ lpad173:                                          ; preds = %if.end172
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %106 = extractvalue { ptr, i32 } %105, 0
   %107 = extractvalue { ptr, i32 } %105, 1
-  %108 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %108 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches177 = icmp eq i32 %107, %108
   br i1 %matches177, label %catch178, label %ehcleanup208
 
@@ -9490,7 +9487,7 @@ lpad9:                                            ; preds = %if.end8
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %12 = extractvalue { ptr, i32 } %11, 0
   %13 = extractvalue { ptr, i32 } %11, 1
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %13, %14
   br i1 %matches, label %catch, label %ehcleanup32
 
@@ -9758,7 +9755,7 @@ lpad36:                                           ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %50 = extractvalue { ptr, i32 } %49, 0
   %51 = extractvalue { ptr, i32 } %49, 1
-  %52 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %52 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches40 = icmp eq i32 %51, %52
   br i1 %matches40, label %catch41, label %ehcleanup71
 
@@ -9981,7 +9978,7 @@ lpad9:                                            ; preds = %if.end8
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %12 = extractvalue { ptr, i32 } %11, 0
   %13 = extractvalue { ptr, i32 } %11, 1
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %13, %14
   br i1 %matches, label %catch, label %ehcleanup32
 
@@ -10577,7 +10574,7 @@ lpad32:                                           ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %54 = extractvalue { ptr, i32 } %53, 0
   %55 = extractvalue { ptr, i32 } %53, 1
-  %56 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches36 = icmp eq i32 %55, %56
   br i1 %matches36, label %catch37, label %ehcleanup67
 
@@ -11745,7 +11742,7 @@ lpad6:                                            ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %21 = extractvalue { ptr, i32 } %20, 0
   %22 = extractvalue { ptr, i32 } %20, 1
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %22, %23
   br i1 %matches, label %catch, label %ehcleanup29
 
@@ -11995,7 +11992,7 @@ lpad13:                                           ; preds = %if.end12
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %13 = extractvalue { ptr, i32 } %12, 0
   %14 = extractvalue { ptr, i32 } %12, 1
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %14, %15
   br i1 %matches, label %catch, label %ehcleanup36
 
@@ -12203,7 +12200,7 @@ lpad53:                                           ; preds = %if.end52
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %43 = extractvalue { ptr, i32 } %42, 0
   %44 = extractvalue { ptr, i32 } %42, 1
-  %45 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %45 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches57 = icmp eq i32 %44, %45
   br i1 %matches57, label %catch58, label %ehcleanup88
 
@@ -12668,7 +12665,7 @@ lpad6:                                            ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %28 = extractvalue { ptr, i32 } %27, 0
   %29 = extractvalue { ptr, i32 } %27, 1
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %29, %30
   br i1 %matches, label %catch, label %ehcleanup29
 
@@ -12827,7 +12824,7 @@ lpad33:                                           ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %48 = extractvalue { ptr, i32 } %47, 0
   %49 = extractvalue { ptr, i32 } %47, 1
-  %50 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %50 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches37 = icmp eq i32 %49, %50
   br i1 %matches37, label %catch38, label %ehcleanup68
 
@@ -13139,7 +13136,7 @@ lpad5:                                            ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %21 = extractvalue { ptr, i32 } %20, 0
   %22 = extractvalue { ptr, i32 } %20, 1
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %22, %23
   br i1 %matches, label %catch, label %ehcleanup28
 
@@ -13370,7 +13367,7 @@ lpad9:                                            ; preds = %if.end8
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %12 = extractvalue { ptr, i32 } %11, 0
   %13 = extractvalue { ptr, i32 } %11, 1
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %13, %14
   br i1 %matches, label %catch, label %ehcleanup32
 
@@ -13638,7 +13635,7 @@ lpad36:                                           ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %50 = extractvalue { ptr, i32 } %49, 0
   %51 = extractvalue { ptr, i32 } %49, 1
-  %52 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %52 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches40 = icmp eq i32 %51, %52
   br i1 %matches40, label %catch41, label %ehcleanup71
 
@@ -13964,7 +13961,7 @@ lpad5:                                            ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %21 = extractvalue { ptr, i32 } %20, 0
   %22 = extractvalue { ptr, i32 } %20, 1
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %22, %23
   br i1 %matches, label %catch, label %ehcleanup28
 
@@ -14300,7 +14297,7 @@ lpad6:                                            ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %30 = extractvalue { ptr, i32 } %29, 0
   %31 = extractvalue { ptr, i32 } %29, 1
-  %32 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %31, %32
   br i1 %matches, label %catch, label %ehcleanup29
 
@@ -14393,7 +14390,7 @@ lpad36:                                           ; preds = %if.end35
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %39 = extractvalue { ptr, i32 } %38, 0
   %40 = extractvalue { ptr, i32 } %38, 1
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches40 = icmp eq i32 %40, %41
   br i1 %matches40, label %catch41, label %ehcleanup71
 
@@ -14783,7 +14780,7 @@ lpad5:                                            ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %21 = extractvalue { ptr, i32 } %20, 0
   %22 = extractvalue { ptr, i32 } %20, 1
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %22, %23
   br i1 %matches, label %catch, label %ehcleanup28
 
@@ -15100,7 +15097,7 @@ lpad6:                                            ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %28 = extractvalue { ptr, i32 } %27, 0
   %29 = extractvalue { ptr, i32 } %27, 1
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %29, %30
   br i1 %matches, label %catch, label %ehcleanup29
 
@@ -15291,7 +15288,7 @@ lpad33:                                           ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %55 = extractvalue { ptr, i32 } %54, 0
   %56 = extractvalue { ptr, i32 } %54, 1
-  %57 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %57 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches37 = icmp eq i32 %56, %57
   br i1 %matches37, label %catch38, label %ehcleanup68
 
@@ -15482,7 +15479,7 @@ lpad73:                                           ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %82 = extractvalue { ptr, i32 } %81, 0
   %83 = extractvalue { ptr, i32 } %81, 1
-  %84 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %84 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches77 = icmp eq i32 %83, %84
   br i1 %matches77, label %catch78, label %ehcleanup108
 
@@ -15641,7 +15638,7 @@ lpad113:                                          ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %102 = extractvalue { ptr, i32 } %101, 0
   %103 = extractvalue { ptr, i32 } %101, 1
-  %104 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %104 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches117 = icmp eq i32 %103, %104
   br i1 %matches117, label %catch118, label %ehcleanup148
 
@@ -15927,7 +15924,7 @@ lpad6:                                            ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %21 = extractvalue { ptr, i32 } %20, 0
   %22 = extractvalue { ptr, i32 } %20, 1
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %22, %23
   br i1 %matches, label %catch, label %ehcleanup29
 
@@ -16315,7 +16312,7 @@ lpad6:                                            ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %28 = extractvalue { ptr, i32 } %27, 0
   %29 = extractvalue { ptr, i32 } %27, 1
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %29, %30
   br i1 %matches, label %catch, label %ehcleanup29
 
@@ -16474,7 +16471,7 @@ lpad33:                                           ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %48 = extractvalue { ptr, i32 } %47, 0
   %49 = extractvalue { ptr, i32 } %47, 1
-  %50 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %50 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches37 = icmp eq i32 %49, %50
   br i1 %matches37, label %catch38, label %ehcleanup68
 
@@ -16892,7 +16889,7 @@ lpad6:                                            ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %28 = extractvalue { ptr, i32 } %27, 0
   %29 = extractvalue { ptr, i32 } %27, 1
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %29, %30
   br i1 %matches, label %catch, label %ehcleanup29
 
@@ -17051,7 +17048,7 @@ lpad33:                                           ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %48 = extractvalue { ptr, i32 } %47, 0
   %49 = extractvalue { ptr, i32 } %47, 1
-  %50 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %50 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches37 = icmp eq i32 %49, %50
   br i1 %matches37, label %catch38, label %ehcleanup68
 
@@ -17381,7 +17378,7 @@ lpad6:                                            ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %21 = extractvalue { ptr, i32 } %20, 0
   %22 = extractvalue { ptr, i32 } %20, 1
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %22, %23
   br i1 %matches, label %catch, label %ehcleanup29
 
@@ -17591,7 +17588,7 @@ lpad9:                                            ; preds = %if.end8
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %12 = extractvalue { ptr, i32 } %11, 0
   %13 = extractvalue { ptr, i32 } %11, 1
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %13, %14
   br i1 %matches, label %catch, label %ehcleanup32
 
@@ -19149,7 +19146,7 @@ lpad318:                                          ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %248 = extractvalue { ptr, i32 } %247, 0
   %249 = extractvalue { ptr, i32 } %247, 1
-  %250 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %250 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches322 = icmp eq i32 %249, %250
   br i1 %matches322, label %catch323, label %ehcleanup353
 
@@ -19301,7 +19298,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #7
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -19356,7 +19353,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
@@ -19424,7 +19421,7 @@ lpad:                                             ; preds = %dynamic_cast.end, %
   %4 = landingpad { ptr, i32 }
           catch ptr @_ZTISt8bad_cast
   %5 = extractvalue { ptr, i32 } %4, 1
-  %6 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt8bad_cast) #16
+  %6 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt8bad_cast) #16
   %matches = icmp eq i32 %5, %6
   br i1 %matches, label %catch, label %eh.resume
 
@@ -19983,13 +19980,13 @@ declare noundef ptr @_ZN6Assimp13DefaultLogger3getEv() local_unnamed_addr #1
 declare void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorISt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -20435,7 +20432,7 @@ lpad16:                                           ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %42 = extractvalue { ptr, i32 } %41, 1
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15) #16
-  %43 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %43 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %42, %43
   br i1 %matches, label %catch, label %eh.resume
 
@@ -20740,7 +20737,7 @@ lpad:                                             ; preds = %dynamic_cast.bad_ca
   %5 = landingpad { ptr, i32 }
           catch ptr @_ZTISt8bad_cast
   %6 = extractvalue { ptr, i32 } %5, 1
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt8bad_cast) #16
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt8bad_cast) #16
   %matches = icmp eq i32 %6, %7
   br i1 %matches, label %catch, label %eh.resume
 
@@ -21134,7 +21131,7 @@ lpad20:                                           ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %40 = extractvalue { ptr, i32 } %39, 1
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19) #16
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %40, %41
   br i1 %matches, label %catch, label %eh.resume
 
@@ -21217,7 +21214,7 @@ unreachable:                                      ; preds = %invoke.cont33, %inv
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6Assimp4STEP20InternGenericConvertINS0_4LazyINS_3IFC10Schema_2x314NotImplementedEEEEclERS6_RKSt10shared_ptrIKNS0_7EXPRESS8DataTypeEERKNS0_2DBE(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(16) %in_base, ptr noundef nonnull align 8 dereferenceable(376) %db) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -21344,7 +21341,7 @@ lpad:                                             ; preds = %dynamic_cast.bad_ca
   %5 = landingpad { ptr, i32 }
           catch ptr @_ZTISt8bad_cast
   %6 = extractvalue { ptr, i32 } %5, 1
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt8bad_cast) #16
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt8bad_cast) #16
   %matches = icmp eq i32 %6, %7
   br i1 %matches, label %catch, label %eh.resume
 
@@ -21752,7 +21749,7 @@ lpad16:                                           ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %42 = extractvalue { ptr, i32 } %41, 1
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15) #16
-  %43 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %43 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %42, %43
   br i1 %matches, label %catch, label %eh.resume
 
@@ -22847,7 +22844,7 @@ lpad20:                                           ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %40 = extractvalue { ptr, i32 } %39, 1
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp19) #16
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %40, %41
   br i1 %matches, label %catch, label %eh.resume
 
@@ -23278,7 +23275,7 @@ lpad16:                                           ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %42 = extractvalue { ptr, i32 } %41, 1
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15) #16
-  %43 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %43 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %42, %43
   br i1 %matches, label %catch, label %eh.resume
 
@@ -23803,7 +23800,7 @@ lpad16:                                           ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %42 = extractvalue { ptr, i32 } %41, 1
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15) #16
-  %43 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %43 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %42, %43
   br i1 %matches, label %catch, label %eh.resume
 
@@ -24426,7 +24423,7 @@ lpad16:                                           ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %42 = extractvalue { ptr, i32 } %41, 1
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15) #16
-  %43 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %43 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %42, %43
   br i1 %matches, label %catch, label %eh.resume
 
@@ -24951,7 +24948,7 @@ lpad16:                                           ; preds = %_ZNK6Assimp4STEP7EX
           catch ptr @_ZTIN6Assimp4STEP9TypeErrorE
   %42 = extractvalue { ptr, i32 } %41, 1
   call void @_ZNSt10shared_ptrIKN6Assimp4STEP7EXPRESS8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp15) #16
-  %43 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
+  %43 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp4STEP9TypeErrorE) #16
   %matches = icmp eq i32 %42, %43
   br i1 %matches, label %catch, label %eh.resume
 
@@ -25229,6 +25226,9 @@ unreachable:                                      ; preds = %invoke.cont4
   unreachable
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #11
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
@@ -25251,14 +25251,14 @@ attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nosync nounwind memory(none) }
-attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read) }
+attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nofree nosync nounwind memory(none) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

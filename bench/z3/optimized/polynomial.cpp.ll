@@ -9736,7 +9736,7 @@ lpad117:                                          ; preds = %if.else
           cleanup
           catch ptr @_ZTIN10polynomial7manager3imp18sparse_mgcd_failedE
   %76 = extractvalue { ptr, i32 } %75, 1
-  %77 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN10polynomial7manager3imp18sparse_mgcd_failedE) #28
+  %77 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10polynomial7manager3imp18sparse_mgcd_failedE) #28
   %matches = icmp eq i32 %76, %77
   br i1 %matches, label %catch, label %ehcleanup132
 
@@ -43448,9 +43448,6 @@ ehcleanup315:                                     ; preds = %lpad2.loopexit, %lp
   call void @_ZN7sbufferIjLj32EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %vars) #28
   resume { ptr, i32 } %.pn31
 }
-
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #21
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN10polynomial7manager3imp7gcd_prsEPKNS_10polynomialES4_jR7obj_refIS2_S0_E(ptr noundef nonnull align 8 dereferenceable(824) %this, ptr noundef %u, ptr noundef %v, i32 noundef %x, ptr noundef nonnull align 8 dereferenceable(16) %r) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -88117,12 +88114,15 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 declare void @_ZN22small_object_allocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(520)) unnamed_addr #1
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_polynomial.cpp() #22 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_polynomial.cpp() #21 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #28
   ret void
 }
+
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
@@ -88163,8 +88163,8 @@ attributes #17 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { nofree nosync nounwind memory(none) }
-attributes #22 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nofree nosync nounwind memory(none) }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

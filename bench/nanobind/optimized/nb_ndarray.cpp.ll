@@ -2914,7 +2914,7 @@ _ZN8nanobind7module_D2Ev.exit:                    ; preds = %96, %93, %_ZN8nanob
   %.pn136.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn136.pn.pn.pn, %110 ], [ %69, %68 ]
   %.4 = extractvalue { ptr, i32 } %.pn136.pn.pn.pn.pn, 0
   %.4105 = extractvalue { ptr, i32 } %.pn136.pn.pn.pn.pn, 1
-  %112 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #16
+  %112 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #16
   %113 = icmp eq i32 %.4105, %112
   br i1 %113, label %114, label %234
 
@@ -2936,7 +2936,7 @@ _ZN8nanobind7module_D2Ev.exit:                    ; preds = %96, %93, %_ZN8nanob
           catch ptr null
   %124 = extractvalue { ptr, i32 } %123, 0
   %125 = extractvalue { ptr, i32 } %123, 1
-  %126 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #16
+  %126 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #16
   %127 = icmp eq i32 %125, %126
   br i1 %127, label %128, label %234
 
@@ -3058,7 +3058,7 @@ _ZNKR8nanobind6handle7inc_refEv.exit.i207:        ; preds = %_ZN8nanobind6object
   call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #16
   %.5 = extractvalue { ptr, i32 } %174, 0
   %.5106 = extractvalue { ptr, i32 } %174, 1
-  %175 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #16
+  %175 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #16
   %176 = icmp eq i32 %.5106, %175
   br i1 %176, label %177, label %234
 
@@ -3136,7 +3136,7 @@ _ZNKR8nanobind6handle7inc_refEv.exit.i222:        ; preds = %192, %.noexc223
   call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #16
   %.6 = extractvalue { ptr, i32 } %205, 0
   %.6107 = extractvalue { ptr, i32 } %205, 1
-  %206 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #16
+  %206 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #16
   %207 = icmp eq i32 %.6107, %206
   br i1 %207, label %208, label %234
 
@@ -3222,9 +3222,6 @@ _ZN8nanobind6objectD2Ev.exit163:                  ; preds = %.invoke305, %227, %
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @_PyObject_New(ptr noundef) local_unnamed_addr #1
-
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #10
 
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -3799,12 +3796,15 @@ define linkonce_odr hidden void @_ZN8nanobind4castINS_6detail8accessorINS1_8str_
 }
 
 ; Function Attrs: noreturn
-declare void @_ZN8nanobind6detail16raise_cast_errorEv() local_unnamed_addr #11
+declare void @_ZN8nanobind6detail16raise_cast_errorEv() local_unnamed_addr #10
 
 declare ptr @PyTuple_New(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #12
+declare void @llvm.experimental.noalias.scope.decl(metadata) #11
+
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #13
@@ -3828,9 +3828,9 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nosync nounwind memory(none) }
-attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #12 = { nofree nosync nounwind memory(none) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }

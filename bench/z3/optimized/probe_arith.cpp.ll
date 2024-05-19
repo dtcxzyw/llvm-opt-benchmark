@@ -4590,7 +4590,7 @@ lpad:                                             ; preds = %if.end.i.i.i.i.i.i.
 lpad.body:                                        ; preds = %if.end.i.i.i.i.i, %lpad.i.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %92, %lpad ], [ %lpad.phi.i.i, %lpad.i.i ], [ %lpad.phi.i.i, %if.end.i.i.i.i.i ]
   %93 = extractvalue { ptr, i32 } %eh.lpad-body, 1
-  %94 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN12_GLOBAL__N_121is_non_qflira_functor5foundE) #19
+  %94 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN12_GLOBAL__N_121is_non_qflira_functor5foundE) #19
   %matches = icmp eq i32 %93, %94
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -4656,9 +4656,6 @@ ehcleanup:                                        ; preds = %lpad4, %lpad.body
   call void @_ZN13ast_fast_markILj1EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %visited) #19
   resume { ptr, i32 } %lpad.val8.merged
 }
-
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #13
 
 declare void @__cxa_end_catch() local_unnamed_addr
 
@@ -5759,7 +5756,7 @@ lpad.i.i:                                         ; preds = %if.end.i.i.i.i.i.i.
 lpad.body.i.i:                                    ; preds = %lpad.i.i, %if.end.i.i.i.i.i.i.i, %lpad.i.i.i.i
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %93, %lpad.i.i ], [ %lpad.phi.i.i.i.i, %lpad.i.i.i.i ], [ %lpad.phi.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %94 = extractvalue { ptr, i32 } %eh.lpad-body.i.i, 1
-  %95 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN12_GLOBAL__N_124is_non_qfauflira_functor5foundE) #19
+  %95 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN12_GLOBAL__N_124is_non_qfauflira_functor5foundE) #19
   %matches.i.i = icmp eq i32 %94, %95
   br i1 %matches.i.i, label %catch.i.i, label %ehcleanup.i.i
 
@@ -7471,7 +7468,7 @@ lpad:                                             ; preds = %if.end.i.i.i.i.i.i.
 lpad.body:                                        ; preds = %if.end.i.i.i.i.i, %lpad.i.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %115, %lpad ], [ %lpad.phi.i.i, %lpad.i.i ], [ %lpad.phi.i.i, %if.end.i.i.i.i.i ]
   %116 = extractvalue { ptr, i32 } %eh.lpad-body, 1
-  %117 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN12_GLOBAL__N_119is_non_nira_functor5foundE) #19
+  %117 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN12_GLOBAL__N_119is_non_nira_functor5foundE) #19
   %matches = icmp eq i32 %116, %117
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -8492,7 +8489,7 @@ lpad.i:                                           ; preds = %if.end.i.i.i.i.i.i.
 lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i.i
   %eh.lpad-body.i = phi { ptr, i32 } [ %117, %lpad.i ], [ %lpad.phi.i.i.i, %lpad.i.i.i ]
   %118 = extractvalue { ptr, i32 } %eh.lpad-body.i, 1
-  %119 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN12_GLOBAL__N_19has_nlmul5foundE) #19
+  %119 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN12_GLOBAL__N_19has_nlmul5foundE) #19
   %matches.i = icmp eq i32 %118, %119
   br i1 %matches.i, label %catch.i, label %ehcleanup.i
 
@@ -8960,7 +8957,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119is_non_nira_functor11throw_foundEP4expr() unnamed_addr #14 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119is_non_nira_functor11throw_foundEP4expr() unnamed_addr #13 align 2 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 1) #19
   tail call void @__cxa_throw(ptr %exception, ptr nonnull @_ZTIN12_GLOBAL__N_119is_non_nira_functor5foundE, ptr null) #21
@@ -10103,7 +10100,7 @@ lpad.i.i:                                         ; preds = %if.end.i.i.i.i.i.i.
 lpad.body.i.i:                                    ; preds = %lpad.i.i, %if.end.i.i.i.i.i.i.i, %lpad.i.i.i.i
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %94, %lpad.i.i ], [ %lpad.phi.i.i.i.i, %lpad.i.i.i.i ], [ %lpad.phi.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
   %95 = extractvalue { ptr, i32 } %eh.lpad-body.i.i, 1
-  %96 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN12_GLOBAL__N_122is_non_qfufnra_functor5foundE) #19
+  %96 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN12_GLOBAL__N_122is_non_qfufnra_functor5foundE) #19
   %matches.i.i = icmp eq i32 %95, %96
   br i1 %matches.i.i, label %catch.i.i, label %ehcleanup.i.i
 
@@ -10386,7 +10383,7 @@ if.end37:                                         ; preds = %if.end37.sink.split
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122is_non_qfufnra_functor11throw_foundEv() unnamed_addr #14 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_122is_non_qfufnra_functor11throw_foundEv() unnamed_addr #13 align 2 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 1) #19
   tail call void @__cxa_throw(ptr %exception, ptr nonnull @_ZTIN12_GLOBAL__N_122is_non_qfufnra_functor5foundE, ptr null) #21
@@ -10394,12 +10391,15 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_probe_arith.cpp() #15 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_probe_arith.cpp() #14 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #19
   ret void
 }
+
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
@@ -10423,9 +10423,9 @@ attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nosync nounwind memory(none) }
-attributes #14 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nosync nounwind memory(none) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { builtin nounwind }

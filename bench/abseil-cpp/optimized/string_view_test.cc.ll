@@ -22864,7 +22864,7 @@ lpad929:                                          ; preds = %if.then.i.i1266, %i
           catch ptr null
   %361 = extractvalue { ptr, i32 } %360, 0
   %362 = extractvalue { ptr, i32 } %360, 1
-  %363 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt12out_of_range) #21
+  %363 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #21
   %matches = icmp eq i32 %362, %363
   br i1 %matches, label %catch973, label %catch.fallthrough
 
@@ -22878,7 +22878,7 @@ if.then976.critedge:                              ; preds = %invoke.cont930
           to label %gtest_label_testthrow_378 unwind label %lpad925
 
 catch.fallthrough:                                ; preds = %lpad929
-  %365 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #21
+  %365 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
   %matches938 = icmp eq i32 %362, %365
   %366 = call ptr @__cxa_begin_catch(ptr %361) #21
   br i1 %matches938, label %catch945, label %catch
@@ -23033,9 +23033,6 @@ terminate.lpad:                                   ; preds = %ehcleanup971, %lpad
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 declare noundef zeroext i1 @_ZN7testing8internal10AlwaysTrueEv() local_unnamed_addr #0
-
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #15
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -47704,7 +47701,7 @@ lpad195:                                          ; preds = %if.then.i.i451, %if
           catch ptr null
   %105 = extractvalue { ptr, i32 } %104, 0
   %106 = extractvalue { ptr, i32 } %104, 1
-  %107 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt12out_of_range) #21
+  %107 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #21
   %matches = icmp eq i32 %106, %107
   br i1 %matches, label %catch239, label %catch.fallthrough
 
@@ -47718,7 +47715,7 @@ if.then242:                                       ; preds = %invoke.cont196
           to label %gtest_label_testthrow_719 unwind label %lpad207
 
 catch.fallthrough:                                ; preds = %lpad195
-  %109 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #21
+  %109 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
   %matches203 = icmp eq i32 %106, %109
   %110 = call ptr @__cxa_begin_catch(ptr %105) #21
   br i1 %matches203, label %catch211, label %catch
@@ -56961,7 +56958,7 @@ lpad54:                                           ; preds = %if.then.i84, %if.th
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
   %32 = extractvalue { ptr, i32 } %30, 1
-  %33 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt12out_of_range) #21
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #21
   %matches = icmp eq i32 %32, %33
   br i1 %matches, label %catch97, label %catch.fallthrough
 
@@ -56975,7 +56972,7 @@ if.then100.critedge:                              ; preds = %invoke.cont55
           to label %gtest_label_testthrow_948 unwind label %lpad66
 
 catch.fallthrough:                                ; preds = %lpad54
-  %35 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #21
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
   %matches62 = icmp eq i32 %32, %35
   %36 = call ptr @__cxa_begin_catch(ptr %31) #21
   br i1 %matches62, label %catch70, label %catch
@@ -65156,7 +65153,7 @@ declare void @_ZN7testing8internal8GTestLogC1ENS0_16GTestLogSeverityEPKci(ptr no
 declare void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #1
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_string_view_test.cc() #16 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_string_view_test.cc() #15 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i854 = alloca %"struct.testing::internal::CodeLocation", align 8
   %ref.tmp.i855 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -67961,6 +67958,9 @@ __cxx_global_var_init.74.exit:                    ; preds = %invoke.cont10.i876
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #16
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #17
 
@@ -67997,8 +67997,8 @@ attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree nosync nounwind memory(none) }
-attributes #16 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree nosync nounwind memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

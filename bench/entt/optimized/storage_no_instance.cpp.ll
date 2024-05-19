@@ -50293,7 +50293,7 @@ lpad27:                                           ; preds = %sw.bb24
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
   %23 = extractvalue { ptr, i32 } %21, 1
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches = icmp eq i32 %23, %24
   %25 = call ptr @__cxa_begin_catch(ptr %22) #23
   br i1 %matches, label %catch39, label %catch
@@ -50647,7 +50647,7 @@ lpad126:                                          ; preds = %sw.bb122
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
   %80 = extractvalue { ptr, i32 } %78, 1
-  %81 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %81 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches134 = icmp eq i32 %80, %81
   %82 = call ptr @__cxa_begin_catch(ptr %79) #23
   br i1 %matches134, label %catch145, label %catch135
@@ -51001,7 +51001,7 @@ lpad243:                                          ; preds = %sw.bb239
           catch ptr null
   %136 = extractvalue { ptr, i32 } %135, 0
   %137 = extractvalue { ptr, i32 } %135, 1
-  %138 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %138 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches251 = icmp eq i32 %137, %138
   %139 = call ptr @__cxa_begin_catch(ptr %136) #23
   br i1 %matches251, label %catch262, label %catch252
@@ -51321,7 +51321,7 @@ lpad360:                                          ; preds = %sw.bb356
           catch ptr null
   %184 = extractvalue { ptr, i32 } %183, 0
   %185 = extractvalue { ptr, i32 } %183, 1
-  %186 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %186 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches370 = icmp eq i32 %185, %186
   %187 = call ptr @__cxa_begin_catch(ptr %184) #23
   br i1 %matches370, label %catch381, label %catch371
@@ -51779,16 +51779,13 @@ terminate.lpad:                                   ; preds = %if.then.i
 
 declare noundef zeroext i1 @_ZN7testing8internal20ExitedUnsuccessfullyEi(i32 noundef) local_unnamed_addr #0
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #17
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #18
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #17
 
 declare void @_ZN7testing8internal18FormatFileLocationB5cxx11EPKci(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #18
+declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #17
 
 declare noundef ptr @_ZN7testing8internal9DeathTest11LastMessageEv() local_unnamed_addr #0
 
@@ -53182,7 +53179,7 @@ lpad27:                                           ; preds = %sw.bb24
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
   %23 = extractvalue { ptr, i32 } %21, 1
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches = icmp eq i32 %23, %24
   %25 = call ptr @__cxa_begin_catch(ptr %22) #23
   br i1 %matches, label %catch39, label %catch
@@ -53536,7 +53533,7 @@ lpad126:                                          ; preds = %sw.bb122
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
   %80 = extractvalue { ptr, i32 } %78, 1
-  %81 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %81 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches134 = icmp eq i32 %80, %81
   %82 = call ptr @__cxa_begin_catch(ptr %79) #23
   br i1 %matches134, label %catch145, label %catch135
@@ -53890,7 +53887,7 @@ lpad243:                                          ; preds = %sw.bb239
           catch ptr null
   %136 = extractvalue { ptr, i32 } %135, 0
   %137 = extractvalue { ptr, i32 } %135, 1
-  %138 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %138 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches251 = icmp eq i32 %137, %138
   %139 = call ptr @__cxa_begin_catch(ptr %136) #23
   br i1 %matches251, label %catch262, label %catch252
@@ -54210,7 +54207,7 @@ lpad360:                                          ; preds = %sw.bb356
           catch ptr null
   %184 = extractvalue { ptr, i32 } %183, 0
   %185 = extractvalue { ptr, i32 } %183, 1
-  %186 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %186 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches370 = icmp eq i32 %185, %186
   %187 = call ptr @__cxa_begin_catch(ptr %184) #23
   br i1 %matches370, label %catch381, label %catch371
@@ -57550,7 +57547,7 @@ lpad27:                                           ; preds = %sw.bb24
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
   %29 = extractvalue { ptr, i32 } %27, 1
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches = icmp eq i32 %29, %30
   %31 = call ptr @__cxa_begin_catch(ptr %28) #23
   br i1 %matches, label %catch40, label %catch
@@ -58183,7 +58180,7 @@ lpad27:                                           ; preds = %sw.bb24
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
   %29 = extractvalue { ptr, i32 } %27, 1
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches = icmp eq i32 %29, %30
   %31 = call ptr @__cxa_begin_catch(ptr %28) #23
   br i1 %matches, label %catch40, label %catch
@@ -61294,7 +61291,7 @@ lpad29:                                           ; preds = %if.then32, %sw.bb26
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
   %23 = extractvalue { ptr, i32 } %21, 1
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches = icmp eq i32 %23, %24
   %25 = call ptr @__cxa_begin_catch(ptr %22) #23
   br i1 %matches, label %catch42, label %catch
@@ -61655,7 +61652,7 @@ lpad129:                                          ; preds = %if.then132, %sw.bb1
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
   %80 = extractvalue { ptr, i32 } %78, 1
-  %81 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %81 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches138 = icmp eq i32 %80, %81
   %82 = call ptr @__cxa_begin_catch(ptr %79) #23
   br i1 %matches138, label %catch149, label %catch139
@@ -62282,7 +62279,7 @@ lpad29:                                           ; preds = %if.then32, %sw.bb26
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
   %23 = extractvalue { ptr, i32 } %21, 1
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches = icmp eq i32 %23, %24
   %25 = call ptr @__cxa_begin_catch(ptr %22) #23
   br i1 %matches, label %catch42, label %catch
@@ -62643,7 +62640,7 @@ lpad129:                                          ; preds = %if.then132, %sw.bb1
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
   %80 = extractvalue { ptr, i32 } %78, 1
-  %81 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %81 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches138 = icmp eq i32 %80, %81
   %82 = call ptr @__cxa_begin_catch(ptr %79) #23
   br i1 %matches138, label %catch149, label %catch139
@@ -72519,7 +72516,7 @@ lpad27:                                           ; preds = %sw.bb24
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
   %23 = extractvalue { ptr, i32 } %21, 1
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches = icmp eq i32 %23, %24
   %25 = call ptr @__cxa_begin_catch(ptr %22) #23
   br i1 %matches, label %catch40, label %catch
@@ -73128,7 +73125,7 @@ lpad27:                                           ; preds = %sw.bb24
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
   %23 = extractvalue { ptr, i32 } %21, 1
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches = icmp eq i32 %23, %24
   %25 = call ptr @__cxa_begin_catch(ptr %22) #23
   br i1 %matches, label %catch40, label %catch
@@ -78030,7 +78027,7 @@ lpad30:                                           ; preds = %lpad30.loopexit.spl
   %lpad.phi348 = phi { ptr, i32 } [ %lpad.loopexit346, %lpad30.loopexit ], [ %lpad.loopexit.split-lp347, %lpad30.loopexit.split-lp ]
   %20 = extractvalue { ptr, i32 } %lpad.phi348, 0
   %21 = extractvalue { ptr, i32 } %lpad.phi348, 1
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches = icmp eq i32 %21, %22
   %23 = call ptr @__cxa_begin_catch(ptr %20) #23
   br i1 %matches, label %catch45, label %catch
@@ -78405,7 +78402,7 @@ lpad132:                                          ; preds = %lpad132.loopexit.sp
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad132.loopexit ], [ %lpad.loopexit.split-lp, %lpad132.loopexit.split-lp ]
   %76 = extractvalue { ptr, i32 } %lpad.phi, 0
   %77 = extractvalue { ptr, i32 } %lpad.phi, 1
-  %78 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %78 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches143 = icmp eq i32 %77, %78
   %79 = call ptr @__cxa_begin_catch(ptr %76) #23
   br i1 %matches143, label %catch154, label %catch144
@@ -79055,7 +79052,7 @@ lpad30:                                           ; preds = %lpad30.loopexit.spl
   %lpad.phi348 = phi { ptr, i32 } [ %lpad.loopexit346, %lpad30.loopexit ], [ %lpad.loopexit.split-lp347, %lpad30.loopexit.split-lp ]
   %20 = extractvalue { ptr, i32 } %lpad.phi348, 0
   %21 = extractvalue { ptr, i32 } %lpad.phi348, 1
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches = icmp eq i32 %21, %22
   %23 = call ptr @__cxa_begin_catch(ptr %20) #23
   br i1 %matches, label %catch45, label %catch
@@ -79430,7 +79427,7 @@ lpad132:                                          ; preds = %lpad132.loopexit.sp
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad132.loopexit ], [ %lpad.loopexit.split-lp, %lpad132.loopexit.split-lp ]
   %76 = extractvalue { ptr, i32 } %lpad.phi, 0
   %77 = extractvalue { ptr, i32 } %lpad.phi, 1
-  %78 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %78 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches143 = icmp eq i32 %77, %78
   %79 = call ptr @__cxa_begin_catch(ptr %76) #23
   br i1 %matches143, label %catch154, label %catch144
@@ -113674,7 +113671,7 @@ return:                                           ; preds = %_ZSt13__adjust_heap
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #19
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7testing8internal16SuiteApiResolverI34StorageNoInstance_SortOrdered_TestIvEE19GetSetUpCaseOrSuiteEPKci(ptr noundef %filename, i32 noundef %line_num) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -140108,7 +140105,7 @@ ehcleanup263:                                     ; preds = %ehcleanup261, %ehcl
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_storage_no_instance.cpp() #20 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_storage_no_instance.cpp() #19 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i1886 = alloca i64, align 8
   %__dnew.i.i.i1887 = alloca i64, align 8
@@ -146506,16 +146503,19 @@ __cxx_global_var_init.64.exit:                    ; preds = %if.then.i.i26.i1937
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #21
+declare void @llvm.assume(i1 noundef) #20
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #19
+declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
+declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #22
+declare void @llvm.experimental.noalias.scope.decl(metadata) #21
+
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #22
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -146534,12 +146534,12 @@ attributes #13 = { mustprogress nofree nounwind willreturn memory(read) "no-trap
 attributes #14 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { nofree nosync nounwind memory(none) }
-attributes #18 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #17 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #21 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #22 = { nofree nosync nounwind memory(none) }
 attributes #23 = { nounwind }
 attributes #24 = { noreturn }
 attributes #25 = { nounwind willreturn memory(read) }

@@ -44058,7 +44058,7 @@ catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %.pn10.pn = phi { ptr, i32 } [ %.pn10, %ehcleanup ], [ %10, %lpad ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn10.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn10.pn, 1
-  %53 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #31
+  %53 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #31
   %matches = icmp eq i32 %ehselector.slot.1, %53
   %54 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #31
   br i1 %matches, label %catch86, label %catch
@@ -50370,9 +50370,6 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #26
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12async_simple4coro6detail11LazyPromiseISt4pairISt4errcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE12return_valueIS3_IS4_PKcEEEvOT_Qsr3stdE16is_convertible_vIOTL0__SH_E(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %value) local_unnamed_addr #3 comdat align 2 {
 entry:
@@ -50820,7 +50817,7 @@ _ZSt10_ConstructISt4pairISt4errcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr dso_local void @_ZSt27__throw_bad_optional_accessv() local_unnamed_addr #27 comdat {
+define linkonce_odr dso_local void @_ZSt27__throw_bad_optional_accessv() local_unnamed_addr #26 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #31
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i64 0, i32 0, i64 2), ptr %exception, align 8
@@ -54770,7 +54767,7 @@ if.then.i:                                        ; preds = %lpad
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %lpad, %if.then.i
-  %3 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #31
+  %3 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #31
   %matches = icmp eq i32 %1, %3
   br i1 %matches, label %catch, label %eh.resume
 
@@ -55937,7 +55934,7 @@ catch.dispatch:                                   ; preds = %lpad42, %ehcleanup3
   %.pn5 = phi { ptr, i32 } [ %40, %lpad12 ], [ %67, %lpad42 ], [ %.pn3, %ehcleanup ], [ %.pn, %ehcleanup39 ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn5, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn5, 1
-  %68 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #31
+  %68 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #31
   %matches = icmp eq i32 %ehselector.slot.2, %68
   br i1 %matches, label %catch, label %ehcleanup53
 
@@ -57060,7 +57057,7 @@ terminate.lpad:                                   ; preds = %if.else.i.i.i11.inv
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr dso_local void @_ZN2tl6detail15throw_exceptionINS_19bad_expected_accessISt4errcEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(12) %e) local_unnamed_addr #27 comdat {
+define linkonce_odr dso_local void @_ZN2tl6detail15throw_exceptionINS_19bad_expected_accessISt4errcEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(12) %e) local_unnamed_addr #26 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #31
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN2tl19bad_expected_accessISt4errcEE, i64 0, i32 0, i64 2), ptr %exception, align 8
@@ -57618,7 +57615,7 @@ __cxx_global_var_init.4.exit:                     ; preds = %__cxx_global_var_in
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #28
+declare void @llvm.experimental.noalias.scope.decl(metadata) #27
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN7coro_io12async_acceptERN4asio21basic_socket_acceptorINS0_2ip3tcpENS0_15any_io_executorEEERNS0_19basic_stream_socketIS3_S4_EE.resume(ptr noundef nonnull align 8 dereferenceable(152) %0) #7 personality ptr @__gxx_personality_v0 {
@@ -59610,7 +59607,7 @@ catch.dispatch:                                   ; preds = %invoke.cont.i.i35, 
   %.pn8.pn = phi { ptr, i32 } [ %.pn8, %ehcleanup110 ], [ %10, %lpad ], [ %33, %ehcleanup ], [ %33, %invoke.cont.i.i35 ]
   %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn8.pn, 1
   %exn.slot.3 = extractvalue { ptr, i32 } %.pn8.pn, 0
-  %94 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #31
+  %94 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #31
   %matches = icmp eq i32 %ehselector.slot.3, %94
   %95 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #31
   br i1 %matches, label %catch166, label %catch
@@ -67316,6 +67313,9 @@ _ZN12async_simple4coro6detail8LazyBaseISt4errcLb0EED2Ev.exit: ; preds = %cleanup
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #28
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #29
 
@@ -67360,9 +67360,9 @@ attributes #22 = { mustprogress nofree nounwind willreturn allockind("alloc,unin
 attributes #23 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #24 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #26 = { nofree nosync nounwind memory(none) }
-attributes #27 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #26 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #28 = { nofree nosync nounwind memory(none) }
 attributes #29 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #30 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #31 = { nounwind }

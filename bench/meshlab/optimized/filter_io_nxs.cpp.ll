@@ -8130,7 +8130,7 @@ _ZNSt6vectorI6QImageSaIS0_EED2Ev.exit:            ; preds = %_ZSt8_DestroyIP6QIm
   %.pn238.pn.pn.pn = phi { ptr, i32 } [ %.pn238.pn.pn, %445 ], [ %.pn236, %.body387 ], [ %407, %406 ], [ %405, %404 ], [ %350, %349 ], [ %.pn213, %290 ], [ %.pn, %303 ], [ %272, %271 ], [ %270, %269 ], [ %312, %311 ], [ %268, %267 ]
   %.16 = extractvalue { ptr, i32 } %.pn238.pn.pn.pn, 0
   %.16168 = extractvalue { ptr, i32 } %.pn238.pn.pn.pn, 1
-  %698 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI11MLException) #26
+  %698 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI11MLException) #26
   %699 = icmp eq i32 %.16168, %698
   br i1 %699, label %700, label %706
 
@@ -8147,7 +8147,7 @@ _ZNSt6vectorI6QImageSaIS0_EED2Ev.exit:            ; preds = %_ZSt8_DestroyIP6QIm
   br label %771
 
 706:                                              ; preds = %.body
-  %707 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI7QString) #26
+  %707 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI7QString) #26
   %708 = icmp eq i32 %.16168, %707
   br i1 %708, label %709, label %721
 
@@ -8177,7 +8177,7 @@ _ZN7QStringC2ERKS_.exit462:                       ; preds = %709, %714
   br label %751
 
 721:                                              ; preds = %706
-  %722 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIPKc) #26
+  %722 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIPKc) #26
   %723 = icmp eq i32 %.16168, %722
   br i1 %723, label %724, label %810
 
@@ -9270,7 +9270,7 @@ _ZN2nx9TraversalD2Ev.exit:                        ; preds = %_ZNSt6vectorIN2nx9T
   %.pn = phi { ptr, i32 } [ %270, %269 ], [ %171, %170 ], [ %173, %172 ]
   %.255 = extractvalue { ptr, i32 } %.pn, 0
   %.258 = extractvalue { ptr, i32 } %.pn, 1
-  %272 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI7QString) #26
+  %272 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI7QString) #26
   %273 = icmp eq i32 %.258, %272
   br i1 %273, label %274, label %286
 
@@ -9308,7 +9308,7 @@ _ZN7QStringC2ERKS_.exit147:                       ; preds = %274, %279
           to label %314 unwind label %302
 
 286:                                              ; preds = %271
-  %287 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIPKc) #26
+  %287 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIPKc) #26
   %288 = icmp eq i32 %.258, %287
   br i1 %288, label %289, label %306
 
@@ -12037,9 +12037,6 @@ _ZNSt12_Vector_baseI6QImageSaIS0_EED2Ev.exit:     ; preds = %_ZSt8_DestroyIP6QIm
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #19
-
 declare ptr @__cxa_get_exception_ptr(ptr) local_unnamed_addr
 
 ; Function Attrs: nounwind
@@ -13098,7 +13095,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @log2f(float noundef) local_unnamed_addr #20
+declare float @log2f(float noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN2nx9TraversalD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -13537,6 +13534,9 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #20
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
@@ -13574,8 +13574,8 @@ attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #16 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #19 = { nofree nosync nounwind memory(none) }
-attributes #20 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nofree nosync nounwind memory(none) }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

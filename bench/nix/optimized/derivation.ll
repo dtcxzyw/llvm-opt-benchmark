@@ -2571,7 +2571,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
   %.pn.pn = phi { ptr, i32 } [ %.pn, %54 ], [ %49, %48 ]
   %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %.113 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %56 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix11FormatErrorE) #28
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix11FormatErrorE) #28
   %57 = icmp eq i32 %.113, %56
   br i1 %57, label %58, label %62
 
@@ -2586,7 +2586,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %46
 
 62:                                               ; preds = %55
-  %63 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #28
+  %63 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %64 = icmp eq i32 %.113, %63
   %65 = call ptr @__cxa_begin_catch(ptr %.1) #28
   br i1 %64, label %66, label %84
@@ -2773,9 +2773,6 @@ _ZN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #9
-
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
@@ -2790,7 +2787,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #28
   tail call void @_ZSt9terminatev() #32
   unreachable
@@ -3052,7 +3049,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix36DerivationTest_BadATerm_version_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix36DerivationTest_BadATerm_version_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -3283,7 +3280,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
   %.pn.pn = phi { ptr, i32 } [ %.pn, %54 ], [ %49, %48 ]
   %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %.113 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %56 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix11FormatErrorE) #28
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix11FormatErrorE) #28
   %57 = icmp eq i32 %.113, %56
   br i1 %57, label %58, label %62
 
@@ -3298,7 +3295,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %46
 
 62:                                               ; preds = %55
-  %63 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #28
+  %63 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %64 = icmp eq i32 %.113, %63
   %65 = call ptr @__cxa_begin_catch(ptr %.1) #28
   br i1 %64, label %66, label %84
@@ -3456,7 +3453,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -3992,7 +3989,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -4644,7 +4641,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i55
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -5148,7 +5145,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -5746,7 +5743,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -6250,7 +6247,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -6848,7 +6845,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -7350,7 +7347,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -7946,7 +7943,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -8516,7 +8513,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -9102,7 +9099,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -9585,7 +9582,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix55DerivationTest_DerivationOutput_deferred_from_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix55DerivationTest_DerivationOutput_deferred_from_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -10166,7 +10163,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix53DerivationTest_DerivationOutput_deferred_to_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix53DerivationTest_DerivationOutput_deferred_to_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -10736,7 +10733,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -11322,7 +11319,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -12575,7 +12572,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix47DerivationTest_Derivation_simple_from_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix47DerivationTest_Derivation_simple_from_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -13148,7 +13145,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix45DerivationTest_Derivation_simple_to_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix45DerivationTest_Derivation_simple_to_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -13743,7 +13740,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix48DerivationTest_Derivation_simple_from_aterm_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix48DerivationTest_Derivation_simple_from_aterm_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -14209,7 +14206,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix46DerivationTest_Derivation_simple_to_aterm_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix46DerivationTest_Derivation_simple_to_aterm_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -15884,7 +15881,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -16457,7 +16454,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i53
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -17052,7 +17049,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -17518,7 +17515,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i52
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -17576,25 +17573,25 @@ define linkonce_odr void @_ZN3nix14DerivationTestD0Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix14DerivationTestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix14DerivationTestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix14DerivationTestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix14DerivationTestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix14DerivationTestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix14DerivationTestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix14DerivationTestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix14DerivationTestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
@@ -17623,13 +17620,13 @@ define linkonce_odr void @_ZN3nix20CharacterizationTestD0Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix20CharacterizationTestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix20CharacterizationTestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix20CharacterizationTestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix20CharacterizationTestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
@@ -17647,13 +17644,13 @@ define linkonce_odr void @_ZN3nix12LibStoreTestD0Ev(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix12LibStoreTestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix12LibStoreTestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix12LibStoreTestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix12LibStoreTestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
@@ -17676,7 +17673,7 @@ define linkonce_odr void @_ZN3nix36DerivationTest_BadATerm_version_TestD0Ev(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix36DerivationTest_BadATerm_version_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix36DerivationTest_BadATerm_version_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix36DerivationTest_BadATerm_version_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -17685,7 +17682,7 @@ define linkonce_odr void @_ZThn8_N3nix36DerivationTest_BadATerm_version_TestD1Ev
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix36DerivationTest_BadATerm_version_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix36DerivationTest_BadATerm_version_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix36DerivationTest_BadATerm_version_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -17695,7 +17692,7 @@ define linkonce_odr void @_ZThn8_N3nix36DerivationTest_BadATerm_version_TestD0Ev
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix36DerivationTest_BadATerm_version_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix36DerivationTest_BadATerm_version_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -17707,7 +17704,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix36DerivationTest_BadATerm_version_TestD
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix36DerivationTest_BadATerm_version_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix36DerivationTest_BadATerm_version_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -17821,31 +17818,31 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %_ZNK
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix17DynDerivationTestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix17DynDerivationTestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix17DynDerivationTestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix17DynDerivationTestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix17DynDerivationTestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix17DynDerivationTestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix17DynDerivationTestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix17DynDerivationTestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZTv0_n32_N3nix17DynDerivationTest5SetUpEv(ptr noundef %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr void @_ZTv0_n32_N3nix17DynDerivationTest5SetUpEv(ptr noundef %0) unnamed_addr #10 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -32
   %4 = load i64, ptr %3, align 8
@@ -17872,7 +17869,7 @@ define linkonce_odr void @_ZN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([13 x ptr], ptr @_ZTTN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, i64 0, i64 2)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -17881,7 +17878,7 @@ define linkonce_odr void @_ZThn8_N3nix49DynDerivationTest_BadATerm_oldVersionDyn
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([13 x ptr], ptr @_ZTTN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, i64 0, i64 2)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -17891,7 +17888,7 @@ define linkonce_odr void @_ZThn8_N3nix49DynDerivationTest_BadATerm_oldVersionDyn
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -17903,7 +17900,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix49DynDerivationTest_BadATerm_oldVersion
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -17933,7 +17930,7 @@ define linkonce_odr void @_ZN3nix61DerivationTest_DerivationOutput_inputAddresse
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -17942,7 +17939,7 @@ define linkonce_odr void @_ZThn8_N3nix61DerivationTest_DerivationOutput_inputAdd
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -17952,7 +17949,7 @@ define linkonce_odr void @_ZThn8_N3nix61DerivationTest_DerivationOutput_inputAdd
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -17964,7 +17961,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix61DerivationTest_DerivationOutput_input
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -17994,7 +17991,7 @@ define linkonce_odr void @_ZN3nix59DerivationTest_DerivationOutput_inputAddresse
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -18003,7 +18000,7 @@ define linkonce_odr void @_ZThn8_N3nix59DerivationTest_DerivationOutput_inputAdd
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -18013,7 +18010,7 @@ define linkonce_odr void @_ZThn8_N3nix59DerivationTest_DerivationOutput_inputAdd
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -18025,7 +18022,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix59DerivationTest_DerivationOutput_input
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -18055,7 +18052,7 @@ define linkonce_odr void @_ZN3nix58DerivationTest_DerivationOutput_caFixedFlat_f
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -18064,7 +18061,7 @@ define linkonce_odr void @_ZThn8_N3nix58DerivationTest_DerivationOutput_caFixedF
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -18074,7 +18071,7 @@ define linkonce_odr void @_ZThn8_N3nix58DerivationTest_DerivationOutput_caFixedF
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -18086,7 +18083,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix58DerivationTest_DerivationOutput_caFix
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -18116,7 +18113,7 @@ define linkonce_odr void @_ZN3nix56DerivationTest_DerivationOutput_caFixedFlat_t
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -18125,7 +18122,7 @@ define linkonce_odr void @_ZThn8_N3nix56DerivationTest_DerivationOutput_caFixedF
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -18135,7 +18132,7 @@ define linkonce_odr void @_ZThn8_N3nix56DerivationTest_DerivationOutput_caFixedF
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -18147,7 +18144,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix56DerivationTest_DerivationOutput_caFix
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -18177,7 +18174,7 @@ define linkonce_odr void @_ZN3nix57DerivationTest_DerivationOutput_caFixedNAR_fr
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -18186,7 +18183,7 @@ define linkonce_odr void @_ZThn8_N3nix57DerivationTest_DerivationOutput_caFixedN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -18196,7 +18193,7 @@ define linkonce_odr void @_ZThn8_N3nix57DerivationTest_DerivationOutput_caFixedN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -18208,7 +18205,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix57DerivationTest_DerivationOutput_caFix
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -18238,7 +18235,7 @@ define linkonce_odr void @_ZN3nix55DerivationTest_DerivationOutput_caFixedNAR_to
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -18247,7 +18244,7 @@ define linkonce_odr void @_ZThn8_N3nix55DerivationTest_DerivationOutput_caFixedN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -18257,7 +18254,7 @@ define linkonce_odr void @_ZThn8_N3nix55DerivationTest_DerivationOutput_caFixedN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -18269,7 +18266,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix55DerivationTest_DerivationOutput_caFix
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -18299,7 +18296,7 @@ define linkonce_odr void @_ZN3nix61DynDerivationTest_DerivationOutput_caFixedTex
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([13 x ptr], ptr @_ZTTN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, i64 0, i64 2)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -18308,7 +18305,7 @@ define linkonce_odr void @_ZThn8_N3nix61DynDerivationTest_DerivationOutput_caFix
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([13 x ptr], ptr @_ZTTN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, i64 0, i64 2)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -18318,7 +18315,7 @@ define linkonce_odr void @_ZThn8_N3nix61DynDerivationTest_DerivationOutput_caFix
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -18330,7 +18327,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix61DynDerivationTest_DerivationOutput_ca
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -18360,7 +18357,7 @@ define linkonce_odr void @_ZN3nix59DynDerivationTest_DerivationOutput_caFixedTex
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([13 x ptr], ptr @_ZTTN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, i64 0, i64 2)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -18369,7 +18366,7 @@ define linkonce_odr void @_ZThn8_N3nix59DynDerivationTest_DerivationOutput_caFix
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([13 x ptr], ptr @_ZTTN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, i64 0, i64 2)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -18379,7 +18376,7 @@ define linkonce_odr void @_ZThn8_N3nix59DynDerivationTest_DerivationOutput_caFix
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -18391,7 +18388,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix59DynDerivationTest_DerivationOutput_ca
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -18505,31 +18502,31 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %_ZNK
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix16CaDerivationTestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix16CaDerivationTestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix16CaDerivationTestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix16CaDerivationTestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix16CaDerivationTestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix16CaDerivationTestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix16CaDerivationTestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix16CaDerivationTestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZTv0_n32_N3nix16CaDerivationTest5SetUpEv(ptr noundef %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr void @_ZTv0_n32_N3nix16CaDerivationTest5SetUpEv(ptr noundef %0) unnamed_addr #10 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -32
   %4 = load i64, ptr %3, align 8
@@ -18556,7 +18553,7 @@ define linkonce_odr void @_ZN3nix59CaDerivationTest_DerivationOutput_caFloating_
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([13 x ptr], ptr @_ZTTN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, i64 0, i64 2)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -18565,7 +18562,7 @@ define linkonce_odr void @_ZThn8_N3nix59CaDerivationTest_DerivationOutput_caFloa
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([13 x ptr], ptr @_ZTTN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, i64 0, i64 2)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -18575,7 +18572,7 @@ define linkonce_odr void @_ZThn8_N3nix59CaDerivationTest_DerivationOutput_caFloa
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -18587,7 +18584,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix59CaDerivationTest_DerivationOutput_caF
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -18617,7 +18614,7 @@ define linkonce_odr void @_ZN3nix57CaDerivationTest_DerivationOutput_caFloating_
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([13 x ptr], ptr @_ZTTN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, i64 0, i64 2)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -18626,7 +18623,7 @@ define linkonce_odr void @_ZThn8_N3nix57CaDerivationTest_DerivationOutput_caFloa
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([13 x ptr], ptr @_ZTTN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, i64 0, i64 2)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -18636,7 +18633,7 @@ define linkonce_odr void @_ZThn8_N3nix57CaDerivationTest_DerivationOutput_caFloa
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -18648,7 +18645,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix57CaDerivationTest_DerivationOutput_caF
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -18678,7 +18675,7 @@ define linkonce_odr void @_ZN3nix55DerivationTest_DerivationOutput_deferred_from
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix55DerivationTest_DerivationOutput_deferred_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix55DerivationTest_DerivationOutput_deferred_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -18687,7 +18684,7 @@ define linkonce_odr void @_ZThn8_N3nix55DerivationTest_DerivationOutput_deferred
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix55DerivationTest_DerivationOutput_deferred_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix55DerivationTest_DerivationOutput_deferred_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -18697,7 +18694,7 @@ define linkonce_odr void @_ZThn8_N3nix55DerivationTest_DerivationOutput_deferred
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix55DerivationTest_DerivationOutput_deferred_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix55DerivationTest_DerivationOutput_deferred_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -18709,7 +18706,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix55DerivationTest_DerivationOutput_defer
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix55DerivationTest_DerivationOutput_deferred_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix55DerivationTest_DerivationOutput_deferred_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -18739,7 +18736,7 @@ define linkonce_odr void @_ZN3nix53DerivationTest_DerivationOutput_deferred_to_j
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix53DerivationTest_DerivationOutput_deferred_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix53DerivationTest_DerivationOutput_deferred_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -18748,7 +18745,7 @@ define linkonce_odr void @_ZThn8_N3nix53DerivationTest_DerivationOutput_deferred
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix53DerivationTest_DerivationOutput_deferred_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix53DerivationTest_DerivationOutput_deferred_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -18758,7 +18755,7 @@ define linkonce_odr void @_ZThn8_N3nix53DerivationTest_DerivationOutput_deferred
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix53DerivationTest_DerivationOutput_deferred_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix53DerivationTest_DerivationOutput_deferred_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -18770,7 +18767,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix53DerivationTest_DerivationOutput_defer
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix53DerivationTest_DerivationOutput_deferred_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix53DerivationTest_DerivationOutput_deferred_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -18884,31 +18881,31 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %_ZNK
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix20ImpureDerivationTestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix20ImpureDerivationTestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix20ImpureDerivationTestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix20ImpureDerivationTestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix20ImpureDerivationTestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix20ImpureDerivationTestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix20ImpureDerivationTestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix20ImpureDerivationTestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
 
 ; Function Attrs: uwtable
-define linkonce_odr void @_ZTv0_n32_N3nix20ImpureDerivationTest5SetUpEv(ptr noundef %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr void @_ZTv0_n32_N3nix20ImpureDerivationTest5SetUpEv(ptr noundef %0) unnamed_addr #10 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -32
   %4 = load i64, ptr %3, align 8
@@ -18935,7 +18932,7 @@ define linkonce_odr void @_ZN3nix59ImpureDerivationTest_DerivationOutput_impure_
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([13 x ptr], ptr @_ZTTN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, i64 0, i64 2)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -18944,7 +18941,7 @@ define linkonce_odr void @_ZThn8_N3nix59ImpureDerivationTest_DerivationOutput_im
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([13 x ptr], ptr @_ZTTN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, i64 0, i64 2)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -18954,7 +18951,7 @@ define linkonce_odr void @_ZThn8_N3nix59ImpureDerivationTest_DerivationOutput_im
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -18966,7 +18963,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix59ImpureDerivationTest_DerivationOutput
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -18996,7 +18993,7 @@ define linkonce_odr void @_ZN3nix57ImpureDerivationTest_DerivationOutput_impure_
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([13 x ptr], ptr @_ZTTN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, i64 0, i64 2)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -19005,7 +19002,7 @@ define linkonce_odr void @_ZThn8_N3nix57ImpureDerivationTest_DerivationOutput_im
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([13 x ptr], ptr @_ZTTN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, i64 0, i64 2)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -19015,7 +19012,7 @@ define linkonce_odr void @_ZThn8_N3nix57ImpureDerivationTest_DerivationOutput_im
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -19027,7 +19024,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix57ImpureDerivationTest_DerivationOutput
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -19057,7 +19054,7 @@ define linkonce_odr void @_ZN3nix47DerivationTest_Derivation_simple_from_json_Te
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix47DerivationTest_Derivation_simple_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix47DerivationTest_Derivation_simple_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix47DerivationTest_Derivation_simple_from_json_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -19066,7 +19063,7 @@ define linkonce_odr void @_ZThn8_N3nix47DerivationTest_Derivation_simple_from_js
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix47DerivationTest_Derivation_simple_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix47DerivationTest_Derivation_simple_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix47DerivationTest_Derivation_simple_from_json_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -19076,7 +19073,7 @@ define linkonce_odr void @_ZThn8_N3nix47DerivationTest_Derivation_simple_from_js
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix47DerivationTest_Derivation_simple_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix47DerivationTest_Derivation_simple_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -19088,7 +19085,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix47DerivationTest_Derivation_simple_from
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix47DerivationTest_Derivation_simple_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix47DerivationTest_Derivation_simple_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -19118,7 +19115,7 @@ define linkonce_odr void @_ZN3nix45DerivationTest_Derivation_simple_to_json_Test
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix45DerivationTest_Derivation_simple_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix45DerivationTest_Derivation_simple_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix45DerivationTest_Derivation_simple_to_json_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -19127,7 +19124,7 @@ define linkonce_odr void @_ZThn8_N3nix45DerivationTest_Derivation_simple_to_json
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix45DerivationTest_Derivation_simple_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix45DerivationTest_Derivation_simple_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix45DerivationTest_Derivation_simple_to_json_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -19137,7 +19134,7 @@ define linkonce_odr void @_ZThn8_N3nix45DerivationTest_Derivation_simple_to_json
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix45DerivationTest_Derivation_simple_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix45DerivationTest_Derivation_simple_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -19149,7 +19146,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix45DerivationTest_Derivation_simple_to_j
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix45DerivationTest_Derivation_simple_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix45DerivationTest_Derivation_simple_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -19179,7 +19176,7 @@ define linkonce_odr void @_ZN3nix48DerivationTest_Derivation_simple_from_aterm_T
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix48DerivationTest_Derivation_simple_from_aterm_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix48DerivationTest_Derivation_simple_from_aterm_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -19188,7 +19185,7 @@ define linkonce_odr void @_ZThn8_N3nix48DerivationTest_Derivation_simple_from_at
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix48DerivationTest_Derivation_simple_from_aterm_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix48DerivationTest_Derivation_simple_from_aterm_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -19198,7 +19195,7 @@ define linkonce_odr void @_ZThn8_N3nix48DerivationTest_Derivation_simple_from_at
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix48DerivationTest_Derivation_simple_from_aterm_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix48DerivationTest_Derivation_simple_from_aterm_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -19210,7 +19207,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix48DerivationTest_Derivation_simple_from
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix48DerivationTest_Derivation_simple_from_aterm_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix48DerivationTest_Derivation_simple_from_aterm_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -19240,7 +19237,7 @@ define linkonce_odr void @_ZN3nix46DerivationTest_Derivation_simple_to_aterm_Tes
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix46DerivationTest_Derivation_simple_to_aterm_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix46DerivationTest_Derivation_simple_to_aterm_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -19249,7 +19246,7 @@ define linkonce_odr void @_ZThn8_N3nix46DerivationTest_Derivation_simple_to_ater
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix46DerivationTest_Derivation_simple_to_aterm_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix46DerivationTest_Derivation_simple_to_aterm_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, i64 0, i64 1)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -19259,7 +19256,7 @@ define linkonce_odr void @_ZThn8_N3nix46DerivationTest_Derivation_simple_to_ater
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix46DerivationTest_Derivation_simple_to_aterm_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix46DerivationTest_Derivation_simple_to_aterm_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -19271,7 +19268,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix46DerivationTest_Derivation_simple_to_a
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix46DerivationTest_Derivation_simple_to_aterm_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix46DerivationTest_Derivation_simple_to_aterm_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -19301,7 +19298,7 @@ define linkonce_odr void @_ZN3nix61DynDerivationTest_Derivation_dynDerivationDep
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([13 x ptr], ptr @_ZTTN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, i64 0, i64 2)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -19310,7 +19307,7 @@ define linkonce_odr void @_ZThn8_N3nix61DynDerivationTest_Derivation_dynDerivati
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([13 x ptr], ptr @_ZTTN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, i64 0, i64 2)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -19320,7 +19317,7 @@ define linkonce_odr void @_ZThn8_N3nix61DynDerivationTest_Derivation_dynDerivati
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -19332,7 +19329,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix61DynDerivationTest_Derivation_dynDeriv
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -19362,7 +19359,7 @@ define linkonce_odr void @_ZN3nix59DynDerivationTest_Derivation_dynDerivationDep
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([13 x ptr], ptr @_ZTTN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, i64 0, i64 2)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -19371,7 +19368,7 @@ define linkonce_odr void @_ZThn8_N3nix59DynDerivationTest_Derivation_dynDerivati
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([13 x ptr], ptr @_ZTTN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, i64 0, i64 2)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -19381,7 +19378,7 @@ define linkonce_odr void @_ZThn8_N3nix59DynDerivationTest_Derivation_dynDerivati
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -19393,7 +19390,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix59DynDerivationTest_Derivation_dynDeriv
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -19423,7 +19420,7 @@ define linkonce_odr void @_ZN3nix62DynDerivationTest_Derivation_dynDerivationDep
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([13 x ptr], ptr @_ZTTN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, i64 0, i64 2)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -19432,7 +19429,7 @@ define linkonce_odr void @_ZThn8_N3nix62DynDerivationTest_Derivation_dynDerivati
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([13 x ptr], ptr @_ZTTN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, i64 0, i64 2)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -19442,7 +19439,7 @@ define linkonce_odr void @_ZThn8_N3nix62DynDerivationTest_Derivation_dynDerivati
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -19454,7 +19451,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix62DynDerivationTest_Derivation_dynDeriv
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -19484,7 +19481,7 @@ define linkonce_odr void @_ZN3nix60DynDerivationTest_Derivation_dynDerivationDep
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([13 x ptr], ptr @_ZTTN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, i64 0, i64 2)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -19493,7 +19490,7 @@ define linkonce_odr void @_ZThn8_N3nix60DynDerivationTest_Derivation_dynDerivati
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZThn8_N3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN3nix14DerivationTestD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %2, ptr noundef nonnull getelementptr inbounds ([13 x ptr], ptr @_ZTTN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, i64 0, i64 2)) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 400
@@ -19503,7 +19500,7 @@ define linkonce_odr void @_ZThn8_N3nix60DynDerivationTest_Derivation_dynDerivati
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestD1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -19515,7 +19512,7 @@ define linkonce_odr void @_ZTv0_n24_N3nix60DynDerivationTest_Derivation_dynDeriv
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestD0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -19528,25 +19525,25 @@ define linkonce_odr void @_ZTv0_n24_N3nix60DynDerivationTest_Derivation_dynDeriv
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #13
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #13
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #12
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #13
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
@@ -19682,7 +19679,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix36De
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #16
+declare void @llvm.trap() #15
 
 declare void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
@@ -20571,7 +20568,7 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr void @_ZSt27__throw_bad_optional_accessv() local_unnamed_addr #17 comdat {
+define linkonce_odr void @_ZSt27__throw_bad_optional_accessv() local_unnamed_addr #16 comdat {
   %1 = tail call ptr @__cxa_allocate_exception(i64 8) #28
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i64 0, i32 0, i64 2), ptr %1, align 8
   tail call void @__cxa_throw(ptr nonnull %1, ptr nonnull @_ZTISt19bad_optional_access, ptr nonnull @_ZNSt19bad_optional_accessD2Ev) #29
@@ -22090,12 +22087,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
 
 declare ptr @__cxa_demangle(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #18
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7testing8internal31CanonicalizeForStdLibVersioningENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
@@ -22231,10 +22228,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %43
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #14
+declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #14
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
@@ -29056,16 +29053,16 @@ _ZN8nlohmann6detail5lexerINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stri
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #19
+declare ptr @__errno_location() local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #20
+declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #20
+declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #20
+declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEEC2ERSE_St8functionIFbiNS0_13parse_event_tESG_EEb(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -35887,7 +35884,7 @@ _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %56, %64
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #13
+declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES_IhSaIhEEEESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -37520,7 +37517,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #21
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -37536,7 +37533,7 @@ define linkonce_odr void @_ZN8nlohmann6detail10type_errorD0Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #21
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8nlohmann10basic_jsonIS_St6vectorS5_blmdSaNS6_14adl_serializerES8_IhSaIhEEEESt4lessIvESaISt4pairIKS5_SC_EEEixERSG_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -40231,7 +40228,7 @@ define linkonce_odr void @_ZN8nlohmann6detail11parse_errorD0Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #22
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8nlohmann6detail11parse_error15position_stringB5cxx11ERKNS0_10position_tE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -44720,7 +44717,7 @@ define linkonce_odr void @_ZN8nlohmann6detail21output_string_adapterIcNSt7__cxx1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i8 noundef signext %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -45526,7 +45523,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3hexRS
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #21
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull ptr @_ZN8nlohmann6detail8to_charsIdEEPcS2_PKcT_(ptr noundef nonnull %0, ptr noundef nonnull %1, double noundef %2) local_unnamed_addr #4 comdat {
@@ -50224,7 +50221,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_derivation.cc() #11 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_derivation.cc() #10 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = alloca %"struct.testing::internal::CodeLocation", align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
@@ -52540,6 +52537,9 @@ __cxx_global_var_init.91.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #22
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #23
 
@@ -52582,20 +52582,20 @@ attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nofree nosync nounwind memory(none) }
-attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #17 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #16 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nofree nosync nounwind memory(none) }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

@@ -18032,7 +18032,7 @@ _ZN10conversionL19fromStringToWStringERKNSt7__cxx1112basic_stringIcSt11char_trai
           catch ptr @_ZTIN2mu11ParserErrorE
   %493 = extractvalue { ptr, i32 } %492, 0
   %494 = extractvalue { ptr, i32 } %492, 1
-  %495 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
+  %495 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
   %496 = icmp eq i32 %494, %495
   br i1 %496, label %497, label %534
 
@@ -18302,7 +18302,7 @@ _ZN10conversionL19fromStringToWStringERKNSt7__cxx1112basic_stringIcSt11char_trai
           catch ptr @_ZTIN2mu11ParserErrorE
   %581 = extractvalue { ptr, i32 } %580, 0
   %582 = extractvalue { ptr, i32 } %580, 1
-  %583 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
+  %583 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
   %584 = icmp eq i32 %582, %583
   br i1 %584, label %585, label %626
 
@@ -19127,7 +19127,7 @@ _ZN10conversionL19fromStringToWStringERKNSt7__cxx1112basic_stringIcSt11char_trai
           catch ptr @_ZTIN2mu11ParserErrorE
   %832 = extractvalue { ptr, i32 } %831, 0
   %833 = extractvalue { ptr, i32 } %831, 1
-  %834 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
+  %834 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
   %835 = icmp eq i32 %833, %834
   br i1 %835, label %836, label %.loopexit
 
@@ -19175,7 +19175,7 @@ _ZN10conversionL19fromStringToWStringERKNSt7__cxx1112basic_stringIcSt11char_trai
           catch ptr @_ZTIN2mu11ParserErrorE
   %850 = extractvalue { ptr, i32 } %849, 0
   %851 = extractvalue { ptr, i32 } %849, 1
-  %852 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
+  %852 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
   %853 = icmp eq i32 %851, %852
   br i1 %853, label %854, label %.loopexit
 
@@ -19223,7 +19223,7 @@ _ZN10conversionL19fromStringToWStringERKNSt7__cxx1112basic_stringIcSt11char_trai
           catch ptr @_ZTIN2mu11ParserErrorE
   %868 = extractvalue { ptr, i32 } %867, 0
   %869 = extractvalue { ptr, i32 } %867, 1
-  %870 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
+  %870 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
   %871 = icmp eq i32 %869, %870
   br i1 %871, label %872, label %.loopexit
 
@@ -19282,7 +19282,7 @@ _ZN10conversionL19fromStringToWStringERKNSt7__cxx1112basic_stringIcSt11char_trai
           catch ptr @_ZTIN2mu11ParserErrorE
   %893 = extractvalue { ptr, i32 } %892, 0
   %894 = extractvalue { ptr, i32 } %892, 1
-  %895 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
+  %895 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
   %896 = icmp eq i32 %894, %895
   br i1 %896, label %897, label %.loopexit
 
@@ -20021,7 +20021,7 @@ _ZN10conversionL19fromStringToWStringERKNSt7__cxx1112basic_stringIcSt11char_trai
           catch ptr @_ZTIN2mu11ParserErrorE
   %1176 = extractvalue { ptr, i32 } %1175, 0
   %1177 = extractvalue { ptr, i32 } %1175, 1
-  %1178 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
+  %1178 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
   %1179 = icmp eq i32 %1177, %1178
   br i1 %1179, label %1180, label %1317
 
@@ -20853,7 +20853,7 @@ _ZN3vcg3tri15UpdateSelectionI6CMeshOE11VertexClearERS2_.exit1198: ; preds = %140
           catch ptr @_ZTIN2mu11ParserErrorE
   %1470 = extractvalue { ptr, i32 } %1469, 0
   %1471 = extractvalue { ptr, i32 } %1469, 1
-  %1472 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
+  %1472 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
   %1473 = icmp eq i32 %1471, %1472
   br i1 %1473, label %1474, label %1508
 
@@ -21916,7 +21916,7 @@ _ZN10conversionL19fromStringToWStringERKNSt7__cxx1112basic_stringIcSt11char_trai
           catch ptr @_ZTIN2mu11ParserErrorE
   %1825 = extractvalue { ptr, i32 } %1824, 0
   %1826 = extractvalue { ptr, i32 } %1824, 1
-  %1827 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
+  %1827 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
   %1828 = icmp eq i32 %1826, %1827
   br i1 %1828, label %1829, label %1863
 
@@ -22639,7 +22639,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i1374: ; preds = %_ZN9QtPrivate8Re
           catch ptr @_ZTIN2mu11ParserErrorE
   %2028 = extractvalue { ptr, i32 } %2027, 0
   %2029 = extractvalue { ptr, i32 } %2027, 1
-  %2030 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
+  %2030 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
   %2031 = icmp eq i32 %2029, %2030
   br i1 %2031, label %2032, label %.loopexit2517
 
@@ -22687,7 +22687,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i1374: ; preds = %_ZN9QtPrivate8Re
           catch ptr @_ZTIN2mu11ParserErrorE
   %2046 = extractvalue { ptr, i32 } %2045, 0
   %2047 = extractvalue { ptr, i32 } %2045, 1
-  %2048 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
+  %2048 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
   %2049 = icmp eq i32 %2047, %2048
   br i1 %2049, label %2050, label %.loopexit2517
 
@@ -22735,7 +22735,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i1374: ; preds = %_ZN9QtPrivate8Re
           catch ptr @_ZTIN2mu11ParserErrorE
   %2064 = extractvalue { ptr, i32 } %2063, 0
   %2065 = extractvalue { ptr, i32 } %2063, 1
-  %2066 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
+  %2066 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
   %2067 = icmp eq i32 %2065, %2066
   br i1 %2067, label %2068, label %.loopexit2517
 
@@ -23558,7 +23558,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i1466: ; preds = %_ZN9QtPrivate8Re
           catch ptr @_ZTIN2mu11ParserErrorE
   %2313 = extractvalue { ptr, i32 } %2312, 0
   %2314 = extractvalue { ptr, i32 } %2312, 1
-  %2315 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
+  %2315 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
   %2316 = icmp eq i32 %2314, %2315
   br i1 %2316, label %2317, label %.loopexit2523
 
@@ -23606,7 +23606,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i1466: ; preds = %_ZN9QtPrivate8Re
           catch ptr @_ZTIN2mu11ParserErrorE
   %2331 = extractvalue { ptr, i32 } %2330, 0
   %2332 = extractvalue { ptr, i32 } %2330, 1
-  %2333 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
+  %2333 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
   %2334 = icmp eq i32 %2332, %2333
   br i1 %2334, label %2335, label %.loopexit2523
 
@@ -23654,7 +23654,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i1466: ; preds = %_ZN9QtPrivate8Re
           catch ptr @_ZTIN2mu11ParserErrorE
   %2349 = extractvalue { ptr, i32 } %2348, 0
   %2350 = extractvalue { ptr, i32 } %2348, 1
-  %2351 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
+  %2351 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
   %2352 = icmp eq i32 %2350, %2351
   br i1 %2352, label %2353, label %.loopexit2523
 
@@ -23702,7 +23702,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i1466: ; preds = %_ZN9QtPrivate8Re
           catch ptr @_ZTIN2mu11ParserErrorE
   %2367 = extractvalue { ptr, i32 } %2366, 0
   %2368 = extractvalue { ptr, i32 } %2366, 1
-  %2369 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
+  %2369 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
   %2370 = icmp eq i32 %2368, %2369
   br i1 %2370, label %2371, label %.loopexit2523
 
@@ -24211,7 +24211,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i1512: ; preds = %_ZN9QtPrivate8Re
           catch ptr @_ZTIN2mu11ParserErrorE
   %2538 = extractvalue { ptr, i32 } %2537, 0
   %2539 = extractvalue { ptr, i32 } %2537, 1
-  %2540 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
+  %2540 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
   %2541 = icmp eq i32 %2539, %2540
   br i1 %2541, label %2542, label %.loopexit2530
 
@@ -24937,7 +24937,7 @@ _ZN10conversionL19fromStringToWStringERKNSt7__cxx1112basic_stringIcSt11char_trai
           catch ptr @_ZTIN2mu11ParserErrorE
   %2805 = extractvalue { ptr, i32 } %2804, 0
   %2806 = extractvalue { ptr, i32 } %2804, 1
-  %2807 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
+  %2807 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
   %2808 = icmp eq i32 %2806, %2807
   br i1 %2808, label %2809, label %2911
 
@@ -25615,7 +25615,7 @@ _ZN10conversionL19fromStringToWStringERKNSt7__cxx1112basic_stringIcSt11char_trai
           catch ptr @_ZTIN2mu11ParserErrorE
   %3039 = extractvalue { ptr, i32 } %3038, 0
   %3040 = extractvalue { ptr, i32 } %3038, 1
-  %3041 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
+  %3041 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
   %3042 = icmp eq i32 %3040, %3041
   br i1 %3042, label %3043, label %3077
 
@@ -26382,7 +26382,7 @@ _ZN10conversionL19fromStringToWStringERKNSt7__cxx1112basic_stringIcSt11char_trai
           catch ptr @_ZTIN2mu11ParserErrorE
   %3291 = extractvalue { ptr, i32 } %3290, 0
   %3292 = extractvalue { ptr, i32 } %3290, 1
-  %3293 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
+  %3293 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
   %3294 = icmp eq i32 %3292, %3293
   br i1 %3294, label %3295, label %3329
 
@@ -27177,7 +27177,7 @@ _ZN10conversionL19fromStringToWStringERKNSt7__cxx1112basic_stringIcSt11char_trai
           catch ptr @_ZTIN2mu11ParserErrorE
   %3547 = extractvalue { ptr, i32 } %3546, 0
   %3548 = extractvalue { ptr, i32 } %3546, 1
-  %3549 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
+  %3549 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
   %3550 = icmp eq i32 %3548, %3549
   br i1 %3550, label %3551, label %3585
 
@@ -28297,7 +28297,7 @@ _ZNSt12_Vector_baseIN3vcg11SimpleVoxelIfEESaIS2_EE13_M_deallocateEPS2_m.exit35.i
           catch ptr @_ZTIN2mu11ParserErrorE
   %3936 = extractvalue { ptr, i32 } %3935, 0
   %3937 = extractvalue { ptr, i32 } %3935, 1
-  %3938 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
+  %3938 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
   %3939 = icmp eq i32 %3937, %3938
   br i1 %3939, label %4017, label %4103
 
@@ -32093,9 +32093,6 @@ define void @_ZN20FilterFunctionPlugin13setAttributesERN9__gnu_cxx17__normal_ite
 }
 
 declare noundef double @_ZNK2mu10ParserBase4EvalEv(ptr noundef nonnull align 8 dereferenceable(596)) local_unnamed_addr #0
-
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #19
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
@@ -39521,7 +39518,7 @@ _ZN10conversionL19fromStringToWStringERKNSt7__cxx1112basic_stringIcSt11char_trai
           catch ptr @_ZTIN2mu11ParserErrorE
   %55 = extractvalue { ptr, i32 } %54, 0
   %56 = extractvalue { ptr, i32 } %54, 1
-  %57 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
+  %57 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
   %58 = icmp eq i32 %56, %57
   br i1 %58, label %59, label %72
 
@@ -39633,7 +39630,7 @@ _ZN10conversionL19fromStringToWStringERKNSt7__cxx1112basic_stringIcSt11char_trai
           cleanup
           catch ptr @_ZTIN2mu11ParserErrorE
   %17 = extractvalue { ptr, i32 } %16, 1
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #27
   %19 = icmp eq i32 %17, %18
   br i1 %19, label %20, label %34
 
@@ -41139,7 +41136,7 @@ define linkonce_odr void @_ZN14MidPointCustomI6CMeshOED2Ev(ptr noundef nonnull a
 declare void @_ZN12FilterPlugin17wrongActionCalledEPK7QAction(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
 
 ; Function Attrs: uwtable
 define void @_ZThn16_N20FilterFunctionPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::map.103") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %5, ptr noundef %6) unnamed_addr #16 align 2 {
@@ -41251,7 +41248,7 @@ define linkonce_odr noundef ptr @_ZNK11MLException4whatEv(ptr noundef nonnull al
 declare void @_ZN7QString18toLocal8Bit_helperEPK5QChari(ptr dead_on_unwind writable sret(%class.QByteArray) align 8, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #21
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #20
 
 declare void @_ZN11GLLogStream3logEiPKc(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -57891,6 +57888,9 @@ __cxx_global_var_init.8.exit:                     ; preds = %__cxx_global_var_in
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #21
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #22
 
@@ -57946,9 +57946,9 @@ attributes #15 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-widt
 attributes #16 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nofree nosync nounwind memory(none) }
-attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #21 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #20 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree nosync nounwind memory(none) }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #24 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

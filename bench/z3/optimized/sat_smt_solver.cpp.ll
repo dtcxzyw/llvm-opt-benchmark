@@ -6522,7 +6522,7 @@ lpad12:                                           ; preds = %_ZNK6vectorIN3sat7l
           cleanup
           catch ptr @_ZTI12z3_exception
   %15 = extractvalue { ptr, i32 } %14, 1
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI12z3_exception) #21
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI12z3_exception) #21
   %matches = icmp eq i32 %15, %16
   br i1 %matches, label %catch, label %ehcleanup83
 
@@ -10951,9 +10951,6 @@ for.end14:                                        ; preds = %for.body10, %for.en
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #16
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN14sat_smt_solver17check_assumptionsEv(ptr noundef nonnull align 8 dereferenceable(4889) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
@@ -12622,6 +12619,9 @@ entry:
   store i1 true, ptr @_ZN3satL12null_literalE.0, align 4
   ret void
 }
+
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17

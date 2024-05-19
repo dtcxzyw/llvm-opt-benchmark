@@ -501,7 +501,7 @@ define noundef i64 @_ZN6casadi16CallbackInternal8get_n_inEv(ptr noundef nonnull 
 68:                                               ; preds = %58, %59, %66
   %.pn51 = phi { ptr, i32 } [ %67, %66 ], [ %.pn.pn.pn.pn.pn.pn.pn67, %59 ], [ %.pn.pn.pn.pn.pn.pn, %58 ]
   %.732 = extractvalue { ptr, i32 } %.pn51, 1
-  %69 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %69 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %70 = icmp eq i32 %.732, %69
   br i1 %70, label %71, label %120
 
@@ -896,9 +896,6 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #7
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
@@ -1118,7 +1115,7 @@ define noundef i64 @_ZN6casadi16CallbackInternal9get_n_outEv(ptr noundef nonnull
 68:                                               ; preds = %58, %59, %66
   %.pn51 = phi { ptr, i32 } [ %67, %66 ], [ %.pn.pn.pn.pn.pn.pn.pn67, %59 ], [ %.pn.pn.pn.pn.pn.pn, %58 ]
   %.732 = extractvalue { ptr, i32 } %.pn51, 1
-  %69 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %69 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %70 = icmp eq i32 %.732, %69
   br i1 %70, label %71, label %120
 
@@ -1492,7 +1489,7 @@ define void @_ZN6casadi16CallbackInternal15get_sparsity_inEx(ptr dead_on_unwind 
 69:                                               ; preds = %60, %61, %67
   %.pn52 = phi { ptr, i32 } [ %68, %67 ], [ %.pn.pn.pn.pn.pn.pn.pn68, %61 ], [ %.pn.pn.pn.pn.pn.pn, %60 ]
   %.733 = extractvalue { ptr, i32 } %.pn52, 1
-  %70 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %70 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %71 = icmp eq i32 %.733, %70
   br i1 %71, label %72, label %121
 
@@ -1866,7 +1863,7 @@ define void @_ZN6casadi16CallbackInternal16get_sparsity_outEx(ptr dead_on_unwind
 69:                                               ; preds = %60, %61, %67
   %.pn52 = phi { ptr, i32 } [ %68, %67 ], [ %.pn.pn.pn.pn.pn.pn.pn68, %61 ], [ %.pn.pn.pn.pn.pn.pn, %60 ]
   %.733 = extractvalue { ptr, i32 } %.pn52, 1
-  %70 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %70 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %71 = icmp eq i32 %.733, %70
   br i1 %71, label %72, label %121
 
@@ -2240,7 +2237,7 @@ define void @_ZN6casadi16CallbackInternal11get_name_inB5cxx11Ex(ptr dead_on_unwi
 69:                                               ; preds = %60, %61, %67
   %.pn52 = phi { ptr, i32 } [ %68, %67 ], [ %.pn.pn.pn.pn.pn.pn.pn68, %61 ], [ %.pn.pn.pn.pn.pn.pn, %60 ]
   %.733 = extractvalue { ptr, i32 } %.pn52, 1
-  %70 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %70 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %71 = icmp eq i32 %.733, %70
   br i1 %71, label %72, label %121
 
@@ -2614,7 +2611,7 @@ define void @_ZN6casadi16CallbackInternal12get_name_outB5cxx11Ex(ptr dead_on_unw
 69:                                               ; preds = %60, %61, %67
   %.pn52 = phi { ptr, i32 } [ %68, %67 ], [ %.pn.pn.pn.pn.pn.pn.pn68, %61 ], [ %.pn.pn.pn.pn.pn.pn, %60 ]
   %.733 = extractvalue { ptr, i32 } %.pn52, 1
-  %70 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %70 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %71 = icmp eq i32 %.733, %70
   br i1 %71, label %72, label %121
 
@@ -2988,7 +2985,7 @@ define noundef zeroext i1 @_ZNK6casadi16CallbackInternal15has_eval_bufferEv(ptr 
 68:                                               ; preds = %58, %59, %66
   %.pn51 = phi { ptr, i32 } [ %67, %66 ], [ %.pn.pn.pn.pn.pn.pn.pn67, %59 ], [ %.pn.pn.pn.pn.pn.pn, %58 ]
   %.732 = extractvalue { ptr, i32 } %.pn51, 1
-  %69 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %69 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %70 = icmp eq i32 %.732, %69
   br i1 %70, label %71, label %120
 
@@ -3362,7 +3359,7 @@ define noundef zeroext i1 @_ZNK6casadi16CallbackInternal16has_jac_sparsityExx(pt
 70:                                               ; preds = %60, %61, %68
   %.pn53 = phi { ptr, i32 } [ %69, %68 ], [ %.pn.pn.pn.pn.pn.pn.pn69, %61 ], [ %.pn.pn.pn.pn.pn.pn, %60 ]
   %.734 = extractvalue { ptr, i32 } %.pn53, 1
-  %71 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %71 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %72 = icmp eq i32 %.734, %71
   br i1 %72, label %73, label %122
 
@@ -3736,7 +3733,7 @@ define void @_ZNK6casadi16CallbackInternal16get_jac_sparsityExxb(ptr dead_on_unw
 71:                                               ; preds = %62, %63, %69
   %.pn54 = phi { ptr, i32 } [ %70, %69 ], [ %.pn.pn.pn.pn.pn.pn.pn70, %63 ], [ %.pn.pn.pn.pn.pn.pn, %62 ]
   %.735 = extractvalue { ptr, i32 } %.pn54, 1
-  %72 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %72 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %73 = icmp eq i32 %.735, %72
   br i1 %73, label %74, label %123
 
@@ -4583,7 +4580,7 @@ define void @_ZNK6casadi16CallbackInternal7eval_dmERKSt6vectorINS_6MatrixIdEESaI
 69:                                               ; preds = %60, %61, %67
   %.pn52 = phi { ptr, i32 } [ %68, %67 ], [ %.pn.pn.pn.pn.pn.pn.pn68, %61 ], [ %.pn.pn.pn.pn.pn.pn, %60 ]
   %.733 = extractvalue { ptr, i32 } %.pn52, 1
-  %70 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %70 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %71 = icmp eq i32 %.733, %70
   br i1 %71, label %72, label %121
 
@@ -4967,7 +4964,7 @@ define noundef i32 @_ZNK6casadi16CallbackInternal4evalEPPKdPPdPxS4_Pv(ptr nounde
 81:                                               ; preds = %70, %71, %79
   %.pn60 = phi { ptr, i32 } [ %80, %79 ], [ %.pn.pn.pn.pn.pn.pn.pn76, %71 ], [ %.pn.pn.pn.pn.pn.pn, %70 ]
   %.731 = extractvalue { ptr, i32 } %.pn60, 1
-  %82 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %82 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %83 = icmp eq i32 %.731, %82
   br i1 %83, label %84, label %134
 
@@ -5347,7 +5344,7 @@ define noundef zeroext i1 @_ZNK6casadi16CallbackInternal11uses_outputEv(ptr noun
 68:                                               ; preds = %58, %59, %66
   %.pn51 = phi { ptr, i32 } [ %67, %66 ], [ %.pn.pn.pn.pn.pn.pn.pn67, %59 ], [ %.pn.pn.pn.pn.pn.pn, %58 ]
   %.732 = extractvalue { ptr, i32 } %.pn51, 1
-  %69 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %69 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %70 = icmp eq i32 %.732, %69
   br i1 %70, label %71, label %120
 
@@ -5721,7 +5718,7 @@ define noundef zeroext i1 @_ZNK6casadi16CallbackInternal12has_jacobianEv(ptr nou
 68:                                               ; preds = %58, %59, %66
   %.pn51 = phi { ptr, i32 } [ %67, %66 ], [ %.pn.pn.pn.pn.pn.pn.pn67, %59 ], [ %.pn.pn.pn.pn.pn.pn, %58 ]
   %.732 = extractvalue { ptr, i32 } %.pn51, 1
-  %69 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %69 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %70 = icmp eq i32 %.732, %69
   br i1 %70, label %71, label %120
 
@@ -6095,7 +6092,7 @@ define void @_ZNK6casadi16CallbackInternal12get_jacobianERKNSt7__cxx1112basic_st
 72:                                               ; preds = %63, %64, %70
   %.pn55 = phi { ptr, i32 } [ %71, %70 ], [ %.pn.pn.pn.pn.pn.pn.pn71, %64 ], [ %.pn.pn.pn.pn.pn.pn, %63 ]
   %.736 = extractvalue { ptr, i32 } %.pn55, 1
-  %73 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %73 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %74 = icmp eq i32 %.736, %73
   br i1 %74, label %75, label %124
 
@@ -6469,7 +6466,7 @@ define void @_ZNK6casadi16CallbackInternal11get_forwardExRKNSt7__cxx1112basic_st
 73:                                               ; preds = %64, %65, %71
   %.pn56 = phi { ptr, i32 } [ %72, %71 ], [ %.pn.pn.pn.pn.pn.pn.pn72, %65 ], [ %.pn.pn.pn.pn.pn.pn, %64 ]
   %.737 = extractvalue { ptr, i32 } %.pn56, 1
-  %74 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %74 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %75 = icmp eq i32 %.737, %74
   br i1 %75, label %76, label %125
 
@@ -6843,7 +6840,7 @@ define noundef zeroext i1 @_ZNK6casadi16CallbackInternal11has_forwardEx(ptr noun
 69:                                               ; preds = %59, %60, %67
   %.pn52 = phi { ptr, i32 } [ %68, %67 ], [ %.pn.pn.pn.pn.pn.pn.pn68, %60 ], [ %.pn.pn.pn.pn.pn.pn, %59 ]
   %.733 = extractvalue { ptr, i32 } %.pn52, 1
-  %70 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %70 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %71 = icmp eq i32 %.733, %70
   br i1 %71, label %72, label %121
 
@@ -7217,7 +7214,7 @@ define void @_ZNK6casadi16CallbackInternal11get_reverseExRKNSt7__cxx1112basic_st
 73:                                               ; preds = %64, %65, %71
   %.pn56 = phi { ptr, i32 } [ %72, %71 ], [ %.pn.pn.pn.pn.pn.pn.pn72, %65 ], [ %.pn.pn.pn.pn.pn.pn, %64 ]
   %.737 = extractvalue { ptr, i32 } %.pn56, 1
-  %74 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %74 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %75 = icmp eq i32 %.737, %74
   br i1 %75, label %76, label %125
 
@@ -7591,7 +7588,7 @@ define noundef zeroext i1 @_ZNK6casadi16CallbackInternal11has_reverseEx(ptr noun
 69:                                               ; preds = %59, %60, %67
   %.pn52 = phi { ptr, i32 } [ %68, %67 ], [ %.pn.pn.pn.pn.pn.pn.pn68, %60 ], [ %.pn.pn.pn.pn.pn.pn, %59 ]
   %.733 = extractvalue { ptr, i32 } %.pn52, 1
-  %70 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %70 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %71 = icmp eq i32 %.733, %70
   br i1 %71, label %72, label %121
 
@@ -8303,7 +8300,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
@@ -8331,10 +8328,10 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #9
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi6FStatsEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8359,7 +8356,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -8384,7 +8381,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(pt
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
@@ -8394,7 +8391,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #9
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8587,14 +8584,17 @@ _ZNSt12_Vector_baseIxSaIxEE13_M_deallocateEPxm.exit35: ; preds = %_ZNSt6vectorIx
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_callback_internal.cpp() #13 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_callback_internal.cpp() #12 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #17
   ret void
 }
+
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #14
@@ -8612,13 +8612,13 @@ attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nosync nounwind memory(none) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nosync nounwind memory(none) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { builtin nounwind }

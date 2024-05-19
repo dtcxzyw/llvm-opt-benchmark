@@ -6239,7 +6239,7 @@ catch.dispatch:                                   ; preds = %lpad.i1306, %lpad11
   %.pn183 = phi { ptr, i32 } [ %479, %lpad1176 ], [ %471, %lpad.i1306 ]
   %exn.slot.77 = extractvalue { ptr, i32 } %.pn183, 0
   %ehselector.slot.77 = extractvalue { ptr, i32 } %.pn183, 1
-  %480 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %480 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches = icmp eq i32 %ehselector.slot.77, %480
   %481 = call ptr @__cxa_begin_catch(ptr %exn.slot.77) #19
   br i1 %matches, label %catch1185, label %catch
@@ -6970,7 +6970,7 @@ lpad1451:                                         ; preds = %invoke.cont1449
           catch ptr null
   %555 = extractvalue { ptr, i32 } %554, 0
   %556 = extractvalue { ptr, i32 } %554, 1
-  %557 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %557 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches1455 = icmp eq i32 %556, %557
   %558 = call ptr @__cxa_begin_catch(ptr %555) #19
   br i1 %matches1455, label %catch1464, label %catch1456
@@ -8010,7 +8010,7 @@ catch.dispatch1701:                               ; preds = %lpad.i1590, %lpad16
   %.pn220 = phi { ptr, i32 } [ %670, %lpad1698 ], [ %662, %lpad.i1590 ]
   %exn.slot.105 = extractvalue { ptr, i32 } %.pn220, 0
   %ehselector.slot.105 = extractvalue { ptr, i32 } %.pn220, 1
-  %671 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %671 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches1703 = icmp eq i32 %ehselector.slot.105, %671
   %672 = call ptr @__cxa_begin_catch(ptr %exn.slot.105) #19
   br i1 %matches1703, label %catch1712, label %catch1704
@@ -9999,7 +9999,7 @@ lpad2607.body:                                    ; preds = %lpad19.i1940, %lpad
   %890 = extractvalue { ptr, i32 } %eh.lpad-body1951, 0
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2591) #19
   %891 = extractvalue { ptr, i32 } %eh.lpad-body1951, 1
-  %892 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %892 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches2624 = icmp eq i32 %891, %892
   %893 = call ptr @__cxa_begin_catch(ptr %890) #19
   br i1 %matches2624, label %catch2633, label %catch2625
@@ -10148,7 +10148,7 @@ arraydestroy.body2694:                            ; preds = %arraydestroy.body26
 
 catch.dispatch2699:                               ; preds = %arraydestroy.body2694
   %906 = extractvalue { ptr, i32 } %903, 1
-  %907 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %907 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches2701 = icmp eq i32 %906, %907
   %908 = call ptr @__cxa_begin_catch(ptr %904) #19
   br i1 %matches2701, label %catch2710, label %catch2702
@@ -10339,7 +10339,7 @@ arraydestroy.body2777:                            ; preds = %arraydestroy.body27
 
 catch.dispatch2782:                               ; preds = %arraydestroy.body2777
   %925 = extractvalue { ptr, i32 } %eh.lpad-body1998, 1
-  %926 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %926 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches2784 = icmp eq i32 %925, %926
   %927 = call ptr @__cxa_begin_catch(ptr %923) #19
   br i1 %matches2784, label %catch2793, label %catch2785
@@ -11540,7 +11540,7 @@ lpad3271:                                         ; preds = %invoke.cont3269
           catch ptr null
   %1049 = extractvalue { ptr, i32 } %1048, 0
   %1050 = extractvalue { ptr, i32 } %1048, 1
-  %1051 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %1051 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches3276 = icmp eq i32 %1050, %1051
   %1052 = call ptr @__cxa_begin_catch(ptr %1049) #19
   br i1 %matches3276, label %catch3285, label %catch3277
@@ -12818,7 +12818,7 @@ lpad3833:                                         ; preds = %invoke.cont3831
           catch ptr null
   %1184 = extractvalue { ptr, i32 } %1183, 0
   %1185 = extractvalue { ptr, i32 } %1183, 1
-  %1186 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %1186 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches3837 = icmp eq i32 %1185, %1186
   %1187 = call ptr @__cxa_begin_catch(ptr %1184) #19
   br i1 %matches3837, label %catch3846, label %catch3838
@@ -13647,7 +13647,7 @@ catch.dispatch4148:                               ; preds = %lpad.i2432, %lpad41
   %.pn332 = phi { ptr, i32 } [ %1273, %lpad4144 ], [ %1265, %lpad.i2432 ]
   %exn.slot.195 = extractvalue { ptr, i32 } %.pn332, 0
   %ehselector.slot.195 = extractvalue { ptr, i32 } %.pn332, 1
-  %1274 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %1274 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches4150 = icmp eq i32 %ehselector.slot.195, %1274
   %1275 = call ptr @__cxa_begin_catch(ptr %exn.slot.195) #19
   br i1 %matches4150, label %catch4159, label %catch4151
@@ -14378,7 +14378,7 @@ lpad4433:                                         ; preds = %invoke.cont4431
           catch ptr null
   %1349 = extractvalue { ptr, i32 } %1348, 0
   %1350 = extractvalue { ptr, i32 } %1348, 1
-  %1351 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %1351 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches4438 = icmp eq i32 %1350, %1351
   %1352 = call ptr @__cxa_begin_catch(ptr %1349) #19
   br i1 %matches4438, label %catch4447, label %catch4439
@@ -15418,7 +15418,7 @@ catch.dispatch4689:                               ; preds = %lpad.i2757, %lpad46
   %.pn369 = phi { ptr, i32 } [ %1464, %lpad4685 ], [ %1456, %lpad.i2757 ]
   %exn.slot.223 = extractvalue { ptr, i32 } %.pn369, 0
   %ehselector.slot.223 = extractvalue { ptr, i32 } %.pn369, 1
-  %1465 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %1465 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches4691 = icmp eq i32 %ehselector.slot.223, %1465
   %1466 = call ptr @__cxa_begin_catch(ptr %exn.slot.223) #19
   br i1 %matches4691, label %catch4700, label %catch4692
@@ -17538,7 +17538,7 @@ arraydestroy.body5689:                            ; preds = %arraydestroy.body56
 
 catch.dispatch5694:                               ; preds = %arraydestroy.body5689
   %1699 = extractvalue { ptr, i32 } %eh.lpad-body6932, 1
-  %1700 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %1700 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches5696 = icmp eq i32 %1699, %1700
   %1701 = call ptr @__cxa_begin_catch(ptr %1697) #19
   br i1 %matches5696, label %catch5705, label %catch5697
@@ -22611,7 +22611,7 @@ lpad7341:                                         ; preds = %_ZN8nlohmann16json_
           catch ptr null
   %2269 = extractvalue { ptr, i32 } %2268, 0
   %2270 = extractvalue { ptr, i32 } %2268, 1
-  %2271 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE) #19
+  %2271 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE) #19
   %matches7345 = icmp eq i32 %2270, %2271
   %2272 = call ptr @__cxa_begin_catch(ptr %2269) #19
   br i1 %matches7345, label %catch7354, label %catch7346
@@ -22808,7 +22808,7 @@ lpad7392:                                         ; preds = %_ZN8nlohmann16json_
           catch ptr null
   %2292 = extractvalue { ptr, i32 } %2291, 0
   %2293 = extractvalue { ptr, i32 } %2291, 1
-  %2294 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE) #19
+  %2294 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE) #19
   %matches7396 = icmp eq i32 %2293, %2294
   %2295 = call ptr @__cxa_begin_catch(ptr %2292) #19
   br i1 %matches7396, label %catch7405, label %catch7397
@@ -23873,7 +23873,7 @@ lpad7764:                                         ; preds = %_ZN8nlohmann16json_
           catch ptr null
   %2407 = extractvalue { ptr, i32 } %2406, 0
   %2408 = extractvalue { ptr, i32 } %2406, 1
-  %2409 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %2409 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches7768 = icmp eq i32 %2408, %2409
   %2410 = call ptr @__cxa_begin_catch(ptr %2407) #19
   br i1 %matches7768, label %catch7777, label %catch7769
@@ -24040,7 +24040,7 @@ lpad7812:                                         ; preds = %_ZN8nlohmann16json_
           catch ptr null
   %2426 = extractvalue { ptr, i32 } %2425, 0
   %2427 = extractvalue { ptr, i32 } %2425, 1
-  %2428 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE) #19
+  %2428 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE) #19
   %matches7816 = icmp eq i32 %2427, %2428
   %2429 = call ptr @__cxa_begin_catch(ptr %2426) #19
   br i1 %matches7816, label %catch7825, label %catch7817
@@ -24205,7 +24205,7 @@ lpad7860:                                         ; preds = %_ZN8nlohmann16json_
           catch ptr null
   %2442 = extractvalue { ptr, i32 } %2441, 0
   %2443 = extractvalue { ptr, i32 } %2441, 1
-  %2444 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE) #19
+  %2444 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE) #19
   %matches7864 = icmp eq i32 %2443, %2444
   %2445 = call ptr @__cxa_begin_catch(ptr %2442) #19
   br i1 %matches7864, label %catch7873, label %catch7865
@@ -25917,7 +25917,7 @@ lpad8496:                                         ; preds = %_ZN8nlohmann16json_
   %2635 = extractvalue { ptr, i32 } %2634, 0
   %2636 = extractvalue { ptr, i32 } %2634, 1
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp8493) #19
-  %2637 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE) #19
+  %2637 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE) #19
   %matches8501 = icmp eq i32 %2636, %2637
   %2638 = call ptr @__cxa_begin_catch(ptr %2635) #19
   br i1 %matches8501, label %catch8510, label %catch8502
@@ -26050,7 +26050,7 @@ lpad8544:                                         ; preds = %_ZN8nlohmann16json_
           catch ptr null
   %2649 = extractvalue { ptr, i32 } %2648, 0
   %2650 = extractvalue { ptr, i32 } %2648, 1
-  %2651 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE) #19
+  %2651 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE) #19
   %matches8548 = icmp eq i32 %2650, %2651
   %2652 = call ptr @__cxa_begin_catch(ptr %2649) #19
   br i1 %matches8548, label %catch8557, label %catch8549
@@ -26200,7 +26200,7 @@ lpad8593:                                         ; preds = %_ZN8nlohmann16json_
   %2666 = extractvalue { ptr, i32 } %2665, 0
   %2667 = extractvalue { ptr, i32 } %2665, 1
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp8590) #19
-  %2668 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE) #19
+  %2668 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE) #19
   %matches8598 = icmp eq i32 %2667, %2668
   %2669 = call ptr @__cxa_begin_catch(ptr %2666) #19
   br i1 %matches8598, label %catch8607, label %catch8599
@@ -26395,7 +26395,7 @@ lpad8645:                                         ; preds = %_ZN8nlohmann16json_
           catch ptr null
   %2686 = extractvalue { ptr, i32 } %2685, 0
   %2687 = extractvalue { ptr, i32 } %2685, 1
-  %2688 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE) #19
+  %2688 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE) #19
   %matches8649 = icmp eq i32 %2687, %2688
   %2689 = call ptr @__cxa_begin_catch(ptr %2686) #19
   br i1 %matches8649, label %catch8658, label %catch8650
@@ -26586,7 +26586,7 @@ arraydestroy.body8728:                            ; preds = %arraydestroy.body87
 
 catch.dispatch8733:                               ; preds = %arraydestroy.body8728
   %2706 = extractvalue { ptr, i32 } %2703, 1
-  %2707 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE) #19
+  %2707 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE) #19
   %matches8735 = icmp eq i32 %2706, %2707
   %2708 = call ptr @__cxa_begin_catch(ptr %2704) #19
   br i1 %matches8735, label %catch8744, label %catch8736
@@ -26881,7 +26881,7 @@ lpad8830:                                         ; preds = %_ZN8nlohmann16json_
   %2739 = extractvalue { ptr, i32 } %2738, 0
   %2740 = extractvalue { ptr, i32 } %2738, 1
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp8827) #19
-  %2741 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %2741 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches8835 = icmp eq i32 %2740, %2741
   %2742 = call ptr @__cxa_begin_catch(ptr %2739) #19
   br i1 %matches8835, label %catch8844, label %catch8836
@@ -27012,7 +27012,7 @@ lpad8878:                                         ; preds = %_ZN8nlohmann16json_
           catch ptr null
   %2753 = extractvalue { ptr, i32 } %2752, 0
   %2754 = extractvalue { ptr, i32 } %2752, 1
-  %2755 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %2755 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches8882 = icmp eq i32 %2754, %2755
   %2756 = call ptr @__cxa_begin_catch(ptr %2753) #19
   br i1 %matches8882, label %catch8891, label %catch8883
@@ -27160,7 +27160,7 @@ lpad8927:                                         ; preds = %_ZN8nlohmann16json_
   %2770 = extractvalue { ptr, i32 } %2769, 0
   %2771 = extractvalue { ptr, i32 } %2769, 1
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp8924) #19
-  %2772 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %2772 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches8932 = icmp eq i32 %2771, %2772
   %2773 = call ptr @__cxa_begin_catch(ptr %2770) #19
   br i1 %matches8932, label %catch8941, label %catch8933
@@ -27353,7 +27353,7 @@ lpad8979:                                         ; preds = %_ZN8nlohmann16json_
           catch ptr null
   %2790 = extractvalue { ptr, i32 } %2789, 0
   %2791 = extractvalue { ptr, i32 } %2789, 1
-  %2792 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %2792 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches8983 = icmp eq i32 %2791, %2792
   %2793 = call ptr @__cxa_begin_catch(ptr %2790) #19
   br i1 %matches8983, label %catch8992, label %catch8984
@@ -27542,7 +27542,7 @@ arraydestroy.body9062:                            ; preds = %arraydestroy.body90
 
 catch.dispatch9067:                               ; preds = %arraydestroy.body9062
   %2810 = extractvalue { ptr, i32 } %2807, 1
-  %2811 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %2811 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches9069 = icmp eq i32 %2810, %2811
   %2812 = call ptr @__cxa_begin_catch(ptr %2808) #19
   br i1 %matches9069, label %catch9078, label %catch9070
@@ -28935,7 +28935,7 @@ lpad9576:                                         ; preds = %_ZNK8nlohmann16json
           catch ptr null
   %2957 = extractvalue { ptr, i32 } %2956, 0
   %2958 = extractvalue { ptr, i32 } %2956, 1
-  %2959 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %2959 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches9580 = icmp eq i32 %2958, %2959
   %2960 = call ptr @__cxa_begin_catch(ptr %2957) #19
   br i1 %matches9580, label %catch9589, label %catch9581
@@ -29111,7 +29111,7 @@ lpad9620:                                         ; preds = %_ZNK8nlohmann16json
           catch ptr null
   %2974 = extractvalue { ptr, i32 } %2973, 0
   %2975 = extractvalue { ptr, i32 } %2973, 1
-  %2976 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %2976 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches9624 = icmp eq i32 %2975, %2976
   %2977 = call ptr @__cxa_begin_catch(ptr %2974) #19
   br i1 %matches9624, label %catch9633, label %catch9625
@@ -30314,7 +30314,7 @@ lpad10042:                                        ; preds = %_ZN8nlohmann16json_
           catch ptr null
   %3099 = extractvalue { ptr, i32 } %3098, 0
   %3100 = extractvalue { ptr, i32 } %3098, 1
-  %3101 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %3101 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches10046 = icmp eq i32 %3100, %3101
   %3102 = call ptr @__cxa_begin_catch(ptr %3099) #19
   br i1 %matches10046, label %catch10055, label %catch10047
@@ -30481,7 +30481,7 @@ lpad10090:                                        ; preds = %_ZN8nlohmann16json_
           catch ptr null
   %3118 = extractvalue { ptr, i32 } %3117, 0
   %3119 = extractvalue { ptr, i32 } %3117, 1
-  %3120 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE) #19
+  %3120 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail16invalid_iteratorE) #19
   %matches10094 = icmp eq i32 %3119, %3120
   %3121 = call ptr @__cxa_begin_catch(ptr %3118) #19
   br i1 %matches10094, label %catch10103, label %catch10095
@@ -30646,7 +30646,7 @@ lpad10138:                                        ; preds = %_ZN8nlohmann16json_
           catch ptr null
   %3134 = extractvalue { ptr, i32 } %3133, 0
   %3135 = extractvalue { ptr, i32 } %3133, 1
-  %3136 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %3136 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches10142 = icmp eq i32 %3135, %3136
   %3137 = call ptr @__cxa_begin_catch(ptr %3134) #19
   br i1 %matches10142, label %catch10151, label %catch10143
@@ -34241,7 +34241,7 @@ lpad11577:                                        ; preds = %invoke.cont11575
           catch ptr null
   %3519 = extractvalue { ptr, i32 } %3518, 0
   %3520 = extractvalue { ptr, i32 } %3518, 1
-  %3521 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %3521 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches11581 = icmp eq i32 %3520, %3521
   %3522 = call ptr @__cxa_begin_catch(ptr %3519) #19
   br i1 %matches11581, label %catch11590, label %catch11582
@@ -35491,7 +35491,7 @@ lpad12073:                                        ; preds = %invoke.cont12071
           catch ptr null
   %3646 = extractvalue { ptr, i32 } %3645, 0
   %3647 = extractvalue { ptr, i32 } %3645, 1
-  %3648 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %3648 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches12077 = icmp eq i32 %3647, %3648
   %3649 = call ptr @__cxa_begin_catch(ptr %3646) #19
   br i1 %matches12077, label %catch12086, label %catch12078
@@ -35929,7 +35929,7 @@ lpad12204:                                        ; preds = %invoke.cont12202
           catch ptr null
   %3692 = extractvalue { ptr, i32 } %3691, 0
   %3693 = extractvalue { ptr, i32 } %3691, 1
-  %3694 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %3694 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches12208 = icmp eq i32 %3693, %3694
   %3695 = call ptr @__cxa_begin_catch(ptr %3692) #19
   br i1 %matches12208, label %catch12217, label %catch12209
@@ -36781,7 +36781,7 @@ lpad12527:                                        ; preds = %invoke.cont12525
           catch ptr null
   %3776 = extractvalue { ptr, i32 } %3775, 0
   %3777 = extractvalue { ptr, i32 } %3775, 1
-  %3778 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %3778 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches12531 = icmp eq i32 %3777, %3778
   %3779 = call ptr @__cxa_begin_catch(ptr %3776) #19
   br i1 %matches12531, label %catch12540, label %catch12532
@@ -36884,7 +36884,7 @@ lpad12571:                                        ; preds = %invoke.cont12569
           catch ptr null
   %3786 = extractvalue { ptr, i32 } %3785, 0
   %3787 = extractvalue { ptr, i32 } %3785, 1
-  %3788 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
+  %3788 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann16json_abi_v3_11_36detail10type_errorE) #19
   %matches12575 = icmp eq i32 %3787, %3788
   %3789 = call ptr @__cxa_begin_catch(ptr %3786) #19
   br i1 %matches12575, label %catch12584, label %catch12576
@@ -37931,9 +37931,6 @@ declare noundef ptr @_ZN7doctest17getContextOptionsEv() local_unnamed_addr #0
 
 declare void @_ZN7doctest6detail13ResultBuilderC1ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr noundef nonnull align 8 dereferenceable(144), i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #5
-
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 declare void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #0
@@ -37941,7 +37938,7 @@ declare void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr nounde
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
   tail call void @_ZSt9terminatev() #20
   unreachable
@@ -41984,19 +41981,19 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #8
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #7
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #8
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #7
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEEEE7destroyISE_EEvRSF_PT_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -42018,7 +42015,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE17_M_realloc_insertIJSD_EEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__args) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -42113,7 +42110,7 @@ _ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #11
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt8_DestroyIPN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESE_EvT_SG_RSaIT0_E(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %0) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
@@ -42504,7 +42501,7 @@ eh.resume:                                        ; preds = %if.then.i.i, %lpad1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
@@ -42944,7 +42941,7 @@ return:                                           ; preds = %land.lhs.true5, %if
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #11
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
@@ -44847,7 +44844,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare ptr @localeconv() local_unnamed_addr #3
@@ -45455,7 +45452,7 @@ return:                                           ; preds = %if.end33, %if.then
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
@@ -46031,7 +46028,7 @@ terminate.lpad:                                   ; preds = %invoke.cont, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -47364,7 +47361,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #11
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
@@ -52839,7 +52836,7 @@ nrvo.skipdtor:                                    ; preds = %call.i3.noexc
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_unit_modifiers.cpp() #14 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_unit_modifiers.cpp() #13 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i1 = alloca %"struct.doctest::detail::TestCase", align 8
   %ref.tmp1.i = alloca %"class.doctest::String", align 8
@@ -52892,6 +52889,9 @@ __cxx_global_var_init.1.exit:                     ; preds = %invoke.cont3.i
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #14
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #15
 
@@ -52924,16 +52924,16 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nosync nounwind memory(none) }
-attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nosync nounwind memory(none) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

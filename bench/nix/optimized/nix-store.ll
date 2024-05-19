@@ -28677,7 +28677,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit633: ; preds = %_Z
   %eh.lpad-body412 = phi { ptr, i32 } [ %412, %411 ], [ %eh.lpad-body635, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit633 ], [ %.pn9.i, %405 ]
   %413 = extractvalue { ptr, i32 } %eh.lpad-body412, 0
   %414 = extractvalue { ptr, i32 } %eh.lpad-body412, 1
-  %415 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9EndOfFileE) #26
+  %415 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9EndOfFileE) #26
   %416 = icmp eq i32 %414, %415
   br i1 %416, label %417, label %_ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EED2Ev.exit185
 
@@ -29777,7 +29777,7 @@ _ZN3nix3refIKNS_13ValidPathInfoEED2Ev.exit198:    ; preds = %_ZNSt16_Sp_counted_
   %.pn169.pn = phi { ptr, i32 } [ %753, %752 ], [ %.pn169, %762 ], [ %.pn169, %780 ], [ %.pn169, %793 ], [ %.pn169, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i197 ]
   %.4 = extractvalue { ptr, i32 } %.pn169.pn, 0
   %.499 = extractvalue { ptr, i32 } %.pn169.pn, 1
-  %798 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix11InvalidPathE) #26
+  %798 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix11InvalidPathE) #26
   %799 = icmp eq i32 %.499, %798
   br i1 %799, label %800, label %.loopexit1036
 
@@ -31443,7 +31443,7 @@ _ZNSt6vectorIN3nix20StorePathWithOutputsESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Des
   %.pn160.pn = phi { ptr, i32 } [ %1336, %1335 ], [ %1108, %.body.i ], [ %.pn160, %1347 ]
   %.12 = extractvalue { ptr, i32 } %.pn160.pn, 0
   %.12107 = extractvalue { ptr, i32 } %.pn160.pn, 1
-  %1352 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix5ErrorE) #26
+  %1352 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix5ErrorE) #26
   %1353 = icmp eq i32 %.12107, %1352
   br i1 %1353, label %1354, label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit229
 
@@ -45495,7 +45495,7 @@ _ZN5boost10conversion6detail19try_lexical_convertIlNS_14iterator_rangeIPKcEEEEbR
 .body:                                            ; preds = %30, %32
   %eh.lpad-body = phi { ptr, i32 } [ %33, %32 ], [ %31, %30 ]
   %34 = extractvalue { ptr, i32 } %eh.lpad-body, 1
-  %35 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5boost16bad_lexical_castE) #26
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5boost16bad_lexical_castE) #26
   %36 = icmp eq i32 %34, %35
   br i1 %36, label %37, label %40
 
@@ -45616,9 +45616,6 @@ define linkonce_odr void @_ZN5boost2io6detail13call_put_lastIcSt11char_traitsIcE
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.85)
   ret void
 }
-
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #20
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5boost6detail18lcast_ret_unsignedISt11char_traitsIcEmcE7convertEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -49012,6 +49009,9 @@ __cxx_global_var_init.15.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
 }
+
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #21

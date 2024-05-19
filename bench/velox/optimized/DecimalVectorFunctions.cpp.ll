@@ -12189,7 +12189,7 @@ lpad.i.i.i:                                       ; preds = %land.end.i10.i.i
           catch ptr @_ZTISt9exception
   %43 = extractvalue { ptr, i32 } %42, 0
   %44 = extractvalue { ptr, i32 } %42, 1
-  %45 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %45 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i.i.i = icmp eq i32 %44, %45
   br i1 %matches.i.i.i, label %catch6.i.i.i, label %catch.fallthrough.i.i.i
 
@@ -12206,7 +12206,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i unwind label %lpad9.i.loopexit.split-lp.i.i
 
 catch.fallthrough.i.i.i:                          ; preds = %lpad.i.i.i
-  %47 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %47 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i.i.i = icmp eq i32 %44, %47
   br i1 %matches2.i.i.i, label %catch.i.i.i, label %common.resume
 
@@ -12434,7 +12434,7 @@ lpad.i18.i.i.i.i.i.i:                             ; preds = %land.end.i.i.i.i.i.
           catch ptr @_ZTISt9exception
   %76 = extractvalue { ptr, i32 } %75, 0
   %77 = extractvalue { ptr, i32 } %75, 1
-  %78 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %78 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i20.i.i.i.i.i.i = icmp eq i32 %77, %78
   br i1 %matches.i20.i.i.i.i.i.i, label %catch6.i31.i.i.i.i.i.i, label %catch.fallthrough.i21.i.i.i.i.i.i
 
@@ -12451,7 +12451,7 @@ if.then.i37.i.i.i.i.i.i:                          ; preds = %invoke.cont10.i36.i
           to label %unreachable.i38.i.i.i.i.i.i unwind label %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i
 
 catch.fallthrough.i21.i.i.i.i.i.i:                ; preds = %lpad.i18.i.i.i.i.i.i
-  %80 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %80 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i22.i.i.i.i.i.i = icmp eq i32 %77, %80
   br i1 %matches2.i22.i.i.i.i.i.i, label %catch.i25.i.i.i.i.i.i, label %common.resume
 
@@ -12575,7 +12575,7 @@ lpad.i.i.i.i.i.i.i:                               ; preds = %land.end.i39.i.i.i.
           catch ptr @_ZTISt9exception
   %102 = extractvalue { ptr, i32 } %101, 0
   %103 = extractvalue { ptr, i32 } %101, 1
-  %104 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %104 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i.i.i.i.i.i.i = icmp eq i32 %103, %104
   br i1 %matches.i.i.i.i.i.i.i, label %catch6.i.i.i.i.i.i.i, label %catch.fallthrough.i.i.i.i.i.i.i
 
@@ -12592,7 +12592,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i.i.i.i.i unwind label %lpad9.i.loopexit.split-lp.i.i.i.i.i.i
 
 catch.fallthrough.i.i.i.i.i.i.i:                  ; preds = %lpad.i.i.i.i.i.i.i
-  %106 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %106 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i.i.i.i.i.i.i = icmp eq i32 %103, %106
   br i1 %matches2.i.i.i.i.i.i.i, label %catch.i.i.i.i.i.i.i, label %common.resume
 
@@ -12857,7 +12857,7 @@ lpad.i.i.i242:                                    ; preds = %land.end.i9.i.i
           catch ptr @_ZTISt9exception
   %148 = extractvalue { ptr, i32 } %147, 0
   %149 = extractvalue { ptr, i32 } %147, 1
-  %150 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %150 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i.i.i243 = icmp eq i32 %149, %150
   br i1 %matches.i.i.i243, label %catch6.i.i.i257, label %catch.fallthrough.i.i.i244
 
@@ -12874,7 +12874,7 @@ if.then.i.i.i264:                                 ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i267 unwind label %lpad9.i.loopexit.split-lp.i.i265
 
 catch.fallthrough.i.i.i244:                       ; preds = %lpad.i.i.i242
-  %152 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %152 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i.i.i245 = icmp eq i32 %149, %152
   br i1 %matches2.i.i.i245, label %catch.i.i.i246, label %common.resume
 
@@ -13094,7 +13094,7 @@ lpad.i18.i.i.i.i.i.i138:                          ; preds = %land.end.i.i.i.i.i.
           catch ptr @_ZTISt9exception
   %182 = extractvalue { ptr, i32 } %181, 0
   %183 = extractvalue { ptr, i32 } %181, 1
-  %184 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %184 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i20.i.i.i.i.i.i139 = icmp eq i32 %183, %184
   br i1 %matches.i20.i.i.i.i.i.i139, label %catch6.i31.i.i.i.i.i.i158, label %catch.fallthrough.i21.i.i.i.i.i.i140
 
@@ -13111,7 +13111,7 @@ if.then.i37.i.i.i.i.i.i165:                       ; preds = %invoke.cont10.i36.i
           to label %unreachable.i38.i.i.i.i.i.i168 unwind label %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i166
 
 catch.fallthrough.i21.i.i.i.i.i.i140:             ; preds = %lpad.i18.i.i.i.i.i.i138
-  %186 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %186 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i22.i.i.i.i.i.i141 = icmp eq i32 %183, %186
   br i1 %matches2.i22.i.i.i.i.i.i141, label %catch.i25.i.i.i.i.i.i144, label %common.resume
 
@@ -13237,7 +13237,7 @@ lpad.i.i.i.i.i.i.i186:                            ; preds = %land.end.i39.i.i.i.
           catch ptr @_ZTISt9exception
   %209 = extractvalue { ptr, i32 } %208, 0
   %210 = extractvalue { ptr, i32 } %208, 1
-  %211 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %211 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i.i.i.i.i.i.i187 = icmp eq i32 %210, %211
   br i1 %matches.i.i.i.i.i.i.i187, label %catch6.i.i.i.i.i.i.i202, label %catch.fallthrough.i.i.i.i.i.i.i188
 
@@ -13254,7 +13254,7 @@ if.then.i.i.i.i.i.i.i209:                         ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i.i.i.i.i212 unwind label %lpad9.i.loopexit.split-lp.i.i.i.i.i.i210
 
 catch.fallthrough.i.i.i.i.i.i.i188:               ; preds = %lpad.i.i.i.i.i.i.i186
-  %213 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %213 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i.i.i.i.i.i.i189 = icmp eq i32 %210, %213
   br i1 %matches2.i.i.i.i.i.i.i189, label %catch.i.i.i.i.i.i.i190, label %common.resume
 
@@ -13529,7 +13529,7 @@ lpad.i.i.i492:                                    ; preds = %land.end.i9.i.i491
           catch ptr @_ZTISt9exception
   %257 = extractvalue { ptr, i32 } %256, 0
   %258 = extractvalue { ptr, i32 } %256, 1
-  %259 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %259 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i.i.i493 = icmp eq i32 %258, %259
   br i1 %matches.i.i.i493, label %catch6.i.i.i510, label %catch.fallthrough.i.i.i494
 
@@ -13546,7 +13546,7 @@ if.then.i.i.i517:                                 ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i520 unwind label %lpad9.i.loopexit.split-lp.i.i518
 
 catch.fallthrough.i.i.i494:                       ; preds = %lpad.i.i.i492
-  %261 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %261 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i.i.i495 = icmp eq i32 %258, %261
   br i1 %matches2.i.i.i495, label %catch.i.i.i496, label %common.resume
 
@@ -13766,7 +13766,7 @@ lpad.i18.i.i.i.i.i.i383:                          ; preds = %land.end.i.i.i.i.i.
           catch ptr @_ZTISt9exception
   %291 = extractvalue { ptr, i32 } %290, 0
   %292 = extractvalue { ptr, i32 } %290, 1
-  %293 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %293 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i20.i.i.i.i.i.i384 = icmp eq i32 %292, %293
   br i1 %matches.i20.i.i.i.i.i.i384, label %catch6.i31.i.i.i.i.i.i403, label %catch.fallthrough.i21.i.i.i.i.i.i385
 
@@ -13783,7 +13783,7 @@ if.then.i37.i.i.i.i.i.i410:                       ; preds = %invoke.cont10.i36.i
           to label %unreachable.i38.i.i.i.i.i.i413 unwind label %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i411
 
 catch.fallthrough.i21.i.i.i.i.i.i385:             ; preds = %lpad.i18.i.i.i.i.i.i383
-  %295 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %295 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i22.i.i.i.i.i.i386 = icmp eq i32 %292, %295
   br i1 %matches2.i22.i.i.i.i.i.i386, label %catch.i25.i.i.i.i.i.i389, label %common.resume
 
@@ -13909,7 +13909,7 @@ lpad.i.i.i.i.i.i.i433:                            ; preds = %land.end.i39.i.i.i.
           catch ptr @_ZTISt9exception
   %318 = extractvalue { ptr, i32 } %317, 0
   %319 = extractvalue { ptr, i32 } %317, 1
-  %320 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %320 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i.i.i.i.i.i.i434 = icmp eq i32 %319, %320
   br i1 %matches.i.i.i.i.i.i.i434, label %catch6.i.i.i.i.i.i.i449, label %catch.fallthrough.i.i.i.i.i.i.i435
 
@@ -13926,7 +13926,7 @@ if.then.i.i.i.i.i.i.i456:                         ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i.i.i.i.i459 unwind label %lpad9.i.loopexit.split-lp.i.i.i.i.i.i457
 
 catch.fallthrough.i.i.i.i.i.i.i435:               ; preds = %lpad.i.i.i.i.i.i.i433
-  %322 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %322 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i.i.i.i.i.i.i436 = icmp eq i32 %319, %322
   br i1 %matches2.i.i.i.i.i.i.i436, label %catch.i.i.i.i.i.i.i437, label %common.resume
 
@@ -14190,7 +14190,7 @@ lpad.i.i.i747:                                    ; preds = %land.end.i9.i.i746
           catch ptr @_ZTISt9exception
   %364 = extractvalue { ptr, i32 } %363, 0
   %365 = extractvalue { ptr, i32 } %363, 1
-  %366 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %366 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i.i.i748 = icmp eq i32 %365, %366
   br i1 %matches.i.i.i748, label %catch6.i.i.i765, label %catch.fallthrough.i.i.i749
 
@@ -14207,7 +14207,7 @@ if.then.i.i.i772:                                 ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i775 unwind label %lpad9.i.loopexit.split-lp.i.i773
 
 catch.fallthrough.i.i.i749:                       ; preds = %lpad.i.i.i747
-  %368 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %368 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i.i.i750 = icmp eq i32 %365, %368
   br i1 %matches2.i.i.i750, label %catch.i.i.i751, label %common.resume
 
@@ -14429,7 +14429,7 @@ lpad.i18.i.i.i.i.i.i639:                          ; preds = %land.end.i.i.i.i.i.
           catch ptr @_ZTISt9exception
   %399 = extractvalue { ptr, i32 } %398, 0
   %400 = extractvalue { ptr, i32 } %398, 1
-  %401 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %401 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i20.i.i.i.i.i.i640 = icmp eq i32 %400, %401
   br i1 %matches.i20.i.i.i.i.i.i640, label %catch6.i31.i.i.i.i.i.i659, label %catch.fallthrough.i21.i.i.i.i.i.i641
 
@@ -14446,7 +14446,7 @@ if.then.i37.i.i.i.i.i.i666:                       ; preds = %invoke.cont10.i36.i
           to label %unreachable.i38.i.i.i.i.i.i669 unwind label %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i667
 
 catch.fallthrough.i21.i.i.i.i.i.i641:             ; preds = %lpad.i18.i.i.i.i.i.i639
-  %403 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %403 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i22.i.i.i.i.i.i642 = icmp eq i32 %400, %403
   br i1 %matches2.i22.i.i.i.i.i.i642, label %catch.i25.i.i.i.i.i.i645, label %common.resume
 
@@ -14574,7 +14574,7 @@ lpad.i.i.i.i.i.i.i688:                            ; preds = %land.end.i39.i.i.i.
           catch ptr @_ZTISt9exception
   %427 = extractvalue { ptr, i32 } %426, 0
   %428 = extractvalue { ptr, i32 } %426, 1
-  %429 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %429 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i.i.i.i.i.i.i689 = icmp eq i32 %428, %429
   br i1 %matches.i.i.i.i.i.i.i689, label %catch6.i.i.i.i.i.i.i704, label %catch.fallthrough.i.i.i.i.i.i.i690
 
@@ -14591,7 +14591,7 @@ if.then.i.i.i.i.i.i.i711:                         ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i.i.i.i.i714 unwind label %lpad9.i.loopexit.split-lp.i.i.i.i.i.i712
 
 catch.fallthrough.i.i.i.i.i.i.i690:               ; preds = %lpad.i.i.i.i.i.i.i688
-  %431 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %431 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i.i.i.i.i.i.i691 = icmp eq i32 %428, %431
   br i1 %matches2.i.i.i.i.i.i.i691, label %catch.i.i.i.i.i.i.i692, label %common.resume
 
@@ -14921,7 +14921,7 @@ lpad.i.i.i986:                                    ; preds = %land.end.i9.i.i985
           catch ptr @_ZTISt9exception
   %487 = extractvalue { ptr, i32 } %486, 0
   %488 = extractvalue { ptr, i32 } %486, 1
-  %489 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %489 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i.i.i987 = icmp eq i32 %488, %489
   br i1 %matches.i.i.i987, label %catch6.i.i.i1004, label %catch.fallthrough.i.i.i988
 
@@ -14938,7 +14938,7 @@ if.then.i.i.i1011:                                ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i1014 unwind label %lpad9.i.loopexit.split-lp.i.i1012
 
 catch.fallthrough.i.i.i988:                       ; preds = %lpad.i.i.i986
-  %491 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %491 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i.i.i989 = icmp eq i32 %488, %491
   br i1 %matches2.i.i.i989, label %catch.i.i.i990, label %common.resume.sink.split
 
@@ -15191,7 +15191,7 @@ lpad.i18.i.i.i.i.i.i894:                          ; preds = %land.end.i.i.i.i.i.
           catch ptr @_ZTISt9exception
   %529 = extractvalue { ptr, i32 } %528, 0
   %530 = extractvalue { ptr, i32 } %528, 1
-  %531 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %531 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i20.i.i.i.i.i.i895 = icmp eq i32 %530, %531
   br i1 %matches.i20.i.i.i.i.i.i895, label %catch6.i31.i.i.i.i.i.i914, label %catch.fallthrough.i21.i.i.i.i.i.i896
 
@@ -15208,7 +15208,7 @@ if.then.i37.i.i.i.i.i.i921:                       ; preds = %invoke.cont10.i36.i
           to label %unreachable.i38.i.i.i.i.i.i924 unwind label %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i922
 
 catch.fallthrough.i21.i.i.i.i.i.i896:             ; preds = %lpad.i18.i.i.i.i.i.i894
-  %533 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %533 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i22.i.i.i.i.i.i897 = icmp eq i32 %530, %533
   br i1 %matches2.i22.i.i.i.i.i.i897, label %catch.i25.i.i.i.i.i.i900, label %common.resume.sink.split
 
@@ -15361,7 +15361,7 @@ lpad.i.i.i.i.i.i.i937:                            ; preds = %land.end.i51.i.i.i.
           catch ptr @_ZTISt9exception
   %562 = extractvalue { ptr, i32 } %561, 0
   %563 = extractvalue { ptr, i32 } %561, 1
-  %564 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %564 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i.i.i.i.i.i.i938 = icmp eq i32 %563, %564
   br i1 %matches.i.i.i.i.i.i.i938, label %catch6.i.i.i.i.i.i.i949, label %catch.fallthrough.i.i.i.i.i.i.i939
 
@@ -15378,7 +15378,7 @@ if.then.i.i.i.i.i.i.i955:                         ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i.i.i.i.i957 unwind label %lpad9.i.loopexit.split-lp.i.i.i.i.i.i956
 
 catch.fallthrough.i.i.i.i.i.i.i939:               ; preds = %lpad.i.i.i.i.i.i.i937
-  %566 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %566 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i.i.i.i.i.i.i940 = icmp eq i32 %563, %566
   br i1 %matches2.i.i.i.i.i.i.i940, label %catch.i.i.i.i.i.i.i941, label %common.resume.sink.split
 
@@ -15801,7 +15801,7 @@ lpad.i.i.i1262:                                   ; preds = %_ZNK8facebook5velox
           catch ptr @_ZTISt9exception
   %638 = extractvalue { ptr, i32 } %637, 0
   %639 = extractvalue { ptr, i32 } %637, 1
-  %640 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %640 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i.i.i1263 = icmp eq i32 %639, %640
   br i1 %matches.i.i.i1263, label %catch6.i.i.i1277, label %catch.fallthrough.i.i.i1264
 
@@ -15818,7 +15818,7 @@ if.then.i.i.i1284:                                ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i1287 unwind label %lpad9.i.loopexit.split-lp.i.i1285
 
 catch.fallthrough.i.i.i1264:                      ; preds = %lpad.i.i.i1262
-  %642 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %642 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i.i.i1265 = icmp eq i32 %639, %642
   br i1 %matches2.i.i.i1265, label %catch.i.i.i1266, label %common.resume.sink.split
 
@@ -16129,7 +16129,7 @@ lpad.i18.i.i.i.i.i.i1147:                         ; preds = %_ZNK8facebook5velox
           catch ptr @_ZTISt9exception
   %696 = extractvalue { ptr, i32 } %695, 0
   %697 = extractvalue { ptr, i32 } %695, 1
-  %698 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %698 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i20.i.i.i.i.i.i1148 = icmp eq i32 %697, %698
   br i1 %matches.i20.i.i.i.i.i.i1148, label %catch6.i31.i.i.i.i.i.i1167, label %catch.fallthrough.i21.i.i.i.i.i.i1149
 
@@ -16146,7 +16146,7 @@ if.then.i37.i.i.i.i.i.i1174:                      ; preds = %invoke.cont10.i36.i
           to label %unreachable.i38.i.i.i.i.i.i1177 unwind label %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i1175
 
 catch.fallthrough.i21.i.i.i.i.i.i1149:            ; preds = %lpad.i18.i.i.i.i.i.i1147
-  %700 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %700 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i22.i.i.i.i.i.i1150 = icmp eq i32 %697, %700
   br i1 %matches2.i22.i.i.i.i.i.i1150, label %catch.i25.i.i.i.i.i.i1153, label %common.resume.sink.split
 
@@ -16355,7 +16355,7 @@ lpad.i.i.i.i.i.i.i1205:                           ; preds = %_ZNK8facebook5velox
           catch ptr @_ZTISt9exception
   %745 = extractvalue { ptr, i32 } %744, 0
   %746 = extractvalue { ptr, i32 } %744, 1
-  %747 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %747 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i.i.i.i.i.i.i1206 = icmp eq i32 %746, %747
   br i1 %matches.i.i.i.i.i.i.i1206, label %catch6.i.i.i.i.i.i.i1217, label %catch.fallthrough.i.i.i.i.i.i.i1207
 
@@ -16372,7 +16372,7 @@ if.then.i.i.i.i.i.i.i1223:                        ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i.i.i.i.i1225 unwind label %lpad9.i.loopexit.split-lp.i.i.i.i.i.i1224
 
 catch.fallthrough.i.i.i.i.i.i.i1207:              ; preds = %lpad.i.i.i.i.i.i.i1205
-  %749 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %749 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i.i.i.i.i.i.i1208 = icmp eq i32 %746, %749
   br i1 %matches2.i.i.i.i.i.i.i1208, label %catch.i.i.i.i.i.i.i1209, label %common.resume.sink.split
 
@@ -17134,9 +17134,6 @@ entry:
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #16
-
 declare void @_ZN8facebook5velox4exec7EvalCtx8setErrorEiRKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(104), i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
@@ -17242,7 +17239,7 @@ lpad.i:                                           ; preds = %land.end.i
           catch ptr @_ZTISt9exception
   %26 = extractvalue { ptr, i32 } %25, 0
   %27 = extractvalue { ptr, i32 } %25, 1
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i = icmp eq i32 %27, %28
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -17259,7 +17256,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i.loopexit.split-lp
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i = icmp eq i32 %27, %30
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -17428,7 +17425,7 @@ lpad.i:                                           ; preds = %land.end.i
           catch ptr @_ZTISt9exception
   %27 = extractvalue { ptr, i32 } %26, 0
   %28 = extractvalue { ptr, i32 } %26, 1
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i = icmp eq i32 %28, %29
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -17445,7 +17442,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i.loopexit.split-lp
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i = icmp eq i32 %28, %31
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -17611,7 +17608,7 @@ lpad.i:                                           ; preds = %land.end.i
           catch ptr @_ZTISt9exception
   %27 = extractvalue { ptr, i32 } %26, 0
   %28 = extractvalue { ptr, i32 } %26, 1
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i = icmp eq i32 %28, %29
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -17628,7 +17625,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i.loopexit.split-lp
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i = icmp eq i32 %28, %31
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -17796,7 +17793,7 @@ lpad.i:                                           ; preds = %land.end.i
           catch ptr @_ZTISt9exception
   %28 = extractvalue { ptr, i32 } %27, 0
   %29 = extractvalue { ptr, i32 } %27, 1
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i = icmp eq i32 %29, %30
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -17813,7 +17810,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i.loopexit.split-lp
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %32 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i = icmp eq i32 %29, %32
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -18496,7 +18493,7 @@ lpad.i:                                           ; preds = %land.end.i
           catch ptr @_ZTISt9exception
   %34 = extractvalue { ptr, i32 } %33, 0
   %35 = extractvalue { ptr, i32 } %33, 1
-  %36 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i = icmp eq i32 %35, %36
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -18513,7 +18510,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i.loopexit.split-lp
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %38 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i = icmp eq i32 %35, %38
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -18764,7 +18761,7 @@ lpad.i:                                           ; preds = %_ZNK8facebook5velox
           catch ptr @_ZTISt9exception
   %52 = extractvalue { ptr, i32 } %51, 0
   %53 = extractvalue { ptr, i32 } %51, 1
-  %54 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %54 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i = icmp eq i32 %53, %54
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -18781,7 +18778,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i.loopexit.split-lp
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %56 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i = icmp eq i32 %53, %56
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -19225,7 +19222,7 @@ lpad.i.i.i:                                       ; preds = %land.end.i10.i.i
           catch ptr @_ZTISt9exception
   %47 = extractvalue { ptr, i32 } %46, 0
   %48 = extractvalue { ptr, i32 } %46, 1
-  %49 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %49 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i.i.i = icmp eq i32 %48, %49
   br i1 %matches.i.i.i, label %catch6.i.i.i, label %catch.fallthrough.i.i.i
 
@@ -19242,7 +19239,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i unwind label %lpad9.i.loopexit.split-lp.i.i
 
 catch.fallthrough.i.i.i:                          ; preds = %lpad.i.i.i
-  %51 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %51 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i.i.i = icmp eq i32 %48, %51
   br i1 %matches2.i.i.i, label %catch.i.i.i, label %common.resume
 
@@ -19470,7 +19467,7 @@ lpad.i18.i.i.i.i.i.i:                             ; preds = %land.end.i.i.i.i.i.
           catch ptr @_ZTISt9exception
   %80 = extractvalue { ptr, i32 } %79, 0
   %81 = extractvalue { ptr, i32 } %79, 1
-  %82 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %82 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i20.i.i.i.i.i.i = icmp eq i32 %81, %82
   br i1 %matches.i20.i.i.i.i.i.i, label %catch6.i31.i.i.i.i.i.i, label %catch.fallthrough.i21.i.i.i.i.i.i
 
@@ -19487,7 +19484,7 @@ if.then.i37.i.i.i.i.i.i:                          ; preds = %invoke.cont10.i36.i
           to label %unreachable.i38.i.i.i.i.i.i unwind label %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i
 
 catch.fallthrough.i21.i.i.i.i.i.i:                ; preds = %lpad.i18.i.i.i.i.i.i
-  %84 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %84 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i22.i.i.i.i.i.i = icmp eq i32 %81, %84
   br i1 %matches2.i22.i.i.i.i.i.i, label %catch.i25.i.i.i.i.i.i, label %common.resume
 
@@ -19611,7 +19608,7 @@ lpad.i.i.i.i.i.i.i:                               ; preds = %land.end.i39.i.i.i.
           catch ptr @_ZTISt9exception
   %106 = extractvalue { ptr, i32 } %105, 0
   %107 = extractvalue { ptr, i32 } %105, 1
-  %108 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %108 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i.i.i.i.i.i.i = icmp eq i32 %107, %108
   br i1 %matches.i.i.i.i.i.i.i, label %catch6.i.i.i.i.i.i.i, label %catch.fallthrough.i.i.i.i.i.i.i
 
@@ -19628,7 +19625,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i.i.i.i.i unwind label %lpad9.i.loopexit.split-lp.i.i.i.i.i.i
 
 catch.fallthrough.i.i.i.i.i.i.i:                  ; preds = %lpad.i.i.i.i.i.i.i
-  %110 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %110 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i.i.i.i.i.i.i = icmp eq i32 %107, %110
   br i1 %matches2.i.i.i.i.i.i.i, label %catch.i.i.i.i.i.i.i, label %common.resume
 
@@ -19899,7 +19896,7 @@ lpad.i.i.i242:                                    ; preds = %land.end.i9.i.i
           catch ptr @_ZTISt9exception
   %154 = extractvalue { ptr, i32 } %153, 0
   %155 = extractvalue { ptr, i32 } %153, 1
-  %156 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %156 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i.i.i243 = icmp eq i32 %155, %156
   br i1 %matches.i.i.i243, label %catch6.i.i.i257, label %catch.fallthrough.i.i.i244
 
@@ -19916,7 +19913,7 @@ if.then.i.i.i264:                                 ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i267 unwind label %lpad9.i.loopexit.split-lp.i.i265
 
 catch.fallthrough.i.i.i244:                       ; preds = %lpad.i.i.i242
-  %158 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %158 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i.i.i245 = icmp eq i32 %155, %158
   br i1 %matches2.i.i.i245, label %catch.i.i.i246, label %common.resume
 
@@ -20136,7 +20133,7 @@ lpad.i18.i.i.i.i.i.i138:                          ; preds = %land.end.i.i.i.i.i.
           catch ptr @_ZTISt9exception
   %188 = extractvalue { ptr, i32 } %187, 0
   %189 = extractvalue { ptr, i32 } %187, 1
-  %190 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %190 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i20.i.i.i.i.i.i139 = icmp eq i32 %189, %190
   br i1 %matches.i20.i.i.i.i.i.i139, label %catch6.i31.i.i.i.i.i.i158, label %catch.fallthrough.i21.i.i.i.i.i.i140
 
@@ -20153,7 +20150,7 @@ if.then.i37.i.i.i.i.i.i165:                       ; preds = %invoke.cont10.i36.i
           to label %unreachable.i38.i.i.i.i.i.i168 unwind label %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i166
 
 catch.fallthrough.i21.i.i.i.i.i.i140:             ; preds = %lpad.i18.i.i.i.i.i.i138
-  %192 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %192 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i22.i.i.i.i.i.i141 = icmp eq i32 %189, %192
   br i1 %matches2.i22.i.i.i.i.i.i141, label %catch.i25.i.i.i.i.i.i144, label %common.resume
 
@@ -20279,7 +20276,7 @@ lpad.i.i.i.i.i.i.i186:                            ; preds = %land.end.i39.i.i.i.
           catch ptr @_ZTISt9exception
   %215 = extractvalue { ptr, i32 } %214, 0
   %216 = extractvalue { ptr, i32 } %214, 1
-  %217 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %217 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i.i.i.i.i.i.i187 = icmp eq i32 %216, %217
   br i1 %matches.i.i.i.i.i.i.i187, label %catch6.i.i.i.i.i.i.i202, label %catch.fallthrough.i.i.i.i.i.i.i188
 
@@ -20296,7 +20293,7 @@ if.then.i.i.i.i.i.i.i209:                         ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i.i.i.i.i212 unwind label %lpad9.i.loopexit.split-lp.i.i.i.i.i.i210
 
 catch.fallthrough.i.i.i.i.i.i.i188:               ; preds = %lpad.i.i.i.i.i.i.i186
-  %219 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %219 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i.i.i.i.i.i.i189 = icmp eq i32 %216, %219
   br i1 %matches2.i.i.i.i.i.i.i189, label %catch.i.i.i.i.i.i.i190, label %common.resume
 
@@ -20577,7 +20574,7 @@ lpad.i.i.i492:                                    ; preds = %land.end.i9.i.i491
           catch ptr @_ZTISt9exception
   %265 = extractvalue { ptr, i32 } %264, 0
   %266 = extractvalue { ptr, i32 } %264, 1
-  %267 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %267 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i.i.i493 = icmp eq i32 %266, %267
   br i1 %matches.i.i.i493, label %catch6.i.i.i510, label %catch.fallthrough.i.i.i494
 
@@ -20594,7 +20591,7 @@ if.then.i.i.i517:                                 ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i520 unwind label %lpad9.i.loopexit.split-lp.i.i518
 
 catch.fallthrough.i.i.i494:                       ; preds = %lpad.i.i.i492
-  %269 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %269 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i.i.i495 = icmp eq i32 %266, %269
   br i1 %matches2.i.i.i495, label %catch.i.i.i496, label %common.resume
 
@@ -20814,7 +20811,7 @@ lpad.i18.i.i.i.i.i.i383:                          ; preds = %land.end.i.i.i.i.i.
           catch ptr @_ZTISt9exception
   %299 = extractvalue { ptr, i32 } %298, 0
   %300 = extractvalue { ptr, i32 } %298, 1
-  %301 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %301 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i20.i.i.i.i.i.i384 = icmp eq i32 %300, %301
   br i1 %matches.i20.i.i.i.i.i.i384, label %catch6.i31.i.i.i.i.i.i403, label %catch.fallthrough.i21.i.i.i.i.i.i385
 
@@ -20831,7 +20828,7 @@ if.then.i37.i.i.i.i.i.i410:                       ; preds = %invoke.cont10.i36.i
           to label %unreachable.i38.i.i.i.i.i.i413 unwind label %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i411
 
 catch.fallthrough.i21.i.i.i.i.i.i385:             ; preds = %lpad.i18.i.i.i.i.i.i383
-  %303 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %303 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i22.i.i.i.i.i.i386 = icmp eq i32 %300, %303
   br i1 %matches2.i22.i.i.i.i.i.i386, label %catch.i25.i.i.i.i.i.i389, label %common.resume
 
@@ -20957,7 +20954,7 @@ lpad.i.i.i.i.i.i.i433:                            ; preds = %land.end.i39.i.i.i.
           catch ptr @_ZTISt9exception
   %326 = extractvalue { ptr, i32 } %325, 0
   %327 = extractvalue { ptr, i32 } %325, 1
-  %328 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %328 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i.i.i.i.i.i.i434 = icmp eq i32 %327, %328
   br i1 %matches.i.i.i.i.i.i.i434, label %catch6.i.i.i.i.i.i.i449, label %catch.fallthrough.i.i.i.i.i.i.i435
 
@@ -20974,7 +20971,7 @@ if.then.i.i.i.i.i.i.i456:                         ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i.i.i.i.i459 unwind label %lpad9.i.loopexit.split-lp.i.i.i.i.i.i457
 
 catch.fallthrough.i.i.i.i.i.i.i435:               ; preds = %lpad.i.i.i.i.i.i.i433
-  %330 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %330 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i.i.i.i.i.i.i436 = icmp eq i32 %327, %330
   br i1 %matches2.i.i.i.i.i.i.i436, label %catch.i.i.i.i.i.i.i437, label %common.resume
 
@@ -21238,7 +21235,7 @@ lpad.i.i.i747:                                    ; preds = %land.end.i9.i.i746
           catch ptr @_ZTISt9exception
   %372 = extractvalue { ptr, i32 } %371, 0
   %373 = extractvalue { ptr, i32 } %371, 1
-  %374 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %374 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i.i.i748 = icmp eq i32 %373, %374
   br i1 %matches.i.i.i748, label %catch6.i.i.i765, label %catch.fallthrough.i.i.i749
 
@@ -21255,7 +21252,7 @@ if.then.i.i.i772:                                 ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i775 unwind label %lpad9.i.loopexit.split-lp.i.i773
 
 catch.fallthrough.i.i.i749:                       ; preds = %lpad.i.i.i747
-  %376 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %376 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i.i.i750 = icmp eq i32 %373, %376
   br i1 %matches2.i.i.i750, label %catch.i.i.i751, label %common.resume
 
@@ -21477,7 +21474,7 @@ lpad.i18.i.i.i.i.i.i639:                          ; preds = %land.end.i.i.i.i.i.
           catch ptr @_ZTISt9exception
   %407 = extractvalue { ptr, i32 } %406, 0
   %408 = extractvalue { ptr, i32 } %406, 1
-  %409 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %409 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i20.i.i.i.i.i.i640 = icmp eq i32 %408, %409
   br i1 %matches.i20.i.i.i.i.i.i640, label %catch6.i31.i.i.i.i.i.i659, label %catch.fallthrough.i21.i.i.i.i.i.i641
 
@@ -21494,7 +21491,7 @@ if.then.i37.i.i.i.i.i.i666:                       ; preds = %invoke.cont10.i36.i
           to label %unreachable.i38.i.i.i.i.i.i669 unwind label %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i667
 
 catch.fallthrough.i21.i.i.i.i.i.i641:             ; preds = %lpad.i18.i.i.i.i.i.i639
-  %411 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %411 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i22.i.i.i.i.i.i642 = icmp eq i32 %408, %411
   br i1 %matches2.i22.i.i.i.i.i.i642, label %catch.i25.i.i.i.i.i.i645, label %common.resume
 
@@ -21622,7 +21619,7 @@ lpad.i.i.i.i.i.i.i688:                            ; preds = %land.end.i39.i.i.i.
           catch ptr @_ZTISt9exception
   %435 = extractvalue { ptr, i32 } %434, 0
   %436 = extractvalue { ptr, i32 } %434, 1
-  %437 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %437 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i.i.i.i.i.i.i689 = icmp eq i32 %436, %437
   br i1 %matches.i.i.i.i.i.i.i689, label %catch6.i.i.i.i.i.i.i704, label %catch.fallthrough.i.i.i.i.i.i.i690
 
@@ -21639,7 +21636,7 @@ if.then.i.i.i.i.i.i.i711:                         ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i.i.i.i.i714 unwind label %lpad9.i.loopexit.split-lp.i.i.i.i.i.i712
 
 catch.fallthrough.i.i.i.i.i.i.i690:               ; preds = %lpad.i.i.i.i.i.i.i688
-  %439 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %439 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i.i.i.i.i.i.i691 = icmp eq i32 %436, %439
   br i1 %matches2.i.i.i.i.i.i.i691, label %catch.i.i.i.i.i.i.i692, label %common.resume
 
@@ -21981,7 +21978,7 @@ lpad.i.i.i986:                                    ; preds = %land.end.i9.i.i985
           catch ptr @_ZTISt9exception
   %499 = extractvalue { ptr, i32 } %498, 0
   %500 = extractvalue { ptr, i32 } %498, 1
-  %501 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %501 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i.i.i987 = icmp eq i32 %500, %501
   br i1 %matches.i.i.i987, label %catch6.i.i.i1004, label %catch.fallthrough.i.i.i988
 
@@ -21998,7 +21995,7 @@ if.then.i.i.i1011:                                ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i1014 unwind label %lpad9.i.loopexit.split-lp.i.i1012
 
 catch.fallthrough.i.i.i988:                       ; preds = %lpad.i.i.i986
-  %503 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %503 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i.i.i989 = icmp eq i32 %500, %503
   br i1 %matches2.i.i.i989, label %catch.i.i.i990, label %common.resume.sink.split
 
@@ -22251,7 +22248,7 @@ lpad.i18.i.i.i.i.i.i894:                          ; preds = %land.end.i.i.i.i.i.
           catch ptr @_ZTISt9exception
   %541 = extractvalue { ptr, i32 } %540, 0
   %542 = extractvalue { ptr, i32 } %540, 1
-  %543 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %543 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i20.i.i.i.i.i.i895 = icmp eq i32 %542, %543
   br i1 %matches.i20.i.i.i.i.i.i895, label %catch6.i31.i.i.i.i.i.i914, label %catch.fallthrough.i21.i.i.i.i.i.i896
 
@@ -22268,7 +22265,7 @@ if.then.i37.i.i.i.i.i.i921:                       ; preds = %invoke.cont10.i36.i
           to label %unreachable.i38.i.i.i.i.i.i924 unwind label %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i922
 
 catch.fallthrough.i21.i.i.i.i.i.i896:             ; preds = %lpad.i18.i.i.i.i.i.i894
-  %545 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %545 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i22.i.i.i.i.i.i897 = icmp eq i32 %542, %545
   br i1 %matches2.i22.i.i.i.i.i.i897, label %catch.i25.i.i.i.i.i.i900, label %common.resume.sink.split
 
@@ -22421,7 +22418,7 @@ lpad.i.i.i.i.i.i.i937:                            ; preds = %land.end.i51.i.i.i.
           catch ptr @_ZTISt9exception
   %574 = extractvalue { ptr, i32 } %573, 0
   %575 = extractvalue { ptr, i32 } %573, 1
-  %576 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %576 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i.i.i.i.i.i.i938 = icmp eq i32 %575, %576
   br i1 %matches.i.i.i.i.i.i.i938, label %catch6.i.i.i.i.i.i.i949, label %catch.fallthrough.i.i.i.i.i.i.i939
 
@@ -22438,7 +22435,7 @@ if.then.i.i.i.i.i.i.i955:                         ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i.i.i.i.i957 unwind label %lpad9.i.loopexit.split-lp.i.i.i.i.i.i956
 
 catch.fallthrough.i.i.i.i.i.i.i939:               ; preds = %lpad.i.i.i.i.i.i.i937
-  %578 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %578 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i.i.i.i.i.i.i940 = icmp eq i32 %575, %578
   br i1 %matches2.i.i.i.i.i.i.i940, label %catch.i.i.i.i.i.i.i941, label %common.resume.sink.split
 
@@ -22861,7 +22858,7 @@ lpad.i.i.i1229:                                   ; preds = %_ZNK8facebook5velox
           catch ptr @_ZTISt9exception
   %650 = extractvalue { ptr, i32 } %649, 0
   %651 = extractvalue { ptr, i32 } %649, 1
-  %652 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %652 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i.i.i1230 = icmp eq i32 %651, %652
   br i1 %matches.i.i.i1230, label %catch6.i.i.i1243, label %catch.fallthrough.i.i.i1231
 
@@ -22878,7 +22875,7 @@ if.then.i.i.i1250:                                ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i1253 unwind label %lpad9.i.loopexit.split-lp.i.i1251
 
 catch.fallthrough.i.i.i1231:                      ; preds = %lpad.i.i.i1229
-  %654 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %654 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i.i.i1232 = icmp eq i32 %651, %654
   br i1 %matches2.i.i.i1232, label %catch.i.i.i1233, label %common.resume.sink.split
 
@@ -23189,7 +23186,7 @@ lpad.i18.i.i.i.i.i.i1143:                         ; preds = %_ZNK8facebook5velox
           catch ptr @_ZTISt9exception
   %708 = extractvalue { ptr, i32 } %707, 0
   %709 = extractvalue { ptr, i32 } %707, 1
-  %710 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %710 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i20.i.i.i.i.i.i1144 = icmp eq i32 %709, %710
   br i1 %matches.i20.i.i.i.i.i.i1144, label %catch6.i31.i.i.i.i.i.i1163, label %catch.fallthrough.i21.i.i.i.i.i.i1145
 
@@ -23206,7 +23203,7 @@ if.then.i37.i.i.i.i.i.i1170:                      ; preds = %invoke.cont10.i36.i
           to label %unreachable.i38.i.i.i.i.i.i1173 unwind label %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i1171
 
 catch.fallthrough.i21.i.i.i.i.i.i1145:            ; preds = %lpad.i18.i.i.i.i.i.i1143
-  %712 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %712 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i22.i.i.i.i.i.i1146 = icmp eq i32 %709, %712
   br i1 %matches2.i22.i.i.i.i.i.i1146, label %catch.i25.i.i.i.i.i.i1149, label %common.resume.sink.split
 
@@ -23415,7 +23412,7 @@ lpad.i.i.i.i.i.i.i1187:                           ; preds = %_ZNK8facebook5velox
           catch ptr @_ZTISt9exception
   %757 = extractvalue { ptr, i32 } %756, 0
   %758 = extractvalue { ptr, i32 } %756, 1
-  %759 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %759 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i.i.i.i.i.i.i1188 = icmp eq i32 %758, %759
   br i1 %matches.i.i.i.i.i.i.i1188, label %catch6.i.i.i.i.i.i.i1199, label %catch.fallthrough.i.i.i.i.i.i.i1189
 
@@ -23432,7 +23429,7 @@ if.then.i.i.i.i.i.i.i1205:                        ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i.i.i.i.i1207 unwind label %lpad9.i.loopexit.split-lp.i.i.i.i.i.i1206
 
 catch.fallthrough.i.i.i.i.i.i.i1189:              ; preds = %lpad.i.i.i.i.i.i.i1187
-  %761 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %761 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i.i.i.i.i.i.i1190 = icmp eq i32 %758, %761
   br i1 %matches2.i.i.i.i.i.i.i1190, label %catch.i.i.i.i.i.i.i1191, label %common.resume.sink.split
 
@@ -23902,7 +23899,7 @@ lpad.i:                                           ; preds = %land.end.i
           catch ptr @_ZTISt9exception
   %26 = extractvalue { ptr, i32 } %25, 0
   %27 = extractvalue { ptr, i32 } %25, 1
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i = icmp eq i32 %27, %28
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -23919,7 +23916,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i.loopexit.split-lp
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i = icmp eq i32 %27, %30
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -24085,7 +24082,7 @@ lpad.i:                                           ; preds = %land.end.i
           catch ptr @_ZTISt9exception
   %27 = extractvalue { ptr, i32 } %26, 0
   %28 = extractvalue { ptr, i32 } %26, 1
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i = icmp eq i32 %28, %29
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -24102,7 +24099,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i.loopexit.split-lp
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i = icmp eq i32 %28, %31
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -24268,7 +24265,7 @@ lpad.i:                                           ; preds = %land.end.i
           catch ptr @_ZTISt9exception
   %27 = extractvalue { ptr, i32 } %26, 0
   %28 = extractvalue { ptr, i32 } %26, 1
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i = icmp eq i32 %28, %29
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -24285,7 +24282,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i.loopexit.split-lp
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i = icmp eq i32 %28, %31
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -24453,7 +24450,7 @@ lpad.i:                                           ; preds = %land.end.i
           catch ptr @_ZTISt9exception
   %28 = extractvalue { ptr, i32 } %27, 0
   %29 = extractvalue { ptr, i32 } %27, 1
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i = icmp eq i32 %29, %30
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -24470,7 +24467,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i.loopexit.split-lp
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %32 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i = icmp eq i32 %29, %32
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -24663,7 +24660,7 @@ lpad.i:                                           ; preds = %land.end.i
           catch ptr @_ZTISt9exception
   %34 = extractvalue { ptr, i32 } %33, 0
   %35 = extractvalue { ptr, i32 } %33, 1
-  %36 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i = icmp eq i32 %35, %36
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -24680,7 +24677,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i.loopexit.split-lp
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %38 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i = icmp eq i32 %35, %38
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -24938,7 +24935,7 @@ lpad.i:                                           ; preds = %while.body
           catch ptr @_ZTISt9exception
   %13 = extractvalue { ptr, i32 } %12, 0
   %14 = extractvalue { ptr, i32 } %12, 1
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #25
   %matches.i = icmp eq i32 %14, %15
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -24955,7 +24952,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i.loopexit.split-lp
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches2.i = icmp eq i32 %14, %17
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -27587,7 +27584,7 @@ declare { i128, i1 } @llvm.smul.with.overflow.i128(i128, i128) #15
 declare { i128, i1 } @llvm.sadd.with.overflow.i128(i128, i128) #15
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS7_8AdditionEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS7_8AdditionEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -30437,7 +30434,7 @@ if.end63:                                         ; preds = %_ZZN8facebook5velox
 declare { i64, i1 } @llvm.sadd.with.overflow.i64(i64, i64) #15
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS7_8AdditionEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS7_8AdditionEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -33115,7 +33112,7 @@ if.end63:                                         ; preds = %_ZZNK8facebook5velo
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS7_8AdditionEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS7_8AdditionEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -35951,7 +35948,7 @@ if.end63:                                         ; preds = %_ZZNK8facebook5velo
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS7_8AdditionEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS7_8AdditionEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -38629,7 +38626,7 @@ if.end63:                                         ; preds = %_ZZNK8facebook5velo
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS7_8AdditionEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS7_8AdditionEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -41289,7 +41286,7 @@ if.end64:                                         ; preds = %_ZZNK8facebook5velo
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS7_8AdditionEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS7_8AdditionEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -44007,7 +44004,7 @@ if.end63:                                         ; preds = %_ZZN8facebook5velox
 declare { i128, i1 } @llvm.ssub.with.overflow.i128(i128, i128) #15
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS7_11SubtractionEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS7_11SubtractionEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -46857,7 +46854,7 @@ if.end63:                                         ; preds = %_ZZN8facebook5velox
 declare { i64, i1 } @llvm.ssub.with.overflow.i64(i64, i64) #15
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS7_11SubtractionEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS7_11SubtractionEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -49535,7 +49532,7 @@ if.end63:                                         ; preds = %_ZZNK8facebook5velo
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS7_11SubtractionEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS7_11SubtractionEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -52371,7 +52368,7 @@ if.end63:                                         ; preds = %_ZZNK8facebook5velo
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS7_11SubtractionEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS7_11SubtractionEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -55049,7 +55046,7 @@ if.end63:                                         ; preds = %_ZZNK8facebook5velo
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS7_11SubtractionEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS7_11SubtractionEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -57709,7 +57706,7 @@ if.end64:                                         ; preds = %_ZZNK8facebook5velo
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS7_11SubtractionEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS7_11SubtractionEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -60055,7 +60052,7 @@ if.end63:                                         ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS7_8MultiplyEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS7_8MultiplyEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -62681,7 +62678,7 @@ if.end63:                                         ; preds = %_ZZN8facebook5velox
 declare { i64, i1 } @llvm.smul.with.overflow.i64(i64, i64) #15
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS7_8MultiplyEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS7_8MultiplyEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -65202,7 +65199,7 @@ if.end63:                                         ; preds = %_ZZNK8facebook5velo
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS7_8MultiplyEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInlnNS7_8MultiplyEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -67853,7 +67850,7 @@ if.end63:                                         ; preds = %_ZZNK8facebook5velo
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS7_8MultiplyEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS7_8MultiplyEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -70376,7 +70373,7 @@ if.end63:                                         ; preds = %_ZZNK8facebook5velo
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS7_8MultiplyEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS7_8MultiplyEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -72882,7 +72879,7 @@ if.end64:                                         ; preds = %_ZZNK8facebook5velo
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS7_8MultiplyEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS7_8MultiplyEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -75416,7 +75413,7 @@ if.end63:                                         ; preds = %_ZZNK8facebook5velo
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS7_6DivideEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInllNS7_6DivideEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E2_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -77589,7 +77586,7 @@ if.end63:                                         ; preds = %if.then.i.i.i.i, %i
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS7_6DivideEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS7_6DivideEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -77695,7 +77692,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS7_6DivideEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E0_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS7_6DivideEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E0_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -77801,7 +77798,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS7_6DivideEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E1_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS7_6DivideEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E1_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -77909,7 +77906,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS2_6DivideEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_E2_clIiEEDaSP_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %row) unnamed_addr #17 align 2 {
+define internal fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIlllNS2_6DivideEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_E2_clIiEEDaSP_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %row) unnamed_addr #16 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -82898,7 +82895,7 @@ if.end63:                                         ; preds = %if.then.i.i.i.i, %i
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS7_6DivideEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS7_6DivideEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -83009,7 +83006,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS7_6DivideEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E0_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS7_6DivideEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E0_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -83120,7 +83117,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS7_6DivideEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E1_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS7_6DivideEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E1_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -83233,7 +83230,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS2_6DivideEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_E2_clIiEEDaSP_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %row) unnamed_addr #17 align 2 {
+define internal fastcc void @_ZZNK8facebook5velox9functions12_GLOBAL__N_119DecimalBaseFunctionIllnNS2_6DivideEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_ENKUlT_E2_clIiEEDaSP_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %row) unnamed_addr #16 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -86163,7 +86160,7 @@ if.end63:                                         ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS7_6DivideEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E1_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInnlNS7_6DivideEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E1_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -89033,7 +89030,7 @@ if.end64:                                         ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS7_6DivideEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E1_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_119DecimalBaseFunctionInnnNS7_6DivideEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E1_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -90238,7 +90235,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS7_5RoundEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS7_5RoundEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -90362,7 +90359,7 @@ while.end:                                        ; preds = %_ZZNK8facebook5velo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS7_5RoundEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E0_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120DecimalUnaryFunctionIllNS7_5RoundEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E0_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -91642,7 +91639,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS7_5RoundEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS7_5RoundEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -91774,7 +91771,7 @@ while.end:                                        ; preds = %_ZZNK8facebook5velo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS7_5RoundEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E0_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120DecimalUnaryFunctionIlnNS7_5RoundEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E0_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -92984,7 +92981,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS7_5RoundEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS7_5RoundEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -93103,7 +93100,7 @@ while.end:                                        ; preds = %_ZZNK8facebook5velo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS7_5RoundEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E0_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_120DecimalUnaryFunctionInnNS7_5RoundEE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E0_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -96511,6 +96508,9 @@ entry:
   ret i1 true
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #18
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #19
 
@@ -96566,9 +96566,9 @@ attributes #12 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nofree nosync nounwind memory(none) }
-attributes #17 = { mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #18 = { nofree nosync nounwind memory(none) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #20 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

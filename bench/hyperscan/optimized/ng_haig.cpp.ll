@@ -3246,7 +3246,7 @@ ehcleanup227.i.i:                                 ; preds = %ehcleanup225.i.i, %
   %.pn74.pn.pn.i.i = phi { ptr, i32 } [ %.pn74.pn.i.i, %ehcleanup225.i.i ], [ %139, %lpad.i.i ], [ %140, %lpad3.i.i ]
   call void @_ZNSt13unordered_mapIN3ue28bitfieldILm256EEEtSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_tEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %dstate_ids.i.i) #21
   %313 = extractvalue { ptr, i32 } %.pn74.pn.pn.i.i, 1
-  %314 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3ue212_GLOBAL__N_113haig_too_wideE) #21
+  %314 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3ue212_GLOBAL__N_113haig_too_wideE) #21
   %matches.i = icmp eq i32 %313, %314
   br i1 %matches.i, label %catch.i, label %ehcleanup48.thread224.i
 
@@ -8712,7 +8712,7 @@ ehcleanup231.i:                                   ; preds = %ehcleanup229.i, %lp
   call void @_ZNSt13unordered_mapIN5boost14dynamic_bitsetImSaImEEEtN3ue219hash_dynamic_bitsetESt8equal_toIS3_ESaISt4pairIKS3_tEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %dstate_ids.i) #21
   %526 = extractvalue { ptr, i32 } %.pn75.pn.pn.i, 0
   %527 = extractvalue { ptr, i32 } %.pn75.pn.pn.i, 1
-  %528 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3ue212_GLOBAL__N_113haig_too_wideE) #21
+  %528 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3ue212_GLOBAL__N_113haig_too_wideE) #21
   %matches = icmp eq i32 %527, %528
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -15013,9 +15013,6 @@ return:                                           ; preds = %if.end12.i78, %if.t
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #12
-
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #15
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN3ue2L14haig_do_reportINS_8bitfieldILm256EEEEEvRKNS_8NGHolderERKNS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS3_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessISD_ESaISD_EEESD_RKT_RKSt6vectorISD_SG_ERSt3setINS_10som_reportESE_ISS_ESaISS_EE(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr readonly %accept_v.coerce0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %source_nfa_states, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %state_mapping, ptr noundef nonnull align 8 dereferenceable(48) %out) unnamed_addr #2 {
@@ -27709,6 +27706,9 @@ lpad.i.i.i.i.i.i:                                 ; preds = %if.else.i.i.i.i.i.i
 invoke.cont:                                      ; preds = %_ZN5boost9container6vectorISt4pairIjSt6vectorIjSaIjEEENS0_22small_vector_allocatorIS6_SaIvEvEEvE5clearEv.exit.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
   ret void
 }
+
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16

@@ -1776,7 +1776,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %for.end, 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit9, %lpad.loopexit ], [ %lpad.loopexit11, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit18, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %6 = extractvalue { ptr, i32 } %lpad.phi, 1
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3f2nI11mpf_managerE9exceptionE) #14
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3f2nI11mpf_managerE9exceptionE) #14
   %matches = icmp eq i32 %6, %7
   br i1 %matches, label %catch, label %eh.resume
 
@@ -1844,7 +1844,7 @@ lpad:                                             ; preds = %if.then.i.i, %_ZN11
   %5 = landingpad { ptr, i32 }
           catch ptr @_ZTIN3f2nI11mpf_managerE9exceptionE
   %6 = extractvalue { ptr, i32 } %5, 1
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3f2nI11mpf_managerE9exceptionE) #14
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3f2nI11mpf_managerE9exceptionE) #14
   %matches = icmp eq i32 %6, %7
   br i1 %matches, label %catch, label %eh.resume
 
@@ -2152,9 +2152,6 @@ if.end:                                           ; preds = %if.then.i.i16.i, %_
 }
 
 declare noundef i32 @_ZN9subpaving9context_tINS_10config_mpfEE6mk_sumERK3mpfjPS4_PKj(ptr noundef nonnull align 8 dereferenceable(1560), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
-
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6vectorI3mpfLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2542,7 +2539,7 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %invoke.cont5, %for.
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit7, %lpad.loopexit ], [ %lpad.loopexit13, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp14, %lpad.loopexit.split-lp.loopexit.split-lp ]
   %8 = extractvalue { ptr, i32 } %lpad.phi, 1
-  %9 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3f2nI11mpf_managerE9exceptionE) #14
+  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3f2nI11mpf_managerE9exceptionE) #14
   %matches = icmp eq i32 %8, %9
   br i1 %matches, label %catch, label %eh.resume
 
@@ -2606,7 +2603,7 @@ lpad:                                             ; preds = %if.then.i.i, %.noex
   %3 = landingpad { ptr, i32 }
           catch ptr @_ZTIN3f2nI11mpf_managerE9exceptionE
   %4 = extractvalue { ptr, i32 } %3, 1
-  %5 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3f2nI11mpf_managerE9exceptionE) #14
+  %5 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3f2nI11mpf_managerE9exceptionE) #14
   %matches = icmp eq i32 %4, %5
   br i1 %matches, label %catch, label %eh.resume
 
@@ -3212,7 +3209,7 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %invoke.cont6, %for.
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit14, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp15, %lpad.loopexit.split-lp.loopexit.split-lp ]
   %8 = extractvalue { ptr, i32 } %lpad.phi, 1
-  %9 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN12mpff_manager9exceptionE) #14
+  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN12mpff_manager9exceptionE) #14
   %matches = icmp eq i32 %8, %9
   br i1 %matches, label %catch, label %eh.resume
 
@@ -3277,7 +3274,7 @@ lpad:                                             ; preds = %invoke.cont6, %invo
   %3 = landingpad { ptr, i32 }
           catch ptr @_ZTIN12mpff_manager9exceptionE
   %4 = extractvalue { ptr, i32 } %3, 1
-  %5 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN12mpff_manager9exceptionE) #14
+  %5 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN12mpff_manager9exceptionE) #14
   %matches = icmp eq i32 %4, %5
   br i1 %matches, label %catch, label %eh.resume
 
@@ -3887,7 +3884,7 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %invoke.cont6, %for.
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit14, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp15, %lpad.loopexit.split-lp.loopexit.split-lp ]
   %8 = extractvalue { ptr, i32 } %lpad.phi, 1
-  %9 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN12mpfx_manager9exceptionE) #14
+  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN12mpfx_manager9exceptionE) #14
   %matches = icmp eq i32 %8, %9
   br i1 %matches, label %catch, label %eh.resume
 
@@ -3952,7 +3949,7 @@ lpad:                                             ; preds = %invoke.cont6, %invo
   %3 = landingpad { ptr, i32 }
           catch ptr @_ZTIN12mpfx_manager9exceptionE
   %4 = extractvalue { ptr, i32 } %3, 1
-  %5 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN12mpfx_manager9exceptionE) #14
+  %5 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN12mpfx_manager9exceptionE) #14
   %matches = icmp eq i32 %4, %5
   br i1 %matches, label %catch, label %eh.resume
 
@@ -4286,12 +4283,15 @@ declare void @_ZN9subpaving9context_tINS_11config_mpfxEEclEv(ptr noundef nonnull
 declare void @_ZNK9subpaving9context_tINS_11config_mpfxEE14display_boundsERSo(ptr noundef nonnull align 8 dereferenceable(656), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_subpaving.cpp() #12 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_subpaving.cpp() #11 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
   ret void
 }
+
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
@@ -4310,8 +4310,8 @@ attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nosync nounwind memory(none) }
-attributes #12 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nosync nounwind memory(none) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nounwind }
 attributes #15 = { noreturn nounwind }

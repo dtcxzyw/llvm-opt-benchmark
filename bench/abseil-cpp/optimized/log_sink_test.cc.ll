@@ -6483,7 +6483,7 @@ catch.dispatch:                                   ; preds = %lpad33, %lpad28
   %.pn4 = phi { ptr, i32 } [ %30, %lpad33 ], [ %29, %lpad28 ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn4, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn4, 1
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %matches = icmp eq i32 %ehselector.slot.2, %31
   %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #24
   br i1 %matches, label %catch48, label %catch
@@ -6738,11 +6738,8 @@ declare noundef zeroext i1 @_ZN7testing8internal20ExitedUnsuccessfullyEi(i32 nou
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl13ScopedMockLog14UseAsLocalSinkEv(ptr noundef nonnull align 8 dereferenceable(240)) local_unnamed_addr #0
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #16
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #17
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #16
 
 declare void @_ZN7testing8internal18FormatFileLocationB5cxx11EPKci(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, i32 noundef) local_unnamed_addr #0
 
@@ -6750,7 +6747,7 @@ declare void @_ZN7testing8internal18FormatFileLocationB5cxx11EPKci(ptr sret(%"cl
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #17
+declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #16
 
 declare void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
@@ -7165,7 +7162,7 @@ catch.dispatch:                                   ; preds = %lpad33, %lpad28
   %.pn4 = phi { ptr, i32 } [ %30, %lpad33 ], [ %29, %lpad28 ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn4, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn4, 1
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %matches = icmp eq i32 %ehselector.slot.2, %31
   %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #24
   br i1 %matches, label %catch47, label %catch
@@ -8622,7 +8619,7 @@ catch.dispatch:                                   ; preds = %lpad36, %lpad28
   %.pn3 = phi { ptr, i32 } [ %28, %lpad36 ], [ %27, %lpad28 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %matches = icmp eq i32 %ehselector.slot.1, %29
   %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #24
   br i1 %matches, label %catch51, label %catch
@@ -8820,7 +8817,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZZN12_GLOBAL__N_133LogSinkDeathTest_DeathInSend_Test8TestBodyEvEN13FatalSendSink4SendERKN4absl8LogEntryE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN12_GLOBAL__N_133LogSinkDeathTest_DeathInSend_Test8TestBodyEvEN13FatalSendSink4SendERKN4absl8LogEntryE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::log_internal::LogMessageFatal", align 8
   call void @_ZN4absl12log_internal15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull @.str.4, i32 noundef 133) #28
@@ -8858,7 +8855,7 @@ entry:
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @_ZN4absl12log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #19
+declare void @_ZN4absl12log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_127LogSinkTest_ToSinkAlso_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
@@ -14489,7 +14486,7 @@ catch.dispatch:                                   ; preds = %ehcleanup101, %lpad
   %.pn13.pn = phi { ptr, i32 } [ %.pn13, %ehcleanup101 ], [ %38, %lpad25 ]
   %exn.slot.10 = extractvalue { ptr, i32 } %.pn13.pn, 0
   %ehselector.slot.10 = extractvalue { ptr, i32 } %.pn13.pn, 1
-  %56 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %matches = icmp eq i32 %ehselector.slot.10, %56
   %57 = call ptr @__cxa_begin_catch(ptr %exn.slot.10) #24
   br i1 %matches, label %catch111, label %catch
@@ -17078,7 +17075,7 @@ catch.dispatch:                                   ; preds = %ehcleanup100, %lpad
   %.pn13.pn.pn = phi { ptr, i32 } [ %.pn13.pn, %ehcleanup100 ], [ %36, %lpad25 ]
   %exn.slot.11 = extractvalue { ptr, i32 } %.pn13.pn.pn, 0
   %ehselector.slot.11 = extractvalue { ptr, i32 } %.pn13.pn.pn, 1
-  %54 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %54 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %matches = icmp eq i32 %ehselector.slot.11, %54
   %55 = call ptr @__cxa_begin_catch(ptr %exn.slot.11) #24
   br i1 %matches, label %catch110, label %catch
@@ -17902,7 +17899,7 @@ catch.dispatch:                                   ; preds = %ehcleanup133, %lpad
   %.pn19.pn.pn = phi { ptr, i32 } [ %.pn19.pn, %ehcleanup133 ], [ %41, %lpad25 ]
   %exn.slot.16 = extractvalue { ptr, i32 } %.pn19.pn.pn, 0
   %ehselector.slot.16 = extractvalue { ptr, i32 } %.pn19.pn.pn, 1
-  %67 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %67 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %matches = icmp eq i32 %ehselector.slot.16, %67
   %68 = call ptr @__cxa_begin_catch(ptr %exn.slot.16) #24
   br i1 %matches, label %catch143, label %catch
@@ -18730,7 +18727,7 @@ catch.dispatch:                                   ; preds = %ehcleanup134, %lpad
   %.pn19.pn.pn = phi { ptr, i32 } [ %.pn19.pn, %ehcleanup134 ], [ %41, %lpad25 ]
   %exn.slot.16 = extractvalue { ptr, i32 } %.pn19.pn.pn, 0
   %ehselector.slot.16 = extractvalue { ptr, i32 } %.pn19.pn.pn, 1
-  %67 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %67 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %matches = icmp eq i32 %ehselector.slot.16, %67
   %68 = call ptr @__cxa_begin_catch(ptr %exn.slot.16) #24
   br i1 %matches, label %catch144, label %catch
@@ -19421,7 +19418,7 @@ catch.dispatch:                                   ; preds = %ehcleanup101, %lpad
   %.pn13.pn.pn = phi { ptr, i32 } [ %.pn13.pn, %ehcleanup101 ], [ %36, %lpad25 ]
   %exn.slot.11 = extractvalue { ptr, i32 } %.pn13.pn.pn, 0
   %ehselector.slot.11 = extractvalue { ptr, i32 } %.pn13.pn.pn, 1
-  %54 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %54 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %matches = icmp eq i32 %ehselector.slot.11, %54
   %55 = call ptr @__cxa_begin_catch(ptr %exn.slot.11) #24
   br i1 %matches, label %catch111, label %catch
@@ -20116,7 +20113,7 @@ catch.dispatch:                                   ; preds = %ehcleanup102, %lpad
   %.pn13.pn.pn = phi { ptr, i32 } [ %.pn13.pn, %ehcleanup102 ], [ %36, %lpad25 ]
   %exn.slot.11 = extractvalue { ptr, i32 } %.pn13.pn.pn, 0
   %ehselector.slot.11 = extractvalue { ptr, i32 } %.pn13.pn.pn, 1
-  %54 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %54 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %matches = icmp eq i32 %ehselector.slot.11, %54
   %55 = call ptr @__cxa_begin_catch(ptr %exn.slot.11) #24
   br i1 %matches, label %catch112, label %catch
@@ -20393,7 +20390,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_log_sink_test.cc() #20 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_log_sink_test.cc() #19 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i471 = alloca %"struct.testing::internal::CodeLocation", align 8
   %ref.tmp.i472 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -22043,6 +22040,9 @@ __cxx_global_var_init.48.exit:                    ; preds = %invoke.cont10.i493
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #20
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #21
 
@@ -22077,11 +22077,11 @@ attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nosync nounwind memory(none) }
-attributes #17 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nofree nosync nounwind memory(none) }
 attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

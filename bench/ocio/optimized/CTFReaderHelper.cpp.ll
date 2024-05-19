@@ -2472,7 +2472,7 @@ lpad136:                                          ; preds = %invoke.cont134
 catch.dispatch:                                   ; preds = %lpad136, %lpad133
   %.pn75 = phi { ptr, i32 } [ %30, %lpad136 ], [ %29, %lpad133 ]
   %ehselector.slot.6 = extractvalue { ptr, i32 } %.pn75, 1
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %ehselector.slot.6, %31
   br i1 %matches, label %catch, label %ehcleanup300
 
@@ -2647,7 +2647,7 @@ lpad202:                                          ; preds = %invoke.cont200
 catch.dispatch205:                                ; preds = %lpad202, %lpad199
   %.pn63 = phi { ptr, i32 } [ %46, %lpad202 ], [ %45, %lpad199 ]
   %ehselector.slot.11 = extractvalue { ptr, i32 } %.pn63, 1
-  %47 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %47 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches207 = icmp eq i32 %ehselector.slot.11, %47
   br i1 %matches207, label %catch208, label %ehcleanup300
 
@@ -2871,15 +2871,12 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 declare void @_ZN19OpenColorIO_v2_4dev10CTFVersion11ReadVersionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS0_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(12)) local_unnamed_addr #0
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #6
-
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #28
   tail call void @_ZSt9terminatev() #31
   unreachable
@@ -3048,7 +3045,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev21CTFReaderTransformElt3endEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev21CTFReaderTransformElt3endEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -3082,7 +3079,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK19OpenColorIO_v2_4dev21CTFReaderTransformElt12getTransformEv(ptr noundef nonnull readnone align 8 dereferenceable(97) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK19OpenColorIO_v2_4dev21CTFReaderTransformElt12getTransformEv(ptr noundef nonnull readnone align 8 dereferenceable(97) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_transform = getelementptr inbounds i8, ptr %this, i64 80
   ret ptr %m_transform
@@ -3569,7 +3566,7 @@ _ZN19OpenColorIO_v2_4dev17CTFReaderArrayEltD2Ev.exit: ; preds = %entry, %_ZN9__g
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev17CTFReaderArrayElt5startEPPKc(ptr noundef nonnull align 8 dereferenceable(108) %this, ptr nocapture noundef readonly %atts) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -3657,7 +3654,7 @@ lpad:                                             ; preds = %if.then
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %8 = extractvalue { ptr, i32 } %7, 0
   %9 = extractvalue { ptr, i32 } %7, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %9, %10
   br i1 %matches, label %catch, label %ehcleanup65
 
@@ -4154,7 +4151,7 @@ terminate.lpad:                                   ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev10GetNumbersIjEESt6vectorIT_SaIS2_EEPKcm(ptr noalias sret(%"class.std::vector.22") align 8 %agg.result, ptr noundef %str, i64 noundef %len) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
@@ -4524,7 +4521,7 @@ _ZN19OpenColorIO_v2_4dev14TruncateStringB5cxx11EPKcmm.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #11
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev17CTFReaderArrayElt3endEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %this) unnamed_addr #4 align 2 {
@@ -4707,7 +4704,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
   %7 = landingpad { ptr, i32 }
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %8 = extractvalue { ptr, i32 } %7, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %8, %9
   br i1 %matches, label %catch, label %eh.resume
 
@@ -5365,7 +5362,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev11CTFArrayMgtC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %this) unnamed_addr #12 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev11CTFArrayMgtC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %this) unnamed_addr #11 align 2 {
 entry:
   store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev11CTFArrayMgtE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_completed = getelementptr inbounds i8, ptr %this, i64 8
@@ -5374,20 +5371,20 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev11CTFArrayMgtD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev11CTFArrayMgtD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev11CTFArrayMgtD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev11CTFArrayMgtD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #12 align 2 {
 entry:
   tail call void @llvm.trap() #31
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #14
+declare void @llvm.trap() #13
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderIndexMapEltC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_21XmlReaderContainerEltEEjS8_(ptr noundef nonnull align 8 dereferenceable(108) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef readonly %pParent, i32 noundef %xmlLineNumber, ptr noundef nonnull align 8 dereferenceable(32) %xmlFile) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
@@ -5779,7 +5776,7 @@ lpad:                                             ; preds = %if.then
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %8 = extractvalue { ptr, i32 } %7, 0
   %9 = extractvalue { ptr, i32 } %7, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %9, %10
   br i1 %matches, label %catch, label %ehcleanup62
 
@@ -6628,7 +6625,7 @@ lpad.body:                                        ; preds = %ehcleanup17.i, %lpa
   %pos.4 = phi i64 [ %pos.addr.0.i.i, %ehcleanup17.i ], [ %pos.3, %lpad ]
   %eh.lpad-body = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup17.i ], [ %13, %lpad ]
   %14 = extractvalue { ptr, i32 } %eh.lpad-body, 1
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %14, %15
   br i1 %matches, label %catch, label %common.resume
 
@@ -7226,7 +7223,7 @@ if.end:                                           ; preds = %entry, %if.else.i, 
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN19OpenColorIO_v2_4dev18FormatMetadataImpl19getChildrenElementsEv(ptr noundef nonnull align 8 dereferenceable(120)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK19OpenColorIO_v2_4dev20CTFReaderMetadataElt13getIdentifierB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(216) %this) unnamed_addr #8 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK19OpenColorIO_v2_4dev20CTFReaderMetadataElt13getIdentifierB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(216) %this) unnamed_addr #7 align 2 {
 entry:
   %m_name.i = getelementptr inbounds i8, ptr %this, i64 8
   ret ptr %m_name.i
@@ -7990,7 +7987,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev18CTFReaderTransformEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev14CTFReaderOpEltD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev14CTFReaderOpEltD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #12 align 2 {
 entry:
   tail call void @llvm.trap() #31
   unreachable
@@ -9613,7 +9610,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev14CTFReaderOpElt3endEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev14CTFReaderOpElt3endEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -15004,7 +15001,7 @@ lpad:                                             ; preds = %if.then
   %4 = landingpad { ptr, i32 }
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %5 = extractvalue { ptr, i32 } %4, 1
-  %6 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %5, %6
   br i1 %matches, label %catch, label %eh.resume
 
@@ -15153,7 +15150,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev16CTFReaderACESElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev16CTFReaderACESElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_fixedFunction = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_fixedFunction, align 8
@@ -15993,7 +15990,7 @@ lpad:                                             ; preds = %entry
           cleanup
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %4 = extractvalue { ptr, i32 } %3, 1
-  %5 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %5 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %4, %5
   br i1 %matches, label %catch, label %_ZNSt6vectorIdSaIdEED2Ev.exit18
 
@@ -16525,7 +16522,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev15CTFReaderCDLElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev15CTFReaderCDLElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_cdl = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_cdl, align 8
@@ -16558,7 +16555,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev6OpDataEEC2INS0_9CDLOpDataEvEERKS_IT_E.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK19OpenColorIO_v2_4dev15CTFReaderCDLElt6getCDLEv(ptr noundef nonnull readnone align 8 dereferenceable(120) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK19OpenColorIO_v2_4dev15CTFReaderCDLElt6getCDLEv(ptr noundef nonnull readnone align 8 dereferenceable(120) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_cdl = getelementptr inbounds i8, ptr %this, i64 104
   ret ptr %m_cdl
@@ -17365,7 +17362,7 @@ lpad:                                             ; preds = %if.then
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = extractvalue { ptr, i32 } %4, 1
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %6, %7
   br i1 %matches, label %catch, label %eh.resume
 
@@ -17458,7 +17455,7 @@ lpad27:                                           ; preds = %cond.end
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = extractvalue { ptr, i32 } %17, 1
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches32 = icmp eq i32 %19, %20
   br i1 %matches32, label %catch33, label %ehcleanup52
 
@@ -17894,7 +17891,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev25CTFReaderFixedFunctionElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev25CTFReaderFixedFunctionElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_fixedFunction = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_fixedFunction, align 8
@@ -18177,7 +18174,7 @@ lpad:                                             ; preds = %if.then
   %4 = landingpad { ptr, i32 }
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %5 = extractvalue { ptr, i32 } %4, 1
-  %6 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %5, %6
   br i1 %matches, label %catch, label %eh.resume
 
@@ -18324,7 +18321,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev20CTFReaderFunctionElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev20CTFReaderFunctionElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_fixedFunction = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_fixedFunction, align 8
@@ -20631,7 +20628,7 @@ lpad:                                             ; preds = %if.then
   %3 = landingpad { ptr, i32 }
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %4 = extractvalue { ptr, i32 } %3, 1
-  %5 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %5 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %4, %5
   br i1 %matches, label %catch, label %eh.resume
 
@@ -20807,7 +20804,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev28CTFReaderExposureContrastElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev28CTFReaderExposureContrastElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_ec = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_ec, align 8
@@ -22591,7 +22588,7 @@ lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %3 = extractvalue { ptr, i32 } %2, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -22678,7 +22675,7 @@ ehcleanup:                                        ; preds = %lpad4, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev17CTFReaderGammaElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev17CTFReaderGammaElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_gamma = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_gamma, align 8
@@ -22741,7 +22738,7 @@ _ZSt11make_sharedIN19OpenColorIO_v2_4dev23CTFReaderGammaParamsEltEJRKNSt7__cxx11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev17CTFReaderGammaElt7isValidENS_11GammaOpData5StyleE(ptr nocapture nonnull readnone align 8 %this, i32 noundef %style) unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev17CTFReaderGammaElt7isValidENS_11GammaOpData5StyleE(ptr nocapture nonnull readnone align 8 %this, i32 noundef %style) unnamed_addr #7 align 2 {
 entry:
   %0 = icmp ult i32 %style, 10
   %switch.cast = trunc i32 %style to i10
@@ -22780,7 +22777,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev27CTFReaderGammaParamsElt_1_5EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev25CTFReaderGammaElt_CTF_2_07isValidENS_11GammaOpData5StyleE(ptr nocapture nonnull readnone align 8 %this, i32 noundef %style) unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev25CTFReaderGammaElt_CTF_2_07isValidENS_11GammaOpData5StyleE(ptr nocapture nonnull readnone align 8 %this, i32 noundef %style) unnamed_addr #7 align 2 {
 entry:
   %switch = icmp ult i32 %style, 10
   ret i1 %switch
@@ -23551,13 +23548,13 @@ declare void @_ZN19OpenColorIO_v2_4dev11GammaOpData13setBlueParamsERKSt6vectorId
 declare void @_ZN19OpenColorIO_v2_4dev11GammaOpData14setAlphaParamsERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(272), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev23CTFReaderGammaParamsElt3endEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev23CTFReaderGammaParamsElt3endEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev23CTFReaderGammaParamsElt10setRawDataEPKcmj(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0, i64 %1, i32 %2) unnamed_addr #8 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev23CTFReaderGammaParamsElt10setRawDataEPKcmj(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0, i64 %1, i32 %2) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -24077,7 +24074,7 @@ lpad:                                             ; preds = %call.i.noexc, %invo
   %8 = landingpad { ptr, i32 }
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %9 = extractvalue { ptr, i32 } %8, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %9, %10
   br i1 %matches, label %catch, label %eh.resume
 
@@ -24138,7 +24135,7 @@ declare void @_ZN19OpenColorIO_v2_4dev20GradingPrimaryOpData8setStyleENS_12Gradi
 declare void @_ZN19OpenColorIO_v2_4dev20GradingPrimaryOpData12setDirectionENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_16ThrowMIA29_cJPKcS4_EEEvRKNS_16XmlReaderElementERKT_DpT0_(ptr noundef nonnull align 8 dereferenceable(80) %elt, ptr noundef %r) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
@@ -24247,7 +24244,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev26CTFReaderGradingPrimaryElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev26CTFReaderGradingPrimaryElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_gradingPrimaryOpData = getelementptr inbounds i8, ptr %this, i64 376
   %0 = load ptr, ptr %m_gradingPrimaryOpData, align 8
@@ -24637,7 +24634,7 @@ lpad:                                             ; preds = %while.body
           cleanup
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %7 = extractvalue { ptr, i32 } %6, 1
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %7, %8
   br i1 %matches, label %catch, label %_ZNSt6vectorIdSaIdEED2Ev.exit47
 
@@ -25412,7 +25409,7 @@ lpad:                                             ; preds = %while.body
           cleanup
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %7 = extractvalue { ptr, i32 } %6, 1
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %7, %8
   br i1 %matches, label %catch, label %common.resume
 
@@ -25850,7 +25847,7 @@ lpad:                                             ; preds = %while.body
           cleanup
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %7 = extractvalue { ptr, i32 } %6, 1
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %7, %8
   br i1 %matches, label %catch, label %common.resume
 
@@ -26331,7 +26328,7 @@ lpad:                                             ; preds = %while.body
           cleanup
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %7 = extractvalue { ptr, i32 } %6, 1
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %7, %8
   br i1 %matches, label %catch, label %_ZNSt6vectorIdSaIdEED2Ev.exit27
 
@@ -26824,13 +26821,13 @@ if.end68:                                         ; preds = %if.then11, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev31CTFReaderGradingPrimaryParamElt3endEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev31CTFReaderGradingPrimaryParamElt3endEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev31CTFReaderGradingPrimaryParamElt10setRawDataEPKcmj(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0, i64 %1, i32 %2) unnamed_addr #8 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev31CTFReaderGradingPrimaryParamElt10setRawDataEPKcmj(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0, i64 %1, i32 %2) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -27196,7 +27193,7 @@ lpad:                                             ; preds = %invoke.cont, %if.th
   %31 = landingpad { ptr, i32 }
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %32 = extractvalue { ptr, i32 } %31, 1
-  %33 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %32, %33
   br i1 %matches, label %catch, label %eh.resume
 
@@ -27530,7 +27527,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev15GradingRGBCurveELN9__gnu_cxx12_Lock
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev27CTFReaderGradingRGBCurveElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev27CTFReaderGradingRGBCurveElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_gradingRGBCurve = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %m_gradingRGBCurve, align 8
@@ -28089,7 +28086,7 @@ lpad:                                             ; preds = %if.end18.i, %if.els
 lpad.body:                                        ; preds = %ehcleanup29.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %9, %lpad ], [ %.pn.pn.i, %ehcleanup29.i ]
   %10 = extractvalue { ptr, i32 } %eh.lpad-body, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %10, %11
   br i1 %matches, label %catch, label %eh.resume
 
@@ -28299,7 +28296,7 @@ terminate.lpad:                                   ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev24CTFReaderGradingCurveElt3endEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev24CTFReaderGradingCurveElt3endEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -28636,7 +28633,7 @@ _ZN19OpenColorIO_v2_4dev30CTFReaderGradingCurvePointsEltD2Ev.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev30CTFReaderGradingCurvePointsElt5startEPPKc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #8 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev30CTFReaderGradingCurvePointsElt5startEPPKc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -28880,7 +28877,7 @@ lpad:                                             ; preds = %entry
           cleanup
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %4 = extractvalue { ptr, i32 } %3, 1
-  %5 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %5 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %4, %5
   br i1 %matches, label %catch, label %_ZNSt6vectorIfSaIfEED2Ev.exit11
 
@@ -29547,7 +29544,7 @@ _ZN19OpenColorIO_v2_4dev30CTFReaderGradingCurveSlopesEltD2Ev.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev30CTFReaderGradingCurveSlopesElt5startEPPKc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #8 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev30CTFReaderGradingCurveSlopesElt5startEPPKc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -29767,7 +29764,7 @@ lpad:                                             ; preds = %entry
           cleanup
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %4 = extractvalue { ptr, i32 } %3, 1
-  %5 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %5 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %4, %5
   br i1 %matches, label %catch, label %_ZNSt6vectorIfSaIfEED2Ev.exit11
 
@@ -30033,7 +30030,7 @@ lpad:                                             ; preds = %invoke.cont9, %if.t
   %16 = landingpad { ptr, i32 }
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %17 = extractvalue { ptr, i32 } %16, 1
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %17, %18
   br i1 %matches, label %catch, label %eh.resume
 
@@ -30104,7 +30101,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev23CTFReaderGradingToneElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev23CTFReaderGradingToneElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_gradingTone = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_gradingTone, align 8
@@ -30504,7 +30501,7 @@ lpad:                                             ; preds = %while.body
           cleanup
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %7 = extractvalue { ptr, i32 } %6, 1
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %7, %8
   br i1 %matches, label %catch, label %_ZNSt6vectorIdSaIdEED2Ev.exit89
 
@@ -31000,7 +30997,7 @@ lpad:                                             ; preds = %while.body
           cleanup
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %7 = extractvalue { ptr, i32 } %6, 1
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %7, %8
   br i1 %matches, label %catch, label %_ZNSt6vectorIdSaIdEED2Ev.exit27
 
@@ -31273,13 +31270,13 @@ if.end45:                                         ; preds = %if.then13, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev28CTFReaderGradingToneParamElt3endEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev28CTFReaderGradingToneParamElt3endEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev28CTFReaderGradingToneParamElt10setRawDataEPKcmj(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0, i64 %1, i32 %2) unnamed_addr #8 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev28CTFReaderGradingToneParamElt10setRawDataEPKcmj(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0, i64 %1, i32 %2) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -31572,7 +31569,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev11Lut1DOpDataELN9__gnu_cxx12_Lock_poli
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev20CTFReaderInvLut1DEltD1Ev(ptr noundef %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev20CTFReaderInvLut1DEltD1Ev(ptr noundef %this) unnamed_addr #16 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev20CTFReaderInvLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #28
@@ -31588,7 +31585,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev20CTFReaderInvLut1DEltD0Ev(ptr noundef %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev20CTFReaderInvLut1DEltD0Ev(ptr noundef %this) unnamed_addr #16 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev20CTFReaderInvLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #28
@@ -31640,7 +31637,7 @@ lpad:                                             ; preds = %invoke.cont, %if.th
   %5 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %6 = extractvalue { ptr, i32 } %5, 1
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #28
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %matches = icmp eq i32 %6, %7
   br i1 %matches, label %catch, label %eh.resume
 
@@ -31975,7 +31972,7 @@ declare noundef double @_ZN19OpenColorIO_v2_4dev19GetBitDepthMaxValueENS_8BitDep
 declare void @_ZN19OpenColorIO_v2_4dev11Lut1DOpData5scaleEf(ptr noundef nonnull align 8 dereferenceable(364), float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev20CTFReaderInvLut1DElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev20CTFReaderInvLut1DElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_invLut = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %m_invLut, align 8
@@ -32050,7 +32047,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: uwtable
-define hidden noundef ptr @_ZThn104_N19OpenColorIO_v2_4dev20CTFReaderInvLut1DElt15updateDimensionERKSt6vectorIjSaIjEE(ptr nocapture noundef readonly %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dims) unnamed_addr #18 align 2 {
+define hidden noundef ptr @_ZThn104_N19OpenColorIO_v2_4dev20CTFReaderInvLut1DElt15updateDimensionERKSt6vectorIjSaIjEE(ptr nocapture noundef readonly %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dims) unnamed_addr #17 align 2 {
 entry:
   %_M_finish.i.i = getelementptr inbounds i8, ptr %dims, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
@@ -32259,7 +32256,7 @@ if.end62:                                         ; preds = %for.cond47.loopexit
 declare noundef float @_ZN19OpenColorIO_v2_4dev22ConvertHalfBitsToFloatEt(i16 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev20CTFReaderInvLut1DElt8endArrayEj(ptr noundef %this, i32 noundef %position) unnamed_addr #18 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev20CTFReaderInvLut1DElt8endArrayEj(ptr noundef %this, i32 noundef %position) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev20CTFReaderInvLut1DElt8endArrayEj(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %position)
@@ -32554,7 +32551,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev11Lut3DOpDataELN9__gnu_cxx12_Lock_poli
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev20CTFReaderInvLut3DEltD1Ev(ptr noundef %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev20CTFReaderInvLut3DEltD1Ev(ptr noundef %this) unnamed_addr #16 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev20CTFReaderInvLut3DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #28
@@ -32570,7 +32567,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev20CTFReaderInvLut3DEltD0Ev(ptr noundef %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev20CTFReaderInvLut3DEltD0Ev(ptr noundef %this) unnamed_addr #16 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev20CTFReaderInvLut3DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #28
@@ -32615,7 +32612,7 @@ lpad:                                             ; preds = %invoke.cont, %if.th
   %5 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %6 = extractvalue { ptr, i32 } %5, 1
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #28
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %matches = icmp eq i32 %6, %7
   br i1 %matches, label %catch, label %eh.resume
 
@@ -32736,7 +32733,7 @@ entry:
 declare void @_ZN19OpenColorIO_v2_4dev11Lut3DOpData5scaleEf(ptr noundef nonnull align 8 dereferenceable(232), float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev20CTFReaderInvLut3DElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev20CTFReaderInvLut3DElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_invLut = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %m_invLut, align 8
@@ -32821,7 +32818,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: uwtable
-define hidden noundef ptr @_ZThn104_N19OpenColorIO_v2_4dev20CTFReaderInvLut3DElt15updateDimensionERKSt6vectorIjSaIjEE(ptr nocapture noundef readonly %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dims) unnamed_addr #18 align 2 {
+define hidden noundef ptr @_ZThn104_N19OpenColorIO_v2_4dev20CTFReaderInvLut3DElt15updateDimensionERKSt6vectorIjSaIjEE(ptr nocapture noundef readonly %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dims) unnamed_addr #17 align 2 {
 entry:
   %_M_finish.i.i = getelementptr inbounds i8, ptr %dims, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
@@ -32987,7 +32984,7 @@ if.end:                                           ; preds = %invoke.cont34, %ent
 }
 
 ; Function Attrs: uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev20CTFReaderInvLut3DElt8endArrayEj(ptr noundef %this, i32 noundef %position) unnamed_addr #18 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev20CTFReaderInvLut3DElt8endArrayEj(ptr noundef %this, i32 noundef %position) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev20CTFReaderInvLut3DElt8endArrayEj(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %position)
@@ -33442,7 +33439,7 @@ lpad:                                             ; preds = %if.then
   %3 = landingpad { ptr, i32 }
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %4 = extractvalue { ptr, i32 } %3, 1
-  %5 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %5 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %4, %5
   br i1 %matches, label %catch, label %eh.resume
 
@@ -33578,7 +33575,7 @@ lpad3:                                            ; preds = %invoke.cont
           cleanup
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %3 = extractvalue { ptr, i32 } %2, 1
-  %4 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -33640,7 +33637,7 @@ lpad26:                                           ; preds = %invoke.cont21
           cleanup
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches30 = icmp eq i32 %18, %19
   br i1 %matches30, label %catch31, label %ehcleanup
 
@@ -33788,7 +33785,7 @@ ehcleanup:                                        ; preds = %lpad4, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev15CTFReaderLogElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev15CTFReaderLogElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_log = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %m_log, align 8
@@ -33972,7 +33969,7 @@ lpad:                                             ; preds = %if.then
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = extractvalue { ptr, i32 } %3, 1
-  %6 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %5, %6
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -34117,7 +34114,7 @@ lpad52:                                           ; preds = %if.end47
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %31 = extractvalue { ptr, i32 } %30, 0
   %32 = extractvalue { ptr, i32 } %30, 1
-  %33 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches56 = icmp eq i32 %32, %33
   br i1 %matches56, label %catch57, label %eh.resume
 
@@ -34938,13 +34935,13 @@ while.end:                                        ; preds = %while.end.loopexit,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev21CTFReaderLogParamsElt3endEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev21CTFReaderLogParamsElt3endEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev21CTFReaderLogParamsElt10setRawDataEPKcmj(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0, i64 %1, i32 %2) unnamed_addr #8 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev21CTFReaderLogParamsElt10setRawDataEPKcmj(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0, i64 %1, i32 %2) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -36017,7 +36014,7 @@ ehcleanup:                                        ; preds = %lpad, %_ZNSt15__all
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
 
 declare void @_ZN19OpenColorIO_v2_4dev12IndexMappingC1Em(ptr noundef nonnull align 8 dereferenceable(88), i64 noundef) unnamed_addr #0
 
@@ -36188,7 +36185,7 @@ _ZN19OpenColorIO_v2_4dev14CTFReaderOpEltD2Ev.exit: ; preds = %_ZNSt10shared_ptrI
 declare void @_ZN19OpenColorIO_v2_4dev12IndexMappingD1Ev(ptr noundef nonnull align 8 dereferenceable(88)) unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev17CTFReaderLut1DEltD1Ev(ptr noundef %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev17CTFReaderLut1DEltD1Ev(ptr noundef %this) unnamed_addr #16 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #28
@@ -36196,7 +36193,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn120_N19OpenColorIO_v2_4dev17CTFReaderLut1DEltD1Ev(ptr noundef %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn120_N19OpenColorIO_v2_4dev17CTFReaderLut1DEltD1Ev(ptr noundef %this) unnamed_addr #16 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #28
@@ -36212,7 +36209,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev17CTFReaderLut1DEltD0Ev(ptr noundef %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev17CTFReaderLut1DEltD0Ev(ptr noundef %this) unnamed_addr #16 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #28
@@ -36221,7 +36218,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn120_N19OpenColorIO_v2_4dev17CTFReaderLut1DEltD0Ev(ptr noundef %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn120_N19OpenColorIO_v2_4dev17CTFReaderLut1DEltD0Ev(ptr noundef %this) unnamed_addr #16 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #28
@@ -36267,7 +36264,7 @@ lpad:                                             ; preds = %invoke.cont, %if.th
   %5 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %6 = extractvalue { ptr, i32 } %5, 1
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #28
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %matches = icmp eq i32 %6, %7
   br i1 %matches, label %catch, label %eh.resume
 
@@ -36495,7 +36492,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev17CTFReaderLut1DElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev17CTFReaderLut1DElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_lut = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load ptr, ptr %m_lut, align 8
@@ -36570,7 +36567,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: uwtable
-define hidden noundef ptr @_ZThn104_N19OpenColorIO_v2_4dev17CTFReaderLut1DElt15updateDimensionERKSt6vectorIjSaIjEE(ptr nocapture noundef readonly %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dims) unnamed_addr #18 align 2 {
+define hidden noundef ptr @_ZThn104_N19OpenColorIO_v2_4dev17CTFReaderLut1DElt15updateDimensionERKSt6vectorIjSaIjEE(ptr nocapture noundef readonly %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dims) unnamed_addr #17 align 2 {
 entry:
   %_M_finish.i.i = getelementptr inbounds i8, ptr %dims, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
@@ -36791,7 +36788,7 @@ ehcleanup:                                        ; preds = %lpad12, %lpad
 }
 
 ; Function Attrs: uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev17CTFReaderLut1DElt8endArrayEj(ptr noundef %this, i32 noundef %position) unnamed_addr #18 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev17CTFReaderLut1DElt8endArrayEj(ptr noundef %this, i32 noundef %position) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut1DElt8endArrayEj(ptr noundef nonnull align 8 dereferenceable(240) %0, i32 noundef %position)
@@ -36829,7 +36826,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare void @_ZN19OpenColorIO_v2_4dev12IndexMapping6resizeEm(ptr noundef nonnull align 8 dereferenceable(88), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define hidden noundef ptr @_ZThn120_N19OpenColorIO_v2_4dev17CTFReaderLut1DElt17updateDimensionIMERKSt6vectorIjSaIjEE(ptr noundef %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dims) unnamed_addr #18 align 2 {
+define hidden noundef ptr @_ZThn120_N19OpenColorIO_v2_4dev17CTFReaderLut1DElt17updateDimensionIMERKSt6vectorIjSaIjEE(ptr noundef %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dims) unnamed_addr #17 align 2 {
 entry:
   %_M_finish.i.i = getelementptr inbounds i8, ptr %dims, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
@@ -36935,7 +36932,7 @@ ehcleanup:                                        ; preds = %lpad8, %lpad
 declare void @_ZNK19OpenColorIO_v2_4dev12IndexMapping8validateEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define hidden void @_ZThn120_N19OpenColorIO_v2_4dev17CTFReaderLut1DElt11endIndexMapEj(ptr noundef %this, i32 noundef %position) unnamed_addr #18 align 2 {
+define hidden void @_ZThn120_N19OpenColorIO_v2_4dev17CTFReaderLut1DElt11endIndexMapEj(ptr noundef %this, i32 noundef %position) unnamed_addr #17 align 2 {
 entry:
   %m_indexMapping.i = getelementptr inbounds i8, ptr %this, i64 32
   %call.i = tail call noundef i64 @_ZNK19OpenColorIO_v2_4dev12IndexMapping12getDimensionEv(ptr noundef nonnull align 8 dereferenceable(88) %m_indexMapping.i)
@@ -36996,7 +36993,7 @@ lpad:                                             ; preds = %invoke.cont, %if.th
   %5 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %6 = extractvalue { ptr, i32 } %5, 1
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #28
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %matches = icmp eq i32 %6, %7
   br i1 %matches, label %catch, label %common.resume
 
@@ -37821,7 +37818,7 @@ _ZN19OpenColorIO_v2_4dev14CTFReaderOpEltD2Ev.exit: ; preds = %_ZNSt10shared_ptrI
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev17CTFReaderLut3DEltD1Ev(ptr noundef %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev17CTFReaderLut3DEltD1Ev(ptr noundef %this) unnamed_addr #16 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut3DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #28
@@ -37829,7 +37826,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn120_N19OpenColorIO_v2_4dev17CTFReaderLut3DEltD1Ev(ptr noundef %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn120_N19OpenColorIO_v2_4dev17CTFReaderLut3DEltD1Ev(ptr noundef %this) unnamed_addr #16 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut3DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #28
@@ -37845,7 +37842,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev17CTFReaderLut3DEltD0Ev(ptr noundef %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev17CTFReaderLut3DEltD0Ev(ptr noundef %this) unnamed_addr #16 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut3DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #28
@@ -37854,7 +37851,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn120_N19OpenColorIO_v2_4dev17CTFReaderLut3DEltD0Ev(ptr noundef %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn120_N19OpenColorIO_v2_4dev17CTFReaderLut3DEltD0Ev(ptr noundef %this) unnamed_addr #16 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut3DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #28
@@ -37899,7 +37896,7 @@ lpad:                                             ; preds = %invoke.cont, %if.th
   %5 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %6 = extractvalue { ptr, i32 } %5, 1
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #28
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %matches = icmp eq i32 %6, %7
   br i1 %matches, label %catch, label %eh.resume
 
@@ -38014,7 +38011,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev17CTFReaderLut3DElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev17CTFReaderLut3DElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_lut = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load ptr, ptr %m_lut, align 8
@@ -38099,7 +38096,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: uwtable
-define hidden noundef ptr @_ZThn104_N19OpenColorIO_v2_4dev17CTFReaderLut3DElt15updateDimensionERKSt6vectorIjSaIjEE(ptr nocapture noundef readonly %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dims) unnamed_addr #18 align 2 {
+define hidden noundef ptr @_ZThn104_N19OpenColorIO_v2_4dev17CTFReaderLut3DElt15updateDimensionERKSt6vectorIjSaIjEE(ptr nocapture noundef readonly %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dims) unnamed_addr #17 align 2 {
 entry:
   %_M_finish.i.i = getelementptr inbounds i8, ptr %dims, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
@@ -38274,7 +38271,7 @@ if.end:                                           ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev17CTFReaderLut3DElt8endArrayEj(ptr noundef %this, i32 noundef %position) unnamed_addr #18 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev17CTFReaderLut3DElt8endArrayEj(ptr noundef %this, i32 noundef %position) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut3DElt8endArrayEj(ptr noundef nonnull align 8 dereferenceable(240) %0, i32 noundef %position)
@@ -38310,7 +38307,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: uwtable
-define hidden noundef ptr @_ZThn120_N19OpenColorIO_v2_4dev17CTFReaderLut3DElt17updateDimensionIMERKSt6vectorIjSaIjEE(ptr noundef %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dims) unnamed_addr #18 align 2 {
+define hidden noundef ptr @_ZThn120_N19OpenColorIO_v2_4dev17CTFReaderLut3DElt17updateDimensionIMERKSt6vectorIjSaIjEE(ptr noundef %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dims) unnamed_addr #17 align 2 {
 entry:
   %_M_finish.i.i = getelementptr inbounds i8, ptr %dims, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
@@ -38359,7 +38356,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: uwtable
-define hidden void @_ZThn120_N19OpenColorIO_v2_4dev17CTFReaderLut3DElt11endIndexMapEj(ptr noundef %this, i32 noundef %position) unnamed_addr #18 align 2 {
+define hidden void @_ZThn120_N19OpenColorIO_v2_4dev17CTFReaderLut3DElt11endIndexMapEj(ptr noundef %this, i32 noundef %position) unnamed_addr #17 align 2 {
 entry:
   %m_indexMapping.i = getelementptr inbounds i8, ptr %this, i64 32
   %call.i = tail call noundef i64 @_ZNK19OpenColorIO_v2_4dev12IndexMapping12getDimensionEv(ptr noundef nonnull align 8 dereferenceable(88) %m_indexMapping.i)
@@ -38874,7 +38871,7 @@ _ZN19OpenColorIO_v2_4dev14CTFReaderOpEltD2Ev.exit: ; preds = %_ZNSt10shared_ptrI
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev18CTFReaderMatrixEltD1Ev(ptr noundef %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev18CTFReaderMatrixEltD1Ev(ptr noundef %this) unnamed_addr #16 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev18CTFReaderMatrixEltD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #28
@@ -38890,7 +38887,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev18CTFReaderMatrixEltD0Ev(ptr noundef %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev18CTFReaderMatrixEltD0Ev(ptr noundef %this) unnamed_addr #16 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev18CTFReaderMatrixEltD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #28
@@ -38930,7 +38927,7 @@ entry:
 declare void @_ZN19OpenColorIO_v2_4dev12MatrixOpData5scaleEdd(ptr noundef nonnull align 8 dereferenceable(260), double noundef, double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev18CTFReaderMatrixElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev18CTFReaderMatrixElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_matrix = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %m_matrix, align 8
@@ -39002,7 +38999,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: uwtable
-define hidden noundef ptr @_ZThn104_N19OpenColorIO_v2_4dev18CTFReaderMatrixElt15updateDimensionERKSt6vectorIjSaIjEE(ptr nocapture noundef readonly %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dims) unnamed_addr #18 align 2 {
+define hidden noundef ptr @_ZThn104_N19OpenColorIO_v2_4dev18CTFReaderMatrixElt15updateDimensionERKSt6vectorIjSaIjEE(ptr nocapture noundef readonly %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dims) unnamed_addr #17 align 2 {
 entry:
   %_M_finish.i.i = getelementptr inbounds i8, ptr %dims, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
@@ -39395,7 +39392,7 @@ unreachable:                                      ; preds = %invoke.cont71
 }
 
 ; Function Attrs: uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev18CTFReaderMatrixElt8endArrayEj(ptr noundef %this, i32 noundef %position) unnamed_addr #18 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev18CTFReaderMatrixElt8endArrayEj(ptr noundef %this, i32 noundef %position) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev18CTFReaderMatrixElt8endArrayEj(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %position)
@@ -39602,7 +39599,7 @@ eh.resume:                                        ; preds = %lpad64, %lpad82, %l
 declare noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev21IsDebugLoggingEnabledEv() local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define hidden noundef ptr @_ZThn104_N19OpenColorIO_v2_4dev22CTFReaderMatrixElt_1_315updateDimensionERKSt6vectorIjSaIjEE(ptr noundef %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dims) unnamed_addr #18 align 2 {
+define hidden noundef ptr @_ZThn104_N19OpenColorIO_v2_4dev22CTFReaderMatrixElt_1_315updateDimensionERKSt6vectorIjSaIjEE(ptr noundef %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dims) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   %call = tail call noundef ptr @_ZN19OpenColorIO_v2_4dev22CTFReaderMatrixElt_1_315updateDimensionERKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(24) %dims)
@@ -40033,7 +40030,7 @@ ehcleanup:                                        ; preds = %lpad4, %lpad
 }
 
 ; Function Attrs: uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev22CTFReaderMatrixElt_1_38endArrayEj(ptr noundef %this, i32 noundef %position) unnamed_addr #18 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev22CTFReaderMatrixElt_1_38endArrayEj(ptr noundef %this, i32 noundef %position) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev22CTFReaderMatrixElt_1_38endArrayEj(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %position)
@@ -40276,7 +40273,7 @@ entry:
 declare void @_ZN19OpenColorIO_v2_4dev11RangeOpData9normalizeEv(ptr noundef nonnull align 8 dereferenceable(228)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev17CTFReaderRangeElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev17CTFReaderRangeElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_range = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_range, align 8
@@ -40887,7 +40884,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev22CTFReaderRangeValueElt3endEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev22CTFReaderRangeValueElt3endEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -40929,7 +40926,7 @@ lpad:                                             ; preds = %dynamic_cast.end
           cleanup
           catch ptr @_ZTIN19OpenColorIO_v2_4dev9ExceptionE
   %8 = extractvalue { ptr, i32 } %7, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_4dev9ExceptionE) #28
   %matches = icmp eq i32 %8, %9
   br i1 %matches, label %catch, label %_ZNSt6vectorIdSaIdEED2Ev.exit150
 
@@ -42171,7 +42168,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev21CTFReaderReferenceElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev21CTFReaderReferenceElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_reference = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_reference, align 8
@@ -42642,7 +42639,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn104_N19OpenColorIO_v2_4dev21CTFReaderLut1DElt_1_4D1Ev(ptr noundef %this) unnamed_addr #17 comdat align 2 {
+define linkonce_odr hidden void @_ZThn104_N19OpenColorIO_v2_4dev21CTFReaderLut1DElt_1_4D1Ev(ptr noundef %this) unnamed_addr #16 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #28
@@ -42650,7 +42647,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn104_N19OpenColorIO_v2_4dev21CTFReaderLut1DElt_1_4D0Ev(ptr noundef %this) unnamed_addr #17 comdat align 2 {
+define linkonce_odr hidden void @_ZThn104_N19OpenColorIO_v2_4dev21CTFReaderLut1DElt_1_4D0Ev(ptr noundef %this) unnamed_addr #16 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #28
@@ -42668,7 +42665,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn120_N19OpenColorIO_v2_4dev21CTFReaderLut1DElt_1_4D1Ev(ptr noundef %this) unnamed_addr #17 comdat align 2 {
+define linkonce_odr hidden void @_ZThn120_N19OpenColorIO_v2_4dev21CTFReaderLut1DElt_1_4D1Ev(ptr noundef %this) unnamed_addr #16 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #28
@@ -42676,7 +42673,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn120_N19OpenColorIO_v2_4dev21CTFReaderLut1DElt_1_4D0Ev(ptr noundef %this) unnamed_addr #17 comdat align 2 {
+define linkonce_odr hidden void @_ZThn120_N19OpenColorIO_v2_4dev21CTFReaderLut1DElt_1_4D0Ev(ptr noundef %this) unnamed_addr #16 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #28
@@ -42700,7 +42697,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn104_N19OpenColorIO_v2_4dev21CTFReaderLut1DElt_1_7D1Ev(ptr noundef %this) unnamed_addr #17 comdat align 2 {
+define linkonce_odr hidden void @_ZThn104_N19OpenColorIO_v2_4dev21CTFReaderLut1DElt_1_7D1Ev(ptr noundef %this) unnamed_addr #16 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #28
@@ -42708,7 +42705,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn104_N19OpenColorIO_v2_4dev21CTFReaderLut1DElt_1_7D0Ev(ptr noundef %this) unnamed_addr #17 comdat align 2 {
+define linkonce_odr hidden void @_ZThn104_N19OpenColorIO_v2_4dev21CTFReaderLut1DElt_1_7D0Ev(ptr noundef %this) unnamed_addr #16 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #28
@@ -42717,7 +42714,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn120_N19OpenColorIO_v2_4dev21CTFReaderLut1DElt_1_7D1Ev(ptr noundef %this) unnamed_addr #17 comdat align 2 {
+define linkonce_odr hidden void @_ZThn120_N19OpenColorIO_v2_4dev21CTFReaderLut1DElt_1_7D1Ev(ptr noundef %this) unnamed_addr #16 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #28
@@ -42725,7 +42722,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn120_N19OpenColorIO_v2_4dev21CTFReaderLut1DElt_1_7D0Ev(ptr noundef %this) unnamed_addr #17 comdat align 2 {
+define linkonce_odr hidden void @_ZThn120_N19OpenColorIO_v2_4dev21CTFReaderLut1DElt_1_7D0Ev(ptr noundef %this) unnamed_addr #16 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #28
@@ -42749,7 +42746,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn104_N19OpenColorIO_v2_4dev21CTFReaderLut3DElt_1_7D1Ev(ptr noundef %this) unnamed_addr #17 comdat align 2 {
+define linkonce_odr hidden void @_ZThn104_N19OpenColorIO_v2_4dev21CTFReaderLut3DElt_1_7D1Ev(ptr noundef %this) unnamed_addr #16 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut3DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #28
@@ -42757,7 +42754,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn104_N19OpenColorIO_v2_4dev21CTFReaderLut3DElt_1_7D0Ev(ptr noundef %this) unnamed_addr #17 comdat align 2 {
+define linkonce_odr hidden void @_ZThn104_N19OpenColorIO_v2_4dev21CTFReaderLut3DElt_1_7D0Ev(ptr noundef %this) unnamed_addr #16 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut3DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #28
@@ -42766,7 +42763,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn120_N19OpenColorIO_v2_4dev21CTFReaderLut3DElt_1_7D1Ev(ptr noundef %this) unnamed_addr #17 comdat align 2 {
+define linkonce_odr hidden void @_ZThn120_N19OpenColorIO_v2_4dev21CTFReaderLut3DElt_1_7D1Ev(ptr noundef %this) unnamed_addr #16 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut3DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #28
@@ -42774,7 +42771,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn120_N19OpenColorIO_v2_4dev21CTFReaderLut3DElt_1_7D0Ev(ptr noundef %this) unnamed_addr #17 comdat align 2 {
+define linkonce_odr hidden void @_ZThn120_N19OpenColorIO_v2_4dev21CTFReaderLut3DElt_1_7D0Ev(ptr noundef %this) unnamed_addr #16 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut3DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #28
@@ -42798,7 +42795,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn104_N19OpenColorIO_v2_4dev22CTFReaderMatrixElt_1_3D1Ev(ptr noundef %this) unnamed_addr #17 comdat align 2 {
+define linkonce_odr hidden void @_ZThn104_N19OpenColorIO_v2_4dev22CTFReaderMatrixElt_1_3D1Ev(ptr noundef %this) unnamed_addr #16 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev18CTFReaderMatrixEltD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #28
@@ -42806,7 +42803,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr hidden void @_ZThn104_N19OpenColorIO_v2_4dev22CTFReaderMatrixElt_1_3D0Ev(ptr noundef %this) unnamed_addr #17 comdat align 2 {
+define linkonce_odr hidden void @_ZThn104_N19OpenColorIO_v2_4dev22CTFReaderMatrixElt_1_3D0Ev(ptr noundef %this) unnamed_addr #16 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev18CTFReaderMatrixEltD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #28
@@ -44554,7 +44551,7 @@ unreachable:                                      ; preds = %invoke.cont126, %in
 declare void @_ZN19OpenColorIO_v2_4dev13FindSubStringEPKcmRmS2_(ptr noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #20
+declare ptr @__errno_location() local_unnamed_addr #19
 
 ; Function Attrs: nounwind
 declare double @strtod_l(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -44649,7 +44646,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #21
+declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #20
 
 ; Function Attrs: nounwind
 declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -44843,16 +44840,16 @@ declare noundef double @_ZN19OpenColorIO_v2_4dev14GradingPrimary12NoClampBlackEv
 declare noundef double @_ZN19OpenColorIO_v2_4dev14GradingPrimary12NoClampWhiteEv() local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #22
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #21
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #23
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #22
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #22
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #15
 
 declare void @_ZN19OpenColorIO_v2_4dev12MatrixOpData7Offsets7setRGBAIdEEvPKT_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -45331,7 +45328,7 @@ _ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_4dev6OpDataEESaIS4_EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -51342,7 +51339,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 declare void @_ZN19OpenColorIO_v2_4dev15ReferenceOpDataC1Ev(ptr noundef nonnull align 8 dereferenceable(244)) unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_CTFReaderHelper.cpp() #18 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_CTFReaderHelper.cpp() #17 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #28
@@ -51379,6 +51376,9 @@ entry:
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #23
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #24
 
@@ -51403,24 +51403,24 @@ attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nosync nounwind memory(none) }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #15 = { mustprogress nofree norecurse nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #20 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(read) }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #14 = { mustprogress nofree norecurse nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #19 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nofree nosync nounwind memory(none) }
 attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #26 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

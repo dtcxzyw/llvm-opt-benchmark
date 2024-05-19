@@ -4692,7 +4692,7 @@ lpad.i.i.i:                                       ; preds = %if.end.i.i.i.i, %fo
           catch ptr @_ZTISt9exception
   %73 = extractvalue { ptr, i32 } %72, 0
   %74 = extractvalue { ptr, i32 } %72, 1
-  %75 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
+  %75 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
   %matches.i.i.i = icmp eq i32 %74, %75
   br i1 %matches.i.i.i, label %catch6.i.i.i, label %catch.fallthrough.i.i.i
 
@@ -4709,7 +4709,7 @@ if.then.i.i.i119:                                 ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i unwind label %lpad9.i.loopexit.split-lp.i.i
 
 catch.fallthrough.i.i.i:                          ; preds = %lpad.i.i.i
-  %77 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %77 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches2.i.i.i = icmp eq i32 %74, %77
   br i1 %matches2.i.i.i, label %catch.i.i.i, label %ehcleanup71
 
@@ -4963,7 +4963,7 @@ lpad.i18.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i.
           catch ptr @_ZTISt9exception
   %108 = extractvalue { ptr, i32 } %107, 0
   %109 = extractvalue { ptr, i32 } %107, 1
-  %110 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
+  %110 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
   %matches.i20.i.i.i.i.i.i = icmp eq i32 %109, %110
   br i1 %matches.i20.i.i.i.i.i.i, label %catch6.i31.i.i.i.i.i.i, label %catch.fallthrough.i21.i.i.i.i.i.i
 
@@ -4980,7 +4980,7 @@ if.then.i37.i.i.i.i.i.i:                          ; preds = %invoke.cont10.i36.i
           to label %unreachable.i38.i.i.i.i.i.i unwind label %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i
 
 catch.fallthrough.i21.i.i.i.i.i.i:                ; preds = %lpad.i18.i.i.i.i.i.i
-  %112 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %112 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches2.i22.i.i.i.i.i.i = icmp eq i32 %109, %112
   br i1 %matches2.i22.i.i.i.i.i.i, label %catch.i25.i.i.i.i.i.i, label %ehcleanup71
 
@@ -5136,7 +5136,7 @@ lpad.i.i.i.i.i.i.i:                               ; preds = %if.end.i.i51.i.i.i.
           catch ptr @_ZTISt9exception
   %132 = extractvalue { ptr, i32 } %131, 0
   %133 = extractvalue { ptr, i32 } %131, 1
-  %134 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
+  %134 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
   %matches.i.i.i.i.i.i.i = icmp eq i32 %133, %134
   br i1 %matches.i.i.i.i.i.i.i, label %catch6.i.i.i.i.i.i.i, label %catch.fallthrough.i.i.i.i.i.i.i
 
@@ -5153,7 +5153,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i.i.i.i.i unwind label %lpad9.i.loopexit.split-lp.i.i.i.i.i.i
 
 catch.fallthrough.i.i.i.i.i.i.i:                  ; preds = %lpad.i.i.i.i.i.i.i
-  %136 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %136 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches2.i.i.i.i.i.i.i = icmp eq i32 %133, %136
   br i1 %matches2.i.i.i.i.i.i.i, label %catch.i.i.i.i.i.i.i, label %ehcleanup71
 
@@ -5881,7 +5881,7 @@ lpad120:                                          ; preds = %lpad120.loopexit.sp
   %lpad.phi2664 = phi { ptr, i32 } [ %lpad.loopexit2662, %lpad120.loopexit ], [ %lpad.loopexit2665, %lpad120.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp2666, %lpad120.loopexit.split-lp.loopexit.split-lp ]
   %234 = extractvalue { ptr, i32 } %lpad.phi2664, 0
   %235 = extractvalue { ptr, i32 } %lpad.phi2664, 1
-  %236 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %236 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches = icmp eq i32 %235, %236
   br i1 %matches, label %catch, label %ehcleanup240
 
@@ -8674,7 +8674,7 @@ lpad.i.i.i1215:                                   ; preds = %if.end.i.i.i.i1242,
           catch ptr @_ZTISt9exception
   %670 = extractvalue { ptr, i32 } %669, 0
   %671 = extractvalue { ptr, i32 } %669, 1
-  %672 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
+  %672 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
   %matches.i.i.i1216 = icmp eq i32 %671, %672
   br i1 %matches.i.i.i1216, label %catch6.i.i.i1227, label %catch.fallthrough.i.i.i1217
 
@@ -8691,7 +8691,7 @@ if.then.i.i.i1234:                                ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i1237 unwind label %lpad9.i.loopexit.split-lp.i.i1235
 
 catch.fallthrough.i.i.i1217:                      ; preds = %lpad.i.i.i1215
-  %674 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %674 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches2.i.i.i1218 = icmp eq i32 %671, %674
   br i1 %matches2.i.i.i1218, label %catch.i.i.i1219, label %ehcleanup397
 
@@ -8949,7 +8949,7 @@ lpad.i18.i.i.i.i.i.i1111:                         ; preds = %if.end.i.i.i.i.i.i.
           catch ptr @_ZTISt9exception
   %711 = extractvalue { ptr, i32 } %710, 0
   %712 = extractvalue { ptr, i32 } %710, 1
-  %713 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
+  %713 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
   %matches.i20.i.i.i.i.i.i1112 = icmp eq i32 %712, %713
   br i1 %matches.i20.i.i.i.i.i.i1112, label %catch6.i31.i.i.i.i.i.i1126, label %catch.fallthrough.i21.i.i.i.i.i.i1113
 
@@ -8966,7 +8966,7 @@ if.then.i37.i.i.i.i.i.i1133:                      ; preds = %invoke.cont10.i36.i
           to label %unreachable.i38.i.i.i.i.i.i1136 unwind label %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i1134
 
 catch.fallthrough.i21.i.i.i.i.i.i1113:            ; preds = %lpad.i18.i.i.i.i.i.i1111
-  %715 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %715 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches2.i22.i.i.i.i.i.i1114 = icmp eq i32 %712, %715
   br i1 %matches2.i22.i.i.i.i.i.i1114, label %catch.i25.i.i.i.i.i.i1117, label %ehcleanup397
 
@@ -9127,7 +9127,7 @@ lpad.i.i.i.i.i.i.i1160:                           ; preds = %if.end.i.i49.i.i.i.
           catch ptr @_ZTISt9exception
   %741 = extractvalue { ptr, i32 } %740, 0
   %742 = extractvalue { ptr, i32 } %740, 1
-  %743 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
+  %743 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
   %matches.i.i.i.i.i.i.i1161 = icmp eq i32 %742, %743
   br i1 %matches.i.i.i.i.i.i.i1161, label %catch6.i.i.i.i.i.i.i1169, label %catch.fallthrough.i.i.i.i.i.i.i1162
 
@@ -9144,7 +9144,7 @@ if.then.i.i.i.i.i.i.i1175:                        ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i.i.i.i.i1177 unwind label %lpad9.i.loopexit.split-lp.i.i.i.i.i.i1176
 
 catch.fallthrough.i.i.i.i.i.i.i1162:              ; preds = %lpad.i.i.i.i.i.i.i1160
-  %745 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %745 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches2.i.i.i.i.i.i.i1163 = icmp eq i32 %742, %745
   br i1 %matches2.i.i.i.i.i.i.i1163, label %catch.i.i.i.i.i.i.i1164, label %ehcleanup397
 
@@ -13065,9 +13065,6 @@ _ZNSt12__shared_ptrIN8facebook5velox9MapVectorELN9__gnu_cxx12_Lock_policyE2EED2E
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #13
-
 declare void @_ZN8facebook5velox4exec7EvalCtx9setErrorsERKNS0_17SelectivityVectorERKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef nonnull align 8 dereferenceable(38), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
@@ -13990,10 +13987,10 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #14
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr void @_ZSt27__throw_bad_optional_accessv() local_unnamed_addr #15 comdat {
+define linkonce_odr void @_ZSt27__throw_bad_optional_accessv() local_unnamed_addr #14 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #22
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i64 0, i32 0, i64 2), ptr %exception, align 8
@@ -14153,7 +14150,7 @@ lpad.i:                                           ; preds = %if.end.i.i, %for.bo
           catch ptr @_ZTISt9exception
   %22 = extractvalue { ptr, i32 } %21, 0
   %23 = extractvalue { ptr, i32 } %21, 1
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
   %matches.i = icmp eq i32 %23, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -14170,7 +14167,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i.loopexit.split-lp
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches2.i = icmp eq i32 %23, %26
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -14270,7 +14267,7 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #16
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN8facebook5velox17SelectivityVector16deselectNonNullsEPKmii(ptr noundef nonnull align 8 dereferenceable(38) %this, ptr noundef %bits, i32 noundef %begin, i32 noundef %end) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -14705,7 +14702,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #16
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN8facebook5velox9MapVectorESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #2 comdat align 2 {
@@ -16687,7 +16684,7 @@ entry:
 }
 
 ; Function Attrs: alwaysinline mustprogress uwtable
-define linkonce_odr void @_ZN8facebook5velox10BaseVector7setNullEib(ptr noundef nonnull align 8 dereferenceable(99) %this, i32 noundef %idx, i1 noundef zeroext %isNull) unnamed_addr #17 comdat align 2 {
+define linkonce_odr void @_ZN8facebook5velox10BaseVector7setNullEib(ptr noundef nonnull align 8 dereferenceable(99) %this, i32 noundef %idx, i1 noundef zeroext %isNull) unnamed_addr #16 comdat align 2 {
 entry:
   %nulls_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %nulls_, align 8
@@ -18561,10 +18558,10 @@ declare void @_ZN8facebook5velox13DecodedVector13fillInIndicesEv(ptr noundef non
 declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #16
+declare i64 @llvm.ctpop.i64(i64) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #16
+declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox13AlignedBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -19295,7 +19292,7 @@ lpad.i:                                           ; preds = %if.end.i.i, %for.bo
           catch ptr @_ZTISt9exception
   %29 = extractvalue { ptr, i32 } %28, 0
   %30 = extractvalue { ptr, i32 } %28, 1
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
   %matches.i = icmp eq i32 %30, %31
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -19312,7 +19309,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i.loopexit.split-lp
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %33 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches2.i = icmp eq i32 %30, %33
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -20456,7 +20453,7 @@ lpad.i.i.i:                                       ; preds = %if.end.i.i.i.i, %fo
           catch ptr @_ZTISt9exception
   %73 = extractvalue { ptr, i32 } %72, 0
   %74 = extractvalue { ptr, i32 } %72, 1
-  %75 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
+  %75 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
   %matches.i.i.i = icmp eq i32 %74, %75
   br i1 %matches.i.i.i, label %catch6.i.i.i, label %catch.fallthrough.i.i.i
 
@@ -20473,7 +20470,7 @@ if.then.i.i.i115:                                 ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i unwind label %lpad9.i.loopexit.split-lp.i.i
 
 catch.fallthrough.i.i.i:                          ; preds = %lpad.i.i.i
-  %77 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %77 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches2.i.i.i = icmp eq i32 %74, %77
   br i1 %matches2.i.i.i, label %catch.i.i.i, label %ehcleanup
 
@@ -20727,7 +20724,7 @@ lpad.i18.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i.
           catch ptr @_ZTISt9exception
   %108 = extractvalue { ptr, i32 } %107, 0
   %109 = extractvalue { ptr, i32 } %107, 1
-  %110 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
+  %110 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
   %matches.i20.i.i.i.i.i.i = icmp eq i32 %109, %110
   br i1 %matches.i20.i.i.i.i.i.i, label %catch6.i31.i.i.i.i.i.i, label %catch.fallthrough.i21.i.i.i.i.i.i
 
@@ -20744,7 +20741,7 @@ if.then.i37.i.i.i.i.i.i:                          ; preds = %invoke.cont10.i36.i
           to label %unreachable.i38.i.i.i.i.i.i unwind label %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i
 
 catch.fallthrough.i21.i.i.i.i.i.i:                ; preds = %lpad.i18.i.i.i.i.i.i
-  %112 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %112 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches2.i22.i.i.i.i.i.i = icmp eq i32 %109, %112
   br i1 %matches2.i22.i.i.i.i.i.i, label %catch.i25.i.i.i.i.i.i, label %ehcleanup
 
@@ -20900,7 +20897,7 @@ lpad.i.i.i.i.i.i.i:                               ; preds = %if.end.i.i51.i.i.i.
           catch ptr @_ZTISt9exception
   %132 = extractvalue { ptr, i32 } %131, 0
   %133 = extractvalue { ptr, i32 } %131, 1
-  %134 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
+  %134 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
   %matches.i.i.i.i.i.i.i = icmp eq i32 %133, %134
   br i1 %matches.i.i.i.i.i.i.i, label %catch6.i.i.i.i.i.i.i, label %catch.fallthrough.i.i.i.i.i.i.i
 
@@ -20917,7 +20914,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i.i.i.i.i unwind label %lpad9.i.loopexit.split-lp.i.i.i.i.i.i
 
 catch.fallthrough.i.i.i.i.i.i.i:                  ; preds = %lpad.i.i.i.i.i.i.i
-  %136 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %136 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches2.i.i.i.i.i.i.i = icmp eq i32 %133, %136
   br i1 %matches2.i.i.i.i.i.i.i, label %catch.i.i.i.i.i.i.i, label %ehcleanup
 
@@ -21611,7 +21608,7 @@ lpad89:                                           ; preds = %lpad89.loopexit.spl
   %lpad.phi2632 = phi { ptr, i32 } [ %lpad.loopexit2630, %lpad89.loopexit ], [ %lpad.loopexit.split-lp2631, %lpad89.loopexit.split-lp ]
   %230 = extractvalue { ptr, i32 } %lpad.phi2632, 0
   %231 = extractvalue { ptr, i32 } %lpad.phi2632, 1
-  %232 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %232 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches = icmp eq i32 %231, %232
   br i1 %matches, label %catch, label %ehcleanup196
 
@@ -24335,7 +24332,7 @@ lpad.i.i.i1193:                                   ; preds = %if.end.i.i.i.i1220,
           catch ptr @_ZTISt9exception
   %653 = extractvalue { ptr, i32 } %652, 0
   %654 = extractvalue { ptr, i32 } %652, 1
-  %655 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
+  %655 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
   %matches.i.i.i1194 = icmp eq i32 %654, %655
   br i1 %matches.i.i.i1194, label %catch6.i.i.i1205, label %catch.fallthrough.i.i.i1195
 
@@ -24352,7 +24349,7 @@ if.then.i.i.i1212:                                ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i1215 unwind label %lpad9.i.loopexit.split-lp.i.i1213
 
 catch.fallthrough.i.i.i1195:                      ; preds = %lpad.i.i.i1193
-  %657 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %657 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches2.i.i.i1196 = icmp eq i32 %654, %657
   br i1 %matches2.i.i.i1196, label %catch.i.i.i1197, label %ehcleanup330
 
@@ -24610,7 +24607,7 @@ lpad.i18.i.i.i.i.i.i1089:                         ; preds = %if.end.i.i.i.i.i.i.
           catch ptr @_ZTISt9exception
   %694 = extractvalue { ptr, i32 } %693, 0
   %695 = extractvalue { ptr, i32 } %693, 1
-  %696 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
+  %696 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
   %matches.i20.i.i.i.i.i.i1090 = icmp eq i32 %695, %696
   br i1 %matches.i20.i.i.i.i.i.i1090, label %catch6.i31.i.i.i.i.i.i1104, label %catch.fallthrough.i21.i.i.i.i.i.i1091
 
@@ -24627,7 +24624,7 @@ if.then.i37.i.i.i.i.i.i1111:                      ; preds = %invoke.cont10.i36.i
           to label %unreachable.i38.i.i.i.i.i.i1114 unwind label %lpad9.i34.loopexit.split-lp.i.i.i.i.i.i1112
 
 catch.fallthrough.i21.i.i.i.i.i.i1091:            ; preds = %lpad.i18.i.i.i.i.i.i1089
-  %698 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %698 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches2.i22.i.i.i.i.i.i1092 = icmp eq i32 %695, %698
   br i1 %matches2.i22.i.i.i.i.i.i1092, label %catch.i25.i.i.i.i.i.i1095, label %ehcleanup330
 
@@ -24788,7 +24785,7 @@ lpad.i.i.i.i.i.i.i1138:                           ; preds = %if.end.i.i49.i.i.i.
           catch ptr @_ZTISt9exception
   %724 = extractvalue { ptr, i32 } %723, 0
   %725 = extractvalue { ptr, i32 } %723, 1
-  %726 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
+  %726 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
   %matches.i.i.i.i.i.i.i1139 = icmp eq i32 %725, %726
   br i1 %matches.i.i.i.i.i.i.i1139, label %catch6.i.i.i.i.i.i.i1147, label %catch.fallthrough.i.i.i.i.i.i.i1140
 
@@ -24805,7 +24802,7 @@ if.then.i.i.i.i.i.i.i1153:                        ; preds = %invoke.cont10.i.i.i
           to label %unreachable.i.i.i.i.i.i.i1155 unwind label %lpad9.i.loopexit.split-lp.i.i.i.i.i.i1154
 
 catch.fallthrough.i.i.i.i.i.i.i1140:              ; preds = %lpad.i.i.i.i.i.i.i1138
-  %728 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %728 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches2.i.i.i.i.i.i.i1141 = icmp eq i32 %725, %728
   br i1 %matches2.i.i.i.i.i.i.i1141, label %catch.i.i.i.i.i.i.i1142, label %ehcleanup330
 
@@ -28264,7 +28261,7 @@ lpad.i:                                           ; preds = %if.end.i.i, %for.bo
           catch ptr @_ZTISt9exception
   %22 = extractvalue { ptr, i32 } %21, 0
   %23 = extractvalue { ptr, i32 } %21, 1
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
   %matches.i = icmp eq i32 %23, %24
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -28281,7 +28278,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i.loopexit.split-lp
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches2.i = icmp eq i32 %23, %26
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -28478,7 +28475,7 @@ lpad.i:                                           ; preds = %if.end.i.i, %for.bo
           catch ptr @_ZTISt9exception
   %29 = extractvalue { ptr, i32 } %28, 0
   %30 = extractvalue { ptr, i32 } %28, 1
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxExceptionE) #22
   %matches.i = icmp eq i32 %30, %31
   br i1 %matches.i, label %catch6.i, label %catch.fallthrough.i
 
@@ -28495,7 +28492,7 @@ if.then.i:                                        ; preds = %invoke.cont10.i
           to label %unreachable.i unwind label %lpad9.i.loopexit.split-lp
 
 catch.fallthrough.i:                              ; preds = %lpad.i
-  %33 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #22
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #22
   %matches2.i = icmp eq i32 %30, %33
   br i1 %matches2.i, label %catch.i, label %eh.resume.i
 
@@ -28594,6 +28591,9 @@ while.end:                                        ; preds = %_ZZN8facebook5velox
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #17
+
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
 
@@ -28634,11 +28634,11 @@ attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #13 = { nofree nosync nounwind memory(none) }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #15 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { alwaysinline mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(read) }
+attributes #14 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { alwaysinline mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #17 = { nofree nosync nounwind memory(none) }
 attributes #18 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

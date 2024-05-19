@@ -17124,7 +17124,7 @@ lpad19:                                           ; preds = %cond.false.i22, %if
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
   %15 = extractvalue { ptr, i32 } %13, 1
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt12out_of_range) #23
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #23
   %matches = icmp eq i32 %15, %16
   br i1 %matches, label %catch61, label %catch.fallthrough
 
@@ -17138,7 +17138,7 @@ if.then64.critedge:                               ; preds = %invoke.cont20
           to label %gtest_label_testthrow_249 unwind label %lpad15
 
 catch.fallthrough:                                ; preds = %lpad19
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches27 = icmp eq i32 %15, %18
   %19 = call ptr @__cxa_begin_catch(ptr %14) #23
   br i1 %matches27, label %catch34, label %catch
@@ -17287,9 +17287,6 @@ terminate.lpad:                                   ; preds = %ehcleanup59, %lpad2
 }
 
 declare noundef zeroext i1 @_ZN7testing8internal10AlwaysTrueEv() local_unnamed_addr #0
-
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #16
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -19809,7 +19806,7 @@ lpad278:                                          ; preds = %cond.false.i395, %i
           catch ptr null
   %111 = extractvalue { ptr, i32 } %110, 0
   %112 = extractvalue { ptr, i32 } %110, 1
-  %113 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt12out_of_range) #23
+  %113 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #23
   %matches = icmp eq i32 %112, %113
   br i1 %matches, label %catch323, label %catch.fallthrough
 
@@ -19823,7 +19820,7 @@ if.then326:                                       ; preds = %invoke.cont279
           to label %gtest_label_testthrow_305 unwind label %lpad292
 
 catch.fallthrough:                                ; preds = %lpad278
-  %115 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %115 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches288 = icmp eq i32 %112, %115
   %116 = call ptr @__cxa_begin_catch(ptr %111) #23
   br i1 %matches288, label %catch296, label %catch
@@ -20586,7 +20583,7 @@ lpad110:                                          ; preds = %cond.false.i151, %i
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
   %47 = extractvalue { ptr, i32 } %45, 1
-  %48 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt12out_of_range) #23
+  %48 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #23
   %matches = icmp eq i32 %47, %48
   br i1 %matches, label %catch155, label %catch.fallthrough
 
@@ -20600,7 +20597,7 @@ if.then158:                                       ; preds = %invoke.cont111
           to label %gtest_label_testthrow_321 unwind label %lpad124
 
 catch.fallthrough:                                ; preds = %lpad110
-  %50 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %50 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches120 = icmp eq i32 %47, %50
   %51 = call ptr @__cxa_begin_catch(ptr %46) #23
   br i1 %matches120, label %catch128, label %catch
@@ -21290,7 +21287,7 @@ lpad111:                                          ; preds = %cond.false.i157, %i
           catch ptr null
   %47 = extractvalue { ptr, i32 } %46, 0
   %48 = extractvalue { ptr, i32 } %46, 1
-  %49 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt12out_of_range) #23
+  %49 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #23
   %matches = icmp eq i32 %48, %49
   br i1 %matches, label %catch156, label %catch.fallthrough
 
@@ -21304,7 +21301,7 @@ if.then159:                                       ; preds = %invoke.cont112
           to label %gtest_label_testthrow_337 unwind label %lpad125
 
 catch.fallthrough:                                ; preds = %lpad111
-  %51 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %51 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %matches121 = icmp eq i32 %48, %51
   %52 = call ptr @__cxa_begin_catch(ptr %47) #23
   br i1 %matches121, label %catch129, label %catch
@@ -32755,7 +32752,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_126IntSpanOrderComparisonTestD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal void @_ZN12_GLOBAL__N_126IntSpanOrderComparisonTestD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 {
 entry:
   tail call void @llvm.trap() #26
   unreachable
@@ -47458,7 +47455,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_span_test.cc() #18 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_span_test.cc() #17 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i948 = alloca %"struct.testing::internal::CodeLocation", align 8
   %ref.tmp.i949 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -50567,6 +50564,9 @@ __cxx_global_var_init.82.exit:                    ; preds = %invoke.cont10.i972
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #18
+
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
 
@@ -50604,9 +50604,9 @@ attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nosync nounwind memory(none) }
-attributes #17 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nofree nosync nounwind memory(none) }
 attributes #19 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

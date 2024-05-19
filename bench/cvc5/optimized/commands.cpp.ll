@@ -2144,7 +2144,7 @@ lpad:                                             ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %2 = extractvalue { ptr, i32 } %1, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches = icmp eq i32 %2, %3
   br i1 %matches, label %catch, label %eh.resume
 
@@ -2221,14 +2221,11 @@ terminate.lpad:                                   ; preds = %ehcleanup14
 
 declare void @_ZNK4cvc56Solver13assertFormulaERKNS_4TermE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #13
-
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #15
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
 
 declare void @__cxa_end_catch() local_unnamed_addr
 
@@ -2412,7 +2409,7 @@ lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %3 = extractvalue { ptr, i32 } %2, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -2570,7 +2567,7 @@ lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %3 = extractvalue { ptr, i32 } %2, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -2905,7 +2902,7 @@ lpad14:                                           ; preds = %cond.true
   %24 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %25 = extractvalue { ptr, i32 } %24, 1
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches = icmp eq i32 %25, %26
   br i1 %matches, label %catch, label %eh.resume
 
@@ -3425,7 +3422,7 @@ _ZN4cvc56parser3CmdD2Ev.exit:                     ; preds = %ehcleanup, %delete.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser23CheckSatAssumingCommand8getTermsEv(ptr noundef nonnull readnone align 8 dereferenceable(56) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser23CheckSatAssumingCommand8getTermsEv(ptr noundef nonnull readnone align 8 dereferenceable(56) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_terms = getelementptr inbounds i8, ptr %this, i64 16
   ret ptr %d_terms
@@ -3603,7 +3600,7 @@ lpad:                                             ; preds = %cond.end
   %24 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %25 = extractvalue { ptr, i32 } %24, 1
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches = icmp eq i32 %25, %26
   br i1 %matches, label %catch, label %eh.resume
 
@@ -4533,7 +4530,7 @@ lpad:                                             ; preds = %_ZNSt16allocator_tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser15SynthFunCommand7getVarsEv(ptr noundef nonnull readnone align 8 dereferenceable(104) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser15SynthFunCommand7getVarsEv(ptr noundef nonnull readnone align 8 dereferenceable(104) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_vars = getelementptr inbounds i8, ptr %this, i64 48
   ret ptr %d_vars
@@ -4573,7 +4570,7 @@ _ZN4cvc54SortC2ERKS0_.exit:                       ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK4cvc56parser15SynthFunCommand10getGrammarEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #17 align 2 {
+define noundef ptr @_ZNK4cvc56parser15SynthFunCommand10getGrammarEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #16 align 2 {
 entry:
   %d_grammar = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %d_grammar, align 8
@@ -5381,7 +5378,7 @@ lpad:                                             ; preds = %if.else, %if.then
   %1 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %2 = extractvalue { ptr, i32 } %1, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches = icmp eq i32 %2, %3
   br i1 %matches, label %catch, label %eh.resume
 
@@ -6064,7 +6061,7 @@ lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %3 = extractvalue { ptr, i32 } %2, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -6142,7 +6139,7 @@ terminate.lpad:                                   ; preds = %ehcleanup21
 declare void @_ZNK4cvc56Solver21addSygusInvConstraintERKNS_4TermES3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser25SygusInvConstraintCommand13getPredicatesEv(ptr noundef nonnull readnone align 8 dereferenceable(40) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser25SygusInvConstraintCommand13getPredicatesEv(ptr noundef nonnull readnone align 8 dereferenceable(40) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_predicates = getelementptr inbounds i8, ptr %this, i64 16
   ret ptr %d_predicates
@@ -7676,7 +7673,7 @@ ehcleanup164:                                     ; preds = %ehcleanup162, %lpad
 catch.dispatch:                                   ; preds = %ehcleanup164, %ehcleanup, %lpad
   %.pn17.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn17.pn.pn.pn.pn, %ehcleanup164 ], [ %.pn, %ehcleanup ], [ %26, %lpad ]
   %ehselector.slot.12 = extractvalue { ptr, i32 } %.pn17.pn.pn.pn.pn.pn, 1
-  %130 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %130 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches = icmp eq i32 %ehselector.slot.12, %130
   br i1 %matches, label %catch, label %eh.resume
 
@@ -8221,7 +8218,7 @@ lpad:                                             ; preds = %if.else, %if.then
   %19 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %20 = extractvalue { ptr, i32 } %19, 1
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches = icmp eq i32 %20, %21
   br i1 %matches, label %catch, label %eh.resume
 
@@ -8843,7 +8840,7 @@ lpad:                                             ; preds = %entry
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches = icmp eq i32 %19, %20
   br i1 %matches, label %catch, label %eh.resume
 
@@ -9011,7 +9008,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
   %1 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %2 = extractvalue { ptr, i32 } %1, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches = icmp eq i32 %2, %3
   br i1 %matches, label %catch, label %eh.resume
 
@@ -9158,7 +9155,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
   %1 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %2 = extractvalue { ptr, i32 } %1, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches = icmp eq i32 %2, %3
   br i1 %matches, label %catch, label %eh.resume
 
@@ -10171,7 +10168,7 @@ _ZN4cvc54SortC2ERKS0_.exit:                       ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser18DeclarePoolCommand15getInitialValueEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser18DeclarePoolCommand15getInitialValueEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_initValue = getelementptr inbounds i8, ptr %this, i64 72
   ret ptr %d_initValue
@@ -10827,7 +10824,7 @@ _ZN4cvc56parser3CmdD2Ev.exit:                     ; preds = %ehcleanup6, %delete
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser23DeclareOracleFunCommand13getIdentifierB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(128) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser23DeclareOracleFunCommand13getIdentifierB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(128) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_id = getelementptr inbounds i8, ptr %this, i64 16
   ret ptr %d_id
@@ -10867,7 +10864,7 @@ _ZN4cvc54SortC2ERKS0_.exit:                       ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser23DeclareOracleFunCommand13getBinaryNameB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(128) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser23DeclareOracleFunCommand13getBinaryNameB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(128) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_binName = getelementptr inbounds i8, ptr %this, i64 96
   ret ptr %d_binName
@@ -11409,7 +11406,7 @@ _ZN4cvc56parser28DeclarationDefinitionCommandC2ERKNSt7__cxx1112basic_stringIcSt1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK4cvc56parser18DeclareSortCommand8getArityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #17 align 2 {
+define noundef i64 @_ZNK4cvc56parser18DeclareSortCommand8getArityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #16 align 2 {
 entry:
   %d_arity = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i64, ptr %d_arity, align 8
@@ -11785,7 +11782,7 @@ _ZN4cvc54SortC2ERKS0_.exit:                       ; preds = %_ZN4cvc56parser28De
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4cvc56parser17DefineSortCommandC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_4SortESaISB_EESB_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(32) %id, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %params, ptr nocapture noundef readonly %sort) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -11943,7 +11940,7 @@ lpad:                                             ; preds = %_ZNSt16allocator_tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser17DefineSortCommand13getParametersEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser17DefineSortCommand13getParametersEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_params = getelementptr inbounds i8, ptr %this, i64 48
   ret ptr %d_params
@@ -12505,7 +12502,7 @@ lpad:                                             ; preds = %_ZNSt16allocator_tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser21DefineFunctionCommand10getFormalsEv(ptr noundef nonnull readnone align 8 dereferenceable(120) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser21DefineFunctionCommand10getFormalsEv(ptr noundef nonnull readnone align 8 dereferenceable(120) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_formals = getelementptr inbounds i8, ptr %this, i64 48
   ret ptr %d_formals
@@ -12655,7 +12652,7 @@ cleanup:                                          ; preds = %invoke.cont4, %if.e
 catch.dispatch:                                   ; preds = %lpad3, %lpad
   %.pn = phi { ptr, i32 } [ %6, %lpad3 ], [ %5, %lpad ]
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches, label %catch, label %eh.resume
 
@@ -13511,21 +13508,21 @@ _ZN4cvc56parser3CmdD2Ev.exit:                     ; preds = %ehcleanup6, %delete
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser24DefineFunctionRecCommand12getFunctionsEv(ptr noundef nonnull readnone align 8 dereferenceable(88) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser24DefineFunctionRecCommand12getFunctionsEv(ptr noundef nonnull readnone align 8 dereferenceable(88) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_funcs = getelementptr inbounds i8, ptr %this, i64 16
   ret ptr %d_funcs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser24DefineFunctionRecCommand10getFormalsEv(ptr noundef nonnull readnone align 8 dereferenceable(88) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser24DefineFunctionRecCommand10getFormalsEv(ptr noundef nonnull readnone align 8 dereferenceable(88) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_formals = getelementptr inbounds i8, ptr %this, i64 40
   ret ptr %d_formals
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser24DefineFunctionRecCommand11getFormulasEv(ptr noundef nonnull readnone align 8 dereferenceable(88) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser24DefineFunctionRecCommand11getFormulasEv(ptr noundef nonnull readnone align 8 dereferenceable(88) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_formulas = getelementptr inbounds i8, ptr %this, i64 64
   ret ptr %d_formulas
@@ -13556,7 +13553,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
   %1 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %2 = extractvalue { ptr, i32 } %1, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches = icmp eq i32 %2, %3
   br i1 %matches, label %catch, label %eh.resume
 
@@ -14711,7 +14708,7 @@ lpad:                                             ; preds = %entry
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches = icmp eq i32 %19, %20
   br i1 %matches, label %catch, label %eh.resume
 
@@ -15099,7 +15096,7 @@ _ZN4cvc56parser3CmdD2Ev.exit:                     ; preds = %lpad, %delete.notnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser15GetValueCommand8getTermsEv(ptr noundef nonnull readnone align 8 dereferenceable(64) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser15GetValueCommand8getTermsEv(ptr noundef nonnull readnone align 8 dereferenceable(64) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_terms = getelementptr inbounds i8, ptr %this, i64 16
   ret ptr %d_terms
@@ -15186,7 +15183,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt9exception
   %9 = extractvalue { ptr, i32 } %8, 0
   %10 = extractvalue { ptr, i32 } %8, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
   %matches = icmp eq i32 %10, %11
   br i1 %matches, label %catch19, label %catch.fallthrough
 
@@ -15222,7 +15219,7 @@ try.cont:                                         ; preds = %invoke.cont14, %inv
   ret void
 
 catch.fallthrough:                                ; preds = %lpad
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches4 = icmp eq i32 %10, %14
   br i1 %matches4, label %catch, label %eh.resume
 
@@ -15323,7 +15320,7 @@ terminate.lpad:                                   ; preds = %ehcleanup41, %ehcle
 declare void @_ZNK4cvc56Solver8getValueERKSt6vectorINS_4TermESaIS2_EE(ptr sret(%"class.std::vector.229") align 8, ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser15GetValueCommand9getResultEv(ptr noundef nonnull readnone align 8 dereferenceable(64) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser15GetValueCommand9getResultEv(ptr noundef nonnull readnone align 8 dereferenceable(64) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_result = getelementptr inbounds i8, ptr %this, i64 40
   ret ptr %d_result
@@ -16249,7 +16246,7 @@ catch.dispatch:                                   ; preds = %ehcleanup54, %lpad
   %.pn16.pn = phi { ptr, i32 } [ %.pn16, %ehcleanup54 ], [ %13, %lpad ]
   %exn.slot.5 = extractvalue { ptr, i32 } %.pn16.pn, 0
   %ehselector.slot.5 = extractvalue { ptr, i32 } %.pn16.pn, 1
-  %86 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
+  %86 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
   %matches = icmp eq i32 %ehselector.slot.5, %86
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -16288,7 +16285,7 @@ try.cont:                                         ; preds = %try.cont.sink.split
   ret void
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %89 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %89 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches57 = icmp eq i32 %ehselector.slot.5, %89
   br i1 %matches57, label %catch, label %eh.resume
 
@@ -16653,7 +16650,7 @@ catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %7, %lpad ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
   %matches = icmp eq i32 %ehselector.slot.1, %10
   br i1 %matches, label %catch25, label %catch.fallthrough
 
@@ -16689,7 +16686,7 @@ try.cont:                                         ; preds = %if.then.i.i.i21, %i
   ret void
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches8 = icmp eq i32 %ehselector.slot.1, %13
   br i1 %matches8, label %catch, label %eh.resume
 
@@ -16887,7 +16884,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt9exception
   %3 = extractvalue { ptr, i32 } %2, 0
   %4 = extractvalue { ptr, i32 } %2, 1
-  %5 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
+  %5 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
   %matches = icmp eq i32 %4, %5
   br i1 %matches, label %catch17, label %catch.fallthrough
 
@@ -16923,7 +16920,7 @@ try.cont:                                         ; preds = %invoke.cont12, %inv
   ret void
 
 catch.fallthrough:                                ; preds = %lpad
-  %8 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %8 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches3 = icmp eq i32 %4, %8
   br i1 %matches3, label %catch, label %eh.resume
 
@@ -17185,7 +17182,7 @@ _ZN4cvc56parser3CmdD2Ev.exit:                     ; preds = %lpad, %delete.notnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser23BlockModelValuesCommand8getTermsEv(ptr noundef nonnull readnone align 8 dereferenceable(40) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser23BlockModelValuesCommand8getTermsEv(ptr noundef nonnull readnone align 8 dereferenceable(40) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_terms = getelementptr inbounds i8, ptr %this, i64 16
   ret ptr %d_terms
@@ -17214,7 +17211,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt9exception
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch17, label %catch.fallthrough
 
@@ -17250,7 +17247,7 @@ try.cont:                                         ; preds = %invoke.cont12, %inv
   ret void
 
 catch.fallthrough:                                ; preds = %lpad
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches3 = icmp eq i32 %3, %7
   br i1 %matches3, label %catch, label %eh.resume
 
@@ -17763,7 +17760,7 @@ catch.dispatch:                                   ; preds = %ehcleanup67, %lpad
   %.pn8.pn.pn.pn = phi { ptr, i32 } [ %.pn8.pn.pn, %ehcleanup67 ], [ %2, %lpad ]
   %exn.slot.4 = extractvalue { ptr, i32 } %.pn8.pn.pn.pn, 0
   %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn8.pn.pn.pn, 1
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
   %matches = icmp eq i32 %ehselector.slot.4, %25
   br i1 %matches, label %catch85, label %catch.fallthrough
 
@@ -17799,7 +17796,7 @@ try.cont:                                         ; preds = %invoke.cont78, %inv
   ret void
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches68 = icmp eq i32 %ehselector.slot.4, %28
   br i1 %matches68, label %catch, label %eh.resume
 
@@ -18323,7 +18320,7 @@ _ZN4cvc54TermC2ERKS0_.exit:                       ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK4cvc56parser21GetInterpolantCommand10getGrammarEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #17 align 2 {
+define noundef ptr @_ZNK4cvc56parser21GetInterpolantCommand10getGrammarEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #16 align 2 {
 entry:
   %d_sygus_grammar = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %d_sygus_grammar, align 8
@@ -18501,7 +18498,7 @@ lpad:                                             ; preds = %if.else, %if.then, 
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches = icmp eq i32 %19, %20
   br i1 %matches, label %catch, label %eh.resume
 
@@ -19105,7 +19102,7 @@ lpad:                                             ; preds = %invoke.cont2, %invo
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches = icmp eq i32 %19, %20
   br i1 %matches, label %catch, label %eh.resume
 
@@ -19462,7 +19459,7 @@ _ZN4cvc54TermC2ERKS0_.exit:                       ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK4cvc56parser16GetAbductCommand10getGrammarEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #17 align 2 {
+define noundef ptr @_ZNK4cvc56parser16GetAbductCommand10getGrammarEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #16 align 2 {
 entry:
   %d_sygus_grammar = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %d_sygus_grammar, align 8
@@ -19648,7 +19645,7 @@ lpad:                                             ; preds = %if.else, %if.then, 
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches = icmp eq i32 %19, %20
   br i1 %matches, label %catch, label %eh.resume
 
@@ -20250,7 +20247,7 @@ lpad:                                             ; preds = %invoke.cont2, %invo
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches = icmp eq i32 %19, %20
   br i1 %matches, label %catch, label %eh.resume
 
@@ -20557,7 +20554,7 @@ _ZN4cvc54TermC2ERKS0_.exit:                       ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4cvc56parser31GetQuantifierEliminationCommand9getDoFullEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #17 align 2 {
+define noundef zeroext i1 @_ZNK4cvc56parser31GetQuantifierEliminationCommand9getDoFullEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #16 align 2 {
 entry:
   %d_doFull = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %d_doFull, align 8
@@ -20698,7 +20695,7 @@ lpad:                                             ; preds = %if.else, %if.then
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches = icmp eq i32 %19, %20
   br i1 %matches, label %catch, label %eh.resume
 
@@ -21159,7 +21156,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt9exception
   %9 = extractvalue { ptr, i32 } %8, 0
   %10 = extractvalue { ptr, i32 } %8, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
   %matches = icmp eq i32 %10, %11
   br i1 %matches, label %catch19, label %catch.fallthrough
 
@@ -21195,7 +21192,7 @@ try.cont:                                         ; preds = %invoke.cont14, %inv
   ret void
 
 catch.fallthrough:                                ; preds = %lpad
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches4 = icmp eq i32 %10, %14
   br i1 %matches4, label %catch, label %eh.resume
 
@@ -21549,7 +21546,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt9exception
   %9 = extractvalue { ptr, i32 } %8, 0
   %10 = extractvalue { ptr, i32 } %8, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
   %matches = icmp eq i32 %10, %11
   br i1 %matches, label %catch19, label %catch.fallthrough
 
@@ -21585,7 +21582,7 @@ try.cont:                                         ; preds = %invoke.cont14, %inv
   ret void
 
 catch.fallthrough:                                ; preds = %lpad
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches4 = icmp eq i32 %10, %14
   br i1 %matches4, label %catch, label %eh.resume
 
@@ -21987,7 +21984,7 @@ declare void @_ZNK4cvc56parser10SymManager18getExpressionNamesERKSt6vectorINS_4T
 declare void @_ZN4cvc58internal9UnsatCoreC1ERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser19GetUnsatCoreCommand12getUnsatCoreEv(ptr noundef nonnull readnone align 8 dereferenceable(56) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser19GetUnsatCoreCommand12getUnsatCoreEv(ptr noundef nonnull readnone align 8 dereferenceable(56) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_result = getelementptr inbounds i8, ptr %this, i64 32
   ret ptr %d_result
@@ -22134,7 +22131,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt9exception
   %9 = extractvalue { ptr, i32 } %8, 0
   %10 = extractvalue { ptr, i32 } %8, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
   %matches = icmp eq i32 %10, %11
   br i1 %matches, label %catch19, label %catch.fallthrough
 
@@ -22170,7 +22167,7 @@ try.cont:                                         ; preds = %invoke.cont14, %inv
   ret void
 
 catch.fallthrough:                                ; preds = %lpad
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches4 = icmp eq i32 %10, %14
   br i1 %matches4, label %catch, label %eh.resume
 
@@ -22511,7 +22508,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt9exception
   %11 = extractvalue { ptr, i32 } %10, 0
   %12 = extractvalue { ptr, i32 } %10, 1
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
   %matches = icmp eq i32 %12, %13
   br i1 %matches, label %catch19, label %catch.fallthrough
 
@@ -22547,7 +22544,7 @@ try.cont:                                         ; preds = %invoke.cont14, %inv
   ret void
 
 catch.fallthrough:                                ; preds = %lpad
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches4 = icmp eq i32 %12, %16
   br i1 %matches4, label %catch, label %eh.resume
 
@@ -22759,7 +22756,7 @@ for.end:                                          ; preds = %invoke.cont22, %ent
 declare noundef zeroext i1 @_ZNK4cvc56parser10SymManager17getExpressionNameENS_4TermERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4cvc56parser20GetDifficultyCommand16getDifficultyMapEv(ptr noundef nonnull readnone align 8 dereferenceable(72) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4cvc56parser20GetDifficultyCommand16getDifficultyMapEv(ptr noundef nonnull readnone align 8 dereferenceable(72) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_result = getelementptr inbounds i8, ptr %this, i64 24
   ret ptr %d_result
@@ -23101,7 +23098,7 @@ lpad:                                             ; preds = %if.else, %if.then
           catch ptr @_ZTISt9exception
   %15 = extractvalue { ptr, i32 } %14, 0
   %16 = extractvalue { ptr, i32 } %14, 1
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
   %matches = icmp eq i32 %16, %17
   br i1 %matches, label %catch25, label %catch.fallthrough
 
@@ -23137,7 +23134,7 @@ try.cont:                                         ; preds = %if.end, %invoke.con
   ret void
 
 catch.fallthrough:                                ; preds = %lpad
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches10 = icmp eq i32 %16, %20
   br i1 %matches10, label %catch, label %eh.resume
 
@@ -23960,7 +23957,7 @@ _ZN4cvc56ResultC2ERKS0_.exit:                     ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser21GetTimeoutCoreCommand14getTimeoutCoreEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser21GetTimeoutCoreCommand14getTimeoutCoreEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %this) local_unnamed_addr #15 align 2 {
 entry:
   %second = getelementptr inbounds i8, ptr %this, i64 72
   ret ptr %second
@@ -24196,7 +24193,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt9exception
   %10 = extractvalue { ptr, i32 } %9, 0
   %11 = extractvalue { ptr, i32 } %9, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
   %matches = icmp eq i32 %11, %12
   br i1 %matches, label %catch19, label %catch.fallthrough
 
@@ -24232,7 +24229,7 @@ try.cont:                                         ; preds = %invoke.cont14, %inv
   ret void
 
 catch.fallthrough:                                ; preds = %lpad
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches4 = icmp eq i32 %11, %15
   br i1 %matches4, label %catch, label %eh.resume
 
@@ -24359,7 +24356,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser25GetLearnedLiteralsCommand18getLearnedLiteralsEv(ptr noundef nonnull readnone align 8 dereferenceable(44) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser25GetLearnedLiteralsCommand18getLearnedLiteralsEv(ptr noundef nonnull readnone align 8 dereferenceable(44) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_result = getelementptr inbounds i8, ptr %this, i64 16
   ret ptr %d_result
@@ -24556,7 +24553,7 @@ ehcleanup:                                        ; preds = %lpad4, %lpad2
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %6, %lpad ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches = icmp eq i32 %ehselector.slot.1, %8
   br i1 %matches, label %catch, label %eh.resume
 
@@ -24763,7 +24760,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
   %1 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %2 = extractvalue { ptr, i32 } %1, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches = icmp eq i32 %2, %3
   br i1 %matches, label %catch, label %eh.resume
 
@@ -24942,14 +24939,14 @@ _ZN4cvc56parser3CmdD2Ev.exit:                     ; preds = %ehcleanup, %delete.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser14SetInfoCommand7getFlagB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(80) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser14SetInfoCommand7getFlagB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(80) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_flag = getelementptr inbounds i8, ptr %this, i64 16
   ret ptr %d_flag
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser14SetInfoCommand8getValueB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(80) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser14SetInfoCommand8getValueB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(80) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_value = getelementptr inbounds i8, ptr %this, i64 48
   ret ptr %d_value
@@ -24979,7 +24976,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt9exception
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc527CVC5ApiUnsupportedExceptionE) #26
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiUnsupportedExceptionE) #26
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch40, label %catch.fallthrough
 
@@ -24995,7 +24992,7 @@ try.cont:                                         ; preds = %invoke.cont14, %inv
   ret void
 
 catch.fallthrough:                                ; preds = %lpad
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
   %matches3 = icmp eq i32 %3, %7
   br i1 %matches3, label %catch19, label %catch.fallthrough4
 
@@ -25023,7 +25020,7 @@ invoke.cont30:                                    ; preds = %invoke.cont28
   br label %try.cont
 
 catch.fallthrough4:                               ; preds = %catch.fallthrough
-  %9 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches5 = icmp eq i32 %3, %9
   br i1 %matches5, label %catch, label %eh.resume
 
@@ -25519,7 +25516,7 @@ ehcleanup31:                                      ; preds = %ehcleanup30, %lpad
   %exn.slot.3 = extractvalue { ptr, i32 } %.pn9.pn, 0
   %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn9.pn, 1
   call void @_ZNSt6vectorIN4cvc54TermESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %v) #26
-  %33 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc527CVC5ApiUnsupportedExceptionE) #26
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiUnsupportedExceptionE) #26
   %matches = icmp eq i32 %ehselector.slot.3, %33
   br i1 %matches, label %catch73, label %catch.fallthrough
 
@@ -25539,7 +25536,7 @@ try.cont:                                         ; preds = %if.then.i.i.i, %inv
   ret void
 
 catch.fallthrough:                                ; preds = %ehcleanup31
-  %35 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
   %matches32 = icmp eq i32 %ehselector.slot.3, %35
   br i1 %matches32, label %catch51, label %catch.fallthrough33
 
@@ -25567,7 +25564,7 @@ invoke.cont63:                                    ; preds = %invoke.cont61
   br label %try.cont
 
 catch.fallthrough33:                              ; preds = %catch.fallthrough
-  %37 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches34 = icmp eq i32 %ehselector.slot.3, %37
   br i1 %matches34, label %catch, label %eh.resume
 
@@ -25831,14 +25828,14 @@ _ZN4cvc56parser3CmdD2Ev.exit:                     ; preds = %ehcleanup, %delete.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser16SetOptionCommand7getFlagB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(80) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser16SetOptionCommand7getFlagB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(80) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_flag = getelementptr inbounds i8, ptr %this, i64 16
   ret ptr %d_flag
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser16SetOptionCommand8getValueB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(80) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc56parser16SetOptionCommand8getValueB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(80) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_value = getelementptr inbounds i8, ptr %this, i64 48
   ret ptr %d_value
@@ -25868,7 +25865,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt9exception
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc527CVC5ApiUnsupportedExceptionE) #26
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiUnsupportedExceptionE) #26
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch40, label %catch.fallthrough
 
@@ -25888,7 +25885,7 @@ try.cont:                                         ; preds = %invoke.cont14, %inv
   ret void
 
 catch.fallthrough:                                ; preds = %lpad
-  %6 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
+  %6 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiRecoverableExceptionE) #26
   %matches3 = icmp eq i32 %3, %6
   br i1 %matches3, label %catch19, label %catch.fallthrough4
 
@@ -25916,7 +25913,7 @@ invoke.cont30:                                    ; preds = %invoke.cont28
   br label %try.cont
 
 catch.fallthrough4:                               ; preds = %catch.fallthrough
-  %8 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %8 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches5 = icmp eq i32 %3, %8
   br i1 %matches5, label %catch, label %eh.resume
 
@@ -26141,7 +26138,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt9exception
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc527CVC5ApiUnsupportedExceptionE) #26
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc527CVC5ApiUnsupportedExceptionE) #26
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch19, label %catch.fallthrough
 
@@ -26161,7 +26158,7 @@ try.cont:                                         ; preds = %invoke.cont14, %inv
   ret void
 
 catch.fallthrough:                                ; preds = %lpad
-  %6 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %matches4 = icmp eq i32 %3, %6
   br i1 %matches4, label %catch, label %eh.resume
 
@@ -26461,7 +26458,7 @@ _ZN4cvc56parser3CmdD2Ev.exit:                     ; preds = %lpad, %delete.notnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser26DatatypeDeclarationCommand12getDatatypesEv(ptr noundef nonnull readnone align 8 dereferenceable(40) %this) local_unnamed_addr #16 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc56parser26DatatypeDeclarationCommand12getDatatypesEv(ptr noundef nonnull readnone align 8 dereferenceable(40) %this) local_unnamed_addr #15 align 2 {
 entry:
   %d_datatypes = getelementptr inbounds i8, ptr %this, i64 16
   ret ptr %d_datatypes
@@ -30793,7 +30790,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #19
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -30848,7 +30845,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -30899,10 +30896,10 @@ declare void @_ZN4cvc58internal7OptionsC1Ev(ptr noundef nonnull align 8 derefere
 declare void @_ZN4cvc58internal7OptionsD1Ev(ptr noundef nonnull align 8 dereferenceable(392)) unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #19
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #18
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #19
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #18
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
@@ -35265,7 +35262,7 @@ _ZNSt12_Vector_baseISt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EESaIS6_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #21
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -35559,7 +35556,7 @@ _ZNSt12_Vector_baseIN4cvc54TermESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #21
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind
 declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13get_allocatorEv(ptr sret(%"class.std::allocator") align 1, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -35744,12 +35741,15 @@ _ZNSt12_Vector_baseIN4cvc54SortESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_commands.cpp() #22 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_commands.cpp() #21 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #26
   ret void
 }
+
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23
@@ -35779,16 +35779,16 @@ attributes #9 = { mustprogress nofree nounwind willreturn memory(read) uwtable "
 attributes #10 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nosync nounwind memory(none) }
-attributes #14 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #19 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #18 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nofree nosync nounwind memory(none) }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #24 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

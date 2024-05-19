@@ -2926,7 +2926,7 @@ define noundef i32 @_ZN3gmx24CommandLineModuleManager3runEiPPc(ptr nocapture nou
           cleanup
           catch ptr @_ZTISt9exception
   %36 = extractvalue { ptr, i32 } %35, 1
-  %37 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #21
+  %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
   %38 = icmp eq i32 %36, %37
   br i1 %38, label %39, label %177
 
@@ -3259,9 +3259,6 @@ _ZN3gmx24CommandLineModuleManager4Impl11printThanksEP8_IO_FILE.exit: ; preds = %
 
 declare noundef i32 @_Z13gmx_node_rankv() local_unnamed_addr #1
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #15
-
 declare void @_ZN3gmx22printBinaryInformationEP8_IO_FILERKNS_15IProgramContextERKNS_25BinaryInformationSettingsE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 declare void @_ZN3gmx25CommandLineModuleSettingsC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
@@ -3424,7 +3421,7 @@ define noundef i32 @_ZN3gmx24CommandLineModuleManager21runAsMainSingleModuleEiPP
 20:                                               ; preds = %18, %16
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
   %.010 = extractvalue { ptr, i32 } %.pn, 1
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #21
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #21
   %22 = icmp eq i32 %.010, %21
   br i1 %22, label %23, label %32
 
@@ -3809,6 +3806,9 @@ define void @_ZN3gmx22CommandLineModuleGroup24addModuleWithDescriptionEPKcS2_(pt
   tail call void @_ZN3gmx26CommandLineModuleGroupData9addModuleEPKcS2_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %1, ptr noundef %2)
   ret void
 }
+
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #15
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #16

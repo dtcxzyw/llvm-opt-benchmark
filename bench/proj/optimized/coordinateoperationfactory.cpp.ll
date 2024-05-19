@@ -4271,7 +4271,7 @@ _ZNSt7__cxx114listISt4pairINS_12basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7
   %.pn65 = phi { ptr, i32 } [ %132, %131 ], [ %130, %129 ], [ %eh.lpad-body.i.i.i, %_ZNSt15__allocated_ptrISaISt10_List_nodeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEEED2Ev.exit10.i.i.i ]
   %.0 = extractvalue { ptr, i32 } %.pn65, 0
   %.046 = extractvalue { ptr, i32 } %.pn65, 1
-  %133 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %133 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %134 = icmp eq i32 %.046, %133
   br i1 %134, label %135, label %.loopexit
 
@@ -5117,7 +5117,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %518 ], [ %437, %436 ], [ %435, %434 ]
   %.4 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
   %.450 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
-  %520 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %520 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %521 = icmp eq i32 %.450, %520
   br i1 %521, label %522, label %528
 
@@ -5362,9 +5362,6 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEED2Ev.exit: ; preds = %1, %20, %33, %_ZNS
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #10
-
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 declare void @__cxa_end_catch() local_unnamed_addr
@@ -5449,7 +5446,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEED2Ev.exit: ; preds = %1, %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #11
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #10
 
 declare hidden void @_ZNK5osgeo4proj3crs11GeodeticCRS12datumNonNullERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.122") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #9
 
@@ -7083,7 +7080,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt7__cxx114listISt4pairINS_12basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -9319,7 +9316,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 
 635:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEED2Ev.exit213
   %.4106 = extractvalue { ptr, i32 } %.pn146.pn, 1
-  %636 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
+  %636 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
   %637 = icmp eq i32 %.4106, %636
   br i1 %637, label %638, label %.loopexit472
 
@@ -27335,7 +27332,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %.pn86 = phi { ptr, i32 } [ %1932, %1931 ], [ %1930, %1929 ]
   %.10 = extractvalue { ptr, i32 } %.pn86, 0
   %.1062 = extractvalue { ptr, i32 } %.pn86, 1
-  %1934 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
+  %1934 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
   %1935 = icmp eq i32 %.1062, %1934
   br i1 %1935, label %1936, label %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev.exit252
 
@@ -32703,7 +32700,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %.pn245 = phi { ptr, i32 } [ %1467, %1466 ], [ %1465, %1464 ]
   %.11208 = extractvalue { ptr, i32 } %.pn245, 1
   call void @_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %48) #26
-  %1469 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %1469 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %1470 = icmp eq i32 %.11208, %1469
   br i1 %1470, label %1471, label %1603
 
@@ -34253,7 +34250,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 604:                                              ; preds = %600
   %.4 = extractvalue { ptr, i32 } %.pn35.pn, 0
   %.424 = extractvalue { ptr, i32 } %.pn35.pn, 1
-  %605 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
+  %605 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
   %606 = icmp eq i32 %.424, %605
   br i1 %606, label %607, label %.loopexit124
 
@@ -35938,7 +35935,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 660:                                              ; preds = %656
   %.7 = extractvalue { ptr, i32 } %.pn115.pn, 0
   %.785 = extractvalue { ptr, i32 } %.pn115.pn, 1
-  %661 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
+  %661 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
   %662 = icmp eq i32 %.785, %661
   br i1 %662, label %663, label %.loopexit357
 
@@ -39187,7 +39184,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %.pn41.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn, %.loopexit ], [ %634, %633 ]
   %.7 = extractvalue { ptr, i32 } %.pn41.pn.pn.pn, 0
   %.726 = extractvalue { ptr, i32 } %.pn41.pn.pn.pn, 1
-  %647 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
+  %647 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
   %648 = icmp eq i32 %.726, %647
   br i1 %648, label %649, label %.loopexit172
 
@@ -40597,7 +40594,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 
 378:                                              ; preds = %374
   %.117 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %379 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
+  %379 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
   %380 = icmp eq i32 %.117, %379
   br i1 %380, label %381, label %.loopexit85
 
@@ -42957,7 +42954,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 1045:                                             ; preds = %1041
   %.7 = extractvalue { ptr, i32 } %.pn351.pn, 0
   %.7230 = extractvalue { ptr, i32 } %.pn351.pn, 1
-  %1046 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
+  %1046 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
   %1047 = icmp eq i32 %.7230, %1046
   br i1 %1047, label %1048, label %1461
 
@@ -43681,7 +43678,7 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19Coordi
   %.10 = extractvalue { ptr, i32 } %.pn349, 0
   %.10233 = extractvalue { ptr, i32 } %.pn349, 1
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #26
-  %1369 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
+  %1369 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
   %1370 = icmp eq i32 %.10233, %1369
   br i1 %1370, label %1371, label %.loopexit1536
 
@@ -45412,7 +45409,7 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19Coordi
   %.19 = extractvalue { ptr, i32 } %.pn340, 0
   %.19242 = extractvalue { ptr, i32 } %.pn340, 1
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %52) #26
-  %2135 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
+  %2135 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
   %2136 = icmp eq i32 %.19242, %2135
   br i1 %2136, label %2137, label %.loopexit1530
 
@@ -47353,7 +47350,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 3017:                                             ; preds = %3013
   %.29 = extractvalue { ptr, i32 } %.pn323.pn, 0
   %.29252 = extractvalue { ptr, i32 } %.pn323.pn, 1
-  %3018 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
+  %3018 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
   %3019 = icmp eq i32 %.29252, %3018
   br i1 %3019, label %3020, label %.loopexit1533
 
@@ -48393,7 +48390,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 3481:                                             ; preds = %3477
   %.36 = extractvalue { ptr, i32 } %.pn383.pn, 0
   %.36259 = extractvalue { ptr, i32 } %.pn383.pn, 1
-  %3482 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
+  %3482 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
   %3483 = icmp eq i32 %.36259, %3482
   br i1 %3483, label %3484, label %.loopexit1522
 
@@ -49219,7 +49216,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 
 3829:                                             ; preds = %3825
   %.42265 = extractvalue { ptr, i32 } %.pn359.pn, 1
-  %3830 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
+  %3830 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
   %3831 = icmp eq i32 %.42265, %3830
   br i1 %3831, label %3832, label %.loopexit1528
 
@@ -50188,7 +50185,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 4251:                                             ; preds = %4247
   %.51 = extractvalue { ptr, i32 } %.pn374.pn, 0
   %.51274 = extractvalue { ptr, i32 } %.pn374.pn, 1
-  %4252 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
+  %4252 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
   %4253 = icmp eq i32 %.51274, %4252
   br i1 %4253, label %4254, label %.loopexit1524
 
@@ -50722,7 +50719,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 
 4469:                                             ; preds = %4465
   %.55278 = extractvalue { ptr, i32 } %.pn366.pn, 1
-  %4470 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
+  %4470 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
   %4471 = icmp eq i32 %.55278, %4470
   br i1 %4471, label %4472, label %.loopexit1526
 
@@ -52255,7 +52252,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 
 321:                                              ; preds = %317
   %.221 = extractvalue { ptr, i32 } %.pn28.pn, 1
-  %322 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
+  %322 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
   %323 = icmp eq i32 %.221, %322
   br i1 %323, label %324, label %.loopexit113
 
@@ -56052,7 +56049,7 @@ _ZSt8_DestroyIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19Coordi
   %.2 = extractvalue { ptr, i32 } %.pn133, 0
   %.283 = extractvalue { ptr, i32 } %.pn133, 1
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #26
-  %286 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
+  %286 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
   %287 = icmp eq i32 %.283, %286
   br i1 %287, label %288, label %.loopexit502
 
@@ -57681,7 +57678,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 
 995:                                              ; preds = %991
   %.1293 = extractvalue { ptr, i32 } %.pn128.pn, 1
-  %996 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
+  %996 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
   %997 = icmp eq i32 %.1293, %996
   br i1 %997, label %998, label %.loopexit501
 
@@ -59754,7 +59751,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 
 660:                                              ; preds = %656
   %.3271 = extractvalue { ptr, i32 } %.pn489.pn, 1
-  %661 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %661 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %662 = icmp eq i32 %.3271, %661
   br i1 %662, label %663, label %.loopexit1896
 
@@ -60808,7 +60805,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2IS2_INS5_11Compoun
   %.pn417.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn417.pn.pn.pn.pn.pn.pn, %1087 ], [ %.pn, %1029 ], [ %1024, %1023 ]
   %.26 = extractvalue { ptr, i32 } %.pn417.pn.pn.pn.pn.pn.pn.pn, 0
   %.26294 = extractvalue { ptr, i32 } %.pn417.pn.pn.pn.pn.pn.pn.pn, 1
-  %1089 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %1089 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %1090 = icmp eq i32 %.26294, %1089
   br i1 %1090, label %1091, label %.loopexit1897
 
@@ -61977,7 +61974,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 
 1598:                                             ; preds = %1594
   %.33301 = extractvalue { ptr, i32 } %.pn483.pn, 1
-  %1599 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %1599 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %1600 = icmp eq i32 %.33301, %1599
   br i1 %1600, label %1601, label %.loopexit1893
 
@@ -64663,7 +64660,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 
 2758:                                             ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEED2Ev.exit1017
   %.56324 = extractvalue { ptr, i32 } %.pn473.pn, 1
-  %2759 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %2759 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %2760 = icmp eq i32 %.56324, %2759
   br i1 %2760, label %2761, label %.loopexit1880
 
@@ -70929,7 +70926,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %.pn465 = phi { ptr, i32 } [ %5467, %5466 ], [ %5465, %5464 ]
   %.76 = extractvalue { ptr, i32 } %.pn465, 0
   %.76344 = extractvalue { ptr, i32 } %.pn465, 1
-  %5469 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %5469 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %5470 = icmp eq i32 %.76344, %5469
   br i1 %5470, label %5471, label %.loopexit1864
 
@@ -73291,7 +73288,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %.pn461 = phi { ptr, i32 } [ %6432, %6431 ], [ %.pn49.pn.pn.pn.pn.i, %6376 ]
   %.79 = extractvalue { ptr, i32 } %.pn461, 0
   %.79347 = extractvalue { ptr, i32 } %.pn461, 1
-  %6433 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %6433 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %6434 = icmp eq i32 %.79347, %6433
   br i1 %6434, label %6435, label %.loopexit1865
 
@@ -74932,7 +74929,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 
 589:                                              ; preds = %585
   %.1288 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %590 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %590 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %591 = icmp eq i32 %.1288, %590
   br i1 %591, label %592, label %.loopexit1201
 
@@ -75711,7 +75708,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 
 924:                                              ; preds = %920
   %.9296 = extractvalue { ptr, i32 } %.pn453.pn, 1
-  %925 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %925 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %926 = icmp eq i32 %.9296, %925
   br i1 %926, label %927, label %.loopexit1193
 
@@ -77409,7 +77406,7 @@ _ZN5osgeo4proj9operationL12getStepCountERKN7dropbox6oxygen2nnISt10shared_ptrINS1
   %.pn451 = phi { ptr, i32 } [ %1784, %1783 ], [ %.pn447.pn.pn1135, %1779 ], [ %.pn447.pn1132, %1775 ]
   %.20 = extractvalue { ptr, i32 } %.pn451, 0
   %.20307 = extractvalue { ptr, i32 } %.pn451, 1
-  %1785 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %1785 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %1786 = icmp eq i32 %.20307, %1785
   br i1 %1786, label %1787, label %.loopexit1190
 
@@ -79049,7 +79046,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %.pn426.pn = phi { ptr, i32 } [ %.pn426, %2555 ], [ %.pn422, %2443 ]
   %.31 = extractvalue { ptr, i32 } %.pn426.pn, 0
   %.31318 = extractvalue { ptr, i32 } %.pn426.pn, 1
-  %2557 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %2557 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %2558 = icmp eq i32 %.31318, %2557
   br i1 %2558, label %2559, label %.loopexit1184
 
@@ -79603,7 +79600,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %.pn443 = phi { ptr, i32 } [ %2781, %2780 ], [ %2779, %2778 ]
   %.36 = extractvalue { ptr, i32 } %.pn443, 0
   %.36323 = extractvalue { ptr, i32 } %.pn443, 1
-  %2783 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
+  %2783 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5osgeo4proj9operation33InvalidOperationEmptyIntersectionE) #26
   %2784 = icmp eq i32 %.36323, %2783
   br i1 %2784, label %.invoke, label %2787
 
@@ -79618,7 +79615,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
   br i1 %.not1175, label %._crit_edge1416, label %.lr.ph1415
 
 2787:                                             ; preds = %2782
-  %2788 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5osgeo4proj2io19FormattingExceptionE) #26
+  %2788 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5osgeo4proj2io19FormattingExceptionE) #26
   %2789 = icmp eq i32 %.36323, %2788
   br i1 %2789, label %.invoke, label %.loopexit
 
@@ -88391,7 +88388,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 
 2855:                                             ; preds = %2851
   %.39186 = extractvalue { ptr, i32 } %.pn257.pn, 1
-  %2856 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %2856 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %2857 = icmp eq i32 %.39186, %2856
   br i1 %2857, label %2858, label %.loopexit982
 
@@ -95882,7 +95879,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19Coordina
 declare void @_ZNK5osgeo4proj2io21IPROJStringExportable18exportToPROJStringB5cxx11EPNS1_19PROJStringFormatterE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #13
+declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj3crs11VerticalCRS10geoidModelEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #7
@@ -102812,7 +102809,7 @@ declare hidden noundef zeroext i1 @_ZNK5osgeo4proj2cs20CoordinateSystemAxis15_is
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj2cs20CoordinateSystemAxis9directionEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK5osgeo4proj4util8CodeListeqERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden noundef zeroext i1 @_ZNK5osgeo4proj4util8CodeListeqERKS2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
   %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #26
   %5 = icmp eq i64 %3, %4
@@ -108990,7 +108987,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 
 277:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEED2Ev.exit39
   %.113 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %278 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %278 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %279 = icmp eq i32 %.113, %278
   br i1 %279, label %280, label %.loopexit85
 
@@ -110023,7 +110020,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 .loopexit:                                        ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEED2Ev.exit83, %308
   %.pn53 = phi { ptr, i32 } [ %309, %308 ], [ %.pn.pn, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEED2Ev.exit83 ]
   %.246 = extractvalue { ptr, i32 } %.pn53, 1
-  %310 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %310 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %311 = icmp eq i32 %.246, %310
   br i1 %311, label %312, label %.loopexit120
 
@@ -111131,7 +111128,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %.pn.pn = phi { ptr, i32 } [ %.pn, %376 ], [ %266, %265 ]
   %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %.178 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %378 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %378 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %379 = icmp eq i32 %.178, %378
   br i1 %379, label %380, label %458
 
@@ -111810,7 +111807,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %.pn107.pn = phi { ptr, i32 } [ %.pn107, %700 ], [ %598, %597 ]
   %.4 = extractvalue { ptr, i32 } %.pn107.pn, 0
   %.481 = extractvalue { ptr, i32 } %.pn107.pn, 1
-  %702 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %702 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %703 = icmp eq i32 %.481, %702
   br i1 %703, label %704, label %782
 
@@ -112469,7 +112466,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %.pn111.pn = phi { ptr, i32 } [ %.pn111, %1005 ], [ %907, %906 ]
   %.7 = extractvalue { ptr, i32 } %.pn111.pn, 0
   %.784 = extractvalue { ptr, i32 } %.pn111.pn, 1
-  %1007 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %1007 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %1008 = icmp eq i32 %.784, %1007
   br i1 %1008, label %1009, label %1087
 
@@ -115142,7 +115139,7 @@ define linkonce_odr hidden void @_ZNK5osgeo4proj9operation39MyPROJStringExportab
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #15 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #14 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #26
   tail call void @_ZSt9terminatev() #31
   unreachable
@@ -115237,16 +115234,16 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #16
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #16
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #15
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #16
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #15
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #8
@@ -117896,7 +117893,7 @@ declare noundef double @_ZNK5osgeo4proj8metadata21GeographicBoundingBox18eastBou
 declare noundef double @_ZNK5osgeo4proj8metadata21GeographicBoundingBox18northBoundLatitudeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sin(double noundef) local_unnamed_addr #18
+declare double @sin(double noundef) local_unnamed_addr #17
 
 declare void @_ZN5osgeo4proj6common5AngleC1Ed(ptr noundef nonnull align 8 dereferenceable(24), double noundef) unnamed_addr #9
 
@@ -118207,7 +118204,7 @@ _ZNSt10shared_ptrIN5osgeo4proj9operation32MyPROJStringExportableGeodToGeodEED2Ev
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #19
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN5osgeo4proj9operation32MyPROJStringExportableGeodToGeodESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 {
@@ -118266,7 +118263,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #20
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #19
 
 declare void @_ZN5osgeo4proj9operation18PROJBasedOperation6createERKNS0_4util11PropertyMapERKN7dropbox6oxygen2nnISt10shared_ptrINS0_2io21IPROJStringExportableEEEEbRKNS9_ISA_INS0_3crs3CRSEEEESM_RKSJ_RKSt6vectorINS9_ISA_INS0_8metadata18PositionalAccuracyEEEESaIST_EEb(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.604") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext) local_unnamed_addr #9
 
@@ -118393,7 +118390,7 @@ declare void @_ZN5osgeo4proj9operation21addModifiedIdentifierERNS0_4util11Proper
 declare void @_ZN5osgeo4proj2io19PROJStringFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #8
@@ -118590,7 +118587,7 @@ _ZNSt7__cxx1110_List_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11V
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #21
+declare double @llvm.fabs.f64(double) #20
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5osgeo4proj9operation15GridDescriptionES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -121594,7 +121591,7 @@ _ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj2io19PROJStringFormatterESt14de
   %.pn74.pn = phi { ptr, i32 } [ %.pn74, %759 ], [ %753, %752 ]
   %.7 = extractvalue { ptr, i32 } %.pn74.pn, 0
   %.743 = extractvalue { ptr, i32 } %.pn74.pn, 1
-  %761 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %761 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %762 = icmp eq i32 %.743, %761
   br i1 %762, label %763, label %.loopexit217
 
@@ -123789,7 +123786,7 @@ _ZNSt10shared_ptrIN5osgeo4proj8metadata6ExtentEED2Ev.exit: ; preds = %_ZNSt3setI
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %200 ], [ %91, %90 ]
   %.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
   %.223 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
-  %202 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #26
+  %202 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #26
   %203 = icmp eq i32 %.223, %202
   br i1 %203, label %204, label %.loopexit
 
@@ -126448,7 +126445,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperation
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #21
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #20
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEESt6vectorISB_SaISB_EEEENS0_5__ops15_Iter_comp_iterINS8_12SortFunctionEEEEvT_SL_T0_(ptr %0, ptr %1, ptr noundef %2) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
@@ -128383,7 +128380,7 @@ declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull a
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #19
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx114listISt4pairINS_12basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE18_M_assign_dispatchISt20_List_const_iteratorIS7_EEEvT_SD_St12__false_type(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr %2) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -131574,6 +131571,9 @@ _ZNSt8_Rb_treeIPN5osgeo4proj9operation19CoordinateOperationESt4pairIKS4_St3setIN
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #21
+
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
 
@@ -131602,18 +131602,18 @@ attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #7 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nosync nounwind memory(none) }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #20 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(read) }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #21 = { nofree nosync nounwind memory(none) }
 attributes #22 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

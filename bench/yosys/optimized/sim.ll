@@ -7372,7 +7372,7 @@ _ZNSt8functionIFvmEED2Ev.exit157.i:               ; preds = %2162, %2159, %2157
   %.pn60.i = phi { ptr, i32 } [ %2158, %2157 ], [ %2160, %2159 ], [ %2160, %2162 ]
   %.14.i = extractvalue { ptr, i32 } %.pn60.i, 0
   %.1444.i = extractvalue { ptr, i32 } %.pn60.i, 1
-  %2167 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5Yosys25fst_end_of_data_exceptionE) #32
+  %2167 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5Yosys25fst_end_of_data_exceptionE) #32
   %2168 = icmp eq i32 %.1444.i, %2167
   br i1 %2168, label %2169, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit153.i
 
@@ -97002,9 +97002,6 @@ declare noundef i64 @_ZN5Yosys7FstData10getEndTimeEv(ptr noundef nonnull align 8
 
 declare void @_ZN5Yosys7FstData21reconstructAllAtTimesERSt6vectorIjSaIjEEmmSt8functionIFvmEE(ptr noundef nonnull align 8 dereferenceable(440), ptr noundef nonnull align 8 dereferenceable(24), i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #22
-
 ; Function Attrs: nounwind
 declare void @_ZN5Yosys7FstDataD1Ev(ptr noundef nonnull align 8 dereferenceable(440)) unnamed_addr #1
 
@@ -113211,7 +113208,7 @@ declare noundef zeroext i1 @_ZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112
 declare ptr @strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #23
+declare ptr @__errno_location() local_unnamed_addr #22
 
 declare void @_ZN5Yosys10PrettyJson12begin_objectEv(ptr noundef nonnull align 8 dereferenceable(84)) local_unnamed_addr #0
 
@@ -118682,7 +118679,7 @@ _ZNSt8functionIFvmEED2Ev.exit248:                 ; preds = %875, %872, %870
   %.pn112 = phi { ptr, i32 } [ %871, %870 ], [ %873, %872 ], [ %873, %875 ]
   %.20 = extractvalue { ptr, i32 } %.pn112, 0
   %.2086 = extractvalue { ptr, i32 } %.pn112, 1
-  %880 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5Yosys25fst_end_of_data_exceptionE) #32
+  %880 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5Yosys25fst_end_of_data_exceptionE) #32
   %881 = icmp eq i32 %.2086, %880
   br i1 %881, label %882, label %1068
 
@@ -120872,7 +120869,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_sim.cc() #24 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_sim.cc() #23 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator.0", align 1
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -121224,13 +121221,16 @@ __cxx_global_var_init.11.exit:                    ; preds = %96
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #25
+declare void @llvm.va_start.p0(ptr) #24
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #25
+declare void @llvm.va_end.p0(ptr) #24
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy.p0(ptr, ptr) #25
+declare void @llvm.va_copy.p0(ptr, ptr) #24
+
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #26
@@ -121281,10 +121281,10 @@ attributes #18 = { mustprogress nofree nounwind willreturn memory(argmem: readwr
 attributes #19 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nofree nosync nounwind memory(none) }
-attributes #23 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #22 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #25 = { nofree nosync nounwind memory(none) }
 attributes #26 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #27 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #28 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

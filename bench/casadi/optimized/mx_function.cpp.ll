@@ -12694,7 +12694,7 @@ _ZSt8_DestroyIPN6casadi2MXES1_EvT_S3_RSaIT0_E.exit.i258: ; preds = %_ZSt8_Destro
 612:                                              ; preds = %.loopexit302, %.loopexit.split-lp303, %131, %132, %611, %223
   %.pn117.pn.pn = phi { ptr, i32 } [ %.pn117.pn, %611 ], [ %224, %223 ], [ %.pn102.pn.pn.pn.pn.pn.pn287, %132 ], [ %.pn102.pn.pn.pn.pn.pn, %131 ], [ %lpad.loopexit304, %.loopexit302 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp303 ]
   %.1681 = extractvalue { ptr, i32 } %.pn117.pn.pn, 1
-  %613 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %613 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %614 = icmp eq i32 %.1681, %613
   br i1 %614, label %615, label %common.resume
 
@@ -12998,9 +12998,6 @@ _ZSt8_DestroyIPSt6vectorIN6casadi2MXESaIS2_EES4_EvT_S6_RSaIT0_E.exit: ; preds = 
 _ZNSt12_Vector_baseISt6vectorIN6casadi2MXESaIS2_EESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt6vectorIN6casadi2MXESaIS2_EES4_EvT_S6_RSaIT0_E.exit, %13
   ret void
 }
-
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #8
 
 declare void @__cxa_end_catch() local_unnamed_addr
 
@@ -16068,7 +16065,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit682:                 ; preds = %.loopexit, %.loopex
 .loopexit.split-lp812:                            ; preds = %.loopexit811, %.loopexit.split-lp812.loopexit.split-lp.loopexit, %.loopexit.split-lp812.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp812.loopexit, %226, %227, %1092, %449, %_ZNSt6vectorIxSaIxEED2Ev.exit357, %242
   %.pn265 = phi { ptr, i32 } [ %243, %242 ], [ %.pn257.pn.pn.pn.pn.pn.pn744, %227 ], [ %.pn257.pn.pn.pn.pn.pn, %226 ], [ %.pn254.pn, %_ZNSt6vectorIxSaIxEED2Ev.exit357 ], [ %.pn251.pn, %1092 ], [ %450, %449 ], [ %lpad.loopexit813, %.loopexit811 ], [ %lpad.loopexit818, %.loopexit.split-lp812.loopexit ], [ %lpad.loopexit821, %.loopexit.split-lp812.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp822, %.loopexit.split-lp812.loopexit.split-lp.loopexit.split-lp ]
   %.25193 = extractvalue { ptr, i32 } %.pn265, 1
-  %1093 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %1093 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %1094 = icmp eq i32 %.25193, %1093
   br i1 %1094, label %1095, label %common.resume
 
@@ -20156,7 +20153,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit750:                 ; preds = %.body647, %731
 .loopexit.split-lp913:                            ; preds = %.loopexit912, %.loopexit.split-lp913.loopexit.split-lp.loopexit, %.loopexit.split-lp913.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp913.loopexit, %231, %232, %1232, %536, %.body387, %_ZNSt6vectorIxSaIxEED2Ev.exit378, %247
   %.pn286 = phi { ptr, i32 } [ %248, %247 ], [ %.pn278.pn.pn.pn.pn.pn.pn834, %232 ], [ %.pn278.pn.pn.pn.pn.pn, %231 ], [ %.pn275.pn, %_ZNSt6vectorIxSaIxEED2Ev.exit378 ], [ %.pn273, %1232 ], [ %537, %536 ], [ %eh.lpad-body388, %.body387 ], [ %lpad.loopexit914, %.loopexit912 ], [ %lpad.loopexit919, %.loopexit.split-lp913.loopexit ], [ %lpad.loopexit922, %.loopexit.split-lp913.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp923, %.loopexit.split-lp913.loopexit.split-lp.loopexit.split-lp ]
   %.22213 = extractvalue { ptr, i32 } %.pn286, 1
-  %1233 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %1233 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %1234 = icmp eq i32 %.22213, %1233
   br i1 %1234, label %1235, label %common.resume
 
@@ -23968,7 +23965,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare void @_ZNK6casadi2MX7eval_mxERKSt6vectorIS0_SaIS0_EERS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 declare void @_ZN6casadi8FunctionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_2MXESaISA_EESE_RKSt3mapIS6_NS_11GenericTypeESt4lessIS6_ESaISt4pairIS7_SG_EEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #0
 
@@ -38538,7 +38535,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %.pn139 = phi { ptr, i32 } [ %229, %228 ], [ %227, %226 ]
   %.5 = extractvalue { ptr, i32 } %.pn139, 0
   %.554 = extractvalue { ptr, i32 } %.pn139, 1
-  %231 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6casadi15CasadiExceptionE) #23
+  %231 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6casadi15CasadiExceptionE) #23
   %232 = icmp eq i32 %.554, %231
   br i1 %232, label %233, label %550
 
@@ -38759,7 +38756,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %.pn128 = phi { ptr, i32 } [ %295, %294 ], [ %293, %292 ]
   %.14 = extractvalue { ptr, i32 } %.pn128, 0
   %.1463 = extractvalue { ptr, i32 } %.pn128, 1
-  %297 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6casadi15CasadiExceptionE) #23
+  %297 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6casadi15CasadiExceptionE) #23
   %298 = icmp eq i32 %.1463, %297
   br i1 %298, label %299, label %549
 
@@ -42337,7 +42334,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericT
 484:                                              ; preds = %483, %.body
   %.pn113.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn113.pn.pn.pn.pn, %483 ], [ %.pn, %.body ]
   %.1876 = extractvalue { ptr, i32 } %.pn113.pn.pn.pn.pn.pn, 1
-  %485 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %485 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %486 = icmp eq i32 %.1876, %485
   br i1 %486, label %487, label %546
 
@@ -44089,7 +44086,7 @@ _ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EED2Ev.exit288: ; preds = %_ZSt8_Destr
 503:                                              ; preds = %502, %91
   %.pn138.pn.pn.pn = phi { ptr, i32 } [ %.pn138.pn.pn, %502 ], [ %92, %91 ]
   %.2090 = extractvalue { ptr, i32 } %.pn138.pn.pn.pn, 1
-  %504 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %504 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %505 = icmp eq i32 %.2090, %504
   br i1 %505, label %506, label %565
 
@@ -45672,7 +45669,7 @@ _ZNSt6vectorIS_IN6casadi2MXESaIS1_EESaIS3_EED2Ev.exit264: ; preds = %_ZSt8_Destr
 446:                                              ; preds = %445, %120
   %.pn114.pn.pn.pn = phi { ptr, i32 } [ %.pn114.pn.pn, %445 ], [ %121, %120 ]
   %.1382 = extractvalue { ptr, i32 } %.pn114.pn.pn.pn, 1
-  %447 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %447 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %448 = icmp eq i32 %.1382, %447
   br i1 %448, label %449, label %508
 
@@ -47833,7 +47830,7 @@ declare i64 @_ZNSt6chrono3_V212system_clock3nowEv() local_unnamed_addr #1
 declare ptr @localtime(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #0
 
@@ -47954,7 +47951,7 @@ define linkonce_odr hidden void @_ZN6casadi26KeyboardInterruptExceptionD0Ev(ptr 
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #11
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeIPvS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE8_M_eraseEPSt13_Rb_tree_nodeIS0_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -48160,10 +48157,10 @@ _ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringI
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #11
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #10
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #11
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #10
 
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
@@ -48285,7 +48282,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -48312,13 +48309,13 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(pt
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #11
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -50948,10 +50945,10 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #13
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #13
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -50959,7 +50956,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 declare noundef zeroext i1 @_ZN6casadi8Function9test_castEPKNS_20SharedObjectInternalE(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #14
+declare void @llvm.trap() #13
 
 declare void @_ZN6casadi16FunctionInternalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1304), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
@@ -51489,7 +51486,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPN6casadi7MXAlgElEEEvT_S5_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6casadi7Options5EntryEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE17_M_insert_unique_IRKSB_NSH_11_Alloc_nodeEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EOT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -52557,7 +52554,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #15
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -53212,7 +53209,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #13
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -61091,7 +61088,7 @@ define linkonce_odr hidden void @_ZN6casadi7FactoryINS_2MXEE9calculateERKSt3mapI
   %54 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %55 = extractvalue { ptr, i32 } %54, 1
-  %56 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %56 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %57 = icmp eq i32 %55, %56
   br i1 %57, label %58, label %288
 
@@ -61242,7 +61239,7 @@ define linkonce_odr hidden void @_ZN6casadi7FactoryINS_2MXEE9calculateERKSt3mapI
   %101 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %102 = extractvalue { ptr, i32 } %101, 1
-  %103 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %103 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %104 = icmp eq i32 %102, %103
   br i1 %104, label %105, label %288
 
@@ -61393,7 +61390,7 @@ define linkonce_odr hidden void @_ZN6casadi7FactoryINS_2MXEE9calculateERKSt3mapI
   %148 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %149 = extractvalue { ptr, i32 } %148, 1
-  %150 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %150 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %151 = icmp eq i32 %149, %150
   br i1 %151, label %152, label %288
 
@@ -61544,7 +61541,7 @@ define linkonce_odr hidden void @_ZN6casadi7FactoryINS_2MXEE9calculateERKSt3mapI
   %195 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %196 = extractvalue { ptr, i32 } %195, 1
-  %197 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %197 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %198 = icmp eq i32 %196, %197
   br i1 %198, label %199, label %288
 
@@ -61695,7 +61692,7 @@ define linkonce_odr hidden void @_ZN6casadi7FactoryINS_2MXEE9calculateERKSt3mapI
   %242 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %243 = extractvalue { ptr, i32 } %242, 1
-  %244 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %244 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %245 = icmp eq i32 %243, %244
   br i1 %245, label %246, label %288
 
@@ -64245,7 +64242,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 declare void @_ZN6casadi2MX3dotERKS0_S2_(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #11
+declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6casadi7FactoryINS_2MXEE12split_prefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.348") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -69014,7 +69011,7 @@ _ZSt8_DestroyIPN6casadi2MXES1_EvT_S3_RSaIT0_E.exit.i185: ; preds = %_ZSt8_Destro
   %.pn102 = phi { ptr, i32 } [ %266, %265 ], [ %264, %263 ], [ %.pn99.pn, %504 ], [ %312, %311 ]
   %.569 = extractvalue { ptr, i32 } %.pn102, 0
   %.580 = extractvalue { ptr, i32 } %.pn102, 1
-  %506 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %506 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %507 = icmp eq i32 %.580, %506
   br i1 %507, label %508, label %574
 
@@ -70893,7 +70890,7 @@ _ZN6casadi7projectERKNS_2MXERKNS_8SparsityEb.exit: ; preds = %71
 77:                                               ; preds = %64, %65, %76, %42
   %.pn56.pn = phi { ptr, i32 } [ %.pn56, %76 ], [ %43, %42 ], [ %.pn.pn.pn.pn.pn.pn.pn82, %65 ], [ %.pn.pn.pn.pn.pn.pn, %64 ]
   %.838 = extractvalue { ptr, i32 } %.pn56.pn, 1
-  %78 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %78 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %79 = icmp eq i32 %.838, %78
   br i1 %79, label %80, label %127
 
@@ -72571,7 +72568,7 @@ _ZSt8_DestroyIPN6casadi2MXES1_EvT_S3_RSaIT0_E.exit.i378: ; preds = %_ZSt8_Destro
 422:                                              ; preds = %199, %200, %129, %130, %421, %92
   %.pn173 = phi { ptr, i32 } [ %93, %92 ], [ %.pn170.pn, %421 ], [ %.pn149.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn440, %130 ], [ %.pn149.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %129 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn444, %200 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %199 ]
   %.3299 = extractvalue { ptr, i32 } %.pn173, 1
-  %423 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %423 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %424 = icmp eq i32 %.3299, %423
   br i1 %424, label %425, label %472
 
@@ -75350,7 +75347,7 @@ _ZSt8_DestroyIPN6casadi2MXES1_EvT_S3_RSaIT0_E.exit.i372: ; preds = %_ZSt8_Destro
   %.pn175 = phi { ptr, i32 } [ %322, %321 ], [ %.pn172, %320 ], [ %.pn169.pn, %788 ], [ %377, %376 ], [ %lpad.loopexit494, %.loopexit492 ], [ %lpad.loopexit.split-lp495, %.loopexit.split-lp493 ]
   %.10 = extractvalue { ptr, i32 } %.pn175, 0
   %.10133 = extractvalue { ptr, i32 } %.pn175, 1
-  %790 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %790 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %791 = icmp eq i32 %.10133, %790
   br i1 %791, label %792, label %873
 
@@ -82883,7 +82880,7 @@ _ZSt8_DestroyIPN6casadi2MXES1_EvT_S3_RSaIT0_E.exit.i1183: ; preds = %_ZSt8_Destr
 _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit1185:   ; preds = %2432, %_ZSt8_DestroyIPN6casadi2MXES1_EvT_S3_RSaIT0_E.exit.i1183, %207, %208, %266, %152
   %.pn538 = phi { ptr, i32 } [ %153, %152 ], [ %.pn530.pn.pn.pn.pn.pn.pn1431, %208 ], [ %.pn530.pn.pn.pn.pn.pn, %207 ], [ %267, %266 ], [ %.pn528, %_ZSt8_DestroyIPN6casadi2MXES1_EvT_S3_RSaIT0_E.exit.i1183 ], [ %.pn528, %2432 ]
   %.80357 = extractvalue { ptr, i32 } %.pn538, 1
-  %2433 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %2433 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %2434 = icmp eq i32 %.80357, %2433
   br i1 %2434, label %2435, label %2494
 
@@ -83101,7 +83098,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit1185:   ; preds = %2432, %_ZSt8_Destro
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #16
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #15
 
 declare noundef i64 @_ZNK6casadi16FunctionInternal6nnz_inEv(ptr noundef nonnull align 8 dereferenceable(1304)) local_unnamed_addr #0
 
@@ -84859,7 +84856,7 @@ declare noundef zeroext i1 @_ZNK6casadi8Sparsity8is_denseEv(ptr noundef nonnull 
 declare void @_ZN6casadi11GenericTypeC2Ex(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_mx_function.cpp() #17 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_mx_function.cpp() #16 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = alloca %struct._Guard, align 8
   %2 = alloca %struct._Guard, align 8
   %3 = alloca %struct._Guard, align 8
@@ -85706,6 +85703,9 @@ __cxx_global_var_init.1.exit:                     ; preds = %139
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #17
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #18
 
@@ -85744,16 +85744,16 @@ attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nosync nounwind memory(none) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #17 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(read) }
+attributes #16 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree nosync nounwind memory(none) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

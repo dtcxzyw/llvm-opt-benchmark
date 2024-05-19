@@ -17179,7 +17179,7 @@ catch.dispatch:                                   ; preds = %lpad10, %lpad8
   %.pn = phi { ptr, i32 } [ %13, %lpad10 ], [ %12, %lpad8 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook3jsi7JSErrorE) #37
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook3jsi7JSErrorE) #37
   %matches = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches, label %catch82, label %catch.fallthrough
 
@@ -17200,7 +17200,7 @@ invoke.cont94:                                    ; preds = %catch82
           to label %cleanup unwind label %lpad39
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #37
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #37
   %matches13 = icmp eq i32 %ehselector.slot.0, %19
   %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #37
   br i1 %matches13, label %invoke.cont45, label %catch
@@ -17498,7 +17498,7 @@ catch.dispatch:                                   ; preds = %lpad12, %lpad
   %.pn = phi { ptr, i32 } [ %5, %lpad12 ], [ %4, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %6 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook3jsi7JSErrorE) #37
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook3jsi7JSErrorE) #37
   %matches = icmp eq i32 %ehselector.slot.0, %6
   br i1 %matches, label %catch83, label %catch.fallthrough
 
@@ -17519,7 +17519,7 @@ invoke.cont94:                                    ; preds = %catch83
           to label %cleanup unwind label %lpad40
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #37
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #37
   %matches14 = icmp eq i32 %ehselector.slot.0, %11
   %12 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #37
   br i1 %matches14, label %invoke.cont46, label %catch
@@ -17949,7 +17949,7 @@ catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %7, %lpad ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook3jsi7JSErrorE) #37
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook3jsi7JSErrorE) #37
   %matches = icmp eq i32 %ehselector.slot.1, %31
   br i1 %matches, label %catch95, label %catch.fallthrough
 
@@ -17970,7 +17970,7 @@ invoke.cont108:                                   ; preds = %catch95
   br label %return
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %36 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #37
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #37
   %matches59 = icmp eq i32 %ehselector.slot.1, %36
   %37 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #37
   br i1 %matches59, label %invoke.cont73, label %catch
@@ -18094,9 +18094,6 @@ terminate.lpad:                                   ; preds = %lpad101, %ehcleanup
 
 ; Function Attrs: nounwind
 declare void @_ZN6hermes2vm15HostObjectProxyD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
-
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #28
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6hermes2vmplERKNS0_11TwineChar16ES3_(ptr noalias sret(%"class.hermes::vm::TwineChar16") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %left, ptr noundef nonnull align 8 dereferenceable(48) %right) local_unnamed_addr #0 comdat {
@@ -18597,7 +18594,7 @@ catch.dispatch:                                   ; preds = %ehcleanup, %lpad19
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %25, %lpad19 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8facebook3jsi7JSErrorE) #37
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook3jsi7JSErrorE) #37
   %matches = icmp eq i32 %ehselector.slot.1, %28
   br i1 %matches, label %catch61, label %catch.fallthrough
 
@@ -18615,7 +18612,7 @@ invoke.cont70:                                    ; preds = %catch61
           to label %cleanup unwind label %lpad11
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #37
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #37
   %matches30 = icmp eq i32 %ehselector.slot.1, %31
   %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #37
   br i1 %matches30, label %invoke.cont43, label %catch
@@ -18984,7 +18981,7 @@ if.end17:                                         ; preds = %if.then15, %_ZN4llv
 declare void @_ZN4llvh22report_bad_alloc_errorEPKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #29
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #28
 
 ; Function Attrs: noreturn
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #9
@@ -19436,13 +19433,13 @@ declare noundef ptr @_ZN8facebook3jsi7Runtime9pushScopeEv(ptr noundef nonnull al
 declare void @_ZN8facebook3jsi7Runtime8popScopeEPNS1_10ScopeStateE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #30
+declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #29
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_abort(ptr) local_unnamed_addr #30
+declare void @__cxa_guard_abort(ptr) local_unnamed_addr #29
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_release(ptr) local_unnamed_addr #30
+declare void @__cxa_guard_release(ptr) local_unnamed_addr #29
 
 declare void @_ZN4llvh27install_fatal_error_handlerEPFvPvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbES0_(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -24319,6 +24316,9 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #30
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #31
 
@@ -24368,9 +24368,9 @@ attributes #24 = { mustprogress nounwind willreturn allockind("free") memory(arg
 attributes #25 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #26 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #27 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { nofree nosync nounwind memory(none) }
-attributes #29 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #30 = { nofree nounwind }
+attributes #28 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #29 = { nofree nounwind }
+attributes #30 = { nofree nosync nounwind memory(none) }
 attributes #31 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #32 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #33 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

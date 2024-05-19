@@ -6183,7 +6183,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn.pn = phi { ptr, i32 } [ %.pn, %32 ], [ %27, %26 ]
   %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %.113 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix11ThrownErrorE) #28
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix11ThrownErrorE) #28
   %35 = icmp eq i32 %.113, %34
   br i1 %35, label %36, label %40
 
@@ -6198,7 +6198,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %24
 
 40:                                               ; preds = %33
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #28
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %42 = icmp eq i32 %.113, %41
   %43 = call ptr @__cxa_begin_catch(ptr %.1) #28
   br i1 %42, label %44, label %62
@@ -6609,9 +6609,6 @@ common.resume:                                    ; preds = %83, %101
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #9
-
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
@@ -6626,7 +6623,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #28
   tail call void @_ZSt9terminatev() #32
   unreachable
@@ -6888,7 +6885,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix21PrimOpTest_throw_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix21PrimOpTest_throw_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -6992,7 +6989,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn.pn = phi { ptr, i32 } [ %.pn, %32 ], [ %27, %26 ]
   %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %.113 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix5AbortE) #28
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix5AbortE) #28
   %35 = icmp eq i32 %.113, %34
   br i1 %35, label %36, label %40
 
@@ -7007,7 +7004,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %24
 
 40:                                               ; preds = %33
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #28
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %42 = icmp eq i32 %.113, %41
   %43 = call ptr @__cxa_begin_catch(ptr %.1) #28
   br i1 %42, label %44, label %62
@@ -7165,7 +7162,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix21PrimOpTest_abort_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix21PrimOpTest_abort_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -7767,7 +7764,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix20PrimOpTest_ceil_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix20PrimOpTest_ceil_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -7950,7 +7947,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix21PrimOpTest_floor_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix21PrimOpTest_floor_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -8811,7 +8808,7 @@ _ZN7testing7MatcherIRKN3nix5ValueEED2Ev.exit:     ; preds = %123, %_ZNK7testing8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7testing8internal11CmpHelperNEIPN3nix4AttrEDnEENS_15AssertionResultEPKcS7_RKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #4 comdat {
@@ -9213,7 +9210,7 @@ _ZN7testing7MatcherIRKN3nix5ValueEED2Ev.exit:     ; preds = %121, %_ZNK7testing8
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix30PrimOpTest_tryEvalFailure_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix30PrimOpTest_tryEvalFailure_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -10741,7 +10738,7 @@ _ZN7testing7MatcherIRKN3nix5ValueEED2Ev.exit:     ; preds = %121, %_ZNK7testing8
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix30PrimOpTest_tryEvalSuccess_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix30PrimOpTest_tryEvalSuccess_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -11313,7 +11310,7 @@ _ZN7testing7MatcherIRKN3nix5ValueEED2Ev.exit:     ; preds = %123, %_ZNK7testing8
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix22PrimOpTest_getEnv_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix22PrimOpTest_getEnv_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -11417,7 +11414,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn.pn = phi { ptr, i32 } [ %.pn, %32 ], [ %27, %26 ]
   %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %.113 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix11ThrownErrorE) #28
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix11ThrownErrorE) #28
   %35 = icmp eq i32 %.113, %34
   br i1 %35, label %36, label %40
 
@@ -11432,7 +11429,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %24
 
 40:                                               ; preds = %33
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #28
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %42 = icmp eq i32 %.113, %41
   %43 = call ptr @__cxa_begin_catch(ptr %.1) #28
   br i1 %42, label %44, label %62
@@ -11590,7 +11587,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix19PrimOpTest_seq_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix19PrimOpTest_seq_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -11772,7 +11769,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix26PrimOpTest_seqNotDeep_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix26PrimOpTest_seqNotDeep_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -11876,7 +11873,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn.pn = phi { ptr, i32 } [ %.pn, %32 ], [ %27, %26 ]
   %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %.113 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix11ThrownErrorE) #28
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix11ThrownErrorE) #28
   %35 = icmp eq i32 %.113, %34
   br i1 %35, label %36, label %40
 
@@ -11891,7 +11888,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %24
 
 40:                                               ; preds = %33
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #28
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %42 = icmp eq i32 %.113, %41
   %43 = call ptr @__cxa_begin_catch(ptr %.1) #28
   br i1 %42, label %44, label %62
@@ -12049,7 +12046,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix23PrimOpTest_deepSeq_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix23PrimOpTest_deepSeq_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -12505,7 +12502,7 @@ _ZN3nix14CaptureLoggingD2Ev.exit54:               ; preds = %146, %100, %36, %35
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix21PrimOpTest_trace_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix21PrimOpTest_trace_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -12688,7 +12685,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix27PrimOpTest_placeholder_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix27PrimOpTest_placeholder_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -12871,7 +12868,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix26PrimOpTest_baseNameOf_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix26PrimOpTest_baseNameOf_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -13439,7 +13436,7 @@ _ZN7testing7MatcherIRKN3nix5ValueEED2Ev.exit:     ; preds = %123, %_ZNK7testing8
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix21PrimOpTest_dirOf_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix21PrimOpTest_dirOf_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -14264,7 +14261,7 @@ _ZN7testing7MatcherIRKN3nix5ValueEED2Ev.exit:     ; preds = %123, %_ZNK7testing8
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix26PrimOpTest_attrValues_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix26PrimOpTest_attrValues_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -14447,7 +14444,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix23PrimOpTest_getAttr_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix23PrimOpTest_getAttr_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -14551,7 +14548,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn.pn = phi { ptr, i32 } [ %.pn, %32 ], [ %27, %26 ]
   %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %.113 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #28
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #28
   %35 = icmp eq i32 %.113, %34
   br i1 %35, label %36, label %40
 
@@ -14566,7 +14563,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %24
 
 40:                                               ; preds = %33
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #28
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %42 = icmp eq i32 %.113, %41
   %43 = call ptr @__cxa_begin_catch(ptr %.1) #28
   br i1 %42, label %44, label %62
@@ -14724,7 +14721,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix31PrimOpTest_getAttrNotFound_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix31PrimOpTest_getAttrNotFound_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -16527,7 +16524,7 @@ _ZN7testing7MatcherIRKN3nix5ValueEED2Ev.exit:     ; preds = %121, %_ZNK7testing8
 declare { i64, ptr } @_ZN3nix10baseNameOfESt17basic_string_viewIcSt11char_traitsIcEE(i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix32PrimOpTest_unsafeGetAttrPos_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix32PrimOpTest_unsafeGetAttrPos_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -16709,7 +16706,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix23PrimOpTest_hasAttr_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix23PrimOpTest_hasAttr_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -16891,7 +16888,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix31PrimOpTest_hasAttrNotFound_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix31PrimOpTest_hasAttrNotFound_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -17073,7 +17070,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix23PrimOpTest_isAttrs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix23PrimOpTest_isAttrs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -17255,7 +17252,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix28PrimOpTest_isAttrsFalse_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix28PrimOpTest_isAttrsFalse_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -17438,7 +17435,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix27PrimOpTest_removeAttrs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix27PrimOpTest_removeAttrs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -17742,7 +17739,7 @@ _ZN7testing15AssertionResultD2Ev.exit36:          ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix34PrimOpTest_removeAttrsRetains_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix34PrimOpTest_removeAttrsRetains_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -18292,7 +18289,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix36PrimOpTest_listToAttrsEmptyList_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix36PrimOpTest_listToAttrsEmptyList_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -18396,7 +18393,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn.pn = phi { ptr, i32 } [ %.pn, %32 ], [ %27, %26 ]
   %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %.113 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix5ErrorE) #28
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix5ErrorE) #28
   %35 = icmp eq i32 %.113, %34
   br i1 %35, label %36, label %40
 
@@ -18411,7 +18408,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %24
 
 40:                                               ; preds = %33
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #28
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %42 = icmp eq i32 %.113, %41
   %43 = call ptr @__cxa_begin_catch(ptr %.1) #28
   br i1 %42, label %44, label %62
@@ -18569,7 +18566,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix39PrimOpTest_listToAttrsNotFieldName_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix39PrimOpTest_listToAttrsNotFieldName_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -19036,7 +19033,7 @@ _ZN7testing15AssertionResultD2Ev.exit58:          ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix27PrimOpTest_listToAttrs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix27PrimOpTest_listToAttrs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -19503,7 +19500,7 @@ _ZN7testing15AssertionResultD2Ev.exit58:          ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix30PrimOpTest_intersectAttrs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix30PrimOpTest_intersectAttrs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -19943,7 +19940,7 @@ _ZN7testing15AssertionResultD2Ev.exit59:          ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix24PrimOpTest_catAttrs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix24PrimOpTest_catAttrs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -20690,7 +20687,7 @@ _ZN7testing15AssertionResultD2Ev.exit118:         ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix28PrimOpTest_functionArgs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix28PrimOpTest_functionArgs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -22169,7 +22166,7 @@ _ZN7testing7MatcherIRKN3nix5ValueEED2Ev.exit:     ; preds = %121, %_ZNK7testing8
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix24PrimOpTest_mapAttrs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix24PrimOpTest_mapAttrs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -22351,7 +22348,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix22PrimOpTest_isList_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix22PrimOpTest_isList_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -22533,7 +22530,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix27PrimOpTest_isListFalse_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix27PrimOpTest_isListFalse_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -22716,7 +22713,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix23PrimOpTest_elemtAt_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix23PrimOpTest_elemtAt_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -22820,7 +22817,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn.pn = phi { ptr, i32 } [ %.pn, %32 ], [ %27, %26 ]
   %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %.113 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix5ErrorE) #28
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix5ErrorE) #28
   %35 = icmp eq i32 %.113, %34
   br i1 %35, label %36, label %40
 
@@ -22835,7 +22832,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %24
 
 40:                                               ; preds = %33
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #28
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %42 = icmp eq i32 %.113, %41
   %43 = call ptr @__cxa_begin_catch(ptr %.1) #28
   br i1 %42, label %44, label %62
@@ -22993,7 +22990,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix34PrimOpTest_elemtAtOutOfBounds_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix34PrimOpTest_elemtAtOutOfBounds_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -23176,7 +23173,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix20PrimOpTest_head_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix20PrimOpTest_head_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -23280,7 +23277,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn.pn = phi { ptr, i32 } [ %.pn, %32 ], [ %27, %26 ]
   %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %.113 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix5ErrorE) #28
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix5ErrorE) #28
   %35 = icmp eq i32 %.113, %34
   br i1 %35, label %36, label %40
 
@@ -23295,7 +23292,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %24
 
 40:                                               ; preds = %33
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #28
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %42 = icmp eq i32 %.113, %41
   %43 = call ptr @__cxa_begin_catch(ptr %.1) #28
   br i1 %42, label %44, label %62
@@ -23453,7 +23450,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix25PrimOpTest_headEmpty_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix25PrimOpTest_headEmpty_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -23557,7 +23554,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn.pn = phi { ptr, i32 } [ %.pn, %32 ], [ %27, %26 ]
   %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %.113 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix5ErrorE) #28
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix5ErrorE) #28
   %35 = icmp eq i32 %.113, %34
   br i1 %35, label %36, label %40
 
@@ -23572,7 +23569,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %24
 
 40:                                               ; preds = %33
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #28
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %42 = icmp eq i32 %.113, %41
   %43 = call ptr @__cxa_begin_catch(ptr %.1) #28
   br i1 %42, label %44, label %62
@@ -23730,7 +23727,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix29PrimOpTest_headWrongType_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix29PrimOpTest_headWrongType_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -24074,7 +24071,7 @@ _ZN7testing15AssertionResultD2Ev.exit47:          ; preds = %102, %_ZNKSt14defau
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix20PrimOpTest_tail_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix20PrimOpTest_tail_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -24178,7 +24175,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn.pn = phi { ptr, i32 } [ %.pn, %32 ], [ %27, %26 ]
   %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %.113 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix5ErrorE) #28
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix5ErrorE) #28
   %35 = icmp eq i32 %.113, %34
   br i1 %35, label %36, label %40
 
@@ -24193,7 +24190,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %24
 
 40:                                               ; preds = %33
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #28
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %42 = icmp eq i32 %.113, %41
   %43 = call ptr @__cxa_begin_catch(ptr %.1) #28
   br i1 %42, label %44, label %62
@@ -24351,7 +24348,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix25PrimOpTest_tailEmpty_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix25PrimOpTest_tailEmpty_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -25449,7 +25446,7 @@ _ZN7testing7MessageD2Ev.exit224:                  ; preds = %389, %_ZNKSt14defau
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix19PrimOpTest_map_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix19PrimOpTest_map_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -25790,7 +25787,7 @@ _ZN7testing15AssertionResultD2Ev.exit42:          ; preds = %102, %_ZNKSt14defau
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix22PrimOpTest_filter_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix22PrimOpTest_filter_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -25972,7 +25969,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix24PrimOpTest_elemTrue_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix24PrimOpTest_elemTrue_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -26154,7 +26151,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix25PrimOpTest_elemFalse_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix25PrimOpTest_elemFalse_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -26497,7 +26494,7 @@ _ZN7testing15AssertionResultD2Ev.exit47:          ; preds = %102, %_ZNKSt14defau
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix27PrimOpTest_concatLists_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix27PrimOpTest_concatLists_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -26680,7 +26677,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix22PrimOpTest_length_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix22PrimOpTest_length_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -26863,7 +26860,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix26PrimOpTest_foldStrict_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix26PrimOpTest_foldStrict_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -27045,7 +27042,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix23PrimOpTest_anyTrue_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix23PrimOpTest_anyTrue_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -27227,7 +27224,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix24PrimOpTest_anyFalse_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix24PrimOpTest_anyFalse_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -27409,7 +27406,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix23PrimOpTest_allTrue_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix23PrimOpTest_allTrue_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -27591,7 +27588,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix24PrimOpTest_allFalse_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix24PrimOpTest_allFalse_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -28358,7 +28355,7 @@ _ZN7testing8internal11CmpHelperEQImiEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit:
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix23PrimOpTest_genList_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix23PrimOpTest_genList_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -28965,7 +28962,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit78:                  ; preds = %190, %146
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix28PrimOpTest_sortLessThan_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix28PrimOpTest_sortLessThan_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -30488,7 +30485,7 @@ _ZN7testing7MessageD2Ev.exit250:                  ; preds = %572, %_ZNKSt14defau
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix25PrimOpTest_partition_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix25PrimOpTest_partition_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -31095,7 +31092,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit78:                  ; preds = %190, %146
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix25PrimOpTest_concatMap_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix25PrimOpTest_concatMap_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -31278,7 +31275,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix22PrimOpTest_addInt_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix22PrimOpTest_addInt_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -31846,7 +31843,7 @@ _ZN7testing7MatcherIRKN3nix5ValueEED2Ev.exit:     ; preds = %123, %_ZNK7testing8
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix24PrimOpTest_addFloat_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix24PrimOpTest_addFloat_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -32198,7 +32195,7 @@ _ZN7testing15AssertionResultD2Ev.exit41:          ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix29PrimOpTest_addFloatToInt_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix29PrimOpTest_addFloatToInt_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -32381,7 +32378,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix22PrimOpTest_subInt_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix22PrimOpTest_subInt_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -32564,7 +32561,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix24PrimOpTest_subFloat_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix24PrimOpTest_subFloat_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -32916,7 +32913,7 @@ _ZN7testing15AssertionResultD2Ev.exit41:          ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix31PrimOpTest_subFloatFromInt_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix31PrimOpTest_subFloatFromInt_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -33099,7 +33096,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix22PrimOpTest_mulInt_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix22PrimOpTest_mulInt_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -33282,7 +33279,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix24PrimOpTest_mulFloat_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix24PrimOpTest_mulFloat_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -33634,7 +33631,7 @@ _ZN7testing15AssertionResultD2Ev.exit41:          ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix29PrimOpTest_mulFloatMixed_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix29PrimOpTest_mulFloatMixed_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -33817,7 +33814,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix22PrimOpTest_divInt_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix22PrimOpTest_divInt_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -33921,7 +33918,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn.pn = phi { ptr, i32 } [ %.pn, %32 ], [ %27, %26 ]
   %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %.113 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9EvalErrorE) #28
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9EvalErrorE) #28
   %35 = icmp eq i32 %.113, %34
   br i1 %35, label %36, label %40
 
@@ -33936,7 +33933,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %24
 
 40:                                               ; preds = %33
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #28
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %42 = icmp eq i32 %.113, %41
   %43 = call ptr @__cxa_begin_catch(ptr %.1) #28
   br i1 %42, label %44, label %62
@@ -34094,7 +34091,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix26PrimOpTest_divIntZero_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix26PrimOpTest_divIntZero_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -34277,7 +34274,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix24PrimOpTest_divFloat_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix24PrimOpTest_divFloat_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -34381,7 +34378,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn.pn = phi { ptr, i32 } [ %.pn, %32 ], [ %27, %26 ]
   %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %.113 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9EvalErrorE) #28
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9EvalErrorE) #28
   %35 = icmp eq i32 %.113, %34
   br i1 %35, label %36, label %40
 
@@ -34396,7 +34393,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %24
 
 40:                                               ; preds = %33
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #28
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %42 = icmp eq i32 %.113, %41
   %43 = call ptr @__cxa_begin_catch(ptr %.1) #28
   br i1 %42, label %44, label %62
@@ -34554,7 +34551,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix28PrimOpTest_divFloatZero_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix28PrimOpTest_divFloatZero_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -34737,7 +34734,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix21PrimOpTest_bitOr_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix21PrimOpTest_bitOr_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -34920,7 +34917,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix22PrimOpTest_bitXor_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix22PrimOpTest_bitXor_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -35102,7 +35099,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix29PrimOpTest_lessThanFalse_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix29PrimOpTest_lessThanFalse_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -35284,7 +35281,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix28PrimOpTest_lessThanTrue_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix28PrimOpTest_lessThanTrue_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -35388,7 +35385,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn.pn = phi { ptr, i32 } [ %.pn, %32 ], [ %27, %26 ]
   %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %.113 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9EvalErrorE) #28
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9EvalErrorE) #28
   %35 = icmp eq i32 %.113, %34
   br i1 %35, label %36, label %40
 
@@ -35403,7 +35400,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %24
 
 40:                                               ; preds = %33
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #28
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %42 = icmp eq i32 %.113, %41
   %43 = call ptr @__cxa_begin_catch(ptr %.1) #28
   br i1 %42, label %44, label %62
@@ -35561,7 +35558,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix35PrimOpTest_toStringAttrsThrows_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix35PrimOpTest_toStringAttrsThrows_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -35665,7 +35662,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn.pn = phi { ptr, i32 } [ %.pn, %32 ], [ %27, %26 ]
   %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %.113 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9EvalErrorE) #28
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9EvalErrorE) #28
   %35 = icmp eq i32 %.113, %34
   br i1 %35, label %36, label %40
 
@@ -35680,7 +35677,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %24
 
 40:                                               ; preds = %33
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #28
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %42 = icmp eq i32 %.113, %41
   %43 = call ptr @__cxa_begin_catch(ptr %.1) #28
   br i1 %42, label %44, label %62
@@ -35838,7 +35835,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix36PrimOpTest_toStringLambdaThrows_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix36PrimOpTest_toStringLambdaThrows_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -36755,7 +36752,7 @@ _ZNSt11_Tuple_implILm0EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix32ToStringPrimOpTest_toString_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix32ToStringPrimOpTest_toString_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -37409,7 +37406,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix25PrimOpTest_substring_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix25PrimOpTest_substring_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -37592,7 +37589,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix38PrimOpTest_substringSmallerString_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix38PrimOpTest_substringSmallerString_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -37775,7 +37772,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix36PrimOpTest_substringEmptyString_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix36PrimOpTest_substringEmptyString_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -37958,7 +37955,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix28PrimOpTest_stringLength_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix28PrimOpTest_stringLength_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -38141,7 +38138,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix29PrimOpTest_hashStringMd5_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix29PrimOpTest_hashStringMd5_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -38324,7 +38321,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix30PrimOpTest_hashStringSha1_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix30PrimOpTest_hashStringSha1_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -38507,7 +38504,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix32PrimOpTest_hashStringSha256_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix32PrimOpTest_hashStringSha256_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -38690,7 +38687,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix32PrimOpTest_hashStringSha512_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix32PrimOpTest_hashStringSha512_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -38794,7 +38791,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn.pn = phi { ptr, i32 } [ %.pn, %32 ], [ %27, %26 ]
   %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %.113 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix5ErrorE) #28
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix5ErrorE) #28
   %35 = icmp eq i32 %.113, %34
   br i1 %35, label %36, label %40
 
@@ -38809,7 +38806,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %24
 
 40:                                               ; preds = %33
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #28
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #28
   %42 = icmp eq i32 %.113, %41
   %43 = call ptr @__cxa_begin_catch(ptr %.1) #28
   br i1 %42, label %44, label %62
@@ -38967,7 +38964,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix46PrimOpTest_hashStringInvalidHashAlgorithm_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix46PrimOpTest_hashStringInvalidHashAlgorithm_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -39214,7 +39211,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %62, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix23PrimOpTest_nixPath_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix23PrimOpTest_nixPath_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -39461,7 +39458,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %62, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix27PrimOpTest_langVersion_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix27PrimOpTest_langVersion_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -40219,7 +40216,7 @@ _ZN7testing8internal15MatcherBaseImplIN3nix18IsStringEqMatcherPINSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix24PrimOpTest_storeDir_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix24PrimOpTest_storeDir_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -40562,7 +40559,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %99, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix26PrimOpTest_nixVersion_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix26PrimOpTest_nixVersion_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -40908,7 +40905,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %100, %_ZNKSt14defau
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN3nix12EvalSettings16getCurrentSystemB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(2144)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix29PrimOpTest_currentSystem_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix29PrimOpTest_currentSystem_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -41567,7 +41564,7 @@ _ZN7testing15AssertionResultD2Ev.exit58.thread:   ; preds = %_ZN7testing15Assert
 declare void @_ZN7testing8internal30GetBoolAssertionFailureMessageB5cxx11ERKNS_15AssertionResultEPKcS5_S5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix26PrimOpTest_derivation_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix26PrimOpTest_derivation_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -41956,7 +41953,7 @@ _ZN7testing15AssertionResultD2Ev.exit38:          ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix27PrimOpTest_currentTime_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix27PrimOpTest_currentTime_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -42351,7 +42348,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit58: ; pr
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix28PrimOpTest_splitVersion_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix28PrimOpTest_splitVersion_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -42795,7 +42792,7 @@ _ZNSt11_Tuple_implILm0EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEKiEE
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix46CompareVersionsPrimOpTest_compareVersions_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix46CompareVersionsPrimOpTest_compareVersions_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -44160,7 +44157,7 @@ _ZNSt11_Tuple_implILm0EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix40ParseDrvNamePrimOpTest_parseDrvName_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix40ParseDrvNamePrimOpTest_parseDrvName_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -44940,7 +44937,7 @@ _ZN7testing15AssertionResultD2Ev.exit35:          ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix30PrimOpTest_replaceStrings_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix30PrimOpTest_replaceStrings_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -45329,7 +45326,7 @@ _ZN7testing15AssertionResultD2Ev.exit35:          ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix32PrimOpTest_concatStringsSep_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix32PrimOpTest_concatStringsSep_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -46034,7 +46031,7 @@ _ZN7testing15AssertionResultD2Ev.exit109:         ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix22PrimOpTest_split1_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix22PrimOpTest_split1_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -47079,7 +47076,7 @@ _ZN7testing7MessageD2Ev.exit173:                  ; preds = %364, %_ZNKSt14defau
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix22PrimOpTest_split2_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix22PrimOpTest_split2_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -48715,7 +48712,7 @@ _ZN7testing7MatcherIRKN3nix5ValueEED2Ev.exit:     ; preds = %121, %_ZNK7testing8
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix22PrimOpTest_split3_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix22PrimOpTest_split3_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -49405,7 +49402,7 @@ _ZN7testing15AssertionResultD2Ev.exit111:         ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix22PrimOpTest_split4_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix22PrimOpTest_split4_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -49587,7 +49584,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix22PrimOpTest_match1_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix22PrimOpTest_match1_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -49770,7 +49767,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix22PrimOpTest_match2_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix22PrimOpTest_match2_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -50210,7 +50207,7 @@ _ZN7testing15AssertionResultD2Ev.exit59:          ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix22PrimOpTest_match3_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix22PrimOpTest_match3_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -50522,7 +50519,7 @@ _ZN7testing15AssertionResultD2Ev.exit35:          ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix22PrimOpTest_match4_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix22PrimOpTest_match4_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -50705,7 +50702,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix22PrimOpTest_match5_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix22PrimOpTest_match5_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -51100,7 +51097,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit58: ; pr
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix25PrimOpTest_attrNames_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix25PrimOpTest_attrNames_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -51283,7 +51280,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %48, %_ZNKSt14defaul
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix41PrimOpTest_genericClosure_not_strict_Test8TestBodyEv(ptr noundef %0) unnamed_addr #11 align 2 {
+define void @_ZTv0_n48_N3nix41PrimOpTest_genericClosure_not_strict_Test8TestBodyEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -51305,13 +51302,13 @@ define linkonce_odr void @_ZN3nix10PrimOpTestD0Ev(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix10PrimOpTestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix10PrimOpTestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix10PrimOpTestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix10PrimOpTestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
@@ -51340,13 +51337,13 @@ define linkonce_odr void @_ZN3nix11LibExprTestD0Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix11LibExprTestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix11LibExprTestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix11LibExprTestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix11LibExprTestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
@@ -51364,13 +51361,13 @@ define linkonce_odr void @_ZN3nix12LibStoreTestD0Ev(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix12LibStoreTestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix12LibStoreTestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix12LibStoreTestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix12LibStoreTestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
@@ -51551,7 +51548,7 @@ _ZN3nix21PrimOpTest_throw_TestD1Ev.exit:          ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix21PrimOpTest_throw_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix21PrimOpTest_throw_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -51642,7 +51639,7 @@ _ZN3nix21PrimOpTest_throw_TestD1Ev.exit:          ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix21PrimOpTest_throw_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix21PrimOpTest_throw_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -51827,7 +51824,7 @@ _ZN3nix21PrimOpTest_abort_TestD1Ev.exit:          ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix21PrimOpTest_abort_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix21PrimOpTest_abort_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -51918,7 +51915,7 @@ _ZN3nix21PrimOpTest_abort_TestD1Ev.exit:          ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix21PrimOpTest_abort_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix21PrimOpTest_abort_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -52103,7 +52100,7 @@ _ZN3nix20PrimOpTest_ceil_TestD1Ev.exit:           ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix20PrimOpTest_ceil_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix20PrimOpTest_ceil_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -52194,7 +52191,7 @@ _ZN3nix20PrimOpTest_ceil_TestD1Ev.exit:           ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix20PrimOpTest_ceil_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix20PrimOpTest_ceil_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -52379,7 +52376,7 @@ _ZN3nix21PrimOpTest_floor_TestD1Ev.exit:          ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix21PrimOpTest_floor_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix21PrimOpTest_floor_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -52470,7 +52467,7 @@ _ZN3nix21PrimOpTest_floor_TestD1Ev.exit:          ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix21PrimOpTest_floor_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix21PrimOpTest_floor_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -52655,7 +52652,7 @@ _ZN3nix30PrimOpTest_tryEvalFailure_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30PrimOpTest_tryEvalFailure_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix30PrimOpTest_tryEvalFailure_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -52746,7 +52743,7 @@ _ZN3nix30PrimOpTest_tryEvalFailure_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30PrimOpTest_tryEvalFailure_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix30PrimOpTest_tryEvalFailure_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -52931,7 +52928,7 @@ _ZN3nix30PrimOpTest_tryEvalSuccess_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30PrimOpTest_tryEvalSuccess_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix30PrimOpTest_tryEvalSuccess_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -53022,7 +53019,7 @@ _ZN3nix30PrimOpTest_tryEvalSuccess_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30PrimOpTest_tryEvalSuccess_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix30PrimOpTest_tryEvalSuccess_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -53207,7 +53204,7 @@ _ZN3nix22PrimOpTest_getEnv_TestD1Ev.exit:         ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_getEnv_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_getEnv_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -53298,7 +53295,7 @@ _ZN3nix22PrimOpTest_getEnv_TestD1Ev.exit:         ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_getEnv_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_getEnv_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -53483,7 +53480,7 @@ _ZN3nix19PrimOpTest_seq_TestD1Ev.exit:            ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix19PrimOpTest_seq_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix19PrimOpTest_seq_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -53574,7 +53571,7 @@ _ZN3nix19PrimOpTest_seq_TestD1Ev.exit:            ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix19PrimOpTest_seq_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix19PrimOpTest_seq_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -53759,7 +53756,7 @@ _ZN3nix26PrimOpTest_seqNotDeep_TestD1Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_seqNotDeep_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_seqNotDeep_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -53850,7 +53847,7 @@ _ZN3nix26PrimOpTest_seqNotDeep_TestD1Ev.exit:     ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_seqNotDeep_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_seqNotDeep_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -54035,7 +54032,7 @@ _ZN3nix23PrimOpTest_deepSeq_TestD1Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_deepSeq_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_deepSeq_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -54126,7 +54123,7 @@ _ZN3nix23PrimOpTest_deepSeq_TestD1Ev.exit:        ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_deepSeq_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_deepSeq_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -54311,7 +54308,7 @@ _ZN3nix21PrimOpTest_trace_TestD1Ev.exit:          ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix21PrimOpTest_trace_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix21PrimOpTest_trace_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -54402,7 +54399,7 @@ _ZN3nix21PrimOpTest_trace_TestD1Ev.exit:          ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix21PrimOpTest_trace_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix21PrimOpTest_trace_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -54587,7 +54584,7 @@ _ZN3nix27PrimOpTest_placeholder_TestD1Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_placeholder_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_placeholder_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -54678,7 +54675,7 @@ _ZN3nix27PrimOpTest_placeholder_TestD1Ev.exit:    ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_placeholder_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_placeholder_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -54863,7 +54860,7 @@ _ZN3nix26PrimOpTest_baseNameOf_TestD1Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_baseNameOf_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_baseNameOf_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -54954,7 +54951,7 @@ _ZN3nix26PrimOpTest_baseNameOf_TestD1Ev.exit:     ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_baseNameOf_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_baseNameOf_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -55139,7 +55136,7 @@ _ZN3nix21PrimOpTest_dirOf_TestD1Ev.exit:          ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix21PrimOpTest_dirOf_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix21PrimOpTest_dirOf_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -55230,7 +55227,7 @@ _ZN3nix21PrimOpTest_dirOf_TestD1Ev.exit:          ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix21PrimOpTest_dirOf_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix21PrimOpTest_dirOf_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -55415,7 +55412,7 @@ _ZN3nix26PrimOpTest_attrValues_TestD1Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_attrValues_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_attrValues_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -55506,7 +55503,7 @@ _ZN3nix26PrimOpTest_attrValues_TestD1Ev.exit:     ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_attrValues_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_attrValues_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -55691,7 +55688,7 @@ _ZN3nix23PrimOpTest_getAttr_TestD1Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_getAttr_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_getAttr_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -55782,7 +55779,7 @@ _ZN3nix23PrimOpTest_getAttr_TestD1Ev.exit:        ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_getAttr_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_getAttr_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -55967,7 +55964,7 @@ _ZN3nix31PrimOpTest_getAttrNotFound_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZNS
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix31PrimOpTest_getAttrNotFound_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix31PrimOpTest_getAttrNotFound_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -56058,7 +56055,7 @@ _ZN3nix31PrimOpTest_getAttrNotFound_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZNS
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix31PrimOpTest_getAttrNotFound_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix31PrimOpTest_getAttrNotFound_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -56243,7 +56240,7 @@ _ZN3nix32PrimOpTest_unsafeGetAttrPos_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32PrimOpTest_unsafeGetAttrPos_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix32PrimOpTest_unsafeGetAttrPos_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -56334,7 +56331,7 @@ _ZN3nix32PrimOpTest_unsafeGetAttrPos_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32PrimOpTest_unsafeGetAttrPos_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32PrimOpTest_unsafeGetAttrPos_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -56519,7 +56516,7 @@ _ZN3nix23PrimOpTest_hasAttr_TestD1Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_hasAttr_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_hasAttr_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -56610,7 +56607,7 @@ _ZN3nix23PrimOpTest_hasAttr_TestD1Ev.exit:        ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_hasAttr_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_hasAttr_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -56795,7 +56792,7 @@ _ZN3nix31PrimOpTest_hasAttrNotFound_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZNS
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix31PrimOpTest_hasAttrNotFound_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix31PrimOpTest_hasAttrNotFound_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -56886,7 +56883,7 @@ _ZN3nix31PrimOpTest_hasAttrNotFound_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZNS
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix31PrimOpTest_hasAttrNotFound_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix31PrimOpTest_hasAttrNotFound_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -57071,7 +57068,7 @@ _ZN3nix23PrimOpTest_isAttrs_TestD1Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_isAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_isAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -57162,7 +57159,7 @@ _ZN3nix23PrimOpTest_isAttrs_TestD1Ev.exit:        ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_isAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_isAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -57347,7 +57344,7 @@ _ZN3nix28PrimOpTest_isAttrsFalse_TestD1Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_isAttrsFalse_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_isAttrsFalse_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -57438,7 +57435,7 @@ _ZN3nix28PrimOpTest_isAttrsFalse_TestD1Ev.exit:   ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_isAttrsFalse_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_isAttrsFalse_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -57623,7 +57620,7 @@ _ZN3nix27PrimOpTest_removeAttrs_TestD1Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_removeAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_removeAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -57714,7 +57711,7 @@ _ZN3nix27PrimOpTest_removeAttrs_TestD1Ev.exit:    ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_removeAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_removeAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -57899,7 +57896,7 @@ _ZN3nix34PrimOpTest_removeAttrsRetains_TestD1Ev.exit: ; preds = %1, %22, %35, %_
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix34PrimOpTest_removeAttrsRetains_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix34PrimOpTest_removeAttrsRetains_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -57990,7 +57987,7 @@ _ZN3nix34PrimOpTest_removeAttrsRetains_TestD1Ev.exit: ; preds = %1, %26, %39, %_
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix34PrimOpTest_removeAttrsRetains_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix34PrimOpTest_removeAttrsRetains_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -58175,7 +58172,7 @@ _ZN3nix36PrimOpTest_listToAttrsEmptyList_TestD1Ev.exit: ; preds = %1, %22, %35, 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix36PrimOpTest_listToAttrsEmptyList_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix36PrimOpTest_listToAttrsEmptyList_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -58266,7 +58263,7 @@ _ZN3nix36PrimOpTest_listToAttrsEmptyList_TestD1Ev.exit: ; preds = %1, %26, %39, 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix36PrimOpTest_listToAttrsEmptyList_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix36PrimOpTest_listToAttrsEmptyList_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -58451,7 +58448,7 @@ _ZN3nix39PrimOpTest_listToAttrsNotFieldName_TestD1Ev.exit: ; preds = %1, %22, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix39PrimOpTest_listToAttrsNotFieldName_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix39PrimOpTest_listToAttrsNotFieldName_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -58542,7 +58539,7 @@ _ZN3nix39PrimOpTest_listToAttrsNotFieldName_TestD1Ev.exit: ; preds = %1, %26, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix39PrimOpTest_listToAttrsNotFieldName_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix39PrimOpTest_listToAttrsNotFieldName_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -58727,7 +58724,7 @@ _ZN3nix27PrimOpTest_listToAttrs_TestD1Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_listToAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_listToAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -58818,7 +58815,7 @@ _ZN3nix27PrimOpTest_listToAttrs_TestD1Ev.exit:    ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_listToAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_listToAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -59003,7 +59000,7 @@ _ZN3nix30PrimOpTest_intersectAttrs_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30PrimOpTest_intersectAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix30PrimOpTest_intersectAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -59094,7 +59091,7 @@ _ZN3nix30PrimOpTest_intersectAttrs_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30PrimOpTest_intersectAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix30PrimOpTest_intersectAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -59279,7 +59276,7 @@ _ZN3nix24PrimOpTest_catAttrs_TestD1Ev.exit:       ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_catAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_catAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -59370,7 +59367,7 @@ _ZN3nix24PrimOpTest_catAttrs_TestD1Ev.exit:       ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_catAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_catAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -59555,7 +59552,7 @@ _ZN3nix28PrimOpTest_functionArgs_TestD1Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_functionArgs_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_functionArgs_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -59646,7 +59643,7 @@ _ZN3nix28PrimOpTest_functionArgs_TestD1Ev.exit:   ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_functionArgs_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_functionArgs_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -59831,7 +59828,7 @@ _ZN3nix24PrimOpTest_mapAttrs_TestD1Ev.exit:       ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_mapAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_mapAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -59922,7 +59919,7 @@ _ZN3nix24PrimOpTest_mapAttrs_TestD1Ev.exit:       ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_mapAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_mapAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -60107,7 +60104,7 @@ _ZN3nix22PrimOpTest_isList_TestD1Ev.exit:         ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_isList_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_isList_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -60198,7 +60195,7 @@ _ZN3nix22PrimOpTest_isList_TestD1Ev.exit:         ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_isList_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_isList_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -60383,7 +60380,7 @@ _ZN3nix27PrimOpTest_isListFalse_TestD1Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_isListFalse_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_isListFalse_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -60474,7 +60471,7 @@ _ZN3nix27PrimOpTest_isListFalse_TestD1Ev.exit:    ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_isListFalse_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_isListFalse_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -60659,7 +60656,7 @@ _ZN3nix23PrimOpTest_elemtAt_TestD1Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_elemtAt_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_elemtAt_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -60750,7 +60747,7 @@ _ZN3nix23PrimOpTest_elemtAt_TestD1Ev.exit:        ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_elemtAt_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_elemtAt_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -60935,7 +60932,7 @@ _ZN3nix34PrimOpTest_elemtAtOutOfBounds_TestD1Ev.exit: ; preds = %1, %22, %35, %_
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix34PrimOpTest_elemtAtOutOfBounds_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix34PrimOpTest_elemtAtOutOfBounds_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -61026,7 +61023,7 @@ _ZN3nix34PrimOpTest_elemtAtOutOfBounds_TestD1Ev.exit: ; preds = %1, %26, %39, %_
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix34PrimOpTest_elemtAtOutOfBounds_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix34PrimOpTest_elemtAtOutOfBounds_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -61211,7 +61208,7 @@ _ZN3nix20PrimOpTest_head_TestD1Ev.exit:           ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix20PrimOpTest_head_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix20PrimOpTest_head_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -61302,7 +61299,7 @@ _ZN3nix20PrimOpTest_head_TestD1Ev.exit:           ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix20PrimOpTest_head_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix20PrimOpTest_head_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -61487,7 +61484,7 @@ _ZN3nix25PrimOpTest_headEmpty_TestD1Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_headEmpty_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_headEmpty_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -61578,7 +61575,7 @@ _ZN3nix25PrimOpTest_headEmpty_TestD1Ev.exit:      ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_headEmpty_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_headEmpty_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -61763,7 +61760,7 @@ _ZN3nix29PrimOpTest_headWrongType_TestD1Ev.exit:  ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29PrimOpTest_headWrongType_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix29PrimOpTest_headWrongType_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -61854,7 +61851,7 @@ _ZN3nix29PrimOpTest_headWrongType_TestD1Ev.exit:  ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29PrimOpTest_headWrongType_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix29PrimOpTest_headWrongType_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -62039,7 +62036,7 @@ _ZN3nix20PrimOpTest_tail_TestD1Ev.exit:           ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix20PrimOpTest_tail_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix20PrimOpTest_tail_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -62130,7 +62127,7 @@ _ZN3nix20PrimOpTest_tail_TestD1Ev.exit:           ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix20PrimOpTest_tail_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix20PrimOpTest_tail_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -62315,7 +62312,7 @@ _ZN3nix25PrimOpTest_tailEmpty_TestD1Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_tailEmpty_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_tailEmpty_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -62406,7 +62403,7 @@ _ZN3nix25PrimOpTest_tailEmpty_TestD1Ev.exit:      ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_tailEmpty_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_tailEmpty_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -62591,7 +62588,7 @@ _ZN3nix19PrimOpTest_map_TestD1Ev.exit:            ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix19PrimOpTest_map_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix19PrimOpTest_map_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -62682,7 +62679,7 @@ _ZN3nix19PrimOpTest_map_TestD1Ev.exit:            ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix19PrimOpTest_map_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix19PrimOpTest_map_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -62867,7 +62864,7 @@ _ZN3nix22PrimOpTest_filter_TestD1Ev.exit:         ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_filter_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_filter_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -62958,7 +62955,7 @@ _ZN3nix22PrimOpTest_filter_TestD1Ev.exit:         ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_filter_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_filter_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -63143,7 +63140,7 @@ _ZN3nix24PrimOpTest_elemTrue_TestD1Ev.exit:       ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_elemTrue_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_elemTrue_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -63234,7 +63231,7 @@ _ZN3nix24PrimOpTest_elemTrue_TestD1Ev.exit:       ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_elemTrue_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_elemTrue_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -63419,7 +63416,7 @@ _ZN3nix25PrimOpTest_elemFalse_TestD1Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_elemFalse_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_elemFalse_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -63510,7 +63507,7 @@ _ZN3nix25PrimOpTest_elemFalse_TestD1Ev.exit:      ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_elemFalse_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_elemFalse_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -63695,7 +63692,7 @@ _ZN3nix27PrimOpTest_concatLists_TestD1Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_concatLists_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_concatLists_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -63786,7 +63783,7 @@ _ZN3nix27PrimOpTest_concatLists_TestD1Ev.exit:    ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_concatLists_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_concatLists_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -63971,7 +63968,7 @@ _ZN3nix22PrimOpTest_length_TestD1Ev.exit:         ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_length_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_length_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -64062,7 +64059,7 @@ _ZN3nix22PrimOpTest_length_TestD1Ev.exit:         ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_length_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_length_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -64247,7 +64244,7 @@ _ZN3nix26PrimOpTest_foldStrict_TestD1Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_foldStrict_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_foldStrict_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -64338,7 +64335,7 @@ _ZN3nix26PrimOpTest_foldStrict_TestD1Ev.exit:     ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_foldStrict_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_foldStrict_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -64523,7 +64520,7 @@ _ZN3nix23PrimOpTest_anyTrue_TestD1Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_anyTrue_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_anyTrue_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -64614,7 +64611,7 @@ _ZN3nix23PrimOpTest_anyTrue_TestD1Ev.exit:        ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_anyTrue_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_anyTrue_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -64799,7 +64796,7 @@ _ZN3nix24PrimOpTest_anyFalse_TestD1Ev.exit:       ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_anyFalse_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_anyFalse_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -64890,7 +64887,7 @@ _ZN3nix24PrimOpTest_anyFalse_TestD1Ev.exit:       ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_anyFalse_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_anyFalse_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -65075,7 +65072,7 @@ _ZN3nix23PrimOpTest_allTrue_TestD1Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_allTrue_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_allTrue_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -65166,7 +65163,7 @@ _ZN3nix23PrimOpTest_allTrue_TestD1Ev.exit:        ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_allTrue_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_allTrue_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -65351,7 +65348,7 @@ _ZN3nix24PrimOpTest_allFalse_TestD1Ev.exit:       ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_allFalse_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_allFalse_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -65442,7 +65439,7 @@ _ZN3nix24PrimOpTest_allFalse_TestD1Ev.exit:       ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_allFalse_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_allFalse_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -65627,7 +65624,7 @@ _ZN3nix23PrimOpTest_genList_TestD1Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_genList_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_genList_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -65718,7 +65715,7 @@ _ZN3nix23PrimOpTest_genList_TestD1Ev.exit:        ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_genList_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_genList_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -65903,7 +65900,7 @@ _ZN3nix28PrimOpTest_sortLessThan_TestD1Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_sortLessThan_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_sortLessThan_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -65994,7 +65991,7 @@ _ZN3nix28PrimOpTest_sortLessThan_TestD1Ev.exit:   ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_sortLessThan_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_sortLessThan_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -66179,7 +66176,7 @@ _ZN3nix25PrimOpTest_partition_TestD1Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_partition_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_partition_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -66270,7 +66267,7 @@ _ZN3nix25PrimOpTest_partition_TestD1Ev.exit:      ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_partition_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_partition_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -66455,7 +66452,7 @@ _ZN3nix25PrimOpTest_concatMap_TestD1Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_concatMap_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_concatMap_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -66546,7 +66543,7 @@ _ZN3nix25PrimOpTest_concatMap_TestD1Ev.exit:      ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_concatMap_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_concatMap_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -66731,7 +66728,7 @@ _ZN3nix22PrimOpTest_addInt_TestD1Ev.exit:         ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_addInt_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_addInt_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -66822,7 +66819,7 @@ _ZN3nix22PrimOpTest_addInt_TestD1Ev.exit:         ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_addInt_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_addInt_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -67007,7 +67004,7 @@ _ZN3nix24PrimOpTest_addFloat_TestD1Ev.exit:       ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_addFloat_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_addFloat_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -67098,7 +67095,7 @@ _ZN3nix24PrimOpTest_addFloat_TestD1Ev.exit:       ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_addFloat_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_addFloat_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -67283,7 +67280,7 @@ _ZN3nix29PrimOpTest_addFloatToInt_TestD1Ev.exit:  ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29PrimOpTest_addFloatToInt_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix29PrimOpTest_addFloatToInt_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -67374,7 +67371,7 @@ _ZN3nix29PrimOpTest_addFloatToInt_TestD1Ev.exit:  ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29PrimOpTest_addFloatToInt_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix29PrimOpTest_addFloatToInt_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -67559,7 +67556,7 @@ _ZN3nix22PrimOpTest_subInt_TestD1Ev.exit:         ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_subInt_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_subInt_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -67650,7 +67647,7 @@ _ZN3nix22PrimOpTest_subInt_TestD1Ev.exit:         ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_subInt_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_subInt_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -67835,7 +67832,7 @@ _ZN3nix24PrimOpTest_subFloat_TestD1Ev.exit:       ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_subFloat_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_subFloat_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -67926,7 +67923,7 @@ _ZN3nix24PrimOpTest_subFloat_TestD1Ev.exit:       ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_subFloat_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_subFloat_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -68111,7 +68108,7 @@ _ZN3nix31PrimOpTest_subFloatFromInt_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZNS
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix31PrimOpTest_subFloatFromInt_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix31PrimOpTest_subFloatFromInt_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -68202,7 +68199,7 @@ _ZN3nix31PrimOpTest_subFloatFromInt_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZNS
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix31PrimOpTest_subFloatFromInt_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix31PrimOpTest_subFloatFromInt_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -68387,7 +68384,7 @@ _ZN3nix22PrimOpTest_mulInt_TestD1Ev.exit:         ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_mulInt_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_mulInt_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -68478,7 +68475,7 @@ _ZN3nix22PrimOpTest_mulInt_TestD1Ev.exit:         ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_mulInt_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_mulInt_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -68663,7 +68660,7 @@ _ZN3nix24PrimOpTest_mulFloat_TestD1Ev.exit:       ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_mulFloat_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_mulFloat_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -68754,7 +68751,7 @@ _ZN3nix24PrimOpTest_mulFloat_TestD1Ev.exit:       ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_mulFloat_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_mulFloat_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -68939,7 +68936,7 @@ _ZN3nix29PrimOpTest_mulFloatMixed_TestD1Ev.exit:  ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29PrimOpTest_mulFloatMixed_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix29PrimOpTest_mulFloatMixed_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -69030,7 +69027,7 @@ _ZN3nix29PrimOpTest_mulFloatMixed_TestD1Ev.exit:  ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29PrimOpTest_mulFloatMixed_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix29PrimOpTest_mulFloatMixed_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -69215,7 +69212,7 @@ _ZN3nix22PrimOpTest_divInt_TestD1Ev.exit:         ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_divInt_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_divInt_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -69306,7 +69303,7 @@ _ZN3nix22PrimOpTest_divInt_TestD1Ev.exit:         ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_divInt_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_divInt_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -69491,7 +69488,7 @@ _ZN3nix26PrimOpTest_divIntZero_TestD1Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_divIntZero_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_divIntZero_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -69582,7 +69579,7 @@ _ZN3nix26PrimOpTest_divIntZero_TestD1Ev.exit:     ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_divIntZero_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_divIntZero_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -69767,7 +69764,7 @@ _ZN3nix24PrimOpTest_divFloat_TestD1Ev.exit:       ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_divFloat_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_divFloat_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -69858,7 +69855,7 @@ _ZN3nix24PrimOpTest_divFloat_TestD1Ev.exit:       ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_divFloat_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_divFloat_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -70043,7 +70040,7 @@ _ZN3nix28PrimOpTest_divFloatZero_TestD1Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_divFloatZero_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_divFloatZero_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -70134,7 +70131,7 @@ _ZN3nix28PrimOpTest_divFloatZero_TestD1Ev.exit:   ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_divFloatZero_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_divFloatZero_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -70319,7 +70316,7 @@ _ZN3nix21PrimOpTest_bitOr_TestD1Ev.exit:          ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix21PrimOpTest_bitOr_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix21PrimOpTest_bitOr_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -70410,7 +70407,7 @@ _ZN3nix21PrimOpTest_bitOr_TestD1Ev.exit:          ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix21PrimOpTest_bitOr_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix21PrimOpTest_bitOr_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -70595,7 +70592,7 @@ _ZN3nix22PrimOpTest_bitXor_TestD1Ev.exit:         ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_bitXor_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_bitXor_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -70686,7 +70683,7 @@ _ZN3nix22PrimOpTest_bitXor_TestD1Ev.exit:         ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_bitXor_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_bitXor_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -70871,7 +70868,7 @@ _ZN3nix29PrimOpTest_lessThanFalse_TestD1Ev.exit:  ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29PrimOpTest_lessThanFalse_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix29PrimOpTest_lessThanFalse_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -70962,7 +70959,7 @@ _ZN3nix29PrimOpTest_lessThanFalse_TestD1Ev.exit:  ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29PrimOpTest_lessThanFalse_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix29PrimOpTest_lessThanFalse_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -71147,7 +71144,7 @@ _ZN3nix28PrimOpTest_lessThanTrue_TestD1Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_lessThanTrue_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_lessThanTrue_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -71238,7 +71235,7 @@ _ZN3nix28PrimOpTest_lessThanTrue_TestD1Ev.exit:   ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_lessThanTrue_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_lessThanTrue_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -71423,7 +71420,7 @@ _ZN3nix35PrimOpTest_toStringAttrsThrows_TestD1Ev.exit: ; preds = %1, %22, %35, %
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix35PrimOpTest_toStringAttrsThrows_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix35PrimOpTest_toStringAttrsThrows_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -71514,7 +71511,7 @@ _ZN3nix35PrimOpTest_toStringAttrsThrows_TestD1Ev.exit: ; preds = %1, %26, %39, %
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix35PrimOpTest_toStringAttrsThrows_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix35PrimOpTest_toStringAttrsThrows_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -71699,7 +71696,7 @@ _ZN3nix36PrimOpTest_toStringLambdaThrows_TestD1Ev.exit: ; preds = %1, %22, %35, 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix36PrimOpTest_toStringLambdaThrows_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix36PrimOpTest_toStringLambdaThrows_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -71790,7 +71787,7 @@ _ZN3nix36PrimOpTest_toStringLambdaThrows_TestD1Ev.exit: ; preds = %1, %26, %39, 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix36PrimOpTest_toStringLambdaThrows_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix36PrimOpTest_toStringLambdaThrows_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -71812,13 +71809,13 @@ define linkonce_odr void @_ZN3nix18ToStringPrimOpTestD0Ev(ptr noundef nonnull al
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix18ToStringPrimOpTestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix18ToStringPrimOpTestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix18ToStringPrimOpTestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix18ToStringPrimOpTestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
@@ -71999,7 +71996,7 @@ _ZN3nix32ToStringPrimOpTest_toString_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn1272_N3nix32ToStringPrimOpTest_toString_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZThn1272_N3nix32ToStringPrimOpTest_toString_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1272
   store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32ToStringPrimOpTest_toString_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -72087,14 +72084,14 @@ _ZN3nix32ToStringPrimOpTest_toString_TestD1Ev.exit: ; preds = %1, %23, %36, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn1272_N3nix32ToStringPrimOpTest_toString_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZThn1272_N3nix32ToStringPrimOpTest_toString_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1272
   tail call void @_ZN3nix32ToStringPrimOpTest_toString_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1280) %2) #28
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ToStringPrimOpTest_toString_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ToStringPrimOpTest_toString_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -72185,7 +72182,7 @@ _ZN3nix32ToStringPrimOpTest_toString_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ToStringPrimOpTest_toString_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ToStringPrimOpTest_toString_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -72370,7 +72367,7 @@ _ZN3nix25PrimOpTest_substring_TestD1Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_substring_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_substring_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -72461,7 +72458,7 @@ _ZN3nix25PrimOpTest_substring_TestD1Ev.exit:      ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_substring_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_substring_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -72646,7 +72643,7 @@ _ZN3nix38PrimOpTest_substringSmallerString_TestD1Ev.exit: ; preds = %1, %22, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix38PrimOpTest_substringSmallerString_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix38PrimOpTest_substringSmallerString_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -72737,7 +72734,7 @@ _ZN3nix38PrimOpTest_substringSmallerString_TestD1Ev.exit: ; preds = %1, %26, %39
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix38PrimOpTest_substringSmallerString_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix38PrimOpTest_substringSmallerString_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -72922,7 +72919,7 @@ _ZN3nix36PrimOpTest_substringEmptyString_TestD1Ev.exit: ; preds = %1, %22, %35, 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix36PrimOpTest_substringEmptyString_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix36PrimOpTest_substringEmptyString_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -73013,7 +73010,7 @@ _ZN3nix36PrimOpTest_substringEmptyString_TestD1Ev.exit: ; preds = %1, %26, %39, 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix36PrimOpTest_substringEmptyString_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix36PrimOpTest_substringEmptyString_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -73198,7 +73195,7 @@ _ZN3nix28PrimOpTest_stringLength_TestD1Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_stringLength_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_stringLength_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -73289,7 +73286,7 @@ _ZN3nix28PrimOpTest_stringLength_TestD1Ev.exit:   ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_stringLength_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_stringLength_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -73474,7 +73471,7 @@ _ZN3nix29PrimOpTest_hashStringMd5_TestD1Ev.exit:  ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29PrimOpTest_hashStringMd5_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix29PrimOpTest_hashStringMd5_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -73565,7 +73562,7 @@ _ZN3nix29PrimOpTest_hashStringMd5_TestD1Ev.exit:  ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29PrimOpTest_hashStringMd5_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix29PrimOpTest_hashStringMd5_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -73750,7 +73747,7 @@ _ZN3nix30PrimOpTest_hashStringSha1_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30PrimOpTest_hashStringSha1_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix30PrimOpTest_hashStringSha1_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -73841,7 +73838,7 @@ _ZN3nix30PrimOpTest_hashStringSha1_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30PrimOpTest_hashStringSha1_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix30PrimOpTest_hashStringSha1_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -74026,7 +74023,7 @@ _ZN3nix32PrimOpTest_hashStringSha256_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32PrimOpTest_hashStringSha256_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix32PrimOpTest_hashStringSha256_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -74117,7 +74114,7 @@ _ZN3nix32PrimOpTest_hashStringSha256_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32PrimOpTest_hashStringSha256_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32PrimOpTest_hashStringSha256_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -74302,7 +74299,7 @@ _ZN3nix32PrimOpTest_hashStringSha512_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32PrimOpTest_hashStringSha512_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix32PrimOpTest_hashStringSha512_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -74393,7 +74390,7 @@ _ZN3nix32PrimOpTest_hashStringSha512_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32PrimOpTest_hashStringSha512_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32PrimOpTest_hashStringSha512_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -74578,7 +74575,7 @@ _ZN3nix46PrimOpTest_hashStringInvalidHashAlgorithm_TestD1Ev.exit: ; preds = %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix46PrimOpTest_hashStringInvalidHashAlgorithm_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix46PrimOpTest_hashStringInvalidHashAlgorithm_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -74669,7 +74666,7 @@ _ZN3nix46PrimOpTest_hashStringInvalidHashAlgorithm_TestD1Ev.exit: ; preds = %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix46PrimOpTest_hashStringInvalidHashAlgorithm_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix46PrimOpTest_hashStringInvalidHashAlgorithm_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -74854,7 +74851,7 @@ _ZN3nix23PrimOpTest_nixPath_TestD1Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_nixPath_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_nixPath_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -74945,7 +74942,7 @@ _ZN3nix23PrimOpTest_nixPath_TestD1Ev.exit:        ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_nixPath_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23PrimOpTest_nixPath_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -75130,7 +75127,7 @@ _ZN3nix27PrimOpTest_langVersion_TestD1Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_langVersion_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_langVersion_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -75221,7 +75218,7 @@ _ZN3nix27PrimOpTest_langVersion_TestD1Ev.exit:    ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_langVersion_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_langVersion_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -75406,7 +75403,7 @@ _ZN3nix24PrimOpTest_storeDir_TestD1Ev.exit:       ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_storeDir_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_storeDir_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -75497,7 +75494,7 @@ _ZN3nix24PrimOpTest_storeDir_TestD1Ev.exit:       ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_storeDir_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24PrimOpTest_storeDir_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -75682,7 +75679,7 @@ _ZN3nix26PrimOpTest_nixVersion_TestD1Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_nixVersion_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_nixVersion_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -75773,7 +75770,7 @@ _ZN3nix26PrimOpTest_nixVersion_TestD1Ev.exit:     ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_nixVersion_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_nixVersion_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -75958,7 +75955,7 @@ _ZN3nix29PrimOpTest_currentSystem_TestD1Ev.exit:  ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29PrimOpTest_currentSystem_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix29PrimOpTest_currentSystem_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -76049,7 +76046,7 @@ _ZN3nix29PrimOpTest_currentSystem_TestD1Ev.exit:  ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29PrimOpTest_currentSystem_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix29PrimOpTest_currentSystem_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -76234,7 +76231,7 @@ _ZN3nix26PrimOpTest_derivation_TestD1Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_derivation_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_derivation_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -76325,7 +76322,7 @@ _ZN3nix26PrimOpTest_derivation_TestD1Ev.exit:     ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_derivation_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26PrimOpTest_derivation_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -76510,7 +76507,7 @@ _ZN3nix27PrimOpTest_currentTime_TestD1Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_currentTime_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_currentTime_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -76601,7 +76598,7 @@ _ZN3nix27PrimOpTest_currentTime_TestD1Ev.exit:    ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_currentTime_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27PrimOpTest_currentTime_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -76786,7 +76783,7 @@ _ZN3nix28PrimOpTest_splitVersion_TestD1Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_splitVersion_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_splitVersion_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -76877,7 +76874,7 @@ _ZN3nix28PrimOpTest_splitVersion_TestD1Ev.exit:   ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_splitVersion_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28PrimOpTest_splitVersion_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -76899,13 +76896,13 @@ define linkonce_odr void @_ZN3nix25CompareVersionsPrimOpTestD0Ev(ptr noundef non
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25CompareVersionsPrimOpTestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25CompareVersionsPrimOpTestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25CompareVersionsPrimOpTestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25CompareVersionsPrimOpTestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
@@ -77086,7 +77083,7 @@ _ZN3nix46CompareVersionsPrimOpTest_compareVersions_TestD1Ev.exit: ; preds = %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn1272_N3nix46CompareVersionsPrimOpTest_compareVersions_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZThn1272_N3nix46CompareVersionsPrimOpTest_compareVersions_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1272
   store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46CompareVersionsPrimOpTest_compareVersions_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -77174,14 +77171,14 @@ _ZN3nix46CompareVersionsPrimOpTest_compareVersions_TestD1Ev.exit: ; preds = %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn1272_N3nix46CompareVersionsPrimOpTest_compareVersions_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZThn1272_N3nix46CompareVersionsPrimOpTest_compareVersions_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1272
   tail call void @_ZN3nix46CompareVersionsPrimOpTest_compareVersions_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1280) %2) #28
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix46CompareVersionsPrimOpTest_compareVersions_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix46CompareVersionsPrimOpTest_compareVersions_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -77272,7 +77269,7 @@ _ZN3nix46CompareVersionsPrimOpTest_compareVersions_TestD1Ev.exit: ; preds = %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix46CompareVersionsPrimOpTest_compareVersions_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix46CompareVersionsPrimOpTest_compareVersions_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -77294,13 +77291,13 @@ define linkonce_odr void @_ZN3nix22ParseDrvNamePrimOpTestD0Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22ParseDrvNamePrimOpTestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix22ParseDrvNamePrimOpTestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22ParseDrvNamePrimOpTestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix22ParseDrvNamePrimOpTestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
@@ -77481,7 +77478,7 @@ _ZN3nix40ParseDrvNamePrimOpTest_parseDrvName_TestD1Ev.exit: ; preds = %1, %22, %
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn1272_N3nix40ParseDrvNamePrimOpTest_parseDrvName_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZThn1272_N3nix40ParseDrvNamePrimOpTest_parseDrvName_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1272
   store ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix40ParseDrvNamePrimOpTest_parseDrvName_TestE0_NS_11LibExprTestE, i64 0, i32 0, i64 3), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -77569,14 +77566,14 @@ _ZN3nix40ParseDrvNamePrimOpTest_parseDrvName_TestD1Ev.exit: ; preds = %1, %23, %
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn1272_N3nix40ParseDrvNamePrimOpTest_parseDrvName_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZThn1272_N3nix40ParseDrvNamePrimOpTest_parseDrvName_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1272
   tail call void @_ZN3nix40ParseDrvNamePrimOpTest_parseDrvName_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(1280) %2) #28
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix40ParseDrvNamePrimOpTest_parseDrvName_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix40ParseDrvNamePrimOpTest_parseDrvName_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -77667,7 +77664,7 @@ _ZN3nix40ParseDrvNamePrimOpTest_parseDrvName_TestD1Ev.exit: ; preds = %1, %26, %
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix40ParseDrvNamePrimOpTest_parseDrvName_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix40ParseDrvNamePrimOpTest_parseDrvName_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -77852,7 +77849,7 @@ _ZN3nix30PrimOpTest_replaceStrings_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30PrimOpTest_replaceStrings_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix30PrimOpTest_replaceStrings_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -77943,7 +77940,7 @@ _ZN3nix30PrimOpTest_replaceStrings_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30PrimOpTest_replaceStrings_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix30PrimOpTest_replaceStrings_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -78128,7 +78125,7 @@ _ZN3nix32PrimOpTest_concatStringsSep_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32PrimOpTest_concatStringsSep_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix32PrimOpTest_concatStringsSep_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -78219,7 +78216,7 @@ _ZN3nix32PrimOpTest_concatStringsSep_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32PrimOpTest_concatStringsSep_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32PrimOpTest_concatStringsSep_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -78404,7 +78401,7 @@ _ZN3nix22PrimOpTest_split1_TestD1Ev.exit:         ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_split1_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_split1_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -78495,7 +78492,7 @@ _ZN3nix22PrimOpTest_split1_TestD1Ev.exit:         ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_split1_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_split1_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -78680,7 +78677,7 @@ _ZN3nix22PrimOpTest_split2_TestD1Ev.exit:         ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_split2_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_split2_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -78771,7 +78768,7 @@ _ZN3nix22PrimOpTest_split2_TestD1Ev.exit:         ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_split2_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_split2_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -78956,7 +78953,7 @@ _ZN3nix22PrimOpTest_split3_TestD1Ev.exit:         ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_split3_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_split3_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -79047,7 +79044,7 @@ _ZN3nix22PrimOpTest_split3_TestD1Ev.exit:         ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_split3_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_split3_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -79232,7 +79229,7 @@ _ZN3nix22PrimOpTest_split4_TestD1Ev.exit:         ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_split4_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_split4_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -79323,7 +79320,7 @@ _ZN3nix22PrimOpTest_split4_TestD1Ev.exit:         ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_split4_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_split4_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -79508,7 +79505,7 @@ _ZN3nix22PrimOpTest_match1_TestD1Ev.exit:         ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_match1_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_match1_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -79599,7 +79596,7 @@ _ZN3nix22PrimOpTest_match1_TestD1Ev.exit:         ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_match1_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_match1_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -79784,7 +79781,7 @@ _ZN3nix22PrimOpTest_match2_TestD1Ev.exit:         ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_match2_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_match2_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -79875,7 +79872,7 @@ _ZN3nix22PrimOpTest_match2_TestD1Ev.exit:         ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_match2_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_match2_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -80060,7 +80057,7 @@ _ZN3nix22PrimOpTest_match3_TestD1Ev.exit:         ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_match3_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_match3_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -80151,7 +80148,7 @@ _ZN3nix22PrimOpTest_match3_TestD1Ev.exit:         ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_match3_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_match3_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -80336,7 +80333,7 @@ _ZN3nix22PrimOpTest_match4_TestD1Ev.exit:         ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_match4_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_match4_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -80427,7 +80424,7 @@ _ZN3nix22PrimOpTest_match4_TestD1Ev.exit:         ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_match4_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_match4_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -80612,7 +80609,7 @@ _ZN3nix22PrimOpTest_match5_TestD1Ev.exit:         ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_match5_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_match5_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -80703,7 +80700,7 @@ _ZN3nix22PrimOpTest_match5_TestD1Ev.exit:         ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_match5_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix22PrimOpTest_match5_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -80888,7 +80885,7 @@ _ZN3nix25PrimOpTest_attrNames_TestD1Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_attrNames_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_attrNames_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -80979,7 +80976,7 @@ _ZN3nix25PrimOpTest_attrNames_TestD1Ev.exit:      ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_attrNames_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25PrimOpTest_attrNames_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -81164,7 +81161,7 @@ _ZN3nix41PrimOpTest_genericClosure_not_strict_TestD1Ev.exit: ; preds = %1, %22, 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix41PrimOpTest_genericClosure_not_strict_TestD1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix41PrimOpTest_genericClosure_not_strict_TestD1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -81255,7 +81252,7 @@ _ZN3nix41PrimOpTest_genericClosure_not_strict_TestD1Ev.exit: ; preds = %1, %26, 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix41PrimOpTest_genericClosure_not_strict_TestD0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix41PrimOpTest_genericClosure_not_strict_TestD0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -81265,22 +81262,22 @@ define linkonce_odr void @_ZTv0_n24_N3nix41PrimOpTest_genericClosure_not_strict_
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #14
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #14
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #13
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #14
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
@@ -81330,7 +81327,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix21Pr
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #16
+declare void @llvm.trap() #15
 
 declare void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
@@ -82411,12 +82408,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
 
 declare ptr @__cxa_demangle(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #17
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7testing8internal31CanonicalizeForStdLibVersioningENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
@@ -82552,7 +82549,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %43
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #15
+declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix21PrimOpTest_abort_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
@@ -83070,7 +83067,7 @@ _ZNKSt8__detail15_Hashtable_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pa
 declare noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #18
+declare void @abort() local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -84333,7 +84330,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN3nix13showErrorInfoER
 declare void @_ZNKRSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #15
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix27PrimOpTest_placeholder_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
@@ -89068,10 +89065,10 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %5, %12, %14
 declare void @__cxa_bad_typeid() local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #19
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN7testing8internal23ParamGeneratorInterfaceISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS7_EEEEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
@@ -98467,7 +98464,7 @@ _ZNKSt5ctypeIcE5widenEc.exit265:                  ; preds = %508, %511
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io17bad_format_stringEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #20 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io17bad_format_stringEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #19 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 72) #28
   invoke void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %3 unwind label %4
@@ -99511,7 +99508,7 @@ _ZN5boost10wrapexceptINS_2io17bad_format_stringEED2Ev.exit: ; preds = %1, %.noex
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEED1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEED1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -99546,7 +99543,7 @@ _ZN5boost10wrapexceptINS_2io17bad_format_stringEED2Ev.exit: ; preds = %1, %.noex
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -99588,7 +99585,7 @@ define linkonce_odr noundef ptr @_ZNK5boost2io17bad_format_string4whatEv(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringEED1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringEED1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -99623,7 +99620,7 @@ _ZN5boost10wrapexceptINS_2io17bad_format_stringEED2Ev.exit: ; preds = %1, %.noex
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -101093,7 +101090,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io13too_many_argsEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #20 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io13too_many_argsEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #19 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 72) #28
   invoke void @_ZN5boost10wrapexceptINS_2io13too_many_argsEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %3 unwind label %4
@@ -101985,7 +101982,7 @@ _ZN5boost10wrapexceptINS_2io13too_many_argsEED2Ev.exit: ; preds = %1, %.noexc.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -102020,7 +102017,7 @@ _ZN5boost10wrapexceptINS_2io13too_many_argsEED2Ev.exit: ; preds = %1, %.noexc.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -102062,7 +102059,7 @@ define linkonce_odr noundef ptr @_ZNK5boost2io13too_many_args4whatEv(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -102097,7 +102094,7 @@ _ZN5boost10wrapexceptINS_2io13too_many_argsEED2Ev.exit: ; preds = %1, %.noexc.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -102963,7 +102960,7 @@ _ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -103014,7 +103011,7 @@ _ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -103153,7 +103150,7 @@ define linkonce_odr void @_ZN5boost2io6detail13call_put_lastIcSt11char_traitsIcE
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io12too_few_argsEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #20 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io12too_few_argsEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #19 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 72) #28
   invoke void @_ZN5boost10wrapexceptINS_2io12too_few_argsEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %3 unwind label %4
@@ -103345,7 +103342,7 @@ _ZN5boost10wrapexceptINS_2io12too_few_argsEED2Ev.exit: ; preds = %1, %.noexc.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io12too_few_argsEED1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io12too_few_argsEED1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -103380,7 +103377,7 @@ _ZN5boost10wrapexceptINS_2io12too_few_argsEED2Ev.exit: ; preds = %1, %.noexc.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io12too_few_argsEED0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io12too_few_argsEED0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -103422,7 +103419,7 @@ define linkonce_odr noundef ptr @_ZNK5boost2io12too_few_args4whatEv(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io12too_few_argsEED1Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io12too_few_argsEED1Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -103457,7 +103454,7 @@ _ZN5boost10wrapexceptINS_2io12too_few_argsEED2Ev.exit: ; preds = %1, %.noexc.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io12too_few_argsEED0Ev(ptr noundef %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io12too_few_argsEED0Ev(ptr noundef %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -109655,7 +109652,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 declare void @_ZN7testing8internal26ReportInvalidTestSuiteTypeEPKcNS0_12CodeLocationE(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define linkonce_odr void @_ZN7testing8internal5posix5AbortEv() local_unnamed_addr #21 comdat {
+define linkonce_odr void @_ZN7testing8internal5posix5AbortEv() local_unnamed_addr #20 comdat {
   tail call void @abort() #32
   unreachable
 }
@@ -112270,10 +112267,10 @@ _ZNSt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_strin
 declare void @_ZN7testing8internal23InsertSyntheticTestCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12CodeLocationEb(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @isalnum(i32 noundef) local_unnamed_addr #22
+declare i32 @isalnum(i32 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #22
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #21
 
 ; Function Attrs: nounwind
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -120264,7 +120261,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_primops.cc() #11 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_primops.cc() #10 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = alloca %"struct.testing::internal::CodeLocation", align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
@@ -130680,6 +130677,9 @@ __cxx_global_var_init.485.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #22
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #23
 
@@ -130719,20 +130719,20 @@ attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nofree nosync nounwind memory(none) }
-attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #17 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #20 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #16 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nofree nounwind willreturn memory(read) }
+attributes #19 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nofree nosync nounwind memory(none) }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

@@ -32587,7 +32587,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 65:                                               ; preds = %63, %61
   %.pn.i.i.i = phi { ptr, i32 } [ %64, %63 ], [ %62, %61 ]
   %.05.i.i.i = extractvalue { ptr, i32 } %.pn.i.i.i, 1
-  %66 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix11InvalidPathE) #29
+  %66 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix11InvalidPathE) #29
   %67 = icmp eq i32 %.05.i.i.i, %66
   br i1 %67, label %68, label %74
 
@@ -32637,9 +32637,6 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt3setIN3nix9Stor
 "_ZNSt14_Function_base13_Base_managerIZN3nix5Store13topoSortPathsERKSt3setINS1_9StorePathESt4lessIS4_ESaIS4_EEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
   ret i1 false
 }
-
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #23
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFN3nix5ErrorERKNS0_9StorePathES4_EZNS0_5Store13topoSortPathsERKSt3setIS2_St4lessIS2_ESaIS2_EEE3$_1E9_M_invokeERKSt9_Any_dataS4_S4_"(ptr dead_on_unwind noalias writable sret(%"class.nix::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #5 align 2 personality ptr @__gxx_personality_v0 {
@@ -36337,6 +36334,9 @@ define internal void @_GLOBAL__sub_I_misc.cc() #4 section ".text.startup" {
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #29
   ret void
 }
+
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #24

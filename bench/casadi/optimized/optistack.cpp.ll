@@ -387,7 +387,7 @@ _ZN6casadi4OptiptEv.exit:                         ; preds = %5
   %20 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %21 = extractvalue { ptr, i32 } %20, 1
-  %22 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %22 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %23 = icmp eq i32 %21, %22
   br i1 %23, label %24, label %72
 
@@ -572,9 +572,6 @@ _ZN6casadi4OptiptEv.exit:                         ; preds = %5
 
 declare void @_ZN6casadi8OptiNode8variableExxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8, ptr noundef nonnull align 8 dereferenceable(672), i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #4
-
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -681,7 +678,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112ba
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
@@ -702,7 +699,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
   tail call void @_ZSt9terminatev() #19
   unreachable
@@ -768,7 +765,7 @@ _ZN6casadi4OptiptEv.exit:                         ; preds = %1
   %15 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %16 = extractvalue { ptr, i32 } %15, 1
-  %17 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %17 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %18 = icmp eq i32 %16, %17
   br i1 %18, label %19, label %68
 
@@ -1003,7 +1000,7 @@ _ZN6casadi4OptiptEv.exit:                         ; preds = %5
   %20 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %21 = extractvalue { ptr, i32 } %20, 1
-  %22 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %22 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %23 = icmp eq i32 %21, %22
   br i1 %23, label %24, label %72
 
@@ -1212,7 +1209,7 @@ _ZN6casadi4OptiptEv.exit:                         ; preds = %2
   %16 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %17 = extractvalue { ptr, i32 } %16, 1
-  %18 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %18 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %19 = icmp eq i32 %17, %18
   br i1 %19, label %20, label %69
 
@@ -1424,7 +1421,7 @@ _ZN6casadi4OptiptEv.exit:                         ; preds = %2
   %16 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %17 = extractvalue { ptr, i32 } %16, 1
-  %18 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %18 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %19 = icmp eq i32 %17, %18
   br i1 %19, label %20, label %69
 
@@ -1655,7 +1652,7 @@ _ZN6casadi4OptiptEv.exit:                         ; preds = %1
   %15 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %16 = extractvalue { ptr, i32 } %15, 1
-  %17 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %17 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %18 = icmp eq i32 %16, %17
   br i1 %18, label %19, label %68
 
@@ -1867,7 +1864,7 @@ _ZN6casadi4OptiptEv.exit:                         ; preds = %4
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %20 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %71
 
@@ -2079,7 +2076,7 @@ _ZN6casadi4OptiptEv.exit:                         ; preds = %3
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %70
 
@@ -2291,7 +2288,7 @@ _ZN6casadi4OptiptEv.exit:                         ; preds = %2
   %16 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %17 = extractvalue { ptr, i32 } %16, 1
-  %18 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %18 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %19 = icmp eq i32 %17, %18
   br i1 %19, label %20, label %69
 
@@ -2503,7 +2500,7 @@ _ZN6casadi4OptiptEv.exit:                         ; preds = %3
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %70
 
@@ -2715,7 +2712,7 @@ _ZN6casadi4OptiptEv.exit:                         ; preds = %2
   %16 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %17 = extractvalue { ptr, i32 } %16, 1
-  %18 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %18 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %19 = icmp eq i32 %17, %18
   br i1 %19, label %20, label %69
 
@@ -2930,7 +2927,7 @@ _ZN6casadi4OptiptEv.exit:                         ; preds = %2
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %69
 
@@ -3142,7 +3139,7 @@ _ZN6casadi4OptiptEv.exit:                         ; preds = %2
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %69
 
@@ -3352,7 +3349,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %4
   %19 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %20 = extractvalue { ptr, i32 } %19, 1
-  %21 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %21 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %22 = icmp eq i32 %20, %21
   br i1 %22, label %23, label %71
 
@@ -3564,7 +3561,7 @@ _ZNK6casadi8OptiNode5valueERKNS_6MatrixIdEERKSt6vectorINS_2MXESaIS6_EE.exit: ; p
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %20 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %70
 
@@ -3778,7 +3775,7 @@ _ZNK6casadi8OptiNode5valueERKNS_6MatrixINS_6SXElemEEERKSt6vectorINS_2MXESaIS7_EE
   %19 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %20 = extractvalue { ptr, i32 } %19, 1
-  %21 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %21 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %22 = icmp eq i32 %20, %21
   br i1 %22, label %23, label %71
 
@@ -3988,7 +3985,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %2
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %69
 
@@ -4200,7 +4197,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %2
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %69
 
@@ -4412,7 +4409,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %2
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %69
 
@@ -4624,7 +4621,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %2
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %69
 
@@ -4836,7 +4833,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %2
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %69
 
@@ -5048,7 +5045,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %3
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %20 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %70
 
@@ -5260,7 +5257,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %1
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %69
 
@@ -5645,7 +5642,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %1
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %69
 
@@ -6030,7 +6027,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %1
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %69
 
@@ -6415,7 +6412,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %2
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %69
 
@@ -6795,7 +6792,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %2
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %69
 
@@ -7175,7 +7172,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %2
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %69
 
@@ -7555,7 +7552,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %2
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %69
 
@@ -8005,7 +8002,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %2
 .body:                                            ; preds = %36, %29, %31
   %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %37, %36 ], [ %.pn.i, %29 ]
   %38 = extractvalue { ptr, i32 } %eh.lpad-body, 1
-  %39 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %39 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %40 = icmp eq i32 %38, %39
   br i1 %40, label %41, label %89
 
@@ -8285,7 +8282,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %2
 .body:                                            ; preds = %36, %29, %31
   %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %37, %36 ], [ %.pn.i, %29 ]
   %38 = extractvalue { ptr, i32 } %eh.lpad-body, 1
-  %39 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %39 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %40 = icmp eq i32 %38, %39
   br i1 %40, label %41, label %89
 
@@ -8565,7 +8562,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %2
 .body:                                            ; preds = %36, %29, %31
   %eh.lpad-body = phi { ptr, i32 } [ %32, %31 ], [ %37, %36 ], [ %.pn.i, %29 ]
   %38 = extractvalue { ptr, i32 } %eh.lpad-body, 1
-  %39 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %39 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %40 = icmp eq i32 %38, %39
   br i1 %40, label %41, label %89
 
@@ -8775,7 +8772,7 @@ _ZN6casadi4OptiptEv.exit:                         ; preds = %8
   %23 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %24 = extractvalue { ptr, i32 } %23, 1
-  %25 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %25 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %26 = icmp eq i32 %24, %25
   br i1 %26, label %27, label %75
 
@@ -9035,10 +9032,10 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -9564,7 +9561,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -9619,7 +9616,7 @@ _ZN6casadi4OptiptEv.exit:                         ; preds = %2
   %16 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %17 = extractvalue { ptr, i32 } %16, 1
-  %18 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %18 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %19 = icmp eq i32 %17, %18
   br i1 %19, label %20, label %69
 
@@ -9833,7 +9830,7 @@ _ZN6casadi4OptiptEv.exit:                         ; preds = %3
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %70
 
@@ -10067,7 +10064,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %3
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %20 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %70
 
@@ -10279,7 +10276,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %2
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %69
 
@@ -10491,7 +10488,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %2
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %20 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %70
 
@@ -10703,7 +10700,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %2
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %69
 
@@ -10915,7 +10912,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %3
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %20 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %70
 
@@ -11127,7 +11124,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %4
   %19 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %20 = extractvalue { ptr, i32 } %19, 1
-  %21 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %21 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %22 = icmp eq i32 %20, %21
   br i1 %22, label %23, label %71
 
@@ -11339,7 +11336,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %3
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %20 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %70
 
@@ -11551,7 +11548,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %3
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %20 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %70
 
@@ -11763,7 +11760,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %3
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %20 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %70
 
@@ -11972,7 +11969,7 @@ _ZN6casadi4OptiptEv.exit:                         ; preds = %3
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %70
 
@@ -12184,7 +12181,7 @@ _ZN6casadi4OptiptEv.exit:                         ; preds = %3
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %70
 
@@ -12396,7 +12393,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %2
   %16 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %17 = extractvalue { ptr, i32 } %16, 1
-  %18 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %18 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %19 = icmp eq i32 %17, %18
   br i1 %19, label %20, label %69
 
@@ -12611,7 +12608,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %3
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %20 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %70
 
@@ -12823,7 +12820,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %3
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %20 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %70
 
@@ -13035,7 +13032,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %3
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %20 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %70
 
@@ -13247,7 +13244,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %3
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %20 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %70
 
@@ -13459,7 +13456,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %3
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %20 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %70
 
@@ -13671,7 +13668,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %3
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %20 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %70
 
@@ -13883,7 +13880,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %4
   %19 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %20 = extractvalue { ptr, i32 } %19, 1
-  %21 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %21 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %22 = icmp eq i32 %20, %21
   br i1 %22, label %23, label %71
 
@@ -14555,7 +14552,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit69:                  ; preds = %185, %_ZNSt6vectorI
 declare void @_ZNK6casadi6MatrixIdE12get_elementsEv(ptr dead_on_unwind writable sret(%"class.std::vector.49") align 8, ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6casadi6MatrixIdED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZN6casadi6MatrixIdED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -14614,7 +14611,7 @@ _ZN6casadi4OptiptEv.exit:                         ; preds = %1
   %15 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %16 = extractvalue { ptr, i32 } %15, 1
-  %17 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %17 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %18 = icmp eq i32 %16, %17
   br i1 %18, label %19, label %68
 
@@ -14829,7 +14826,7 @@ _ZN6casadi4OptiptEv.exit:                         ; preds = %3
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %20 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %70
 
@@ -15088,7 +15085,7 @@ _ZNK6casadi8OptiNode3argB5cxx11Ev.exit:           ; preds = %30, %_ZNK6casadi4Op
   %34 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %35 = extractvalue { ptr, i32 } %34, 1
-  %36 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %37 = icmp eq i32 %35, %36
   br i1 %37, label %38, label %86
 
@@ -15295,7 +15292,7 @@ _ZN6casadi4OptiptEv.exit:                         ; preds = %2
   %16 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %17 = extractvalue { ptr, i32 } %16, 1
-  %18 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %18 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %19 = icmp eq i32 %17, %18
   br i1 %19, label %20, label %69
 
@@ -15557,7 +15554,7 @@ _ZNK6casadi8OptiNode3resB5cxx11Ev.exit:           ; preds = %30, %_ZNK6casadi4Op
   %34 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %35 = extractvalue { ptr, i32 } %34, 1
-  %36 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %37 = icmp eq i32 %35, %36
   br i1 %37, label %38, label %86
 
@@ -15768,7 +15765,7 @@ _ZNK6casadi8OptiNode11constraintsEv.exit:         ; preds = %_ZNK6casadi4OptiptE
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %69
 
@@ -16025,7 +16022,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %2
 .body:                                            ; preds = %24, %26
   %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %.pn.i, %24 ]
   %28 = extractvalue { ptr, i32 } %eh.lpad-body, 1
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %30 = icmp eq i32 %28, %29
   br i1 %30, label %31, label %79
 
@@ -16232,7 +16229,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %1
   %15 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %16 = extractvalue { ptr, i32 } %15, 1
-  %17 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %17 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %18 = icmp eq i32 %16, %17
   br i1 %18, label %19, label %68
 
@@ -16447,7 +16444,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %1
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %69
 
@@ -17006,7 +17003,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %1
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %20 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %70
 
@@ -17213,7 +17210,7 @@ _ZN6casadi4OptiptEv.exit:                         ; preds = %1
   %15 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %16 = extractvalue { ptr, i32 } %15, 1
-  %17 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %17 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %18 = icmp eq i32 %16, %17
   br i1 %18, label %19, label %68
 
@@ -17425,7 +17422,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %1
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %20 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %70
 
@@ -17634,7 +17631,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %1
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %20 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %70
 
@@ -17869,7 +17866,7 @@ define void @_ZN6casadi12OptiAdvanced18mark_problem_dirtyEb(ptr noundef nonnull 
   %16 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %17 = extractvalue { ptr, i32 } %16, 1
-  %18 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %18 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %19 = icmp eq i32 %17, %18
   br i1 %19, label %20, label %73
 
@@ -18082,7 +18079,7 @@ define void @_ZN6casadi12OptiAdvanced17mark_solver_dirtyEb(ptr noundef nonnull a
   %16 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %17 = extractvalue { ptr, i32 } %16, 1
-  %18 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %18 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %19 = icmp eq i32 %17, %18
   br i1 %19, label %20, label %72
 
@@ -18299,7 +18296,7 @@ _ZN6casadi4OptiptEv.exit:                         ; preds = %2
   %18 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %19 = extractvalue { ptr, i32 } %18, 1
-  %20 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %20 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %70
 
@@ -18506,7 +18503,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %1
   %15 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %16 = extractvalue { ptr, i32 } %15, 1
-  %17 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %17 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %18 = icmp eq i32 %16, %17
   br i1 %18, label %19, label %68
 
@@ -18718,7 +18715,7 @@ _ZNK6casadi4OptiptEv.exit:                        ; preds = %1
   %15 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %16 = extractvalue { ptr, i32 } %15, 1
-  %17 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #17
+  %17 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
   %18 = icmp eq i32 %16, %17
   br i1 %18, label %19, label %68
 
@@ -19026,7 +19023,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
@@ -19036,14 +19033,14 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD0Ev(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK6casadi15CasadiException4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
+define linkonce_odr hidden noundef ptr @_ZNK6casadi15CasadiException4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   ret ptr %3
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -19055,7 +19052,7 @@ declare void @_ZN6casadi6MatrixIdE3nanERKNS_8SparsityE(ptr dead_on_unwind writab
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi6MatrixINS_6SXElemEE8sparsityEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #9
+declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #8
 
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -19281,10 +19278,10 @@ _ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringI
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #9
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN6casadi2MXESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -19412,7 +19409,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(pt
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
@@ -19422,7 +19419,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #9
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -19489,7 +19486,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_d
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr hidden void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -19517,12 +19514,12 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 
 declare void @_ZN6casadi2MXC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #12
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIS8_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %0, ptr %1, ptr %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
@@ -19707,11 +19704,14 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_trait
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_optistack.cpp() #13 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_optistack.cpp() #12 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #17
   ret void
 }
+
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
@@ -19729,16 +19729,16 @@ attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nosync nounwind memory(none) }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nosync nounwind memory(none) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nofree nounwind willreturn memory(argmem: read) }

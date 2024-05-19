@@ -2804,7 +2804,7 @@ lpad7:                                            ; preds = %invoke.cont.i19, %i
 catch.dispatch:                                   ; preds = %lpad7, %lpad.i18, %ehcleanup
   %.pn10 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad7 ], [ %8, %lpad.i18 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn10, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %12
   br i1 %matches, label %catch, label %common.resume
 
@@ -2999,7 +2999,7 @@ lpad7:                                            ; preds = %invoke.cont12, %inv
 catch.dispatch:                                   ; preds = %lpad7, %lpad.i18, %ehcleanup
   %.pn10 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad7 ], [ %8, %lpad.i18 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn10, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %12
   br i1 %matches, label %catch, label %common.resume
 
@@ -3197,7 +3197,7 @@ lpad13:                                           ; preds = %if.then
 catch.dispatch:                                   ; preds = %lpad7.loopexit, %lpad7.loopexit.split-lp, %lpad.i39, %lpad13, %ehcleanup
   %.pn26 = phi { ptr, i32 } [ %10, %lpad13 ], [ %.pn, %ehcleanup ], [ %24, %lpad.i39 ], [ %lpad.loopexit, %lpad7.loopexit ], [ %lpad.loopexit.split-lp, %lpad7.loopexit.split-lp ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn26, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %11
   br i1 %matches, label %catch, label %common.resume
 
@@ -3495,7 +3495,7 @@ lpad12:                                           ; preds = %if.then
 catch.dispatch:                                   ; preds = %lpad7.loopexit, %lpad7.loopexit.split-lp, %lpad.i31, %lpad12, %ehcleanup
   %.pn18 = phi { ptr, i32 } [ %10, %lpad12 ], [ %.pn, %ehcleanup ], [ %24, %lpad.i31 ], [ %lpad.loopexit, %lpad7.loopexit ], [ %lpad.loopexit.split-lp, %lpad7.loopexit.split-lp ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn18, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %11
   br i1 %matches, label %catch, label %common.resume
 
@@ -3737,7 +3737,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %19, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -4043,7 +4043,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %19, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -4267,7 +4267,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %19, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -4508,7 +4508,7 @@ lpad7:                                            ; preds = %invoke.cont.i19, %i
 catch.dispatch:                                   ; preds = %lpad7, %lpad.i18, %ehcleanup
   %.pn10 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad7 ], [ %8, %lpad.i18 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn10, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %12
   br i1 %matches, label %catch, label %common.resume
 
@@ -4743,7 +4743,7 @@ lpad7:                                            ; preds = %invoke.cont12, %inv
 catch.dispatch:                                   ; preds = %lpad7, %lpad.i18, %ehcleanup
   %.pn10 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad7 ], [ %8, %lpad.i18 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn10, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %12
   br i1 %matches, label %catch, label %common.resume
 
@@ -4905,7 +4905,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %19, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -5243,7 +5243,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %19, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -5467,7 +5467,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %19, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -5716,7 +5716,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %19, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -5940,7 +5940,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %19, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -6206,7 +6206,7 @@ lpad7:                                            ; preds = %invoke.cont.i19, %i
 catch.dispatch:                                   ; preds = %lpad7, %lpad.i18, %ehcleanup
   %.pn10 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad7 ], [ %8, %lpad.i18 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn10, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %12
   br i1 %matches, label %catch, label %common.resume
 
@@ -6489,7 +6489,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %19, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -6715,7 +6715,7 @@ lpad12:                                           ; preds = %if.then
 catch.dispatch:                                   ; preds = %lpad7.loopexit, %lpad7.loopexit.split-lp, %lpad.i28, %lpad12, %ehcleanup
   %.pn18 = phi { ptr, i32 } [ %10, %lpad12 ], [ %.pn, %ehcleanup ], [ %24, %lpad.i28 ], [ %lpad.loopexit, %lpad7.loopexit ], [ %lpad.loopexit.split-lp, %lpad7.loopexit.split-lp ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn18, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %11
   br i1 %matches, label %catch, label %common.resume
 
@@ -6952,7 +6952,7 @@ lpad7:                                            ; preds = %invoke.cont.i19, %i
 catch.dispatch:                                   ; preds = %lpad7, %lpad.i18, %ehcleanup
   %.pn10 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad7 ], [ %8, %lpad.i18 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn10, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %12
   br i1 %matches, label %catch, label %common.resume
 
@@ -7132,7 +7132,7 @@ lpad12:                                           ; preds = %if.then
 catch.dispatch:                                   ; preds = %lpad7.loopexit, %lpad7.loopexit.split-lp, %lpad.i28, %lpad12, %ehcleanup
   %.pn18 = phi { ptr, i32 } [ %10, %lpad12 ], [ %.pn, %ehcleanup ], [ %24, %lpad.i28 ], [ %lpad.loopexit, %lpad7.loopexit ], [ %lpad.loopexit.split-lp, %lpad7.loopexit.split-lp ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn18, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %11
   br i1 %matches, label %catch, label %common.resume
 
@@ -7372,7 +7372,7 @@ lpad7:                                            ; preds = %invoke.cont.i19, %i
 catch.dispatch:                                   ; preds = %lpad7, %lpad.i18, %ehcleanup
   %.pn10 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad7 ], [ %8, %lpad.i18 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn10, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %12
   br i1 %matches, label %catch, label %common.resume
 
@@ -7550,7 +7550,7 @@ lpad7:                                            ; preds = %invoke.cont.i19, %i
 catch.dispatch:                                   ; preds = %lpad7, %lpad.i18, %ehcleanup
   %.pn10 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad7 ], [ %8, %lpad.i18 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn10, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %12
   br i1 %matches, label %catch, label %common.resume
 
@@ -7728,7 +7728,7 @@ lpad7:                                            ; preds = %invoke.cont.i19, %i
 catch.dispatch:                                   ; preds = %lpad7, %lpad.i18, %ehcleanup
   %.pn10 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad7 ], [ %8, %lpad.i18 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn10, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %12
   br i1 %matches, label %catch, label %common.resume
 
@@ -7979,7 +7979,7 @@ lpad13:                                           ; preds = %if.then
 catch.dispatch:                                   ; preds = %lpad7.loopexit, %lpad7.loopexit.split-lp, %lpad.i36, %lpad13, %ehcleanup
   %.pn26 = phi { ptr, i32 } [ %10, %lpad13 ], [ %.pn, %ehcleanup ], [ %24, %lpad.i36 ], [ %lpad.loopexit, %lpad7.loopexit ], [ %lpad.loopexit.split-lp, %lpad7.loopexit.split-lp ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn26, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %11
   br i1 %matches, label %catch, label %common.resume
 
@@ -8275,7 +8275,7 @@ lpad12:                                           ; preds = %if.then
 catch.dispatch:                                   ; preds = %lpad7.loopexit, %lpad7.loopexit.split-lp, %lpad.i28, %lpad12, %ehcleanup
   %.pn18 = phi { ptr, i32 } [ %10, %lpad12 ], [ %.pn, %ehcleanup ], [ %24, %lpad.i28 ], [ %lpad.loopexit, %lpad7.loopexit ], [ %lpad.loopexit.split-lp, %lpad7.loopexit.split-lp ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn18, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %11
   br i1 %matches, label %catch, label %common.resume
 
@@ -8576,7 +8576,7 @@ lpad7:                                            ; preds = %invoke.cont.i19, %i
 catch.dispatch:                                   ; preds = %lpad7, %lpad.i18, %ehcleanup
   %.pn10 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad7 ], [ %8, %lpad.i18 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn10, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %12
   br i1 %matches, label %catch, label %common.resume
 
@@ -8770,7 +8770,7 @@ lpad7:                                            ; preds = %invoke.cont.i19, %i
 catch.dispatch:                                   ; preds = %lpad7, %lpad.i18, %ehcleanup
   %.pn10 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad7 ], [ %8, %lpad.i18 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn10, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %12
   br i1 %matches, label %catch, label %common.resume
 
@@ -8970,7 +8970,7 @@ lpad7:                                            ; preds = %invoke.cont.i19, %i
 catch.dispatch:                                   ; preds = %lpad7, %lpad.i18, %ehcleanup
   %.pn10 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad7 ], [ %8, %lpad.i18 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn10, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %12
   br i1 %matches, label %catch, label %common.resume
 
@@ -9340,7 +9340,7 @@ lpad7:                                            ; preds = %invoke.cont.i19, %i
 catch.dispatch:                                   ; preds = %lpad7, %lpad.i18, %ehcleanup
   %.pn10 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad7 ], [ %8, %lpad.i18 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn10, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %12
   br i1 %matches, label %catch, label %common.resume
 
@@ -9575,7 +9575,7 @@ lpad7:                                            ; preds = %invoke.cont12, %inv
 catch.dispatch:                                   ; preds = %lpad7, %lpad.i18, %ehcleanup
   %.pn10 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad7 ], [ %8, %lpad.i18 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn10, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %12
   br i1 %matches, label %catch, label %common.resume
 
@@ -9758,7 +9758,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %19, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -10095,7 +10095,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %19, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -10613,7 +10613,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %19, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -10871,7 +10871,7 @@ lpad9.loopexit.split-lp:                          ; preds = %invoke.cont.i32
 catch.dispatch:                                   ; preds = %lpad9.loopexit, %lpad9.loopexit.split-lp, %lpad.i31, %ehcleanup
   %.pn23 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %9, %lpad.i31 ], [ %lpad.loopexit, %lpad9.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.loopexit.split-lp ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn23, 1
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %15
   br i1 %matches, label %catch, label %common.resume
 
@@ -11195,7 +11195,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %19, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -11574,7 +11574,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %22, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -11817,7 +11817,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %22, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -12044,7 +12044,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %22, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -12271,7 +12271,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %22, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -12514,7 +12514,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %22, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -12757,7 +12757,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %22, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -12984,7 +12984,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %22, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -13211,7 +13211,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %22, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -13438,7 +13438,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %22, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -13665,7 +13665,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %22, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -13892,7 +13892,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %22, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -14119,7 +14119,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %22, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -14346,7 +14346,7 @@ lpad11:                                           ; preds = %invoke.cont.i23.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i22, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %19, %lpad.i22 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -14590,7 +14590,7 @@ lpad7:                                            ; preds = %invoke.cont.i19, %i
 catch.dispatch:                                   ; preds = %lpad7, %lpad.i18, %ehcleanup
   %.pn10 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad7 ], [ %8, %lpad.i18 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn10, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %12
   br i1 %matches, label %catch, label %common.resume
 
@@ -14785,7 +14785,7 @@ lpad7:                                            ; preds = %invoke.cont.i19, %i
 catch.dispatch:                                   ; preds = %lpad7, %lpad.i18, %ehcleanup
   %.pn10 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad7 ], [ %8, %lpad.i18 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn10, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %12
   br i1 %matches, label %catch, label %common.resume
 
@@ -15002,7 +15002,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %22, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -15341,7 +15341,7 @@ lpad7:                                            ; preds = %invoke.cont.i19, %i
 catch.dispatch:                                   ; preds = %lpad7, %lpad.i18, %ehcleanup
   %.pn10 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad7 ], [ %8, %lpad.i18 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn10, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %12
   br i1 %matches, label %catch, label %common.resume
 
@@ -15565,7 +15565,7 @@ lpad12:                                           ; preds = %if.then
 catch.dispatch:                                   ; preds = %lpad7.loopexit, %lpad7.loopexit.split-lp, %lpad.i28, %lpad12, %ehcleanup
   %.pn18 = phi { ptr, i32 } [ %10, %lpad12 ], [ %.pn, %ehcleanup ], [ %24, %lpad.i28 ], [ %lpad.loopexit, %lpad7.loopexit ], [ %lpad.loopexit.split-lp, %lpad7.loopexit.split-lp ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn18, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %11
   br i1 %matches, label %catch, label %common.resume
 
@@ -15823,7 +15823,7 @@ lpad12:                                           ; preds = %if.then
 catch.dispatch:                                   ; preds = %lpad7.loopexit, %lpad7.loopexit.split-lp, %lpad.i31, %lpad12, %ehcleanup
   %.pn18 = phi { ptr, i32 } [ %10, %lpad12 ], [ %.pn, %ehcleanup ], [ %24, %lpad.i31 ], [ %lpad.loopexit, %lpad7.loopexit ], [ %lpad.loopexit.split-lp, %lpad7.loopexit.split-lp ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn18, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %11
   br i1 %matches, label %catch, label %common.resume
 
@@ -16170,7 +16170,7 @@ lpad12:                                           ; preds = %if.then
 catch.dispatch:                                   ; preds = %lpad7.loopexit, %lpad7.loopexit.split-lp, %lpad.i28, %lpad12, %ehcleanup
   %.pn18 = phi { ptr, i32 } [ %10, %lpad12 ], [ %.pn, %ehcleanup ], [ %24, %lpad.i28 ], [ %lpad.loopexit, %lpad7.loopexit ], [ %lpad.loopexit.split-lp, %lpad7.loopexit.split-lp ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn18, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %11
   br i1 %matches, label %catch, label %common.resume
 
@@ -16437,7 +16437,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %19, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -16850,7 +16850,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %19, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -17381,7 +17381,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %19, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -17662,7 +17662,7 @@ lpad12:                                           ; preds = %if.then
 catch.dispatch:                                   ; preds = %lpad7.loopexit, %lpad7.loopexit.split-lp, %lpad.i31, %lpad12, %ehcleanup
   %.pn18 = phi { ptr, i32 } [ %10, %lpad12 ], [ %.pn, %ehcleanup ], [ %24, %lpad.i31 ], [ %lpad.loopexit, %lpad7.loopexit ], [ %lpad.loopexit.split-lp, %lpad7.loopexit.split-lp ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn18, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %11
   br i1 %matches, label %catch, label %common.resume
 
@@ -17964,7 +17964,7 @@ lpad7:                                            ; preds = %invoke.cont.i19, %i
 catch.dispatch:                                   ; preds = %lpad7, %lpad.i18, %ehcleanup
   %.pn10 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %11, %lpad7 ], [ %8, %lpad.i18 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn10, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %12
   br i1 %matches, label %catch, label %common.resume
 
@@ -18232,7 +18232,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %19, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -18456,7 +18456,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %19, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -18741,7 +18741,7 @@ lpad12:                                           ; preds = %if.then
 catch.dispatch:                                   ; preds = %lpad7.loopexit, %lpad7.loopexit.split-lp, %lpad.i31, %lpad12, %ehcleanup
   %.pn18 = phi { ptr, i32 } [ %10, %lpad12 ], [ %.pn, %ehcleanup ], [ %24, %lpad.i31 ], [ %lpad.loopexit, %lpad7.loopexit ], [ %lpad.loopexit.split-lp, %lpad7.loopexit.split-lp ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn18, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %11
   br i1 %matches, label %catch, label %common.resume
 
@@ -19002,7 +19002,7 @@ lpad12:                                           ; preds = %if.then
 catch.dispatch:                                   ; preds = %lpad7.loopexit, %lpad7.loopexit.split-lp, %lpad.i28, %lpad12, %ehcleanup
   %.pn18 = phi { ptr, i32 } [ %10, %lpad12 ], [ %.pn, %ehcleanup ], [ %24, %lpad.i28 ], [ %lpad.loopexit, %lpad7.loopexit ], [ %lpad.loopexit.split-lp, %lpad7.loopexit.split-lp ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn18, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %11
   br i1 %matches, label %catch, label %common.resume
 
@@ -19239,7 +19239,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %19, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -19513,7 +19513,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %19, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -20066,7 +20066,7 @@ lpad11:                                           ; preds = %invoke.cont.i22.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i21, %lpad8, %ehcleanup
   %.pn13 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %19, %lpad.i21 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn13, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -20337,7 +20337,7 @@ lpad12:                                           ; preds = %if.then
 catch.dispatch:                                   ; preds = %lpad7.loopexit, %lpad7.loopexit.split-lp, %lpad.i31, %lpad12, %ehcleanup
   %.pn18 = phi { ptr, i32 } [ %10, %lpad12 ], [ %.pn, %ehcleanup ], [ %24, %lpad.i31 ], [ %lpad.loopexit, %lpad7.loopexit ], [ %lpad.loopexit.split-lp, %lpad7.loopexit.split-lp ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn18, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %11
   br i1 %matches, label %catch, label %common.resume
 
@@ -20676,7 +20676,7 @@ lpad11:                                           ; preds = %invoke.cont.i28.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i27, %lpad8, %ehcleanup
   %.pn19 = phi { ptr, i32 } [ %21, %lpad8 ], [ %.pn, %ehcleanup ], [ %22, %lpad11 ], [ %33, %lpad.i27 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn19, 1
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %23
   br i1 %matches, label %catch, label %common.resume
 
@@ -21204,7 +21204,7 @@ lpad12:                                           ; preds = %if.then
 catch.dispatch:                                   ; preds = %lpad7.loopexit, %lpad7.loopexit.split-lp, %lpad.i31, %lpad12, %ehcleanup
   %.pn18 = phi { ptr, i32 } [ %10, %lpad12 ], [ %.pn, %ehcleanup ], [ %24, %lpad.i31 ], [ %lpad.loopexit, %lpad7.loopexit ], [ %lpad.loopexit.split-lp, %lpad7.loopexit.split-lp ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn18, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %11
   br i1 %matches, label %catch, label %common.resume
 
@@ -21444,7 +21444,7 @@ lpad11:                                           ; preds = %invoke.cont.i26.inv
 catch.dispatch:                                   ; preds = %lpad11, %lpad.i25, %lpad8, %ehcleanup
   %.pn15 = phi { ptr, i32 } [ %7, %lpad8 ], [ %.pn, %ehcleanup ], [ %8, %lpad11 ], [ %28, %lpad.i25 ]
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn15, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6Assimp7Blender5ErrorE) #18
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch, label %common.resume
 
@@ -26217,9 +26217,6 @@ if.end:                                           ; preds = %_ZNKSt3mapINSt7__cx
   ret ptr %add.ptr.i
 }
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #6
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender9Structure19_defaultInitializerILi2EEclINS0_2IDEEEvRT_PKc(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(1042) %0, ptr noundef %message) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
@@ -26272,7 +26269,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
@@ -31263,7 +31260,7 @@ if.end44:                                         ; preds = %_ZSt27__uninitializ
 declare void @__cxa_rethrow() local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIN6Assimp7Blender7PointerESt4pairIKS2_St10shared_ptrINS1_8ElemBaseEEESt10_Select1stIS8_ESt4lessIS2_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -31361,10 +31358,10 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeIN6As
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender2IDD2Ev(ptr noundef nonnull align 8 dereferenceable(1042) %this) unnamed_addr #1 comdat align 2 {
@@ -32664,10 +32661,10 @@ if.end:                                           ; preds = %_ZNSt8_Rb_treeIN6As
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #11
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #11
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
@@ -59932,7 +59929,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #9
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -59987,7 +59984,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #4
 
@@ -63773,6 +63770,9 @@ entry:
   ret ptr null
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #12
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #13
 
@@ -63806,13 +63806,13 @@ attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #3 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nosync nounwind memory(none) }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nosync nounwind memory(none) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

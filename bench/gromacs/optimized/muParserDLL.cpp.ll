@@ -91,7 +91,7 @@ define void @mupSetVarFactory(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
   %9 = extractvalue { ptr, i32 } %7, 1
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %11 = icmp eq i32 %9, %10
   %12 = tail call ptr @__cxa_begin_catch(ptr %8) #17
   br i1 %11, label %13, label %21
@@ -182,9 +182,6 @@ define void @mupSetVarFactory(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 
 declare void @_ZN2mu10ParserBase13SetVarFactoryEPFPdPKcPvES4_(ptr noundef nonnull align 8 dereferenceable(596), ptr noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #4
-
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 declare void @_ZN2mu11ParserErrorC1ENS_11EErrorCodesE(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef) unnamed_addr #0
@@ -197,7 +194,7 @@ declare void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceabl
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
   tail call void @_ZSt9terminatev() #18
   unreachable
@@ -286,10 +283,10 @@ define noundef ptr @mupCreate(i32 noundef %0) local_unnamed_addr #3 personality 
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 declare void @_ZN2mu6ParserC1Ev(ptr noundef nonnull align 8 dereferenceable(596)) unnamed_addr #0
 
@@ -298,7 +295,7 @@ declare void @_ZN2mu9ParserIntC1Ev(ptr noundef nonnull align 8 dereferenceable(5
 declare void @_ZN2mu11ParserErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @mupRelease(ptr noundef %0) local_unnamed_addr #8 {
+define void @mupRelease(ptr noundef %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -344,7 +341,7 @@ define noundef ptr @mupGetVersion(ptr noundef %0) local_unnamed_addr #3 personal
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
   %11 = extractvalue { ptr, i32 } %9, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %13 = icmp eq i32 %11, %12
   %14 = call ptr @__cxa_begin_catch(ptr %10) #17
   br i1 %13, label %15, label %23
@@ -435,7 +432,7 @@ define noundef ptr @mupGetVersion(ptr noundef %0) local_unnamed_addr #3 personal
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
 
 declare void @_ZNK2mu10ParserBase10GetVersionB5cxx11ENS_18EParserVersionInfoE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(596), i32 noundef) local_unnamed_addr #0
 
@@ -455,7 +452,7 @@ define noundef double @mupEval(ptr noundef %0) local_unnamed_addr #3 personality
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
   %8 = extractvalue { ptr, i32 } %6, 1
-  %9 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %10 = icmp eq i32 %8, %9
   %11 = tail call ptr @__cxa_begin_catch(ptr %7) #17
   br i1 %10, label %12, label %20
@@ -579,7 +576,7 @@ define noundef ptr @mupEvalMulti(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %.pn = phi { ptr, i32 } [ %11, %10 ], [ %9, %8 ]
   %.022 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %14 = icmp eq i32 %.023, %13
   %15 = tail call ptr @__cxa_begin_catch(ptr %.022) #17
   br i1 %14, label %16, label %24
@@ -703,7 +700,7 @@ define void @mupEvalBulk(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_u
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
   %9 = extractvalue { ptr, i32 } %7, 1
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %11 = icmp eq i32 %9, %10
   %12 = tail call ptr @__cxa_begin_catch(ptr %8) #17
   br i1 %11, label %13, label %21
@@ -831,7 +828,7 @@ define void @mupSetExpr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 pe
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.020 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %15 = icmp eq i32 %.020, %14
   %16 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %15, label %17, label %25
@@ -959,7 +956,7 @@ define void @mupRemoveVar(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.020 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #17
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %15 = icmp eq i32 %.020, %14
   %16 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %15, label %17, label %25
@@ -1063,7 +1060,7 @@ define void @mupClearVar(ptr noundef %0) local_unnamed_addr #3 personality ptr @
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = extractvalue { ptr, i32 } %5, 1
-  %8 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %8 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %9 = icmp eq i32 %7, %8
   %10 = tail call ptr @__cxa_begin_catch(ptr %6) #17
   br i1 %9, label %11, label %19
@@ -1167,7 +1164,7 @@ define void @mupClearConst(ptr noundef %0) local_unnamed_addr #3 personality ptr
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = extractvalue { ptr, i32 } %5, 1
-  %8 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %8 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %9 = icmp eq i32 %7, %8
   %10 = tail call ptr @__cxa_begin_catch(ptr %6) #17
   br i1 %9, label %11, label %19
@@ -1271,7 +1268,7 @@ define void @mupClearOprt(ptr noundef %0) local_unnamed_addr #3 personality ptr 
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = extractvalue { ptr, i32 } %5, 1
-  %8 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %8 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %9 = icmp eq i32 %7, %8
   %10 = tail call ptr @__cxa_begin_catch(ptr %6) #17
   br i1 %9, label %11, label %19
@@ -1375,7 +1372,7 @@ define void @mupClearFun(ptr noundef %0) local_unnamed_addr #3 personality ptr @
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = extractvalue { ptr, i32 } %5, 1
-  %8 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %8 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %9 = icmp eq i32 %7, %8
   %10 = tail call ptr @__cxa_begin_catch(ptr %6) #17
   br i1 %9, label %11, label %19
@@ -1528,7 +1525,7 @@ define void @mupDefineFun0(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %24 = icmp eq i32 %.022, %23
   %25 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %24, label %26, label %34
@@ -1688,7 +1685,7 @@ define void @mupDefineFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %24 = icmp eq i32 %.022, %23
   %25 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %24, label %26, label %34
@@ -1841,7 +1838,7 @@ define void @mupDefineFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %24 = icmp eq i32 %.022, %23
   %25 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %24, label %26, label %34
@@ -1994,7 +1991,7 @@ define void @mupDefineFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %24 = icmp eq i32 %.022, %23
   %25 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %24, label %26, label %34
@@ -2147,7 +2144,7 @@ define void @mupDefineFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %24 = icmp eq i32 %.022, %23
   %25 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %24, label %26, label %34
@@ -2300,7 +2297,7 @@ define void @mupDefineFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %24 = icmp eq i32 %.022, %23
   %25 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %24, label %26, label %34
@@ -2453,7 +2450,7 @@ define void @mupDefineFun6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %24 = icmp eq i32 %.022, %23
   %25 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %24, label %26, label %34
@@ -2606,7 +2603,7 @@ define void @mupDefineFun7(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %24 = icmp eq i32 %.022, %23
   %25 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %24, label %26, label %34
@@ -2759,7 +2756,7 @@ define void @mupDefineFun8(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %24 = icmp eq i32 %.022, %23
   %25 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %24, label %26, label %34
@@ -2912,7 +2909,7 @@ define void @mupDefineFun9(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %24 = icmp eq i32 %.022, %23
   %25 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %24, label %26, label %34
@@ -3065,7 +3062,7 @@ define void @mupDefineFun10(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %24 = icmp eq i32 %.022, %23
   %25 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %24, label %26, label %34
@@ -3218,7 +3215,7 @@ define void @mupDefineFunUserData0(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %25 = icmp eq i32 %.023, %24
   %26 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %25, label %27, label %35
@@ -3371,7 +3368,7 @@ define void @mupDefineFunUserData1(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %25 = icmp eq i32 %.023, %24
   %26 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %25, label %27, label %35
@@ -3524,7 +3521,7 @@ define void @mupDefineFunUserData2(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %25 = icmp eq i32 %.023, %24
   %26 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %25, label %27, label %35
@@ -3677,7 +3674,7 @@ define void @mupDefineFunUserData3(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %25 = icmp eq i32 %.023, %24
   %26 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %25, label %27, label %35
@@ -3830,7 +3827,7 @@ define void @mupDefineFunUserData4(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %25 = icmp eq i32 %.023, %24
   %26 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %25, label %27, label %35
@@ -3983,7 +3980,7 @@ define void @mupDefineFunUserData5(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %25 = icmp eq i32 %.023, %24
   %26 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %25, label %27, label %35
@@ -4136,7 +4133,7 @@ define void @mupDefineFunUserData6(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %25 = icmp eq i32 %.023, %24
   %26 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %25, label %27, label %35
@@ -4289,7 +4286,7 @@ define void @mupDefineFunUserData7(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %25 = icmp eq i32 %.023, %24
   %26 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %25, label %27, label %35
@@ -4442,7 +4439,7 @@ define void @mupDefineFunUserData8(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %25 = icmp eq i32 %.023, %24
   %26 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %25, label %27, label %35
@@ -4595,7 +4592,7 @@ define void @mupDefineFunUserData9(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %25 = icmp eq i32 %.023, %24
   %26 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %25, label %27, label %35
@@ -4748,7 +4745,7 @@ define void @mupDefineFunUserData10(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %25 = icmp eq i32 %.023, %24
   %26 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %25, label %27, label %35
@@ -4900,7 +4897,7 @@ define void @mupDefineBulkFun0(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %22 = icmp eq i32 %.021, %21
   %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %22, label %24, label %32
@@ -5052,7 +5049,7 @@ define void @mupDefineBulkFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %22 = icmp eq i32 %.021, %21
   %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %22, label %24, label %32
@@ -5204,7 +5201,7 @@ define void @mupDefineBulkFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %22 = icmp eq i32 %.021, %21
   %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %22, label %24, label %32
@@ -5356,7 +5353,7 @@ define void @mupDefineBulkFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %22 = icmp eq i32 %.021, %21
   %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %22, label %24, label %32
@@ -5508,7 +5505,7 @@ define void @mupDefineBulkFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %22 = icmp eq i32 %.021, %21
   %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %22, label %24, label %32
@@ -5660,7 +5657,7 @@ define void @mupDefineBulkFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %22 = icmp eq i32 %.021, %21
   %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %22, label %24, label %32
@@ -5812,7 +5809,7 @@ define void @mupDefineBulkFun6(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %22 = icmp eq i32 %.021, %21
   %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %22, label %24, label %32
@@ -5964,7 +5961,7 @@ define void @mupDefineBulkFun7(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %22 = icmp eq i32 %.021, %21
   %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %22, label %24, label %32
@@ -6116,7 +6113,7 @@ define void @mupDefineBulkFun8(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %22 = icmp eq i32 %.021, %21
   %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %22, label %24, label %32
@@ -6268,7 +6265,7 @@ define void @mupDefineBulkFun9(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %22 = icmp eq i32 %.021, %21
   %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %22, label %24, label %32
@@ -6420,7 +6417,7 @@ define void @mupDefineBulkFun10(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %22 = icmp eq i32 %.021, %21
   %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %22, label %24, label %32
@@ -6572,7 +6569,7 @@ define void @mupDefineBulkFunUserData0(ptr noundef %0, ptr noundef %1, ptr nound
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %23 = icmp eq i32 %.022, %22
   %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %23, label %25, label %33
@@ -6724,7 +6721,7 @@ define void @mupDefineBulkFunUserData1(ptr noundef %0, ptr noundef %1, ptr nound
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %23 = icmp eq i32 %.022, %22
   %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %23, label %25, label %33
@@ -6876,7 +6873,7 @@ define void @mupDefineBulkFunUserData2(ptr noundef %0, ptr noundef %1, ptr nound
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %23 = icmp eq i32 %.022, %22
   %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %23, label %25, label %33
@@ -7028,7 +7025,7 @@ define void @mupDefineBulkFunUserData3(ptr noundef %0, ptr noundef %1, ptr nound
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %23 = icmp eq i32 %.022, %22
   %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %23, label %25, label %33
@@ -7180,7 +7177,7 @@ define void @mupDefineBulkFunUserData4(ptr noundef %0, ptr noundef %1, ptr nound
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %23 = icmp eq i32 %.022, %22
   %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %23, label %25, label %33
@@ -7332,7 +7329,7 @@ define void @mupDefineBulkFunUserData5(ptr noundef %0, ptr noundef %1, ptr nound
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %23 = icmp eq i32 %.022, %22
   %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %23, label %25, label %33
@@ -7484,7 +7481,7 @@ define void @mupDefineBulkFunUserData6(ptr noundef %0, ptr noundef %1, ptr nound
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %23 = icmp eq i32 %.022, %22
   %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %23, label %25, label %33
@@ -7636,7 +7633,7 @@ define void @mupDefineBulkFunUserData7(ptr noundef %0, ptr noundef %1, ptr nound
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %23 = icmp eq i32 %.022, %22
   %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %23, label %25, label %33
@@ -7788,7 +7785,7 @@ define void @mupDefineBulkFunUserData8(ptr noundef %0, ptr noundef %1, ptr nound
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %23 = icmp eq i32 %.022, %22
   %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %23, label %25, label %33
@@ -7940,7 +7937,7 @@ define void @mupDefineBulkFunUserData9(ptr noundef %0, ptr noundef %1, ptr nound
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %23 = icmp eq i32 %.022, %22
   %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %23, label %25, label %33
@@ -8092,7 +8089,7 @@ define void @mupDefineBulkFunUserData10(ptr noundef %0, ptr noundef %1, ptr noun
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %23 = icmp eq i32 %.022, %22
   %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %23, label %25, label %33
@@ -8244,7 +8241,7 @@ define void @mupDefineStrFun1(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %22 = icmp eq i32 %.021, %21
   %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %22, label %24, label %32
@@ -8396,7 +8393,7 @@ define void @mupDefineStrFun2(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %22 = icmp eq i32 %.021, %21
   %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %22, label %24, label %32
@@ -8548,7 +8545,7 @@ define void @mupDefineStrFun3(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %22 = icmp eq i32 %.021, %21
   %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %22, label %24, label %32
@@ -8700,7 +8697,7 @@ define void @mupDefineStrFun4(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %22 = icmp eq i32 %.021, %21
   %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %22, label %24, label %32
@@ -8852,7 +8849,7 @@ define void @mupDefineStrFun5(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %22 = icmp eq i32 %.021, %21
   %23 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %22, label %24, label %32
@@ -9004,7 +9001,7 @@ define void @mupDefineStrFunUserData1(ptr noundef %0, ptr noundef %1, ptr nounde
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %23 = icmp eq i32 %.022, %22
   %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %23, label %25, label %33
@@ -9156,7 +9153,7 @@ define void @mupDefineStrFunUserData2(ptr noundef %0, ptr noundef %1, ptr nounde
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %23 = icmp eq i32 %.022, %22
   %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %23, label %25, label %33
@@ -9308,7 +9305,7 @@ define void @mupDefineStrFunUserData3(ptr noundef %0, ptr noundef %1, ptr nounde
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %23 = icmp eq i32 %.022, %22
   %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %23, label %25, label %33
@@ -9460,7 +9457,7 @@ define void @mupDefineStrFunUserData4(ptr noundef %0, ptr noundef %1, ptr nounde
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %23 = icmp eq i32 %.022, %22
   %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %23, label %25, label %33
@@ -9612,7 +9609,7 @@ define void @mupDefineStrFunUserData5(ptr noundef %0, ptr noundef %1, ptr nounde
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %23 = icmp eq i32 %.022, %22
   %24 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %23, label %25, label %33
@@ -9765,7 +9762,7 @@ define void @mupDefineMultFun(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %24 = icmp eq i32 %.022, %23
   %25 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %24, label %26, label %34
@@ -9918,7 +9915,7 @@ define void @mupDefineMultFunUserData(ptr noundef %0, ptr noundef %1, ptr nounde
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.023 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %25 = icmp eq i32 %.023, %24
   %26 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %25, label %27, label %35
@@ -10047,7 +10044,7 @@ define void @mupDefineOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.024 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %20 = icmp eq i32 %.024, %19
   %21 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %20, label %22, label %30
@@ -10175,7 +10172,7 @@ define void @mupDefineVar(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %16 = icmp eq i32 %.021, %15
   %17 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %16, label %18, label %26
@@ -10303,7 +10300,7 @@ define void @mupDefineBulkVar(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %16 = icmp eq i32 %.021, %15
   %17 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %16, label %18, label %26
@@ -10429,7 +10426,7 @@ define void @mupDefineConst(ptr noundef %0, ptr noundef %1, double noundef %2) l
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.021 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %16 = icmp eq i32 %.021, %15
   %17 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %16, label %18, label %26
@@ -10578,7 +10575,7 @@ define void @mupDefineStrConst(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %.122 = extractvalue { ptr, i32 } %.pn.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %22 = icmp eq i32 %.122, %21
   %23 = call ptr @__cxa_begin_catch(ptr %.1) #17
   br i1 %22, label %24, label %32
@@ -10687,7 +10684,7 @@ define noundef ptr @mupGetExpr(ptr noundef %0) local_unnamed_addr #3 personality
           catch ptr null
   %10 = extractvalue { ptr, i32 } %9, 0
   %11 = extractvalue { ptr, i32 } %9, 1
-  %12 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %12 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %13 = icmp eq i32 %11, %12
   %14 = tail call ptr @__cxa_begin_catch(ptr %10) #17
   br i1 %13, label %15, label %23
@@ -10817,7 +10814,7 @@ define void @mupDefinePostfixOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %18 = icmp eq i32 %.022, %17
   %19 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %18, label %20, label %28
@@ -10947,7 +10944,7 @@ define void @mupDefineInfixOprt(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.022 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %19 = icmp eq i32 %.022, %18
   %20 = call ptr @__cxa_begin_catch(ptr %.0) #17
   br i1 %19, label %21, label %29
@@ -11143,7 +11140,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
   %34 = extractvalue { ptr, i32 } %32, 1
-  %35 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %36 = icmp eq i32 %34, %35
   %37 = call ptr @__cxa_begin_catch(ptr %33) #17
   br i1 %36, label %38, label %46
@@ -11507,7 +11504,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
   %32 = extractvalue { ptr, i32 } %30, 1
-  %33 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %34 = icmp eq i32 %32, %33
   %35 = call ptr @__cxa_begin_catch(ptr %31) #17
   br i1 %34, label %44, label %52
@@ -11633,10 +11630,10 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #10
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #11
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define i32 @mupGetExprVarNum(ptr noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
@@ -11716,7 +11713,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
   %34 = extractvalue { ptr, i32 } %32, 1
-  %35 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %36 = icmp eq i32 %34, %35
   %37 = call ptr @__cxa_begin_catch(ptr %33) #17
   br i1 %36, label %38, label %46
@@ -11875,7 +11872,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
   %32 = extractvalue { ptr, i32 } %30, 1
-  %33 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %34 = icmp eq i32 %32, %33
   %35 = call ptr @__cxa_begin_catch(ptr %31) #17
   br i1 %34, label %36, label %44
@@ -12078,7 +12075,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
   %34 = extractvalue { ptr, i32 } %32, 1
-  %35 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %36 = icmp eq i32 %34, %35
   %37 = call ptr @__cxa_begin_catch(ptr %33) #17
   br i1 %36, label %38, label %46
@@ -12380,7 +12377,7 @@ define void @mupSetArgSep(ptr noundef %0, i8 noundef signext %1) local_unnamed_a
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
   %8 = extractvalue { ptr, i32 } %6, 1
-  %9 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %10 = icmp eq i32 %8, %9
   %11 = tail call ptr @__cxa_begin_catch(ptr %7) #17
   br i1 %10, label %12, label %20
@@ -12484,7 +12481,7 @@ define void @mupResetLocale(ptr noundef %0) local_unnamed_addr #3 personality pt
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
   %7 = extractvalue { ptr, i32 } %5, 1
-  %8 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %8 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %9 = icmp eq i32 %7, %8
   %10 = tail call ptr @__cxa_begin_catch(ptr %6) #17
   br i1 %9, label %11, label %19
@@ -12588,7 +12585,7 @@ define void @mupSetDecSep(ptr noundef %0, i8 noundef signext %1) local_unnamed_a
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
   %8 = extractvalue { ptr, i32 } %6, 1
-  %9 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %10 = icmp eq i32 %8, %9
   %11 = tail call ptr @__cxa_begin_catch(ptr %7) #17
   br i1 %10, label %12, label %20
@@ -12692,7 +12689,7 @@ define void @mupSetThousandsSep(ptr noundef %0, i8 noundef signext %1) local_unn
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
   %8 = extractvalue { ptr, i32 } %6, 1
-  %9 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %10 = icmp eq i32 %8, %9
   %11 = tail call ptr @__cxa_begin_catch(ptr %7) #17
   br i1 %10, label %12, label %20
@@ -12854,7 +12851,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
   %32 = extractvalue { ptr, i32 } %30, 1
-  %33 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %34 = icmp eq i32 %32, %33
   %35 = call ptr @__cxa_begin_catch(ptr %31) #17
   br i1 %34, label %36, label %44
@@ -12992,7 +12989,7 @@ define void @mupAddValIdent(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
   %8 = extractvalue { ptr, i32 } %6, 1
-  %9 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
+  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #17
   %10 = icmp eq i32 %8, %9
   %11 = tail call ptr @__cxa_begin_catch(ptr %7) #17
   br i1 %10, label %12, label %20
@@ -13084,7 +13081,7 @@ define void @mupAddValIdent(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 declare void @_ZN2mu10ParserBase11AddValIdentEPFiPKcPiPdE(ptr noundef nonnull align 8 dereferenceable(596), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @mupError(ptr nocapture noundef %0) local_unnamed_addr #12 {
+define range(i32 0, 2) i32 @mupError(ptr nocapture noundef %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load i8, ptr %2, align 8
   store i8 0, ptr %2, align 8
@@ -13094,14 +13091,14 @@ define range(i32 0, 2) i32 @mupError(ptr nocapture noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @mupErrorReset(ptr nocapture noundef writeonly %0) local_unnamed_addr #13 {
+define void @mupErrorReset(ptr nocapture noundef writeonly %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @mupSetErrorHandler(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #13 {
+define void @mupSetErrorHandler(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
   ret void
@@ -13155,7 +13152,7 @@ define noalias noundef nonnull ptr @mupCreateVar() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @mupReleaseVar(ptr noundef %0) local_unnamed_addr #8 {
+define void @mupReleaseVar(ptr noundef %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %4, label %3
 
@@ -13168,7 +13165,7 @@ define void @mupReleaseVar(ptr noundef %0) local_unnamed_addr #8 {
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_muParserDLL.cpp() #14 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_muParserDLL.cpp() #13 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::allocator", align 1
   %2 = alloca %"class.std::allocator", align 1
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
@@ -13210,6 +13207,9 @@ __cxx_global_var_init.2.exit:                     ; preds = %__cxx_global_var_in
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #14
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
@@ -13223,17 +13223,17 @@ attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nosync nounwind memory(none) }
-attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nosync nounwind memory(none) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #17 = { nounwind }

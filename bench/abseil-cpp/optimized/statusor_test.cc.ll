@@ -14060,7 +14060,7 @@ lpad6:                                            ; preds = %_ZN4absl6StatusC2ER
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
   %9 = extractvalue { ptr, i32 } %7, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
   %matches = icmp eq i32 %9, %10
   br i1 %matches, label %catch, label %catch.dispatch68
 
@@ -14348,7 +14348,7 @@ ehcleanup64:                                      ; preds = %ehcleanup63, %ehcle
 catch.dispatch68:                                 ; preds = %ehcleanup64, %lpad6, %lpad2
   %ehselector.slot.7 = phi i32 [ %ehselector.slot.6, %ehcleanup64 ], [ %9, %lpad6 ], [ %6, %lpad2 ]
   %exn.slot.7 = phi ptr [ %exn.slot.6, %ehcleanup64 ], [ %8, %lpad6 ], [ %5, %lpad2 ]
-  %36 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
   %matches70 = icmp eq i32 %ehselector.slot.7, %36
   br i1 %matches70, label %catch110, label %catch.fallthrough
 
@@ -14362,7 +14362,7 @@ if.then114.critedge:                              ; preds = %if.then5, %invoke.c
           to label %gtest_label_testthrow_378 unwind label %lpad
 
 catch.fallthrough:                                ; preds = %catch.dispatch68
-  %38 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches71 = icmp eq i32 %ehselector.slot.7, %38
   %39 = call ptr @__cxa_begin_catch(ptr %exn.slot.7) #25
   br i1 %matches71, label %catch80, label %catch72
@@ -14554,7 +14554,7 @@ lpad146:                                          ; preds = %_ZN4absl6StatusC2ER
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
   %62 = extractvalue { ptr, i32 } %60, 1
-  %63 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
+  %63 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
   %matches151 = icmp eq i32 %62, %63
   br i1 %matches151, label %catch152, label %catch.dispatch226
 
@@ -14842,7 +14842,7 @@ ehcleanup221:                                     ; preds = %ehcleanup220, %ehcl
 catch.dispatch226:                                ; preds = %ehcleanup221, %lpad146, %lpad142
   %ehselector.slot.18 = phi i32 [ %ehselector.slot.17, %ehcleanup221 ], [ %62, %lpad146 ], [ %59, %lpad142 ]
   %exn.slot.18 = phi ptr [ %exn.slot.17, %ehcleanup221 ], [ %61, %lpad146 ], [ %58, %lpad142 ]
-  %89 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
+  %89 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
   %matches228 = icmp eq i32 %ehselector.slot.18, %89
   br i1 %matches228, label %catch270, label %catch.fallthrough229
 
@@ -14856,7 +14856,7 @@ if.then275.critedge:                              ; preds = %if.then145, %invoke
           to label %gtest_label_testthrow_380 unwind label %lpad137
 
 catch.fallthrough229:                             ; preds = %catch.dispatch226
-  %91 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches230 = icmp eq i32 %ehselector.slot.18, %91
   %92 = call ptr @__cxa_begin_catch(ptr %exn.slot.18) #25
   br i1 %matches230, label %catch240, label %catch231
@@ -15045,9 +15045,6 @@ unreachable:                                      ; preds = %if.end219, %if.end6
 
 declare noundef zeroext i1 @_ZN7testing8internal10AlwaysTrueEv() local_unnamed_addr #0
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #14
-
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4absl17BadStatusOrAccess6statusEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
@@ -15156,7 +15153,7 @@ lpad7:                                            ; preds = %_ZN4absl6StatusC2ER
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = extractvalue { ptr, i32 } %3, 1
-  %6 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
   %matches = icmp eq i32 %5, %6
   br i1 %matches, label %catch, label %catch.dispatch70
 
@@ -15440,7 +15437,7 @@ ehcleanup66:                                      ; preds = %ehcleanup65, %ehcle
 catch.dispatch70:                                 ; preds = %ehcleanup66, %lpad7, %lpad3
   %ehselector.slot.7 = phi i32 [ %ehselector.slot.6, %ehcleanup66 ], [ %5, %lpad7 ], [ %2, %lpad3 ]
   %exn.slot.7 = phi ptr [ %exn.slot.6, %ehcleanup66 ], [ %4, %lpad7 ], [ %1, %lpad3 ]
-  %32 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
   %matches72 = icmp eq i32 %ehselector.slot.7, %32
   br i1 %matches72, label %catch113, label %catch.fallthrough
 
@@ -15454,7 +15451,7 @@ if.then117.critedge:                              ; preds = %invoke.cont4
           to label %gtest_label_testthrow_385 unwind label %lpad79
 
 catch.fallthrough:                                ; preds = %catch.dispatch70
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches73 = icmp eq i32 %ehselector.slot.7, %34
   %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.7) #25
   br i1 %matches73, label %catch83, label %catch74
@@ -15753,7 +15750,7 @@ lpad7:                                            ; preds = %_ZN4absl6StatusC2ER
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
   %9 = extractvalue { ptr, i32 } %7, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
   %matches = icmp eq i32 %9, %10
   br i1 %matches, label %catch, label %catch.dispatch72
 
@@ -16041,7 +16038,7 @@ ehcleanup68:                                      ; preds = %ehcleanup67, %ehcle
 catch.dispatch72:                                 ; preds = %ehcleanup68, %lpad7, %lpad3
   %ehselector.slot.7 = phi i32 [ %ehselector.slot.6, %ehcleanup68 ], [ %9, %lpad7 ], [ %6, %lpad3 ]
   %exn.slot.7 = phi ptr [ %exn.slot.6, %ehcleanup68 ], [ %8, %lpad7 ], [ %5, %lpad3 ]
-  %36 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
   %matches74 = icmp eq i32 %ehselector.slot.7, %36
   br i1 %matches74, label %catch115, label %catch.fallthrough
 
@@ -16055,7 +16052,7 @@ if.then119.critedge:                              ; preds = %if.then6, %invoke.c
           to label %gtest_label_testthrow_390 unwind label %lpad81
 
 catch.fallthrough:                                ; preds = %catch.dispatch72
-  %38 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches75 = icmp eq i32 %ehselector.slot.7, %38
   %39 = call ptr @__cxa_begin_catch(ptr %exn.slot.7) #25
   br i1 %matches75, label %catch85, label %catch76
@@ -16340,7 +16337,7 @@ lpad4:                                            ; preds = %_ZN4absl6StatusC2ER
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
   %8 = extractvalue { ptr, i32 } %6, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
   %matches = icmp eq i32 %8, %9
   br i1 %matches, label %catch, label %catch.dispatch66
 
@@ -16628,7 +16625,7 @@ ehcleanup62:                                      ; preds = %ehcleanup61, %ehcle
 catch.dispatch66:                                 ; preds = %ehcleanup62, %lpad4, %lpad
   %ehselector.slot.7 = phi i32 [ %ehselector.slot.6, %ehcleanup62 ], [ %8, %lpad4 ], [ %5, %lpad ]
   %exn.slot.7 = phi ptr [ %exn.slot.6, %ehcleanup62 ], [ %7, %lpad4 ], [ %4, %lpad ]
-  %35 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
   %matches68 = icmp eq i32 %ehselector.slot.7, %35
   br i1 %matches68, label %catch109, label %catch.fallthrough
 
@@ -16642,7 +16639,7 @@ if.then113.critedge:                              ; preds = %if.then3, %invoke.c
           to label %gtest_label_testthrow_395 unwind label %lpad75
 
 catch.fallthrough:                                ; preds = %catch.dispatch66
-  %37 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches69 = icmp eq i32 %ehselector.slot.7, %37
   %38 = call ptr @__cxa_begin_catch(ptr %exn.slot.7) #25
   br i1 %matches69, label %catch79, label %catch70
@@ -16976,7 +16973,7 @@ lpad7:                                            ; preds = %_ZN4absl6StatusC2ER
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = extractvalue { ptr, i32 } %3, 1
-  %6 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
   %matches = icmp eq i32 %5, %6
   br i1 %matches, label %catch, label %catch.dispatch70
 
@@ -17260,7 +17257,7 @@ ehcleanup66:                                      ; preds = %ehcleanup65, %ehcle
 catch.dispatch70:                                 ; preds = %ehcleanup66, %lpad7, %lpad3
   %ehselector.slot.7 = phi i32 [ %ehselector.slot.6, %ehcleanup66 ], [ %5, %lpad7 ], [ %2, %lpad3 ]
   %exn.slot.7 = phi ptr [ %exn.slot.6, %ehcleanup66 ], [ %4, %lpad7 ], [ %1, %lpad3 ]
-  %32 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
   %matches72 = icmp eq i32 %ehselector.slot.7, %32
   br i1 %matches72, label %catch113, label %catch.fallthrough
 
@@ -17274,7 +17271,7 @@ if.then117.critedge:                              ; preds = %invoke.cont4
           to label %gtest_label_testthrow_400 unwind label %lpad79
 
 catch.fallthrough:                                ; preds = %catch.dispatch70
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches73 = icmp eq i32 %ehselector.slot.7, %34
   %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.7) #25
   br i1 %matches73, label %catch83, label %catch74
@@ -17540,7 +17537,7 @@ lpad7:                                            ; preds = %_ZN4absl6StatusC2ER
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = extractvalue { ptr, i32 } %3, 1
-  %6 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
   %matches = icmp eq i32 %5, %6
   br i1 %matches, label %catch, label %catch.dispatch70
 
@@ -17824,7 +17821,7 @@ ehcleanup66:                                      ; preds = %ehcleanup65, %ehcle
 catch.dispatch70:                                 ; preds = %ehcleanup66, %lpad7, %lpad3
   %ehselector.slot.7 = phi i32 [ %ehselector.slot.6, %ehcleanup66 ], [ %5, %lpad7 ], [ %2, %lpad3 ]
   %exn.slot.7 = phi ptr [ %exn.slot.6, %ehcleanup66 ], [ %4, %lpad7 ], [ %1, %lpad3 ]
-  %32 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
   %matches72 = icmp eq i32 %ehselector.slot.7, %32
   br i1 %matches72, label %catch113, label %catch.fallthrough
 
@@ -17838,7 +17835,7 @@ if.then117.critedge:                              ; preds = %invoke.cont4
           to label %gtest_label_testthrow_405 unwind label %lpad79
 
 catch.fallthrough:                                ; preds = %catch.dispatch70
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches73 = icmp eq i32 %ehselector.slot.7, %34
   %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.7) #25
   br i1 %matches73, label %catch83, label %catch74
@@ -25823,7 +25820,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE16GetDescriberImplINS6_11ValuePolicyIPKNS_16MatcherInterfaceIS5_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE16GetDescriberImplINS6_11ValuePolicyIPKNS_16MatcherInterfaceIS5_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -26489,7 +26486,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN4absl8StatusOrIN12_GLOBAL__N_112CopyDetectorEEEE16GetDescriberImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN4absl8StatusOrIN12_GLOBAL__N_112CopyDetectorEEEE16GetDescriberImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -26665,7 +26662,7 @@ lpad7:                                            ; preds = %_ZN4absl6StatusC2ER
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
   %12 = extractvalue { ptr, i32 } %10, 1
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
   %matches = icmp eq i32 %12, %13
   br i1 %matches, label %catch, label %catch.dispatch65
 
@@ -26939,7 +26936,7 @@ ehcleanup61:                                      ; preds = %ehcleanup60, %ehcle
 catch.dispatch65:                                 ; preds = %ehcleanup61, %lpad7, %lpad3
   %ehselector.slot.7 = phi i32 [ %ehselector.slot.6, %ehcleanup61 ], [ %12, %lpad7 ], [ %9, %lpad3 ]
   %exn.slot.7 = phi ptr [ %exn.slot.6, %ehcleanup61 ], [ %11, %lpad7 ], [ %8, %lpad3 ]
-  %38 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4absl17BadStatusOrAccessE) #25
   %matches67 = icmp eq i32 %ehselector.slot.7, %38
   br i1 %matches67, label %catch108, label %catch.fallthrough
 
@@ -26953,7 +26950,7 @@ if.then112.critedge:                              ; preds = %if.then6, %invoke.c
           to label %gtest_label_testthrow_456 unwind label %lpad74
 
 catch.fallthrough:                                ; preds = %catch.dispatch65
-  %40 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %matches68 = icmp eq i32 %ehselector.slot.7, %40
   %41 = call ptr @__cxa_begin_catch(ptr %exn.slot.7) #25
   br i1 %matches68, label %catch78, label %catch69
@@ -29954,7 +29951,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_13FooEE16GetDescriberImplINS6_11ValuePolicyIPKNS_16MatcherInterfaceIS5_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_13FooEE16GetDescriberImplINS6_11ValuePolicyIPKNS_16MatcherInterfaceIS5_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -30178,7 +30175,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN4absl8StatusOrIN12_GLOBAL__N_13FooEEEE16GetDescriberImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN4absl8StatusOrIN12_GLOBAL__N_13FooEEEE16GetDescriberImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -37247,7 +37244,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_113InPlaceHelperEE16GetDescriberImplINS6_11ValuePolicyIPKNS_16MatcherInterfaceIS5_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_113InPlaceHelperEE16GetDescriberImplINS6_11ValuePolicyIPKNS_16MatcherInterfaceIS5_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -37471,7 +37468,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN4absl8StatusOrIN12_GLOBAL__N_113InPlaceHelperEEEE16GetDescriberImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN4absl8StatusOrIN12_GLOBAL__N_113InPlaceHelperEEEE16GetDescriberImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -41002,7 +40999,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_119MonoIsOkMatcherImplIRKN4absl6StatusEE15MatchAndExplainES4_PN7testing19MatchResultListenerE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %actual_value, ptr nocapture readnone %0) unnamed_addr #16 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_119MonoIsOkMatcherImplIRKN4absl6StatusEE15MatchAndExplainES4_PN7testing19MatchResultListenerE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %actual_value, ptr nocapture readnone %0) unnamed_addr #15 align 2 {
 entry:
   %1 = load i64, ptr %actual_value, align 8
   %cmp.i = icmp eq i64 %1, 1
@@ -53170,7 +53167,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEE16GetDescriberImplINS6_11ValuePolicyIPKNS_16MatcherInterfaceIS5_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEE16GetDescriberImplINS6_11ValuePolicyIPKNS_16MatcherInterfaceIS5_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -53394,7 +53391,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN4absl8StatusOrIN12_GLOBAL__N_126ImplicitConstructibleFromAEEEE16GetDescriberImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN4absl8StatusOrIN12_GLOBAL__N_126ImplicitConstructibleFromAEEEE16GetDescriberImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -57428,7 +57425,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEE16GetDescriberImplINS6_11ValuePolicyIPKNS_16MatcherInterfaceIS5_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEE16GetDescriberImplINS6_11ValuePolicyIPKNS_16MatcherInterfaceIS5_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -57652,7 +57649,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN4absl8StatusOrIN12_GLOBAL__N_126ExplicitConstructibleFromAEEEE16GetDescriberImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN4absl8StatusOrIN12_GLOBAL__N_126ExplicitConstructibleFromAEEEE16GetDescriberImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -61737,7 +61734,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_129ImplicitConstructibleFromBoolEE16GetDescriberImplINS6_11ValuePolicyIPKNS_16MatcherInterfaceIS5_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_129ImplicitConstructibleFromBoolEE16GetDescriberImplINS6_11ValuePolicyIPKNS_16MatcherInterfaceIS5_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -61961,7 +61958,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN4absl8StatusOrIN12_GLOBAL__N_129ImplicitConstructibleFromBoolEEEE16GetDescriberImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN4absl8StatusOrIN12_GLOBAL__N_129ImplicitConstructibleFromBoolEEEE16GetDescriberImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -63694,7 +63691,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_119MonoIsOkMatcherImplIRKN4absl8StatusOrINS_29ImplicitConstructibleFromBoolEEEE15MatchAndExplainES6_PN7testing19MatchResultListenerE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %actual_value, ptr nocapture readnone %0) unnamed_addr #16 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_119MonoIsOkMatcherImplIRKN4absl8StatusOrINS_29ImplicitConstructibleFromBoolEEEE15MatchAndExplainES6_PN7testing19MatchResultListenerE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %actual_value, ptr nocapture readnone %0) unnamed_addr #15 align 2 {
 entry:
   %1 = load i64, ptr %actual_value, align 8
   %cmp.i = icmp eq i64 %1, 1
@@ -75043,7 +75040,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_128ExplicitConstructibleFromIntEE16GetDescriberImplINS6_11ValuePolicyIPKNS_16MatcherInterfaceIS5_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_128ExplicitConstructibleFromIntEE16GetDescriberImplINS6_11ValuePolicyIPKNS_16MatcherInterfaceIS5_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -75267,7 +75264,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN4absl8StatusOrIN12_GLOBAL__N_128ExplicitConstructibleFromIntEEEE16GetDescriberImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN4absl8StatusOrIN12_GLOBAL__N_128ExplicitConstructibleFromIntEEEE16GetDescriberImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -80287,7 +80284,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N12_GLOBAL__N_17DerivedD0Ev(ptr noundef %this) unnamed_addr #17 align 2 {
+define internal void @_ZThn16_N12_GLOBAL__N_17DerivedD0Ev(ptr noundef %this) unnamed_addr #16 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
@@ -80991,7 +80988,7 @@ _ZN7testing8internal11MatcherBaseIRKSt10unique_ptrIN12_GLOBAL__N_15Base1ESt14def
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZN7testing8internal11MatcherBaseIRKSt10unique_ptrIN12_GLOBAL__N_15Base1ESt14default_deleteIS4_EEE19MatchAndExplainImplINSA_11ValuePolicyINS0_9NeMatcherIDnEELb1EEEEEDTcldtclsrT_3Getfp_E15MatchAndExplainfp0_clptfp1_6streamEEERKSA_S9_PNS_19MatchResultListenerE(ptr nocapture nonnull readnone align 8 %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %value, ptr nocapture readonly %listener) #16 align 2 {
+define internal noundef zeroext i1 @_ZN7testing8internal11MatcherBaseIRKSt10unique_ptrIN12_GLOBAL__N_15Base1ESt14default_deleteIS4_EEE19MatchAndExplainImplINSA_11ValuePolicyINS0_9NeMatcherIDnEELb1EEEEEDTcldtclsrT_3Getfp_E15MatchAndExplainfp0_clptfp1_6streamEEERKSA_S9_PNS_19MatchResultListenerE(ptr nocapture nonnull readnone align 8 %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %value, ptr nocapture readonly %listener) #15 align 2 {
 entry:
   %value.val = load ptr, ptr %value, align 8
   %cmp.i.i.i.i = icmp ne ptr %value.val, null
@@ -81202,7 +81199,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN4absl8StatusOrISt10unique_ptrIN12_GLOBAL__N_15Base1ESt14default_deleteIS6_EEEEE16GetDescriberImplINSD_11ValuePolicyIPKNS_16MatcherInterfaceISC_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKSD_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN4absl8StatusOrISt10unique_ptrIN12_GLOBAL__N_15Base1ESt14default_deleteIS6_EEEEE16GetDescriberImplINSD_11ValuePolicyIPKNS_16MatcherInterfaceISC_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKSD_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -85602,7 +85599,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN4absl8StatusOrINS3_IN12_GLOBAL__N_112CopyDetectorEEEEEE16GetDescriberImplINSA_11ValuePolicyIPKNS_16MatcherInterfaceIS9_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKSA_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN4absl8StatusOrINS3_IN12_GLOBAL__N_112CopyDetectorEEEEEE16GetDescriberImplINSA_11ValuePolicyIPKNS_16MatcherInterfaceIS9_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKSA_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -85666,7 +85663,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_119MonoIsOkMatcherImplIRKN4absl8StatusOrINS2_INS_12CopyDetectorEEEEEE15MatchAndExplainES7_PN7testing19MatchResultListenerE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %actual_value, ptr nocapture readnone %0) unnamed_addr #16 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_119MonoIsOkMatcherImplIRKN4absl8StatusOrINS2_INS_12CopyDetectorEEEEEE15MatchAndExplainES7_PN7testing19MatchResultListenerE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %actual_value, ptr nocapture readnone %0) unnamed_addr #15 align 2 {
 entry:
   %1 = load i64, ptr %actual_value, align 8
   %cmp.i = icmp eq i64 %1, 1
@@ -92061,7 +92058,7 @@ _ZN4absl17internal_statusor12StatusOrDataISt3anyED2Ev.exit: ; preds = %_ZN4absl6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNSt3any17_Manager_internalIN12_GLOBAL__N_112CopyDetectorEE9_S_manageENS_3_OpEPKS_PNS_4_ArgE(i32 noundef %__which, ptr noundef %__any, ptr nocapture noundef %__arg) #18 align 2 {
+define internal void @_ZNSt3any17_Manager_internalIN12_GLOBAL__N_112CopyDetectorEE9_S_manageENS_3_OpEPKS_PNS_4_ArgE(i32 noundef %__which, ptr noundef %__any, ptr nocapture noundef %__arg) #17 align 2 {
 entry:
   %_M_storage = getelementptr inbounds i8, ptr %__any, i64 8
   switch i32 %__which, label %sw.epilog [
@@ -93934,7 +93931,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_119MonoIsOkMatcherImplIRKN4absl8StatusOrISt3anyEEE15MatchAndExplainES6_PN7testing19MatchResultListenerE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %actual_value, ptr nocapture readnone %0) unnamed_addr #16 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_119MonoIsOkMatcherImplIRKN4absl8StatusOrISt3anyEEE15MatchAndExplainES6_PN7testing19MatchResultListenerE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %actual_value, ptr nocapture readnone %0) unnamed_addr #15 align 2 {
 entry:
   %1 = load i64, ptr %actual_value, align 8
   %cmp.i = icmp eq i64 %1, 1
@@ -128098,7 +128095,7 @@ terminate.lpad:                                   ; preds = %if.then
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_statusor_test.cc() #19 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_statusor_test.cc() #18 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i2728 = alloca %"struct.testing::internal::CodeLocation", align 8
   %ref.tmp.i2729 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -136671,6 +136668,9 @@ __cxx_global_var_init.216.exit:                   ; preds = %invoke.cont10.i2752
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #19
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #20
 
@@ -136709,12 +136709,12 @@ attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nosync nounwind memory(none) }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nofree nosync nounwind memory(none) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

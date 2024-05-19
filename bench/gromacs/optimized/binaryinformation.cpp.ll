@@ -4835,7 +4835,7 @@ define void @_ZN3gmx22printBinaryInformationEP8_IO_FILERKNS_15IProgramContextERK
 11:                                               ; preds = %9, %7
   %.pn = phi { ptr, i32 } [ %10, %9 ], [ %8, %7 ]
   %.07 = extractvalue { ptr, i32 } %.pn, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #16
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #16
   %13 = icmp eq i32 %.07, %12
   br i1 %13, label %14, label %19
 
@@ -4865,9 +4865,6 @@ define void @_ZN3gmx22printBinaryInformationEP8_IO_FILERKNS_15IProgramContextERK
   call void @__clang_call_terminate(ptr %22) #18
   unreachable
 }
-
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #12
 
 ; Function Attrs: noreturn
 declare void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #9
@@ -5127,6 +5124,9 @@ declare noundef ptr @_Z26getGpuImplementationStringv() local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #2
+
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13

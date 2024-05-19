@@ -3129,7 +3129,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i129: ; preds = %_ZN5Yosys7hashl
 .body159:                                         ; preds = %.loopexit349, %.loopexit.split-lp350, %831, %813, %.body226, %.body313
   %.pn.i78 = phi { ptr, i32 } [ %eh.lpad-body314, %.body313 ], [ %lpad.phi358, %831 ], [ %807, %813 ], [ %807, %.body226 ], [ %lpad.loopexit351, %.loopexit349 ], [ %lpad.loopexit.split-lp352, %.loopexit.split-lp350 ]
   %.05.i79 = extractvalue { ptr, i32 } %.pn.i78, 1
-  %1070 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt12out_of_range) #19
+  %1070 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #19
   %1071 = icmp eq i32 %.05.i79, %1070
   br i1 %1071, label %1072, label %.body82
 
@@ -4243,7 +4243,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i: ; preds = %_ZN5Yosys7hashlib8
 .body111:                                         ; preds = %.loopexit362, %.loopexit.split-lp363, %1261, %1243, %.body182, %.body267
   %.pn.i41 = phi { ptr, i32 } [ %eh.lpad-body268, %.body267 ], [ %lpad.phi371, %1261 ], [ %1237, %1243 ], [ %1237, %.body182 ], [ %lpad.loopexit364, %.loopexit362 ], [ %lpad.loopexit.split-lp365, %.loopexit.split-lp363 ]
   %.05.i = extractvalue { ptr, i32 } %.pn.i41, 1
-  %1500 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt12out_of_range) #19
+  %1500 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #19
   %1501 = icmp eq i32 %.05.i, %1500
   br i1 %1501, label %1502, label %.body43
 
@@ -19634,7 +19634,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i: ; preds = %_ZN5Yosys7hashlib8
 .body578:                                         ; preds = %.loopexit2462, %.loopexit.split-lp2463, %648, %630, %.body1114, %.body1739
   %.pn.i = phi { ptr, i32 } [ %eh.lpad-body1740, %.body1739 ], [ %lpad.phi2471, %648 ], [ %624, %630 ], [ %624, %.body1114 ], [ %lpad.loopexit2464, %.loopexit2462 ], [ %lpad.loopexit.split-lp2465, %.loopexit.split-lp2463 ]
   %.05.i = extractvalue { ptr, i32 } %.pn.i, 1
-  %891 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt12out_of_range) #19
+  %891 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #19
   %892 = icmp eq i32 %.05.i, %891
   br i1 %892, label %893, label %.body193
 
@@ -20570,7 +20570,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i596: ; preds = %_ZN5Yosys7hashl
 .body626:                                         ; preds = %.loopexit2472, %.loopexit.split-lp2473, %1030, %1012, %.body1158, %.body1786
   %.pn.i213 = phi { ptr, i32 } [ %eh.lpad-body1787, %.body1786 ], [ %lpad.phi2481, %1030 ], [ %1006, %1012 ], [ %1006, %.body1158 ], [ %lpad.loopexit2474, %.loopexit2472 ], [ %lpad.loopexit.split-lp2475, %.loopexit.split-lp2473 ]
   %.05.i214 = extractvalue { ptr, i32 } %.pn.i213, 1
-  %1267 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt12out_of_range) #19
+  %1267 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #19
   %1268 = icmp eq i32 %.05.i214, %1267
   br i1 %1268, label %1269, label %.body217
 
@@ -21938,7 +21938,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i659: ; preds = %_ZN5Yosys7hashl
 .body689:                                         ; preds = %.loopexit2417, %.loopexit.split-lp2418, %1583, %1565, %.body1203, %.body1833
   %.pn.i271 = phi { ptr, i32 } [ %eh.lpad-body1834, %.body1833 ], [ %lpad.phi2426, %1583 ], [ %1559, %1565 ], [ %1559, %.body1203 ], [ %lpad.loopexit2419, %.loopexit2417 ], [ %lpad.loopexit.split-lp2420, %.loopexit.split-lp2418 ]
   %.05.i272 = extractvalue { ptr, i32 } %.pn.i271, 1
-  %1826 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt12out_of_range) #19
+  %1826 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #19
   %1827 = icmp eq i32 %.05.i272, %1826
   br i1 %1827, label %1828, label %.body275
 
@@ -22871,7 +22871,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i708: ; preds = %_ZN5Yosys7hashl
 .body738:                                         ; preds = %.loopexit2427, %.loopexit.split-lp2428, %1967, %1949, %.body1248, %.body1880
   %.pn.i296 = phi { ptr, i32 } [ %eh.lpad-body1881, %.body1880 ], [ %lpad.phi2436, %1967 ], [ %1943, %1949 ], [ %1943, %.body1248 ], [ %lpad.loopexit2429, %.loopexit2427 ], [ %lpad.loopexit.split-lp2430, %.loopexit.split-lp2428 ]
   %.05.i297 = extractvalue { ptr, i32 } %.pn.i296, 1
-  %2208 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt12out_of_range) #19
+  %2208 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #19
   %2209 = icmp eq i32 %.05.i297, %2208
   br i1 %2209, label %2210, label %.body300
 
@@ -24946,7 +24946,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i838: ; preds = %_ZN5Yosys7hashl
 .body868:                                         ; preds = %.loopexit2384, %.loopexit.split-lp2385, %2737, %2719, %.body1344, %.body1927
   %.pn.i376 = phi { ptr, i32 } [ %eh.lpad-body1928, %.body1927 ], [ %lpad.phi2393, %2737 ], [ %2713, %2719 ], [ %2713, %.body1344 ], [ %lpad.loopexit2386, %.loopexit2384 ], [ %lpad.loopexit.split-lp2387, %.loopexit.split-lp2385 ]
   %.05.i377 = extractvalue { ptr, i32 } %.pn.i376, 1
-  %2974 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt12out_of_range) #19
+  %2974 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #19
   %2975 = icmp eq i32 %.05.i377, %2974
   br i1 %2975, label %2976, label %.body380
 
@@ -25834,7 +25834,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i887: ; preds = %_ZN5Yosys7hashl
 .body917:                                         ; preds = %.loopexit2395, %.loopexit.split-lp2396, %3098, %3080, %.body1389, %.body1974
   %.pn.i401 = phi { ptr, i32 } [ %eh.lpad-body1975, %.body1974 ], [ %lpad.phi2404, %3098 ], [ %3074, %3080 ], [ %3074, %.body1389 ], [ %lpad.loopexit2397, %.loopexit2395 ], [ %lpad.loopexit.split-lp2398, %.loopexit.split-lp2396 ]
   %.05.i402 = extractvalue { ptr, i32 } %.pn.i401, 1
-  %3335 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt12out_of_range) #19
+  %3335 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #19
   %3336 = icmp eq i32 %.05.i402, %3335
   br i1 %3336, label %3337, label %.body405
 
@@ -27779,7 +27779,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i959: ; preds = %_ZN5Yosys7hashl
 .body989:                                         ; preds = %.loopexit2350, %.loopexit.split-lp2351, %3933, %3915, %.body1457, %.body2021
   %.pn.i466 = phi { ptr, i32 } [ %eh.lpad-body2022, %.body2021 ], [ %lpad.phi2359, %3933 ], [ %3909, %3915 ], [ %3909, %.body1457 ], [ %lpad.loopexit2352, %.loopexit2350 ], [ %lpad.loopexit.split-lp2353, %.loopexit.split-lp2351 ]
   %.05.i467 = extractvalue { ptr, i32 } %.pn.i466, 1
-  %4170 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt12out_of_range) #19
+  %4170 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #19
   %4171 = icmp eq i32 %.05.i467, %4170
   br i1 %4171, label %4172, label %.body470
 
@@ -28667,7 +28667,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i1008: ; preds = %_ZN5Yosys7hash
 .body1038:                                        ; preds = %.loopexit2361, %.loopexit.split-lp2362, %4294, %4276, %.body1503, %.body2068
   %.pn.i491 = phi { ptr, i32 } [ %eh.lpad-body2069, %.body2068 ], [ %lpad.phi2370, %4294 ], [ %4270, %4276 ], [ %4270, %.body1503 ], [ %lpad.loopexit2363, %.loopexit2361 ], [ %lpad.loopexit.split-lp2364, %.loopexit.split-lp2362 ]
   %.05.i492 = extractvalue { ptr, i32 } %.pn.i491, 1
-  %4531 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt12out_of_range) #19
+  %4531 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #19
   %4532 = icmp eq i32 %.05.i492, %4531
   br i1 %4532, label %4533, label %.body495
 
@@ -34448,7 +34448,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %9
 23:                                               ; preds = %21, %19
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
   %.05 = extractvalue { ptr, i32 } %.pn, 1
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt12out_of_range) #19
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #19
   %25 = icmp eq i32 %.05, %24
   br i1 %25, label %26, label %33
 
@@ -34961,7 +34961,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i:
   %29 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12out_of_range
   %30 = extractvalue { ptr, i32 } %29, 1
-  %31 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt12out_of_range) #19
+  %31 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #19
   %32 = icmp eq i32 %30, %31
   br i1 %32, label %33, label %41
 
@@ -38178,9 +38178,6 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %87, %84, %79, %3
   %.0 = phi i32 [ 0, %3 ], [ 1, %79 ], [ 1, %84 ], [ 1, %87 ]
   ret i32 %.0
 }
-
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK5Yosys5RTLIL8IdString5c_strEv(ptr noundef nonnull align 4 dereferenceable(4) %0) local_unnamed_addr #4 comdat align 2 {
@@ -53954,7 +53951,7 @@ _ZSt10__invoke_rIvRZN12_GLOBAL__N_112ice40_dsp_pm13run_ice40_dspESt8functionIFvR
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_112ice40_dsp_pm13run_ice40_dspESt8functionIFvRS2_EEEUlvE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_112ice40_dsp_pm13run_ice40_dspESt8functionIFvRS2_EEEUlvE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #13 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_112ice40_dsp_pm13run_ice40_dspESt8functionIFvRS2_EEEUlvE_E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit [
     i32 0, label %4
     i32 1, label %5
@@ -54394,7 +54391,7 @@ define internal void @_ZNSt17_Function_handlerIFvRN12_GLOBAL__N_112ice40_dsp_pmE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN12_GLOBAL__N_112ice40_dsp_pmEEPS3_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN12_GLOBAL__N_112ice40_dsp_pmEEPS3_E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #13 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIPFvRN12_GLOBAL__N_112ice40_dsp_pmEEE10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit [
     i32 0, label %_ZNSt14_Function_base13_Base_managerIPFvRN12_GLOBAL__N_112ice40_dsp_pmEEE10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit.sink.split
     i32 1, label %4
@@ -54423,7 +54420,7 @@ declare void @_ZN5Yosys5RTLIL6Module6removeEPNS0_4CellE(ptr noundef nonnull alig
 declare void @_ZN5Yosys4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(104)) unnamed_addr #1
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_ice40_dsp.cc() #15 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_ice40_dsp.cc() #14 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -54488,6 +54485,9 @@ __cxx_global_var_init.1.exit:                     ; preds = %7
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #15
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
@@ -54516,9 +54516,9 @@ attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nosync nounwind memory(none) }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nosync nounwind memory(none) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

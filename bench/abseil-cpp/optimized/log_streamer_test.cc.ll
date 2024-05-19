@@ -12122,7 +12122,7 @@ catch.dispatch:                                   ; preds = %ehcleanup171, %lpad
   %.pn25.pn = phi { ptr, i32 } [ %.pn25, %ehcleanup171 ], [ %271, %lpad25 ]
   %exn.slot.22 = extractvalue { ptr, i32 } %.pn25.pn, 0
   %ehselector.slot.22 = extractvalue { ptr, i32 } %.pn25.pn, 1
-  %297 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %297 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %matches = icmp eq i32 %ehselector.slot.22, %297
   %298 = call ptr @__cxa_begin_catch(ptr %exn.slot.22) #24
   br i1 %matches, label %catch181, label %catch
@@ -12977,11 +12977,8 @@ _ZNSt5tupleIJN7testing7MatcherIRKN4absl8LogEntryEEES6_S6_S6_S6_S6_S6_NS0_8intern
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #17
-
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #18
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #17
 
 declare void @_ZN7testing8internal18FormatFileLocationB5cxx11EPKci(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, i32 noundef) local_unnamed_addr #0
 
@@ -12989,7 +12986,7 @@ declare void @_ZN7testing8internal18FormatFileLocationB5cxx11EPKci(ptr sret(%"cl
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #18
+declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #17
 
 declare void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
@@ -19553,7 +19550,7 @@ catch.dispatch:                                   ; preds = %ehcleanup171, %lpad
   %.pn25.pn = phi { ptr, i32 } [ %.pn25, %ehcleanup171 ], [ %271, %lpad25 ]
   %exn.slot.22 = extractvalue { ptr, i32 } %.pn25.pn, 0
   %ehselector.slot.22 = extractvalue { ptr, i32 } %.pn25.pn, 1
-  %297 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %297 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %matches = icmp eq i32 %ehselector.slot.22, %297
   %298 = call ptr @__cxa_begin_catch(ptr %exn.slot.22) #24
   br i1 %matches, label %catch181, label %catch
@@ -22248,7 +22245,7 @@ catch.dispatch:                                   ; preds = %lpad34, %lpad28
   %.pn4 = phi { ptr, i32 } [ %30, %lpad34 ], [ %29, %lpad28 ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn4, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn4, 1
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %matches = icmp eq i32 %ehselector.slot.2, %31
   %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #24
   br i1 %matches, label %catch52, label %catch
@@ -24497,7 +24494,7 @@ catch.dispatch:                                   ; preds = %ehcleanup110, %lpad
   %.pn16.pn = phi { ptr, i32 } [ %.pn16, %ehcleanup110 ], [ %157, %lpad25 ]
   %exn.slot.13 = extractvalue { ptr, i32 } %.pn16.pn, 0
   %ehselector.slot.13 = extractvalue { ptr, i32 } %.pn16.pn, 1
-  %175 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %175 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %matches = icmp eq i32 %ehselector.slot.13, %175
   %176 = call ptr @__cxa_begin_catch(ptr %exn.slot.13) #24
   br i1 %matches, label %catch120, label %catch
@@ -31497,7 +31494,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_log_streamer_test.cc() #19 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_log_streamer_test.cc() #18 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i337 = alloca %"struct.testing::internal::CodeLocation", align 8
   %ref.tmp.i338 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -32715,6 +32712,9 @@ __cxx_global_var_init.29.exit:                    ; preds = %invoke.cont10.i361
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #19
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #20
 
@@ -32753,9 +32753,9 @@ attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) 
 attributes #14 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { cold nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree nosync nounwind memory(none) }
-attributes #18 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nofree nosync nounwind memory(none) }
 attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #22 = { nofree nounwind willreturn memory(argmem: read) }

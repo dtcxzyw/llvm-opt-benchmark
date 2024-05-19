@@ -47406,7 +47406,7 @@ lpad:                                             ; preds = %entry
   %2 = landingpad { ptr, i32 }
           catch ptr @_ZTISt13runtime_error
   %3 = extractvalue { ptr, i32 } %2, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt13runtime_error) #22
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt13runtime_error) #22
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch, label %eh.resume
 
@@ -47469,7 +47469,7 @@ lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           catch ptr @_ZTISt13runtime_error
   %1 = extractvalue { ptr, i32 } %0, 1
-  %2 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt13runtime_error) #22
+  %2 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt13runtime_error) #22
   %matches = icmp eq i32 %1, %2
   br i1 %matches, label %catch, label %eh.resume
 
@@ -47707,9 +47707,6 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry, %_ZN5arrow6S
 }
 
 declare noundef ptr @_ZN14arrow_vendored4date11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEE(i64, ptr) local_unnamed_addr #1
-
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow6Status7InvalidIJRA25_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA4_S2_PS2_EEES0_DpOT_(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(25) %args, ptr noundef nonnull align 8 dereferenceable(32) %args1, ptr noundef nonnull align 1 dereferenceable(4) %args3, ptr noundef nonnull align 8 dereferenceable(8) %args5) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -48345,7 +48342,7 @@ lpad8:                                            ; preds = %_ZN14arrow_vendored
 lpad8.body:                                       ; preds = %lpad.i4, %lpad8
   %eh.lpad-body6 = phi { ptr, i32 } [ %8, %lpad8 ], [ %5, %lpad.i4 ]
   %9 = extractvalue { ptr, i32 } %eh.lpad-body6, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt13runtime_error) #22
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt13runtime_error) #22
   %matches = icmp eq i32 %9, %10
   br i1 %matches, label %catch, label %common.resume
 
@@ -53053,7 +53050,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr nounde
 declare noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef i32 @_ZSt19uncaught_exceptionsv() local_unnamed_addr #15
+declare noundef i32 @_ZSt19uncaught_exceptionsv() local_unnamed_addr #14
 
 declare noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264)) local_unnamed_addr #1
 
@@ -53629,7 +53626,7 @@ lpad8:                                            ; preds = %_ZN14arrow_vendored
 lpad8.body:                                       ; preds = %lpad.i4, %lpad8
   %eh.lpad-body6 = phi { ptr, i32 } [ %8, %lpad8 ], [ %5, %lpad.i4 ]
   %9 = extractvalue { ptr, i32 } %eh.lpad-body6, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt13runtime_error) #22
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt13runtime_error) #22
   %matches = icmp eq i32 %9, %10
   br i1 %matches, label %catch, label %common.resume
 
@@ -58507,7 +58504,7 @@ lpad8:                                            ; preds = %_ZN14arrow_vendored
 lpad8.body:                                       ; preds = %lpad.i4, %lpad8
   %eh.lpad-body6 = phi { ptr, i32 } [ %8, %lpad8 ], [ %5, %lpad.i4 ]
   %9 = extractvalue { ptr, i32 } %eh.lpad-body6, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt13runtime_error) #22
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt13runtime_error) #22
   %matches = icmp eq i32 %9, %10
   br i1 %matches, label %catch, label %common.resume
 
@@ -63379,7 +63376,7 @@ lpad8:                                            ; preds = %_ZN14arrow_vendored
 lpad8.body:                                       ; preds = %lpad.i4, %lpad8
   %eh.lpad-body6 = phi { ptr, i32 } [ %8, %lpad8 ], [ %5, %lpad.i4 ]
   %9 = extractvalue { ptr, i32 } %eh.lpad-body6, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt13runtime_error) #22
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt13runtime_error) #22
   %matches = icmp eq i32 %9, %10
   br i1 %matches, label %catch, label %common.resume
 
@@ -90739,6 +90736,9 @@ lpad:                                             ; preds = %call.i.i.i.i.i.noex
   resume { ptr, i32 } %1
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #15
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.abs.i8(i8, i1 immarg) #16
 
@@ -90780,8 +90780,8 @@ attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { nofree nounwind }
-attributes #14 = { nofree nosync nounwind memory(none) }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nosync nounwind memory(none) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

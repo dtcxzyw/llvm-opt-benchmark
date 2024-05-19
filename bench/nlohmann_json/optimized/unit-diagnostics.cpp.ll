@@ -953,7 +953,7 @@ lpad.i.i:                                         ; preds = %invoke.cont12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #22
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail10type_errorE) #22
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail10type_errorE) #22
   %matches = icmp eq i32 %3, %4
   %5 = call ptr @__cxa_begin_catch(ptr %2) #22
   br i1 %matches, label %catch22, label %catch
@@ -1399,7 +1399,7 @@ lpad72.body:                                      ; preds = %ehcleanup.i106, %lp
   %eh.lpad-body101 = phi { ptr, i32 } [ %.pn.i97, %ehcleanup.i96 ], [ %.pn.i107, %ehcleanup.i106 ], [ %.pn.i118, %ehcleanup.i117 ], [ %40, %lpad.i.i125 ]
   %45 = extractvalue { ptr, i32 } %eh.lpad-body101, 0
   %46 = extractvalue { ptr, i32 } %eh.lpad-body101, 1
-  %47 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail10type_errorE) #22
+  %47 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail10type_errorE) #22
   %matches83 = icmp eq i32 %46, %47
   %48 = call ptr @__cxa_begin_catch(ptr %45) #22
   br i1 %matches83, label %catch92, label %catch84
@@ -1736,7 +1736,7 @@ catch.dispatch159:                                ; preds = %lpad152, %lpad154, 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i185.sink) #22
   %exn.slot.8 = extractvalue { ptr, i32 } %.pn20.pn, 0
   %ehselector.slot.8 = extractvalue { ptr, i32 } %.pn20.pn, 1
-  %79 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail12out_of_rangeE) #22
+  %79 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail12out_of_rangeE) #22
   %matches161 = icmp eq i32 %ehselector.slot.8, %79
   %80 = call ptr @__cxa_begin_catch(ptr %exn.slot.8) #22
   br i1 %matches161, label %catch170, label %catch162
@@ -2039,7 +2039,7 @@ lpad224.body:                                     ; preds = %ehcleanup.i243, %lp
   %eh.lpad-body248 = phi { ptr, i32 } [ %108, %lpad224 ], [ %.pn.i244, %ehcleanup.i243 ]
   %109 = extractvalue { ptr, i32 } %eh.lpad-body248, 0
   %110 = extractvalue { ptr, i32 } %eh.lpad-body248, 1
-  %111 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail12out_of_rangeE) #22
+  %111 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail12out_of_rangeE) #22
   %matches231 = icmp eq i32 %110, %111
   %112 = call ptr @__cxa_begin_catch(ptr %109) #22
   br i1 %matches231, label %catch240, label %catch232
@@ -2346,7 +2346,7 @@ lpad294.body:                                     ; preds = %ehcleanup.i299, %lp
   %eh.lpad-body304 = phi { ptr, i32 } [ %140, %lpad294 ], [ %.pn.i300, %ehcleanup.i299 ]
   %141 = extractvalue { ptr, i32 } %eh.lpad-body304, 0
   %142 = extractvalue { ptr, i32 } %eh.lpad-body304, 1
-  %143 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail10type_errorE) #22
+  %143 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail10type_errorE) #22
   %matches303 = icmp eq i32 %142, %143
   %144 = call ptr @__cxa_begin_catch(ptr %141) #22
   br i1 %matches303, label %catch312, label %catch304
@@ -2673,7 +2673,7 @@ lpad365.body:                                     ; preds = %ehcleanup.i351, %lp
   %eh.lpad-body356 = phi { ptr, i32 } [ %176, %lpad365 ], [ %.pn.i352, %ehcleanup.i351 ]
   %177 = extractvalue { ptr, i32 } %eh.lpad-body356, 0
   %178 = extractvalue { ptr, i32 } %eh.lpad-body356, 1
-  %179 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail16invalid_iteratorE) #22
+  %179 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail16invalid_iteratorE) #22
   %matches372 = icmp eq i32 %178, %179
   %180 = call ptr @__cxa_begin_catch(ptr %177) #22
   br i1 %matches372, label %catch381, label %catch373
@@ -3031,7 +3031,7 @@ lpad437.body:                                     ; preds = %ehcleanup.i431, %lp
   %eh.lpad-body426 = phi { ptr, i32 } [ %.pn.i422, %ehcleanup.i421 ], [ %.pn.i432, %ehcleanup.i431 ], [ %207, %lpad.i.i439 ]
   %212 = extractvalue { ptr, i32 } %eh.lpad-body426, 0
   %213 = extractvalue { ptr, i32 } %eh.lpad-body426, 1
-  %214 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail10type_errorE) #22
+  %214 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail10type_errorE) #22
   %matches446 = icmp eq i32 %213, %214
   %215 = call ptr @__cxa_begin_catch(ptr %212) #22
   br i1 %matches446, label %catch455, label %catch447
@@ -3287,7 +3287,7 @@ terminate.lpad.i.i480:                            ; preds = %if.then.i.i478
   unreachable
 
 _ZNSt8functionIFbiN8nlohmann21json_abi_diag_v3_11_36detail13parse_event_tERNS1_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES6_IhSaIhEEvEEEED2Ev.exit481: ; preds = %lpad502, %if.then.i.i478
-  %245 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail11parse_errorE) #22
+  %245 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail11parse_errorE) #22
   %matches508 = icmp eq i32 %241, %245
   %246 = call ptr @__cxa_begin_catch(ptr %240) #22
   br i1 %matches508, label %catch517, label %catch509
@@ -3880,7 +3880,7 @@ lpad681.body:                                     ; preds = %lpad681, %ehcleanup
   %eh.lpad-body561 = phi { ptr, i32 } [ %.pn.i557, %ehcleanup.i556 ], [ %312, %lpad681 ], [ %.pn.i578, %ehcleanup.i577 ]
   %313 = extractvalue { ptr, i32 } %eh.lpad-body561, 0
   %314 = extractvalue { ptr, i32 } %eh.lpad-body561, 1
-  %315 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail10type_errorE) #22
+  %315 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail10type_errorE) #22
   %matches691 = icmp eq i32 %314, %315
   %316 = call ptr @__cxa_begin_catch(ptr %313) #22
   br i1 %matches691, label %catch700, label %catch692
@@ -4093,7 +4093,7 @@ lpad731.body:                                     ; preds = %ehcleanup.i603, %lp
   %eh.lpad-body608 = phi { ptr, i32 } [ %331, %lpad731 ], [ %.pn.i604, %ehcleanup.i603 ]
   %332 = extractvalue { ptr, i32 } %eh.lpad-body608, 0
   %333 = extractvalue { ptr, i32 } %eh.lpad-body608, 1
-  %334 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail10type_errorE) #22
+  %334 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail10type_errorE) #22
   %matches737 = icmp eq i32 %333, %334
   %335 = call ptr @__cxa_begin_catch(ptr %332) #22
   br i1 %matches737, label %catch746, label %catch738
@@ -4627,7 +4627,7 @@ catch.dispatch:                                   ; preds = %arraydestroy.body30
   %.pn.pn = phi { ptr, i32 } [ %7, %lpad13.body.thread ], [ %14, %lpad.i.i70 ], [ %.pn, %arraydestroy.body30 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail10type_errorE) #22
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail10type_errorE) #22
   %matches = icmp eq i32 %ehselector.slot.1, %28
   %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #22
   br i1 %matches, label %catch41, label %catch
@@ -4909,7 +4909,7 @@ catch.dispatch106:                                ; preds = %arraydestroy.body10
   %.pn10.pn = phi { ptr, i32 } [ %40, %lpad71.body.thread ], [ %47, %lpad.i.i118 ], [ %.pn10, %arraydestroy.body101 ]
   %exn.slot.4 = extractvalue { ptr, i32 } %.pn10.pn, 0
   %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn10.pn, 1
-  %59 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail10type_errorE) #22
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail10type_errorE) #22
   %matches108 = icmp eq i32 %ehselector.slot.4, %59
   %60 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #22
   br i1 %matches108, label %catch117, label %catch109
@@ -5217,7 +5217,7 @@ lpad204:                                          ; preds = %invoke.cont202
           catch ptr null
   %92 = extractvalue { ptr, i32 } %91, 0
   %93 = extractvalue { ptr, i32 } %91, 1
-  %94 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail10type_errorE) #22
+  %94 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail10type_errorE) #22
   %matches208 = icmp eq i32 %93, %94
   %95 = call ptr @__cxa_begin_catch(ptr %92) #22
   br i1 %matches208, label %catch217, label %catch209
@@ -7779,7 +7779,7 @@ lpad581.body:                                     ; preds = %ehcleanup.i790, %lp
   %eh.lpad-body794 = phi { ptr, i32 } [ %433, %lpad581 ], [ %.pn.i791, %ehcleanup.i790 ]
   %434 = extractvalue { ptr, i32 } %eh.lpad-body794, 0
   %435 = extractvalue { ptr, i32 } %eh.lpad-body794, 1
-  %436 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail10type_errorE) #22
+  %436 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail10type_errorE) #22
   %matches588 = icmp eq i32 %435, %436
   %437 = call ptr @__cxa_begin_catch(ptr %434) #22
   br i1 %matches588, label %catch597, label %catch589
@@ -8134,7 +8134,7 @@ lpad651.body:                                     ; preds = %ehcleanup.i873, %lp
   %eh.lpad-body878 = phi { ptr, i32 } [ %472, %lpad651 ], [ %.pn.i874, %ehcleanup.i873 ]
   %473 = extractvalue { ptr, i32 } %eh.lpad-body878, 0
   %474 = extractvalue { ptr, i32 } %eh.lpad-body878, 1
-  %475 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail10type_errorE) #22
+  %475 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nlohmann21json_abi_diag_v3_11_36detail10type_errorE) #22
   %matches658 = icmp eq i32 %474, %475
   %476 = call ptr @__cxa_begin_catch(ptr %473) #22
   br i1 %matches658, label %catch667, label %catch659
@@ -9170,9 +9170,6 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #5
-
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 declare void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #0
@@ -9180,7 +9177,7 @@ declare void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr nounde
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
   tail call void @_ZSt9terminatev() #23
   unreachable
@@ -9672,7 +9669,7 @@ lpad:                                             ; preds = %if.then.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12out_of_range
   %5 = extractvalue { ptr, i32 } %4, 1
-  %6 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt12out_of_range) #22
+  %6 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #22
   %matches = icmp eq i32 %5, %6
   br i1 %matches, label %catch, label %eh.resume
 
@@ -11646,7 +11643,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN8nlohmann21json_abi_diag_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -11817,16 +11814,16 @@ _ZNSt12_Vector_baseIN8nlohmann21json_abi_diag_v3_11_310basic_jsonISt3mapSt6vecto
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #8
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #7
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #8
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #7
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaIN8nlohmann21json_abi_diag_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEEEE7destroyISE_EEvRSF_PT_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -11848,7 +11845,7 @@ _ZN8nlohmann21json_abi_diag_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN8nlohmann21json_abi_diag_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE17_M_realloc_insertIJSD_EEEvN9__gnu_cxx17__normal_iteratorIPSD_SF_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(24) %__args) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -12097,7 +12094,7 @@ _ZNSt12_Vector_baseIN8nlohmann21json_abi_diag_v3_11_310basic_jsonISt3mapSt6vecto
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #11
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt8_DestroyIPN8nlohmann21json_abi_diag_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEvEESE_EvT_SG_RSaIT0_E(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %0) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
@@ -12894,7 +12891,7 @@ terminate.lpad:                                   ; preds = %invoke.cont, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -14055,7 +14052,7 @@ if.end:                                           ; preds = %_ZNSt8_Rb_treeINSt7
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #11
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
@@ -14730,7 +14727,7 @@ nrvo.skipdtor:                                    ; preds = %call.i.i5.noexc
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #8
+declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN8nlohmann21json_abi_diag_v3_11_36detail6concatINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA25_KcPS9_EEET_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(25) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
@@ -17454,7 +17451,7 @@ if.end19:                                         ; preds = %if.end, %if.then14,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8nlohmann21json_abi_diag_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIPKcEEE5resetEv(ptr noundef nonnull align 8 dereferenceable(148) %this) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -17610,19 +17607,19 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #13
+declare ptr @__errno_location() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #14
+declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #14
+declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #14
+declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
@@ -23871,7 +23868,7 @@ nrvo.skipdtor:                                    ; preds = %call.i3.noexc
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #8
+declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN8nlohmann21json_abi_diag_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvEC2ERKSD_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %other) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -27867,7 +27864,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #15
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -33427,7 +33424,7 @@ lpad:                                             ; preds = %if.then.i.i
   %4 = landingpad { ptr, i32 }
           catch ptr @_ZTISt12out_of_range
   %5 = extractvalue { ptr, i32 } %4, 1
-  %6 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt12out_of_range) #22
+  %6 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #22
   %matches = icmp eq i32 %5, %6
   br i1 %matches, label %catch, label %eh.resume
 
@@ -39708,7 +39705,7 @@ eh.resume:                                        ; preds = %lpad.i.i, %ehcleanu
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_unit_diagnostics.cpp() #16 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_unit_diagnostics.cpp() #15 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i3 = alloca %"struct.doctest::detail::TestCase", align 8
   %ref.tmp1.i4 = alloca %"class.doctest::String", align 8
@@ -39799,6 +39796,9 @@ __cxx_global_var_init.4.exit:                     ; preds = %invoke.cont3.i12
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #16
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #17
 
@@ -39831,18 +39831,18 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nosync nounwind memory(none) }
-attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree nosync nounwind memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

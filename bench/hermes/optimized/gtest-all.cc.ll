@@ -17566,7 +17566,7 @@ lpad:                                             ; preds = %memptr.end.i
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
   %13 = extractvalue { ptr, i32 } %11, 1
-  %14 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN7testing8internal26GoogleTestFailureExceptionE) #47
+  %14 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7testing8internal26GoogleTestFailureExceptionE) #47
   %matches = icmp eq i32 %13, %14
   br i1 %matches, label %catch20, label %catch.fallthrough
 
@@ -17576,7 +17576,7 @@ catch20:                                          ; preds = %lpad
           to label %unreachable unwind label %lpad22
 
 catch.fallthrough:                                ; preds = %lpad
-  %16 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #47
+  %16 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #47
   %matches3 = icmp eq i32 %13, %16
   %17 = tail call ptr @__cxa_begin_catch(ptr %12) #47
   br i1 %matches3, label %catch9, label %catch
@@ -19206,7 +19206,7 @@ lpad:                                             ; preds = %memptr.end.i
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
   %13 = extractvalue { ptr, i32 } %11, 1
-  %14 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN7testing8internal26GoogleTestFailureExceptionE) #47
+  %14 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7testing8internal26GoogleTestFailureExceptionE) #47
   %matches = icmp eq i32 %13, %14
   br i1 %matches, label %catch21, label %catch.fallthrough
 
@@ -19216,7 +19216,7 @@ catch21:                                          ; preds = %lpad
           to label %unreachable unwind label %lpad23
 
 catch.fallthrough:                                ; preds = %lpad
-  %16 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #47
+  %16 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #47
   %matches4 = icmp eq i32 %13, %16
   %17 = tail call ptr @__cxa_begin_catch(ptr %12) #47
   br i1 %matches4, label %catch10, label %catch
@@ -20057,7 +20057,7 @@ lpad:                                             ; preds = %memptr.end.i
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
   %13 = extractvalue { ptr, i32 } %11, 1
-  %14 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN7testing8internal26GoogleTestFailureExceptionE) #47
+  %14 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7testing8internal26GoogleTestFailureExceptionE) #47
   %matches = icmp eq i32 %13, %14
   br i1 %matches, label %catch20, label %catch.fallthrough
 
@@ -20067,7 +20067,7 @@ catch20:                                          ; preds = %lpad
           to label %unreachable unwind label %lpad22
 
 catch.fallthrough:                                ; preds = %lpad
-  %16 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #47
+  %16 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #47
   %matches3 = icmp eq i32 %13, %16
   %17 = tail call ptr @__cxa_begin_catch(ptr %12) #47
   br i1 %matches3, label %catch9, label %catch
@@ -31305,7 +31305,7 @@ lpad:                                             ; preds = %memptr.end.i
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
   %13 = extractvalue { ptr, i32 } %11, 1
-  %14 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN7testing8internal26GoogleTestFailureExceptionE) #47
+  %14 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7testing8internal26GoogleTestFailureExceptionE) #47
   %matches = icmp eq i32 %13, %14
   br i1 %matches, label %catch21, label %catch.fallthrough
 
@@ -31315,7 +31315,7 @@ catch21:                                          ; preds = %lpad
           to label %unreachable unwind label %lpad23
 
 catch.fallthrough:                                ; preds = %lpad
-  %16 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #47
+  %16 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #47
   %matches4 = icmp eq i32 %13, %16
   %17 = tail call ptr @__cxa_begin_catch(ptr %12) #47
   br i1 %matches4, label %catch10, label %catch
@@ -53811,9 +53811,6 @@ terminate.lpad:                                   ; preds = %invoke.cont16, %inv
   unreachable
 }
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #39
-
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN7testing8internalL25FormatCxxExceptionMessageB5cxx11EPKcS2_(ptr noalias align 8 %agg.result, ptr noundef %description, ptr noundef %location) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
@@ -54973,7 +54970,7 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Ident
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_gtest_all.cc() #40 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_gtest_all.cc() #39 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i = alloca %struct._Guard, align 8
   %ref.tmp.i = alloca %"class.std::allocator", align 1
@@ -55235,10 +55232,13 @@ __cxx_global_var_init.258.exit:                   ; preds = %invoke.cont.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #41
+declare void @llvm.va_start.p0(ptr) #40
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #41
+declare void @llvm.va_end.p0(ptr) #40
+
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #41
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #2
@@ -55312,9 +55312,9 @@ attributes #35 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #36 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #37 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #38 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #39 = { nofree nosync nounwind memory(none) }
-attributes #40 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #41 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #39 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #40 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #41 = { nofree nosync nounwind memory(none) }
 attributes #42 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #43 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #44 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

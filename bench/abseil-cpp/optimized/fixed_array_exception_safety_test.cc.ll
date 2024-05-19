@@ -1080,7 +1080,7 @@ lpad3:                                            ; preds = %for.cond
           cleanup
           catch ptr @_ZTIN7testing19exceptions_internal13TestExceptionE
   %11 = extractvalue { ptr, i32 } %10, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
   %matches = icmp eq i32 %11, %12
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -2037,9 +2037,6 @@ if.end28:                                         ; preds = %_ZNKSt14default_del
 return:                                           ; preds = %if.end3.i.i.i.i, %lor.lhs.false.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %entry, %if.end28
   ret void
 }
-
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing19exceptions_internal18ConstructorTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3072,7 +3069,7 @@ lpad1:                                            ; preds = %for.cond
           cleanup
           catch ptr @_ZTIN7testing19exceptions_internal13TestExceptionE
   %9 = extractvalue { ptr, i32 } %8, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
   %matches = icmp eq i32 %9, %10
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -3766,7 +3763,7 @@ lpad:                                             ; preds = %_ZN4absl10Substitut
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #13
+declare void @abort() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(136) %other) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4346,7 +4343,7 @@ lpad1:                                            ; preds = %for.cond
           cleanup
           catch ptr @_ZTIN7testing19exceptions_internal13TestExceptionE
   %10 = extractvalue { ptr, i32 } %9, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
   %matches = icmp eq i32 %10, %11
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -4587,7 +4584,7 @@ lpad1:                                            ; preds = %invoke.cont.i.threa
           cleanup
           catch ptr @_ZTIN7testing19exceptions_internal13TestExceptionE
   %25 = extractvalue { ptr, i32 } %24, 1
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
   %matches = icmp eq i32 %25, %26
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -5961,7 +5958,7 @@ lpad1:                                            ; preds = %for.cond
           cleanup
           catch ptr @_ZTIN7testing19exceptions_internal13TestExceptionE
   %9 = extractvalue { ptr, i32 } %8, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
   %matches = icmp eq i32 %9, %10
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -6068,7 +6065,7 @@ lpad1:                                            ; preds = %for.cond
           cleanup
           catch ptr @_ZTIN7testing19exceptions_internal13TestExceptionE
   %9 = extractvalue { ptr, i32 } %8, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
   %matches = icmp eq i32 %9, %10
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -7241,7 +7238,7 @@ lpad1:                                            ; preds = %for.cond
           cleanup
           catch ptr @_ZTIN7testing19exceptions_internal13TestExceptionE
   %9 = extractvalue { ptr, i32 } %8, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
   %matches = icmp eq i32 %9, %10
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -7538,7 +7535,7 @@ lpad3.body:                                       ; preds = %lpad.i.i, %lpad.i
 catch.dispatch:                                   ; preds = %lpad3.body, %lpad1
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad3.body ], [ %27, %lpad1 ]
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
   %matches = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -7759,7 +7756,7 @@ lpad3:                                            ; preds = %for.cond
           cleanup
           catch ptr @_ZTIN7testing19exceptions_internal13TestExceptionE
   %9 = extractvalue { ptr, i32 } %8, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
   %matches = icmp eq i32 %9, %10
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -8232,7 +8229,7 @@ lpad5.body:                                       ; preds = %lpad.i.i, %lpad.i
 catch.dispatch:                                   ; preds = %lpad5.body, %lpad3
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad5.body ], [ %27, %lpad3 ]
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
   %matches = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -8601,7 +8598,7 @@ lpad3:                                            ; preds = %for.cond
           cleanup
           catch ptr @_ZTIN7testing19exceptions_internal13TestExceptionE
   %10 = extractvalue { ptr, i32 } %9, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
   %matches = icmp eq i32 %10, %11
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -9396,7 +9393,7 @@ lpad5.body:                                       ; preds = %lpad.i.i, %lpad.i
 catch.dispatch:                                   ; preds = %lpad5.body, %lpad3
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad5.body ], [ %27, %lpad3 ]
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
   %matches = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -9815,7 +9812,7 @@ lpad1:                                            ; preds = %for.cond
           cleanup
           catch ptr @_ZTIN7testing19exceptions_internal13TestExceptionE
   %8 = extractvalue { ptr, i32 } %7, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
   %matches = icmp eq i32 %8, %9
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -10387,7 +10384,7 @@ lpad3.body:                                       ; preds = %lpad.i.i.i, %lpad.i
 catch.dispatch:                                   ; preds = %lpad3.body, %lpad1
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad3.body ], [ %25, %lpad1 ]
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
   %matches = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches, label %catch, label %ehcleanup
 
@@ -12003,7 +12000,7 @@ lpad8:                                            ; preds = %if.end.i12, %if.the
           catch ptr @_ZTIN7testing19exceptions_internal13TestExceptionE
   %10 = extractvalue { ptr, i32 } %9, 0
   %11 = extractvalue { ptr, i32 } %9, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
   %matches = icmp eq i32 %11, %12
   br i1 %matches, label %catch, label %ehcleanup38
 
@@ -12524,7 +12521,7 @@ _ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit2.i.i.i: ; preds = %lpad.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEEEZNS0_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEEEZNS0_12_GLOBAL__N_135FixedArrayExceptionSafety_Fill_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -14454,7 +14451,7 @@ lpad8:                                            ; preds = %if.end.i12, %if.the
           catch ptr @_ZTIN7testing19exceptions_internal13TestExceptionE
   %10 = extractvalue { ptr, i32 } %9, 0
   %11 = extractvalue { ptr, i32 } %9, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7testing19exceptions_internal13TestExceptionE) #18
   %matches = icmp eq i32 %11, %12
   br i1 %matches, label %catch, label %ehcleanup34
 
@@ -15070,7 +15067,7 @@ _ZN7testing13ThrowingValueILNS_8TypeSpecE0EED2Ev.exit2.i.i.i: ; preds = %lpad.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEEEZNS0_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEEEZNS0_12_GLOBAL__N_144FixedArrayExceptionSafety_FillWithAlloc_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -15407,7 +15404,7 @@ declare void @_ZN7testing8internal8GTestLogC1ENS0_16GTestLogSeverityEPKci(ptr no
 declare void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #1
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_fixed_array_exception_safety_test.cc() #15 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_fixed_array_exception_safety_test.cc() #14 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i310 = alloca %"struct.testing::internal::CodeLocation", align 8
   %ref.tmp.i311 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16540,6 +16537,9 @@ __cxx_global_var_init.28.exit:                    ; preds = %invoke.cont10.i334
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #15
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
@@ -16561,10 +16561,10 @@ attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stac
 attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nosync nounwind memory(none) }
-attributes #13 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nosync nounwind memory(none) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nounwind }

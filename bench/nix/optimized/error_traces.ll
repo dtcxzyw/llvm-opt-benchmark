@@ -5236,7 +5236,7 @@ define void @_ZN3nix32ErrorTraceTest_TraceBuilder_Test8TestBodyEv(ptr noundef no
           catch ptr null
   %62 = extractvalue { ptr, i32 } %61, 0
   %63 = extractvalue { ptr, i32 } %61, 1
-  %64 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
+  %64 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
   %65 = icmp eq i32 %63, %64
   br i1 %65, label %66, label %71
 
@@ -5251,7 +5251,7 @@ define void @_ZN3nix32ErrorTraceTest_TraceBuilder_Test8TestBodyEv(ptr noundef no
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %58
 
 71:                                               ; preds = %60
-  %72 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %72 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %73 = icmp eq i32 %63, %72
   %74 = call ptr @__cxa_begin_catch(ptr %62) #24
   br i1 %73, label %75, label %93
@@ -5444,7 +5444,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
           catch ptr null
   %140 = extractvalue { ptr, i32 } %139, 0
   %141 = extractvalue { ptr, i32 } %139, 1
-  %142 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
+  %142 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
   %143 = icmp eq i32 %141, %142
   br i1 %143, label %144, label %149
 
@@ -5459,7 +5459,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit159 unwind label %136
 
 149:                                              ; preds = %138
-  %150 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %150 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %151 = icmp eq i32 %141, %150
   %152 = call ptr @__cxa_begin_catch(ptr %140) #24
   br i1 %151, label %153, label %171
@@ -5663,7 +5663,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit168: ; preds = %_ZNKSt7__cxx1112bas
           catch ptr null
   %222 = extractvalue { ptr, i32 } %221, 0
   %223 = extractvalue { ptr, i32 } %221, 1
-  %224 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix5ErrorE) #24
+  %224 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix5ErrorE) #24
   %225 = icmp eq i32 %223, %224
   br i1 %225, label %226, label %240
 
@@ -5728,7 +5728,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit168: ; preds = %_ZNKSt7__cxx1112bas
 240:                                              ; preds = %239, %220
   %.862 = phi i32 [ %.761, %239 ], [ %223, %220 ]
   %.8 = phi ptr [ %.7, %239 ], [ %222, %220 ]
-  %241 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %241 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %242 = icmp eq i32 %.862, %241
   br i1 %242, label %243, label %420
 
@@ -6349,7 +6349,7 @@ _ZN7testing7MessageD2Ev.exit199:                  ; preds = %411, %_ZNKSt14defau
 420:                                              ; preds = %419, %240, %216
   %.2781 = phi i32 [ %.2680, %419 ], [ %219, %216 ], [ %.862, %240 ]
   %.27 = phi ptr [ %.26, %419 ], [ %218, %216 ], [ %.8, %240 ]
-  %421 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
+  %421 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
   %422 = icmp eq i32 %.2781, %421
   br i1 %422, label %423, label %428
 
@@ -6364,7 +6364,7 @@ _ZN7testing7MessageD2Ev.exit199:                  ; preds = %411, %_ZNKSt14defau
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit200 unwind label %214
 
 428:                                              ; preds = %420
-  %429 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %429 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %430 = icmp eq i32 %.2781, %429
   %431 = call ptr @__cxa_begin_catch(ptr %.27) #24
   br i1 %430, label %432, label %450
@@ -6569,9 +6569,6 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(384) ptr @_ZN3nix9Ev
 ; Function Attrs: noreturn
 declare void @_ZN3nix16EvalErrorBuilderINS_9EvalErrorEE10debugThrowEv(ptr noundef nonnull align 8 dereferenceable(384)) local_unnamed_addr #9
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #10
-
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
@@ -6586,7 +6583,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
   tail call void @_ZSt9terminatev() #28
   unreachable
@@ -6850,7 +6847,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 declare noundef nonnull align 8 dereferenceable(384) ptr @_ZN3nix16EvalErrorBuilderINS_9EvalErrorEE9withTraceENS_6PosIdxESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(384), i32, i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3nix9BaseError8addTraceIJEEEvOSt10shared_ptrINS_3PosEESt17basic_string_viewIcSt11char_traitsIcEEDpRKT_(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 %2, ptr %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -7430,7 +7427,7 @@ _ZN7testing8internal11CmpHelperEQImiEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit:
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix32ErrorTraceTest_TraceBuilder_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix32ErrorTraceTest_TraceBuilder_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -7491,7 +7488,7 @@ _ZN3nix9EvalState5errorINS_9EvalErrorEJA6_cEEERNS_16EvalErrorBuilderIT_EEDpRKT0_
   %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %19, %18 ]
   %25 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %26 = extractvalue { ptr, i32 } %eh.lpad-body, 1
-  %27 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %27 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %28 = icmp eq i32 %26, %27
   br i1 %28, label %29, label %151
 
@@ -7513,7 +7510,7 @@ _ZN3nix9EvalState5errorINS_9EvalErrorEJA6_cEEERNS_16EvalErrorBuilderIT_EEDpRKT0_
           catch ptr @_ZTIN3nix5ErrorE
   %36 = extractvalue { ptr, i32 } %35, 0
   %37 = extractvalue { ptr, i32 } %35, 1
-  %38 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix5ErrorE) #24
+  %38 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix5ErrorE) #24
   %39 = icmp eq i32 %37, %38
   br i1 %39, label %40, label %150
 
@@ -7882,7 +7879,7 @@ _ZN7testing7MessageD2Ev.exit69:                   ; preds = %137, %_ZNKSt14defau
 declare void @_ZN7testing8internal30GetBoolAssertionFailureMessageB5cxx11ERKNS_15AssertionResultEPKcS5_S5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix32ErrorTraceTest_NestedThrows_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix32ErrorTraceTest_NestedThrows_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -8422,7 +8419,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn559 = phi { ptr, i32 } [ %416, %415 ], [ %.pn, %414 ]
   %.1 = extractvalue { ptr, i32 } %.pn559, 0
   %.1253 = extractvalue { ptr, i32 } %.pn559, 1
-  %418 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %418 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %419 = icmp eq i32 %.1253, %418
   br i1 %419, label %420, label %627
 
@@ -9127,7 +9124,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1027: ; preds = %_
 629:                                              ; preds = %628, %402, %398
   %.22274 = phi i32 [ %.21273, %628 ], [ %405, %402 ], [ %401, %398 ]
   %.22 = phi ptr [ %.21, %628 ], [ %404, %402 ], [ %400, %398 ]
-  %630 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %630 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %631 = icmp eq i32 %.22274, %630
   br i1 %631, label %632, label %636
 
@@ -9142,7 +9139,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1027: ; preds = %_
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %396
 
 636:                                              ; preds = %629
-  %637 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %637 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %638 = icmp eq i32 %.22274, %637
   %639 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %638, label %640, label %658
@@ -9459,7 +9456,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1049: ; preds = %_
   %.pn594 = phi { ptr, i32 } [ %741, %740 ], [ %.pn592, %739 ]
   %.27 = extractvalue { ptr, i32 } %.pn594, 0
   %.27279 = extractvalue { ptr, i32 } %.pn594, 1
-  %743 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %743 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %744 = icmp eq i32 %.27279, %743
   br i1 %744, label %745, label %952
 
@@ -10163,7 +10160,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1090: ; preds = %_
 954:                                              ; preds = %953, %727, %723
   %.48300 = phi i32 [ %.47299, %953 ], [ %730, %727 ], [ %726, %723 ]
   %.48 = phi ptr [ %.47, %953 ], [ %729, %727 ], [ %725, %723 ]
-  %955 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %955 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %956 = icmp eq i32 %.48300, %955
   br i1 %956, label %957, label %961
 
@@ -10178,7 +10175,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1090: ; preds = %_
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit1091 unwind label %721
 
 961:                                              ; preds = %954
-  %962 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %962 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %963 = icmp eq i32 %.48300, %962
   %964 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %963, label %965, label %983
@@ -10495,7 +10492,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1116: ; preds = %_
   %.pn629 = phi { ptr, i32 } [ %1066, %1065 ], [ %.pn627, %1064 ]
   %.53 = extractvalue { ptr, i32 } %.pn629, 0
   %.53305 = extractvalue { ptr, i32 } %.pn629, 1
-  %1068 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %1068 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %1069 = icmp eq i32 %.53305, %1068
   br i1 %1069, label %1070, label %1277
 
@@ -11200,7 +11197,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1157: ; preds = %_
 1279:                                             ; preds = %1278, %1052, %1048
   %.74326 = phi i32 [ %.73325, %1278 ], [ %1055, %1052 ], [ %1051, %1048 ]
   %.74 = phi ptr [ %.73, %1278 ], [ %1054, %1052 ], [ %1050, %1048 ]
-  %1280 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1280 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1281 = icmp eq i32 %.74326, %1280
   br i1 %1281, label %1282, label %1286
 
@@ -11215,7 +11212,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1157: ; preds = %_
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit1158 unwind label %1046
 
 1286:                                             ; preds = %1279
-  %1287 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1287 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1288 = icmp eq i32 %.74326, %1287
   %1289 = call ptr @__cxa_begin_catch(ptr %.74) #24
   br i1 %1288, label %1290, label %1308
@@ -11532,7 +11529,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1183: ; preds = %_
   %.pn664 = phi { ptr, i32 } [ %1391, %1390 ], [ %.pn662, %1389 ]
   %.79 = extractvalue { ptr, i32 } %.pn664, 0
   %.79331 = extractvalue { ptr, i32 } %.pn664, 1
-  %1393 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %1393 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %1394 = icmp eq i32 %.79331, %1393
   br i1 %1394, label %1395, label %1602
 
@@ -12237,7 +12234,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1224: ; preds = %_
 1604:                                             ; preds = %1603, %1377, %1373
   %.100352 = phi i32 [ %.99351, %1603 ], [ %1380, %1377 ], [ %1376, %1373 ]
   %.100 = phi ptr [ %.99, %1603 ], [ %1379, %1377 ], [ %1375, %1373 ]
-  %1605 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1605 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1606 = icmp eq i32 %.100352, %1605
   br i1 %1606, label %1607, label %1611
 
@@ -12252,7 +12249,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1224: ; preds = %_
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit1225 unwind label %1371
 
 1611:                                             ; preds = %1604
-  %1612 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1612 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1613 = icmp eq i32 %.100352, %1612
   %1614 = call ptr @__cxa_begin_catch(ptr %.100) #24
   br i1 %1613, label %1615, label %1633
@@ -12515,7 +12512,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit1234: ; preds = %_ZNKSt7__cxx1112ba
   %.pn699 = phi { ptr, i32 } [ %1697, %1696 ], [ %.pn697, %1695 ]
   %.105 = extractvalue { ptr, i32 } %.pn699, 0
   %.105357 = extractvalue { ptr, i32 } %.pn699, 1
-  %1699 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %1699 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %1700 = icmp eq i32 %.105357, %1699
   br i1 %1700, label %1701, label %1897
 
@@ -13187,7 +13184,7 @@ _ZN7testing7MessageD2Ev.exit1269:                 ; preds = %1883, %_ZNKSt14defa
 1899:                                             ; preds = %1898, %1683, %1679
   %.126378 = phi i32 [ %.125377, %1898 ], [ %1686, %1683 ], [ %1682, %1679 ]
   %.126 = phi ptr [ %.125, %1898 ], [ %1685, %1683 ], [ %1681, %1679 ]
-  %1900 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1900 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1901 = icmp eq i32 %.126378, %1900
   br i1 %1901, label %1902, label %1906
 
@@ -13202,7 +13199,7 @@ _ZN7testing7MessageD2Ev.exit1269:                 ; preds = %1883, %_ZNKSt14defa
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit1270 unwind label %1677
 
 1906:                                             ; preds = %1899
-  %1907 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1907 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1908 = icmp eq i32 %.126378, %1907
   %1909 = call ptr @__cxa_begin_catch(ptr %.126) #24
   br i1 %1908, label %1910, label %1928
@@ -13465,7 +13462,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit1279: ; preds = %_ZNKSt7__cxx1112ba
   %.pn734 = phi { ptr, i32 } [ %1992, %1991 ], [ %.pn732, %1990 ]
   %.131 = extractvalue { ptr, i32 } %.pn734, 0
   %.131383 = extractvalue { ptr, i32 } %.pn734, 1
-  %1994 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %1994 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %1995 = icmp eq i32 %.131383, %1994
   br i1 %1995, label %1996, label %2192
 
@@ -14137,7 +14134,7 @@ _ZN7testing7MessageD2Ev.exit1314:                 ; preds = %2178, %_ZNKSt14defa
 2194:                                             ; preds = %2193, %1978, %1974
   %.152404 = phi i32 [ %.151403, %2193 ], [ %1981, %1978 ], [ %1977, %1974 ]
   %.152 = phi ptr [ %.151, %2193 ], [ %1980, %1978 ], [ %1976, %1974 ]
-  %2195 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %2195 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %2196 = icmp eq i32 %.152404, %2195
   br i1 %2196, label %2197, label %2200
 
@@ -14151,7 +14148,7 @@ _ZN7testing7MessageD2Ev.exit1314:                 ; preds = %2178, %_ZNKSt14defa
           to label %2231 unwind label %1972
 
 2200:                                             ; preds = %2194
-  %2201 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %2201 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %2202 = icmp eq i32 %.152404, %2201
   %2203 = call ptr @__cxa_begin_catch(ptr %.152) #24
   br i1 %2202, label %2204, label %2222
@@ -14404,7 +14401,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit1323: ; preds = %_ZNKSt7__cxx1112ba
   %.pn769 = phi { ptr, i32 } [ %2284, %2283 ], [ %.pn767, %2282 ]
   %.157 = extractvalue { ptr, i32 } %.pn769, 0
   %.157409 = extractvalue { ptr, i32 } %.pn769, 1
-  %2286 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %2286 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %2287 = icmp eq i32 %.157409, %2286
   br i1 %2287, label %2288, label %2484
 
@@ -15075,7 +15072,7 @@ _ZN7testing7MessageD2Ev.exit1358:                 ; preds = %2470, %_ZNKSt14defa
 2486:                                             ; preds = %2485, %2270, %2266
   %.178430 = phi i32 [ %.177429, %2485 ], [ %2273, %2270 ], [ %2269, %2266 ]
   %.178 = phi ptr [ %.177, %2485 ], [ %2272, %2270 ], [ %2268, %2266 ]
-  %2487 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %2487 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %2488 = icmp eq i32 %.178430, %2487
   br i1 %2488, label %2489, label %2492
 
@@ -15089,7 +15086,7 @@ _ZN7testing7MessageD2Ev.exit1358:                 ; preds = %2470, %_ZNKSt14defa
           to label %2523 unwind label %2264
 
 2492:                                             ; preds = %2486
-  %2493 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %2493 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %2494 = icmp eq i32 %.178430, %2493
   %2495 = call ptr @__cxa_begin_catch(ptr %.178) #24
   br i1 %2494, label %2496, label %2514
@@ -15323,7 +15320,7 @@ _ZN7testing7MessageD2Ev.exit1364:                 ; preds = %2536, %_ZNKSt14defa
   %.pn804 = phi { ptr, i32 } [ %2571, %2570 ], [ %.pn802, %2569 ]
   %.183 = extractvalue { ptr, i32 } %.pn804, 0
   %.183435 = extractvalue { ptr, i32 } %.pn804, 1
-  %2573 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %2573 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %2574 = icmp eq i32 %.183435, %2573
   br i1 %2574, label %2575, label %2771
 
@@ -15994,7 +15991,7 @@ _ZN7testing7MessageD2Ev.exit1399:                 ; preds = %2757, %_ZNKSt14defa
 2773:                                             ; preds = %2772, %2557, %2553
   %.204456 = phi i32 [ %.203455, %2772 ], [ %2560, %2557 ], [ %2556, %2553 ]
   %.204 = phi ptr [ %.203, %2772 ], [ %2559, %2557 ], [ %2555, %2553 ]
-  %2774 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
+  %2774 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
   %2775 = icmp eq i32 %.204456, %2774
   br i1 %2775, label %2776, label %2779
 
@@ -16008,7 +16005,7 @@ _ZN7testing7MessageD2Ev.exit1399:                 ; preds = %2757, %_ZNKSt14defa
           to label %2810 unwind label %2551
 
 2779:                                             ; preds = %2773
-  %2780 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %2780 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %2781 = icmp eq i32 %.204456, %2780
   %2782 = call ptr @__cxa_begin_catch(ptr %.204) #24
   br i1 %2781, label %2783, label %2801
@@ -16242,7 +16239,7 @@ _ZN7testing7MessageD2Ev.exit1405:                 ; preds = %2823, %_ZNKSt14defa
   %.pn839 = phi { ptr, i32 } [ %2858, %2857 ], [ %.pn837, %2856 ]
   %.209 = extractvalue { ptr, i32 } %.pn839, 0
   %.209461 = extractvalue { ptr, i32 } %.pn839, 1
-  %2860 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %2860 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %2861 = icmp eq i32 %.209461, %2860
   br i1 %2861, label %2862, label %3058
 
@@ -16927,7 +16924,7 @@ _ZN7testing7MessageD2Ev.exit1440:                 ; preds = %3044, %_ZNKSt14defa
           to label %3096 unwind label %2838
 
 3065:                                             ; preds = %3060
-  %3066 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %3066 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %3067 = icmp eq i32 %.230482, %3066
   %3068 = call ptr @__cxa_begin_catch(ptr %.230) #24
   br i1 %3067, label %3069, label %3087
@@ -17737,7 +17734,7 @@ define linkonce_odr void @_ZN3nix7HintFmtC2IJA9_cA11_cEEERKNSt7__cxx1112basic_st
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix34ErrorTraceTest_genericClosure_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -18151,7 +18148,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn365 = phi { ptr, i32 } [ %290, %289 ], [ %.pn, %288 ]
   %.1 = extractvalue { ptr, i32 } %.pn365, 0
   %.1167 = extractvalue { ptr, i32 } %.pn365, 1
-  %292 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %292 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %293 = icmp eq i32 %.1167, %292
   br i1 %293, label %294, label %501
 
@@ -18856,7 +18853,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit677: ; preds = %_Z
 503:                                              ; preds = %502, %276, %272
   %.22188 = phi i32 [ %.21187, %502 ], [ %279, %276 ], [ %275, %272 ]
   %.22 = phi ptr [ %.21, %502 ], [ %278, %276 ], [ %274, %272 ]
-  %504 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %504 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %505 = icmp eq i32 %.22188, %504
   br i1 %505, label %506, label %510
 
@@ -18871,7 +18868,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit677: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %270
 
 510:                                              ; preds = %503
-  %511 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %511 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %512 = icmp eq i32 %.22188, %511
   %513 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %512, label %514, label %532
@@ -19188,7 +19185,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit699: ; preds = %_Z
   %.pn400 = phi { ptr, i32 } [ %615, %614 ], [ %.pn398, %613 ]
   %.27 = extractvalue { ptr, i32 } %.pn400, 0
   %.27193 = extractvalue { ptr, i32 } %.pn400, 1
-  %617 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %617 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %618 = icmp eq i32 %.27193, %617
   br i1 %618, label %619, label %826
 
@@ -19893,7 +19890,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit740: ; preds = %_Z
 828:                                              ; preds = %827, %601, %597
   %.48214 = phi i32 [ %.47213, %827 ], [ %604, %601 ], [ %600, %597 ]
   %.48 = phi ptr [ %.47, %827 ], [ %603, %601 ], [ %599, %597 ]
-  %829 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %829 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %830 = icmp eq i32 %.48214, %829
   br i1 %830, label %831, label %835
 
@@ -19908,7 +19905,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit740: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit741 unwind label %595
 
 835:                                              ; preds = %828
-  %836 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %836 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %837 = icmp eq i32 %.48214, %836
   %838 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %837, label %839, label %857
@@ -20225,7 +20222,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit766: ; preds = %_Z
   %.pn435 = phi { ptr, i32 } [ %940, %939 ], [ %.pn433, %938 ]
   %.53 = extractvalue { ptr, i32 } %.pn435, 0
   %.53219 = extractvalue { ptr, i32 } %.pn435, 1
-  %942 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %942 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %943 = icmp eq i32 %.53219, %942
   br i1 %943, label %944, label %1103
 
@@ -20764,7 +20761,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit799: ; preds = %_Z
 1105:                                             ; preds = %1104, %926, %922
   %.69235 = phi i32 [ %.68234, %1104 ], [ %929, %926 ], [ %925, %922 ]
   %.69 = phi ptr [ %.68, %1104 ], [ %928, %926 ], [ %924, %922 ]
-  %1106 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
+  %1106 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
   %1107 = icmp eq i32 %.69235, %1106
   br i1 %1107, label %1108, label %1112
 
@@ -20779,7 +20776,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit799: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit800 unwind label %920
 
 1112:                                             ; preds = %1105
-  %1113 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1113 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1114 = icmp eq i32 %.69235, %1113
   %1115 = call ptr @__cxa_begin_catch(ptr %.69) #24
   br i1 %1114, label %1116, label %1134
@@ -21096,7 +21093,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit825: ; preds = %_Z
   %.pn463 = phi { ptr, i32 } [ %1217, %1216 ], [ %.pn461, %1215 ]
   %.74 = extractvalue { ptr, i32 } %.pn463, 0
   %.74240 = extractvalue { ptr, i32 } %.pn463, 1
-  %1219 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %1219 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %1220 = icmp eq i32 %.74240, %1219
   br i1 %1220, label %1221, label %1428
 
@@ -21801,7 +21798,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit866: ; preds = %_Z
 1430:                                             ; preds = %1429, %1203, %1199
   %.95261 = phi i32 [ %.94260, %1429 ], [ %1206, %1203 ], [ %1202, %1199 ]
   %.95 = phi ptr [ %.94, %1429 ], [ %1205, %1203 ], [ %1201, %1199 ]
-  %1431 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1431 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1432 = icmp eq i32 %.95261, %1431
   br i1 %1432, label %1433, label %1437
 
@@ -21816,7 +21813,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit866: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit867 unwind label %1197
 
 1437:                                             ; preds = %1430
-  %1438 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1438 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1439 = icmp eq i32 %.95261, %1438
   %1440 = call ptr @__cxa_begin_catch(ptr %.95) #24
   br i1 %1439, label %1441, label %1459
@@ -22079,7 +22076,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit876: ; preds = %_ZNKSt7__cxx1112bas
   %.pn498 = phi { ptr, i32 } [ %1523, %1522 ], [ %.pn496, %1521 ]
   %.100 = extractvalue { ptr, i32 } %.pn498, 0
   %.100266 = extractvalue { ptr, i32 } %.pn498, 1
-  %1525 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %1525 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %1526 = icmp eq i32 %.100266, %1525
   br i1 %1526, label %1527, label %1723
 
@@ -22751,7 +22748,7 @@ _ZN7testing7MessageD2Ev.exit911:                  ; preds = %1709, %_ZNKSt14defa
 1725:                                             ; preds = %1724, %1509, %1505
   %.121287 = phi i32 [ %.120286, %1724 ], [ %1512, %1509 ], [ %1508, %1505 ]
   %.121 = phi ptr [ %.120, %1724 ], [ %1511, %1509 ], [ %1507, %1505 ]
-  %1726 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1726 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1727 = icmp eq i32 %.121287, %1726
   br i1 %1727, label %1728, label %1732
 
@@ -22766,7 +22763,7 @@ _ZN7testing7MessageD2Ev.exit911:                  ; preds = %1709, %_ZNKSt14defa
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit912 unwind label %1503
 
 1732:                                             ; preds = %1725
-  %1733 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1733 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1734 = icmp eq i32 %.121287, %1733
   %1735 = call ptr @__cxa_begin_catch(ptr %.121) #24
   br i1 %1734, label %1736, label %1754
@@ -23029,7 +23026,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit921: ; preds = %_ZNKSt7__cxx1112bas
   %.pn533 = phi { ptr, i32 } [ %1818, %1817 ], [ %.pn531, %1816 ]
   %.126 = extractvalue { ptr, i32 } %.pn533, 0
   %.126292 = extractvalue { ptr, i32 } %.pn533, 1
-  %1820 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %1820 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %1821 = icmp eq i32 %.126292, %1820
   br i1 %1821, label %1822, label %2018
 
@@ -23701,7 +23698,7 @@ _ZN7testing7MessageD2Ev.exit956:                  ; preds = %2004, %_ZNKSt14defa
 2020:                                             ; preds = %2019, %1804, %1800
   %.147313 = phi i32 [ %.146312, %2019 ], [ %1807, %1804 ], [ %1803, %1800 ]
   %.147 = phi ptr [ %.146, %2019 ], [ %1806, %1804 ], [ %1802, %1800 ]
-  %2021 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %2021 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %2022 = icmp eq i32 %.147313, %2021
   br i1 %2022, label %2023, label %2026
 
@@ -23715,7 +23712,7 @@ _ZN7testing7MessageD2Ev.exit956:                  ; preds = %2004, %_ZNKSt14defa
           to label %2057 unwind label %1798
 
 2026:                                             ; preds = %2020
-  %2027 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %2027 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %2028 = icmp eq i32 %.147313, %2027
   %2029 = call ptr @__cxa_begin_catch(ptr %.147) #24
   br i1 %2028, label %2030, label %2048
@@ -23944,7 +23941,7 @@ define linkonce_odr void @_ZN3nix7HintFmtC2IJA6_cNS_9UncoloredIA4_cEEEEERKNSt7__
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix34ErrorTraceTest_replaceStrings_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix34ErrorTraceTest_replaceStrings_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -23954,142 +23951,142 @@ define void @_ZTv0_n48_N3nix34ErrorTraceTest_replaceStrings_Test8TestBodyEv(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix32ErrorTraceTest_scopedImport_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix32ErrorTraceTest_scopedImport_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix32ErrorTraceTest_scopedImport_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix32ErrorTraceTest_scopedImport_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix26ErrorTraceTest_import_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix26ErrorTraceTest_import_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix26ErrorTraceTest_import_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix26ErrorTraceTest_import_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix26ErrorTraceTest_typeOf_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix26ErrorTraceTest_typeOf_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix26ErrorTraceTest_typeOf_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix26ErrorTraceTest_typeOf_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix26ErrorTraceTest_isNull_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix26ErrorTraceTest_isNull_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix26ErrorTraceTest_isNull_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix26ErrorTraceTest_isNull_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix30ErrorTraceTest_isFunction_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix30ErrorTraceTest_isFunction_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix30ErrorTraceTest_isFunction_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix30ErrorTraceTest_isFunction_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix25ErrorTraceTest_isInt_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix25ErrorTraceTest_isInt_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix25ErrorTraceTest_isInt_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix25ErrorTraceTest_isInt_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix27ErrorTraceTest_isFloat_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix27ErrorTraceTest_isFloat_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix27ErrorTraceTest_isFloat_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix27ErrorTraceTest_isFloat_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix28ErrorTraceTest_isString_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix28ErrorTraceTest_isString_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix28ErrorTraceTest_isString_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix28ErrorTraceTest_isString_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix26ErrorTraceTest_isBool_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix26ErrorTraceTest_isBool_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix26ErrorTraceTest_isBool_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix26ErrorTraceTest_isBool_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix26ErrorTraceTest_isPath_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix26ErrorTraceTest_isPath_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix26ErrorTraceTest_isPath_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix26ErrorTraceTest_isPath_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix25ErrorTraceTest_break_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix25ErrorTraceTest_break_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix25ErrorTraceTest_break_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix25ErrorTraceTest_break_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix25ErrorTraceTest_abort_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix25ErrorTraceTest_abort_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix25ErrorTraceTest_abort_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix25ErrorTraceTest_abort_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix25ErrorTraceTest_throw_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix25ErrorTraceTest_throw_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix25ErrorTraceTest_throw_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix25ErrorTraceTest_throw_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix35ErrorTraceTest_addErrorContext_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix35ErrorTraceTest_addErrorContext_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix35ErrorTraceTest_addErrorContext_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix35ErrorTraceTest_addErrorContext_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
@@ -24302,7 +24299,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn62 = phi { ptr, i32 } [ %94, %93 ], [ %.pn, %92 ]
   %.1 = extractvalue { ptr, i32 } %.pn62, 0
   %.129 = extractvalue { ptr, i32 } %.pn62, 1
-  %96 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %96 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %97 = icmp eq i32 %.129, %96
   br i1 %97, label %98, label %305
 
@@ -25007,7 +25004,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
 307:                                              ; preds = %306, %80, %76
   %.2250 = phi i32 [ %.2149, %306 ], [ %83, %80 ], [ %79, %76 ]
   %.22 = phi ptr [ %.21, %306 ], [ %82, %80 ], [ %78, %76 ]
-  %308 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %308 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %309 = icmp eq i32 %.2250, %308
   br i1 %309, label %310, label %314
 
@@ -25022,7 +25019,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %74
 
 314:                                              ; preds = %307
-  %315 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %315 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %316 = icmp eq i32 %.2250, %315
   %317 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %316, label %318, label %336
@@ -25247,7 +25244,7 @@ define linkonce_odr void @_ZN3nix7HintFmtC2IJA9_cNS_9UncoloredIA17_cEEEEERKNSt7_
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix24ErrorTraceTest_ceil_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix24ErrorTraceTest_ceil_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -25465,7 +25462,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn62 = phi { ptr, i32 } [ %94, %93 ], [ %.pn, %92 ]
   %.1 = extractvalue { ptr, i32 } %.pn62, 0
   %.129 = extractvalue { ptr, i32 } %.pn62, 1
-  %96 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %96 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %97 = icmp eq i32 %.129, %96
   br i1 %97, label %98, label %305
 
@@ -26170,7 +26167,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
 307:                                              ; preds = %306, %80, %76
   %.2250 = phi i32 [ %.2149, %306 ], [ %83, %80 ], [ %79, %76 ]
   %.22 = phi ptr [ %.21, %306 ], [ %82, %80 ], [ %78, %76 ]
-  %308 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %308 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %309 = icmp eq i32 %.2250, %308
   br i1 %309, label %310, label %314
 
@@ -26185,7 +26182,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %74
 
 314:                                              ; preds = %307
-  %315 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %315 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %316 = icmp eq i32 %.2250, %315
   %317 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %316, label %318, label %336
@@ -26351,7 +26348,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix25ErrorTraceTest_floor_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix25ErrorTraceTest_floor_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -26361,12 +26358,12 @@ define void @_ZTv0_n48_N3nix25ErrorTraceTest_floor_Test8TestBodyEv(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix27ErrorTraceTest_tryEval_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix27ErrorTraceTest_tryEval_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix27ErrorTraceTest_tryEval_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix27ErrorTraceTest_tryEval_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
@@ -26579,7 +26576,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn62 = phi { ptr, i32 } [ %94, %93 ], [ %.pn, %92 ]
   %.1 = extractvalue { ptr, i32 } %.pn62, 0
   %.129 = extractvalue { ptr, i32 } %.pn62, 1
-  %96 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %96 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %97 = icmp eq i32 %.129, %96
   br i1 %97, label %98, label %305
 
@@ -27284,7 +27281,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
 307:                                              ; preds = %306, %80, %76
   %.2250 = phi i32 [ %.2149, %306 ], [ %83, %80 ], [ %79, %76 ]
   %.22 = phi ptr [ %.21, %306 ], [ %82, %80 ], [ %78, %76 ]
-  %308 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %308 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %309 = icmp eq i32 %.2250, %308
   br i1 %309, label %310, label %314
 
@@ -27299,7 +27296,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %74
 
 314:                                              ; preds = %307
-  %315 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %315 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %316 = icmp eq i32 %.2250, %315
   %317 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %316, label %318, label %336
@@ -27524,7 +27521,7 @@ define linkonce_odr void @_ZN3nix7HintFmtC2IJA7_cNS_9UncoloredIA4_cEEEEERKNSt7__
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix26ErrorTraceTest_getEnv_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix26ErrorTraceTest_getEnv_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -27534,32 +27531,32 @@ define void @_ZTv0_n48_N3nix26ErrorTraceTest_getEnv_Test8TestBodyEv(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix23ErrorTraceTest_seq_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix23ErrorTraceTest_seq_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix23ErrorTraceTest_seq_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix23ErrorTraceTest_seq_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix27ErrorTraceTest_deepSeq_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix27ErrorTraceTest_deepSeq_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix27ErrorTraceTest_deepSeq_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix27ErrorTraceTest_deepSeq_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix25ErrorTraceTest_trace_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix25ErrorTraceTest_trace_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix25ErrorTraceTest_trace_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix25ErrorTraceTest_trace_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
@@ -27772,7 +27769,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn62 = phi { ptr, i32 } [ %94, %93 ], [ %.pn, %92 ]
   %.1 = extractvalue { ptr, i32 } %.pn62, 0
   %.129 = extractvalue { ptr, i32 } %.pn62, 1
-  %96 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %96 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %97 = icmp eq i32 %.129, %96
   br i1 %97, label %98, label %305
 
@@ -28477,7 +28474,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
 307:                                              ; preds = %306, %80, %76
   %.2250 = phi i32 [ %.2149, %306 ], [ %83, %80 ], [ %79, %76 ]
   %.22 = phi ptr [ %.21, %306 ], [ %82, %80 ], [ %78, %76 ]
-  %308 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %308 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %309 = icmp eq i32 %.2250, %308
   br i1 %309, label %310, label %314
 
@@ -28492,7 +28489,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %74
 
 314:                                              ; preds = %307
-  %315 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %315 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %316 = icmp eq i32 %.2250, %315
   %317 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %316, label %318, label %336
@@ -28658,7 +28655,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix31ErrorTraceTest_placeholder_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix31ErrorTraceTest_placeholder_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -28916,7 +28913,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn125 = phi { ptr, i32 } [ %134, %133 ], [ %.pn, %132 ]
   %.1 = extractvalue { ptr, i32 } %.pn125, 0
   %.157 = extractvalue { ptr, i32 } %.pn125, 1
-  %136 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %136 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %137 = icmp eq i32 %.157, %136
   br i1 %137, label %138, label %345
 
@@ -29621,7 +29618,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
 347:                                              ; preds = %346, %120, %116
   %.2278 = phi i32 [ %.2177, %346 ], [ %123, %120 ], [ %119, %116 ]
   %.22 = phi ptr [ %.21, %346 ], [ %122, %120 ], [ %118, %116 ]
-  %348 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %348 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %349 = icmp eq i32 %.2278, %348
   br i1 %349, label %350, label %354
 
@@ -29636,7 +29633,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %114
 
 354:                                              ; preds = %347
-  %355 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %355 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %356 = icmp eq i32 %.2278, %355
   %357 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %356, label %358, label %376
@@ -29953,7 +29950,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit272: ; preds = %_Z
   %.pn160 = phi { ptr, i32 } [ %459, %458 ], [ %.pn158, %457 ]
   %.27 = extractvalue { ptr, i32 } %.pn160, 0
   %.2783 = extractvalue { ptr, i32 } %.pn160, 1
-  %461 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %461 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %462 = icmp eq i32 %.2783, %461
   br i1 %462, label %463, label %670
 
@@ -30657,7 +30654,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit313: ; preds = %_Z
 672:                                              ; preds = %671, %445, %441
   %.48104 = phi i32 [ %.47103, %671 ], [ %448, %445 ], [ %444, %441 ]
   %.48 = phi ptr [ %.47, %671 ], [ %447, %445 ], [ %443, %441 ]
-  %673 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
+  %673 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
   %674 = icmp eq i32 %.48104, %673
   br i1 %674, label %675, label %679
 
@@ -30672,7 +30669,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit313: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit314 unwind label %439
 
 679:                                              ; preds = %672
-  %680 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %680 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %681 = icmp eq i32 %.48104, %680
   %682 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %681, label %683, label %701
@@ -30842,7 +30839,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit323: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix26ErrorTraceTest_toPath_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix26ErrorTraceTest_toPath_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -31060,7 +31057,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn62 = phi { ptr, i32 } [ %94, %93 ], [ %.pn, %92 ]
   %.1 = extractvalue { ptr, i32 } %.pn62, 0
   %.129 = extractvalue { ptr, i32 } %.pn62, 1
-  %96 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %96 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %97 = icmp eq i32 %.129, %96
   br i1 %97, label %98, label %305
 
@@ -31765,7 +31762,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
 307:                                              ; preds = %306, %80, %76
   %.2250 = phi i32 [ %.2149, %306 ], [ %83, %80 ], [ %79, %76 ]
   %.22 = phi ptr [ %.21, %306 ], [ %82, %80 ], [ %78, %76 ]
-  %308 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %308 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %309 = icmp eq i32 %.2250, %308
   br i1 %309, label %310, label %314
 
@@ -31780,7 +31777,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %74
 
 314:                                              ; preds = %307
-  %315 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %315 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %316 = icmp eq i32 %.2250, %315
   %317 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %316, label %318, label %336
@@ -31946,7 +31943,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix29ErrorTraceTest_storePath_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix29ErrorTraceTest_storePath_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -32204,7 +32201,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn125 = phi { ptr, i32 } [ %134, %133 ], [ %.pn, %132 ]
   %.1 = extractvalue { ptr, i32 } %.pn125, 0
   %.157 = extractvalue { ptr, i32 } %.pn125, 1
-  %136 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %136 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %137 = icmp eq i32 %.157, %136
   br i1 %137, label %138, label %345
 
@@ -32909,7 +32906,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
 347:                                              ; preds = %346, %120, %116
   %.2278 = phi i32 [ %.2177, %346 ], [ %123, %120 ], [ %119, %116 ]
   %.22 = phi ptr [ %.21, %346 ], [ %122, %120 ], [ %118, %116 ]
-  %348 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %348 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %349 = icmp eq i32 %.2278, %348
   br i1 %349, label %350, label %354
 
@@ -32924,7 +32921,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %114
 
 354:                                              ; preds = %347
-  %355 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %355 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %356 = icmp eq i32 %.2278, %355
   %357 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %356, label %358, label %376
@@ -33241,7 +33238,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit272: ; preds = %_Z
   %.pn160 = phi { ptr, i32 } [ %459, %458 ], [ %.pn158, %457 ]
   %.27 = extractvalue { ptr, i32 } %.pn160, 0
   %.2783 = extractvalue { ptr, i32 } %.pn160, 1
-  %461 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %461 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %462 = icmp eq i32 %.2783, %461
   br i1 %462, label %463, label %670
 
@@ -33945,7 +33942,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit313: ; preds = %_Z
 672:                                              ; preds = %671, %445, %441
   %.48104 = phi i32 [ %.47103, %671 ], [ %448, %445 ], [ %444, %441 ]
   %.48 = phi ptr [ %.47, %671 ], [ %447, %445 ], [ %443, %441 ]
-  %673 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
+  %673 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
   %674 = icmp eq i32 %.48104, %673
   br i1 %674, label %675, label %679
 
@@ -33960,7 +33957,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit313: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit314 unwind label %439
 
 679:                                              ; preds = %672
-  %680 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %680 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %681 = icmp eq i32 %.48104, %680
   %682 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %681, label %683, label %701
@@ -34176,7 +34173,7 @@ define linkonce_odr void @_ZN3nix7HintFmtC2IJA8_cEEERKNSt7__cxx1112basic_stringI
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix30ErrorTraceTest_pathExists_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix30ErrorTraceTest_pathExists_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -34394,7 +34391,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn62 = phi { ptr, i32 } [ %94, %93 ], [ %.pn, %92 ]
   %.1 = extractvalue { ptr, i32 } %.pn62, 0
   %.129 = extractvalue { ptr, i32 } %.pn62, 1
-  %96 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %96 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %97 = icmp eq i32 %.129, %96
   br i1 %97, label %98, label %305
 
@@ -35099,7 +35096,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
 307:                                              ; preds = %306, %80, %76
   %.2250 = phi i32 [ %.2149, %306 ], [ %83, %80 ], [ %79, %76 ]
   %.22 = phi ptr [ %.21, %306 ], [ %82, %80 ], [ %78, %76 ]
-  %308 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %308 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %309 = icmp eq i32 %.2250, %308
   br i1 %309, label %310, label %314
 
@@ -35114,7 +35111,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %74
 
 314:                                              ; preds = %307
-  %315 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %315 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %316 = icmp eq i32 %.2250, %315
   %317 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %316, label %318, label %336
@@ -35280,7 +35277,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix30ErrorTraceTest_baseNameOf_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix30ErrorTraceTest_baseNameOf_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -35290,92 +35287,92 @@ define void @_ZTv0_n48_N3nix30ErrorTraceTest_baseNameOf_Test8TestBodyEv(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix25ErrorTraceTest_dirOf_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix25ErrorTraceTest_dirOf_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix25ErrorTraceTest_dirOf_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix25ErrorTraceTest_dirOf_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix28ErrorTraceTest_readFile_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix28ErrorTraceTest_readFile_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix28ErrorTraceTest_readFile_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix28ErrorTraceTest_readFile_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix28ErrorTraceTest_findFile_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix28ErrorTraceTest_findFile_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix28ErrorTraceTest_findFile_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix28ErrorTraceTest_findFile_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix28ErrorTraceTest_hashFile_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix28ErrorTraceTest_hashFile_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix28ErrorTraceTest_hashFile_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix28ErrorTraceTest_hashFile_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix27ErrorTraceTest_readDir_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix27ErrorTraceTest_readDir_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix27ErrorTraceTest_readDir_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix27ErrorTraceTest_readDir_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix25ErrorTraceTest_toXML_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix25ErrorTraceTest_toXML_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix25ErrorTraceTest_toXML_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix25ErrorTraceTest_toXML_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix26ErrorTraceTest_toJSON_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix26ErrorTraceTest_toJSON_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix26ErrorTraceTest_toJSON_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix26ErrorTraceTest_toJSON_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix28ErrorTraceTest_fromJSON_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix28ErrorTraceTest_fromJSON_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix28ErrorTraceTest_fromJSON_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix28ErrorTraceTest_fromJSON_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix26ErrorTraceTest_toFile_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix26ErrorTraceTest_toFile_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix26ErrorTraceTest_toFile_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix26ErrorTraceTest_toFile_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
@@ -35669,7 +35666,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn187 = phi { ptr, i32 } [ %175, %174 ], [ %.pn, %173 ]
   %.1 = extractvalue { ptr, i32 } %.pn187, 0
   %.185 = extractvalue { ptr, i32 } %.pn187, 1
-  %177 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %177 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %178 = icmp eq i32 %.185, %177
   br i1 %178, label %179, label %386
 
@@ -36374,7 +36371,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361: ; preds = %_Z
 388:                                              ; preds = %387, %161, %157
   %.22106 = phi i32 [ %.21105, %387 ], [ %164, %161 ], [ %160, %157 ]
   %.22 = phi ptr [ %.21, %387 ], [ %163, %161 ], [ %159, %157 ]
-  %389 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %389 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %390 = icmp eq i32 %.22106, %389
   br i1 %390, label %391, label %395
 
@@ -36389,7 +36386,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %155
 
 395:                                              ; preds = %388
-  %396 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %396 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %397 = icmp eq i32 %.22106, %396
   %398 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %397, label %399, label %417
@@ -36706,7 +36703,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit383: ; preds = %_Z
   %.pn222 = phi { ptr, i32 } [ %500, %499 ], [ %.pn220, %498 ]
   %.27 = extractvalue { ptr, i32 } %.pn222, 0
   %.27111 = extractvalue { ptr, i32 } %.pn222, 1
-  %502 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %502 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %503 = icmp eq i32 %.27111, %502
   br i1 %503, label %504, label %711
 
@@ -37410,7 +37407,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit424: ; preds = %_Z
 713:                                              ; preds = %712, %486, %482
   %.48132 = phi i32 [ %.47131, %712 ], [ %489, %486 ], [ %485, %482 ]
   %.48 = phi ptr [ %.47, %712 ], [ %488, %486 ], [ %484, %482 ]
-  %714 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
+  %714 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
   %715 = icmp eq i32 %.48132, %714
   br i1 %715, label %716, label %720
 
@@ -37425,7 +37422,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit424: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit425 unwind label %480
 
 720:                                              ; preds = %713
-  %721 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %721 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %722 = icmp eq i32 %.48132, %721
   %723 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %722, label %724, label %742
@@ -37742,7 +37739,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit450: ; preds = %_Z
   %.pn257 = phi { ptr, i32 } [ %825, %824 ], [ %.pn255, %823 ]
   %.53 = extractvalue { ptr, i32 } %.pn257, 0
   %.53137 = extractvalue { ptr, i32 } %.pn257, 1
-  %827 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %827 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %828 = icmp eq i32 %.53137, %827
   br i1 %828, label %829, label %1036
 
@@ -38447,7 +38444,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit491: ; preds = %_Z
 1038:                                             ; preds = %1037, %811, %807
   %.74158 = phi i32 [ %.73157, %1037 ], [ %814, %811 ], [ %810, %807 ]
   %.74 = phi ptr [ %.73, %1037 ], [ %813, %811 ], [ %809, %807 ]
-  %1039 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1039 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1040 = icmp eq i32 %.74158, %1039
   br i1 %1040, label %1041, label %1045
 
@@ -38462,7 +38459,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit491: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit492 unwind label %805
 
 1045:                                             ; preds = %1038
-  %1046 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1046 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1047 = icmp eq i32 %.74158, %1046
   %1048 = call ptr @__cxa_begin_catch(ptr %.74) #24
   br i1 %1047, label %1049, label %1067
@@ -38632,7 +38629,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit501: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix32ErrorTraceTest_filterSource_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix32ErrorTraceTest_filterSource_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -38642,12 +38639,12 @@ define void @_ZTv0_n48_N3nix32ErrorTraceTest_filterSource_Test8TestBodyEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix24ErrorTraceTest_path_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix24ErrorTraceTest_path_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix24ErrorTraceTest_path_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix24ErrorTraceTest_path_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
@@ -38860,7 +38857,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn62 = phi { ptr, i32 } [ %94, %93 ], [ %.pn, %92 ]
   %.1 = extractvalue { ptr, i32 } %.pn62, 0
   %.129 = extractvalue { ptr, i32 } %.pn62, 1
-  %96 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %96 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %97 = icmp eq i32 %.129, %96
   br i1 %97, label %98, label %305
 
@@ -39565,7 +39562,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
 307:                                              ; preds = %306, %80, %76
   %.2250 = phi i32 [ %.2149, %306 ], [ %83, %80 ], [ %79, %76 ]
   %.22 = phi ptr [ %.21, %306 ], [ %82, %80 ], [ %78, %76 ]
-  %308 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %308 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %309 = icmp eq i32 %.2250, %308
   br i1 %309, label %310, label %314
 
@@ -39580,7 +39577,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %74
 
 314:                                              ; preds = %307
-  %315 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %315 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %316 = icmp eq i32 %.2250, %315
   %317 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %316, label %318, label %336
@@ -39746,7 +39743,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix29ErrorTraceTest_attrNames_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix29ErrorTraceTest_attrNames_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -39964,7 +39961,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn62 = phi { ptr, i32 } [ %94, %93 ], [ %.pn, %92 ]
   %.1 = extractvalue { ptr, i32 } %.pn62, 0
   %.129 = extractvalue { ptr, i32 } %.pn62, 1
-  %96 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %96 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %97 = icmp eq i32 %.129, %96
   br i1 %97, label %98, label %305
 
@@ -40669,7 +40666,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
 307:                                              ; preds = %306, %80, %76
   %.2250 = phi i32 [ %.2149, %306 ], [ %83, %80 ], [ %79, %76 ]
   %.22 = phi ptr [ %.21, %306 ], [ %82, %80 ], [ %78, %76 ]
-  %308 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %308 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %309 = icmp eq i32 %.2250, %308
   br i1 %309, label %310, label %314
 
@@ -40684,7 +40681,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %74
 
 314:                                              ; preds = %307
-  %315 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %315 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %316 = icmp eq i32 %.2250, %315
   %317 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %316, label %318, label %336
@@ -40850,7 +40847,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix30ErrorTraceTest_attrValues_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix30ErrorTraceTest_attrValues_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -41149,7 +41146,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn187 = phi { ptr, i32 } [ %175, %174 ], [ %.pn, %173 ]
   %.1 = extractvalue { ptr, i32 } %.pn187, 0
   %.185 = extractvalue { ptr, i32 } %.pn187, 1
-  %177 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %177 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %178 = icmp eq i32 %.185, %177
   br i1 %178, label %179, label %386
 
@@ -41854,7 +41851,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361: ; preds = %_Z
 388:                                              ; preds = %387, %161, %157
   %.22106 = phi i32 [ %.21105, %387 ], [ %164, %161 ], [ %160, %157 ]
   %.22 = phi ptr [ %.21, %387 ], [ %163, %161 ], [ %159, %157 ]
-  %389 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %389 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %390 = icmp eq i32 %.22106, %389
   br i1 %390, label %391, label %395
 
@@ -41869,7 +41866,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %155
 
 395:                                              ; preds = %388
-  %396 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %396 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %397 = icmp eq i32 %.22106, %396
   %398 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %397, label %399, label %417
@@ -42186,7 +42183,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit383: ; preds = %_Z
   %.pn222 = phi { ptr, i32 } [ %500, %499 ], [ %.pn220, %498 ]
   %.27 = extractvalue { ptr, i32 } %.pn222, 0
   %.27111 = extractvalue { ptr, i32 } %.pn222, 1
-  %502 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %502 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %503 = icmp eq i32 %.27111, %502
   br i1 %503, label %504, label %711
 
@@ -42891,7 +42888,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit424: ; preds = %_Z
 713:                                              ; preds = %712, %486, %482
   %.48132 = phi i32 [ %.47131, %712 ], [ %489, %486 ], [ %485, %482 ]
   %.48 = phi ptr [ %.47, %712 ], [ %488, %486 ], [ %484, %482 ]
-  %714 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %714 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %715 = icmp eq i32 %.48132, %714
   br i1 %715, label %716, label %720
 
@@ -42906,7 +42903,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit424: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit425 unwind label %480
 
 720:                                              ; preds = %713
-  %721 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %721 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %722 = icmp eq i32 %.48132, %721
   %723 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %722, label %724, label %742
@@ -43223,7 +43220,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit450: ; preds = %_Z
   %.pn257 = phi { ptr, i32 } [ %825, %824 ], [ %.pn255, %823 ]
   %.53 = extractvalue { ptr, i32 } %.pn257, 0
   %.53137 = extractvalue { ptr, i32 } %.pn257, 1
-  %827 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %827 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %828 = icmp eq i32 %.53137, %827
   br i1 %828, label %829, label %1036
 
@@ -43927,7 +43924,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit492: ; preds = %_Z
 1038:                                             ; preds = %1037, %811, %807
   %.74158 = phi i32 [ %.73157, %1037 ], [ %814, %811 ], [ %810, %807 ]
   %.74 = phi ptr [ %.73, %1037 ], [ %813, %811 ], [ %809, %807 ]
-  %1039 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1039 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1040 = icmp eq i32 %.74158, %1039
   br i1 %1040, label %1041, label %1045
 
@@ -43942,7 +43939,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit492: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit493 unwind label %805
 
 1045:                                             ; preds = %1038
-  %1046 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1046 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1047 = icmp eq i32 %.74158, %1046
   %1048 = call ptr @__cxa_begin_catch(ptr %.74) #24
   br i1 %1047, label %1049, label %1067
@@ -44112,7 +44109,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit502: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix27ErrorTraceTest_getAttr_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix27ErrorTraceTest_getAttr_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -44122,12 +44119,12 @@ define void @_ZTv0_n48_N3nix27ErrorTraceTest_getAttr_Test8TestBodyEv(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix36ErrorTraceTest_unsafeGetAttrPos_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix36ErrorTraceTest_unsafeGetAttrPos_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix36ErrorTraceTest_unsafeGetAttrPos_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix36ErrorTraceTest_unsafeGetAttrPos_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
@@ -44381,7 +44378,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn125 = phi { ptr, i32 } [ %135, %134 ], [ %.pn, %133 ]
   %.1 = extractvalue { ptr, i32 } %.pn125, 0
   %.157 = extractvalue { ptr, i32 } %.pn125, 1
-  %137 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %137 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %138 = icmp eq i32 %.157, %137
   br i1 %138, label %139, label %346
 
@@ -45086,7 +45083,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
 348:                                              ; preds = %347, %121, %117
   %.2278 = phi i32 [ %.2177, %347 ], [ %124, %121 ], [ %120, %117 ]
   %.22 = phi ptr [ %.21, %347 ], [ %123, %121 ], [ %119, %117 ]
-  %349 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %349 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %350 = icmp eq i32 %.2278, %349
   br i1 %350, label %351, label %355
 
@@ -45101,7 +45098,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %115
 
 355:                                              ; preds = %348
-  %356 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %356 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %357 = icmp eq i32 %.2278, %356
   %358 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %357, label %359, label %377
@@ -45418,7 +45415,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit272: ; preds = %_Z
   %.pn160 = phi { ptr, i32 } [ %460, %459 ], [ %.pn158, %458 ]
   %.27 = extractvalue { ptr, i32 } %.pn160, 0
   %.2783 = extractvalue { ptr, i32 } %.pn160, 1
-  %462 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %462 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %463 = icmp eq i32 %.2783, %462
   br i1 %463, label %464, label %671
 
@@ -46123,7 +46120,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit313: ; preds = %_Z
 673:                                              ; preds = %672, %446, %442
   %.48104 = phi i32 [ %.47103, %672 ], [ %449, %446 ], [ %445, %442 ]
   %.48 = phi ptr [ %.47, %672 ], [ %448, %446 ], [ %444, %442 ]
-  %674 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %674 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %675 = icmp eq i32 %.48104, %674
   br i1 %675, label %676, label %680
 
@@ -46138,7 +46135,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit313: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit314 unwind label %440
 
 680:                                              ; preds = %673
-  %681 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %681 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %682 = icmp eq i32 %.48104, %681
   %683 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %682, label %684, label %702
@@ -46308,7 +46305,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit323: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix27ErrorTraceTest_hasAttr_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix27ErrorTraceTest_hasAttr_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -46318,12 +46315,12 @@ define void @_ZTv0_n48_N3nix27ErrorTraceTest_hasAttr_Test8TestBodyEv(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix27ErrorTraceTest_isAttrs_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix27ErrorTraceTest_isAttrs_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix27ErrorTraceTest_isAttrs_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix27ErrorTraceTest_isAttrs_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
@@ -46618,7 +46615,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn187 = phi { ptr, i32 } [ %176, %175 ], [ %.pn, %174 ]
   %.1 = extractvalue { ptr, i32 } %.pn187, 0
   %.185 = extractvalue { ptr, i32 } %.pn187, 1
-  %178 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %178 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %179 = icmp eq i32 %.185, %178
   br i1 %179, label %180, label %387
 
@@ -47323,7 +47320,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361: ; preds = %_Z
 389:                                              ; preds = %388, %162, %158
   %.22106 = phi i32 [ %.21105, %388 ], [ %165, %162 ], [ %161, %158 ]
   %.22 = phi ptr [ %.21, %388 ], [ %164, %162 ], [ %160, %158 ]
-  %390 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %390 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %391 = icmp eq i32 %.22106, %390
   br i1 %391, label %392, label %396
 
@@ -47338,7 +47335,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %156
 
 396:                                              ; preds = %389
-  %397 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %397 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %398 = icmp eq i32 %.22106, %397
   %399 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %398, label %400, label %418
@@ -47655,7 +47652,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit383: ; preds = %_Z
   %.pn222 = phi { ptr, i32 } [ %501, %500 ], [ %.pn220, %499 ]
   %.27 = extractvalue { ptr, i32 } %.pn222, 0
   %.27111 = extractvalue { ptr, i32 } %.pn222, 1
-  %503 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %503 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %504 = icmp eq i32 %.27111, %503
   br i1 %504, label %505, label %712
 
@@ -48360,7 +48357,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit424: ; preds = %_Z
 714:                                              ; preds = %713, %487, %483
   %.48132 = phi i32 [ %.47131, %713 ], [ %490, %487 ], [ %486, %483 ]
   %.48 = phi ptr [ %.47, %713 ], [ %489, %487 ], [ %485, %483 ]
-  %715 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %715 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %716 = icmp eq i32 %.48132, %715
   br i1 %716, label %717, label %721
 
@@ -48375,7 +48372,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit424: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit425 unwind label %481
 
 721:                                              ; preds = %714
-  %722 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %722 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %723 = icmp eq i32 %.48132, %722
   %724 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %723, label %725, label %743
@@ -48692,7 +48689,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit450: ; preds = %_Z
   %.pn257 = phi { ptr, i32 } [ %826, %825 ], [ %.pn255, %824 ]
   %.53 = extractvalue { ptr, i32 } %.pn257, 0
   %.53137 = extractvalue { ptr, i32 } %.pn257, 1
-  %828 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %828 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %829 = icmp eq i32 %.53137, %828
   br i1 %829, label %830, label %1037
 
@@ -49397,7 +49394,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit491: ; preds = %_Z
 1039:                                             ; preds = %1038, %812, %808
   %.74158 = phi i32 [ %.73157, %1038 ], [ %815, %812 ], [ %811, %808 ]
   %.74 = phi ptr [ %.73, %1038 ], [ %814, %812 ], [ %810, %808 ]
-  %1040 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1040 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1041 = icmp eq i32 %.74158, %1040
   br i1 %1041, label %1042, label %1046
 
@@ -49412,7 +49409,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit491: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit492 unwind label %806
 
 1046:                                             ; preds = %1039
-  %1047 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1047 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1048 = icmp eq i32 %.74158, %1047
   %1049 = call ptr @__cxa_begin_catch(ptr %.74) #24
   br i1 %1048, label %1050, label %1068
@@ -49641,7 +49638,7 @@ define linkonce_odr void @_ZN3nix7HintFmtC2IJA9_cNS_9UncoloredIA14_cEEEEERKNSt7_
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix31ErrorTraceTest_removeAttrs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix31ErrorTraceTest_removeAttrs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -50021,7 +50018,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn311 = phi { ptr, i32 } [ %256, %255 ], [ %.pn, %254 ]
   %.1 = extractvalue { ptr, i32 } %.pn311, 0
   %.1141 = extractvalue { ptr, i32 } %.pn311, 1
-  %258 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %258 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %259 = icmp eq i32 %.1141, %258
   br i1 %259, label %260, label %467
 
@@ -50726,7 +50723,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit583: ; preds = %_Z
 469:                                              ; preds = %468, %242, %238
   %.22162 = phi i32 [ %.21161, %468 ], [ %245, %242 ], [ %241, %238 ]
   %.22 = phi ptr [ %.21, %468 ], [ %244, %242 ], [ %240, %238 ]
-  %470 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %470 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %471 = icmp eq i32 %.22162, %470
   br i1 %471, label %472, label %476
 
@@ -50741,7 +50738,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit583: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %236
 
 476:                                              ; preds = %469
-  %477 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %477 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %478 = icmp eq i32 %.22162, %477
   %479 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %478, label %480, label %498
@@ -51058,7 +51055,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit605: ; preds = %_Z
   %.pn346 = phi { ptr, i32 } [ %581, %580 ], [ %.pn344, %579 ]
   %.27 = extractvalue { ptr, i32 } %.pn346, 0
   %.27167 = extractvalue { ptr, i32 } %.pn346, 1
-  %583 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %583 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %584 = icmp eq i32 %.27167, %583
   br i1 %584, label %585, label %792
 
@@ -51763,7 +51760,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit646: ; preds = %_Z
 794:                                              ; preds = %793, %567, %563
   %.48188 = phi i32 [ %.47187, %793 ], [ %570, %567 ], [ %566, %563 ]
   %.48 = phi ptr [ %.47, %793 ], [ %569, %567 ], [ %565, %563 ]
-  %795 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %795 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %796 = icmp eq i32 %.48188, %795
   br i1 %796, label %797, label %801
 
@@ -51778,7 +51775,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit646: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit647 unwind label %561
 
 801:                                              ; preds = %794
-  %802 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %802 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %803 = icmp eq i32 %.48188, %802
   %804 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %803, label %805, label %823
@@ -52095,7 +52092,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit672: ; preds = %_Z
   %.pn381 = phi { ptr, i32 } [ %906, %905 ], [ %.pn379, %904 ]
   %.53 = extractvalue { ptr, i32 } %.pn381, 0
   %.53193 = extractvalue { ptr, i32 } %.pn381, 1
-  %908 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %908 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %909 = icmp eq i32 %.53193, %908
   br i1 %909, label %910, label %1117
 
@@ -52799,7 +52796,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit713: ; preds = %_Z
 1119:                                             ; preds = %1118, %892, %888
   %.74214 = phi i32 [ %.73213, %1118 ], [ %895, %892 ], [ %891, %888 ]
   %.74 = phi ptr [ %.73, %1118 ], [ %894, %892 ], [ %890, %888 ]
-  %1120 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1120 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1121 = icmp eq i32 %.74214, %1120
   br i1 %1121, label %1122, label %1126
 
@@ -52814,7 +52811,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit713: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit714 unwind label %886
 
 1126:                                             ; preds = %1119
-  %1127 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1127 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1128 = icmp eq i32 %.74214, %1127
   %1129 = call ptr @__cxa_begin_catch(ptr %.74) #24
   br i1 %1128, label %1130, label %1148
@@ -53131,7 +53128,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit739: ; preds = %_Z
   %.pn416 = phi { ptr, i32 } [ %1231, %1230 ], [ %.pn414, %1229 ]
   %.79 = extractvalue { ptr, i32 } %.pn416, 0
   %.79219 = extractvalue { ptr, i32 } %.pn416, 1
-  %1233 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %1233 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %1234 = icmp eq i32 %.79219, %1233
   br i1 %1234, label %1235, label %1442
 
@@ -53836,7 +53833,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit780: ; preds = %_Z
 1444:                                             ; preds = %1443, %1217, %1213
   %.100240 = phi i32 [ %.99239, %1443 ], [ %1220, %1217 ], [ %1216, %1213 ]
   %.100 = phi ptr [ %.99, %1443 ], [ %1219, %1217 ], [ %1215, %1213 ]
-  %1445 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1445 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1446 = icmp eq i32 %.100240, %1445
   br i1 %1446, label %1447, label %1451
 
@@ -53851,7 +53848,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit780: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit781 unwind label %1211
 
 1451:                                             ; preds = %1444
-  %1452 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1452 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1453 = icmp eq i32 %.100240, %1452
   %1454 = call ptr @__cxa_begin_catch(ptr %.100) #24
   br i1 %1453, label %1455, label %1473
@@ -54114,7 +54111,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit790: ; preds = %_ZNKSt7__cxx1112bas
   %.pn451 = phi { ptr, i32 } [ %1537, %1536 ], [ %.pn449, %1535 ]
   %.105 = extractvalue { ptr, i32 } %.pn451, 0
   %.105245 = extractvalue { ptr, i32 } %.pn451, 1
-  %1539 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %1539 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %1540 = icmp eq i32 %.105245, %1539
   br i1 %1540, label %1541, label %1737
 
@@ -54785,7 +54782,7 @@ _ZN7testing7MessageD2Ev.exit825:                  ; preds = %1723, %_ZNKSt14defa
 1739:                                             ; preds = %1738, %1523, %1519
   %.126266 = phi i32 [ %.125265, %1738 ], [ %1526, %1523 ], [ %1522, %1519 ]
   %.126 = phi ptr [ %.125, %1738 ], [ %1525, %1523 ], [ %1521, %1519 ]
-  %1740 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1740 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1741 = icmp eq i32 %.126266, %1740
   br i1 %1741, label %1742, label %1746
 
@@ -54800,7 +54797,7 @@ _ZN7testing7MessageD2Ev.exit825:                  ; preds = %1723, %_ZNKSt14defa
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit826 unwind label %1517
 
 1746:                                             ; preds = %1739
-  %1747 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1747 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1748 = icmp eq i32 %.126266, %1747
   %1749 = call ptr @__cxa_begin_catch(ptr %.126) #24
   br i1 %1748, label %1750, label %1768
@@ -55062,7 +55059,7 @@ define linkonce_odr void @_ZN3nix7HintFmtC2IJA6_cEEERKNSt7__cxx1112basic_stringI
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix31ErrorTraceTest_listToAttrs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix31ErrorTraceTest_listToAttrs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -55321,7 +55318,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn125 = phi { ptr, i32 } [ %135, %134 ], [ %.pn, %133 ]
   %.1 = extractvalue { ptr, i32 } %.pn125, 0
   %.157 = extractvalue { ptr, i32 } %.pn125, 1
-  %137 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %137 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %138 = icmp eq i32 %.157, %137
   br i1 %138, label %139, label %346
 
@@ -56026,7 +56023,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
 348:                                              ; preds = %347, %121, %117
   %.2278 = phi i32 [ %.2177, %347 ], [ %124, %121 ], [ %120, %117 ]
   %.22 = phi ptr [ %.21, %347 ], [ %123, %121 ], [ %119, %117 ]
-  %349 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %349 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %350 = icmp eq i32 %.2278, %349
   br i1 %350, label %351, label %355
 
@@ -56041,7 +56038,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %115
 
 355:                                              ; preds = %348
-  %356 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %356 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %357 = icmp eq i32 %.2278, %356
   %358 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %357, label %359, label %377
@@ -56358,7 +56355,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit272: ; preds = %_Z
   %.pn160 = phi { ptr, i32 } [ %460, %459 ], [ %.pn158, %458 ]
   %.27 = extractvalue { ptr, i32 } %.pn160, 0
   %.2783 = extractvalue { ptr, i32 } %.pn160, 1
-  %462 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %462 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %463 = icmp eq i32 %.2783, %462
   br i1 %463, label %464, label %671
 
@@ -57063,7 +57060,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit314: ; preds = %_Z
 673:                                              ; preds = %672, %446, %442
   %.48104 = phi i32 [ %.47103, %672 ], [ %449, %446 ], [ %445, %442 ]
   %.48 = phi ptr [ %.47, %672 ], [ %448, %446 ], [ %444, %442 ]
-  %674 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %674 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %675 = icmp eq i32 %.48104, %674
   br i1 %675, label %676, label %680
 
@@ -57078,7 +57075,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit314: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit315 unwind label %440
 
 680:                                              ; preds = %673
-  %681 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %681 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %682 = icmp eq i32 %.48104, %681
   %683 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %682, label %684, label %702
@@ -57248,7 +57245,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit324: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix34ErrorTraceTest_intersectAttrs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix34ErrorTraceTest_intersectAttrs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -57589,7 +57586,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn249 = phi { ptr, i32 } [ %217, %216 ], [ %.pn, %215 ]
   %.1 = extractvalue { ptr, i32 } %.pn249, 0
   %.1113 = extractvalue { ptr, i32 } %.pn249, 1
-  %219 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %219 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %220 = icmp eq i32 %.1113, %219
   br i1 %220, label %221, label %428
 
@@ -58294,7 +58291,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit472: ; preds = %_Z
 430:                                              ; preds = %429, %203, %199
   %.22134 = phi i32 [ %.21133, %429 ], [ %206, %203 ], [ %202, %199 ]
   %.22 = phi ptr [ %.21, %429 ], [ %205, %203 ], [ %201, %199 ]
-  %431 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %431 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %432 = icmp eq i32 %.22134, %431
   br i1 %432, label %433, label %437
 
@@ -58309,7 +58306,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit472: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %197
 
 437:                                              ; preds = %430
-  %438 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %438 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %439 = icmp eq i32 %.22134, %438
   %440 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %439, label %441, label %459
@@ -58626,7 +58623,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit494: ; preds = %_Z
   %.pn284 = phi { ptr, i32 } [ %542, %541 ], [ %.pn282, %540 ]
   %.27 = extractvalue { ptr, i32 } %.pn284, 0
   %.27139 = extractvalue { ptr, i32 } %.pn284, 1
-  %544 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %544 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %545 = icmp eq i32 %.27139, %544
   br i1 %545, label %546, label %753
 
@@ -59331,7 +59328,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit535: ; preds = %_Z
 755:                                              ; preds = %754, %528, %524
   %.48160 = phi i32 [ %.47159, %754 ], [ %531, %528 ], [ %527, %524 ]
   %.48 = phi ptr [ %.47, %754 ], [ %530, %528 ], [ %526, %524 ]
-  %756 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %756 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %757 = icmp eq i32 %.48160, %756
   br i1 %757, label %758, label %762
 
@@ -59346,7 +59343,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit535: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit536 unwind label %522
 
 762:                                              ; preds = %755
-  %763 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %763 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %764 = icmp eq i32 %.48160, %763
   %765 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %764, label %766, label %784
@@ -59663,7 +59660,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit561: ; preds = %_Z
   %.pn319 = phi { ptr, i32 } [ %867, %866 ], [ %.pn317, %865 ]
   %.53 = extractvalue { ptr, i32 } %.pn319, 0
   %.53165 = extractvalue { ptr, i32 } %.pn319, 1
-  %869 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %869 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %870 = icmp eq i32 %.53165, %869
   br i1 %870, label %871, label %1078
 
@@ -60368,7 +60365,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit602: ; preds = %_Z
 1080:                                             ; preds = %1079, %853, %849
   %.74186 = phi i32 [ %.73185, %1079 ], [ %856, %853 ], [ %852, %849 ]
   %.74 = phi ptr [ %.73, %1079 ], [ %855, %853 ], [ %851, %849 ]
-  %1081 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1081 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1082 = icmp eq i32 %.74186, %1081
   br i1 %1082, label %1083, label %1087
 
@@ -60383,7 +60380,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit602: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit603 unwind label %847
 
 1087:                                             ; preds = %1080
-  %1088 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1088 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1089 = icmp eq i32 %.74186, %1088
   %1090 = call ptr @__cxa_begin_catch(ptr %.74) #24
   br i1 %1089, label %1091, label %1109
@@ -60700,7 +60697,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit628: ; preds = %_Z
   %.pn354 = phi { ptr, i32 } [ %1192, %1191 ], [ %.pn352, %1190 ]
   %.79 = extractvalue { ptr, i32 } %.pn354, 0
   %.79191 = extractvalue { ptr, i32 } %.pn354, 1
-  %1194 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %1194 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %1195 = icmp eq i32 %.79191, %1194
   br i1 %1195, label %1196, label %1403
 
@@ -61405,7 +61402,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit669: ; preds = %_Z
 1405:                                             ; preds = %1404, %1178, %1174
   %.100212 = phi i32 [ %.99211, %1404 ], [ %1181, %1178 ], [ %1177, %1174 ]
   %.100 = phi ptr [ %.99, %1404 ], [ %1180, %1178 ], [ %1176, %1174 ]
-  %1406 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1406 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1407 = icmp eq i32 %.100212, %1406
   br i1 %1407, label %1408, label %1412
 
@@ -61420,7 +61417,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit669: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit670 unwind label %1172
 
 1412:                                             ; preds = %1405
-  %1413 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1413 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1414 = icmp eq i32 %.100212, %1413
   %1415 = call ptr @__cxa_begin_catch(ptr %.100) #24
   br i1 %1414, label %1416, label %1434
@@ -61590,7 +61587,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit679: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix28ErrorTraceTest_catAttrs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix28ErrorTraceTest_catAttrs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -61799,7 +61796,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn54 = phi { ptr, i32 } [ %85, %84 ], [ %.pn, %83 ]
   %.1 = extractvalue { ptr, i32 } %.pn54, 0
   %.127 = extractvalue { ptr, i32 } %.pn54, 1
-  %87 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %87 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %88 = icmp eq i32 %.127, %87
   br i1 %88, label %89, label %248
 
@@ -62338,7 +62335,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %_Z
 250:                                              ; preds = %249, %71, %67
   %.1743 = phi i32 [ %.1642, %249 ], [ %74, %71 ], [ %70, %67 ]
   %.17 = phi ptr [ %.16, %249 ], [ %73, %71 ], [ %69, %67 ]
-  %251 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %251 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %252 = icmp eq i32 %.1743, %251
   br i1 %252, label %253, label %257
 
@@ -62353,7 +62350,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %65
 
 257:                                              ; preds = %250
-  %258 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %258 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %259 = icmp eq i32 %.1743, %258
   %260 = call ptr @__cxa_begin_catch(ptr %.17) #24
   br i1 %259, label %261, label %279
@@ -62519,7 +62516,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix32ErrorTraceTest_functionArgs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix32ErrorTraceTest_functionArgs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -62737,7 +62734,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn62 = phi { ptr, i32 } [ %94, %93 ], [ %.pn, %92 ]
   %.1 = extractvalue { ptr, i32 } %.pn62, 0
   %.129 = extractvalue { ptr, i32 } %.pn62, 1
-  %96 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %96 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %97 = icmp eq i32 %.129, %96
   br i1 %97, label %98, label %305
 
@@ -63442,7 +63439,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
 307:                                              ; preds = %306, %80, %76
   %.2250 = phi i32 [ %.2149, %306 ], [ %83, %80 ], [ %79, %76 ]
   %.22 = phi ptr [ %.21, %306 ], [ %82, %80 ], [ %78, %76 ]
-  %308 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %308 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %309 = icmp eq i32 %.2250, %308
   br i1 %309, label %310, label %314
 
@@ -63457,7 +63454,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %74
 
 314:                                              ; preds = %307
-  %315 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %315 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %316 = icmp eq i32 %.2250, %315
   %317 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %316, label %318, label %336
@@ -63623,7 +63620,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix28ErrorTraceTest_mapAttrs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix28ErrorTraceTest_mapAttrs_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -63882,7 +63879,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn125 = phi { ptr, i32 } [ %135, %134 ], [ %.pn, %133 ]
   %.1 = extractvalue { ptr, i32 } %.pn125, 0
   %.157 = extractvalue { ptr, i32 } %.pn125, 1
-  %137 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %137 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %138 = icmp eq i32 %.157, %137
   br i1 %138, label %139, label %346
 
@@ -64587,7 +64584,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
 348:                                              ; preds = %347, %121, %117
   %.2278 = phi i32 [ %.2177, %347 ], [ %124, %121 ], [ %120, %117 ]
   %.22 = phi ptr [ %.21, %347 ], [ %123, %121 ], [ %119, %117 ]
-  %349 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %349 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %350 = icmp eq i32 %.2278, %349
   br i1 %350, label %351, label %355
 
@@ -64602,7 +64599,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %115
 
 355:                                              ; preds = %348
-  %356 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %356 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %357 = icmp eq i32 %.2278, %356
   %358 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %357, label %359, label %377
@@ -64919,7 +64916,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit272: ; preds = %_Z
   %.pn160 = phi { ptr, i32 } [ %460, %459 ], [ %.pn158, %458 ]
   %.27 = extractvalue { ptr, i32 } %.pn160, 0
   %.2783 = extractvalue { ptr, i32 } %.pn160, 1
-  %462 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %462 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %463 = icmp eq i32 %.2783, %462
   br i1 %463, label %464, label %671
 
@@ -65624,7 +65621,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit313: ; preds = %_Z
 673:                                              ; preds = %672, %446, %442
   %.48104 = phi i32 [ %.47103, %672 ], [ %449, %446 ], [ %445, %442 ]
   %.48 = phi ptr [ %.47, %672 ], [ %448, %446 ], [ %444, %442 ]
-  %674 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %674 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %675 = icmp eq i32 %.48104, %674
   br i1 %675, label %676, label %680
 
@@ -65639,7 +65636,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit313: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit314 unwind label %440
 
 680:                                              ; preds = %673
-  %681 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %681 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %682 = icmp eq i32 %.48104, %681
   %683 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %682, label %684, label %702
@@ -65809,7 +65806,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit323: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix32ErrorTraceTest_zipAttrsWith_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix32ErrorTraceTest_zipAttrsWith_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -65819,12 +65816,12 @@ define void @_ZTv0_n48_N3nix32ErrorTraceTest_zipAttrsWith_Test8TestBodyEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix26ErrorTraceTest_isList_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix26ErrorTraceTest_isList_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix26ErrorTraceTest_isList_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix26ErrorTraceTest_isList_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
@@ -66103,7 +66100,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn171 = phi { ptr, i32 } [ %160, %159 ], [ %.pn, %158 ]
   %.1 = extractvalue { ptr, i32 } %.pn171, 0
   %.181 = extractvalue { ptr, i32 } %.pn171, 1
-  %162 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %162 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %163 = icmp eq i32 %.181, %162
   br i1 %163, label %164, label %371
 
@@ -66808,7 +66805,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit327: ; preds = %_Z
 373:                                              ; preds = %372, %146, %142
   %.22102 = phi i32 [ %.21101, %372 ], [ %149, %146 ], [ %145, %142 ]
   %.22 = phi ptr [ %.21, %372 ], [ %148, %146 ], [ %144, %142 ]
-  %374 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %374 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %375 = icmp eq i32 %.22102, %374
   br i1 %375, label %376, label %380
 
@@ -66823,7 +66820,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit327: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %140
 
 380:                                              ; preds = %373
-  %381 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %381 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %382 = icmp eq i32 %.22102, %381
   %383 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %382, label %384, label %402
@@ -67140,7 +67137,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit349: ; preds = %_Z
   %.pn206 = phi { ptr, i32 } [ %485, %484 ], [ %.pn204, %483 ]
   %.27 = extractvalue { ptr, i32 } %.pn206, 0
   %.27107 = extractvalue { ptr, i32 } %.pn206, 1
-  %487 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %487 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %488 = icmp eq i32 %.27107, %487
   br i1 %488, label %489, label %648
 
@@ -67680,7 +67677,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit382: ; preds = %_Z
 650:                                              ; preds = %649, %471, %467
   %.43123 = phi i32 [ %.42122, %649 ], [ %474, %471 ], [ %470, %467 ]
   %.43 = phi ptr [ %.42, %649 ], [ %473, %471 ], [ %469, %467 ]
-  %651 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix5ErrorE) #24
+  %651 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix5ErrorE) #24
   %652 = icmp eq i32 %.43123, %651
   br i1 %652, label %653, label %657
 
@@ -67695,7 +67692,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit382: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit383 unwind label %465
 
 657:                                              ; preds = %650
-  %658 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %658 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %659 = icmp eq i32 %.43123, %658
   %660 = call ptr @__cxa_begin_catch(ptr %.43) #24
   br i1 %659, label %661, label %679
@@ -68012,7 +68009,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit408: ; preds = %_Z
   %.pn234 = phi { ptr, i32 } [ %762, %761 ], [ %.pn232, %760 ]
   %.48 = extractvalue { ptr, i32 } %.pn234, 0
   %.48128 = extractvalue { ptr, i32 } %.pn234, 1
-  %764 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %764 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %765 = icmp eq i32 %.48128, %764
   br i1 %765, label %766, label %925
 
@@ -68552,7 +68549,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit441: ; preds = %_Z
 927:                                              ; preds = %926, %748, %744
   %.64144 = phi i32 [ %.63143, %926 ], [ %751, %748 ], [ %747, %744 ]
   %.64 = phi ptr [ %.63, %926 ], [ %750, %748 ], [ %746, %744 ]
-  %928 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix5ErrorE) #24
+  %928 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix5ErrorE) #24
   %929 = icmp eq i32 %.64144, %928
   br i1 %929, label %930, label %934
 
@@ -68567,7 +68564,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit441: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit442 unwind label %742
 
 934:                                              ; preds = %927
-  %935 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %935 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %936 = icmp eq i32 %.64144, %935
   %937 = call ptr @__cxa_begin_catch(ptr %.64) #24
   br i1 %936, label %938, label %956
@@ -68783,7 +68780,7 @@ define linkonce_odr void @_ZN3nix7HintFmtC2IJiEEERKNSt7__cxx1112basic_stringIcSt
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix26ErrorTraceTest_elemAt_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix26ErrorTraceTest_elemAt_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -69034,7 +69031,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn117 = phi { ptr, i32 } [ %127, %126 ], [ %.pn, %125 ]
   %.1 = extractvalue { ptr, i32 } %.pn117, 0
   %.155 = extractvalue { ptr, i32 } %.pn117, 1
-  %129 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %129 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %130 = icmp eq i32 %.155, %129
   br i1 %130, label %131, label %338
 
@@ -69739,7 +69736,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit233: ; preds = %_Z
 340:                                              ; preds = %339, %113, %109
   %.2276 = phi i32 [ %.2175, %339 ], [ %116, %113 ], [ %112, %109 ]
   %.22 = phi ptr [ %.21, %339 ], [ %115, %113 ], [ %111, %109 ]
-  %341 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %341 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %342 = icmp eq i32 %.2276, %341
   br i1 %342, label %343, label %347
 
@@ -69754,7 +69751,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit233: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %107
 
 347:                                              ; preds = %340
-  %348 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %348 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %349 = icmp eq i32 %.2276, %348
   %350 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %349, label %351, label %369
@@ -70071,7 +70068,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255: ; preds = %_Z
   %.pn152 = phi { ptr, i32 } [ %452, %451 ], [ %.pn150, %450 ]
   %.27 = extractvalue { ptr, i32 } %.pn152, 0
   %.2781 = extractvalue { ptr, i32 } %.pn152, 1
-  %454 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %454 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %455 = icmp eq i32 %.2781, %454
   br i1 %455, label %456, label %615
 
@@ -70611,7 +70608,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit288: ; preds = %_Z
 617:                                              ; preds = %616, %438, %434
   %.4397 = phi i32 [ %.4296, %616 ], [ %441, %438 ], [ %437, %434 ]
   %.43 = phi ptr [ %.42, %616 ], [ %440, %438 ], [ %436, %434 ]
-  %618 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix5ErrorE) #24
+  %618 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix5ErrorE) #24
   %619 = icmp eq i32 %.4397, %618
   br i1 %619, label %620, label %624
 
@@ -70626,7 +70623,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit288: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit289 unwind label %432
 
 624:                                              ; preds = %617
-  %625 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %625 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %626 = icmp eq i32 %.4397, %625
   %627 = call ptr @__cxa_begin_catch(ptr %.43) #24
   br i1 %626, label %628, label %646
@@ -70796,7 +70793,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit298: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix24ErrorTraceTest_head_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix24ErrorTraceTest_head_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -71046,7 +71043,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn117 = phi { ptr, i32 } [ %126, %125 ], [ %.pn, %124 ]
   %.1 = extractvalue { ptr, i32 } %.pn117, 0
   %.155 = extractvalue { ptr, i32 } %.pn117, 1
-  %128 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %128 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %129 = icmp eq i32 %.155, %128
   br i1 %129, label %130, label %337
 
@@ -71751,7 +71748,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit233: ; preds = %_Z
 339:                                              ; preds = %338, %112, %108
   %.2276 = phi i32 [ %.2175, %338 ], [ %115, %112 ], [ %111, %108 ]
   %.22 = phi ptr [ %.21, %338 ], [ %114, %112 ], [ %110, %108 ]
-  %340 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %340 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %341 = icmp eq i32 %.2276, %340
   br i1 %341, label %342, label %346
 
@@ -71766,7 +71763,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit233: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %106
 
 346:                                              ; preds = %339
-  %347 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %347 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %348 = icmp eq i32 %.2276, %347
   %349 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %348, label %350, label %368
@@ -72083,7 +72080,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit255: ; preds = %_Z
   %.pn152 = phi { ptr, i32 } [ %451, %450 ], [ %.pn150, %449 ]
   %.27 = extractvalue { ptr, i32 } %.pn152, 0
   %.2781 = extractvalue { ptr, i32 } %.pn152, 1
-  %453 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %453 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %454 = icmp eq i32 %.2781, %453
   br i1 %454, label %455, label %614
 
@@ -72622,7 +72619,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit288: ; preds = %_Z
 616:                                              ; preds = %615, %437, %433
   %.4397 = phi i32 [ %.4296, %615 ], [ %440, %437 ], [ %436, %433 ]
   %.43 = phi ptr [ %.42, %615 ], [ %439, %437 ], [ %435, %433 ]
-  %617 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix5ErrorE) #24
+  %617 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix5ErrorE) #24
   %618 = icmp eq i32 %.4397, %617
   br i1 %618, label %619, label %623
 
@@ -72637,7 +72634,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit288: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit289 unwind label %431
 
 623:                                              ; preds = %616
-  %624 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %624 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %625 = icmp eq i32 %.4397, %624
   %626 = call ptr @__cxa_begin_catch(ptr %.43) #24
   br i1 %625, label %627, label %645
@@ -72807,7 +72804,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit298: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix24ErrorTraceTest_tail_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix24ErrorTraceTest_tail_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -73066,7 +73063,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn125 = phi { ptr, i32 } [ %135, %134 ], [ %.pn, %133 ]
   %.1 = extractvalue { ptr, i32 } %.pn125, 0
   %.157 = extractvalue { ptr, i32 } %.pn125, 1
-  %137 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %137 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %138 = icmp eq i32 %.157, %137
   br i1 %138, label %139, label %346
 
@@ -73771,7 +73768,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
 348:                                              ; preds = %347, %121, %117
   %.2278 = phi i32 [ %.2177, %347 ], [ %124, %121 ], [ %120, %117 ]
   %.22 = phi ptr [ %.21, %347 ], [ %123, %121 ], [ %119, %117 ]
-  %349 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %349 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %350 = icmp eq i32 %.2278, %349
   br i1 %350, label %351, label %355
 
@@ -73786,7 +73783,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %115
 
 355:                                              ; preds = %348
-  %356 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %356 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %357 = icmp eq i32 %.2278, %356
   %358 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %357, label %359, label %377
@@ -74103,7 +74100,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit272: ; preds = %_Z
   %.pn160 = phi { ptr, i32 } [ %460, %459 ], [ %.pn158, %458 ]
   %.27 = extractvalue { ptr, i32 } %.pn160, 0
   %.2783 = extractvalue { ptr, i32 } %.pn160, 1
-  %462 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %462 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %463 = icmp eq i32 %.2783, %462
   br i1 %463, label %464, label %671
 
@@ -74808,7 +74805,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit314: ; preds = %_Z
 673:                                              ; preds = %672, %446, %442
   %.48104 = phi i32 [ %.47103, %672 ], [ %449, %446 ], [ %445, %442 ]
   %.48 = phi ptr [ %.47, %672 ], [ %448, %446 ], [ %444, %442 ]
-  %674 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %674 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %675 = icmp eq i32 %.48104, %674
   br i1 %675, label %676, label %680
 
@@ -74823,7 +74820,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit314: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit315 unwind label %440
 
 680:                                              ; preds = %673
-  %681 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %681 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %682 = icmp eq i32 %.48104, %681
   %683 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %682, label %684, label %702
@@ -74993,7 +74990,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit324: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix23ErrorTraceTest_map_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix23ErrorTraceTest_map_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -75293,7 +75290,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn187 = phi { ptr, i32 } [ %176, %175 ], [ %.pn, %174 ]
   %.1 = extractvalue { ptr, i32 } %.pn187, 0
   %.185 = extractvalue { ptr, i32 } %.pn187, 1
-  %178 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %178 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %179 = icmp eq i32 %.185, %178
   br i1 %179, label %180, label %387
 
@@ -75998,7 +75995,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361: ; preds = %_Z
 389:                                              ; preds = %388, %162, %158
   %.22106 = phi i32 [ %.21105, %388 ], [ %165, %162 ], [ %161, %158 ]
   %.22 = phi ptr [ %.21, %388 ], [ %164, %162 ], [ %160, %158 ]
-  %390 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %390 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %391 = icmp eq i32 %.22106, %390
   br i1 %391, label %392, label %396
 
@@ -76013,7 +76010,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %156
 
 396:                                              ; preds = %389
-  %397 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %397 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %398 = icmp eq i32 %.22106, %397
   %399 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %398, label %400, label %418
@@ -76330,7 +76327,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit383: ; preds = %_Z
   %.pn222 = phi { ptr, i32 } [ %501, %500 ], [ %.pn220, %499 ]
   %.27 = extractvalue { ptr, i32 } %.pn222, 0
   %.27111 = extractvalue { ptr, i32 } %.pn222, 1
-  %503 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %503 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %504 = icmp eq i32 %.27111, %503
   br i1 %504, label %505, label %712
 
@@ -77035,7 +77032,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit424: ; preds = %_Z
 714:                                              ; preds = %713, %487, %483
   %.48132 = phi i32 [ %.47131, %713 ], [ %490, %487 ], [ %486, %483 ]
   %.48 = phi ptr [ %.47, %713 ], [ %489, %487 ], [ %485, %483 ]
-  %715 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %715 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %716 = icmp eq i32 %.48132, %715
   br i1 %716, label %717, label %721
 
@@ -77050,7 +77047,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit424: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit425 unwind label %481
 
 721:                                              ; preds = %714
-  %722 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %722 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %723 = icmp eq i32 %.48132, %722
   %724 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %723, label %725, label %743
@@ -77367,7 +77364,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit450: ; preds = %_Z
   %.pn257 = phi { ptr, i32 } [ %826, %825 ], [ %.pn255, %824 ]
   %.53 = extractvalue { ptr, i32 } %.pn257, 0
   %.53137 = extractvalue { ptr, i32 } %.pn257, 1
-  %828 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %828 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %829 = icmp eq i32 %.53137, %828
   br i1 %829, label %830, label %1037
 
@@ -78072,7 +78069,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit491: ; preds = %_Z
 1039:                                             ; preds = %1038, %812, %808
   %.74158 = phi i32 [ %.73157, %1038 ], [ %815, %812 ], [ %811, %808 ]
   %.74 = phi ptr [ %.73, %1038 ], [ %814, %812 ], [ %810, %808 ]
-  %1040 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1040 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1041 = icmp eq i32 %.74158, %1040
   br i1 %1041, label %1042, label %1046
 
@@ -78087,7 +78084,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit491: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit492 unwind label %806
 
 1046:                                             ; preds = %1039
-  %1047 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1047 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1048 = icmp eq i32 %.74158, %1047
   %1049 = call ptr @__cxa_begin_catch(ptr %.74) #24
   br i1 %1048, label %1050, label %1068
@@ -78257,7 +78254,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit501: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix26ErrorTraceTest_filter_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix26ErrorTraceTest_filter_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -78475,7 +78472,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn62 = phi { ptr, i32 } [ %94, %93 ], [ %.pn, %92 ]
   %.1 = extractvalue { ptr, i32 } %.pn62, 0
   %.129 = extractvalue { ptr, i32 } %.pn62, 1
-  %96 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %96 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %97 = icmp eq i32 %.129, %96
   br i1 %97, label %98, label %305
 
@@ -79180,7 +79177,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
 307:                                              ; preds = %306, %80, %76
   %.2250 = phi i32 [ %.2149, %306 ], [ %83, %80 ], [ %79, %76 ]
   %.22 = phi ptr [ %.21, %306 ], [ %82, %80 ], [ %78, %76 ]
-  %308 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %308 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %309 = icmp eq i32 %.2250, %308
   br i1 %309, label %310, label %314
 
@@ -79195,7 +79192,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %74
 
 314:                                              ; preds = %307
-  %315 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %315 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %316 = icmp eq i32 %.2250, %315
   %317 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %316, label %318, label %336
@@ -79361,7 +79358,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix24ErrorTraceTest_elem_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix24ErrorTraceTest_elem_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -79661,7 +79658,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn187 = phi { ptr, i32 } [ %176, %175 ], [ %.pn, %174 ]
   %.1 = extractvalue { ptr, i32 } %.pn187, 0
   %.185 = extractvalue { ptr, i32 } %.pn187, 1
-  %178 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %178 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %179 = icmp eq i32 %.185, %178
   br i1 %179, label %180, label %387
 
@@ -80366,7 +80363,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361: ; preds = %_Z
 389:                                              ; preds = %388, %162, %158
   %.22106 = phi i32 [ %.21105, %388 ], [ %165, %162 ], [ %161, %158 ]
   %.22 = phi ptr [ %.21, %388 ], [ %164, %162 ], [ %160, %158 ]
-  %390 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %390 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %391 = icmp eq i32 %.22106, %390
   br i1 %391, label %392, label %396
 
@@ -80381,7 +80378,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %156
 
 396:                                              ; preds = %389
-  %397 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %397 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %398 = icmp eq i32 %.22106, %397
   %399 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %398, label %400, label %418
@@ -80698,7 +80695,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit383: ; preds = %_Z
   %.pn222 = phi { ptr, i32 } [ %501, %500 ], [ %.pn220, %499 ]
   %.27 = extractvalue { ptr, i32 } %.pn222, 0
   %.27111 = extractvalue { ptr, i32 } %.pn222, 1
-  %503 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %503 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %504 = icmp eq i32 %.27111, %503
   br i1 %504, label %505, label %712
 
@@ -81403,7 +81400,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit424: ; preds = %_Z
 714:                                              ; preds = %713, %487, %483
   %.48132 = phi i32 [ %.47131, %713 ], [ %490, %487 ], [ %486, %483 ]
   %.48 = phi ptr [ %.47, %713 ], [ %489, %487 ], [ %485, %483 ]
-  %715 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %715 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %716 = icmp eq i32 %.48132, %715
   br i1 %716, label %717, label %721
 
@@ -81418,7 +81415,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit424: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit425 unwind label %481
 
 721:                                              ; preds = %714
-  %722 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %722 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %723 = icmp eq i32 %.48132, %722
   %724 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %723, label %725, label %743
@@ -81735,7 +81732,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit450: ; preds = %_Z
   %.pn257 = phi { ptr, i32 } [ %826, %825 ], [ %.pn255, %824 ]
   %.53 = extractvalue { ptr, i32 } %.pn257, 0
   %.53137 = extractvalue { ptr, i32 } %.pn257, 1
-  %828 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %828 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %829 = icmp eq i32 %.53137, %828
   br i1 %829, label %830, label %1037
 
@@ -82440,7 +82437,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit491: ; preds = %_Z
 1039:                                             ; preds = %1038, %812, %808
   %.74158 = phi i32 [ %.73157, %1038 ], [ %815, %812 ], [ %811, %808 ]
   %.74 = phi ptr [ %.73, %1038 ], [ %814, %812 ], [ %810, %808 ]
-  %1040 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1040 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1041 = icmp eq i32 %.74158, %1040
   br i1 %1041, label %1042, label %1046
 
@@ -82455,7 +82452,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit491: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit492 unwind label %806
 
 1046:                                             ; preds = %1039
-  %1047 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1047 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1048 = icmp eq i32 %.74158, %1047
   %1049 = call ptr @__cxa_begin_catch(ptr %.74) #24
   br i1 %1048, label %1050, label %1068
@@ -82625,7 +82622,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit501: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix31ErrorTraceTest_concatLists_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix31ErrorTraceTest_concatLists_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -82884,7 +82881,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn125 = phi { ptr, i32 } [ %135, %134 ], [ %.pn, %133 ]
   %.1 = extractvalue { ptr, i32 } %.pn125, 0
   %.157 = extractvalue { ptr, i32 } %.pn125, 1
-  %137 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %137 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %138 = icmp eq i32 %.157, %137
   br i1 %138, label %139, label %346
 
@@ -83589,7 +83586,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
 348:                                              ; preds = %347, %121, %117
   %.2278 = phi i32 [ %.2177, %347 ], [ %124, %121 ], [ %120, %117 ]
   %.22 = phi ptr [ %.21, %347 ], [ %123, %121 ], [ %119, %117 ]
-  %349 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %349 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %350 = icmp eq i32 %.2278, %349
   br i1 %350, label %351, label %355
 
@@ -83604,7 +83601,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %115
 
 355:                                              ; preds = %348
-  %356 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %356 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %357 = icmp eq i32 %.2278, %356
   %358 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %357, label %359, label %377
@@ -83921,7 +83918,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit272: ; preds = %_Z
   %.pn160 = phi { ptr, i32 } [ %460, %459 ], [ %.pn158, %458 ]
   %.27 = extractvalue { ptr, i32 } %.pn160, 0
   %.2783 = extractvalue { ptr, i32 } %.pn160, 1
-  %462 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %462 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %463 = icmp eq i32 %.2783, %462
   br i1 %463, label %464, label %671
 
@@ -84626,7 +84623,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit313: ; preds = %_Z
 673:                                              ; preds = %672, %446, %442
   %.48104 = phi i32 [ %.47103, %672 ], [ %449, %446 ], [ %445, %442 ]
   %.48 = phi ptr [ %.47, %672 ], [ %448, %446 ], [ %444, %442 ]
-  %674 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %674 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %675 = icmp eq i32 %.48104, %674
   br i1 %675, label %676, label %680
 
@@ -84641,7 +84638,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit313: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit314 unwind label %440
 
 680:                                              ; preds = %673
-  %681 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %681 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %682 = icmp eq i32 %.48104, %681
   %683 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %682, label %684, label %702
@@ -84811,7 +84808,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit323: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix26ErrorTraceTest_length_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix26ErrorTraceTest_length_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -85144,7 +85141,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn241 = phi { ptr, i32 } [ %209, %208 ], [ %.pn, %207 ]
   %.1 = extractvalue { ptr, i32 } %.pn241, 0
   %.1111 = extractvalue { ptr, i32 } %.pn241, 1
-  %211 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %211 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %212 = icmp eq i32 %.1111, %211
   br i1 %212, label %213, label %420
 
@@ -85849,7 +85846,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit455: ; preds = %_Z
 422:                                              ; preds = %421, %195, %191
   %.22132 = phi i32 [ %.21131, %421 ], [ %198, %195 ], [ %194, %191 ]
   %.22 = phi ptr [ %.21, %421 ], [ %197, %195 ], [ %193, %191 ]
-  %423 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %423 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %424 = icmp eq i32 %.22132, %423
   br i1 %424, label %425, label %429
 
@@ -85864,7 +85861,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit455: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %189
 
 429:                                              ; preds = %422
-  %430 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %430 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %431 = icmp eq i32 %.22132, %430
   %432 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %431, label %433, label %451
@@ -86181,7 +86178,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit477: ; preds = %_Z
   %.pn276 = phi { ptr, i32 } [ %534, %533 ], [ %.pn274, %532 ]
   %.27 = extractvalue { ptr, i32 } %.pn276, 0
   %.27137 = extractvalue { ptr, i32 } %.pn276, 1
-  %536 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %536 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %537 = icmp eq i32 %.27137, %536
   br i1 %537, label %538, label %745
 
@@ -86886,7 +86883,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit518: ; preds = %_Z
 747:                                              ; preds = %746, %520, %516
   %.48158 = phi i32 [ %.47157, %746 ], [ %523, %520 ], [ %519, %516 ]
   %.48 = phi ptr [ %.47, %746 ], [ %522, %520 ], [ %518, %516 ]
-  %748 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %748 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %749 = icmp eq i32 %.48158, %748
   br i1 %749, label %750, label %754
 
@@ -86901,7 +86898,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit518: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit519 unwind label %514
 
 754:                                              ; preds = %747
-  %755 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %755 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %756 = icmp eq i32 %.48158, %755
   %757 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %756, label %758, label %776
@@ -87218,7 +87215,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit544: ; preds = %_Z
   %.pn311 = phi { ptr, i32 } [ %859, %858 ], [ %.pn309, %857 ]
   %.53 = extractvalue { ptr, i32 } %.pn311, 0
   %.53163 = extractvalue { ptr, i32 } %.pn311, 1
-  %861 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %861 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %862 = icmp eq i32 %.53163, %861
   br i1 %862, label %863, label %1022
 
@@ -87758,7 +87755,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit577: ; preds = %_Z
 1024:                                             ; preds = %1023, %845, %841
   %.69179 = phi i32 [ %.68178, %1023 ], [ %848, %845 ], [ %844, %841 ]
   %.69 = phi ptr [ %.68, %1023 ], [ %847, %845 ], [ %843, %841 ]
-  %1025 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1025 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1026 = icmp eq i32 %.69179, %1025
   br i1 %1026, label %1027, label %1031
 
@@ -87773,7 +87770,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit577: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit578 unwind label %839
 
 1031:                                             ; preds = %1024
-  %1032 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1032 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1033 = icmp eq i32 %.69179, %1032
   %1034 = call ptr @__cxa_begin_catch(ptr %.69) #24
   br i1 %1033, label %1035, label %1053
@@ -88090,7 +88087,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit603: ; preds = %_Z
   %.pn339 = phi { ptr, i32 } [ %1136, %1135 ], [ %.pn337, %1134 ]
   %.74 = extractvalue { ptr, i32 } %.pn339, 0
   %.74184 = extractvalue { ptr, i32 } %.pn339, 1
-  %1138 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %1138 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %1139 = icmp eq i32 %.74184, %1138
   br i1 %1139, label %1140, label %1347
 
@@ -88795,7 +88792,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit644: ; preds = %_Z
 1349:                                             ; preds = %1348, %1122, %1118
   %.95205 = phi i32 [ %.94204, %1348 ], [ %1125, %1122 ], [ %1121, %1118 ]
   %.95 = phi ptr [ %.94, %1348 ], [ %1124, %1122 ], [ %1120, %1118 ]
-  %1350 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1350 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1351 = icmp eq i32 %.95205, %1350
   br i1 %1351, label %1352, label %1356
 
@@ -88810,7 +88807,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit644: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit645 unwind label %1116
 
 1356:                                             ; preds = %1349
-  %1357 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1357 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1358 = icmp eq i32 %.95205, %1357
   %1359 = call ptr @__cxa_begin_catch(ptr %.95) #24
   br i1 %1358, label %1360, label %1378
@@ -88980,7 +88977,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit654: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix30ErrorTraceTest_foldlPrime_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix30ErrorTraceTest_foldlPrime_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -89280,7 +89277,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn187 = phi { ptr, i32 } [ %176, %175 ], [ %.pn, %174 ]
   %.1 = extractvalue { ptr, i32 } %.pn187, 0
   %.185 = extractvalue { ptr, i32 } %.pn187, 1
-  %178 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %178 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %179 = icmp eq i32 %.185, %178
   br i1 %179, label %180, label %387
 
@@ -89985,7 +89982,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361: ; preds = %_Z
 389:                                              ; preds = %388, %162, %158
   %.22106 = phi i32 [ %.21105, %388 ], [ %165, %162 ], [ %161, %158 ]
   %.22 = phi ptr [ %.21, %388 ], [ %164, %162 ], [ %160, %158 ]
-  %390 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %390 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %391 = icmp eq i32 %.22106, %390
   br i1 %391, label %392, label %396
 
@@ -90000,7 +89997,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %156
 
 396:                                              ; preds = %389
-  %397 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %397 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %398 = icmp eq i32 %.22106, %397
   %399 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %398, label %400, label %418
@@ -90317,7 +90314,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit383: ; preds = %_Z
   %.pn222 = phi { ptr, i32 } [ %501, %500 ], [ %.pn220, %499 ]
   %.27 = extractvalue { ptr, i32 } %.pn222, 0
   %.27111 = extractvalue { ptr, i32 } %.pn222, 1
-  %503 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %503 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %504 = icmp eq i32 %.27111, %503
   br i1 %504, label %505, label %712
 
@@ -91022,7 +91019,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit424: ; preds = %_Z
 714:                                              ; preds = %713, %487, %483
   %.48132 = phi i32 [ %.47131, %713 ], [ %490, %487 ], [ %486, %483 ]
   %.48 = phi ptr [ %.47, %713 ], [ %489, %487 ], [ %485, %483 ]
-  %715 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %715 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %716 = icmp eq i32 %.48132, %715
   br i1 %716, label %717, label %721
 
@@ -91037,7 +91034,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit424: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit425 unwind label %481
 
 721:                                              ; preds = %714
-  %722 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %722 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %723 = icmp eq i32 %.48132, %722
   %724 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %723, label %725, label %743
@@ -91354,7 +91351,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit450: ; preds = %_Z
   %.pn257 = phi { ptr, i32 } [ %826, %825 ], [ %.pn255, %824 ]
   %.53 = extractvalue { ptr, i32 } %.pn257, 0
   %.53137 = extractvalue { ptr, i32 } %.pn257, 1
-  %828 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %828 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %829 = icmp eq i32 %.53137, %828
   br i1 %829, label %830, label %1037
 
@@ -92059,7 +92056,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit491: ; preds = %_Z
 1039:                                             ; preds = %1038, %812, %808
   %.74158 = phi i32 [ %.73157, %1038 ], [ %815, %812 ], [ %811, %808 ]
   %.74 = phi ptr [ %.73, %1038 ], [ %814, %812 ], [ %810, %808 ]
-  %1040 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1040 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1041 = icmp eq i32 %.74158, %1040
   br i1 %1041, label %1042, label %1046
 
@@ -92074,7 +92071,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit491: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit492 unwind label %806
 
 1046:                                             ; preds = %1039
-  %1047 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1047 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1048 = icmp eq i32 %.74158, %1047
   %1049 = call ptr @__cxa_begin_catch(ptr %.74) #24
   br i1 %1048, label %1050, label %1068
@@ -92244,7 +92241,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit501: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix23ErrorTraceTest_any_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix23ErrorTraceTest_any_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -92544,7 +92541,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn187 = phi { ptr, i32 } [ %176, %175 ], [ %.pn, %174 ]
   %.1 = extractvalue { ptr, i32 } %.pn187, 0
   %.185 = extractvalue { ptr, i32 } %.pn187, 1
-  %178 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %178 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %179 = icmp eq i32 %.185, %178
   br i1 %179, label %180, label %387
 
@@ -93249,7 +93246,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361: ; preds = %_Z
 389:                                              ; preds = %388, %162, %158
   %.22106 = phi i32 [ %.21105, %388 ], [ %165, %162 ], [ %161, %158 ]
   %.22 = phi ptr [ %.21, %388 ], [ %164, %162 ], [ %160, %158 ]
-  %390 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %390 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %391 = icmp eq i32 %.22106, %390
   br i1 %391, label %392, label %396
 
@@ -93264,7 +93261,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %156
 
 396:                                              ; preds = %389
-  %397 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %397 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %398 = icmp eq i32 %.22106, %397
   %399 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %398, label %400, label %418
@@ -93581,7 +93578,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit383: ; preds = %_Z
   %.pn222 = phi { ptr, i32 } [ %501, %500 ], [ %.pn220, %499 ]
   %.27 = extractvalue { ptr, i32 } %.pn222, 0
   %.27111 = extractvalue { ptr, i32 } %.pn222, 1
-  %503 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %503 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %504 = icmp eq i32 %.27111, %503
   br i1 %504, label %505, label %712
 
@@ -94286,7 +94283,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit424: ; preds = %_Z
 714:                                              ; preds = %713, %487, %483
   %.48132 = phi i32 [ %.47131, %713 ], [ %490, %487 ], [ %486, %483 ]
   %.48 = phi ptr [ %.47, %713 ], [ %489, %487 ], [ %485, %483 ]
-  %715 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %715 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %716 = icmp eq i32 %.48132, %715
   br i1 %716, label %717, label %721
 
@@ -94301,7 +94298,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit424: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit425 unwind label %481
 
 721:                                              ; preds = %714
-  %722 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %722 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %723 = icmp eq i32 %.48132, %722
   %724 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %723, label %725, label %743
@@ -94618,7 +94615,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit450: ; preds = %_Z
   %.pn257 = phi { ptr, i32 } [ %826, %825 ], [ %.pn255, %824 ]
   %.53 = extractvalue { ptr, i32 } %.pn257, 0
   %.53137 = extractvalue { ptr, i32 } %.pn257, 1
-  %828 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %828 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %829 = icmp eq i32 %.53137, %828
   br i1 %829, label %830, label %1037
 
@@ -95323,7 +95320,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit491: ; preds = %_Z
 1039:                                             ; preds = %1038, %812, %808
   %.74158 = phi i32 [ %.73157, %1038 ], [ %815, %812 ], [ %811, %808 ]
   %.74 = phi ptr [ %.73, %1038 ], [ %814, %812 ], [ %810, %808 ]
-  %1040 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1040 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1041 = icmp eq i32 %.74158, %1040
   br i1 %1041, label %1042, label %1046
 
@@ -95338,7 +95335,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit491: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit492 unwind label %806
 
 1046:                                             ; preds = %1039
-  %1047 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1047 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1048 = icmp eq i32 %.74158, %1047
   %1049 = call ptr @__cxa_begin_catch(ptr %.74) #24
   br i1 %1048, label %1050, label %1068
@@ -95508,7 +95505,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit501: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix23ErrorTraceTest_all_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix23ErrorTraceTest_all_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -95800,7 +95797,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn179 = phi { ptr, i32 } [ %168, %167 ], [ %.pn, %166 ]
   %.1 = extractvalue { ptr, i32 } %.pn179, 0
   %.183 = extractvalue { ptr, i32 } %.pn179, 1
-  %170 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %170 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %171 = icmp eq i32 %.183, %170
   br i1 %171, label %172, label %379
 
@@ -96505,7 +96502,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit344: ; preds = %_Z
 381:                                              ; preds = %380, %154, %150
   %.22104 = phi i32 [ %.21103, %380 ], [ %157, %154 ], [ %153, %150 ]
   %.22 = phi ptr [ %.21, %380 ], [ %156, %154 ], [ %152, %150 ]
-  %382 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %382 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %383 = icmp eq i32 %.22104, %382
   br i1 %383, label %384, label %388
 
@@ -96520,7 +96517,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit344: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %148
 
 388:                                              ; preds = %381
-  %389 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %389 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %390 = icmp eq i32 %.22104, %389
   %391 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %390, label %392, label %410
@@ -96837,7 +96834,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit366: ; preds = %_Z
   %.pn214 = phi { ptr, i32 } [ %493, %492 ], [ %.pn212, %491 ]
   %.27 = extractvalue { ptr, i32 } %.pn214, 0
   %.27109 = extractvalue { ptr, i32 } %.pn214, 1
-  %495 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %495 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %496 = icmp eq i32 %.27109, %495
   br i1 %496, label %497, label %704
 
@@ -97542,7 +97539,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit407: ; preds = %_Z
 706:                                              ; preds = %705, %479, %475
   %.48130 = phi i32 [ %.47129, %705 ], [ %482, %479 ], [ %478, %475 ]
   %.48 = phi ptr [ %.47, %705 ], [ %481, %479 ], [ %477, %475 ]
-  %707 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %707 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %708 = icmp eq i32 %.48130, %707
   br i1 %708, label %709, label %713
 
@@ -97557,7 +97554,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit407: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit408 unwind label %473
 
 713:                                              ; preds = %706
-  %714 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %714 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %715 = icmp eq i32 %.48130, %714
   %716 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %715, label %717, label %735
@@ -97874,7 +97871,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit433: ; preds = %_Z
   %.pn249 = phi { ptr, i32 } [ %818, %817 ], [ %.pn247, %816 ]
   %.53 = extractvalue { ptr, i32 } %.pn249, 0
   %.53135 = extractvalue { ptr, i32 } %.pn249, 1
-  %820 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %820 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %821 = icmp eq i32 %.53135, %820
   br i1 %821, label %822, label %981
 
@@ -98414,7 +98411,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit466: ; preds = %_Z
 983:                                              ; preds = %982, %804, %800
   %.69151 = phi i32 [ %.68150, %982 ], [ %807, %804 ], [ %803, %800 ]
   %.69 = phi ptr [ %.68, %982 ], [ %806, %804 ], [ %802, %800 ]
-  %984 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
+  %984 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
   %985 = icmp eq i32 %.69151, %984
   br i1 %985, label %986, label %990
 
@@ -98429,7 +98426,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit466: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit467 unwind label %798
 
 990:                                              ; preds = %983
-  %991 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %991 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %992 = icmp eq i32 %.69151, %991
   %993 = call ptr @__cxa_begin_catch(ptr %.69) #24
   br i1 %992, label %994, label %1012
@@ -98599,7 +98596,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit476: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix27ErrorTraceTest_genList_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix27ErrorTraceTest_genList_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -98932,7 +98929,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn241 = phi { ptr, i32 } [ %209, %208 ], [ %.pn, %207 ]
   %.1 = extractvalue { ptr, i32 } %.pn241, 0
   %.1111 = extractvalue { ptr, i32 } %.pn241, 1
-  %211 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %211 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %212 = icmp eq i32 %.1111, %211
   br i1 %212, label %213, label %420
 
@@ -99637,7 +99634,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit455: ; preds = %_Z
 422:                                              ; preds = %421, %195, %191
   %.22132 = phi i32 [ %.21131, %421 ], [ %198, %195 ], [ %194, %191 ]
   %.22 = phi ptr [ %.21, %421 ], [ %197, %195 ], [ %193, %191 ]
-  %423 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %423 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %424 = icmp eq i32 %.22132, %423
   br i1 %424, label %425, label %429
 
@@ -99652,7 +99649,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit455: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %189
 
 429:                                              ; preds = %422
-  %430 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %430 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %431 = icmp eq i32 %.22132, %430
   %432 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %431, label %433, label %451
@@ -99969,7 +99966,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit477: ; preds = %_Z
   %.pn276 = phi { ptr, i32 } [ %534, %533 ], [ %.pn274, %532 ]
   %.27 = extractvalue { ptr, i32 } %.pn276, 0
   %.27137 = extractvalue { ptr, i32 } %.pn276, 1
-  %536 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %536 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %537 = icmp eq i32 %.27137, %536
   br i1 %537, label %538, label %745
 
@@ -100674,7 +100671,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit518: ; preds = %_Z
 747:                                              ; preds = %746, %520, %516
   %.48158 = phi i32 [ %.47157, %746 ], [ %523, %520 ], [ %519, %516 ]
   %.48 = phi ptr [ %.47, %746 ], [ %522, %520 ], [ %518, %516 ]
-  %748 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %748 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %749 = icmp eq i32 %.48158, %748
   br i1 %749, label %750, label %754
 
@@ -100689,7 +100686,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit518: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit519 unwind label %514
 
 754:                                              ; preds = %747
-  %755 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %755 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %756 = icmp eq i32 %.48158, %755
   %757 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %756, label %758, label %776
@@ -101006,7 +101003,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit544: ; preds = %_Z
   %.pn311 = phi { ptr, i32 } [ %859, %858 ], [ %.pn309, %857 ]
   %.53 = extractvalue { ptr, i32 } %.pn311, 0
   %.53163 = extractvalue { ptr, i32 } %.pn311, 1
-  %861 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %861 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %862 = icmp eq i32 %.53163, %861
   br i1 %862, label %863, label %1022
 
@@ -101546,7 +101543,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit577: ; preds = %_Z
 1024:                                             ; preds = %1023, %845, %841
   %.69179 = phi i32 [ %.68178, %1023 ], [ %848, %845 ], [ %844, %841 ]
   %.69 = phi ptr [ %.68, %1023 ], [ %847, %845 ], [ %843, %841 ]
-  %1025 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1025 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1026 = icmp eq i32 %.69179, %1025
   br i1 %1026, label %1027, label %1031
 
@@ -101561,7 +101558,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit577: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit578 unwind label %839
 
 1031:                                             ; preds = %1024
-  %1032 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1032 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1033 = icmp eq i32 %.69179, %1032
   %1034 = call ptr @__cxa_begin_catch(ptr %.69) #24
   br i1 %1033, label %1035, label %1053
@@ -101878,7 +101875,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit603: ; preds = %_Z
   %.pn339 = phi { ptr, i32 } [ %1136, %1135 ], [ %.pn337, %1134 ]
   %.74 = extractvalue { ptr, i32 } %.pn339, 0
   %.74184 = extractvalue { ptr, i32 } %.pn339, 1
-  %1138 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %1138 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %1139 = icmp eq i32 %.74184, %1138
   br i1 %1139, label %1140, label %1347
 
@@ -102583,7 +102580,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit644: ; preds = %_Z
 1349:                                             ; preds = %1348, %1122, %1118
   %.95205 = phi i32 [ %.94204, %1348 ], [ %1125, %1122 ], [ %1121, %1118 ]
   %.95 = phi ptr [ %.94, %1348 ], [ %1124, %1122 ], [ %1120, %1118 ]
-  %1350 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1350 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1351 = icmp eq i32 %.95205, %1350
   br i1 %1351, label %1352, label %1356
 
@@ -102598,7 +102595,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit644: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit645 unwind label %1116
 
 1356:                                             ; preds = %1349
-  %1357 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1357 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1358 = icmp eq i32 %.95205, %1357
   %1359 = call ptr @__cxa_begin_catch(ptr %.95) #24
   br i1 %1358, label %1360, label %1378
@@ -102768,7 +102765,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit654: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix24ErrorTraceTest_sort_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix24ErrorTraceTest_sort_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -103068,7 +103065,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn187 = phi { ptr, i32 } [ %176, %175 ], [ %.pn, %174 ]
   %.1 = extractvalue { ptr, i32 } %.pn187, 0
   %.185 = extractvalue { ptr, i32 } %.pn187, 1
-  %178 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %178 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %179 = icmp eq i32 %.185, %178
   br i1 %179, label %180, label %387
 
@@ -103773,7 +103770,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361: ; preds = %_Z
 389:                                              ; preds = %388, %162, %158
   %.22106 = phi i32 [ %.21105, %388 ], [ %165, %162 ], [ %161, %158 ]
   %.22 = phi ptr [ %.21, %388 ], [ %164, %162 ], [ %160, %158 ]
-  %390 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %390 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %391 = icmp eq i32 %.22106, %390
   br i1 %391, label %392, label %396
 
@@ -103788,7 +103785,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %156
 
 396:                                              ; preds = %389
-  %397 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %397 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %398 = icmp eq i32 %.22106, %397
   %399 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %398, label %400, label %418
@@ -104105,7 +104102,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit383: ; preds = %_Z
   %.pn222 = phi { ptr, i32 } [ %501, %500 ], [ %.pn220, %499 ]
   %.27 = extractvalue { ptr, i32 } %.pn222, 0
   %.27111 = extractvalue { ptr, i32 } %.pn222, 1
-  %503 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %503 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %504 = icmp eq i32 %.27111, %503
   br i1 %504, label %505, label %712
 
@@ -104810,7 +104807,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit424: ; preds = %_Z
 714:                                              ; preds = %713, %487, %483
   %.48132 = phi i32 [ %.47131, %713 ], [ %490, %487 ], [ %486, %483 ]
   %.48 = phi ptr [ %.47, %713 ], [ %489, %487 ], [ %485, %483 ]
-  %715 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %715 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %716 = icmp eq i32 %.48132, %715
   br i1 %716, label %717, label %721
 
@@ -104825,7 +104822,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit424: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit425 unwind label %481
 
 721:                                              ; preds = %714
-  %722 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %722 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %723 = icmp eq i32 %.48132, %722
   %724 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %723, label %725, label %743
@@ -105142,7 +105139,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit450: ; preds = %_Z
   %.pn257 = phi { ptr, i32 } [ %826, %825 ], [ %.pn255, %824 ]
   %.53 = extractvalue { ptr, i32 } %.pn257, 0
   %.53137 = extractvalue { ptr, i32 } %.pn257, 1
-  %828 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %828 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %829 = icmp eq i32 %.53137, %828
   br i1 %829, label %830, label %1037
 
@@ -105847,7 +105844,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit491: ; preds = %_Z
 1039:                                             ; preds = %1038, %812, %808
   %.74158 = phi i32 [ %.73157, %1038 ], [ %815, %812 ], [ %811, %808 ]
   %.74 = phi ptr [ %.73, %1038 ], [ %814, %812 ], [ %810, %808 ]
-  %1040 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1040 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1041 = icmp eq i32 %.74158, %1040
   br i1 %1041, label %1042, label %1046
 
@@ -105862,7 +105859,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit491: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit492 unwind label %806
 
 1046:                                             ; preds = %1039
-  %1047 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1047 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1048 = icmp eq i32 %.74158, %1047
   %1049 = call ptr @__cxa_begin_catch(ptr %.74) #24
   br i1 %1048, label %1050, label %1068
@@ -106032,7 +106029,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit501: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix29ErrorTraceTest_partition_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix29ErrorTraceTest_partition_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -106332,7 +106329,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn187 = phi { ptr, i32 } [ %176, %175 ], [ %.pn, %174 ]
   %.1 = extractvalue { ptr, i32 } %.pn187, 0
   %.185 = extractvalue { ptr, i32 } %.pn187, 1
-  %178 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %178 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %179 = icmp eq i32 %.185, %178
   br i1 %179, label %180, label %387
 
@@ -107037,7 +107034,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361: ; preds = %_Z
 389:                                              ; preds = %388, %162, %158
   %.22106 = phi i32 [ %.21105, %388 ], [ %165, %162 ], [ %161, %158 ]
   %.22 = phi ptr [ %.21, %388 ], [ %164, %162 ], [ %160, %158 ]
-  %390 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %390 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %391 = icmp eq i32 %.22106, %390
   br i1 %391, label %392, label %396
 
@@ -107052,7 +107049,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %156
 
 396:                                              ; preds = %389
-  %397 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %397 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %398 = icmp eq i32 %.22106, %397
   %399 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %398, label %400, label %418
@@ -107369,7 +107366,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit383: ; preds = %_Z
   %.pn222 = phi { ptr, i32 } [ %501, %500 ], [ %.pn220, %499 ]
   %.27 = extractvalue { ptr, i32 } %.pn222, 0
   %.27111 = extractvalue { ptr, i32 } %.pn222, 1
-  %503 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %503 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %504 = icmp eq i32 %.27111, %503
   br i1 %504, label %505, label %712
 
@@ -108074,7 +108071,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit424: ; preds = %_Z
 714:                                              ; preds = %713, %487, %483
   %.48132 = phi i32 [ %.47131, %713 ], [ %490, %487 ], [ %486, %483 ]
   %.48 = phi ptr [ %.47, %713 ], [ %489, %487 ], [ %485, %483 ]
-  %715 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %715 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %716 = icmp eq i32 %.48132, %715
   br i1 %716, label %717, label %721
 
@@ -108089,7 +108086,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit424: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit425 unwind label %481
 
 721:                                              ; preds = %714
-  %722 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %722 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %723 = icmp eq i32 %.48132, %722
   %724 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %723, label %725, label %743
@@ -108406,7 +108403,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit450: ; preds = %_Z
   %.pn257 = phi { ptr, i32 } [ %826, %825 ], [ %.pn255, %824 ]
   %.53 = extractvalue { ptr, i32 } %.pn257, 0
   %.53137 = extractvalue { ptr, i32 } %.pn257, 1
-  %828 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %828 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %829 = icmp eq i32 %.53137, %828
   br i1 %829, label %830, label %1037
 
@@ -109111,7 +109108,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit491: ; preds = %_Z
 1039:                                             ; preds = %1038, %812, %808
   %.74158 = phi i32 [ %.73157, %1038 ], [ %815, %812 ], [ %811, %808 ]
   %.74 = phi ptr [ %.73, %1038 ], [ %814, %812 ], [ %810, %808 ]
-  %1040 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1040 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1041 = icmp eq i32 %.74158, %1040
   br i1 %1041, label %1042, label %1046
 
@@ -109126,7 +109123,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit491: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit492 unwind label %806
 
 1046:                                             ; preds = %1039
-  %1047 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1047 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1048 = icmp eq i32 %.74158, %1047
   %1049 = call ptr @__cxa_begin_catch(ptr %.74) #24
   br i1 %1048, label %1050, label %1068
@@ -109296,7 +109293,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit501: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix27ErrorTraceTest_groupBy_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix27ErrorTraceTest_groupBy_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -109637,7 +109634,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn249 = phi { ptr, i32 } [ %217, %216 ], [ %.pn, %215 ]
   %.1 = extractvalue { ptr, i32 } %.pn249, 0
   %.1113 = extractvalue { ptr, i32 } %.pn249, 1
-  %219 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %219 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %220 = icmp eq i32 %.1113, %219
   br i1 %220, label %221, label %428
 
@@ -110342,7 +110339,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit472: ; preds = %_Z
 430:                                              ; preds = %429, %203, %199
   %.22134 = phi i32 [ %.21133, %429 ], [ %206, %203 ], [ %202, %199 ]
   %.22 = phi ptr [ %.21, %429 ], [ %205, %203 ], [ %201, %199 ]
-  %431 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %431 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %432 = icmp eq i32 %.22134, %431
   br i1 %432, label %433, label %437
 
@@ -110357,7 +110354,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit472: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %197
 
 437:                                              ; preds = %430
-  %438 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %438 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %439 = icmp eq i32 %.22134, %438
   %440 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %439, label %441, label %459
@@ -110674,7 +110671,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit494: ; preds = %_Z
   %.pn284 = phi { ptr, i32 } [ %542, %541 ], [ %.pn282, %540 ]
   %.27 = extractvalue { ptr, i32 } %.pn284, 0
   %.27139 = extractvalue { ptr, i32 } %.pn284, 1
-  %544 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %544 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %545 = icmp eq i32 %.27139, %544
   br i1 %545, label %546, label %753
 
@@ -111379,7 +111376,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit535: ; preds = %_Z
 755:                                              ; preds = %754, %528, %524
   %.48160 = phi i32 [ %.47159, %754 ], [ %531, %528 ], [ %527, %524 ]
   %.48 = phi ptr [ %.47, %754 ], [ %530, %528 ], [ %526, %524 ]
-  %756 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %756 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %757 = icmp eq i32 %.48160, %756
   br i1 %757, label %758, label %762
 
@@ -111394,7 +111391,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit535: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit536 unwind label %522
 
 762:                                              ; preds = %755
-  %763 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %763 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %764 = icmp eq i32 %.48160, %763
   %765 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %764, label %766, label %784
@@ -111711,7 +111708,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit561: ; preds = %_Z
   %.pn319 = phi { ptr, i32 } [ %867, %866 ], [ %.pn317, %865 ]
   %.53 = extractvalue { ptr, i32 } %.pn319, 0
   %.53165 = extractvalue { ptr, i32 } %.pn319, 1
-  %869 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %869 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %870 = icmp eq i32 %.53165, %869
   br i1 %870, label %871, label %1078
 
@@ -112416,7 +112413,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit602: ; preds = %_Z
 1080:                                             ; preds = %1079, %853, %849
   %.74186 = phi i32 [ %.73185, %1079 ], [ %856, %853 ], [ %852, %849 ]
   %.74 = phi ptr [ %.73, %1079 ], [ %855, %853 ], [ %851, %849 ]
-  %1081 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1081 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1082 = icmp eq i32 %.74186, %1081
   br i1 %1082, label %1083, label %1087
 
@@ -112431,7 +112428,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit602: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit603 unwind label %847
 
 1087:                                             ; preds = %1080
-  %1088 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1088 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1089 = icmp eq i32 %.74186, %1088
   %1090 = call ptr @__cxa_begin_catch(ptr %.74) #24
   br i1 %1089, label %1091, label %1109
@@ -112748,7 +112745,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit628: ; preds = %_Z
   %.pn354 = phi { ptr, i32 } [ %1192, %1191 ], [ %.pn352, %1190 ]
   %.79 = extractvalue { ptr, i32 } %.pn354, 0
   %.79191 = extractvalue { ptr, i32 } %.pn354, 1
-  %1194 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %1194 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %1195 = icmp eq i32 %.79191, %1194
   br i1 %1195, label %1196, label %1403
 
@@ -113453,7 +113450,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit669: ; preds = %_Z
 1405:                                             ; preds = %1404, %1178, %1174
   %.100212 = phi i32 [ %.99211, %1404 ], [ %1181, %1178 ], [ %1177, %1174 ]
   %.100 = phi ptr [ %.99, %1404 ], [ %1180, %1178 ], [ %1176, %1174 ]
-  %1406 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1406 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1407 = icmp eq i32 %.100212, %1406
   br i1 %1407, label %1408, label %1412
 
@@ -113468,7 +113465,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit669: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit670 unwind label %1172
 
 1412:                                             ; preds = %1405
-  %1413 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1413 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1414 = icmp eq i32 %.100212, %1413
   %1415 = call ptr @__cxa_begin_catch(ptr %.100) #24
   br i1 %1414, label %1416, label %1434
@@ -113638,7 +113635,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit679: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix29ErrorTraceTest_concatMap_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix29ErrorTraceTest_concatMap_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -113897,7 +113894,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn125 = phi { ptr, i32 } [ %135, %134 ], [ %.pn, %133 ]
   %.1 = extractvalue { ptr, i32 } %.pn125, 0
   %.157 = extractvalue { ptr, i32 } %.pn125, 1
-  %137 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %137 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %138 = icmp eq i32 %.157, %137
   br i1 %138, label %139, label %346
 
@@ -114602,7 +114599,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
 348:                                              ; preds = %347, %121, %117
   %.2278 = phi i32 [ %.2177, %347 ], [ %124, %121 ], [ %120, %117 ]
   %.22 = phi ptr [ %.21, %347 ], [ %123, %121 ], [ %119, %117 ]
-  %349 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %349 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %350 = icmp eq i32 %.2278, %349
   br i1 %350, label %351, label %355
 
@@ -114617,7 +114614,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %115
 
 355:                                              ; preds = %348
-  %356 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %356 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %357 = icmp eq i32 %.2278, %356
   %358 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %357, label %359, label %377
@@ -114934,7 +114931,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit272: ; preds = %_Z
   %.pn160 = phi { ptr, i32 } [ %460, %459 ], [ %.pn158, %458 ]
   %.27 = extractvalue { ptr, i32 } %.pn160, 0
   %.2783 = extractvalue { ptr, i32 } %.pn160, 1
-  %462 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %462 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %463 = icmp eq i32 %.2783, %462
   br i1 %463, label %464, label %671
 
@@ -115639,7 +115636,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit314: ; preds = %_Z
 673:                                              ; preds = %672, %446, %442
   %.48104 = phi i32 [ %.47103, %672 ], [ %449, %446 ], [ %445, %442 ]
   %.48 = phi ptr [ %.47, %672 ], [ %448, %446 ], [ %444, %442 ]
-  %674 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %674 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %675 = icmp eq i32 %.48104, %674
   br i1 %675, label %676, label %680
 
@@ -115654,7 +115651,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit314: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit315 unwind label %440
 
 680:                                              ; preds = %673
-  %681 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %681 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %682 = icmp eq i32 %.48104, %681
   %683 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %682, label %684, label %702
@@ -115824,7 +115821,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit324: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix23ErrorTraceTest_add_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix23ErrorTraceTest_add_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -116083,7 +116080,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn125 = phi { ptr, i32 } [ %135, %134 ], [ %.pn, %133 ]
   %.1 = extractvalue { ptr, i32 } %.pn125, 0
   %.157 = extractvalue { ptr, i32 } %.pn125, 1
-  %137 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %137 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %138 = icmp eq i32 %.157, %137
   br i1 %138, label %139, label %346
 
@@ -116788,7 +116785,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
 348:                                              ; preds = %347, %121, %117
   %.2278 = phi i32 [ %.2177, %347 ], [ %124, %121 ], [ %120, %117 ]
   %.22 = phi ptr [ %.21, %347 ], [ %123, %121 ], [ %119, %117 ]
-  %349 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %349 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %350 = icmp eq i32 %.2278, %349
   br i1 %350, label %351, label %355
 
@@ -116803,7 +116800,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %115
 
 355:                                              ; preds = %348
-  %356 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %356 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %357 = icmp eq i32 %.2278, %356
   %358 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %357, label %359, label %377
@@ -117120,7 +117117,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit272: ; preds = %_Z
   %.pn160 = phi { ptr, i32 } [ %460, %459 ], [ %.pn158, %458 ]
   %.27 = extractvalue { ptr, i32 } %.pn160, 0
   %.2783 = extractvalue { ptr, i32 } %.pn160, 1
-  %462 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %462 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %463 = icmp eq i32 %.2783, %462
   br i1 %463, label %464, label %671
 
@@ -117825,7 +117822,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit314: ; preds = %_Z
 673:                                              ; preds = %672, %446, %442
   %.48104 = phi i32 [ %.47103, %672 ], [ %449, %446 ], [ %445, %442 ]
   %.48 = phi ptr [ %.47, %672 ], [ %448, %446 ], [ %444, %442 ]
-  %674 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %674 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %675 = icmp eq i32 %.48104, %674
   br i1 %675, label %676, label %680
 
@@ -117840,7 +117837,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit314: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit315 unwind label %440
 
 680:                                              ; preds = %673
-  %681 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %681 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %682 = icmp eq i32 %.48104, %681
   %683 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %682, label %684, label %702
@@ -118010,7 +118007,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit324: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix23ErrorTraceTest_sub_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix23ErrorTraceTest_sub_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -118269,7 +118266,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn125 = phi { ptr, i32 } [ %135, %134 ], [ %.pn, %133 ]
   %.1 = extractvalue { ptr, i32 } %.pn125, 0
   %.157 = extractvalue { ptr, i32 } %.pn125, 1
-  %137 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %137 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %138 = icmp eq i32 %.157, %137
   br i1 %138, label %139, label %346
 
@@ -118974,7 +118971,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
 348:                                              ; preds = %347, %121, %117
   %.2278 = phi i32 [ %.2177, %347 ], [ %124, %121 ], [ %120, %117 ]
   %.22 = phi ptr [ %.21, %347 ], [ %123, %121 ], [ %119, %117 ]
-  %349 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %349 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %350 = icmp eq i32 %.2278, %349
   br i1 %350, label %351, label %355
 
@@ -118989,7 +118986,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %115
 
 355:                                              ; preds = %348
-  %356 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %356 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %357 = icmp eq i32 %.2278, %356
   %358 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %357, label %359, label %377
@@ -119306,7 +119303,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit272: ; preds = %_Z
   %.pn160 = phi { ptr, i32 } [ %460, %459 ], [ %.pn158, %458 ]
   %.27 = extractvalue { ptr, i32 } %.pn160, 0
   %.2783 = extractvalue { ptr, i32 } %.pn160, 1
-  %462 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %462 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %463 = icmp eq i32 %.2783, %462
   br i1 %463, label %464, label %671
 
@@ -120011,7 +120008,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit314: ; preds = %_Z
 673:                                              ; preds = %672, %446, %442
   %.48104 = phi i32 [ %.47103, %672 ], [ %449, %446 ], [ %445, %442 ]
   %.48 = phi ptr [ %.47, %672 ], [ %448, %446 ], [ %444, %442 ]
-  %674 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %674 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %675 = icmp eq i32 %.48104, %674
   br i1 %675, label %676, label %680
 
@@ -120026,7 +120023,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit314: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit315 unwind label %440
 
 680:                                              ; preds = %673
-  %681 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %681 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %682 = icmp eq i32 %.48104, %681
   %683 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %682, label %684, label %702
@@ -120196,7 +120193,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit324: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix23ErrorTraceTest_mul_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix23ErrorTraceTest_mul_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -120487,7 +120484,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn179 = phi { ptr, i32 } [ %167, %166 ], [ %.pn, %165 ]
   %.1 = extractvalue { ptr, i32 } %.pn179, 0
   %.183 = extractvalue { ptr, i32 } %.pn179, 1
-  %169 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %169 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %170 = icmp eq i32 %.183, %169
   br i1 %170, label %171, label %378
 
@@ -121192,7 +121189,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit344: ; preds = %_Z
 380:                                              ; preds = %379, %153, %149
   %.22104 = phi i32 [ %.21103, %379 ], [ %156, %153 ], [ %152, %149 ]
   %.22 = phi ptr [ %.21, %379 ], [ %155, %153 ], [ %151, %149 ]
-  %381 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %381 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %382 = icmp eq i32 %.22104, %381
   br i1 %382, label %383, label %387
 
@@ -121207,7 +121204,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit344: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %147
 
 387:                                              ; preds = %380
-  %388 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %388 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %389 = icmp eq i32 %.22104, %388
   %390 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %389, label %391, label %409
@@ -121524,7 +121521,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit366: ; preds = %_Z
   %.pn214 = phi { ptr, i32 } [ %492, %491 ], [ %.pn212, %490 ]
   %.27 = extractvalue { ptr, i32 } %.pn214, 0
   %.27109 = extractvalue { ptr, i32 } %.pn214, 1
-  %494 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %494 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %495 = icmp eq i32 %.27109, %494
   br i1 %495, label %496, label %703
 
@@ -122229,7 +122226,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit407: ; preds = %_Z
 705:                                              ; preds = %704, %478, %474
   %.48130 = phi i32 [ %.47129, %704 ], [ %481, %478 ], [ %477, %474 ]
   %.48 = phi ptr [ %.47, %704 ], [ %480, %478 ], [ %476, %474 ]
-  %706 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %706 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %707 = icmp eq i32 %.48130, %706
   br i1 %707, label %708, label %712
 
@@ -122244,7 +122241,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit407: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit408 unwind label %472
 
 712:                                              ; preds = %705
-  %713 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %713 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %714 = icmp eq i32 %.48130, %713
   %715 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %714, label %716, label %734
@@ -122561,7 +122558,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit433: ; preds = %_Z
   %.pn249 = phi { ptr, i32 } [ %817, %816 ], [ %.pn247, %815 ]
   %.53 = extractvalue { ptr, i32 } %.pn249, 0
   %.53135 = extractvalue { ptr, i32 } %.pn249, 1
-  %819 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %819 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %820 = icmp eq i32 %.53135, %819
   br i1 %820, label %821, label %980
 
@@ -123100,7 +123097,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit467: ; preds = %_Z
 982:                                              ; preds = %981, %803, %799
   %.69151 = phi i32 [ %.68150, %981 ], [ %806, %803 ], [ %802, %799 ]
   %.69 = phi ptr [ %.68, %981 ], [ %805, %803 ], [ %801, %799 ]
-  %983 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
+  %983 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
   %984 = icmp eq i32 %.69151, %983
   br i1 %984, label %985, label %989
 
@@ -123115,7 +123112,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit467: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit468 unwind label %797
 
 989:                                              ; preds = %982
-  %990 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %990 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %991 = icmp eq i32 %.69151, %990
   %992 = call ptr @__cxa_begin_catch(ptr %.69) #24
   br i1 %991, label %993, label %1011
@@ -123285,7 +123282,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit477: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix23ErrorTraceTest_div_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix23ErrorTraceTest_div_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -123544,7 +123541,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn125 = phi { ptr, i32 } [ %135, %134 ], [ %.pn, %133 ]
   %.1 = extractvalue { ptr, i32 } %.pn125, 0
   %.157 = extractvalue { ptr, i32 } %.pn125, 1
-  %137 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %137 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %138 = icmp eq i32 %.157, %137
   br i1 %138, label %139, label %346
 
@@ -124249,7 +124246,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
 348:                                              ; preds = %347, %121, %117
   %.2278 = phi i32 [ %.2177, %347 ], [ %124, %121 ], [ %120, %117 ]
   %.22 = phi ptr [ %.21, %347 ], [ %123, %121 ], [ %119, %117 ]
-  %349 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %349 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %350 = icmp eq i32 %.2278, %349
   br i1 %350, label %351, label %355
 
@@ -124264,7 +124261,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %115
 
 355:                                              ; preds = %348
-  %356 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %356 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %357 = icmp eq i32 %.2278, %356
   %358 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %357, label %359, label %377
@@ -124581,7 +124578,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit272: ; preds = %_Z
   %.pn160 = phi { ptr, i32 } [ %460, %459 ], [ %.pn158, %458 ]
   %.27 = extractvalue { ptr, i32 } %.pn160, 0
   %.2783 = extractvalue { ptr, i32 } %.pn160, 1
-  %462 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %462 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %463 = icmp eq i32 %.2783, %462
   br i1 %463, label %464, label %671
 
@@ -125286,7 +125283,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit314: ; preds = %_Z
 673:                                              ; preds = %672, %446, %442
   %.48104 = phi i32 [ %.47103, %672 ], [ %449, %446 ], [ %445, %442 ]
   %.48 = phi ptr [ %.47, %672 ], [ %448, %446 ], [ %444, %442 ]
-  %674 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %674 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %675 = icmp eq i32 %.48104, %674
   br i1 %675, label %676, label %680
 
@@ -125301,7 +125298,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit314: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit315 unwind label %440
 
 680:                                              ; preds = %673
-  %681 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %681 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %682 = icmp eq i32 %.48104, %681
   %683 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %682, label %684, label %702
@@ -125530,7 +125527,7 @@ define linkonce_odr void @_ZN3nix7HintFmtC2IJA8_cNS_9UncoloredIA15_cEEEEERKNSt7_
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix26ErrorTraceTest_bitAnd_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix26ErrorTraceTest_bitAnd_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -125789,7 +125786,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn125 = phi { ptr, i32 } [ %135, %134 ], [ %.pn, %133 ]
   %.1 = extractvalue { ptr, i32 } %.pn125, 0
   %.157 = extractvalue { ptr, i32 } %.pn125, 1
-  %137 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %137 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %138 = icmp eq i32 %.157, %137
   br i1 %138, label %139, label %346
 
@@ -126494,7 +126491,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
 348:                                              ; preds = %347, %121, %117
   %.2278 = phi i32 [ %.2177, %347 ], [ %124, %121 ], [ %120, %117 ]
   %.22 = phi ptr [ %.21, %347 ], [ %123, %121 ], [ %119, %117 ]
-  %349 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %349 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %350 = icmp eq i32 %.2278, %349
   br i1 %350, label %351, label %355
 
@@ -126509,7 +126506,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %115
 
 355:                                              ; preds = %348
-  %356 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %356 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %357 = icmp eq i32 %.2278, %356
   %358 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %357, label %359, label %377
@@ -126826,7 +126823,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit272: ; preds = %_Z
   %.pn160 = phi { ptr, i32 } [ %460, %459 ], [ %.pn158, %458 ]
   %.27 = extractvalue { ptr, i32 } %.pn160, 0
   %.2783 = extractvalue { ptr, i32 } %.pn160, 1
-  %462 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %462 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %463 = icmp eq i32 %.2783, %462
   br i1 %463, label %464, label %671
 
@@ -127531,7 +127528,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit314: ; preds = %_Z
 673:                                              ; preds = %672, %446, %442
   %.48104 = phi i32 [ %.47103, %672 ], [ %449, %446 ], [ %445, %442 ]
   %.48 = phi ptr [ %.47, %672 ], [ %448, %446 ], [ %444, %442 ]
-  %674 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %674 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %675 = icmp eq i32 %.48104, %674
   br i1 %675, label %676, label %680
 
@@ -127546,7 +127543,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit314: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit315 unwind label %440
 
 680:                                              ; preds = %673
-  %681 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %681 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %682 = icmp eq i32 %.48104, %681
   %683 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %682, label %684, label %702
@@ -127716,7 +127713,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit324: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix25ErrorTraceTest_bitOr_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix25ErrorTraceTest_bitOr_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -127975,7 +127972,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn125 = phi { ptr, i32 } [ %135, %134 ], [ %.pn, %133 ]
   %.1 = extractvalue { ptr, i32 } %.pn125, 0
   %.157 = extractvalue { ptr, i32 } %.pn125, 1
-  %137 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %137 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %138 = icmp eq i32 %.157, %137
   br i1 %138, label %139, label %346
 
@@ -128680,7 +128677,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
 348:                                              ; preds = %347, %121, %117
   %.2278 = phi i32 [ %.2177, %347 ], [ %124, %121 ], [ %120, %117 ]
   %.22 = phi ptr [ %.21, %347 ], [ %123, %121 ], [ %119, %117 ]
-  %349 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %349 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %350 = icmp eq i32 %.2278, %349
   br i1 %350, label %351, label %355
 
@@ -128695,7 +128692,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %115
 
 355:                                              ; preds = %348
-  %356 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %356 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %357 = icmp eq i32 %.2278, %356
   %358 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %357, label %359, label %377
@@ -129012,7 +129009,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit272: ; preds = %_Z
   %.pn160 = phi { ptr, i32 } [ %460, %459 ], [ %.pn158, %458 ]
   %.27 = extractvalue { ptr, i32 } %.pn160, 0
   %.2783 = extractvalue { ptr, i32 } %.pn160, 1
-  %462 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %462 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %463 = icmp eq i32 %.2783, %462
   br i1 %463, label %464, label %671
 
@@ -129717,7 +129714,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit314: ; preds = %_Z
 673:                                              ; preds = %672, %446, %442
   %.48104 = phi i32 [ %.47103, %672 ], [ %449, %446 ], [ %445, %442 ]
   %.48 = phi ptr [ %.47, %672 ], [ %448, %446 ], [ %444, %442 ]
-  %674 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %674 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %675 = icmp eq i32 %.48104, %674
   br i1 %675, label %676, label %680
 
@@ -129732,7 +129729,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit314: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit315 unwind label %440
 
 680:                                              ; preds = %673
-  %681 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %681 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %682 = icmp eq i32 %.48104, %681
   %683 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %682, label %684, label %702
@@ -129902,7 +129899,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit324: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix26ErrorTraceTest_bitXor_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix26ErrorTraceTest_bitXor_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -130183,7 +130180,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn171 = phi { ptr, i32 } [ %157, %156 ], [ %.pn, %155 ]
   %.1 = extractvalue { ptr, i32 } %.pn171, 0
   %.181 = extractvalue { ptr, i32 } %.pn171, 1
-  %159 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %159 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %160 = icmp eq i32 %.181, %159
   br i1 %160, label %161, label %320
 
@@ -130722,7 +130719,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319: ; preds = %_Z
 322:                                              ; preds = %321, %143, %139
   %.1797 = phi i32 [ %.1696, %321 ], [ %146, %143 ], [ %142, %139 ]
   %.17 = phi ptr [ %.16, %321 ], [ %145, %143 ], [ %141, %139 ]
-  %323 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
+  %323 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
   %324 = icmp eq i32 %.1797, %323
   br i1 %324, label %325, label %329
 
@@ -130737,7 +130734,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit319: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %137
 
 329:                                              ; preds = %322
-  %330 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %330 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %331 = icmp eq i32 %.1797, %330
   %332 = call ptr @__cxa_begin_catch(ptr %.17) #24
   br i1 %331, label %333, label %351
@@ -131054,7 +131051,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341: ; preds = %_Z
   %.pn199 = phi { ptr, i32 } [ %434, %433 ], [ %.pn197, %432 ]
   %.22 = extractvalue { ptr, i32 } %.pn199, 0
   %.22102 = extractvalue { ptr, i32 } %.pn199, 1
-  %436 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %436 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %437 = icmp eq i32 %.22102, %436
   br i1 %437, label %438, label %597
 
@@ -131593,7 +131590,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit374: ; preds = %_Z
 599:                                              ; preds = %598, %420, %416
   %.38118 = phi i32 [ %.37117, %598 ], [ %423, %420 ], [ %419, %416 ]
   %.38 = phi ptr [ %.37, %598 ], [ %422, %420 ], [ %418, %416 ]
-  %600 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
+  %600 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
   %601 = icmp eq i32 %.38118, %600
   br i1 %601, label %602, label %606
 
@@ -131608,7 +131605,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit374: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit375 unwind label %414
 
 606:                                              ; preds = %599
-  %607 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %607 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %608 = icmp eq i32 %.38118, %607
   %609 = call ptr @__cxa_begin_catch(ptr %.38) #24
   br i1 %608, label %610, label %628
@@ -131925,7 +131922,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit400: ; preds = %_Z
   %.pn227 = phi { ptr, i32 } [ %711, %710 ], [ %.pn225, %709 ]
   %.43 = extractvalue { ptr, i32 } %.pn227, 0
   %.43123 = extractvalue { ptr, i32 } %.pn227, 1
-  %713 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %713 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %714 = icmp eq i32 %.43123, %713
   br i1 %714, label %715, label %922
 
@@ -132629,7 +132626,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit441: ; preds = %_Z
 924:                                              ; preds = %923, %697, %693
   %.64144 = phi i32 [ %.63143, %923 ], [ %700, %697 ], [ %696, %693 ]
   %.64 = phi ptr [ %.63, %923 ], [ %699, %697 ], [ %695, %693 ]
-  %925 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
+  %925 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
   %926 = icmp eq i32 %.64144, %925
   br i1 %926, label %927, label %931
 
@@ -132644,7 +132641,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit441: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit442 unwind label %691
 
 931:                                              ; preds = %924
-  %932 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %932 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %933 = icmp eq i32 %.64144, %932
   %934 = call ptr @__cxa_begin_catch(ptr %.64) #24
   br i1 %933, label %935, label %953
@@ -132938,7 +132935,7 @@ define linkonce_odr void @_ZN3nix7HintFmtC2IJA6_cS2_EEERKNSt7__cxx1112basic_stri
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix28ErrorTraceTest_lessThan_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix28ErrorTraceTest_lessThan_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -133156,7 +133153,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn62 = phi { ptr, i32 } [ %94, %93 ], [ %.pn, %92 ]
   %.1 = extractvalue { ptr, i32 } %.pn62, 0
   %.129 = extractvalue { ptr, i32 } %.pn62, 1
-  %96 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %96 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %97 = icmp eq i32 %.129, %96
   br i1 %97, label %98, label %305
 
@@ -133861,7 +133858,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
 307:                                              ; preds = %306, %80, %76
   %.2250 = phi i32 [ %.2149, %306 ], [ %83, %80 ], [ %79, %76 ]
   %.22 = phi ptr [ %.21, %306 ], [ %82, %80 ], [ %78, %76 ]
-  %308 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %308 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %309 = icmp eq i32 %.2250, %308
   br i1 %309, label %310, label %314
 
@@ -133876,7 +133873,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %74
 
 314:                                              ; preds = %307
-  %315 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %315 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %316 = icmp eq i32 %.2250, %315
   %317 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %316, label %318, label %336
@@ -134101,7 +134098,7 @@ define linkonce_odr void @_ZN3nix7HintFmtC2IJA6_cNS_9UncoloredIA22_cEEEEERKNSt7_
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix28ErrorTraceTest_toString_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix28ErrorTraceTest_toString_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -134433,7 +134430,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn241 = phi { ptr, i32 } [ %208, %207 ], [ %.pn, %206 ]
   %.1 = extractvalue { ptr, i32 } %.pn241, 0
   %.1111 = extractvalue { ptr, i32 } %.pn241, 1
-  %210 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %210 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %211 = icmp eq i32 %.1111, %210
   br i1 %211, label %212, label %419
 
@@ -135138,7 +135135,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit455: ; preds = %_Z
 421:                                              ; preds = %420, %194, %190
   %.22132 = phi i32 [ %.21131, %420 ], [ %197, %194 ], [ %193, %190 ]
   %.22 = phi ptr [ %.21, %420 ], [ %196, %194 ], [ %192, %190 ]
-  %422 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %422 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %423 = icmp eq i32 %.22132, %422
   br i1 %423, label %424, label %428
 
@@ -135153,7 +135150,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit455: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %188
 
 428:                                              ; preds = %421
-  %429 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %429 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %430 = icmp eq i32 %.22132, %429
   %431 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %430, label %432, label %450
@@ -135470,7 +135467,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit477: ; preds = %_Z
   %.pn276 = phi { ptr, i32 } [ %533, %532 ], [ %.pn274, %531 ]
   %.27 = extractvalue { ptr, i32 } %.pn276, 0
   %.27137 = extractvalue { ptr, i32 } %.pn276, 1
-  %535 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %535 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %536 = icmp eq i32 %.27137, %535
   br i1 %536, label %537, label %744
 
@@ -136175,7 +136172,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit518: ; preds = %_Z
 746:                                              ; preds = %745, %519, %515
   %.48158 = phi i32 [ %.47157, %745 ], [ %522, %519 ], [ %518, %515 ]
   %.48 = phi ptr [ %.47, %745 ], [ %521, %519 ], [ %517, %515 ]
-  %747 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %747 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %748 = icmp eq i32 %.48158, %747
   br i1 %748, label %749, label %753
 
@@ -136190,7 +136187,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit518: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit519 unwind label %513
 
 753:                                              ; preds = %746
-  %754 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %754 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %755 = icmp eq i32 %.48158, %754
   %756 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %755, label %757, label %775
@@ -136507,7 +136504,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit544: ; preds = %_Z
   %.pn311 = phi { ptr, i32 } [ %858, %857 ], [ %.pn309, %856 ]
   %.53 = extractvalue { ptr, i32 } %.pn311, 0
   %.53163 = extractvalue { ptr, i32 } %.pn311, 1
-  %860 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %860 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %861 = icmp eq i32 %.53163, %860
   br i1 %861, label %862, label %1069
 
@@ -137212,7 +137209,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit585: ; preds = %_Z
 1071:                                             ; preds = %1070, %844, %840
   %.74184 = phi i32 [ %.73183, %1070 ], [ %847, %844 ], [ %843, %840 ]
   %.74 = phi ptr [ %.73, %1070 ], [ %846, %844 ], [ %842, %840 ]
-  %1072 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1072 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1073 = icmp eq i32 %.74184, %1072
   br i1 %1073, label %1074, label %1078
 
@@ -137227,7 +137224,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit585: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit586 unwind label %838
 
 1078:                                             ; preds = %1071
-  %1079 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1079 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1080 = icmp eq i32 %.74184, %1079
   %1081 = call ptr @__cxa_begin_catch(ptr %.74) #24
   br i1 %1080, label %1082, label %1100
@@ -137544,7 +137541,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit611: ; preds = %_Z
   %.pn346 = phi { ptr, i32 } [ %1183, %1182 ], [ %.pn344, %1181 ]
   %.79 = extractvalue { ptr, i32 } %.pn346, 0
   %.79189 = extractvalue { ptr, i32 } %.pn346, 1
-  %1185 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %1185 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %1186 = icmp eq i32 %.79189, %1185
   br i1 %1186, label %1187, label %1346
 
@@ -138083,7 +138080,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit644: ; preds = %_Z
 1348:                                             ; preds = %1347, %1169, %1165
   %.95205 = phi i32 [ %.94204, %1347 ], [ %1172, %1169 ], [ %1168, %1165 ]
   %.95 = phi ptr [ %.94, %1347 ], [ %1171, %1169 ], [ %1167, %1165 ]
-  %1349 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
+  %1349 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
   %1350 = icmp eq i32 %.95205, %1349
   br i1 %1350, label %1351, label %1355
 
@@ -138098,7 +138095,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit644: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit645 unwind label %1163
 
 1355:                                             ; preds = %1348
-  %1356 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1356 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1357 = icmp eq i32 %.95205, %1356
   %1358 = call ptr @__cxa_begin_catch(ptr %.95) #24
   br i1 %1357, label %1359, label %1377
@@ -138268,7 +138265,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit654: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix29ErrorTraceTest_substring_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix29ErrorTraceTest_substring_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -138486,7 +138483,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn62 = phi { ptr, i32 } [ %94, %93 ], [ %.pn, %92 ]
   %.1 = extractvalue { ptr, i32 } %.pn62, 0
   %.129 = extractvalue { ptr, i32 } %.pn62, 1
-  %96 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %96 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %97 = icmp eq i32 %.129, %96
   br i1 %97, label %98, label %305
 
@@ -139191,7 +139188,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
 307:                                              ; preds = %306, %80, %76
   %.2250 = phi i32 [ %.2149, %306 ], [ %83, %80 ], [ %79, %76 ]
   %.22 = phi ptr [ %.21, %306 ], [ %82, %80 ], [ %78, %76 ]
-  %308 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %308 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %309 = icmp eq i32 %.2250, %308
   br i1 %309, label %310, label %314
 
@@ -139206,7 +139203,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %74
 
 314:                                              ; preds = %307
-  %315 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %315 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %316 = icmp eq i32 %.2250, %315
   %317 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %316, label %318, label %336
@@ -139372,7 +139369,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix32ErrorTraceTest_stringLength_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix32ErrorTraceTest_stringLength_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -139663,7 +139660,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn179 = phi { ptr, i32 } [ %167, %166 ], [ %.pn, %165 ]
   %.1 = extractvalue { ptr, i32 } %.pn179, 0
   %.183 = extractvalue { ptr, i32 } %.pn179, 1
-  %169 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %169 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %170 = icmp eq i32 %.183, %169
   br i1 %170, label %171, label %378
 
@@ -140368,7 +140365,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit344: ; preds = %_Z
 380:                                              ; preds = %379, %153, %149
   %.22104 = phi i32 [ %.21103, %379 ], [ %156, %153 ], [ %152, %149 ]
   %.22 = phi ptr [ %.21, %379 ], [ %155, %153 ], [ %151, %149 ]
-  %381 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %381 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %382 = icmp eq i32 %.22104, %381
   br i1 %382, label %383, label %387
 
@@ -140383,7 +140380,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit344: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %147
 
 387:                                              ; preds = %380
-  %388 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %388 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %389 = icmp eq i32 %.22104, %388
   %390 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %389, label %391, label %409
@@ -140700,7 +140697,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit366: ; preds = %_Z
   %.pn214 = phi { ptr, i32 } [ %492, %491 ], [ %.pn212, %490 ]
   %.27 = extractvalue { ptr, i32 } %.pn214, 0
   %.27109 = extractvalue { ptr, i32 } %.pn214, 1
-  %494 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %494 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %495 = icmp eq i32 %.27109, %494
   br i1 %495, label %496, label %655
 
@@ -141239,7 +141236,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399: ; preds = %_Z
 657:                                              ; preds = %656, %478, %474
   %.43125 = phi i32 [ %.42124, %656 ], [ %481, %478 ], [ %477, %474 ]
   %.43 = phi ptr [ %.42, %656 ], [ %480, %478 ], [ %476, %474 ]
-  %658 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix10UsageErrorE) #24
+  %658 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix10UsageErrorE) #24
   %659 = icmp eq i32 %.43125, %658
   br i1 %659, label %660, label %664
 
@@ -141254,7 +141251,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit399: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit400 unwind label %472
 
 664:                                              ; preds = %657
-  %665 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %665 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %666 = icmp eq i32 %.43125, %665
   %667 = call ptr @__cxa_begin_catch(ptr %.43) #24
   br i1 %666, label %668, label %686
@@ -141571,7 +141568,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit425: ; preds = %_Z
   %.pn242 = phi { ptr, i32 } [ %769, %768 ], [ %.pn240, %767 ]
   %.48 = extractvalue { ptr, i32 } %.pn242, 0
   %.48130 = extractvalue { ptr, i32 } %.pn242, 1
-  %771 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %771 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %772 = icmp eq i32 %.48130, %771
   br i1 %772, label %773, label %980
 
@@ -142276,7 +142273,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit466: ; preds = %_Z
 982:                                              ; preds = %981, %755, %751
   %.69151 = phi i32 [ %.68150, %981 ], [ %758, %755 ], [ %754, %751 ]
   %.69 = phi ptr [ %.68, %981 ], [ %757, %755 ], [ %753, %751 ]
-  %983 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %983 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %984 = icmp eq i32 %.69151, %983
   br i1 %984, label %985, label %989
 
@@ -142291,7 +142288,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit466: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit467 unwind label %749
 
 989:                                              ; preds = %982
-  %990 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %990 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %991 = icmp eq i32 %.69151, %990
   %992 = call ptr @__cxa_begin_catch(ptr %.69) #24
   br i1 %991, label %993, label %1011
@@ -142461,7 +142458,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit476: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix30ErrorTraceTest_hashString_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix30ErrorTraceTest_hashString_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -142752,7 +142749,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn179 = phi { ptr, i32 } [ %167, %166 ], [ %.pn, %165 ]
   %.1 = extractvalue { ptr, i32 } %.pn179, 0
   %.183 = extractvalue { ptr, i32 } %.pn179, 1
-  %169 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %169 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %170 = icmp eq i32 %.183, %169
   br i1 %170, label %171, label %378
 
@@ -143457,7 +143454,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit344: ; preds = %_Z
 380:                                              ; preds = %379, %153, %149
   %.22104 = phi i32 [ %.21103, %379 ], [ %156, %153 ], [ %152, %149 ]
   %.22 = phi ptr [ %.21, %379 ], [ %155, %153 ], [ %151, %149 ]
-  %381 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %381 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %382 = icmp eq i32 %.22104, %381
   br i1 %382, label %383, label %387
 
@@ -143472,7 +143469,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit344: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %147
 
 387:                                              ; preds = %380
-  %388 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %388 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %389 = icmp eq i32 %.22104, %388
   %390 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %389, label %391, label %409
@@ -143789,7 +143786,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit366: ; preds = %_Z
   %.pn214 = phi { ptr, i32 } [ %492, %491 ], [ %.pn212, %490 ]
   %.27 = extractvalue { ptr, i32 } %.pn214, 0
   %.27109 = extractvalue { ptr, i32 } %.pn214, 1
-  %494 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %494 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %495 = icmp eq i32 %.27109, %494
   br i1 %495, label %496, label %703
 
@@ -144494,7 +144491,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit407: ; preds = %_Z
 705:                                              ; preds = %704, %478, %474
   %.48130 = phi i32 [ %.47129, %704 ], [ %481, %478 ], [ %477, %474 ]
   %.48 = phi ptr [ %.47, %704 ], [ %480, %478 ], [ %476, %474 ]
-  %706 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %706 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %707 = icmp eq i32 %.48130, %706
   br i1 %707, label %708, label %712
 
@@ -144509,7 +144506,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit407: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit408 unwind label %472
 
 712:                                              ; preds = %705
-  %713 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %713 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %714 = icmp eq i32 %.48130, %713
   %715 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %714, label %716, label %734
@@ -144826,7 +144823,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit433: ; preds = %_Z
   %.pn249 = phi { ptr, i32 } [ %817, %816 ], [ %.pn247, %815 ]
   %.53 = extractvalue { ptr, i32 } %.pn249, 0
   %.53135 = extractvalue { ptr, i32 } %.pn249, 1
-  %819 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %819 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %820 = icmp eq i32 %.53135, %819
   br i1 %820, label %821, label %980
 
@@ -145365,7 +145362,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit467: ; preds = %_Z
 982:                                              ; preds = %981, %803, %799
   %.69151 = phi i32 [ %.68150, %981 ], [ %806, %803 ], [ %802, %799 ]
   %.69 = phi ptr [ %.68, %981 ], [ %805, %803 ], [ %801, %799 ]
-  %983 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
+  %983 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
   %984 = icmp eq i32 %.69151, %983
   br i1 %984, label %985, label %989
 
@@ -145380,7 +145377,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit467: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit468 unwind label %797
 
 989:                                              ; preds = %982
-  %990 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %990 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %991 = icmp eq i32 %.69151, %990
   %992 = call ptr @__cxa_begin_catch(ptr %.69) #24
   br i1 %991, label %993, label %1011
@@ -145550,7 +145547,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit477: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix25ErrorTraceTest_match_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix25ErrorTraceTest_match_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -145841,7 +145838,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn179 = phi { ptr, i32 } [ %167, %166 ], [ %.pn, %165 ]
   %.1 = extractvalue { ptr, i32 } %.pn179, 0
   %.183 = extractvalue { ptr, i32 } %.pn179, 1
-  %169 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %169 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %170 = icmp eq i32 %.183, %169
   br i1 %170, label %171, label %378
 
@@ -146546,7 +146543,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit344: ; preds = %_Z
 380:                                              ; preds = %379, %153, %149
   %.22104 = phi i32 [ %.21103, %379 ], [ %156, %153 ], [ %152, %149 ]
   %.22 = phi ptr [ %.21, %379 ], [ %155, %153 ], [ %151, %149 ]
-  %381 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %381 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %382 = icmp eq i32 %.22104, %381
   br i1 %382, label %383, label %387
 
@@ -146561,7 +146558,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit344: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %147
 
 387:                                              ; preds = %380
-  %388 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %388 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %389 = icmp eq i32 %.22104, %388
   %390 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %389, label %391, label %409
@@ -146878,7 +146875,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit366: ; preds = %_Z
   %.pn214 = phi { ptr, i32 } [ %492, %491 ], [ %.pn212, %490 ]
   %.27 = extractvalue { ptr, i32 } %.pn214, 0
   %.27109 = extractvalue { ptr, i32 } %.pn214, 1
-  %494 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %494 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %495 = icmp eq i32 %.27109, %494
   br i1 %495, label %496, label %703
 
@@ -147583,7 +147580,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit407: ; preds = %_Z
 705:                                              ; preds = %704, %478, %474
   %.48130 = phi i32 [ %.47129, %704 ], [ %481, %478 ], [ %477, %474 ]
   %.48 = phi ptr [ %.47, %704 ], [ %480, %478 ], [ %476, %474 ]
-  %706 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %706 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %707 = icmp eq i32 %.48130, %706
   br i1 %707, label %708, label %712
 
@@ -147598,7 +147595,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit407: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit408 unwind label %472
 
 712:                                              ; preds = %705
-  %713 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %713 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %714 = icmp eq i32 %.48130, %713
   %715 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %714, label %716, label %734
@@ -147915,7 +147912,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit433: ; preds = %_Z
   %.pn249 = phi { ptr, i32 } [ %817, %816 ], [ %.pn247, %815 ]
   %.53 = extractvalue { ptr, i32 } %.pn249, 0
   %.53135 = extractvalue { ptr, i32 } %.pn249, 1
-  %819 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %819 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %820 = icmp eq i32 %.53135, %819
   br i1 %820, label %821, label %980
 
@@ -148454,7 +148451,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit466: ; preds = %_Z
 982:                                              ; preds = %981, %803, %799
   %.69151 = phi i32 [ %.68150, %981 ], [ %806, %803 ], [ %802, %799 ]
   %.69 = phi ptr [ %.68, %981 ], [ %805, %803 ], [ %801, %799 ]
-  %983 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
+  %983 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9EvalErrorE) #24
   %984 = icmp eq i32 %.69151, %983
   br i1 %984, label %985, label %989
 
@@ -148469,7 +148466,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit466: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit467 unwind label %797
 
 989:                                              ; preds = %982
-  %990 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %990 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %991 = icmp eq i32 %.69151, %990
   %992 = call ptr @__cxa_begin_catch(ptr %.69) #24
   br i1 %991, label %993, label %1011
@@ -148639,7 +148636,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit476: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix25ErrorTraceTest_split_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix25ErrorTraceTest_split_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -148939,7 +148936,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn187 = phi { ptr, i32 } [ %176, %175 ], [ %.pn, %174 ]
   %.1 = extractvalue { ptr, i32 } %.pn187, 0
   %.185 = extractvalue { ptr, i32 } %.pn187, 1
-  %178 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %178 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %179 = icmp eq i32 %.185, %178
   br i1 %179, label %180, label %387
 
@@ -149644,7 +149641,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361: ; preds = %_Z
 389:                                              ; preds = %388, %162, %158
   %.22106 = phi i32 [ %.21105, %388 ], [ %165, %162 ], [ %161, %158 ]
   %.22 = phi ptr [ %.21, %388 ], [ %164, %162 ], [ %160, %158 ]
-  %390 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %390 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %391 = icmp eq i32 %.22106, %390
   br i1 %391, label %392, label %396
 
@@ -149659,7 +149656,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit361: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %156
 
 396:                                              ; preds = %389
-  %397 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %397 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %398 = icmp eq i32 %.22106, %397
   %399 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %398, label %400, label %418
@@ -149976,7 +149973,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit383: ; preds = %_Z
   %.pn222 = phi { ptr, i32 } [ %501, %500 ], [ %.pn220, %499 ]
   %.27 = extractvalue { ptr, i32 } %.pn222, 0
   %.27111 = extractvalue { ptr, i32 } %.pn222, 1
-  %503 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %503 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %504 = icmp eq i32 %.27111, %503
   br i1 %504, label %505, label %712
 
@@ -150681,7 +150678,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit424: ; preds = %_Z
 714:                                              ; preds = %713, %487, %483
   %.48132 = phi i32 [ %.47131, %713 ], [ %490, %487 ], [ %486, %483 ]
   %.48 = phi ptr [ %.47, %713 ], [ %489, %487 ], [ %485, %483 ]
-  %715 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %715 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %716 = icmp eq i32 %.48132, %715
   br i1 %716, label %717, label %721
 
@@ -150696,7 +150693,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit424: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit425 unwind label %481
 
 721:                                              ; preds = %714
-  %722 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %722 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %723 = icmp eq i32 %.48132, %722
   %724 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %723, label %725, label %743
@@ -151013,7 +151010,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit450: ; preds = %_Z
   %.pn257 = phi { ptr, i32 } [ %826, %825 ], [ %.pn255, %824 ]
   %.53 = extractvalue { ptr, i32 } %.pn257, 0
   %.53137 = extractvalue { ptr, i32 } %.pn257, 1
-  %828 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %828 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %829 = icmp eq i32 %.53137, %828
   br i1 %829, label %830, label %1037
 
@@ -151718,7 +151715,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit491: ; preds = %_Z
 1039:                                             ; preds = %1038, %812, %808
   %.74158 = phi i32 [ %.73157, %1038 ], [ %815, %812 ], [ %811, %808 ]
   %.74 = phi ptr [ %.73, %1038 ], [ %814, %812 ], [ %810, %808 ]
-  %1040 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %1040 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %1041 = icmp eq i32 %.74158, %1040
   br i1 %1041, label %1042, label %1046
 
@@ -151733,7 +151730,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit491: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit492 unwind label %806
 
 1046:                                             ; preds = %1039
-  %1047 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %1047 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %1048 = icmp eq i32 %.74158, %1047
   %1049 = call ptr @__cxa_begin_catch(ptr %.74) #24
   br i1 %1048, label %1050, label %1068
@@ -151903,7 +151900,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit501: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix36ErrorTraceTest_concatStringsSep_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix36ErrorTraceTest_concatStringsSep_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -152121,7 +152118,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn62 = phi { ptr, i32 } [ %94, %93 ], [ %.pn, %92 ]
   %.1 = extractvalue { ptr, i32 } %.pn62, 0
   %.129 = extractvalue { ptr, i32 } %.pn62, 1
-  %96 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %96 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %97 = icmp eq i32 %.129, %96
   br i1 %97, label %98, label %305
 
@@ -152826,7 +152823,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
 307:                                              ; preds = %306, %80, %76
   %.2250 = phi i32 [ %.2149, %306 ], [ %83, %80 ], [ %79, %76 ]
   %.22 = phi ptr [ %.21, %306 ], [ %82, %80 ], [ %78, %76 ]
-  %308 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %308 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %309 = icmp eq i32 %.2250, %308
   br i1 %309, label %310, label %314
 
@@ -152841,7 +152838,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %74
 
 314:                                              ; preds = %307
-  %315 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %315 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %316 = icmp eq i32 %.2250, %315
   %317 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %316, label %318, label %336
@@ -153007,7 +153004,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix32ErrorTraceTest_parseDrvName_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix32ErrorTraceTest_parseDrvName_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -153266,7 +153263,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn125 = phi { ptr, i32 } [ %135, %134 ], [ %.pn, %133 ]
   %.1 = extractvalue { ptr, i32 } %.pn125, 0
   %.157 = extractvalue { ptr, i32 } %.pn125, 1
-  %137 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %137 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %138 = icmp eq i32 %.157, %137
   br i1 %138, label %139, label %346
 
@@ -153971,7 +153968,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
 348:                                              ; preds = %347, %121, %117
   %.2278 = phi i32 [ %.2177, %347 ], [ %124, %121 ], [ %120, %117 ]
   %.22 = phi ptr [ %.21, %347 ], [ %123, %121 ], [ %119, %117 ]
-  %349 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %349 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %350 = icmp eq i32 %.2278, %349
   br i1 %350, label %351, label %355
 
@@ -153986,7 +153983,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %115
 
 355:                                              ; preds = %348
-  %356 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %356 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %357 = icmp eq i32 %.2278, %356
   %358 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %357, label %359, label %377
@@ -154303,7 +154300,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit272: ; preds = %_Z
   %.pn160 = phi { ptr, i32 } [ %460, %459 ], [ %.pn158, %458 ]
   %.27 = extractvalue { ptr, i32 } %.pn160, 0
   %.2783 = extractvalue { ptr, i32 } %.pn160, 1
-  %462 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %462 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %463 = icmp eq i32 %.2783, %462
   br i1 %463, label %464, label %671
 
@@ -155008,7 +155005,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit313: ; preds = %_Z
 673:                                              ; preds = %672, %446, %442
   %.48104 = phi i32 [ %.47103, %672 ], [ %449, %446 ], [ %445, %442 ]
   %.48 = phi ptr [ %.47, %672 ], [ %448, %446 ], [ %444, %442 ]
-  %674 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %674 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %675 = icmp eq i32 %.48104, %674
   br i1 %675, label %676, label %680
 
@@ -155023,7 +155020,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit313: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit314 unwind label %440
 
 680:                                              ; preds = %673
-  %681 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %681 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %682 = icmp eq i32 %.48104, %681
   %683 = call ptr @__cxa_begin_catch(ptr %.48) #24
   br i1 %682, label %684, label %702
@@ -155193,7 +155190,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit323: ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix35ErrorTraceTest_compareVersions_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix35ErrorTraceTest_compareVersions_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -155411,7 +155408,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn62 = phi { ptr, i32 } [ %94, %93 ], [ %.pn, %92 ]
   %.1 = extractvalue { ptr, i32 } %.pn62, 0
   %.129 = extractvalue { ptr, i32 } %.pn62, 1
-  %96 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
+  %96 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9BaseErrorE) #24
   %97 = icmp eq i32 %.129, %96
   br i1 %97, label %98, label %305
 
@@ -156116,7 +156113,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
 307:                                              ; preds = %306, %80, %76
   %.2250 = phi i32 [ %.2149, %306 ], [ %83, %80 ], [ %79, %76 ]
   %.22 = phi ptr [ %.21, %306 ], [ %82, %80 ], [ %78, %76 ]
-  %308 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
+  %308 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix9TypeErrorE) #24
   %309 = icmp eq i32 %.2250, %308
   br i1 %309, label %310, label %314
 
@@ -156131,7 +156128,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %74
 
 314:                                              ; preds = %307
-  %315 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #24
+  %315 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #24
   %316 = icmp eq i32 %.2250, %315
   %317 = call ptr @__cxa_begin_catch(ptr %.22) #24
   br i1 %316, label %318, label %336
@@ -156297,7 +156294,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit:    ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n48_N3nix32ErrorTraceTest_splitVersion_Test8TestBodyEv(ptr noundef %0) unnamed_addr #13 align 2 {
+define void @_ZTv0_n48_N3nix32ErrorTraceTest_splitVersion_Test8TestBodyEv(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -48
   %4 = load i64, ptr %3, align 8
@@ -156307,12 +156304,12 @@ define void @_ZTv0_n48_N3nix32ErrorTraceTest_splitVersion_Test8TestBodyEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3nix32ErrorTraceTest_traceVerbose_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #14 align 2 {
+define void @_ZN3nix32ErrorTraceTest_traceVerbose_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #13 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZTv0_n48_N3nix32ErrorTraceTest_traceVerbose_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #14 align 2 {
+define void @_ZTv0_n48_N3nix32ErrorTraceTest_traceVerbose_Test8TestBodyEv(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   ret void
 }
 
@@ -156329,13 +156326,13 @@ define linkonce_odr void @_ZN3nix14ErrorTraceTestD0Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix14ErrorTraceTestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix14ErrorTraceTestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   tail call void @llvm.trap() #28
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix14ErrorTraceTestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix14ErrorTraceTestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   tail call void @llvm.trap() #28
   unreachable
 }
@@ -156364,13 +156361,13 @@ define linkonce_odr void @_ZN3nix11LibExprTestD0Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix11LibExprTestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix11LibExprTestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   tail call void @llvm.trap() #28
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix11LibExprTestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix11LibExprTestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   tail call void @llvm.trap() #28
   unreachable
 }
@@ -156388,13 +156385,13 @@ define linkonce_odr void @_ZN3nix12LibStoreTestD0Ev(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix12LibStoreTestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix12LibStoreTestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   tail call void @llvm.trap() #28
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix12LibStoreTestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix12LibStoreTestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   tail call void @llvm.trap() #28
   unreachable
 }
@@ -156575,7 +156572,7 @@ _ZN3nix32ErrorTraceTest_TraceBuilder_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_TraceBuilder_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_TraceBuilder_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -156666,7 +156663,7 @@ _ZN3nix32ErrorTraceTest_TraceBuilder_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_TraceBuilder_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_TraceBuilder_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -156851,7 +156848,7 @@ _ZN3nix32ErrorTraceTest_NestedThrows_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_NestedThrows_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_NestedThrows_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -156942,7 +156939,7 @@ _ZN3nix32ErrorTraceTest_NestedThrows_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_NestedThrows_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_NestedThrows_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -157127,7 +157124,7 @@ _ZN3nix34ErrorTraceTest_genericClosure_TestD1Ev.exit: ; preds = %1, %22, %35, %_
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_genericClosure_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_genericClosure_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -157218,7 +157215,7 @@ _ZN3nix34ErrorTraceTest_genericClosure_TestD1Ev.exit: ; preds = %1, %26, %39, %_
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_genericClosure_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_genericClosure_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -157403,7 +157400,7 @@ _ZN3nix34ErrorTraceTest_replaceStrings_TestD1Ev.exit: ; preds = %1, %22, %35, %_
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_replaceStrings_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_replaceStrings_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -157494,7 +157491,7 @@ _ZN3nix34ErrorTraceTest_replaceStrings_TestD1Ev.exit: ; preds = %1, %26, %39, %_
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_replaceStrings_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_replaceStrings_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -157679,7 +157676,7 @@ _ZN3nix32ErrorTraceTest_scopedImport_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_scopedImport_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_scopedImport_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -157770,7 +157767,7 @@ _ZN3nix32ErrorTraceTest_scopedImport_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_scopedImport_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_scopedImport_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -157955,7 +157952,7 @@ _ZN3nix26ErrorTraceTest_import_TestD1Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_import_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_import_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -158046,7 +158043,7 @@ _ZN3nix26ErrorTraceTest_import_TestD1Ev.exit:     ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_import_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_import_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -158231,7 +158228,7 @@ _ZN3nix26ErrorTraceTest_typeOf_TestD1Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_typeOf_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_typeOf_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -158322,7 +158319,7 @@ _ZN3nix26ErrorTraceTest_typeOf_TestD1Ev.exit:     ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_typeOf_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_typeOf_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -158507,7 +158504,7 @@ _ZN3nix26ErrorTraceTest_isNull_TestD1Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isNull_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isNull_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -158598,7 +158595,7 @@ _ZN3nix26ErrorTraceTest_isNull_TestD1Ev.exit:     ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isNull_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isNull_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -158783,7 +158780,7 @@ _ZN3nix30ErrorTraceTest_isFunction_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_isFunction_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_isFunction_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -158874,7 +158871,7 @@ _ZN3nix30ErrorTraceTest_isFunction_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_isFunction_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_isFunction_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -159059,7 +159056,7 @@ _ZN3nix25ErrorTraceTest_isInt_TestD1Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_isInt_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_isInt_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -159150,7 +159147,7 @@ _ZN3nix25ErrorTraceTest_isInt_TestD1Ev.exit:      ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_isInt_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_isInt_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -159335,7 +159332,7 @@ _ZN3nix27ErrorTraceTest_isFloat_TestD1Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_isFloat_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_isFloat_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -159426,7 +159423,7 @@ _ZN3nix27ErrorTraceTest_isFloat_TestD1Ev.exit:    ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_isFloat_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_isFloat_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -159611,7 +159608,7 @@ _ZN3nix28ErrorTraceTest_isString_TestD1Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_isString_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_isString_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -159702,7 +159699,7 @@ _ZN3nix28ErrorTraceTest_isString_TestD1Ev.exit:   ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_isString_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_isString_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -159887,7 +159884,7 @@ _ZN3nix26ErrorTraceTest_isBool_TestD1Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isBool_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isBool_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -159978,7 +159975,7 @@ _ZN3nix26ErrorTraceTest_isBool_TestD1Ev.exit:     ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isBool_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isBool_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -160163,7 +160160,7 @@ _ZN3nix26ErrorTraceTest_isPath_TestD1Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isPath_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isPath_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -160254,7 +160251,7 @@ _ZN3nix26ErrorTraceTest_isPath_TestD1Ev.exit:     ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isPath_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isPath_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -160439,7 +160436,7 @@ _ZN3nix25ErrorTraceTest_break_TestD1Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_break_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_break_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -160530,7 +160527,7 @@ _ZN3nix25ErrorTraceTest_break_TestD1Ev.exit:      ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_break_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_break_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -160715,7 +160712,7 @@ _ZN3nix25ErrorTraceTest_abort_TestD1Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_abort_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_abort_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -160806,7 +160803,7 @@ _ZN3nix25ErrorTraceTest_abort_TestD1Ev.exit:      ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_abort_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_abort_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -160991,7 +160988,7 @@ _ZN3nix25ErrorTraceTest_throw_TestD1Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_throw_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_throw_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -161082,7 +161079,7 @@ _ZN3nix25ErrorTraceTest_throw_TestD1Ev.exit:      ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_throw_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_throw_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -161267,7 +161264,7 @@ _ZN3nix35ErrorTraceTest_addErrorContext_TestD1Ev.exit: ; preds = %1, %22, %35, %
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix35ErrorTraceTest_addErrorContext_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix35ErrorTraceTest_addErrorContext_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -161358,7 +161355,7 @@ _ZN3nix35ErrorTraceTest_addErrorContext_TestD1Ev.exit: ; preds = %1, %26, %39, %
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix35ErrorTraceTest_addErrorContext_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix35ErrorTraceTest_addErrorContext_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -161543,7 +161540,7 @@ _ZN3nix24ErrorTraceTest_ceil_TestD1Ev.exit:       ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_ceil_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_ceil_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -161634,7 +161631,7 @@ _ZN3nix24ErrorTraceTest_ceil_TestD1Ev.exit:       ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_ceil_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_ceil_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -161819,7 +161816,7 @@ _ZN3nix25ErrorTraceTest_floor_TestD1Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_floor_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_floor_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -161910,7 +161907,7 @@ _ZN3nix25ErrorTraceTest_floor_TestD1Ev.exit:      ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_floor_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_floor_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -162095,7 +162092,7 @@ _ZN3nix27ErrorTraceTest_tryEval_TestD1Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_tryEval_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_tryEval_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -162186,7 +162183,7 @@ _ZN3nix27ErrorTraceTest_tryEval_TestD1Ev.exit:    ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_tryEval_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_tryEval_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -162371,7 +162368,7 @@ _ZN3nix26ErrorTraceTest_getEnv_TestD1Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_getEnv_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_getEnv_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -162462,7 +162459,7 @@ _ZN3nix26ErrorTraceTest_getEnv_TestD1Ev.exit:     ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_getEnv_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_getEnv_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -162647,7 +162644,7 @@ _ZN3nix23ErrorTraceTest_seq_TestD1Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_seq_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_seq_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -162738,7 +162735,7 @@ _ZN3nix23ErrorTraceTest_seq_TestD1Ev.exit:        ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_seq_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_seq_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -162923,7 +162920,7 @@ _ZN3nix27ErrorTraceTest_deepSeq_TestD1Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_deepSeq_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_deepSeq_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -163014,7 +163011,7 @@ _ZN3nix27ErrorTraceTest_deepSeq_TestD1Ev.exit:    ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_deepSeq_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_deepSeq_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -163199,7 +163196,7 @@ _ZN3nix25ErrorTraceTest_trace_TestD1Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_trace_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_trace_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -163290,7 +163287,7 @@ _ZN3nix25ErrorTraceTest_trace_TestD1Ev.exit:      ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_trace_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_trace_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -163475,7 +163472,7 @@ _ZN3nix31ErrorTraceTest_placeholder_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZNS
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_placeholder_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_placeholder_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -163566,7 +163563,7 @@ _ZN3nix31ErrorTraceTest_placeholder_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZNS
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_placeholder_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_placeholder_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -163751,7 +163748,7 @@ _ZN3nix26ErrorTraceTest_toPath_TestD1Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toPath_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toPath_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -163842,7 +163839,7 @@ _ZN3nix26ErrorTraceTest_toPath_TestD1Ev.exit:     ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toPath_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toPath_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -164027,7 +164024,7 @@ _ZN3nix29ErrorTraceTest_storePath_TestD1Ev.exit:  ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_storePath_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_storePath_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -164118,7 +164115,7 @@ _ZN3nix29ErrorTraceTest_storePath_TestD1Ev.exit:  ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_storePath_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_storePath_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -164303,7 +164300,7 @@ _ZN3nix30ErrorTraceTest_pathExists_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_pathExists_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_pathExists_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -164394,7 +164391,7 @@ _ZN3nix30ErrorTraceTest_pathExists_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_pathExists_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_pathExists_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -164579,7 +164576,7 @@ _ZN3nix30ErrorTraceTest_baseNameOf_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_baseNameOf_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_baseNameOf_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -164670,7 +164667,7 @@ _ZN3nix30ErrorTraceTest_baseNameOf_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_baseNameOf_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_baseNameOf_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -164855,7 +164852,7 @@ _ZN3nix25ErrorTraceTest_dirOf_TestD1Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_dirOf_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_dirOf_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -164946,7 +164943,7 @@ _ZN3nix25ErrorTraceTest_dirOf_TestD1Ev.exit:      ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_dirOf_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_dirOf_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -165131,7 +165128,7 @@ _ZN3nix28ErrorTraceTest_readFile_TestD1Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_readFile_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_readFile_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -165222,7 +165219,7 @@ _ZN3nix28ErrorTraceTest_readFile_TestD1Ev.exit:   ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_readFile_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_readFile_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -165407,7 +165404,7 @@ _ZN3nix28ErrorTraceTest_findFile_TestD1Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_findFile_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_findFile_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -165498,7 +165495,7 @@ _ZN3nix28ErrorTraceTest_findFile_TestD1Ev.exit:   ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_findFile_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_findFile_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -165683,7 +165680,7 @@ _ZN3nix28ErrorTraceTest_hashFile_TestD1Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_hashFile_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_hashFile_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -165774,7 +165771,7 @@ _ZN3nix28ErrorTraceTest_hashFile_TestD1Ev.exit:   ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_hashFile_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_hashFile_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -165959,7 +165956,7 @@ _ZN3nix27ErrorTraceTest_readDir_TestD1Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_readDir_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_readDir_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -166050,7 +166047,7 @@ _ZN3nix27ErrorTraceTest_readDir_TestD1Ev.exit:    ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_readDir_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_readDir_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -166235,7 +166232,7 @@ _ZN3nix25ErrorTraceTest_toXML_TestD1Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_toXML_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_toXML_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -166326,7 +166323,7 @@ _ZN3nix25ErrorTraceTest_toXML_TestD1Ev.exit:      ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_toXML_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_toXML_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -166511,7 +166508,7 @@ _ZN3nix26ErrorTraceTest_toJSON_TestD1Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toJSON_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toJSON_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -166602,7 +166599,7 @@ _ZN3nix26ErrorTraceTest_toJSON_TestD1Ev.exit:     ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toJSON_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toJSON_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -166787,7 +166784,7 @@ _ZN3nix28ErrorTraceTest_fromJSON_TestD1Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_fromJSON_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_fromJSON_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -166878,7 +166875,7 @@ _ZN3nix28ErrorTraceTest_fromJSON_TestD1Ev.exit:   ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_fromJSON_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_fromJSON_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -167063,7 +167060,7 @@ _ZN3nix26ErrorTraceTest_toFile_TestD1Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toFile_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toFile_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -167154,7 +167151,7 @@ _ZN3nix26ErrorTraceTest_toFile_TestD1Ev.exit:     ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toFile_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_toFile_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -167339,7 +167336,7 @@ _ZN3nix32ErrorTraceTest_filterSource_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_filterSource_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_filterSource_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -167430,7 +167427,7 @@ _ZN3nix32ErrorTraceTest_filterSource_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_filterSource_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_filterSource_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -167615,7 +167612,7 @@ _ZN3nix24ErrorTraceTest_path_TestD1Ev.exit:       ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_path_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_path_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -167706,7 +167703,7 @@ _ZN3nix24ErrorTraceTest_path_TestD1Ev.exit:       ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_path_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_path_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -167891,7 +167888,7 @@ _ZN3nix29ErrorTraceTest_attrNames_TestD1Ev.exit:  ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_attrNames_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_attrNames_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -167982,7 +167979,7 @@ _ZN3nix29ErrorTraceTest_attrNames_TestD1Ev.exit:  ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_attrNames_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_attrNames_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -168167,7 +168164,7 @@ _ZN3nix30ErrorTraceTest_attrValues_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_attrValues_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_attrValues_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -168258,7 +168255,7 @@ _ZN3nix30ErrorTraceTest_attrValues_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_attrValues_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_attrValues_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -168443,7 +168440,7 @@ _ZN3nix27ErrorTraceTest_getAttr_TestD1Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_getAttr_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_getAttr_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -168534,7 +168531,7 @@ _ZN3nix27ErrorTraceTest_getAttr_TestD1Ev.exit:    ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_getAttr_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_getAttr_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -168719,7 +168716,7 @@ _ZN3nix36ErrorTraceTest_unsafeGetAttrPos_TestD1Ev.exit: ; preds = %1, %22, %35, 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix36ErrorTraceTest_unsafeGetAttrPos_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix36ErrorTraceTest_unsafeGetAttrPos_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -168810,7 +168807,7 @@ _ZN3nix36ErrorTraceTest_unsafeGetAttrPos_TestD1Ev.exit: ; preds = %1, %26, %39, 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix36ErrorTraceTest_unsafeGetAttrPos_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix36ErrorTraceTest_unsafeGetAttrPos_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -168995,7 +168992,7 @@ _ZN3nix27ErrorTraceTest_hasAttr_TestD1Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_hasAttr_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_hasAttr_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -169086,7 +169083,7 @@ _ZN3nix27ErrorTraceTest_hasAttr_TestD1Ev.exit:    ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_hasAttr_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_hasAttr_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -169271,7 +169268,7 @@ _ZN3nix27ErrorTraceTest_isAttrs_TestD1Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_isAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_isAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -169362,7 +169359,7 @@ _ZN3nix27ErrorTraceTest_isAttrs_TestD1Ev.exit:    ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_isAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_isAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -169547,7 +169544,7 @@ _ZN3nix31ErrorTraceTest_removeAttrs_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZNS
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_removeAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_removeAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -169638,7 +169635,7 @@ _ZN3nix31ErrorTraceTest_removeAttrs_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZNS
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_removeAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_removeAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -169823,7 +169820,7 @@ _ZN3nix31ErrorTraceTest_listToAttrs_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZNS
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_listToAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_listToAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -169914,7 +169911,7 @@ _ZN3nix31ErrorTraceTest_listToAttrs_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZNS
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_listToAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_listToAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -170099,7 +170096,7 @@ _ZN3nix34ErrorTraceTest_intersectAttrs_TestD1Ev.exit: ; preds = %1, %22, %35, %_
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_intersectAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_intersectAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -170190,7 +170187,7 @@ _ZN3nix34ErrorTraceTest_intersectAttrs_TestD1Ev.exit: ; preds = %1, %26, %39, %_
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_intersectAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix34ErrorTraceTest_intersectAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -170375,7 +170372,7 @@ _ZN3nix28ErrorTraceTest_catAttrs_TestD1Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_catAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_catAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -170466,7 +170463,7 @@ _ZN3nix28ErrorTraceTest_catAttrs_TestD1Ev.exit:   ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_catAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_catAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -170651,7 +170648,7 @@ _ZN3nix32ErrorTraceTest_functionArgs_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_functionArgs_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_functionArgs_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -170742,7 +170739,7 @@ _ZN3nix32ErrorTraceTest_functionArgs_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_functionArgs_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_functionArgs_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -170927,7 +170924,7 @@ _ZN3nix28ErrorTraceTest_mapAttrs_TestD1Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_mapAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_mapAttrs_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -171018,7 +171015,7 @@ _ZN3nix28ErrorTraceTest_mapAttrs_TestD1Ev.exit:   ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_mapAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_mapAttrs_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -171203,7 +171200,7 @@ _ZN3nix32ErrorTraceTest_zipAttrsWith_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_zipAttrsWith_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_zipAttrsWith_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -171294,7 +171291,7 @@ _ZN3nix32ErrorTraceTest_zipAttrsWith_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_zipAttrsWith_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_zipAttrsWith_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -171479,7 +171476,7 @@ _ZN3nix26ErrorTraceTest_isList_TestD1Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isList_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isList_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -171570,7 +171567,7 @@ _ZN3nix26ErrorTraceTest_isList_TestD1Ev.exit:     ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isList_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_isList_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -171755,7 +171752,7 @@ _ZN3nix26ErrorTraceTest_elemAt_TestD1Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_elemAt_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_elemAt_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -171846,7 +171843,7 @@ _ZN3nix26ErrorTraceTest_elemAt_TestD1Ev.exit:     ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_elemAt_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_elemAt_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -172031,7 +172028,7 @@ _ZN3nix24ErrorTraceTest_head_TestD1Ev.exit:       ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_head_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_head_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -172122,7 +172119,7 @@ _ZN3nix24ErrorTraceTest_head_TestD1Ev.exit:       ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_head_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_head_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -172307,7 +172304,7 @@ _ZN3nix24ErrorTraceTest_tail_TestD1Ev.exit:       ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_tail_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_tail_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -172398,7 +172395,7 @@ _ZN3nix24ErrorTraceTest_tail_TestD1Ev.exit:       ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_tail_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_tail_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -172583,7 +172580,7 @@ _ZN3nix23ErrorTraceTest_map_TestD1Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_map_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_map_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -172674,7 +172671,7 @@ _ZN3nix23ErrorTraceTest_map_TestD1Ev.exit:        ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_map_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_map_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -172859,7 +172856,7 @@ _ZN3nix26ErrorTraceTest_filter_TestD1Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_filter_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_filter_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -172950,7 +172947,7 @@ _ZN3nix26ErrorTraceTest_filter_TestD1Ev.exit:     ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_filter_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_filter_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -173135,7 +173132,7 @@ _ZN3nix24ErrorTraceTest_elem_TestD1Ev.exit:       ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_elem_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_elem_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -173226,7 +173223,7 @@ _ZN3nix24ErrorTraceTest_elem_TestD1Ev.exit:       ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_elem_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_elem_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -173411,7 +173408,7 @@ _ZN3nix31ErrorTraceTest_concatLists_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZNS
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_concatLists_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_concatLists_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -173502,7 +173499,7 @@ _ZN3nix31ErrorTraceTest_concatLists_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZNS
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_concatLists_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix31ErrorTraceTest_concatLists_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -173687,7 +173684,7 @@ _ZN3nix26ErrorTraceTest_length_TestD1Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_length_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_length_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -173778,7 +173775,7 @@ _ZN3nix26ErrorTraceTest_length_TestD1Ev.exit:     ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_length_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_length_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -173963,7 +173960,7 @@ _ZN3nix30ErrorTraceTest_foldlPrime_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_foldlPrime_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_foldlPrime_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -174054,7 +174051,7 @@ _ZN3nix30ErrorTraceTest_foldlPrime_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_foldlPrime_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_foldlPrime_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -174239,7 +174236,7 @@ _ZN3nix23ErrorTraceTest_any_TestD1Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_any_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_any_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -174330,7 +174327,7 @@ _ZN3nix23ErrorTraceTest_any_TestD1Ev.exit:        ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_any_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_any_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -174515,7 +174512,7 @@ _ZN3nix23ErrorTraceTest_all_TestD1Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_all_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_all_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -174606,7 +174603,7 @@ _ZN3nix23ErrorTraceTest_all_TestD1Ev.exit:        ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_all_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_all_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -174791,7 +174788,7 @@ _ZN3nix27ErrorTraceTest_genList_TestD1Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_genList_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_genList_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -174882,7 +174879,7 @@ _ZN3nix27ErrorTraceTest_genList_TestD1Ev.exit:    ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_genList_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_genList_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -175067,7 +175064,7 @@ _ZN3nix24ErrorTraceTest_sort_TestD1Ev.exit:       ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_sort_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_sort_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -175158,7 +175155,7 @@ _ZN3nix24ErrorTraceTest_sort_TestD1Ev.exit:       ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_sort_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix24ErrorTraceTest_sort_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -175343,7 +175340,7 @@ _ZN3nix29ErrorTraceTest_partition_TestD1Ev.exit:  ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_partition_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_partition_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -175434,7 +175431,7 @@ _ZN3nix29ErrorTraceTest_partition_TestD1Ev.exit:  ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_partition_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_partition_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -175619,7 +175616,7 @@ _ZN3nix27ErrorTraceTest_groupBy_TestD1Ev.exit:    ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_groupBy_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_groupBy_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -175710,7 +175707,7 @@ _ZN3nix27ErrorTraceTest_groupBy_TestD1Ev.exit:    ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_groupBy_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix27ErrorTraceTest_groupBy_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -175895,7 +175892,7 @@ _ZN3nix29ErrorTraceTest_concatMap_TestD1Ev.exit:  ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_concatMap_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_concatMap_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -175986,7 +175983,7 @@ _ZN3nix29ErrorTraceTest_concatMap_TestD1Ev.exit:  ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_concatMap_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_concatMap_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -176171,7 +176168,7 @@ _ZN3nix23ErrorTraceTest_add_TestD1Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_add_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_add_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -176262,7 +176259,7 @@ _ZN3nix23ErrorTraceTest_add_TestD1Ev.exit:        ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_add_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_add_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -176447,7 +176444,7 @@ _ZN3nix23ErrorTraceTest_sub_TestD1Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_sub_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_sub_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -176538,7 +176535,7 @@ _ZN3nix23ErrorTraceTest_sub_TestD1Ev.exit:        ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_sub_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_sub_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -176723,7 +176720,7 @@ _ZN3nix23ErrorTraceTest_mul_TestD1Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_mul_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_mul_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -176814,7 +176811,7 @@ _ZN3nix23ErrorTraceTest_mul_TestD1Ev.exit:        ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_mul_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_mul_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -176999,7 +176996,7 @@ _ZN3nix23ErrorTraceTest_div_TestD1Ev.exit:        ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_div_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_div_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -177090,7 +177087,7 @@ _ZN3nix23ErrorTraceTest_div_TestD1Ev.exit:        ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_div_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix23ErrorTraceTest_div_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -177275,7 +177272,7 @@ _ZN3nix26ErrorTraceTest_bitAnd_TestD1Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_bitAnd_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_bitAnd_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -177366,7 +177363,7 @@ _ZN3nix26ErrorTraceTest_bitAnd_TestD1Ev.exit:     ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_bitAnd_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_bitAnd_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -177551,7 +177548,7 @@ _ZN3nix25ErrorTraceTest_bitOr_TestD1Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_bitOr_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_bitOr_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -177642,7 +177639,7 @@ _ZN3nix25ErrorTraceTest_bitOr_TestD1Ev.exit:      ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_bitOr_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_bitOr_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -177827,7 +177824,7 @@ _ZN3nix26ErrorTraceTest_bitXor_TestD1Ev.exit:     ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_bitXor_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_bitXor_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -177918,7 +177915,7 @@ _ZN3nix26ErrorTraceTest_bitXor_TestD1Ev.exit:     ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_bitXor_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix26ErrorTraceTest_bitXor_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -178103,7 +178100,7 @@ _ZN3nix28ErrorTraceTest_lessThan_TestD1Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_lessThan_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_lessThan_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -178194,7 +178191,7 @@ _ZN3nix28ErrorTraceTest_lessThan_TestD1Ev.exit:   ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_lessThan_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_lessThan_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -178379,7 +178376,7 @@ _ZN3nix28ErrorTraceTest_toString_TestD1Ev.exit:   ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_toString_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_toString_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -178470,7 +178467,7 @@ _ZN3nix28ErrorTraceTest_toString_TestD1Ev.exit:   ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_toString_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix28ErrorTraceTest_toString_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -178655,7 +178652,7 @@ _ZN3nix29ErrorTraceTest_substring_TestD1Ev.exit:  ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_substring_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_substring_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -178746,7 +178743,7 @@ _ZN3nix29ErrorTraceTest_substring_TestD1Ev.exit:  ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_substring_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix29ErrorTraceTest_substring_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -178931,7 +178928,7 @@ _ZN3nix32ErrorTraceTest_stringLength_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_stringLength_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_stringLength_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -179022,7 +179019,7 @@ _ZN3nix32ErrorTraceTest_stringLength_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_stringLength_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_stringLength_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -179207,7 +179204,7 @@ _ZN3nix30ErrorTraceTest_hashString_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_hashString_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_hashString_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -179298,7 +179295,7 @@ _ZN3nix30ErrorTraceTest_hashString_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_hashString_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix30ErrorTraceTest_hashString_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -179483,7 +179480,7 @@ _ZN3nix25ErrorTraceTest_match_TestD1Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_match_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_match_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -179574,7 +179571,7 @@ _ZN3nix25ErrorTraceTest_match_TestD1Ev.exit:      ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_match_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_match_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -179759,7 +179756,7 @@ _ZN3nix25ErrorTraceTest_split_TestD1Ev.exit:      ; preds = %1, %22, %35, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_split_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_split_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -179850,7 +179847,7 @@ _ZN3nix25ErrorTraceTest_split_TestD1Ev.exit:      ; preds = %1, %26, %39, %_ZNSt
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_split_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix25ErrorTraceTest_split_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -180035,7 +180032,7 @@ _ZN3nix36ErrorTraceTest_concatStringsSep_TestD1Ev.exit: ; preds = %1, %22, %35, 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix36ErrorTraceTest_concatStringsSep_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix36ErrorTraceTest_concatStringsSep_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -180126,7 +180123,7 @@ _ZN3nix36ErrorTraceTest_concatStringsSep_TestD1Ev.exit: ; preds = %1, %26, %39, 
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix36ErrorTraceTest_concatStringsSep_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix36ErrorTraceTest_concatStringsSep_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -180311,7 +180308,7 @@ _ZN3nix32ErrorTraceTest_parseDrvName_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_parseDrvName_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_parseDrvName_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -180402,7 +180399,7 @@ _ZN3nix32ErrorTraceTest_parseDrvName_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_parseDrvName_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_parseDrvName_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -180587,7 +180584,7 @@ _ZN3nix35ErrorTraceTest_compareVersions_TestD1Ev.exit: ; preds = %1, %22, %35, %
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix35ErrorTraceTest_compareVersions_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix35ErrorTraceTest_compareVersions_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -180678,7 +180675,7 @@ _ZN3nix35ErrorTraceTest_compareVersions_TestD1Ev.exit: ; preds = %1, %26, %39, %
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix35ErrorTraceTest_compareVersions_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix35ErrorTraceTest_compareVersions_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -180863,7 +180860,7 @@ _ZN3nix32ErrorTraceTest_splitVersion_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_splitVersion_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_splitVersion_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -180954,7 +180951,7 @@ _ZN3nix32ErrorTraceTest_splitVersion_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_splitVersion_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_splitVersion_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -181139,7 +181136,7 @@ _ZN3nix32ErrorTraceTest_traceVerbose_TestD1Ev.exit: ; preds = %1, %22, %35, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_traceVerbose_TestD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_traceVerbose_TestD1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -181230,7 +181227,7 @@ _ZN3nix32ErrorTraceTest_traceVerbose_TestD1Ev.exit: ; preds = %1, %26, %39, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_traceVerbose_TestD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 {
+define linkonce_odr void @_ZTv0_n24_N3nix32ErrorTraceTest_traceVerbose_TestD0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -181246,7 +181243,7 @@ declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #9
 declare void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
@@ -181389,7 +181386,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32Er
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #17
+declare void @llvm.trap() #16
 
 declare void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
@@ -182464,12 +182461,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
 
 declare ptr @__cxa_demangle(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #18
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7testing8internal31CanonicalizeForStdLibVersioningENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
@@ -186268,7 +186265,7 @@ _ZNKSt5ctypeIcE5widenEc.exit265:                  ; preds = %508, %511
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io17bad_format_stringEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #19 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io17bad_format_stringEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #18 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 72) #24
   invoke void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %3 unwind label %4
@@ -187047,7 +187044,7 @@ _ZSt8_DestroyIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEEEvT_S9_.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #16
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost2io6detail21maybe_throw_exceptionEhmm(i8 noundef zeroext %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
@@ -187315,7 +187312,7 @@ _ZN5boost10wrapexceptINS_2io17bad_format_stringEED2Ev.exit: ; preds = %1, %.noex
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEED1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEED1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -187350,7 +187347,7 @@ _ZN5boost10wrapexceptINS_2io17bad_format_stringEED2Ev.exit: ; preds = %1, %.noex
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -187392,7 +187389,7 @@ define linkonce_odr noundef ptr @_ZNK5boost2io17bad_format_string4whatEv(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringEED1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringEED1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -187427,7 +187424,7 @@ _ZN5boost10wrapexceptINS_2io17bad_format_stringEED2Ev.exit: ; preds = %1, %.noex
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -189298,7 +189295,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io13too_many_argsEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #19 comdat personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5boost15throw_exceptionINS_2io13too_many_argsEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #18 comdat personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 72) #24
   invoke void @_ZN5boost10wrapexceptINS_2io13too_many_argsEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %3 unwind label %4
@@ -190190,7 +190187,7 @@ _ZN5boost10wrapexceptINS_2io13too_many_argsEED2Ev.exit: ; preds = %1, %.noexc.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -190225,7 +190222,7 @@ _ZN5boost10wrapexceptINS_2io13too_many_argsEED2Ev.exit: ; preds = %1, %.noexc.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -190267,7 +190264,7 @@ define linkonce_odr noundef ptr @_ZNK5boost2io13too_many_args4whatEv(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -190302,7 +190299,7 @@ _ZN5boost10wrapexceptINS_2io13too_many_argsEED2Ev.exit: ; preds = %1, %.noexc.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -191168,7 +191165,7 @@ _ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -191219,7 +191216,7 @@ _ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED0Ev(ptr noundef %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -191337,7 +191334,7 @@ define linkonce_odr noundef ptr @_ZN5boost6detail18sp_counted_impl_pdIPNS_2io18b
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
 
 declare noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264), i8 noundef signext) local_unnamed_addr #0
 
@@ -196520,7 +196517,7 @@ define linkonce_odr void @_ZN5boost2io6detail13call_put_lastIcSt11char_traitsIcE
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_error_traces.cc() #13 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_error_traces.cc() #12 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = alloca %"struct.testing::internal::CodeLocation", align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
@@ -205172,6 +205169,9 @@ __cxx_global_var_init.1362.exit:                  ; preds = %_ZNKSt7__cxx1112bas
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #19
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #20
 
@@ -205203,16 +205203,16 @@ attributes #6 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #7 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nosync nounwind memory(none) }
-attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #18 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #17 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nofree nosync nounwind memory(none) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

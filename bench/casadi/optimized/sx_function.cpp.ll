@@ -28436,7 +28436,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %.pn139 = phi { ptr, i32 } [ %230, %229 ], [ %228, %227 ]
   %.5 = extractvalue { ptr, i32 } %.pn139, 0
   %.554 = extractvalue { ptr, i32 } %.pn139, 1
-  %232 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6casadi15CasadiExceptionE) #25
+  %232 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6casadi15CasadiExceptionE) #25
   %233 = icmp eq i32 %.554, %232
   br i1 %233, label %234, label %606
 
@@ -28657,7 +28657,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %.pn128 = phi { ptr, i32 } [ %296, %295 ], [ %294, %293 ]
   %.14 = extractvalue { ptr, i32 } %.pn128, 0
   %.1463 = extractvalue { ptr, i32 } %.pn128, 1
-  %298 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN6casadi15CasadiExceptionE) #25
+  %298 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN6casadi15CasadiExceptionE) #25
   %299 = icmp eq i32 %.1463, %298
   br i1 %299, label %300, label %605
 
@@ -32724,7 +32724,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericT
 537:                                              ; preds = %536, %.body
   %.pn113.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn113.pn.pn.pn.pn, %536 ], [ %.pn, %.body ]
   %.1876 = extractvalue { ptr, i32 } %.pn113.pn.pn.pn.pn.pn, 1
-  %538 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %538 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %539 = icmp eq i32 %.1876, %538
   br i1 %539, label %540, label %599
 
@@ -34601,7 +34601,7 @@ _ZNSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EED2Ev.exit309: ; preds = %_ZSt
 549:                                              ; preds = %548, %91
   %.pn138.pn.pn.pn = phi { ptr, i32 } [ %.pn138.pn.pn, %548 ], [ %92, %91 ]
   %.2090 = extractvalue { ptr, i32 } %.pn138.pn.pn.pn, 1
-  %550 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %550 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %551 = icmp eq i32 %.2090, %550
   br i1 %551, label %552, label %611
 
@@ -36307,7 +36307,7 @@ _ZNSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EED2Ev.exit285: ; preds = %_ZSt
 490:                                              ; preds = %489, %129
   %.pn114.pn.pn.pn = phi { ptr, i32 } [ %.pn114.pn.pn, %489 ], [ %130, %129 ]
   %.1382 = extractvalue { ptr, i32 } %.pn114.pn.pn.pn, 1
-  %491 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %491 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %492 = icmp eq i32 %.1382, %491
   br i1 %492, label %493, label %552
 
@@ -50930,9 +50930,6 @@ _ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11cha
   unreachable
 }
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #17
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6casadi7FactoryINS_6MatrixINS_6SXElemEEEE14request_outputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(440) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -51631,7 +51628,7 @@ define linkonce_odr hidden void @_ZN6casadi7FactoryINS_6MatrixINS_6SXElemEEEE9ca
   %54 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %55 = extractvalue { ptr, i32 } %54, 1
-  %56 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %56 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %57 = icmp eq i32 %55, %56
   br i1 %57, label %58, label %288
 
@@ -51782,7 +51779,7 @@ define linkonce_odr hidden void @_ZN6casadi7FactoryINS_6MatrixINS_6SXElemEEEE9ca
   %101 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %102 = extractvalue { ptr, i32 } %101, 1
-  %103 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %103 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %104 = icmp eq i32 %102, %103
   br i1 %104, label %105, label %288
 
@@ -51933,7 +51930,7 @@ define linkonce_odr hidden void @_ZN6casadi7FactoryINS_6MatrixINS_6SXElemEEEE9ca
   %148 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %149 = extractvalue { ptr, i32 } %148, 1
-  %150 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %150 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %151 = icmp eq i32 %149, %150
   br i1 %151, label %152, label %288
 
@@ -52084,7 +52081,7 @@ define linkonce_odr hidden void @_ZN6casadi7FactoryINS_6MatrixINS_6SXElemEEEE9ca
   %195 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %196 = extractvalue { ptr, i32 } %195, 1
-  %197 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %197 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %198 = icmp eq i32 %196, %197
   br i1 %198, label %199, label %288
 
@@ -52235,7 +52232,7 @@ define linkonce_odr hidden void @_ZN6casadi7FactoryINS_6MatrixINS_6SXElemEEEE9ca
   %242 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %243 = extractvalue { ptr, i32 } %242, 1
-  %244 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %244 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %245 = icmp eq i32 %243, %244
   br i1 %245, label %246, label %288
 
@@ -60024,7 +60021,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit195:                 ; preds = %438, %_ZNSt6vectorI
   %.pn102 = phi { ptr, i32 } [ %287, %286 ], [ %285, %284 ], [ %.pn99.pn, %491 ], [ %334, %333 ]
   %.569 = extractvalue { ptr, i32 } %.pn102, 0
   %.580 = extractvalue { ptr, i32 } %.pn102, 1
-  %493 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %493 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %494 = icmp eq i32 %.580, %493
   br i1 %494, label %495, label %561
 
@@ -62323,7 +62320,7 @@ _ZN6casadi6MatrixINS_6SXElemEED2Ev.exit82:        ; preds = %_ZSt8_DestroyIPN6ca
 .body:                                            ; preds = %43, %70, %65, %66, %96
   %.pn56.pn = phi { ptr, i32 } [ %.pn56, %96 ], [ %.pn.pn.pn.pn.pn.pn.pn91, %66 ], [ %.pn.pn.pn.pn.pn.pn, %65 ], [ %44, %43 ], [ %71, %70 ]
   %.838 = extractvalue { ptr, i32 } %.pn56.pn, 1
-  %97 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %97 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %98 = icmp eq i32 %.838, %97
   br i1 %98, label %99, label %146
 
@@ -64083,7 +64080,7 @@ _ZSt8_DestroyIPN6casadi6MatrixINS0_6SXElemEEES3_EvT_S5_RSaIT0_E.exit.i383: ; pre
 474:                                              ; preds = %201, %202, %131, %132, %473, %94
   %.pn173 = phi { ptr, i32 } [ %95, %94 ], [ %.pn170.pn, %473 ], [ %.pn149.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn431, %132 ], [ %.pn149.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %131 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn435, %202 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %201 ]
   %.3299 = extractvalue { ptr, i32 } %.pn173, 1
-  %475 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %475 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %476 = icmp eq i32 %.3299, %475
   br i1 %476, label %477, label %524
 
@@ -67010,7 +67007,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit365:                 ; preds = %.loopexit553, %.loo
   %.pn175 = phi { ptr, i32 } [ %358, %357 ], [ %.pn172, %356 ], [ %.pn169.pn, %813 ], [ %414, %413 ], [ %lpad.loopexit547, %.loopexit545 ], [ %lpad.loopexit.split-lp548, %.loopexit.split-lp546 ]
   %.10 = extractvalue { ptr, i32 } %.pn175, 0
   %.10133 = extractvalue { ptr, i32 } %.pn175, 1
-  %815 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %815 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %816 = icmp eq i32 %.10133, %815
   br i1 %816, label %817, label %898
 
@@ -74868,7 +74865,7 @@ _ZSt8_DestroyIPN6casadi6MatrixINS0_6SXElemEEES3_EvT_S5_RSaIT0_E.exit.i1181: ; pr
 _ZNSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EED2Ev.exit1183: ; preds = %2388, %_ZSt8_DestroyIPN6casadi6MatrixINS0_6SXElemEEES3_EvT_S5_RSaIT0_E.exit.i1181, %212, %213, %283, %157
   %.pn538 = phi { ptr, i32 } [ %158, %157 ], [ %.pn530.pn.pn.pn.pn.pn.pn1387, %213 ], [ %.pn530.pn.pn.pn.pn.pn, %212 ], [ %284, %283 ], [ %.pn528, %_ZSt8_DestroyIPN6casadi6MatrixINS0_6SXElemEEES3_EvT_S5_RSaIT0_E.exit.i1181 ], [ %.pn528, %2388 ]
   %.80357 = extractvalue { ptr, i32 } %.pn538, 1
-  %2389 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %2389 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %2390 = icmp eq i32 %.80357, %2389
   br i1 %2390, label %2391, label %2450
 
@@ -75086,7 +75083,7 @@ _ZNSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EED2Ev.exit1183: ; preds = %238
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #18
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #17
 
 declare noundef i64 @_ZNK6casadi16FunctionInternal6nnz_inEv(ptr noundef nonnull align 8 dereferenceable(1304)) local_unnamed_addr #0
 
@@ -77030,7 +77027,7 @@ declare void @_ZN6casadi11GenericTypeC2Ex(ptr noundef nonnull align 8 dereferenc
 declare noundef zeroext i1 @_ZN6casadi6MatrixINS_6SXElemEE8is_equalERKS2_S4_x(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_sx_function.cpp() #19 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_sx_function.cpp() #18 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = alloca %struct._Guard, align 8
   %2 = alloca %struct._Guard, align 8
   %3 = alloca %struct._Guard, align 8
@@ -77989,6 +77986,9 @@ __cxx_global_var_init.35.exit:                    ; preds = %156
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #19
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #20
 
@@ -78039,9 +78039,9 @@ attributes #13 = { mustprogress nofree nounwind willreturn memory(write) "frame-
 attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree nosync nounwind memory(none) }
-attributes #18 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #19 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(read) }
+attributes #18 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nofree nosync nounwind memory(none) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

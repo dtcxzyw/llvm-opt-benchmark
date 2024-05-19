@@ -21086,7 +21086,7 @@ _ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj9operation26CoordinateOperation
   %.pn133.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn133.pn.pn.pn, %1041 ], [ %.pn131, %704 ]
   %.9 = extractvalue { ptr, i32 } %.pn133.pn.pn.pn.pn, 0
   %.986 = extractvalue { ptr, i32 } %.pn133.pn.pn.pn.pn, 1
-  %1043 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #37
+  %1043 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #37
   %1044 = icmp eq i32 %.986, %1043
   br i1 %1044, label %1045, label %.loopexit630
 
@@ -23258,7 +23258,7 @@ _ZN7dropbox6oxygen2nnISt10unique_ptrIN5osgeo4proj9operation26CoordinateOperation
   %.pn125.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn125.pn.pn.pn, %1995 ], [ %.pn, %1467 ]
   %.17 = extractvalue { ptr, i32 } %.pn125.pn.pn.pn.pn, 0
   %.1794 = extractvalue { ptr, i32 } %.pn125.pn.pn.pn.pn, 1
-  %1997 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #37
+  %1997 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #37
   %1998 = icmp eq i32 %.1794, %1997
   br i1 %1998, label %1999, label %.loopexit
 
@@ -24377,9 +24377,6 @@ _ZNSt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEED2Ev.exit: ; preds = %1, %2
   ret void
 }
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #19
-
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 declare void @__cxa_end_catch() local_unnamed_addr
@@ -24920,7 +24917,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %7, %9
   %17 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9exception
   %18 = extractvalue { ptr, i32 } %17, 1
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #37
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #37
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %common.resume
 
@@ -27493,7 +27490,7 @@ declare void @_ZN5osgeo4proj4util11PropertyMapC1ERKS2_(ptr noundef nonnull align
 declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -33208,7 +33205,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %1169, %1171
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %1191 ], [ %1183, %1182 ]
   %.24 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 0
   %.2488 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 1
-  %1193 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5osgeo4proj2io19FormattingExceptionE) #37
+  %1193 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5osgeo4proj2io19FormattingExceptionE) #37
   %1194 = icmp eq i32 %.2488, %1193
   br i1 %1194, label %1195, label %1209
 
@@ -34666,7 +34663,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %.pn.pn = phi { ptr, i32 } [ %.pn, %250 ], [ %245, %244 ]
   %.1 = extractvalue { ptr, i32 } %.pn.pn, 1
   %.119 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %252 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5osgeo4proj4util25InvalidValueTypeExceptionE) #37
+  %252 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5osgeo4proj4util25InvalidValueTypeExceptionE) #37
   %253 = icmp eq i32 %.1, %252
   br i1 %253, label %254, label %259
 
@@ -34910,7 +34907,7 @@ declare void @_ZNK5osgeo4proj9operation14Transformation20getTOWGS84ParametersEv(
 declare hidden void @_ZNK5osgeo4proj9operation14Transformation11promoteTo3DERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.329") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #21 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #20 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #37
   tail call void @_ZSt9terminatev() #41
   unreachable
@@ -35137,7 +35134,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %78, %80
 100:                                              ; preds = %99, %90
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %99 ], [ %91, %90 ]
   %.337 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 1
-  %101 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5osgeo4proj2io19FormattingExceptionE) #37
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5osgeo4proj2io19FormattingExceptionE) #37
   %102 = icmp eq i32 %.337, %101
   br i1 %102, label %103, label %115
 
@@ -38229,7 +38226,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs11CartesianCSEEED2Ev.exit: ;
 declare hidden void @_ZNK5osgeo4proj9operation14Transformation10demoteTo2DERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.329") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZNK5osgeo4proj3crs3CRS9_identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #22 align 2 {
+define hidden void @_ZNK5osgeo4proj3crs3CRS9_identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #21 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %0, ptr %4, align 8
   store ptr %0, ptr %0, align 8
@@ -38239,7 +38236,7 @@ define hidden void @_ZNK5osgeo4proj3crs3CRS9_identifyB5cxx11ERKSt10shared_ptrINS
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #23
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #22
 
 ; Function Attrs: nounwind uwtable
 define void @_ZThn16_N5osgeo4proj3crs9SingleCRSD1Ev(ptr noundef %0) unnamed_addr #4 align 2 {
@@ -43206,7 +43203,7 @@ declare hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj2
 declare hidden noundef zeroext i1 @_ZNK5osgeo4proj2io12WKTFormatter14useESRIDialectEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare hidden void @_ZN5osgeo4proj2io19FormattingException5ThrowEPKc(ptr noundef) local_unnamed_addr #24
+declare hidden void @_ZN5osgeo4proj2io19FormattingException5ThrowEPKc(ptr noundef) local_unnamed_addr #23
 
 ; Function Attrs: nounwind
 declare noundef zeroext i1 @_ZNK5osgeo4proj2io12WKTFormatter20isAllowedLINUNITNodeEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
@@ -45857,7 +45854,7 @@ define hidden void @_ZNK5osgeo4proj3crs11GeodeticCRS32addAngularUnitConvertAndAx
 declare hidden noundef zeroext i1 @_ZNK5osgeo4proj2io19PROJStringFormatter19omitZUnitConversionEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #25
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK5osgeo4proj3crs11GeodeticCRS19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
@@ -48144,7 +48141,7 @@ _ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11
   %.pn120 = phi { ptr, i32 } [ %399, %398 ], [ %397, %396 ], [ %395, %394 ]
   %.1 = extractvalue { ptr, i32 } %.pn120, 0
   %.194 = extractvalue { ptr, i32 } %.pn120, 1
-  %401 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #37
+  %401 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #37
   %402 = icmp eq i32 %.194, %401
   br i1 %402, label %403, label %.loopexit271
 
@@ -49392,7 +49389,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj2io16Aut
 declare noundef zeroext i1 @_ZN5osgeo4proj8metadata10Identifier16isEquivalentNameEPKcS4_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #26
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #25
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @"_ZZNK5osgeo4proj3crs11GeodeticCRS8identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEEENK3$_0clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
@@ -50436,7 +50433,7 @@ _ZNSt7__cxx114listIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11Geodetic
   %.pn.pn.i = phi { ptr, i32 } [ %343, %342 ], [ %.pn.i, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum22GeodeticReferenceFrameEEED2Ev.exit.i ], [ %.pn.i, %_ZNSt16allocator_traitsISaISt10_List_nodeIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11GeodeticCRSEEEEEEE7destroyISA_EEvRSC_PT_.exit.i.i.i62.i ]
   %.1.i = extractvalue { ptr, i32 } %.pn.pn.i, 0
   %.127.i = extractvalue { ptr, i32 } %.pn.pn.i, 1
-  %493 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #37
+  %493 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #37
   %494 = icmp eq i32 %.127.i, %493
   br i1 %494, label %495, label %.loopexit94.i
 
@@ -59223,7 +59220,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 178:                                              ; preds = %176, %174, %172
   %.pn50 = phi { ptr, i32 } [ %177, %176 ], [ %175, %174 ], [ %173, %172 ]
   %.041 = extractvalue { ptr, i32 } %.pn50, 1
-  %179 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #37
+  %179 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #37
   %180 = icmp eq i32 %.041, %179
   br i1 %180, label %181, label %.body
 
@@ -64083,7 +64080,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEEED2Ev.ex
   %.pn129.pn.pn = phi { ptr, i32 } [ %.pn129.pn, %767 ], [ %.pn126.pn, %747 ]
   %.15 = extractvalue { ptr, i32 } %.pn129.pn.pn, 0
   %.1589 = extractvalue { ptr, i32 } %.pn129.pn.pn, 1
-  %769 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #37
+  %769 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #37
   %770 = icmp eq i32 %.1589, %769
   br i1 %770, label %.invoke271, label %_ZNSt6vectorIdSaIdEED2Ev.exit246
 
@@ -64333,7 +64330,7 @@ _ZNSt6vectorIN5osgeo4proj2io16AuthorityFactory10ObjectTypeESaIS4_EED2Ev.exit232:
   %.pn140.pn.pn = phi { ptr, i32 } [ %.pn140.pn, %850 ], [ %.pn133.pn.pn, %832 ]
   %.23 = extractvalue { ptr, i32 } %.pn140.pn.pn, 0
   %.2397 = extractvalue { ptr, i32 } %.pn140.pn.pn, 1
-  %852 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #37
+  %852 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #37
   %853 = icmp eq i32 %.2397, %852
   br i1 %853, label %.invoke271, label %_ZNSt6vectorIdSaIdEED2Ev.exit246
 
@@ -67580,7 +67577,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %.pn154 = phi { ptr, i32 } [ %1126, %1125 ], [ %1124, %1123 ], [ %1122, %1121 ]
   %.11 = extractvalue { ptr, i32 } %.pn154, 0
   %.11117 = extractvalue { ptr, i32 } %.pn154, 1
-  %1128 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #37
+  %1128 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #37
   %1129 = icmp eq i32 %.11117, %1128
   br i1 %1129, label %1130, label %.loopexit479
 
@@ -75651,7 +75648,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 197:                                              ; preds = %195, %193, %191
   %.pn121 = phi { ptr, i32 } [ %196, %195 ], [ %194, %193 ], [ %192, %191 ]
   %.086 = extractvalue { ptr, i32 } %.pn121, 1
-  %198 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #37
+  %198 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #37
   %199 = icmp eq i32 %.086, %198
   br i1 %199, label %200, label %.body
 
@@ -82828,7 +82825,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit: ; preds = %_ZN7dr
   %.pn68.pn.pn = phi { ptr, i32 } [ %.pn68.pn, %154 ], [ %.pn, %146 ]
   %.3 = extractvalue { ptr, i32 } %.pn68.pn.pn, 0
   %.343 = extractvalue { ptr, i32 } %.pn68.pn.pn, 1
-  %156 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #37
+  %156 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #37
   %157 = icmp eq i32 %.343, %156
   br i1 %157, label %158, label %_ZNSt6vectorIdSaIdEED2Ev.exit94
 
@@ -83819,7 +83816,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit149: ; preds = %_ZN
   %.038 = phi i1 [ true, %579 ], [ false, %571 ]
   %.9 = extractvalue { ptr, i32 } %.pn78.pn.pn, 0
   %.949 = extractvalue { ptr, i32 } %.pn78.pn.pn, 1
-  %581 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #37
+  %581 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #37
   %582 = icmp eq i32 %.949, %581
   br i1 %582, label %583, label %.loopexit270
 
@@ -88665,7 +88662,7 @@ define void @_ZTvn24_n48_NK5osgeo4proj3crs18DerivedGeodeticCRS12_exportToWKTEPNS
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_ZNK5osgeo4proj3crs18DerivedGeodeticCRS19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #27 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK5osgeo4proj3crs18DerivedGeodeticCRS19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #26 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call ptr @__cxa_allocate_exception(i64 40) #37
   invoke void @_ZN5osgeo4proj2io19FormattingExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull @.str.124)
           to label %4 unwind label %5
@@ -88788,7 +88785,7 @@ define hidden noundef zeroext i1 @_ZTvn16_n32_NK5osgeo4proj3crs18DerivedGeodetic
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZNK5osgeo4proj3crs18DerivedGeodeticCRS9_identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #22 align 2 {
+define hidden void @_ZNK5osgeo4proj3crs18DerivedGeodeticCRS9_identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #21 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %0, ptr %4, align 8, !alias.scope !866
   store ptr %0, ptr %0, align 8, !alias.scope !866
@@ -88798,7 +88795,7 @@ define hidden void @_ZNK5osgeo4proj3crs18DerivedGeodeticCRS9_identifyB5cxx11ERKS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZTv0_n64_NK5osgeo4proj3crs18DerivedGeodeticCRS9_identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture readonly %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #22 align 2 {
+define hidden void @_ZTv0_n64_NK5osgeo4proj3crs18DerivedGeodeticCRS9_identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture readonly %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #21 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %0, ptr %4, align 8, !alias.scope !869
   store ptr %0, ptr %0, align 8, !alias.scope !869
@@ -91129,7 +91126,7 @@ define hidden noundef zeroext i1 @_ZTvn16_n32_NK5osgeo4proj3crs20DerivedGeograph
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZNK5osgeo4proj3crs20DerivedGeographicCRS9_identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #22 align 2 {
+define hidden void @_ZNK5osgeo4proj3crs20DerivedGeographicCRS9_identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #21 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %0, ptr %4, align 8, !alias.scope !886
   store ptr %0, ptr %0, align 8, !alias.scope !886
@@ -91139,7 +91136,7 @@ define hidden void @_ZNK5osgeo4proj3crs20DerivedGeographicCRS9_identifyB5cxx11ER
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZTv0_n64_NK5osgeo4proj3crs20DerivedGeographicCRS9_identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture readonly %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #22 align 2 {
+define hidden void @_ZTv0_n64_NK5osgeo4proj3crs20DerivedGeographicCRS9_identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture readonly %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #21 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %0, ptr %4, align 8, !alias.scope !889
   store ptr %0, ptr %0, align 8, !alias.scope !889
@@ -100724,7 +100721,7 @@ define hidden void @_ZTvn24_n48_NK5osgeo4proj3crs18DerivedVerticalCRS12_exportTo
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_ZNK5osgeo4proj3crs18DerivedVerticalCRS19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #27 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK5osgeo4proj3crs18DerivedVerticalCRS19_exportToPROJStringEPNS0_2io19PROJStringFormatterE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #26 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call ptr @__cxa_allocate_exception(i64 40) #37
   invoke void @_ZN5osgeo4proj2io19FormattingExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull @.str.146)
           to label %4 unwind label %5
@@ -100842,7 +100839,7 @@ define hidden noundef zeroext i1 @_ZTvn16_n32_NK5osgeo4proj3crs18DerivedVertical
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZNK5osgeo4proj3crs18DerivedVerticalCRS9_identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #22 align 2 {
+define hidden void @_ZNK5osgeo4proj3crs18DerivedVerticalCRS9_identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #21 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %0, ptr %4, align 8, !alias.scope !1058
   store ptr %0, ptr %0, align 8, !alias.scope !1058
@@ -100852,7 +100849,7 @@ define hidden void @_ZNK5osgeo4proj3crs18DerivedVerticalCRS9_identifyB5cxx11ERKS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZTv0_n64_NK5osgeo4proj3crs18DerivedVerticalCRS9_identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture readonly %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #22 align 2 {
+define hidden void @_ZTv0_n64_NK5osgeo4proj3crs18DerivedVerticalCRS9_identifyB5cxx11ERKSt10shared_ptrINS0_2io16AuthorityFactoryEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr nocapture readonly %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #21 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %0, ptr %4, align 8, !alias.scope !1061
   store ptr %0, ptr %0, align 8, !alias.scope !1061
@@ -100986,7 +100983,7 @@ define linkonce_odr hidden void @_ZTvn48_n72_NK5osgeo4proj3crs18DerivedVerticalC
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #28
+declare void @abort() local_unnamed_addr #27
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt8_Rb_treeIN5osgeo4proj9operation15GridDescriptionES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -101023,7 +101020,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj2cs8Meri
 declare noundef double @_ZNK5osgeo4proj6common7Measure13convertToUnitERKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #29
+declare double @llvm.fabs.f64(double) #28
 
 declare void @_ZN5osgeo4proj4util17ArrayOfBaseObject6createEv(ptr dead_on_unwind writable sret(%"class.dropbox::oxygen::nn.868") align 8) local_unnamed_addr #0
 
@@ -101781,7 +101778,7 @@ _ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11
   %.pn = phi { ptr, i32 } [ %62, %61 ], [ %60, %59 ]
   %.2 = phi i1 [ %.113, %61 ], [ %.017, %59 ]
   %.015 = extractvalue { ptr, i32 } %.pn, 1
-  %64 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #37
+  %64 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #37
   %65 = icmp eq i32 %.015, %64
   br i1 %65, label %66, label %108
 
@@ -101999,10 +101996,10 @@ _ZNSt7__cxx1110_List_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs11G
 declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #24
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #23
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #30
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #29
 
 declare hidden void @_ZNK5osgeo4proj2io16AuthorityFactory27createEllipsoidFromExistingB5cxx11ERKN7dropbox6oxygen2nnISt10shared_ptrINS0_5datum9EllipsoidEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::list.906") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
@@ -102329,7 +102326,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeISt4pairINSt7__cxx1112basic_stringIcSt11
 }
 
 ; Function Attrs: noreturn
-declare hidden void @_ZN5osgeo4proj2io19FormattingException5ThrowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #24
+declare hidden void @_ZN5osgeo4proj2io19FormattingException5ThrowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #23
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -102598,7 +102595,7 @@ _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEES
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #24
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #23
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
@@ -102822,7 +102819,7 @@ _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEES
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #26
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #25
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5osgeo4proj3crs9SingleCRS7PrivateC2ERKSt10shared_ptrINS0_5datum5DatumEERKS4_INS5_13DatumEnsembleEERKN7dropbox6oxygen2nnIS4_INS0_2cs16CoordinateSystemEEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -107368,6 +107365,9 @@ __cxx_global_var_init.151.exit:                   ; preds = %__cxx_global_var_in
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #30
+
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #31
 
@@ -107411,18 +107411,18 @@ attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #16 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nofree nosync nounwind memory(none) }
-attributes #20 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #24 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #27 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #29 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #30 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #23 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #26 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #29 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #30 = { nofree nosync nounwind memory(none) }
 attributes #31 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #32 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #33 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

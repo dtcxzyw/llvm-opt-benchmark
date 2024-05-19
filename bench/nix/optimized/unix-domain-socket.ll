@@ -12705,7 +12705,7 @@ _ZN5boost10conversion6detail19try_lexical_convertIiNS_14iterator_rangeIPKcEEEEbR
 .body:                                            ; preds = %30, %32
   %eh.lpad-body = phi { ptr, i32 } [ %33, %32 ], [ %31, %30 ]
   %34 = extractvalue { ptr, i32 } %eh.lpad-body, 1
-  %35 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN5boost16bad_lexical_castE) #22
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5boost16bad_lexical_castE) #22
   %36 = icmp eq i32 %34, %35
   br i1 %36, label %37, label %40
 
@@ -13026,7 +13026,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35.i.i.i: ; preds 
   %.pn23.pn.i.i.i = phi { ptr, i32 } [ %.pn23.i.i.i, %99 ], [ %26, %25 ]
   %.3.i.i.i = extractvalue { ptr, i32 } %.pn23.pn.i.i.i, 0
   %.314.i.i.i = extractvalue { ptr, i32 } %.pn23.pn.i.i.i, 1
-  %101 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix8SysErrorE) #22
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix8SysErrorE) #22
   %102 = icmp eq i32 %.314.i.i.i, %101
   %103 = call ptr @__cxa_begin_catch(ptr %.3.i.i.i) #22
   %104 = load ptr, ptr %.val, align 8
@@ -13187,9 +13187,6 @@ declare i32 @chdir(ptr noundef) local_unnamed_addr #3
 declare { i64, ptr } @_ZN3nix10baseNameOfESt17basic_string_viewIcSt11char_traitsIcEE(i64, ptr) local_unnamed_addr #4
 
 declare void @_ZN3nix9writeFullEiSt17basic_string_viewIcSt11char_traitsIcEEb(i32 noundef, i64, ptr, i1 noundef zeroext) local_unnamed_addr #4
-
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3nix3fmtIJiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS6_DpRKT_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #2 comdat personality ptr @__gxx_personality_v0 {
@@ -15080,7 +15077,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35.i.i.i: ; preds 
   %.pn23.pn.i.i.i = phi { ptr, i32 } [ %.pn23.i.i.i, %100 ], [ %26, %25 ]
   %.3.i.i.i = extractvalue { ptr, i32 } %.pn23.pn.i.i.i, 0
   %.314.i.i.i = extractvalue { ptr, i32 } %.pn23.pn.i.i.i, 1
-  %102 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN3nix8SysErrorE) #22
+  %102 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3nix8SysErrorE) #22
   %103 = icmp eq i32 %.314.i.i.i, %102
   %104 = call ptr @__cxa_begin_catch(ptr %.3.i.i.i) #22
   %105 = load ptr, ptr %.val, align 8
@@ -15232,6 +15229,9 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvvEZN3nixL21bindCo
 _ZNSt14_Function_base13_Base_managerIZN3nixL21bindConnectProcHelperIRFiiPK8sockaddrjEEEvSt17basic_string_viewIcSt11char_traitsIcEEOT_iRKNSt7__cxx1112basic_stringIcSA_SaIcEEEEUlvE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit: ; preds = %3, %10, %8, %6, %5, %4
   ret i1 false
 }
+
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #19

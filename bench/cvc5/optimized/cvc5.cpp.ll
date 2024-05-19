@@ -6910,9 +6910,6 @@ entry:
   ret i1 %cmp.i
 }
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #11
-
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -6952,7 +6949,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #12 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
   %2 = tail call ptr @__cxa_begin_catch(ptr %0) #30
   tail call void @_ZSt9terminatev() #34
   unreachable
@@ -7212,7 +7209,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %11, %lpad5 ], [ %10, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches, label %catch86, label %catch.fallthrough
 
@@ -7238,7 +7235,7 @@ invoke.cont94:                                    ; preds = %invoke.cont92
           to label %unreachable unwind label %ehcleanup97
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches34 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches34, label %catch69, label %catch.fallthrough35
 
@@ -7264,7 +7261,7 @@ invoke.cont77:                                    ; preds = %invoke.cont75
           to label %unreachable unwind label %ehcleanup80
 
 catch.fallthrough35:                              ; preds = %catch.fallthrough
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches36 = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches36, label %catch52, label %catch.fallthrough37
 
@@ -7290,7 +7287,7 @@ invoke.cont60:                                    ; preds = %invoke.cont58
           to label %unreachable unwind label %ehcleanup63
 
 catch.fallthrough37:                              ; preds = %catch.fallthrough35
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches38 = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches38, label %catch, label %eh.resume
 
@@ -7693,7 +7690,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %8, %lpad5 ], [ %7, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -7719,7 +7716,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -7745,7 +7742,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -7771,7 +7768,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -8039,7 +8036,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %10, %lpad30 ], [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches, label %catch104, label %catch.fallthrough
 
@@ -8065,7 +8062,7 @@ invoke.cont112:                                   ; preds = %invoke.cont110
           to label %unreachable unwind label %ehcleanup115
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches52 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches52, label %catch87, label %catch.fallthrough53
 
@@ -8091,7 +8088,7 @@ invoke.cont95:                                    ; preds = %invoke.cont93
           to label %unreachable unwind label %ehcleanup98
 
 catch.fallthrough53:                              ; preds = %catch.fallthrough
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches54 = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches54, label %catch70, label %catch.fallthrough55
 
@@ -8117,7 +8114,7 @@ invoke.cont78:                                    ; preds = %invoke.cont76
           to label %unreachable unwind label %ehcleanup81
 
 catch.fallthrough55:                              ; preds = %catch.fallthrough53
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches56 = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches56, label %catch, label %eh.resume
 
@@ -8288,7 +8285,7 @@ lpad.i.i.i:                                       ; preds = %init.i.i.i
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #30
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = extractvalue { ptr, i32 } %4, 1
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %6, %7
   br i1 %matches, label %catch50, label %catch.fallthrough
 
@@ -8319,7 +8316,7 @@ invoke.cont58:                                    ; preds = %invoke.cont56
           to label %unreachable unwind label %ehcleanup61
 
 catch.fallthrough:                                ; preds = %lpad.i.i.i
-  %11 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %11 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches2 = icmp eq i32 %6, %11
   br i1 %matches2, label %catch33, label %catch.fallthrough3
 
@@ -8345,7 +8342,7 @@ invoke.cont41:                                    ; preds = %invoke.cont39
           to label %unreachable unwind label %ehcleanup44
 
 catch.fallthrough3:                               ; preds = %catch.fallthrough
-  %14 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %14 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches4 = icmp eq i32 %6, %14
   br i1 %matches4, label %catch16, label %catch.fallthrough5
 
@@ -8371,7 +8368,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %unreachable unwind label %ehcleanup27
 
 catch.fallthrough5:                               ; preds = %catch.fallthrough3
-  %17 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %17 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches6 = icmp eq i32 %6, %17
   br i1 %matches6, label %catch, label %eh.resume
 
@@ -8534,7 +8531,7 @@ lpad:                                             ; preds = %land.rhs.i
           catch ptr @_ZTISt16invalid_argument
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = extractvalue { ptr, i32 } %4, 1
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %6, %7
   br i1 %matches, label %catch51, label %catch.fallthrough
 
@@ -8560,7 +8557,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %ehcleanup62
 
 catch.fallthrough:                                ; preds = %lpad
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches3 = icmp eq i32 %6, %10
   br i1 %matches3, label %catch34, label %catch.fallthrough4
 
@@ -8586,7 +8583,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %unreachable unwind label %ehcleanup45
 
 catch.fallthrough4:                               ; preds = %catch.fallthrough
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches5 = icmp eq i32 %6, %13
   br i1 %matches5, label %catch17, label %catch.fallthrough6
 
@@ -8612,7 +8609,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %unreachable unwind label %ehcleanup28
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough4
-  %16 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %16 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches7 = icmp eq i32 %6, %16
   br i1 %matches7, label %catch, label %eh.resume
 
@@ -8761,7 +8758,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch51, label %catch.fallthrough
 
@@ -8787,7 +8784,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %ehcleanup62
 
 catch.fallthrough:                                ; preds = %lpad
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches3 = icmp eq i32 %3, %7
   br i1 %matches3, label %catch34, label %catch.fallthrough4
 
@@ -8813,7 +8810,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %unreachable unwind label %ehcleanup45
 
 catch.fallthrough4:                               ; preds = %catch.fallthrough
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches5 = icmp eq i32 %3, %10
   br i1 %matches5, label %catch17, label %catch.fallthrough6
 
@@ -8839,7 +8836,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %unreachable unwind label %ehcleanup28
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough4
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches7 = icmp eq i32 %3, %13
   br i1 %matches7, label %catch, label %eh.resume
 
@@ -9003,7 +9000,7 @@ lpad:                                             ; preds = %land.rhs, %entry
           catch ptr @_ZTISt16invalid_argument
   %4 = extractvalue { ptr, i32 } %3, 0
   %5 = extractvalue { ptr, i32 } %3, 1
-  %6 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %6 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %5, %6
   br i1 %matches, label %catch55, label %catch.fallthrough
 
@@ -9029,7 +9026,7 @@ invoke.cont63:                                    ; preds = %invoke.cont61
           to label %unreachable unwind label %ehcleanup66
 
 catch.fallthrough:                                ; preds = %lpad
-  %9 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches7 = icmp eq i32 %5, %9
   br i1 %matches7, label %catch38, label %catch.fallthrough8
 
@@ -9055,7 +9052,7 @@ invoke.cont46:                                    ; preds = %invoke.cont44
           to label %unreachable unwind label %ehcleanup49
 
 catch.fallthrough8:                               ; preds = %catch.fallthrough
-  %12 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %12 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches9 = icmp eq i32 %5, %12
   br i1 %matches9, label %catch21, label %catch.fallthrough10
 
@@ -9081,7 +9078,7 @@ invoke.cont29:                                    ; preds = %invoke.cont27
           to label %unreachable unwind label %ehcleanup32
 
 catch.fallthrough10:                              ; preds = %catch.fallthrough8
-  %15 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %15 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches11 = icmp eq i32 %5, %15
   br i1 %matches11, label %catch, label %eh.resume
 
@@ -9246,7 +9243,7 @@ lpad:                                             ; preds = %land.rhs.i
           catch ptr @_ZTISt16invalid_argument
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = extractvalue { ptr, i32 } %4, 1
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %6, %7
   br i1 %matches, label %catch51, label %catch.fallthrough
 
@@ -9272,7 +9269,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %ehcleanup62
 
 catch.fallthrough:                                ; preds = %lpad
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches3 = icmp eq i32 %6, %10
   br i1 %matches3, label %catch34, label %catch.fallthrough4
 
@@ -9298,7 +9295,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %unreachable unwind label %ehcleanup45
 
 catch.fallthrough4:                               ; preds = %catch.fallthrough
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches5 = icmp eq i32 %6, %13
   br i1 %matches5, label %catch17, label %catch.fallthrough6
 
@@ -9324,7 +9321,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %unreachable unwind label %ehcleanup28
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough4
-  %16 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %16 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches7 = icmp eq i32 %6, %16
   br i1 %matches7, label %catch, label %eh.resume
 
@@ -9487,7 +9484,7 @@ lpad:                                             ; preds = %land.rhs.i
           catch ptr @_ZTISt16invalid_argument
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = extractvalue { ptr, i32 } %4, 1
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %6, %7
   br i1 %matches, label %catch51, label %catch.fallthrough
 
@@ -9513,7 +9510,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %ehcleanup62
 
 catch.fallthrough:                                ; preds = %lpad
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches3 = icmp eq i32 %6, %10
   br i1 %matches3, label %catch34, label %catch.fallthrough4
 
@@ -9539,7 +9536,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %unreachable unwind label %ehcleanup45
 
 catch.fallthrough4:                               ; preds = %catch.fallthrough
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches5 = icmp eq i32 %6, %13
   br i1 %matches5, label %catch17, label %catch.fallthrough6
 
@@ -9565,7 +9562,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %unreachable unwind label %ehcleanup28
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough4
-  %16 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %16 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches7 = icmp eq i32 %6, %16
   br i1 %matches7, label %catch, label %eh.resume
 
@@ -9728,7 +9725,7 @@ lpad:                                             ; preds = %land.rhs.i
           catch ptr @_ZTISt16invalid_argument
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = extractvalue { ptr, i32 } %4, 1
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %6, %7
   br i1 %matches, label %catch51, label %catch.fallthrough
 
@@ -9754,7 +9751,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %ehcleanup62
 
 catch.fallthrough:                                ; preds = %lpad
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches3 = icmp eq i32 %6, %10
   br i1 %matches3, label %catch34, label %catch.fallthrough4
 
@@ -9780,7 +9777,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %unreachable unwind label %ehcleanup45
 
 catch.fallthrough4:                               ; preds = %catch.fallthrough
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches5 = icmp eq i32 %6, %13
   br i1 %matches5, label %catch17, label %catch.fallthrough6
 
@@ -9806,7 +9803,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %unreachable unwind label %ehcleanup28
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough4
-  %16 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %16 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches7 = icmp eq i32 %6, %16
   br i1 %matches7, label %catch, label %eh.resume
 
@@ -9955,7 +9952,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch51, label %catch.fallthrough
 
@@ -9981,7 +9978,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %ehcleanup62
 
 catch.fallthrough:                                ; preds = %lpad
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches3 = icmp eq i32 %3, %7
   br i1 %matches3, label %catch34, label %catch.fallthrough4
 
@@ -10007,7 +10004,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %unreachable unwind label %ehcleanup45
 
 catch.fallthrough4:                               ; preds = %catch.fallthrough
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches5 = icmp eq i32 %3, %10
   br i1 %matches5, label %catch17, label %catch.fallthrough6
 
@@ -10033,7 +10030,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %unreachable unwind label %ehcleanup28
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough4
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches7 = icmp eq i32 %3, %13
   br i1 %matches7, label %catch, label %eh.resume
 
@@ -10184,7 +10181,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch51, label %catch.fallthrough
 
@@ -10210,7 +10207,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %ehcleanup62
 
 catch.fallthrough:                                ; preds = %lpad
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches3 = icmp eq i32 %3, %7
   br i1 %matches3, label %catch34, label %catch.fallthrough4
 
@@ -10236,7 +10233,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %unreachable unwind label %ehcleanup45
 
 catch.fallthrough4:                               ; preds = %catch.fallthrough
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches5 = icmp eq i32 %3, %10
   br i1 %matches5, label %catch17, label %catch.fallthrough6
 
@@ -10262,7 +10259,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %unreachable unwind label %ehcleanup28
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough4
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches7 = icmp eq i32 %3, %13
   br i1 %matches7, label %catch, label %eh.resume
 
@@ -10413,7 +10410,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch51, label %catch.fallthrough
 
@@ -10439,7 +10436,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %ehcleanup62
 
 catch.fallthrough:                                ; preds = %lpad
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches3 = icmp eq i32 %3, %7
   br i1 %matches3, label %catch34, label %catch.fallthrough4
 
@@ -10465,7 +10462,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %unreachable unwind label %ehcleanup45
 
 catch.fallthrough4:                               ; preds = %catch.fallthrough
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches5 = icmp eq i32 %3, %10
   br i1 %matches5, label %catch17, label %catch.fallthrough6
 
@@ -10491,7 +10488,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %unreachable unwind label %ehcleanup28
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough4
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches7 = icmp eq i32 %3, %13
   br i1 %matches7, label %catch, label %eh.resume
 
@@ -10642,7 +10639,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch51, label %catch.fallthrough
 
@@ -10668,7 +10665,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %ehcleanup62
 
 catch.fallthrough:                                ; preds = %lpad
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches3 = icmp eq i32 %3, %7
   br i1 %matches3, label %catch34, label %catch.fallthrough4
 
@@ -10694,7 +10691,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %unreachable unwind label %ehcleanup45
 
 catch.fallthrough4:                               ; preds = %catch.fallthrough
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches5 = icmp eq i32 %3, %10
   br i1 %matches5, label %catch17, label %catch.fallthrough6
 
@@ -10720,7 +10717,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %unreachable unwind label %ehcleanup28
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough4
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches7 = icmp eq i32 %3, %13
   br i1 %matches7, label %catch, label %eh.resume
 
@@ -10871,7 +10868,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch51, label %catch.fallthrough
 
@@ -10897,7 +10894,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %ehcleanup62
 
 catch.fallthrough:                                ; preds = %lpad
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches3 = icmp eq i32 %3, %7
   br i1 %matches3, label %catch34, label %catch.fallthrough4
 
@@ -10923,7 +10920,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %unreachable unwind label %ehcleanup45
 
 catch.fallthrough4:                               ; preds = %catch.fallthrough
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches5 = icmp eq i32 %3, %10
   br i1 %matches5, label %catch17, label %catch.fallthrough6
 
@@ -10949,7 +10946,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %unreachable unwind label %ehcleanup28
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough4
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches7 = icmp eq i32 %3, %13
   br i1 %matches7, label %catch, label %eh.resume
 
@@ -11100,7 +11097,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch51, label %catch.fallthrough
 
@@ -11126,7 +11123,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %ehcleanup62
 
 catch.fallthrough:                                ; preds = %lpad
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches3 = icmp eq i32 %3, %7
   br i1 %matches3, label %catch34, label %catch.fallthrough4
 
@@ -11152,7 +11149,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %unreachable unwind label %ehcleanup45
 
 catch.fallthrough4:                               ; preds = %catch.fallthrough
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches5 = icmp eq i32 %3, %10
   br i1 %matches5, label %catch17, label %catch.fallthrough6
 
@@ -11178,7 +11175,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %unreachable unwind label %ehcleanup28
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough4
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches7 = icmp eq i32 %3, %13
   br i1 %matches7, label %catch, label %eh.resume
 
@@ -11329,7 +11326,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch51, label %catch.fallthrough
 
@@ -11355,7 +11352,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %ehcleanup62
 
 catch.fallthrough:                                ; preds = %lpad
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches3 = icmp eq i32 %3, %7
   br i1 %matches3, label %catch34, label %catch.fallthrough4
 
@@ -11381,7 +11378,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %unreachable unwind label %ehcleanup45
 
 catch.fallthrough4:                               ; preds = %catch.fallthrough
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches5 = icmp eq i32 %3, %10
   br i1 %matches5, label %catch17, label %catch.fallthrough6
 
@@ -11407,7 +11404,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %unreachable unwind label %ehcleanup28
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough4
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches7 = icmp eq i32 %3, %13
   br i1 %matches7, label %catch, label %eh.resume
 
@@ -11571,7 +11568,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch51, label %catch.fallthrough
 
@@ -11597,7 +11594,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %ehcleanup62
 
 catch.fallthrough:                                ; preds = %lpad
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches3 = icmp eq i32 %3, %7
   br i1 %matches3, label %catch34, label %catch.fallthrough4
 
@@ -11623,7 +11620,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %unreachable unwind label %ehcleanup45
 
 catch.fallthrough4:                               ; preds = %catch.fallthrough
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches5 = icmp eq i32 %3, %10
   br i1 %matches5, label %catch17, label %catch.fallthrough6
 
@@ -11649,7 +11646,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %unreachable unwind label %ehcleanup28
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough4
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches7 = icmp eq i32 %3, %13
   br i1 %matches7, label %catch, label %eh.resume
 
@@ -11867,7 +11864,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch51, label %catch.fallthrough
 
@@ -11893,7 +11890,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %ehcleanup62
 
 catch.fallthrough:                                ; preds = %lpad
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches3 = icmp eq i32 %3, %7
   br i1 %matches3, label %catch34, label %catch.fallthrough4
 
@@ -11919,7 +11916,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %unreachable unwind label %ehcleanup45
 
 catch.fallthrough4:                               ; preds = %catch.fallthrough
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches5 = icmp eq i32 %3, %10
   br i1 %matches5, label %catch17, label %catch.fallthrough6
 
@@ -11945,7 +11942,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %unreachable unwind label %ehcleanup28
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough4
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches7 = icmp eq i32 %3, %13
   br i1 %matches7, label %catch, label %eh.resume
 
@@ -12096,7 +12093,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch51, label %catch.fallthrough
 
@@ -12122,7 +12119,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %ehcleanup62
 
 catch.fallthrough:                                ; preds = %lpad
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches3 = icmp eq i32 %3, %7
   br i1 %matches3, label %catch34, label %catch.fallthrough4
 
@@ -12148,7 +12145,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %unreachable unwind label %ehcleanup45
 
 catch.fallthrough4:                               ; preds = %catch.fallthrough
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches5 = icmp eq i32 %3, %10
   br i1 %matches5, label %catch17, label %catch.fallthrough6
 
@@ -12174,7 +12171,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %unreachable unwind label %ehcleanup28
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough4
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches7 = icmp eq i32 %3, %13
   br i1 %matches7, label %catch, label %eh.resume
 
@@ -12364,7 +12361,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch51, label %catch.fallthrough
 
@@ -12390,7 +12387,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %ehcleanup62
 
 catch.fallthrough:                                ; preds = %lpad
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches3 = icmp eq i32 %3, %7
   br i1 %matches3, label %catch34, label %catch.fallthrough4
 
@@ -12416,7 +12413,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %unreachable unwind label %ehcleanup45
 
 catch.fallthrough4:                               ; preds = %catch.fallthrough
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches5 = icmp eq i32 %3, %10
   br i1 %matches5, label %catch17, label %catch.fallthrough6
 
@@ -12442,7 +12439,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %unreachable unwind label %ehcleanup28
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough4
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches7 = icmp eq i32 %3, %13
   br i1 %matches7, label %catch, label %eh.resume
 
@@ -12606,7 +12603,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch51, label %catch.fallthrough
 
@@ -12632,7 +12629,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %ehcleanup62
 
 catch.fallthrough:                                ; preds = %lpad
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches3 = icmp eq i32 %3, %7
   br i1 %matches3, label %catch34, label %catch.fallthrough4
 
@@ -12658,7 +12655,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %unreachable unwind label %ehcleanup45
 
 catch.fallthrough4:                               ; preds = %catch.fallthrough
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches5 = icmp eq i32 %3, %10
   br i1 %matches5, label %catch17, label %catch.fallthrough6
 
@@ -12684,7 +12681,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %unreachable unwind label %ehcleanup28
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough4
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches7 = icmp eq i32 %3, %13
   br i1 %matches7, label %catch, label %eh.resume
 
@@ -12835,7 +12832,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch51, label %catch.fallthrough
 
@@ -12861,7 +12858,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %ehcleanup62
 
 catch.fallthrough:                                ; preds = %lpad
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches3 = icmp eq i32 %3, %7
   br i1 %matches3, label %catch34, label %catch.fallthrough4
 
@@ -12887,7 +12884,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %unreachable unwind label %ehcleanup45
 
 catch.fallthrough4:                               ; preds = %catch.fallthrough
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches5 = icmp eq i32 %3, %10
   br i1 %matches5, label %catch17, label %catch.fallthrough6
 
@@ -12913,7 +12910,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %unreachable unwind label %ehcleanup28
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough4
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches7 = icmp eq i32 %3, %13
   br i1 %matches7, label %catch, label %eh.resume
 
@@ -13064,7 +13061,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch51, label %catch.fallthrough
 
@@ -13090,7 +13087,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %ehcleanup62
 
 catch.fallthrough:                                ; preds = %lpad
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches3 = icmp eq i32 %3, %7
   br i1 %matches3, label %catch34, label %catch.fallthrough4
 
@@ -13116,7 +13113,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %unreachable unwind label %ehcleanup45
 
 catch.fallthrough4:                               ; preds = %catch.fallthrough
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches5 = icmp eq i32 %3, %10
   br i1 %matches5, label %catch17, label %catch.fallthrough6
 
@@ -13142,7 +13139,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %unreachable unwind label %ehcleanup28
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough4
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches7 = icmp eq i32 %3, %13
   br i1 %matches7, label %catch, label %eh.resume
 
@@ -13445,7 +13442,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %16, %lpad49 ], [ %15, %lpad30 ], [ %14, %lpad5 ], [ %13, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches, label %catch103, label %catch.fallthrough
 
@@ -13471,7 +13468,7 @@ invoke.cont111:                                   ; preds = %invoke.cont109
           to label %unreachable unwind label %ehcleanup114
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches51 = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches51, label %catch86, label %catch.fallthrough52
 
@@ -13497,7 +13494,7 @@ invoke.cont94:                                    ; preds = %invoke.cont92
           to label %unreachable unwind label %ehcleanup97
 
 catch.fallthrough52:                              ; preds = %catch.fallthrough
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches53, label %catch69, label %catch.fallthrough54
 
@@ -13523,7 +13520,7 @@ invoke.cont77:                                    ; preds = %invoke.cont75
           to label %unreachable unwind label %ehcleanup80
 
 catch.fallthrough54:                              ; preds = %catch.fallthrough52
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches55 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches55, label %catch, label %eh.resume
 
@@ -13823,7 +13820,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %11, %lpad30 ], [ %10, %lpad5 ], [ %9, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches, label %catch102, label %catch.fallthrough
 
@@ -13849,7 +13846,7 @@ invoke.cont110:                                   ; preds = %invoke.cont108
           to label %unreachable unwind label %ehcleanup113
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches50 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches50, label %catch85, label %catch.fallthrough51
 
@@ -13875,7 +13872,7 @@ invoke.cont93:                                    ; preds = %invoke.cont91
           to label %unreachable unwind label %ehcleanup96
 
 catch.fallthrough51:                              ; preds = %catch.fallthrough
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches52 = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches52, label %catch68, label %catch.fallthrough53
 
@@ -13901,7 +13898,7 @@ invoke.cont76:                                    ; preds = %invoke.cont74
           to label %unreachable unwind label %ehcleanup79
 
 catch.fallthrough53:                              ; preds = %catch.fallthrough51
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches54 = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches54, label %catch, label %eh.resume
 
@@ -14129,7 +14126,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %8, %lpad5 ], [ %7, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -14155,7 +14152,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -14181,7 +14178,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -14207,7 +14204,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -14980,7 +14977,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit, %lpa
   %.pn12 = phi { ptr, i32 } [ %eh.lpad-body29, %lpad108.body ], [ %14, %lpad68 ], [ %13, %lpad35 ], [ %.pn, %ehcleanup ], [ %51, %lpad217 ], [ %50, %lpad183 ], [ %49, %lpad148 ], [ %12, %lpad5 ], [ %4, %lpad.i.i.i ], [ %35, %lpad.i48 ], [ %lpad.loopexit87, %lpad.loopexit ], [ %lpad.loopexit.split-lp88, %lpad.loopexit.split-lp ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn12, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn12, 1
-  %54 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %54 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %54
   br i1 %matches, label %catch295, label %catch.fallthrough
 
@@ -15006,7 +15003,7 @@ invoke.cont303:                                   ; preds = %invoke.cont301
           to label %unreachable unwind label %ehcleanup306
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %57 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %57 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches241 = icmp eq i32 %ehselector.slot.1, %57
   br i1 %matches241, label %catch278, label %catch.fallthrough242
 
@@ -15032,7 +15029,7 @@ invoke.cont286:                                   ; preds = %invoke.cont284
           to label %unreachable unwind label %ehcleanup289
 
 catch.fallthrough242:                             ; preds = %catch.fallthrough
-  %60 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %60 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches243 = icmp eq i32 %ehselector.slot.1, %60
   br i1 %matches243, label %catch261, label %catch.fallthrough244
 
@@ -15058,7 +15055,7 @@ invoke.cont269:                                   ; preds = %invoke.cont267
           to label %unreachable unwind label %ehcleanup272
 
 catch.fallthrough244:                             ; preds = %catch.fallthrough242
-  %63 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %63 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches245 = icmp eq i32 %ehselector.slot.1, %63
   br i1 %matches245, label %catch, label %eh.resume
 
@@ -15510,7 +15507,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %32, %lpad30 ], [ %31, %lpad5 ], [ %30, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %33 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %33
   br i1 %matches, label %catch103, label %catch.fallthrough
 
@@ -15536,7 +15533,7 @@ invoke.cont111:                                   ; preds = %invoke.cont109
           to label %unreachable unwind label %ehcleanup114
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %36 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches51 = icmp eq i32 %ehselector.slot.0, %36
   br i1 %matches51, label %catch86, label %catch.fallthrough52
 
@@ -15562,7 +15559,7 @@ invoke.cont94:                                    ; preds = %invoke.cont92
           to label %unreachable unwind label %ehcleanup97
 
 catch.fallthrough52:                              ; preds = %catch.fallthrough
-  %39 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %39 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %39
   br i1 %matches53, label %catch69, label %catch.fallthrough54
 
@@ -15588,7 +15585,7 @@ invoke.cont77:                                    ; preds = %invoke.cont75
           to label %unreachable unwind label %ehcleanup80
 
 catch.fallthrough54:                              ; preds = %catch.fallthrough52
-  %42 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %42 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches55 = icmp eq i32 %ehselector.slot.0, %42
   br i1 %matches55, label %catch, label %eh.resume
 
@@ -15941,7 +15938,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %18, %lpad88 ], [ %17, %lpad60 ], [ %16, %lpad30 ], [ %15, %lpad5 ], [ %14, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches, label %catch142, label %catch.fallthrough
 
@@ -15967,7 +15964,7 @@ invoke.cont150:                                   ; preds = %invoke.cont148
           to label %unreachable unwind label %ehcleanup153
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches90 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches90, label %catch125, label %catch.fallthrough91
 
@@ -15993,7 +15990,7 @@ invoke.cont133:                                   ; preds = %invoke.cont131
           to label %unreachable unwind label %ehcleanup136
 
 catch.fallthrough91:                              ; preds = %catch.fallthrough
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches92 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches92, label %catch108, label %catch.fallthrough93
 
@@ -16019,7 +16016,7 @@ invoke.cont116:                                   ; preds = %invoke.cont114
           to label %unreachable unwind label %ehcleanup119
 
 catch.fallthrough93:                              ; preds = %catch.fallthrough91
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches94 = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches94, label %catch, label %eh.resume
 
@@ -16902,7 +16899,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit, %lpa
   %.pn14 = phi { ptr, i32 } [ %12, %lpad68 ], [ %11, %lpad35 ], [ %18, %lpad157 ], [ %17, %lpad122 ], [ %.pn.pn, %ehcleanup217 ], [ %10, %lpad5 ], [ %4, %lpad.i.i.i ], [ %27, %lpad.i ], [ %lpad.loopexit128, %lpad.loopexit ], [ %lpad.loopexit130, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp131, %lpad.loopexit.split-lp.loopexit.split-lp ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn14, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn14, 1
-  %63 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %63 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.2, %63
   br i1 %matches, label %catch272, label %catch.fallthrough
 
@@ -16928,7 +16925,7 @@ invoke.cont280:                                   ; preds = %invoke.cont278
           to label %unreachable unwind label %ehcleanup283
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %66 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %66 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches218 = icmp eq i32 %ehselector.slot.2, %66
   br i1 %matches218, label %catch255, label %catch.fallthrough219
 
@@ -16954,7 +16951,7 @@ invoke.cont263:                                   ; preds = %invoke.cont261
           to label %unreachable unwind label %ehcleanup266
 
 catch.fallthrough219:                             ; preds = %catch.fallthrough
-  %69 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %69 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches220 = icmp eq i32 %ehselector.slot.2, %69
   br i1 %matches220, label %catch238, label %catch.fallthrough221
 
@@ -16980,7 +16977,7 @@ invoke.cont246:                                   ; preds = %invoke.cont244
           to label %unreachable unwind label %ehcleanup249
 
 catch.fallthrough221:                             ; preds = %catch.fallthrough219
-  %72 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %72 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches222 = icmp eq i32 %ehselector.slot.2, %72
   br i1 %matches222, label %catch, label %eh.resume
 
@@ -17192,7 +17189,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch50, label %catch.fallthrough
 
@@ -17218,7 +17215,7 @@ invoke.cont58:                                    ; preds = %invoke.cont56
           to label %unreachable unwind label %ehcleanup61
 
 catch.fallthrough:                                ; preds = %lpad
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches2 = icmp eq i32 %3, %7
   br i1 %matches2, label %catch33, label %catch.fallthrough3
 
@@ -17244,7 +17241,7 @@ invoke.cont41:                                    ; preds = %invoke.cont39
           to label %unreachable unwind label %ehcleanup44
 
 catch.fallthrough3:                               ; preds = %catch.fallthrough
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches4 = icmp eq i32 %3, %10
   br i1 %matches4, label %catch16, label %catch.fallthrough5
 
@@ -17270,7 +17267,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %unreachable unwind label %ehcleanup27
 
 catch.fallthrough5:                               ; preds = %catch.fallthrough3
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches6 = icmp eq i32 %3, %13
   br i1 %matches6, label %catch, label %eh.resume
 
@@ -17571,7 +17568,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %eh.lpad-body13, %lpad30.body ], [ %11, %lpad5 ], [ %10, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches, label %catch103, label %catch.fallthrough
 
@@ -17597,7 +17594,7 @@ invoke.cont111:                                   ; preds = %invoke.cont109
           to label %unreachable unwind label %ehcleanup114
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches51 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches51, label %catch86, label %catch.fallthrough52
 
@@ -17623,7 +17620,7 @@ invoke.cont94:                                    ; preds = %invoke.cont92
           to label %unreachable unwind label %ehcleanup97
 
 catch.fallthrough52:                              ; preds = %catch.fallthrough
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches53, label %catch69, label %catch.fallthrough54
 
@@ -17649,7 +17646,7 @@ invoke.cont77:                                    ; preds = %invoke.cont75
           to label %unreachable unwind label %ehcleanup80
 
 catch.fallthrough54:                              ; preds = %catch.fallthrough52
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches55 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches55, label %catch, label %eh.resume
 
@@ -18098,7 +18095,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %eh.lpad-body13, %lpad30.body ], [ %32, %lpad5 ], [ %31, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %34
   br i1 %matches, label %catch105, label %catch.fallthrough
 
@@ -18124,7 +18121,7 @@ invoke.cont113:                                   ; preds = %invoke.cont111
           to label %unreachable unwind label %ehcleanup116
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %37 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %37
   br i1 %matches53, label %catch88, label %catch.fallthrough54
 
@@ -18150,7 +18147,7 @@ invoke.cont96:                                    ; preds = %invoke.cont94
           to label %unreachable unwind label %ehcleanup99
 
 catch.fallthrough54:                              ; preds = %catch.fallthrough
-  %40 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches55 = icmp eq i32 %ehselector.slot.0, %40
   br i1 %matches55, label %catch71, label %catch.fallthrough56
 
@@ -18176,7 +18173,7 @@ invoke.cont79:                                    ; preds = %invoke.cont77
           to label %unreachable unwind label %ehcleanup82
 
 catch.fallthrough56:                              ; preds = %catch.fallthrough54
-  %43 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %43 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches57 = icmp eq i32 %ehselector.slot.0, %43
   br i1 %matches57, label %catch, label %eh.resume
 
@@ -18565,7 +18562,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %21, %lpad51 ], [ %eh.lpad-body13, %lpad30.body ], [ %19, %lpad5 ], [ %18, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches, label %catch105, label %catch.fallthrough
 
@@ -18591,7 +18588,7 @@ invoke.cont113:                                   ; preds = %invoke.cont111
           to label %unreachable unwind label %ehcleanup116
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches53, label %catch88, label %catch.fallthrough54
 
@@ -18617,7 +18614,7 @@ invoke.cont96:                                    ; preds = %invoke.cont94
           to label %unreachable unwind label %ehcleanup99
 
 catch.fallthrough54:                              ; preds = %catch.fallthrough
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches55 = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches55, label %catch71, label %catch.fallthrough56
 
@@ -18643,7 +18640,7 @@ invoke.cont79:                                    ; preds = %invoke.cont77
           to label %unreachable unwind label %ehcleanup82
 
 catch.fallthrough56:                              ; preds = %catch.fallthrough54
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches57 = icmp eq i32 %ehselector.slot.0, %31
   br i1 %matches57, label %catch, label %eh.resume
 
@@ -19011,7 +19008,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %20, %lpad51 ], [ %eh.lpad-body13, %lpad30.body ], [ %18, %lpad5 ], [ %17, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches, label %catch105, label %catch.fallthrough
 
@@ -19037,7 +19034,7 @@ invoke.cont113:                                   ; preds = %invoke.cont111
           to label %unreachable unwind label %ehcleanup116
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches53, label %catch88, label %catch.fallthrough54
 
@@ -19063,7 +19060,7 @@ invoke.cont96:                                    ; preds = %invoke.cont94
           to label %unreachable unwind label %ehcleanup99
 
 catch.fallthrough54:                              ; preds = %catch.fallthrough
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches55 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches55, label %catch71, label %catch.fallthrough56
 
@@ -19089,7 +19086,7 @@ invoke.cont79:                                    ; preds = %invoke.cont77
           to label %unreachable unwind label %ehcleanup82
 
 catch.fallthrough56:                              ; preds = %catch.fallthrough54
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches57 = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches57, label %catch, label %eh.resume
 
@@ -19457,7 +19454,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %20, %lpad51 ], [ %eh.lpad-body13, %lpad30.body ], [ %18, %lpad5 ], [ %17, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches, label %catch105, label %catch.fallthrough
 
@@ -19483,7 +19480,7 @@ invoke.cont113:                                   ; preds = %invoke.cont111
           to label %unreachable unwind label %ehcleanup116
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches53, label %catch88, label %catch.fallthrough54
 
@@ -19509,7 +19506,7 @@ invoke.cont96:                                    ; preds = %invoke.cont94
           to label %unreachable unwind label %ehcleanup99
 
 catch.fallthrough54:                              ; preds = %catch.fallthrough
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches55 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches55, label %catch71, label %catch.fallthrough56
 
@@ -19535,7 +19532,7 @@ invoke.cont79:                                    ; preds = %invoke.cont77
           to label %unreachable unwind label %ehcleanup82
 
 catch.fallthrough56:                              ; preds = %catch.fallthrough54
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches57 = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches57, label %catch, label %eh.resume
 
@@ -19862,7 +19859,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %17, %lpad51 ], [ %eh.lpad-body13, %lpad30.body ], [ %15, %lpad5 ], [ %14, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches, label %catch105, label %catch.fallthrough
 
@@ -19888,7 +19885,7 @@ invoke.cont113:                                   ; preds = %invoke.cont111
           to label %unreachable unwind label %ehcleanup116
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches53, label %catch88, label %catch.fallthrough54
 
@@ -19914,7 +19911,7 @@ invoke.cont96:                                    ; preds = %invoke.cont94
           to label %unreachable unwind label %ehcleanup99
 
 catch.fallthrough54:                              ; preds = %catch.fallthrough
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches55 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches55, label %catch71, label %catch.fallthrough56
 
@@ -19940,7 +19937,7 @@ invoke.cont79:                                    ; preds = %invoke.cont77
           to label %unreachable unwind label %ehcleanup82
 
 catch.fallthrough56:                              ; preds = %catch.fallthrough54
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches57 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches57, label %catch, label %eh.resume
 
@@ -20268,7 +20265,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %16, %lpad50 ], [ %eh.lpad-body13, %lpad30.body ], [ %14, %lpad5 ], [ %13, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches, label %catch104, label %catch.fallthrough
 
@@ -20294,7 +20291,7 @@ invoke.cont112:                                   ; preds = %invoke.cont110
           to label %unreachable unwind label %ehcleanup115
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches52 = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches52, label %catch87, label %catch.fallthrough53
 
@@ -20320,7 +20317,7 @@ invoke.cont95:                                    ; preds = %invoke.cont93
           to label %unreachable unwind label %ehcleanup98
 
 catch.fallthrough53:                              ; preds = %catch.fallthrough
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches54 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches54, label %catch70, label %catch.fallthrough55
 
@@ -20346,7 +20343,7 @@ invoke.cont78:                                    ; preds = %invoke.cont76
           to label %unreachable unwind label %ehcleanup81
 
 catch.fallthrough55:                              ; preds = %catch.fallthrough53
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches56 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches56, label %catch, label %eh.resume
 
@@ -20653,7 +20650,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %eh.lpad-body15, %lpad29.body ], [ %11, %lpad5 ], [ %10, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches, label %catch101, label %catch.fallthrough
 
@@ -20679,7 +20676,7 @@ invoke.cont109:                                   ; preds = %invoke.cont107
           to label %unreachable unwind label %ehcleanup112
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches49 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches49, label %catch84, label %catch.fallthrough50
 
@@ -20705,7 +20702,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
           to label %unreachable unwind label %ehcleanup95
 
 catch.fallthrough50:                              ; preds = %catch.fallthrough
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches51 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches51, label %catch67, label %catch.fallthrough52
 
@@ -20731,7 +20728,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
           to label %unreachable unwind label %ehcleanup78
 
 catch.fallthrough52:                              ; preds = %catch.fallthrough50
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches53, label %catch, label %eh.resume
 
@@ -21185,7 +21182,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %eh.lpad-body15, %lpad29.body ], [ %33, %lpad5 ], [ %32, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %35 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %35
   br i1 %matches, label %catch103, label %catch.fallthrough
 
@@ -21211,7 +21208,7 @@ invoke.cont111:                                   ; preds = %invoke.cont109
           to label %unreachable unwind label %ehcleanup114
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %38 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches51 = icmp eq i32 %ehselector.slot.0, %38
   br i1 %matches51, label %catch86, label %catch.fallthrough52
 
@@ -21237,7 +21234,7 @@ invoke.cont94:                                    ; preds = %invoke.cont92
           to label %unreachable unwind label %ehcleanup97
 
 catch.fallthrough52:                              ; preds = %catch.fallthrough
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %41
   br i1 %matches53, label %catch69, label %catch.fallthrough54
 
@@ -21263,7 +21260,7 @@ invoke.cont77:                                    ; preds = %invoke.cont75
           to label %unreachable unwind label %ehcleanup80
 
 catch.fallthrough54:                              ; preds = %catch.fallthrough52
-  %44 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %44 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches55 = icmp eq i32 %ehselector.slot.0, %44
   br i1 %matches55, label %catch, label %eh.resume
 
@@ -21595,7 +21592,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %18, %lpad49 ], [ %eh.lpad-body15, %lpad29.body ], [ %16, %lpad5 ], [ %15, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches, label %catch103, label %catch.fallthrough
 
@@ -21621,7 +21618,7 @@ invoke.cont111:                                   ; preds = %invoke.cont109
           to label %unreachable unwind label %ehcleanup114
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches51 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches51, label %catch86, label %catch.fallthrough52
 
@@ -21647,7 +21644,7 @@ invoke.cont94:                                    ; preds = %invoke.cont92
           to label %unreachable unwind label %ehcleanup97
 
 catch.fallthrough52:                              ; preds = %catch.fallthrough
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches53, label %catch69, label %catch.fallthrough54
 
@@ -21673,7 +21670,7 @@ invoke.cont77:                                    ; preds = %invoke.cont75
           to label %unreachable unwind label %ehcleanup80
 
 catch.fallthrough54:                              ; preds = %catch.fallthrough52
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches55 = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches55, label %catch, label %eh.resume
 
@@ -22023,7 +22020,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %19, %lpad47 ], [ %18, %lpad29 ], [ %17, %lpad5 ], [ %16, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches, label %catch101, label %catch.fallthrough
 
@@ -22049,7 +22046,7 @@ invoke.cont109:                                   ; preds = %invoke.cont107
           to label %unreachable unwind label %ehcleanup112
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches49 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches49, label %catch84, label %catch.fallthrough50
 
@@ -22075,7 +22072,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
           to label %unreachable unwind label %ehcleanup95
 
 catch.fallthrough50:                              ; preds = %catch.fallthrough
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches51 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches51, label %catch67, label %catch.fallthrough52
 
@@ -22101,7 +22098,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
           to label %unreachable unwind label %ehcleanup78
 
 catch.fallthrough52:                              ; preds = %catch.fallthrough50
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %29
   br i1 %matches53, label %catch, label %eh.resume
 
@@ -22449,7 +22446,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %19, %lpad47 ], [ %18, %lpad29 ], [ %17, %lpad5 ], [ %16, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches, label %catch101, label %catch.fallthrough
 
@@ -22475,7 +22472,7 @@ invoke.cont109:                                   ; preds = %invoke.cont107
           to label %unreachable unwind label %ehcleanup112
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches49 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches49, label %catch84, label %catch.fallthrough50
 
@@ -22501,7 +22498,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
           to label %unreachable unwind label %ehcleanup95
 
 catch.fallthrough50:                              ; preds = %catch.fallthrough
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches51 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches51, label %catch67, label %catch.fallthrough52
 
@@ -22527,7 +22524,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
           to label %unreachable unwind label %ehcleanup78
 
 catch.fallthrough52:                              ; preds = %catch.fallthrough50
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %29
   br i1 %matches53, label %catch, label %eh.resume
 
@@ -22875,7 +22872,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %19, %lpad47 ], [ %18, %lpad29 ], [ %17, %lpad5 ], [ %16, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches, label %catch101, label %catch.fallthrough
 
@@ -22901,7 +22898,7 @@ invoke.cont109:                                   ; preds = %invoke.cont107
           to label %unreachable unwind label %ehcleanup112
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches49 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches49, label %catch84, label %catch.fallthrough50
 
@@ -22927,7 +22924,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
           to label %unreachable unwind label %ehcleanup95
 
 catch.fallthrough50:                              ; preds = %catch.fallthrough
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches51 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches51, label %catch67, label %catch.fallthrough52
 
@@ -22953,7 +22950,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
           to label %unreachable unwind label %ehcleanup78
 
 catch.fallthrough52:                              ; preds = %catch.fallthrough50
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %29
   br i1 %matches53, label %catch, label %eh.resume
 
@@ -23253,7 +23250,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %15, %lpad47 ], [ %14, %lpad29 ], [ %13, %lpad5 ], [ %12, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches, label %catch101, label %catch.fallthrough
 
@@ -23279,7 +23276,7 @@ invoke.cont109:                                   ; preds = %invoke.cont107
           to label %unreachable unwind label %ehcleanup112
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches49 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches49, label %catch84, label %catch.fallthrough50
 
@@ -23305,7 +23302,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
           to label %unreachable unwind label %ehcleanup95
 
 catch.fallthrough50:                              ; preds = %catch.fallthrough
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches51 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches51, label %catch67, label %catch.fallthrough52
 
@@ -23331,7 +23328,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
           to label %unreachable unwind label %ehcleanup78
 
 catch.fallthrough52:                              ; preds = %catch.fallthrough50
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches53, label %catch, label %eh.resume
 
@@ -23639,7 +23636,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %17, %lpad47 ], [ %16, %lpad29 ], [ %15, %lpad5 ], [ %14, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches, label %catch101, label %catch.fallthrough
 
@@ -23665,7 +23662,7 @@ invoke.cont109:                                   ; preds = %invoke.cont107
           to label %unreachable unwind label %ehcleanup112
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches49 = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches49, label %catch84, label %catch.fallthrough50
 
@@ -23691,7 +23688,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
           to label %unreachable unwind label %ehcleanup95
 
 catch.fallthrough50:                              ; preds = %catch.fallthrough
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches51 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches51, label %catch67, label %catch.fallthrough52
 
@@ -23717,7 +23714,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
           to label %unreachable unwind label %ehcleanup78
 
 catch.fallthrough52:                              ; preds = %catch.fallthrough50
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches53, label %catch, label %eh.resume
 
@@ -24042,7 +24039,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %23, %lpad29 ], [ %22, %lpad5 ], [ %21, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches, label %catch101, label %catch.fallthrough
 
@@ -24068,7 +24065,7 @@ invoke.cont109:                                   ; preds = %invoke.cont107
           to label %unreachable unwind label %ehcleanup112
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches49 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches49, label %catch84, label %catch.fallthrough50
 
@@ -24094,7 +24091,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
           to label %unreachable unwind label %ehcleanup95
 
 catch.fallthrough50:                              ; preds = %catch.fallthrough
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches51 = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches51, label %catch67, label %catch.fallthrough52
 
@@ -24120,7 +24117,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
           to label %unreachable unwind label %ehcleanup78
 
 catch.fallthrough52:                              ; preds = %catch.fallthrough50
-  %33 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %33
   br i1 %matches53, label %catch, label %eh.resume
 
@@ -24380,7 +24377,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %10, %lpad30 ], [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches, label %catch101, label %catch.fallthrough
 
@@ -24406,7 +24403,7 @@ invoke.cont109:                                   ; preds = %invoke.cont107
           to label %unreachable unwind label %ehcleanup112
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches49 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches49, label %catch84, label %catch.fallthrough50
 
@@ -24432,7 +24429,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
           to label %unreachable unwind label %ehcleanup95
 
 catch.fallthrough50:                              ; preds = %catch.fallthrough
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches51 = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches51, label %catch67, label %catch.fallthrough52
 
@@ -24458,7 +24455,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
           to label %unreachable unwind label %ehcleanup78
 
 catch.fallthrough52:                              ; preds = %catch.fallthrough50
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches53, label %catch, label %eh.resume
 
@@ -24715,7 +24712,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %9, %lpad29 ], [ %8, %lpad5 ], [ %7, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch99, label %catch.fallthrough
 
@@ -24741,7 +24738,7 @@ invoke.cont107:                                   ; preds = %invoke.cont105
           to label %unreachable unwind label %ehcleanup110
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches47 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches47, label %catch82, label %catch.fallthrough48
 
@@ -24767,7 +24764,7 @@ invoke.cont90:                                    ; preds = %invoke.cont88
           to label %unreachable unwind label %ehcleanup93
 
 catch.fallthrough48:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches49 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches49, label %catch65, label %catch.fallthrough50
 
@@ -24793,7 +24790,7 @@ invoke.cont73:                                    ; preds = %invoke.cont71
           to label %unreachable unwind label %ehcleanup76
 
 catch.fallthrough50:                              ; preds = %catch.fallthrough48
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches51 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches51, label %catch, label %eh.resume
 
@@ -25062,7 +25059,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %11, %lpad29 ], [ %10, %lpad5 ], [ %9, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches, label %catch100, label %catch.fallthrough
 
@@ -25088,7 +25085,7 @@ invoke.cont108:                                   ; preds = %invoke.cont106
           to label %unreachable unwind label %ehcleanup111
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches48 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches48, label %catch83, label %catch.fallthrough49
 
@@ -25114,7 +25111,7 @@ invoke.cont91:                                    ; preds = %invoke.cont89
           to label %unreachable unwind label %ehcleanup94
 
 catch.fallthrough49:                              ; preds = %catch.fallthrough
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches50 = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches50, label %catch66, label %catch.fallthrough51
 
@@ -25140,7 +25137,7 @@ invoke.cont74:                                    ; preds = %invoke.cont72
           to label %unreachable unwind label %ehcleanup77
 
 catch.fallthrough51:                              ; preds = %catch.fallthrough49
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches52 = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches52, label %catch, label %eh.resume
 
@@ -25402,7 +25399,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %10, %lpad30 ], [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches, label %catch101, label %catch.fallthrough
 
@@ -25428,7 +25425,7 @@ invoke.cont109:                                   ; preds = %invoke.cont107
           to label %unreachable unwind label %ehcleanup112
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches49 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches49, label %catch84, label %catch.fallthrough50
 
@@ -25454,7 +25451,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
           to label %unreachable unwind label %ehcleanup95
 
 catch.fallthrough50:                              ; preds = %catch.fallthrough
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches51 = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches51, label %catch67, label %catch.fallthrough52
 
@@ -25480,7 +25477,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
           to label %unreachable unwind label %ehcleanup78
 
 catch.fallthrough52:                              ; preds = %catch.fallthrough50
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches53, label %catch, label %eh.resume
 
@@ -25740,7 +25737,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %10, %lpad30 ], [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches, label %catch101, label %catch.fallthrough
 
@@ -25766,7 +25763,7 @@ invoke.cont109:                                   ; preds = %invoke.cont107
           to label %unreachable unwind label %ehcleanup112
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches49 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches49, label %catch84, label %catch.fallthrough50
 
@@ -25792,7 +25789,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
           to label %unreachable unwind label %ehcleanup95
 
 catch.fallthrough50:                              ; preds = %catch.fallthrough
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches51 = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches51, label %catch67, label %catch.fallthrough52
 
@@ -25818,7 +25815,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
           to label %unreachable unwind label %ehcleanup78
 
 catch.fallthrough52:                              ; preds = %catch.fallthrough50
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches53, label %catch, label %eh.resume
 
@@ -26105,7 +26102,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %12, %lpad30 ], [ %11, %lpad5 ], [ %10, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches, label %catch108, label %catch.fallthrough
 
@@ -26131,7 +26128,7 @@ invoke.cont116:                                   ; preds = %invoke.cont114
           to label %unreachable unwind label %ehcleanup119
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches56 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches56, label %catch91, label %catch.fallthrough57
 
@@ -26157,7 +26154,7 @@ invoke.cont99:                                    ; preds = %invoke.cont97
           to label %unreachable unwind label %ehcleanup102
 
 catch.fallthrough57:                              ; preds = %catch.fallthrough
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches58 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches58, label %catch74, label %catch.fallthrough59
 
@@ -26183,7 +26180,7 @@ invoke.cont82:                                    ; preds = %invoke.cont80
           to label %unreachable unwind label %ehcleanup85
 
 catch.fallthrough59:                              ; preds = %catch.fallthrough57
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches60 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches60, label %catch, label %eh.resume
 
@@ -26440,7 +26437,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %9, %lpad29 ], [ %8, %lpad5 ], [ %7, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch99, label %catch.fallthrough
 
@@ -26466,7 +26463,7 @@ invoke.cont107:                                   ; preds = %invoke.cont105
           to label %unreachable unwind label %ehcleanup110
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches47 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches47, label %catch82, label %catch.fallthrough48
 
@@ -26492,7 +26489,7 @@ invoke.cont90:                                    ; preds = %invoke.cont88
           to label %unreachable unwind label %ehcleanup93
 
 catch.fallthrough48:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches49 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches49, label %catch65, label %catch.fallthrough50
 
@@ -26518,7 +26515,7 @@ invoke.cont73:                                    ; preds = %invoke.cont71
           to label %unreachable unwind label %ehcleanup76
 
 catch.fallthrough50:                              ; preds = %catch.fallthrough48
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches51 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches51, label %catch, label %eh.resume
 
@@ -26943,7 +26940,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %32, %lpad30 ], [ %31, %lpad5 ], [ %30, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %33 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %33
   br i1 %matches, label %catch103, label %catch.fallthrough
 
@@ -26969,7 +26966,7 @@ invoke.cont111:                                   ; preds = %invoke.cont109
           to label %unreachable unwind label %ehcleanup114
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %36 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches51 = icmp eq i32 %ehselector.slot.0, %36
   br i1 %matches51, label %catch86, label %catch.fallthrough52
 
@@ -26995,7 +26992,7 @@ invoke.cont94:                                    ; preds = %invoke.cont92
           to label %unreachable unwind label %ehcleanup97
 
 catch.fallthrough52:                              ; preds = %catch.fallthrough
-  %39 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %39 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %39
   br i1 %matches53, label %catch69, label %catch.fallthrough54
 
@@ -27021,7 +27018,7 @@ invoke.cont77:                                    ; preds = %invoke.cont75
           to label %unreachable unwind label %ehcleanup80
 
 catch.fallthrough54:                              ; preds = %catch.fallthrough52
-  %42 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %42 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches55 = icmp eq i32 %ehselector.slot.0, %42
   br i1 %matches55, label %catch, label %eh.resume
 
@@ -27629,7 +27626,7 @@ lpad.body:                                        ; preds = %lpad.i.i19, %lpad.i
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #30
   %14 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %15 = extractvalue { ptr, i32 } %eh.lpad-body, 1
-  %16 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %16 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %15, %16
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -27655,7 +27652,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %lpad.body
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches27 = icmp eq i32 %15, %19
   br i1 %matches27, label %catch58, label %catch.fallthrough28
 
@@ -27681,7 +27678,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough28:                              ; preds = %catch.fallthrough
-  %22 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %22 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches29 = icmp eq i32 %15, %22
   br i1 %matches29, label %catch41, label %catch.fallthrough30
 
@@ -27707,7 +27704,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough30:                              ; preds = %catch.fallthrough28
-  %25 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %25 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches31 = icmp eq i32 %15, %25
   br i1 %matches31, label %catch, label %eh.resume
 
@@ -27956,7 +27953,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = extractvalue { ptr, i32 } %0, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %2, %3
   br i1 %matches, label %catch50, label %catch.fallthrough
 
@@ -27982,7 +27979,7 @@ invoke.cont58:                                    ; preds = %invoke.cont56
           to label %unreachable unwind label %ehcleanup61
 
 catch.fallthrough:                                ; preds = %lpad
-  %6 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %6 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches2 = icmp eq i32 %2, %6
   br i1 %matches2, label %catch33, label %catch.fallthrough3
 
@@ -28008,7 +28005,7 @@ invoke.cont41:                                    ; preds = %invoke.cont39
           to label %unreachable unwind label %ehcleanup44
 
 catch.fallthrough3:                               ; preds = %catch.fallthrough
-  %9 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches4 = icmp eq i32 %2, %9
   br i1 %matches4, label %catch16, label %catch.fallthrough5
 
@@ -28034,7 +28031,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %unreachable unwind label %ehcleanup27
 
 catch.fallthrough5:                               ; preds = %catch.fallthrough3
-  %12 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %12 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches6 = icmp eq i32 %2, %12
   br i1 %matches6, label %catch, label %eh.resume
 
@@ -28244,7 +28241,7 @@ lpad.i.i.i:                                       ; preds = %init.i.i.i
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #30
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = extractvalue { ptr, i32 } %4, 1
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %6, %7
   br i1 %matches, label %catch50, label %catch.fallthrough
 
@@ -28279,7 +28276,7 @@ invoke.cont58:                                    ; preds = %invoke.cont56
           to label %unreachable unwind label %ehcleanup61
 
 catch.fallthrough:                                ; preds = %lpad.i.i.i
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches2 = icmp eq i32 %6, %13
   br i1 %matches2, label %catch33, label %catch.fallthrough3
 
@@ -28305,7 +28302,7 @@ invoke.cont41:                                    ; preds = %invoke.cont39
           to label %unreachable unwind label %ehcleanup44
 
 catch.fallthrough3:                               ; preds = %catch.fallthrough
-  %16 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches4 = icmp eq i32 %6, %16
   br i1 %matches4, label %catch16, label %catch.fallthrough5
 
@@ -28331,7 +28328,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %unreachable unwind label %ehcleanup27
 
 catch.fallthrough5:                               ; preds = %catch.fallthrough3
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches6 = icmp eq i32 %6, %19
   br i1 %matches6, label %catch, label %eh.resume
 
@@ -28545,7 +28542,7 @@ lpad.i.i.i:                                       ; preds = %init.i.i.i
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #30
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = extractvalue { ptr, i32 } %4, 1
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %6, %7
   br i1 %matches, label %catch50, label %catch.fallthrough
 
@@ -28576,7 +28573,7 @@ invoke.cont58:                                    ; preds = %invoke.cont56
           to label %unreachable unwind label %ehcleanup61
 
 catch.fallthrough:                                ; preds = %lpad.i.i.i
-  %11 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %11 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches2 = icmp eq i32 %6, %11
   br i1 %matches2, label %catch33, label %catch.fallthrough3
 
@@ -28602,7 +28599,7 @@ invoke.cont41:                                    ; preds = %invoke.cont39
           to label %unreachable unwind label %ehcleanup44
 
 catch.fallthrough3:                               ; preds = %catch.fallthrough
-  %14 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %14 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches4 = icmp eq i32 %6, %14
   br i1 %matches4, label %catch16, label %catch.fallthrough5
 
@@ -28628,7 +28625,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %unreachable unwind label %ehcleanup27
 
 catch.fallthrough5:                               ; preds = %catch.fallthrough3
-  %17 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %17 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches6 = icmp eq i32 %6, %17
   br i1 %matches6, label %catch, label %eh.resume
 
@@ -28898,7 +28895,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch74, label %catch.fallthrough
 
@@ -28924,7 +28921,7 @@ invoke.cont82:                                    ; preds = %invoke.cont80
           to label %unreachable unwind label %ehcleanup85
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches22 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches22, label %catch57, label %catch.fallthrough23
 
@@ -28950,7 +28947,7 @@ invoke.cont65:                                    ; preds = %invoke.cont63
           to label %unreachable unwind label %ehcleanup68
 
 catch.fallthrough23:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches24 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches24, label %catch40, label %catch.fallthrough25
 
@@ -28976,7 +28973,7 @@ invoke.cont48:                                    ; preds = %invoke.cont46
           to label %unreachable unwind label %ehcleanup51
 
 catch.fallthrough25:                              ; preds = %catch.fallthrough23
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches26 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches26, label %catch, label %eh.resume
 
@@ -33194,7 +33191,7 @@ catch.dispatch:                                   ; preds = %lpad.i.i.i, %lpad.i
   %.pn26.pn = phi { ptr, i32 } [ %.pn26, %ehcleanup557 ], [ %33, %lpad55 ], [ %32, %lpad31 ], [ %31, %lpad5 ], [ %4, %lpad.i.i.i ], [ %30, %lpad ], [ %12, %lpad.i.i ]
   %exn.slot.9 = extractvalue { ptr, i32 } %.pn26.pn, 0
   %ehselector.slot.9 = extractvalue { ptr, i32 } %.pn26.pn, 1
-  %571 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %571 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.9, %571
   br i1 %matches, label %catch612, label %catch.fallthrough
 
@@ -33220,7 +33217,7 @@ invoke.cont620:                                   ; preds = %invoke.cont618
           to label %unreachable unwind label %ehcleanup623
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %574 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %574 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches558 = icmp eq i32 %ehselector.slot.9, %574
   br i1 %matches558, label %catch595, label %catch.fallthrough559
 
@@ -33246,7 +33243,7 @@ invoke.cont603:                                   ; preds = %invoke.cont601
           to label %unreachable unwind label %ehcleanup606
 
 catch.fallthrough559:                             ; preds = %catch.fallthrough
-  %577 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %577 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches560 = icmp eq i32 %ehselector.slot.9, %577
   br i1 %matches560, label %catch578, label %catch.fallthrough561
 
@@ -33272,7 +33269,7 @@ invoke.cont586:                                   ; preds = %invoke.cont584
           to label %unreachable unwind label %ehcleanup589
 
 catch.fallthrough561:                             ; preds = %catch.fallthrough559
-  %580 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %580 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches562 = icmp eq i32 %ehselector.slot.9, %580
   br i1 %matches562, label %catch, label %eh.resume
 
@@ -33718,7 +33715,7 @@ catch.dispatch:                                   ; preds = %lpad.i.i, %lpad.i.i
   %.pn = phi { ptr, i32 } [ %16, %lpad11 ], [ %4, %lpad.i.i ], [ %7, %lpad ], [ %12, %lpad.i.i17 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches, label %catch77, label %catch.fallthrough
 
@@ -33744,7 +33741,7 @@ invoke.cont85:                                    ; preds = %invoke.cont83
           to label %unreachable unwind label %ehcleanup88
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches25, label %catch60, label %catch.fallthrough26
 
@@ -33770,7 +33767,7 @@ invoke.cont68:                                    ; preds = %invoke.cont66
           to label %unreachable unwind label %ehcleanup71
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches27, label %catch43, label %catch.fallthrough28
 
@@ -33796,7 +33793,7 @@ invoke.cont51:                                    ; preds = %invoke.cont49
           to label %unreachable unwind label %ehcleanup54
 
 catch.fallthrough28:                              ; preds = %catch.fallthrough26
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches29 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches29, label %catch, label %eh.resume
 
@@ -34552,7 +34549,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch85, label %catch.fallthrough
 
@@ -34578,7 +34575,7 @@ invoke.cont93:                                    ; preds = %invoke.cont91
           to label %unreachable unwind label %ehcleanup96
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches33 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches33, label %catch68, label %catch.fallthrough34
 
@@ -34604,7 +34601,7 @@ invoke.cont76:                                    ; preds = %invoke.cont74
           to label %unreachable unwind label %ehcleanup79
 
 catch.fallthrough34:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches35 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches35, label %catch51, label %catch.fallthrough36
 
@@ -34630,7 +34627,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %ehcleanup62
 
 catch.fallthrough36:                              ; preds = %catch.fallthrough34
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches37 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches37, label %catch, label %eh.resume
 
@@ -35143,7 +35140,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %19, %lpad87 ], [ %27, %lpad95 ], [ %18, %lpad60 ], [ %17, %lpad29 ], [ %16, %lpad5 ], [ %15, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches, label %catch149, label %catch.fallthrough
 
@@ -35169,7 +35166,7 @@ invoke.cont157:                                   ; preds = %invoke.cont155
           to label %unreachable unwind label %ehcleanup160
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches97 = icmp eq i32 %ehselector.slot.0, %31
   br i1 %matches97, label %catch132, label %catch.fallthrough98
 
@@ -35195,7 +35192,7 @@ invoke.cont140:                                   ; preds = %invoke.cont138
           to label %unreachable unwind label %ehcleanup143
 
 catch.fallthrough98:                              ; preds = %catch.fallthrough
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches99 = icmp eq i32 %ehselector.slot.0, %34
   br i1 %matches99, label %catch115, label %catch.fallthrough100
 
@@ -35221,7 +35218,7 @@ invoke.cont123:                                   ; preds = %invoke.cont121
           to label %unreachable unwind label %ehcleanup126
 
 catch.fallthrough100:                             ; preds = %catch.fallthrough98
-  %37 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches101 = icmp eq i32 %ehselector.slot.0, %37
   br i1 %matches101, label %catch, label %eh.resume
 
@@ -35564,7 +35561,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -35590,7 +35587,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -35616,7 +35613,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -35642,7 +35639,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -35867,7 +35864,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %7, %lpad5 ], [ %6, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches, label %catch74, label %catch.fallthrough
 
@@ -35893,7 +35890,7 @@ invoke.cont82:                                    ; preds = %invoke.cont80
           to label %unreachable unwind label %ehcleanup85
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches22 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches22, label %catch57, label %catch.fallthrough23
 
@@ -35919,7 +35916,7 @@ invoke.cont65:                                    ; preds = %invoke.cont63
           to label %unreachable unwind label %ehcleanup68
 
 catch.fallthrough23:                              ; preds = %catch.fallthrough
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches24 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches24, label %catch40, label %catch.fallthrough25
 
@@ -35945,7 +35942,7 @@ invoke.cont48:                                    ; preds = %invoke.cont46
           to label %unreachable unwind label %ehcleanup51
 
 catch.fallthrough25:                              ; preds = %catch.fallthrough23
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches26 = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches26, label %catch, label %eh.resume
 
@@ -36451,7 +36448,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %14, %lpad23 ], [ %13, %lpad5 ], [ %12, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches, label %catch77, label %catch.fallthrough
 
@@ -36477,7 +36474,7 @@ invoke.cont85:                                    ; preds = %invoke.cont83
           to label %unreachable unwind label %ehcleanup88
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches25, label %catch60, label %catch.fallthrough26
 
@@ -36503,7 +36500,7 @@ invoke.cont68:                                    ; preds = %invoke.cont66
           to label %unreachable unwind label %ehcleanup71
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches27, label %catch43, label %catch.fallthrough28
 
@@ -36529,7 +36526,7 @@ invoke.cont51:                                    ; preds = %invoke.cont49
           to label %unreachable unwind label %ehcleanup54
 
 catch.fallthrough28:                              ; preds = %catch.fallthrough26
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches29 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches29, label %catch, label %eh.resume
 
@@ -37112,7 +37109,7 @@ catch.dispatch:                                   ; preds = %lpad122, %lpad124, 
   %.pn8.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup111 ], [ %23, %lpad60 ], [ %22, %lpad30 ], [ %21, %lpad5 ], [ %20, %lpad ], [ %4, %lpad.i.i.i ], [ %28, %lpad124 ], [ %27, %lpad122 ]
   %exn.slot.3 = extractvalue { ptr, i32 } %.pn8.pn, 0
   %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn8.pn, 1
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.3, %29
   br i1 %matches, label %catch183, label %catch.fallthrough
 
@@ -37138,7 +37135,7 @@ invoke.cont191:                                   ; preds = %invoke.cont189
           to label %unreachable unwind label %ehcleanup194
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %32 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches129 = icmp eq i32 %ehselector.slot.3, %32
   br i1 %matches129, label %catch166, label %catch.fallthrough130
 
@@ -37164,7 +37161,7 @@ invoke.cont174:                                   ; preds = %invoke.cont172
           to label %unreachable unwind label %ehcleanup177
 
 catch.fallthrough130:                             ; preds = %catch.fallthrough
-  %35 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches131 = icmp eq i32 %ehselector.slot.3, %35
   br i1 %matches131, label %catch149, label %catch.fallthrough132
 
@@ -37190,7 +37187,7 @@ invoke.cont157:                                   ; preds = %invoke.cont155
           to label %unreachable unwind label %ehcleanup160
 
 catch.fallthrough132:                             ; preds = %catch.fallthrough130
-  %38 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches133 = icmp eq i32 %ehselector.slot.3, %38
   br i1 %matches133, label %catch, label %eh.resume
 
@@ -37359,7 +37356,7 @@ lpad.i.i.i:                                       ; preds = %init.i.i.i
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #30
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = extractvalue { ptr, i32 } %4, 1
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %6, %7
   br i1 %matches, label %catch50, label %catch.fallthrough
 
@@ -37390,7 +37387,7 @@ invoke.cont58:                                    ; preds = %invoke.cont56
           to label %unreachable unwind label %ehcleanup61
 
 catch.fallthrough:                                ; preds = %lpad.i.i.i
-  %11 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %11 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches2 = icmp eq i32 %6, %11
   br i1 %matches2, label %catch33, label %catch.fallthrough3
 
@@ -37416,7 +37413,7 @@ invoke.cont41:                                    ; preds = %invoke.cont39
           to label %unreachable unwind label %ehcleanup44
 
 catch.fallthrough3:                               ; preds = %catch.fallthrough
-  %14 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %14 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches4 = icmp eq i32 %6, %14
   br i1 %matches4, label %catch16, label %catch.fallthrough5
 
@@ -37442,7 +37439,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %unreachable unwind label %ehcleanup27
 
 catch.fallthrough5:                               ; preds = %catch.fallthrough3
-  %17 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %17 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches6 = icmp eq i32 %6, %17
   br i1 %matches6, label %catch, label %eh.resume
 
@@ -38497,7 +38494,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit, %lpa
   %.pn19.pn.pn = phi { ptr, i32 } [ %.pn19.pn, %ehcleanup229 ], [ %26, %lpad168 ], [ %25, %lpad133 ], [ %24, %lpad94 ], [ %23, %lpad60 ], [ %.pn.pn, %ehcleanup258 ], [ %22, %lpad29 ], [ %21, %lpad5 ], [ %4, %lpad.i.i.i ], [ %38, %lpad.i ], [ %lpad.loopexit147, %lpad.loopexit ], [ %lpad.loopexit.split-lp148, %lpad.loopexit.split-lp ]
   %exn.slot.4 = extractvalue { ptr, i32 } %.pn19.pn.pn, 0
   %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn19.pn.pn, 1
-  %79 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %79 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.4, %79
   br i1 %matches, label %catch313, label %catch.fallthrough
 
@@ -38523,7 +38520,7 @@ invoke.cont321:                                   ; preds = %invoke.cont319
           to label %unreachable unwind label %ehcleanup324
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %82 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %82 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches259 = icmp eq i32 %ehselector.slot.4, %82
   br i1 %matches259, label %catch296, label %catch.fallthrough260
 
@@ -38549,7 +38546,7 @@ invoke.cont304:                                   ; preds = %invoke.cont302
           to label %unreachable unwind label %ehcleanup307
 
 catch.fallthrough260:                             ; preds = %catch.fallthrough
-  %85 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %85 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches261 = icmp eq i32 %ehselector.slot.4, %85
   br i1 %matches261, label %catch279, label %catch.fallthrough262
 
@@ -38575,7 +38572,7 @@ invoke.cont287:                                   ; preds = %invoke.cont285
           to label %unreachable unwind label %ehcleanup290
 
 catch.fallthrough262:                             ; preds = %catch.fallthrough260
-  %88 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %88 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches263 = icmp eq i32 %ehselector.slot.4, %88
   br i1 %matches263, label %catch, label %eh.resume
 
@@ -38942,7 +38939,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -38968,7 +38965,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -38994,7 +38991,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -39020,7 +39017,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -39484,7 +39481,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %50, %lpad69 ], [ %27, %lpad30 ], [ %26, %lpad5 ], [ %25, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %51 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %51 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %51
   br i1 %matches, label %catch132, label %catch.fallthrough
 
@@ -39510,7 +39507,7 @@ invoke.cont140:                                   ; preds = %invoke.cont138
           to label %unreachable unwind label %ehcleanup143
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %54 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %54 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches80 = icmp eq i32 %ehselector.slot.0, %54
   br i1 %matches80, label %catch115, label %catch.fallthrough81
 
@@ -39536,7 +39533,7 @@ invoke.cont123:                                   ; preds = %invoke.cont121
           to label %unreachable unwind label %ehcleanup126
 
 catch.fallthrough81:                              ; preds = %catch.fallthrough
-  %57 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %57 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches82 = icmp eq i32 %ehselector.slot.0, %57
   br i1 %matches82, label %catch98, label %catch.fallthrough83
 
@@ -39562,7 +39559,7 @@ invoke.cont106:                                   ; preds = %invoke.cont104
           to label %unreachable unwind label %ehcleanup109
 
 catch.fallthrough83:                              ; preds = %catch.fallthrough81
-  %60 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %60 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches84 = icmp eq i32 %ehselector.slot.0, %60
   br i1 %matches84, label %catch, label %eh.resume
 
@@ -39802,7 +39799,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %8, %lpad5 ], [ %7, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -39828,7 +39825,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -39854,7 +39851,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -39880,7 +39877,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -40148,7 +40145,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %10, %lpad30 ], [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches, label %catch104, label %catch.fallthrough
 
@@ -40174,7 +40171,7 @@ invoke.cont112:                                   ; preds = %invoke.cont110
           to label %unreachable unwind label %ehcleanup115
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches52 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches52, label %catch87, label %catch.fallthrough53
 
@@ -40200,7 +40197,7 @@ invoke.cont95:                                    ; preds = %invoke.cont93
           to label %unreachable unwind label %ehcleanup98
 
 catch.fallthrough53:                              ; preds = %catch.fallthrough
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches54 = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches54, label %catch70, label %catch.fallthrough55
 
@@ -40226,7 +40223,7 @@ invoke.cont78:                                    ; preds = %invoke.cont76
           to label %unreachable unwind label %ehcleanup81
 
 catch.fallthrough55:                              ; preds = %catch.fallthrough53
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches56 = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches56, label %catch, label %eh.resume
 
@@ -40573,7 +40570,7 @@ catch.dispatch:                                   ; preds = %lpad.i.i.i, %ehclea
   %.pn = phi { ptr, i32 } [ %21, %lpad22 ], [ %20, %lpad5 ], [ %4, %lpad.i.i.i ], [ %19, %lpad ], [ %.pn.i.i, %ehcleanup.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches, label %catch77, label %catch.fallthrough
 
@@ -40599,7 +40596,7 @@ invoke.cont85:                                    ; preds = %invoke.cont83
           to label %unreachable unwind label %ehcleanup88
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches25, label %catch60, label %catch.fallthrough26
 
@@ -40625,7 +40622,7 @@ invoke.cont68:                                    ; preds = %invoke.cont66
           to label %unreachable unwind label %ehcleanup71
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches27, label %catch43, label %catch.fallthrough28
 
@@ -40651,7 +40648,7 @@ invoke.cont51:                                    ; preds = %invoke.cont49
           to label %unreachable unwind label %ehcleanup54
 
 catch.fallthrough28:                              ; preds = %catch.fallthrough26
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches29 = icmp eq i32 %ehselector.slot.0, %31
   br i1 %matches29, label %catch, label %eh.resume
 
@@ -40993,7 +40990,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %20, %lpad53 ], [ %19, %lpad30 ], [ %18, %lpad5 ], [ %17, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches, label %catch108, label %catch.fallthrough
 
@@ -41019,7 +41016,7 @@ invoke.cont116:                                   ; preds = %invoke.cont114
           to label %unreachable unwind label %ehcleanup119
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches56 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches56, label %catch91, label %catch.fallthrough57
 
@@ -41045,7 +41042,7 @@ invoke.cont99:                                    ; preds = %invoke.cont97
           to label %unreachable unwind label %ehcleanup102
 
 catch.fallthrough57:                              ; preds = %catch.fallthrough
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches58 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches58, label %catch74, label %catch.fallthrough59
 
@@ -41071,7 +41068,7 @@ invoke.cont82:                                    ; preds = %invoke.cont80
           to label %unreachable unwind label %ehcleanup85
 
 catch.fallthrough59:                              ; preds = %catch.fallthrough57
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches60 = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches60, label %catch, label %eh.resume
 
@@ -41467,7 +41464,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %20, %lpad53 ], [ %19, %lpad30 ], [ %18, %lpad5 ], [ %17, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches, label %catch108, label %catch.fallthrough
 
@@ -41493,7 +41490,7 @@ invoke.cont116:                                   ; preds = %invoke.cont114
           to label %unreachable unwind label %ehcleanup119
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches56 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches56, label %catch91, label %catch.fallthrough57
 
@@ -41519,7 +41516,7 @@ invoke.cont99:                                    ; preds = %invoke.cont97
           to label %unreachable unwind label %ehcleanup102
 
 catch.fallthrough57:                              ; preds = %catch.fallthrough
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches58 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches58, label %catch74, label %catch.fallthrough59
 
@@ -41545,7 +41542,7 @@ invoke.cont82:                                    ; preds = %invoke.cont80
           to label %unreachable unwind label %ehcleanup85
 
 catch.fallthrough59:                              ; preds = %catch.fallthrough57
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches60 = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches60, label %catch, label %eh.resume
 
@@ -41941,7 +41938,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %20, %lpad53 ], [ %19, %lpad30 ], [ %18, %lpad5 ], [ %17, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches, label %catch108, label %catch.fallthrough
 
@@ -41967,7 +41964,7 @@ invoke.cont116:                                   ; preds = %invoke.cont114
           to label %unreachable unwind label %ehcleanup119
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches56 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches56, label %catch91, label %catch.fallthrough57
 
@@ -41993,7 +41990,7 @@ invoke.cont99:                                    ; preds = %invoke.cont97
           to label %unreachable unwind label %ehcleanup102
 
 catch.fallthrough57:                              ; preds = %catch.fallthrough
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches58 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches58, label %catch74, label %catch.fallthrough59
 
@@ -42019,7 +42016,7 @@ invoke.cont82:                                    ; preds = %invoke.cont80
           to label %unreachable unwind label %ehcleanup85
 
 catch.fallthrough59:                              ; preds = %catch.fallthrough57
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches60 = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches60, label %catch, label %eh.resume
 
@@ -42415,7 +42412,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %20, %lpad53 ], [ %19, %lpad30 ], [ %18, %lpad5 ], [ %17, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches, label %catch108, label %catch.fallthrough
 
@@ -42441,7 +42438,7 @@ invoke.cont116:                                   ; preds = %invoke.cont114
           to label %unreachable unwind label %ehcleanup119
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches56 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches56, label %catch91, label %catch.fallthrough57
 
@@ -42467,7 +42464,7 @@ invoke.cont99:                                    ; preds = %invoke.cont97
           to label %unreachable unwind label %ehcleanup102
 
 catch.fallthrough57:                              ; preds = %catch.fallthrough
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches58 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches58, label %catch74, label %catch.fallthrough59
 
@@ -42493,7 +42490,7 @@ invoke.cont82:                                    ; preds = %invoke.cont80
           to label %unreachable unwind label %ehcleanup85
 
 catch.fallthrough59:                              ; preds = %catch.fallthrough57
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches60 = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches60, label %catch, label %eh.resume
 
@@ -42889,7 +42886,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %20, %lpad53 ], [ %19, %lpad30 ], [ %18, %lpad5 ], [ %17, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches, label %catch108, label %catch.fallthrough
 
@@ -42915,7 +42912,7 @@ invoke.cont116:                                   ; preds = %invoke.cont114
           to label %unreachable unwind label %ehcleanup119
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches56 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches56, label %catch91, label %catch.fallthrough57
 
@@ -42941,7 +42938,7 @@ invoke.cont99:                                    ; preds = %invoke.cont97
           to label %unreachable unwind label %ehcleanup102
 
 catch.fallthrough57:                              ; preds = %catch.fallthrough
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches58 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches58, label %catch74, label %catch.fallthrough59
 
@@ -42967,7 +42964,7 @@ invoke.cont82:                                    ; preds = %invoke.cont80
           to label %unreachable unwind label %ehcleanup85
 
 catch.fallthrough59:                              ; preds = %catch.fallthrough57
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches60 = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches60, label %catch, label %eh.resume
 
@@ -43423,7 +43420,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %25, %lpad87 ], [ %24, %lpad60 ], [ %23, %lpad30 ], [ %22, %lpad5 ], [ %21, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches, label %catch142, label %catch.fallthrough
 
@@ -43449,7 +43446,7 @@ invoke.cont150:                                   ; preds = %invoke.cont148
           to label %unreachable unwind label %ehcleanup153
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches90 = icmp eq i32 %ehselector.slot.0, %29
   br i1 %matches90, label %catch125, label %catch.fallthrough91
 
@@ -43475,7 +43472,7 @@ invoke.cont133:                                   ; preds = %invoke.cont131
           to label %unreachable unwind label %ehcleanup136
 
 catch.fallthrough91:                              ; preds = %catch.fallthrough
-  %32 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches92 = icmp eq i32 %ehselector.slot.0, %32
   br i1 %matches92, label %catch108, label %catch.fallthrough93
 
@@ -43501,7 +43498,7 @@ invoke.cont116:                                   ; preds = %invoke.cont114
           to label %unreachable unwind label %ehcleanup119
 
 catch.fallthrough93:                              ; preds = %catch.fallthrough91
-  %35 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches94 = icmp eq i32 %ehselector.slot.0, %35
   br i1 %matches94, label %catch, label %eh.resume
 
@@ -43651,7 +43648,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %3 = extractvalue { ptr, i32 } %2, 0
   %4 = extractvalue { ptr, i32 } %2, 1
-  %5 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %5 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %4, %5
   br i1 %matches, label %catch50, label %catch.fallthrough
 
@@ -43677,7 +43674,7 @@ invoke.cont58:                                    ; preds = %invoke.cont56
           to label %unreachable unwind label %ehcleanup61
 
 catch.fallthrough:                                ; preds = %lpad
-  %8 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %8 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches2 = icmp eq i32 %4, %8
   br i1 %matches2, label %catch33, label %catch.fallthrough3
 
@@ -43703,7 +43700,7 @@ invoke.cont41:                                    ; preds = %invoke.cont39
           to label %unreachable unwind label %ehcleanup44
 
 catch.fallthrough3:                               ; preds = %catch.fallthrough
-  %11 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %11 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches4 = icmp eq i32 %4, %11
   br i1 %matches4, label %catch16, label %catch.fallthrough5
 
@@ -43729,7 +43726,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %unreachable unwind label %ehcleanup27
 
 catch.fallthrough5:                               ; preds = %catch.fallthrough3
-  %14 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %14 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches6 = icmp eq i32 %4, %14
   br i1 %matches6, label %catch, label %eh.resume
 
@@ -43865,7 +43862,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZN4cvc54Term14const_iteratorC2EPNS_8internal11NodeManagerERKSt10shared_ptrINS2_12NodeTemplateILb1EEEEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr noundef %nm, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %n, i32 noundef %p) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4cvc54Term14const_iteratorC2EPNS_8internal11NodeManagerERKSt10shared_ptrINS2_12NodeTemplateILb1EEEEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr noundef %nm, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %n, i32 noundef %p) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %nm, ptr %this, align 8
   %d_origNode = getelementptr inbounds i8, ptr %this, i64 8
@@ -44231,7 +44228,7 @@ _ZNK4cvc54Term14const_iteratoreqERKS1_.exit:      ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(28) ptr @_ZN4cvc54Term14const_iteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(28) %this) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(28) ptr @_ZN4cvc54Term14const_iteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(28) %this) local_unnamed_addr #13 align 2 {
 entry:
   %d_pos = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %d_pos, align 8
@@ -45419,7 +45416,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch77, label %catch.fallthrough
 
@@ -45445,7 +45442,7 @@ invoke.cont85:                                    ; preds = %invoke.cont83
           to label %unreachable unwind label %ehcleanup88
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches25, label %catch60, label %catch.fallthrough26
 
@@ -45471,7 +45468,7 @@ invoke.cont68:                                    ; preds = %invoke.cont66
           to label %unreachable unwind label %ehcleanup71
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches27, label %catch43, label %catch.fallthrough28
 
@@ -45497,7 +45494,7 @@ invoke.cont51:                                    ; preds = %invoke.cont49
           to label %unreachable unwind label %ehcleanup54
 
 catch.fallthrough28:                              ; preds = %catch.fallthrough26
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches29 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches29, label %catch, label %eh.resume
 
@@ -45723,7 +45720,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %8, %lpad5 ], [ %7, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -45749,7 +45746,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -45775,7 +45772,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -45801,7 +45798,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -46132,7 +46129,7 @@ catch.dispatch:                                   ; preds = %lpad70, %lpad, %lpa
   %.pn3 = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %14, %lpad5 ], [ %13, %lpad ], [ %4, %lpad.i.i.i ], [ %17, %lpad70 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %20
   br i1 %matches, label %catch128, label %catch.fallthrough
 
@@ -46158,7 +46155,7 @@ invoke.cont136:                                   ; preds = %invoke.cont134
           to label %unreachable unwind label %ehcleanup139
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches74 = icmp eq i32 %ehselector.slot.1, %23
   br i1 %matches74, label %catch111, label %catch.fallthrough75
 
@@ -46184,7 +46181,7 @@ invoke.cont119:                                   ; preds = %invoke.cont117
           to label %unreachable unwind label %ehcleanup122
 
 catch.fallthrough75:                              ; preds = %catch.fallthrough
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches76 = icmp eq i32 %ehselector.slot.1, %26
   br i1 %matches76, label %catch94, label %catch.fallthrough77
 
@@ -46210,7 +46207,7 @@ invoke.cont102:                                   ; preds = %invoke.cont100
           to label %unreachable unwind label %ehcleanup105
 
 catch.fallthrough77:                              ; preds = %catch.fallthrough75
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches78 = icmp eq i32 %ehselector.slot.1, %29
   br i1 %matches78, label %catch, label %eh.resume
 
@@ -46438,7 +46435,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %8, %lpad5 ], [ %7, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -46464,7 +46461,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -46490,7 +46487,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -46516,7 +46513,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -46847,7 +46844,7 @@ catch.dispatch:                                   ; preds = %lpad70, %lpad, %lpa
   %.pn3 = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %14, %lpad5 ], [ %13, %lpad ], [ %4, %lpad.i.i.i ], [ %17, %lpad70 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %20
   br i1 %matches, label %catch128, label %catch.fallthrough
 
@@ -46873,7 +46870,7 @@ invoke.cont136:                                   ; preds = %invoke.cont134
           to label %unreachable unwind label %ehcleanup139
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches74 = icmp eq i32 %ehselector.slot.1, %23
   br i1 %matches74, label %catch111, label %catch.fallthrough75
 
@@ -46899,7 +46896,7 @@ invoke.cont119:                                   ; preds = %invoke.cont117
           to label %unreachable unwind label %ehcleanup122
 
 catch.fallthrough75:                              ; preds = %catch.fallthrough
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches76 = icmp eq i32 %ehselector.slot.1, %26
   br i1 %matches76, label %catch94, label %catch.fallthrough77
 
@@ -46925,7 +46922,7 @@ invoke.cont102:                                   ; preds = %invoke.cont100
           to label %unreachable unwind label %ehcleanup105
 
 catch.fallthrough77:                              ; preds = %catch.fallthrough75
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches78 = icmp eq i32 %ehselector.slot.1, %29
   br i1 %matches78, label %catch, label %eh.resume
 
@@ -47153,7 +47150,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %8, %lpad5 ], [ %7, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -47179,7 +47176,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -47205,7 +47202,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -47231,7 +47228,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -47562,7 +47559,7 @@ catch.dispatch:                                   ; preds = %lpad70, %lpad, %lpa
   %.pn3 = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %14, %lpad5 ], [ %13, %lpad ], [ %4, %lpad.i.i.i ], [ %17, %lpad70 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %20
   br i1 %matches, label %catch128, label %catch.fallthrough
 
@@ -47588,7 +47585,7 @@ invoke.cont136:                                   ; preds = %invoke.cont134
           to label %unreachable unwind label %ehcleanup139
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches74 = icmp eq i32 %ehselector.slot.1, %23
   br i1 %matches74, label %catch111, label %catch.fallthrough75
 
@@ -47614,7 +47611,7 @@ invoke.cont119:                                   ; preds = %invoke.cont117
           to label %unreachable unwind label %ehcleanup122
 
 catch.fallthrough75:                              ; preds = %catch.fallthrough
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches76 = icmp eq i32 %ehselector.slot.1, %26
   br i1 %matches76, label %catch94, label %catch.fallthrough77
 
@@ -47640,7 +47637,7 @@ invoke.cont102:                                   ; preds = %invoke.cont100
           to label %unreachable unwind label %ehcleanup105
 
 catch.fallthrough77:                              ; preds = %catch.fallthrough75
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches78 = icmp eq i32 %ehselector.slot.1, %29
   br i1 %matches78, label %catch, label %eh.resume
 
@@ -47868,7 +47865,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %8, %lpad5 ], [ %7, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -47894,7 +47891,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -47920,7 +47917,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -47946,7 +47943,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -48277,7 +48274,7 @@ catch.dispatch:                                   ; preds = %lpad70, %lpad, %lpa
   %.pn3 = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %14, %lpad5 ], [ %13, %lpad ], [ %4, %lpad.i.i.i ], [ %17, %lpad70 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %20
   br i1 %matches, label %catch128, label %catch.fallthrough
 
@@ -48303,7 +48300,7 @@ invoke.cont136:                                   ; preds = %invoke.cont134
           to label %unreachable unwind label %ehcleanup139
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches74 = icmp eq i32 %ehselector.slot.1, %23
   br i1 %matches74, label %catch111, label %catch.fallthrough75
 
@@ -48329,7 +48326,7 @@ invoke.cont119:                                   ; preds = %invoke.cont117
           to label %unreachable unwind label %ehcleanup122
 
 catch.fallthrough75:                              ; preds = %catch.fallthrough
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches76 = icmp eq i32 %ehselector.slot.1, %26
   br i1 %matches76, label %catch94, label %catch.fallthrough77
 
@@ -48355,7 +48352,7 @@ invoke.cont102:                                   ; preds = %invoke.cont100
           to label %unreachable unwind label %ehcleanup105
 
 catch.fallthrough77:                              ; preds = %catch.fallthrough75
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches78 = icmp eq i32 %ehselector.slot.1, %29
   br i1 %matches78, label %catch, label %eh.resume
 
@@ -48598,7 +48595,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %10, %lpad5 ], [ %9, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -48624,7 +48621,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -48650,7 +48647,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -48676,7 +48673,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -49018,7 +49015,7 @@ catch.dispatch:                                   ; preds = %lpad70, %lpad, %lpa
   %.pn3 = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %15, %lpad5 ], [ %14, %lpad ], [ %4, %lpad.i.i.i ], [ %18, %lpad70 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %21
   br i1 %matches, label %catch127, label %catch.fallthrough
 
@@ -49044,7 +49041,7 @@ invoke.cont135:                                   ; preds = %invoke.cont133
           to label %unreachable unwind label %ehcleanup138
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches73 = icmp eq i32 %ehselector.slot.1, %24
   br i1 %matches73, label %catch110, label %catch.fallthrough74
 
@@ -49070,7 +49067,7 @@ invoke.cont118:                                   ; preds = %invoke.cont116
           to label %unreachable unwind label %ehcleanup121
 
 catch.fallthrough74:                              ; preds = %catch.fallthrough
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches75 = icmp eq i32 %ehselector.slot.1, %27
   br i1 %matches75, label %catch93, label %catch.fallthrough76
 
@@ -49096,7 +49093,7 @@ invoke.cont101:                                   ; preds = %invoke.cont99
           to label %unreachable unwind label %ehcleanup104
 
 catch.fallthrough76:                              ; preds = %catch.fallthrough74
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches77 = icmp eq i32 %ehselector.slot.1, %30
   br i1 %matches77, label %catch, label %eh.resume
 
@@ -49323,7 +49320,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -49349,7 +49346,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -49375,7 +49372,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -49401,7 +49398,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -49704,7 +49701,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn3 = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %12, %lpad5 ], [ %11, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %15
   br i1 %matches, label %catch125, label %catch.fallthrough
 
@@ -49730,7 +49727,7 @@ invoke.cont133:                                   ; preds = %invoke.cont131
           to label %unreachable unwind label %ehcleanup136
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches71 = icmp eq i32 %ehselector.slot.1, %18
   br i1 %matches71, label %catch108, label %catch.fallthrough72
 
@@ -49756,7 +49753,7 @@ invoke.cont116:                                   ; preds = %invoke.cont114
           to label %unreachable unwind label %ehcleanup119
 
 catch.fallthrough72:                              ; preds = %catch.fallthrough
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches73 = icmp eq i32 %ehselector.slot.1, %21
   br i1 %matches73, label %catch91, label %catch.fallthrough74
 
@@ -49782,7 +49779,7 @@ invoke.cont99:                                    ; preds = %invoke.cont97
           to label %unreachable unwind label %ehcleanup102
 
 catch.fallthrough74:                              ; preds = %catch.fallthrough72
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches75 = icmp eq i32 %ehselector.slot.1, %24
   br i1 %matches75, label %catch, label %eh.resume
 
@@ -50149,7 +50146,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %10, %lpad5 ], [ %9, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -50175,7 +50172,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -50201,7 +50198,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -50227,7 +50224,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -50615,7 +50612,7 @@ catch.dispatch:                                   ; preds = %ehcleanup85, %lpad,
   %.pn4.pn = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %16, %lpad5 ], [ %15, %lpad ], [ %4, %lpad.i.i.i ], [ %.pn4, %ehcleanup85 ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn4.pn, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn4.pn, 1
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.2, %25
   br i1 %matches, label %catch140, label %catch.fallthrough
 
@@ -50641,7 +50638,7 @@ invoke.cont148:                                   ; preds = %invoke.cont146
           to label %unreachable unwind label %ehcleanup151
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches86 = icmp eq i32 %ehselector.slot.2, %28
   br i1 %matches86, label %catch123, label %catch.fallthrough87
 
@@ -50667,7 +50664,7 @@ invoke.cont131:                                   ; preds = %invoke.cont129
           to label %unreachable unwind label %ehcleanup134
 
 catch.fallthrough87:                              ; preds = %catch.fallthrough
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches88 = icmp eq i32 %ehselector.slot.2, %31
   br i1 %matches88, label %catch106, label %catch.fallthrough89
 
@@ -50693,7 +50690,7 @@ invoke.cont114:                                   ; preds = %invoke.cont112
           to label %unreachable unwind label %ehcleanup117
 
 catch.fallthrough89:                              ; preds = %catch.fallthrough87
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches90 = icmp eq i32 %ehselector.slot.2, %34
   br i1 %matches90, label %catch, label %eh.resume
 
@@ -50932,7 +50929,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %10, %lpad5 ], [ %9, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -50958,7 +50955,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -50984,7 +50981,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -51010,7 +51007,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -51396,7 +51393,7 @@ catch.dispatch:                                   ; preds = %ehcleanup85, %lpad,
   %.pn4.pn = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %16, %lpad5 ], [ %15, %lpad ], [ %4, %lpad.i.i.i ], [ %.pn4, %ehcleanup85 ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn4.pn, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn4.pn, 1
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.2, %25
   br i1 %matches, label %catch140, label %catch.fallthrough
 
@@ -51422,7 +51419,7 @@ invoke.cont148:                                   ; preds = %invoke.cont146
           to label %unreachable unwind label %ehcleanup151
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches86 = icmp eq i32 %ehselector.slot.2, %28
   br i1 %matches86, label %catch123, label %catch.fallthrough87
 
@@ -51448,7 +51445,7 @@ invoke.cont131:                                   ; preds = %invoke.cont129
           to label %unreachable unwind label %ehcleanup134
 
 catch.fallthrough87:                              ; preds = %catch.fallthrough
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches88 = icmp eq i32 %ehselector.slot.2, %31
   br i1 %matches88, label %catch106, label %catch.fallthrough89
 
@@ -51474,7 +51471,7 @@ invoke.cont114:                                   ; preds = %invoke.cont112
           to label %unreachable unwind label %ehcleanup117
 
 catch.fallthrough89:                              ; preds = %catch.fallthrough87
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches90 = icmp eq i32 %ehselector.slot.2, %34
   br i1 %matches90, label %catch, label %eh.resume
 
@@ -51701,7 +51698,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -51727,7 +51724,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -51753,7 +51750,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -51779,7 +51776,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -52117,7 +52114,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn4 = phi { ptr, i32 } [ %eh.lpad-body16, %lpad71.body ], [ %.pn, %cleanup.action63 ], [ %13, %lpad5 ], [ %12, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn4, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn4, 1
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %17
   br i1 %matches, label %catch130, label %catch.fallthrough
 
@@ -52143,7 +52140,7 @@ invoke.cont138:                                   ; preds = %invoke.cont136
           to label %unreachable unwind label %ehcleanup141
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches76 = icmp eq i32 %ehselector.slot.1, %20
   br i1 %matches76, label %catch113, label %catch.fallthrough77
 
@@ -52169,7 +52166,7 @@ invoke.cont121:                                   ; preds = %invoke.cont119
           to label %unreachable unwind label %ehcleanup124
 
 catch.fallthrough77:                              ; preds = %catch.fallthrough
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches78 = icmp eq i32 %ehselector.slot.1, %23
   br i1 %matches78, label %catch96, label %catch.fallthrough79
 
@@ -52195,7 +52192,7 @@ invoke.cont104:                                   ; preds = %invoke.cont102
           to label %unreachable unwind label %ehcleanup107
 
 catch.fallthrough79:                              ; preds = %catch.fallthrough77
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches80 = icmp eq i32 %ehselector.slot.1, %26
   br i1 %matches80, label %catch, label %eh.resume
 
@@ -52433,7 +52430,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -52459,7 +52456,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -52485,7 +52482,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -52511,7 +52508,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -52819,7 +52816,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn3 = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %13, %lpad5 ], [ %12, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %16
   br i1 %matches, label %catch127, label %catch.fallthrough
 
@@ -52845,7 +52842,7 @@ invoke.cont135:                                   ; preds = %invoke.cont133
           to label %unreachable unwind label %ehcleanup138
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches73 = icmp eq i32 %ehselector.slot.1, %19
   br i1 %matches73, label %catch110, label %catch.fallthrough74
 
@@ -52871,7 +52868,7 @@ invoke.cont118:                                   ; preds = %invoke.cont116
           to label %unreachable unwind label %ehcleanup121
 
 catch.fallthrough74:                              ; preds = %catch.fallthrough
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches75 = icmp eq i32 %ehselector.slot.1, %22
   br i1 %matches75, label %catch93, label %catch.fallthrough76
 
@@ -52897,7 +52894,7 @@ invoke.cont101:                                   ; preds = %invoke.cont99
           to label %unreachable unwind label %ehcleanup104
 
 catch.fallthrough76:                              ; preds = %catch.fallthrough74
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches77 = icmp eq i32 %ehselector.slot.1, %25
   br i1 %matches77, label %catch, label %eh.resume
 
@@ -53126,7 +53123,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -53152,7 +53149,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -53178,7 +53175,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -53204,7 +53201,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -53505,7 +53502,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn3 = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %13, %lpad5 ], [ %12, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %16
   br i1 %matches, label %catch124, label %catch.fallthrough
 
@@ -53531,7 +53528,7 @@ invoke.cont132:                                   ; preds = %invoke.cont130
           to label %unreachable unwind label %ehcleanup135
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches70 = icmp eq i32 %ehselector.slot.1, %19
   br i1 %matches70, label %catch107, label %catch.fallthrough71
 
@@ -53557,7 +53554,7 @@ invoke.cont115:                                   ; preds = %invoke.cont113
           to label %unreachable unwind label %ehcleanup118
 
 catch.fallthrough71:                              ; preds = %catch.fallthrough
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches72 = icmp eq i32 %ehselector.slot.1, %22
   br i1 %matches72, label %catch90, label %catch.fallthrough73
 
@@ -53583,7 +53580,7 @@ invoke.cont98:                                    ; preds = %invoke.cont96
           to label %unreachable unwind label %ehcleanup101
 
 catch.fallthrough73:                              ; preds = %catch.fallthrough71
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches74 = icmp eq i32 %ehselector.slot.1, %25
   br i1 %matches74, label %catch, label %eh.resume
 
@@ -53810,7 +53807,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -53836,7 +53833,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -53862,7 +53859,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -53888,7 +53885,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -54191,7 +54188,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn3 = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %12, %lpad5 ], [ %11, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %15
   br i1 %matches, label %catch125, label %catch.fallthrough
 
@@ -54217,7 +54214,7 @@ invoke.cont133:                                   ; preds = %invoke.cont131
           to label %unreachable unwind label %ehcleanup136
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches71 = icmp eq i32 %ehselector.slot.1, %18
   br i1 %matches71, label %catch108, label %catch.fallthrough72
 
@@ -54243,7 +54240,7 @@ invoke.cont116:                                   ; preds = %invoke.cont114
           to label %unreachable unwind label %ehcleanup119
 
 catch.fallthrough72:                              ; preds = %catch.fallthrough
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches73 = icmp eq i32 %ehselector.slot.1, %21
   br i1 %matches73, label %catch91, label %catch.fallthrough74
 
@@ -54269,7 +54266,7 @@ invoke.cont99:                                    ; preds = %invoke.cont97
           to label %unreachable unwind label %ehcleanup102
 
 catch.fallthrough74:                              ; preds = %catch.fallthrough72
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches75 = icmp eq i32 %ehselector.slot.1, %24
   br i1 %matches75, label %catch, label %eh.resume
 
@@ -54498,7 +54495,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -54524,7 +54521,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -54550,7 +54547,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -54576,7 +54573,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -54912,7 +54909,7 @@ catch.dispatch:                                   ; preds = %lpad72, %lpad, %lpa
   %.pn3 = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %14, %lpad5 ], [ %13, %lpad ], [ %4, %lpad.i.i.i ], [ %17, %lpad72 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %20
   br i1 %matches, label %catch129, label %catch.fallthrough
 
@@ -54938,7 +54935,7 @@ invoke.cont137:                                   ; preds = %invoke.cont135
           to label %unreachable unwind label %ehcleanup140
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches75 = icmp eq i32 %ehselector.slot.1, %23
   br i1 %matches75, label %catch112, label %catch.fallthrough76
 
@@ -54964,7 +54961,7 @@ invoke.cont120:                                   ; preds = %invoke.cont118
           to label %unreachable unwind label %ehcleanup123
 
 catch.fallthrough76:                              ; preds = %catch.fallthrough
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches77 = icmp eq i32 %ehselector.slot.1, %26
   br i1 %matches77, label %catch95, label %catch.fallthrough78
 
@@ -54990,7 +54987,7 @@ invoke.cont103:                                   ; preds = %invoke.cont101
           to label %unreachable unwind label %ehcleanup106
 
 catch.fallthrough78:                              ; preds = %catch.fallthrough76
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches79 = icmp eq i32 %ehselector.slot.1, %29
   br i1 %matches79, label %catch, label %eh.resume
 
@@ -55219,7 +55216,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -55245,7 +55242,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -55271,7 +55268,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -55297,7 +55294,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -55617,7 +55614,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn3 = phi { ptr, i32 } [ %16, %lpad69 ], [ %.pn, %cleanup.action63 ], [ %13, %lpad5 ], [ %12, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %17
   br i1 %matches, label %catch130, label %catch.fallthrough
 
@@ -55643,7 +55640,7 @@ invoke.cont138:                                   ; preds = %invoke.cont136
           to label %unreachable unwind label %ehcleanup141
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches76 = icmp eq i32 %ehselector.slot.1, %20
   br i1 %matches76, label %catch113, label %catch.fallthrough77
 
@@ -55669,7 +55666,7 @@ invoke.cont121:                                   ; preds = %invoke.cont119
           to label %unreachable unwind label %ehcleanup124
 
 catch.fallthrough77:                              ; preds = %catch.fallthrough
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches78 = icmp eq i32 %ehselector.slot.1, %23
   br i1 %matches78, label %catch96, label %catch.fallthrough79
 
@@ -55695,7 +55692,7 @@ invoke.cont104:                                   ; preds = %invoke.cont102
           to label %unreachable unwind label %ehcleanup107
 
 catch.fallthrough79:                              ; preds = %catch.fallthrough77
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches80 = icmp eq i32 %ehselector.slot.1, %26
   br i1 %matches80, label %catch, label %eh.resume
 
@@ -55993,7 +55990,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %16, %lpad32 ], [ %15, %lpad5 ], [ %14, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches, label %catch95, label %catch.fallthrough
 
@@ -56019,7 +56016,7 @@ invoke.cont103:                                   ; preds = %invoke.cont101
           to label %unreachable unwind label %ehcleanup106
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches43 = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches43, label %catch78, label %catch.fallthrough44
 
@@ -56045,7 +56042,7 @@ invoke.cont86:                                    ; preds = %invoke.cont84
           to label %unreachable unwind label %ehcleanup89
 
 catch.fallthrough44:                              ; preds = %catch.fallthrough
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches45 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches45, label %catch61, label %catch.fallthrough46
 
@@ -56071,7 +56068,7 @@ invoke.cont69:                                    ; preds = %invoke.cont67
           to label %unreachable unwind label %ehcleanup72
 
 catch.fallthrough46:                              ; preds = %catch.fallthrough44
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches47 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches47, label %catch, label %eh.resume
 
@@ -56656,7 +56653,7 @@ catch.dispatch:                                   ; preds = %lpad32, %lpad, %lpa
   %.pn7.pn.pn = phi { ptr, i32 } [ %.pn7.pn, %ehcleanup105 ], [ %.pn556, %cleanup.action85 ], [ %.pn, %ehcleanup83 ], [ %36, %lpad5 ], [ %35, %lpad ], [ %4, %lpad.i.i.i ], [ %lpad.thr_comm.split-lp, %lpad32 ]
   %exn.slot.4 = extractvalue { ptr, i32 } %.pn7.pn.pn, 0
   %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn7.pn.pn, 1
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.4, %41
   br i1 %matches, label %catch160, label %catch.fallthrough
 
@@ -56682,7 +56679,7 @@ invoke.cont168:                                   ; preds = %invoke.cont166
           to label %unreachable unwind label %ehcleanup171
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %44 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %44 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches106 = icmp eq i32 %ehselector.slot.4, %44
   br i1 %matches106, label %catch143, label %catch.fallthrough107
 
@@ -56708,7 +56705,7 @@ invoke.cont151:                                   ; preds = %invoke.cont149
           to label %unreachable unwind label %ehcleanup154
 
 catch.fallthrough107:                             ; preds = %catch.fallthrough
-  %47 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %47 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches108 = icmp eq i32 %ehselector.slot.4, %47
   br i1 %matches108, label %catch126, label %catch.fallthrough109
 
@@ -56734,7 +56731,7 @@ invoke.cont134:                                   ; preds = %invoke.cont132
           to label %unreachable unwind label %ehcleanup137
 
 catch.fallthrough109:                             ; preds = %catch.fallthrough107
-  %50 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %50 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches110 = icmp eq i32 %ehselector.slot.4, %50
   br i1 %matches110, label %catch, label %eh.resume
 
@@ -56961,7 +56958,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -56987,7 +56984,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -57013,7 +57010,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -57039,7 +57036,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -57401,7 +57398,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn3 = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %23, %lpad5 ], [ %22, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %26
   br i1 %matches, label %catch126, label %catch.fallthrough
 
@@ -57427,7 +57424,7 @@ invoke.cont134:                                   ; preds = %invoke.cont132
           to label %unreachable unwind label %ehcleanup137
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches72 = icmp eq i32 %ehselector.slot.1, %29
   br i1 %matches72, label %catch109, label %catch.fallthrough73
 
@@ -57453,7 +57450,7 @@ invoke.cont117:                                   ; preds = %invoke.cont115
           to label %unreachable unwind label %ehcleanup120
 
 catch.fallthrough73:                              ; preds = %catch.fallthrough
-  %32 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches74 = icmp eq i32 %ehselector.slot.1, %32
   br i1 %matches74, label %catch92, label %catch.fallthrough75
 
@@ -57479,7 +57476,7 @@ invoke.cont100:                                   ; preds = %invoke.cont98
           to label %unreachable unwind label %ehcleanup103
 
 catch.fallthrough75:                              ; preds = %catch.fallthrough73
-  %35 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches76 = icmp eq i32 %ehselector.slot.1, %35
   br i1 %matches76, label %catch, label %eh.resume
 
@@ -57721,7 +57718,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch83, label %catch.fallthrough
 
@@ -57747,7 +57744,7 @@ invoke.cont91:                                    ; preds = %invoke.cont89
           to label %unreachable unwind label %ehcleanup94
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches31 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches31, label %catch66, label %catch.fallthrough32
 
@@ -57773,7 +57770,7 @@ invoke.cont74:                                    ; preds = %invoke.cont72
           to label %unreachable unwind label %ehcleanup77
 
 catch.fallthrough32:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches33 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches33, label %catch49, label %catch.fallthrough34
 
@@ -57799,7 +57796,7 @@ invoke.cont57:                                    ; preds = %invoke.cont55
           to label %unreachable unwind label %ehcleanup60
 
 catch.fallthrough34:                              ; preds = %catch.fallthrough32
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches35 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches35, label %catch, label %eh.resume
 
@@ -58049,7 +58046,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch83, label %catch.fallthrough
 
@@ -58075,7 +58072,7 @@ invoke.cont91:                                    ; preds = %invoke.cont89
           to label %unreachable unwind label %ehcleanup94
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches31 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches31, label %catch66, label %catch.fallthrough32
 
@@ -58101,7 +58098,7 @@ invoke.cont74:                                    ; preds = %invoke.cont72
           to label %unreachable unwind label %ehcleanup77
 
 catch.fallthrough32:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches33 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches33, label %catch49, label %catch.fallthrough34
 
@@ -58127,7 +58124,7 @@ invoke.cont57:                                    ; preds = %invoke.cont55
           to label %unreachable unwind label %ehcleanup60
 
 catch.fallthrough34:                              ; preds = %catch.fallthrough32
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches35 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches35, label %catch, label %eh.resume
 
@@ -58375,7 +58372,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch83, label %catch.fallthrough
 
@@ -58401,7 +58398,7 @@ invoke.cont91:                                    ; preds = %invoke.cont89
           to label %unreachable unwind label %ehcleanup94
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches31 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches31, label %catch66, label %catch.fallthrough32
 
@@ -58427,7 +58424,7 @@ invoke.cont74:                                    ; preds = %invoke.cont72
           to label %unreachable unwind label %ehcleanup77
 
 catch.fallthrough32:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches33 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches33, label %catch49, label %catch.fallthrough34
 
@@ -58453,7 +58450,7 @@ invoke.cont57:                                    ; preds = %invoke.cont55
           to label %unreachable unwind label %ehcleanup60
 
 catch.fallthrough34:                              ; preds = %catch.fallthrough32
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches35 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches35, label %catch, label %eh.resume
 
@@ -58701,7 +58698,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch83, label %catch.fallthrough
 
@@ -58727,7 +58724,7 @@ invoke.cont91:                                    ; preds = %invoke.cont89
           to label %unreachable unwind label %ehcleanup94
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches31 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches31, label %catch66, label %catch.fallthrough32
 
@@ -58753,7 +58750,7 @@ invoke.cont74:                                    ; preds = %invoke.cont72
           to label %unreachable unwind label %ehcleanup77
 
 catch.fallthrough32:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches33 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches33, label %catch49, label %catch.fallthrough34
 
@@ -58779,7 +58776,7 @@ invoke.cont57:                                    ; preds = %invoke.cont55
           to label %unreachable unwind label %ehcleanup60
 
 catch.fallthrough34:                              ; preds = %catch.fallthrough32
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches35 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches35, label %catch, label %eh.resume
 
@@ -59022,7 +59019,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %10, %lpad5 ], [ %9, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches, label %catch81, label %catch.fallthrough
 
@@ -59048,7 +59045,7 @@ invoke.cont89:                                    ; preds = %invoke.cont87
           to label %unreachable unwind label %ehcleanup92
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches29 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches29, label %catch64, label %catch.fallthrough30
 
@@ -59074,7 +59071,7 @@ invoke.cont72:                                    ; preds = %invoke.cont70
           to label %unreachable unwind label %ehcleanup75
 
 catch.fallthrough30:                              ; preds = %catch.fallthrough
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches31 = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches31, label %catch47, label %catch.fallthrough32
 
@@ -59100,7 +59097,7 @@ invoke.cont55:                                    ; preds = %invoke.cont53
           to label %unreachable unwind label %ehcleanup58
 
 catch.fallthrough32:                              ; preds = %catch.fallthrough30
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches33 = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches33, label %catch, label %eh.resume
 
@@ -59329,7 +59326,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -59355,7 +59352,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -59381,7 +59378,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -59407,7 +59404,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -59790,7 +59787,7 @@ catch.dispatch:                                   ; preds = %lpad83, %lpad, %lpa
   %.pn5 = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %24, %lpad5 ], [ %23, %lpad ], [ %4, %lpad.i.i.i ], [ %27, %lpad83 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn5, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn5, 1
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %30
   br i1 %matches, label %catch143, label %catch.fallthrough
 
@@ -59816,7 +59813,7 @@ invoke.cont151:                                   ; preds = %invoke.cont149
           to label %unreachable unwind label %ehcleanup154
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %33 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches89 = icmp eq i32 %ehselector.slot.1, %33
   br i1 %matches89, label %catch126, label %catch.fallthrough90
 
@@ -59842,7 +59839,7 @@ invoke.cont134:                                   ; preds = %invoke.cont132
           to label %unreachable unwind label %ehcleanup137
 
 catch.fallthrough90:                              ; preds = %catch.fallthrough
-  %36 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches91 = icmp eq i32 %ehselector.slot.1, %36
   br i1 %matches91, label %catch109, label %catch.fallthrough92
 
@@ -59868,7 +59865,7 @@ invoke.cont117:                                   ; preds = %invoke.cont115
           to label %unreachable unwind label %ehcleanup120
 
 catch.fallthrough92:                              ; preds = %catch.fallthrough90
-  %39 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %39 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches93 = icmp eq i32 %ehselector.slot.1, %39
   br i1 %matches93, label %catch, label %eh.resume
 
@@ -60231,7 +60228,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %16, %lpad23 ], [ %15, %lpad5 ], [ %14, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches, label %catch82, label %catch.fallthrough
 
@@ -60257,7 +60254,7 @@ invoke.cont90:                                    ; preds = %invoke.cont88
           to label %unreachable unwind label %ehcleanup93
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches30 = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches30, label %catch65, label %catch.fallthrough31
 
@@ -60283,7 +60280,7 @@ invoke.cont73:                                    ; preds = %invoke.cont71
           to label %unreachable unwind label %ehcleanup76
 
 catch.fallthrough31:                              ; preds = %catch.fallthrough
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches32 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches32, label %catch48, label %catch.fallthrough33
 
@@ -60309,7 +60306,7 @@ invoke.cont56:                                    ; preds = %invoke.cont54
           to label %unreachable unwind label %ehcleanup59
 
 catch.fallthrough33:                              ; preds = %catch.fallthrough31
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches34 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches34, label %catch, label %eh.resume
 
@@ -60926,7 +60923,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn5 = phi { ptr, i32 } [ %23, %lpad76 ], [ %.pn3, %ehcleanup73 ], [ %19, %lpad5 ], [ %18, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn5, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn5, 1
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.2, %24
   br i1 %matches, label %catch133, label %catch.fallthrough
 
@@ -60952,7 +60949,7 @@ invoke.cont141:                                   ; preds = %invoke.cont139
           to label %unreachable unwind label %ehcleanup144
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches79 = icmp eq i32 %ehselector.slot.2, %27
   br i1 %matches79, label %catch116, label %catch.fallthrough80
 
@@ -60978,7 +60975,7 @@ invoke.cont124:                                   ; preds = %invoke.cont122
           to label %unreachable unwind label %ehcleanup127
 
 catch.fallthrough80:                              ; preds = %catch.fallthrough
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches81 = icmp eq i32 %ehselector.slot.2, %30
   br i1 %matches81, label %catch99, label %catch.fallthrough82
 
@@ -61004,7 +61001,7 @@ invoke.cont107:                                   ; preds = %invoke.cont105
           to label %unreachable unwind label %ehcleanup110
 
 catch.fallthrough82:                              ; preds = %catch.fallthrough80
-  %33 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches83 = icmp eq i32 %ehselector.slot.2, %33
   br i1 %matches83, label %catch, label %eh.resume
 
@@ -61253,7 +61250,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -61279,7 +61276,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -61305,7 +61302,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -61331,7 +61328,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -61739,7 +61736,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn4.pn = phi { ptr, i32 } [ %.pn4, %ehcleanup85 ], [ %.pn, %cleanup.action63 ], [ %25, %lpad5 ], [ %24, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn4.pn, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn4.pn, 1
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.2, %29
   br i1 %matches, label %catch140, label %catch.fallthrough
 
@@ -61765,7 +61762,7 @@ invoke.cont148:                                   ; preds = %invoke.cont146
           to label %unreachable unwind label %ehcleanup151
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %32 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches86 = icmp eq i32 %ehselector.slot.2, %32
   br i1 %matches86, label %catch123, label %catch.fallthrough87
 
@@ -61791,7 +61788,7 @@ invoke.cont131:                                   ; preds = %invoke.cont129
           to label %unreachable unwind label %ehcleanup134
 
 catch.fallthrough87:                              ; preds = %catch.fallthrough
-  %35 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches88 = icmp eq i32 %ehselector.slot.2, %35
   br i1 %matches88, label %catch106, label %catch.fallthrough89
 
@@ -61817,7 +61814,7 @@ invoke.cont114:                                   ; preds = %invoke.cont112
           to label %unreachable unwind label %ehcleanup117
 
 catch.fallthrough89:                              ; preds = %catch.fallthrough87
-  %38 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches90 = icmp eq i32 %ehselector.slot.2, %38
   br i1 %matches90, label %catch, label %eh.resume
 
@@ -62046,7 +62043,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -62072,7 +62069,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -62098,7 +62095,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -62124,7 +62121,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -62645,7 +62642,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn8 = phi { ptr, i32 } [ %38, %lpad137 ], [ %37, %lpad128 ], [ %.pn6, %ehcleanup123 ], [ %.pn, %cleanup.action63 ], [ %31, %lpad5 ], [ %30, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.3 = extractvalue { ptr, i32 } %.pn8, 0
   %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn8, 1
-  %39 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %39 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.3, %39
   br i1 %matches, label %catch198, label %catch.fallthrough
 
@@ -62671,7 +62668,7 @@ invoke.cont206:                                   ; preds = %invoke.cont204
           to label %unreachable unwind label %ehcleanup209
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %42 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %42 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches144 = icmp eq i32 %ehselector.slot.3, %42
   br i1 %matches144, label %catch181, label %catch.fallthrough145
 
@@ -62697,7 +62694,7 @@ invoke.cont189:                                   ; preds = %invoke.cont187
           to label %unreachable unwind label %ehcleanup192
 
 catch.fallthrough145:                             ; preds = %catch.fallthrough
-  %45 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %45 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches146 = icmp eq i32 %ehselector.slot.3, %45
   br i1 %matches146, label %catch164, label %catch.fallthrough147
 
@@ -62723,7 +62720,7 @@ invoke.cont172:                                   ; preds = %invoke.cont170
           to label %unreachable unwind label %ehcleanup175
 
 catch.fallthrough147:                             ; preds = %catch.fallthrough145
-  %48 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %48 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches148 = icmp eq i32 %ehselector.slot.3, %48
   br i1 %matches148, label %catch, label %eh.resume
 
@@ -62954,7 +62951,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn = phi { ptr, i32 } [ %9, %lpad5 ], [ %8, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -62980,7 +62977,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -63006,7 +63003,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -63032,7 +63029,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -63158,7 +63155,7 @@ unreachable:                                      ; preds = %invoke.cont34, %inv
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZNK4cvc54Term40getRealAlgebraicNumberDefiningPolynomialERKS0_(ptr noalias nocapture readnone sret(%"class.cvc5::Term") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %v) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4cvc54Term40getRealAlgebraicNumberDefiningPolynomialERKS0_(ptr noalias nocapture readnone sret(%"class.cvc5::Term") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %v) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.cvc5::(anonymous namespace)::CVC5ApiExceptionStream", align 8
   %ref.tmp27 = alloca %"class.cvc5::(anonymous namespace)::CVC5ApiExceptionStream", align 8
@@ -63435,7 +63432,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn4.pn = phi { ptr, i32 } [ %.pn431, %cleanup.action112 ], [ %17, %ehcleanup109 ], [ %15, %lpad76 ], [ %.pn, %cleanup.action63 ], [ %12, %lpad5 ], [ %11, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn4.pn, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn4.pn, 1
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.2, %18
   br i1 %matches, label %catch170, label %catch.fallthrough
 
@@ -63461,7 +63458,7 @@ invoke.cont178:                                   ; preds = %invoke.cont176
           to label %unreachable unwind label %ehcleanup181
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches114 = icmp eq i32 %ehselector.slot.2, %21
   br i1 %matches114, label %catch153, label %catch.fallthrough115
 
@@ -63487,7 +63484,7 @@ invoke.cont161:                                   ; preds = %invoke.cont159
           to label %unreachable unwind label %ehcleanup164
 
 catch.fallthrough115:                             ; preds = %catch.fallthrough
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches116 = icmp eq i32 %ehselector.slot.2, %24
   br i1 %matches116, label %catch136, label %catch.fallthrough117
 
@@ -63513,7 +63510,7 @@ invoke.cont144:                                   ; preds = %invoke.cont142
           to label %unreachable unwind label %ehcleanup147
 
 catch.fallthrough117:                             ; preds = %catch.fallthrough115
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches118 = icmp eq i32 %ehselector.slot.2, %27
   br i1 %matches118, label %catch, label %eh.resume
 
@@ -63658,7 +63655,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZNK4cvc54Term32getRealAlgebraicNumberLowerBoundEv(ptr noalias nocapture readnone sret(%"class.cvc5::Term") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4cvc54Term32getRealAlgebraicNumberLowerBoundEv(ptr noalias nocapture readnone sret(%"class.cvc5::Term") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.cvc5::(anonymous namespace)::CVC5ApiExceptionStream", align 8
   %ref.tmp27 = alloca %"class.cvc5::(anonymous namespace)::CVC5ApiExceptionStream", align 8
@@ -63899,7 +63896,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn3.pn = phi { ptr, i32 } [ %.pn331, %cleanup.action76 ], [ %eh.lpad-body20, %ehcleanup73 ], [ %.pn, %cleanup.action63 ], [ %13, %lpad5 ], [ %12, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn3.pn, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn3.pn, 1
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.2, %18
   br i1 %matches, label %catch134, label %catch.fallthrough
 
@@ -63925,7 +63922,7 @@ invoke.cont142:                                   ; preds = %invoke.cont140
           to label %unreachable unwind label %ehcleanup145
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches78 = icmp eq i32 %ehselector.slot.2, %21
   br i1 %matches78, label %catch117, label %catch.fallthrough79
 
@@ -63951,7 +63948,7 @@ invoke.cont125:                                   ; preds = %invoke.cont123
           to label %unreachable unwind label %ehcleanup128
 
 catch.fallthrough79:                              ; preds = %catch.fallthrough
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches80 = icmp eq i32 %ehselector.slot.2, %24
   br i1 %matches80, label %catch100, label %catch.fallthrough81
 
@@ -63977,7 +63974,7 @@ invoke.cont108:                                   ; preds = %invoke.cont106
           to label %unreachable unwind label %ehcleanup111
 
 catch.fallthrough81:                              ; preds = %catch.fallthrough79
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches82 = icmp eq i32 %ehselector.slot.2, %27
   br i1 %matches82, label %catch, label %eh.resume
 
@@ -64103,7 +64100,7 @@ unreachable:                                      ; preds = %invoke.cont90, %inv
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZNK4cvc54Term32getRealAlgebraicNumberUpperBoundEv(ptr noalias nocapture readnone sret(%"class.cvc5::Term") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4cvc54Term32getRealAlgebraicNumberUpperBoundEv(ptr noalias nocapture readnone sret(%"class.cvc5::Term") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.cvc5::(anonymous namespace)::CVC5ApiExceptionStream", align 8
   %ref.tmp27 = alloca %"class.cvc5::(anonymous namespace)::CVC5ApiExceptionStream", align 8
@@ -64344,7 +64341,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, 
   %.pn3.pn = phi { ptr, i32 } [ %.pn331, %cleanup.action76 ], [ %eh.lpad-body20, %ehcleanup73 ], [ %.pn, %cleanup.action63 ], [ %13, %lpad5 ], [ %12, %lpad ], [ %4, %lpad.i.i.i ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn3.pn, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn3.pn, 1
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.2, %18
   br i1 %matches, label %catch134, label %catch.fallthrough
 
@@ -64370,7 +64367,7 @@ invoke.cont142:                                   ; preds = %invoke.cont140
           to label %unreachable unwind label %ehcleanup145
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches78 = icmp eq i32 %ehselector.slot.2, %21
   br i1 %matches78, label %catch117, label %catch.fallthrough79
 
@@ -64396,7 +64393,7 @@ invoke.cont125:                                   ; preds = %invoke.cont123
           to label %unreachable unwind label %ehcleanup128
 
 catch.fallthrough79:                              ; preds = %catch.fallthrough
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches80 = icmp eq i32 %ehselector.slot.2, %24
   br i1 %matches80, label %catch100, label %catch.fallthrough81
 
@@ -64422,7 +64419,7 @@ invoke.cont108:                                   ; preds = %invoke.cont106
           to label %unreachable unwind label %ehcleanup111
 
 catch.fallthrough81:                              ; preds = %catch.fallthrough79
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches82 = icmp eq i32 %ehselector.slot.2, %27
   br i1 %matches82, label %catch, label %eh.resume
 
@@ -65253,7 +65250,7 @@ catch.dispatch:                                   ; preds = %lpad59.body, %lpad3
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %10, %lpad ], [ %eh.lpad-body, %lpad59.body ], [ %12, %lpad30 ], [ %11, %lpad5 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %16
   br i1 %matches, label %catch146, label %catch.fallthrough
 
@@ -65279,7 +65276,7 @@ invoke.cont154:                                   ; preds = %invoke.cont152
           to label %unreachable unwind label %ehcleanup157
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches92 = icmp eq i32 %ehselector.slot.1, %19
   br i1 %matches92, label %catch129, label %catch.fallthrough93
 
@@ -65305,7 +65302,7 @@ invoke.cont137:                                   ; preds = %invoke.cont135
           to label %unreachable unwind label %ehcleanup140
 
 catch.fallthrough93:                              ; preds = %catch.fallthrough
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches94 = icmp eq i32 %ehselector.slot.1, %22
   br i1 %matches94, label %catch112, label %catch.fallthrough95
 
@@ -65331,7 +65328,7 @@ invoke.cont120:                                   ; preds = %invoke.cont118
           to label %unreachable unwind label %ehcleanup123
 
 catch.fallthrough95:                              ; preds = %catch.fallthrough93
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches96 = icmp eq i32 %ehselector.slot.1, %25
   br i1 %matches96, label %catch, label %eh.resume
 
@@ -65552,7 +65549,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad22, %lp
   %.pn = phi { ptr, i32 } [ %4, %lpad22 ], [ %2, %lpad ], [ %3, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %5 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %5 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %5
   br i1 %matches, label %catch76, label %catch.fallthrough
 
@@ -65578,7 +65575,7 @@ invoke.cont84:                                    ; preds = %invoke.cont82
           to label %unreachable unwind label %ehcleanup87
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches24 = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches24, label %catch59, label %catch.fallthrough25
 
@@ -65604,7 +65601,7 @@ invoke.cont67:                                    ; preds = %invoke.cont65
           to label %unreachable unwind label %ehcleanup70
 
 catch.fallthrough25:                              ; preds = %catch.fallthrough
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches26 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches26, label %catch42, label %catch.fallthrough27
 
@@ -65630,7 +65627,7 @@ invoke.cont50:                                    ; preds = %invoke.cont48
           to label %unreachable unwind label %ehcleanup53
 
 catch.fallthrough27:                              ; preds = %catch.fallthrough25
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches28 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches28, label %catch, label %eh.resume
 
@@ -65955,7 +65952,7 @@ catch.dispatch:                                   ; preds = %lpad5, %ehcleanup29
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup29 ], [ %13, %lpad ], [ %14, %lpad5 ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.2, %18
   br i1 %matches, label %catch84, label %catch.fallthrough
 
@@ -65981,7 +65978,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
           to label %unreachable unwind label %ehcleanup95
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches30 = icmp eq i32 %ehselector.slot.2, %21
   br i1 %matches30, label %catch67, label %catch.fallthrough31
 
@@ -66007,7 +66004,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
           to label %unreachable unwind label %ehcleanup78
 
 catch.fallthrough31:                              ; preds = %catch.fallthrough
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches32 = icmp eq i32 %ehselector.slot.2, %24
   br i1 %matches32, label %catch50, label %catch.fallthrough33
 
@@ -66033,7 +66030,7 @@ invoke.cont58:                                    ; preds = %invoke.cont56
           to label %unreachable unwind label %ehcleanup61
 
 catch.fallthrough33:                              ; preds = %catch.fallthrough31
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches34 = icmp eq i32 %ehselector.slot.2, %27
   br i1 %matches34, label %catch, label %eh.resume
 
@@ -66255,7 +66252,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad22, %lp
   %.pn = phi { ptr, i32 } [ %4, %lpad22 ], [ %2, %lpad ], [ %3, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %5 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %5 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %5
   br i1 %matches, label %catch78, label %catch.fallthrough
 
@@ -66281,7 +66278,7 @@ invoke.cont86:                                    ; preds = %invoke.cont84
           to label %unreachable unwind label %ehcleanup89
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches26 = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches26, label %catch61, label %catch.fallthrough27
 
@@ -66307,7 +66304,7 @@ invoke.cont69:                                    ; preds = %invoke.cont67
           to label %unreachable unwind label %ehcleanup72
 
 catch.fallthrough27:                              ; preds = %catch.fallthrough
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches28 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches28, label %catch44, label %catch.fallthrough29
 
@@ -66333,7 +66330,7 @@ invoke.cont52:                                    ; preds = %invoke.cont50
           to label %unreachable unwind label %ehcleanup55
 
 catch.fallthrough29:                              ; preds = %catch.fallthrough27
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches30 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches30, label %catch, label %eh.resume
 
@@ -67400,7 +67397,7 @@ catch.dispatch:                                   ; preds = %lpad29, %lpad4, %lp
   %.pn = phi { ptr, i32 } [ %22, %lpad49 ], [ %19, %lpad ], [ %21, %lpad29 ], [ %20, %lpad4 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches, label %catch103, label %catch.fallthrough
 
@@ -67426,7 +67423,7 @@ invoke.cont111:                                   ; preds = %invoke.cont109
           to label %unreachable unwind label %ehcleanup114
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches51 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches51, label %catch86, label %catch.fallthrough52
 
@@ -67452,7 +67449,7 @@ invoke.cont94:                                    ; preds = %invoke.cont92
           to label %unreachable unwind label %ehcleanup97
 
 catch.fallthrough52:                              ; preds = %catch.fallthrough
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %29
   br i1 %matches53, label %catch69, label %catch.fallthrough54
 
@@ -67478,7 +67475,7 @@ invoke.cont77:                                    ; preds = %invoke.cont75
           to label %unreachable unwind label %ehcleanup80
 
 catch.fallthrough54:                              ; preds = %catch.fallthrough52
-  %32 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches55 = icmp eq i32 %ehselector.slot.0, %32
   br i1 %matches55, label %catch, label %eh.resume
 
@@ -67674,7 +67671,7 @@ catch.dispatch:                                   ; preds = %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad4 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %4 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %4
   br i1 %matches, label %catch74, label %catch.fallthrough
 
@@ -67700,7 +67697,7 @@ invoke.cont82:                                    ; preds = %invoke.cont80
           to label %unreachable unwind label %ehcleanup85
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches22 = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches22, label %catch57, label %catch.fallthrough23
 
@@ -67726,7 +67723,7 @@ invoke.cont65:                                    ; preds = %invoke.cont63
           to label %unreachable unwind label %ehcleanup68
 
 catch.fallthrough23:                              ; preds = %catch.fallthrough
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches24 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches24, label %catch40, label %catch.fallthrough25
 
@@ -67752,7 +67749,7 @@ invoke.cont48:                                    ; preds = %invoke.cont46
           to label %unreachable unwind label %ehcleanup51
 
 catch.fallthrough25:                              ; preds = %catch.fallthrough23
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches26 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches26, label %catch, label %eh.resume
 
@@ -67948,7 +67945,7 @@ catch.dispatch:                                   ; preds = %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad4 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %4 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %4
   br i1 %matches, label %catch74, label %catch.fallthrough
 
@@ -67974,7 +67971,7 @@ invoke.cont82:                                    ; preds = %invoke.cont80
           to label %unreachable unwind label %ehcleanup85
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches22 = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches22, label %catch57, label %catch.fallthrough23
 
@@ -68000,7 +67997,7 @@ invoke.cont65:                                    ; preds = %invoke.cont63
           to label %unreachable unwind label %ehcleanup68
 
 catch.fallthrough23:                              ; preds = %catch.fallthrough
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches24 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches24, label %catch40, label %catch.fallthrough25
 
@@ -68026,7 +68023,7 @@ invoke.cont48:                                    ; preds = %invoke.cont46
           to label %unreachable unwind label %ehcleanup51
 
 catch.fallthrough25:                              ; preds = %catch.fallthrough23
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches26 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches26, label %catch, label %eh.resume
 
@@ -68239,7 +68236,7 @@ catch.dispatch:                                   ; preds = %lpad4, %lpad21, %lp
   %.pn = phi { ptr, i32 } [ %4, %lpad21 ], [ %2, %lpad ], [ %3, %lpad4 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %5 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %5 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %5
   br i1 %matches, label %catch77, label %catch.fallthrough
 
@@ -68265,7 +68262,7 @@ invoke.cont85:                                    ; preds = %invoke.cont83
           to label %unreachable unwind label %ehcleanup88
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches25, label %catch60, label %catch.fallthrough26
 
@@ -68291,7 +68288,7 @@ invoke.cont68:                                    ; preds = %invoke.cont66
           to label %unreachable unwind label %ehcleanup71
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches27, label %catch43, label %catch.fallthrough28
 
@@ -68317,7 +68314,7 @@ invoke.cont51:                                    ; preds = %invoke.cont49
           to label %unreachable unwind label %ehcleanup54
 
 catch.fallthrough28:                              ; preds = %catch.fallthrough26
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches29 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches29, label %catch, label %eh.resume
 
@@ -68513,7 +68510,7 @@ catch.dispatch:                                   ; preds = %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad4 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %4 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %4
   br i1 %matches, label %catch73, label %catch.fallthrough
 
@@ -68539,7 +68536,7 @@ invoke.cont81:                                    ; preds = %invoke.cont79
           to label %unreachable unwind label %ehcleanup84
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches21 = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches21, label %catch56, label %catch.fallthrough22
 
@@ -68565,7 +68562,7 @@ invoke.cont64:                                    ; preds = %invoke.cont62
           to label %unreachable unwind label %ehcleanup67
 
 catch.fallthrough22:                              ; preds = %catch.fallthrough
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches23, label %catch39, label %catch.fallthrough24
 
@@ -68591,7 +68588,7 @@ invoke.cont47:                                    ; preds = %invoke.cont45
           to label %unreachable unwind label %ehcleanup50
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough22
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches25, label %catch, label %eh.resume
 
@@ -69280,7 +69277,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %4 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %4
   br i1 %matches, label %catch76, label %catch.fallthrough
 
@@ -69306,7 +69303,7 @@ invoke.cont84:                                    ; preds = %invoke.cont82
           to label %unreachable unwind label %ehcleanup87
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches24 = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches24, label %catch59, label %catch.fallthrough25
 
@@ -69332,7 +69329,7 @@ invoke.cont67:                                    ; preds = %invoke.cont65
           to label %unreachable unwind label %ehcleanup70
 
 catch.fallthrough25:                              ; preds = %catch.fallthrough
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches26 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches26, label %catch42, label %catch.fallthrough27
 
@@ -69358,7 +69355,7 @@ invoke.cont50:                                    ; preds = %invoke.cont48
           to label %unreachable unwind label %ehcleanup53
 
 catch.fallthrough27:                              ; preds = %catch.fallthrough25
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches28 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches28, label %catch, label %eh.resume
 
@@ -69606,7 +69603,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad23, %lp
   %.pn = phi { ptr, i32 } [ %9, %lpad23 ], [ %7, %lpad ], [ %8, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch77, label %catch.fallthrough
 
@@ -69632,7 +69629,7 @@ invoke.cont85:                                    ; preds = %invoke.cont83
           to label %unreachable unwind label %ehcleanup88
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches25, label %catch60, label %catch.fallthrough26
 
@@ -69658,7 +69655,7 @@ invoke.cont68:                                    ; preds = %invoke.cont66
           to label %unreachable unwind label %ehcleanup71
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches27, label %catch43, label %catch.fallthrough28
 
@@ -69684,7 +69681,7 @@ invoke.cont51:                                    ; preds = %invoke.cont49
           to label %unreachable unwind label %ehcleanup54
 
 catch.fallthrough28:                              ; preds = %catch.fallthrough26
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches29 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches29, label %catch, label %eh.resume
 
@@ -69923,7 +69920,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad23, %lp
   %.pn = phi { ptr, i32 } [ %9, %lpad23 ], [ %7, %lpad ], [ %8, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch77, label %catch.fallthrough
 
@@ -69949,7 +69946,7 @@ invoke.cont85:                                    ; preds = %invoke.cont83
           to label %unreachable unwind label %ehcleanup88
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches25, label %catch60, label %catch.fallthrough26
 
@@ -69975,7 +69972,7 @@ invoke.cont68:                                    ; preds = %invoke.cont66
           to label %unreachable unwind label %ehcleanup71
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches27, label %catch43, label %catch.fallthrough28
 
@@ -70001,7 +69998,7 @@ invoke.cont51:                                    ; preds = %invoke.cont49
           to label %unreachable unwind label %ehcleanup54
 
 catch.fallthrough28:                              ; preds = %catch.fallthrough26
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches29 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches29, label %catch, label %eh.resume
 
@@ -70240,7 +70237,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad23, %lp
   %.pn = phi { ptr, i32 } [ %9, %lpad23 ], [ %7, %lpad ], [ %8, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch77, label %catch.fallthrough
 
@@ -70266,7 +70263,7 @@ invoke.cont85:                                    ; preds = %invoke.cont83
           to label %unreachable unwind label %ehcleanup88
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches25, label %catch60, label %catch.fallthrough26
 
@@ -70292,7 +70289,7 @@ invoke.cont68:                                    ; preds = %invoke.cont66
           to label %unreachable unwind label %ehcleanup71
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches27, label %catch43, label %catch.fallthrough28
 
@@ -70318,7 +70315,7 @@ invoke.cont51:                                    ; preds = %invoke.cont49
           to label %unreachable unwind label %ehcleanup54
 
 catch.fallthrough28:                              ; preds = %catch.fallthrough26
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches29 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches29, label %catch, label %eh.resume
 
@@ -70540,7 +70537,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad22, %lp
   %.pn = phi { ptr, i32 } [ %4, %lpad22 ], [ %2, %lpad ], [ %3, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %5 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %5 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %5
   br i1 %matches, label %catch78, label %catch.fallthrough
 
@@ -70566,7 +70563,7 @@ invoke.cont86:                                    ; preds = %invoke.cont84
           to label %unreachable unwind label %ehcleanup89
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches26 = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches26, label %catch61, label %catch.fallthrough27
 
@@ -70592,7 +70589,7 @@ invoke.cont69:                                    ; preds = %invoke.cont67
           to label %unreachable unwind label %ehcleanup72
 
 catch.fallthrough27:                              ; preds = %catch.fallthrough
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches28 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches28, label %catch44, label %catch.fallthrough29
 
@@ -70618,7 +70615,7 @@ invoke.cont52:                                    ; preds = %invoke.cont50
           to label %unreachable unwind label %ehcleanup55
 
 catch.fallthrough29:                              ; preds = %catch.fallthrough27
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches30 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches30, label %catch, label %eh.resume
 
@@ -71494,7 +71491,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %4 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %4
   br i1 %matches, label %catch76, label %catch.fallthrough
 
@@ -71520,7 +71517,7 @@ invoke.cont84:                                    ; preds = %invoke.cont82
           to label %unreachable unwind label %ehcleanup87
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches24 = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches24, label %catch59, label %catch.fallthrough25
 
@@ -71546,7 +71543,7 @@ invoke.cont67:                                    ; preds = %invoke.cont65
           to label %unreachable unwind label %ehcleanup70
 
 catch.fallthrough25:                              ; preds = %catch.fallthrough
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches26 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches26, label %catch42, label %catch.fallthrough27
 
@@ -71572,7 +71569,7 @@ invoke.cont50:                                    ; preds = %invoke.cont48
           to label %unreachable unwind label %ehcleanup53
 
 catch.fallthrough27:                              ; preds = %catch.fallthrough25
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches28 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches28, label %catch, label %eh.resume
 
@@ -71820,7 +71817,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad23, %lp
   %.pn = phi { ptr, i32 } [ %9, %lpad23 ], [ %7, %lpad ], [ %8, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch77, label %catch.fallthrough
 
@@ -71846,7 +71843,7 @@ invoke.cont85:                                    ; preds = %invoke.cont83
           to label %unreachable unwind label %ehcleanup88
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches25, label %catch60, label %catch.fallthrough26
 
@@ -71872,7 +71869,7 @@ invoke.cont68:                                    ; preds = %invoke.cont66
           to label %unreachable unwind label %ehcleanup71
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches27, label %catch43, label %catch.fallthrough28
 
@@ -71898,7 +71895,7 @@ invoke.cont51:                                    ; preds = %invoke.cont49
           to label %unreachable unwind label %ehcleanup54
 
 catch.fallthrough28:                              ; preds = %catch.fallthrough26
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches29 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches29, label %catch, label %eh.resume
 
@@ -72296,7 +72293,7 @@ catch.dispatch:                                   ; preds = %lpad54.body, %lpad3
   %.pn = phi { ptr, i32 } [ %21, %lpad77 ], [ %20, %lpad75 ], [ %16, %lpad ], [ %eh.lpad-body, %lpad54.body ], [ %18, %lpad30 ], [ %17, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches, label %catch132, label %catch.fallthrough
 
@@ -72322,7 +72319,7 @@ invoke.cont140:                                   ; preds = %invoke.cont138
           to label %unreachable unwind label %ehcleanup143
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches80 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches80, label %catch115, label %catch.fallthrough81
 
@@ -72348,7 +72345,7 @@ invoke.cont123:                                   ; preds = %invoke.cont121
           to label %unreachable unwind label %ehcleanup126
 
 catch.fallthrough81:                              ; preds = %catch.fallthrough
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches82 = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches82, label %catch98, label %catch.fallthrough83
 
@@ -72374,7 +72371,7 @@ invoke.cont106:                                   ; preds = %invoke.cont104
           to label %unreachable unwind label %ehcleanup109
 
 catch.fallthrough83:                              ; preds = %catch.fallthrough81
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches84 = icmp eq i32 %ehselector.slot.0, %31
   br i1 %matches84, label %catch, label %eh.resume
 
@@ -72643,7 +72640,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad23, %lp
   %.pn = phi { ptr, i32 } [ %9, %lpad23 ], [ %7, %lpad ], [ %8, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch77, label %catch.fallthrough
 
@@ -72669,7 +72666,7 @@ invoke.cont85:                                    ; preds = %invoke.cont83
           to label %unreachable unwind label %ehcleanup88
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches25, label %catch60, label %catch.fallthrough26
 
@@ -72695,7 +72692,7 @@ invoke.cont68:                                    ; preds = %invoke.cont66
           to label %unreachable unwind label %ehcleanup71
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches27, label %catch43, label %catch.fallthrough28
 
@@ -72721,7 +72718,7 @@ invoke.cont51:                                    ; preds = %invoke.cont49
           to label %unreachable unwind label %ehcleanup54
 
 catch.fallthrough28:                              ; preds = %catch.fallthrough26
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches29 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches29, label %catch, label %eh.resume
 
@@ -72917,7 +72914,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %4 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %4
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -72943,7 +72940,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -72969,7 +72966,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -72995,7 +72992,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -73196,7 +73193,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad
   %.pn = phi { ptr, i32 } [ %3, %lpad ], [ %4, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %5 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %5 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %5
   br i1 %matches, label %catch76, label %catch.fallthrough
 
@@ -73222,7 +73219,7 @@ invoke.cont84:                                    ; preds = %invoke.cont82
           to label %unreachable unwind label %ehcleanup87
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches24 = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches24, label %catch59, label %catch.fallthrough25
 
@@ -73248,7 +73245,7 @@ invoke.cont67:                                    ; preds = %invoke.cont65
           to label %unreachable unwind label %ehcleanup70
 
 catch.fallthrough25:                              ; preds = %catch.fallthrough
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches26 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches26, label %catch42, label %catch.fallthrough27
 
@@ -73274,7 +73271,7 @@ invoke.cont50:                                    ; preds = %invoke.cont48
           to label %unreachable unwind label %ehcleanup53
 
 catch.fallthrough27:                              ; preds = %catch.fallthrough25
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches28 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches28, label %catch, label %eh.resume
 
@@ -73465,7 +73462,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad
   %.pn = phi { ptr, i32 } [ %1, %lpad ], [ %2, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %3 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %3 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %3
   br i1 %matches, label %catch73, label %catch.fallthrough
 
@@ -73491,7 +73488,7 @@ invoke.cont81:                                    ; preds = %invoke.cont79
           to label %unreachable unwind label %ehcleanup84
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %6 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches21 = icmp eq i32 %ehselector.slot.0, %6
   br i1 %matches21, label %catch56, label %catch.fallthrough22
 
@@ -73517,7 +73514,7 @@ invoke.cont64:                                    ; preds = %invoke.cont62
           to label %unreachable unwind label %ehcleanup67
 
 catch.fallthrough22:                              ; preds = %catch.fallthrough
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches23, label %catch39, label %catch.fallthrough24
 
@@ -73543,7 +73540,7 @@ invoke.cont47:                                    ; preds = %invoke.cont45
           to label %unreachable unwind label %ehcleanup50
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough22
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches25, label %catch, label %eh.resume
 
@@ -73924,7 +73921,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad
   %.pn = phi { ptr, i32 } [ %1, %lpad ], [ %2, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %3 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %3 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %3
   br i1 %matches, label %catch73, label %catch.fallthrough
 
@@ -73950,7 +73947,7 @@ invoke.cont81:                                    ; preds = %invoke.cont79
           to label %unreachable unwind label %ehcleanup84
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %6 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches21 = icmp eq i32 %ehselector.slot.0, %6
   br i1 %matches21, label %catch56, label %catch.fallthrough22
 
@@ -73976,7 +73973,7 @@ invoke.cont64:                                    ; preds = %invoke.cont62
           to label %unreachable unwind label %ehcleanup67
 
 catch.fallthrough22:                              ; preds = %catch.fallthrough
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches23, label %catch39, label %catch.fallthrough24
 
@@ -74002,7 +73999,7 @@ invoke.cont47:                                    ; preds = %invoke.cont45
           to label %unreachable unwind label %ehcleanup50
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough22
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches25, label %catch, label %eh.resume
 
@@ -74561,7 +74558,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc519DatatypeConstructor14const_iteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(48) %this) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc519DatatypeConstructor14const_iteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(48) %this) local_unnamed_addr #13 align 2 {
 entry:
   %d_idx = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %d_idx, align 8
@@ -74756,7 +74753,7 @@ catch.dispatch:                                   ; preds = %lpad2, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad2 ], [ %1, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %3 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %3 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %3
   br i1 %matches, label %catch54, label %catch.fallthrough
 
@@ -74782,7 +74779,7 @@ invoke.cont62:                                    ; preds = %invoke.cont60
           to label %unreachable unwind label %ehcleanup65
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %6 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches6 = icmp eq i32 %ehselector.slot.0, %6
   br i1 %matches6, label %catch37, label %catch.fallthrough7
 
@@ -74808,7 +74805,7 @@ invoke.cont45:                                    ; preds = %invoke.cont43
           to label %unreachable unwind label %ehcleanup48
 
 catch.fallthrough7:                               ; preds = %catch.fallthrough
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches8 = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches8, label %catch20, label %catch.fallthrough9
 
@@ -74834,7 +74831,7 @@ invoke.cont28:                                    ; preds = %invoke.cont26
           to label %unreachable unwind label %ehcleanup31
 
 catch.fallthrough9:                               ; preds = %catch.fallthrough7
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches10 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches10, label %catch, label %eh.resume
 
@@ -76009,7 +76006,7 @@ catch.dispatch:                                   ; preds = %lpad29, %lpad5, %lp
   %.pn = phi { ptr, i32 } [ %3, %lpad ], [ %5, %lpad29 ], [ %4, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %6 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %6
   br i1 %matches, label %catch100, label %catch.fallthrough
 
@@ -76035,7 +76032,7 @@ invoke.cont108:                                   ; preds = %invoke.cont106
           to label %unreachable unwind label %ehcleanup111
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches48 = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches48, label %catch83, label %catch.fallthrough49
 
@@ -76061,7 +76058,7 @@ invoke.cont91:                                    ; preds = %invoke.cont89
           to label %unreachable unwind label %ehcleanup94
 
 catch.fallthrough49:                              ; preds = %catch.fallthrough
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches50 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches50, label %catch66, label %catch.fallthrough51
 
@@ -76087,7 +76084,7 @@ invoke.cont74:                                    ; preds = %invoke.cont72
           to label %unreachable unwind label %ehcleanup77
 
 catch.fallthrough51:                              ; preds = %catch.fallthrough49
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches52 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches52, label %catch, label %eh.resume
 
@@ -76290,7 +76287,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %4 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %4
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -76316,7 +76313,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -76342,7 +76339,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -76368,7 +76365,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -76559,7 +76556,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad
   %.pn = phi { ptr, i32 } [ %1, %lpad ], [ %2, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %3 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %3 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %3
   br i1 %matches, label %catch73, label %catch.fallthrough
 
@@ -76585,7 +76582,7 @@ invoke.cont81:                                    ; preds = %invoke.cont79
           to label %unreachable unwind label %ehcleanup84
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %6 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches21 = icmp eq i32 %ehselector.slot.0, %6
   br i1 %matches21, label %catch56, label %catch.fallthrough22
 
@@ -76611,7 +76608,7 @@ invoke.cont64:                                    ; preds = %invoke.cont62
           to label %unreachable unwind label %ehcleanup67
 
 catch.fallthrough22:                              ; preds = %catch.fallthrough
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches23, label %catch39, label %catch.fallthrough24
 
@@ -76637,7 +76634,7 @@ invoke.cont47:                                    ; preds = %invoke.cont45
           to label %unreachable unwind label %ehcleanup50
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough22
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches25, label %catch, label %eh.resume
 
@@ -77018,7 +77015,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad
   %.pn = phi { ptr, i32 } [ %1, %lpad ], [ %2, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %3 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %3 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %3
   br i1 %matches, label %catch73, label %catch.fallthrough
 
@@ -77044,7 +77041,7 @@ invoke.cont81:                                    ; preds = %invoke.cont79
           to label %unreachable unwind label %ehcleanup84
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %6 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches21 = icmp eq i32 %ehselector.slot.0, %6
   br i1 %matches21, label %catch56, label %catch.fallthrough22
 
@@ -77070,7 +77067,7 @@ invoke.cont64:                                    ; preds = %invoke.cont62
           to label %unreachable unwind label %ehcleanup67
 
 catch.fallthrough22:                              ; preds = %catch.fallthrough
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches23, label %catch39, label %catch.fallthrough24
 
@@ -77096,7 +77093,7 @@ invoke.cont47:                                    ; preds = %invoke.cont45
           to label %unreachable unwind label %ehcleanup50
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough22
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches25, label %catch, label %eh.resume
 
@@ -77285,7 +77282,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad
   %.pn = phi { ptr, i32 } [ %1, %lpad ], [ %2, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %3 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %3 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %3
   br i1 %matches, label %catch73, label %catch.fallthrough
 
@@ -77311,7 +77308,7 @@ invoke.cont81:                                    ; preds = %invoke.cont79
           to label %unreachable unwind label %ehcleanup84
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %6 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches21 = icmp eq i32 %ehselector.slot.0, %6
   br i1 %matches21, label %catch56, label %catch.fallthrough22
 
@@ -77337,7 +77334,7 @@ invoke.cont64:                                    ; preds = %invoke.cont62
           to label %unreachable unwind label %ehcleanup67
 
 catch.fallthrough22:                              ; preds = %catch.fallthrough
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches23, label %catch39, label %catch.fallthrough24
 
@@ -77363,7 +77360,7 @@ invoke.cont47:                                    ; preds = %invoke.cont45
           to label %unreachable unwind label %ehcleanup50
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough22
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches25, label %catch, label %eh.resume
 
@@ -77656,7 +77653,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %4 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %4
   br i1 %matches, label %catch74, label %catch.fallthrough
 
@@ -77682,7 +77679,7 @@ invoke.cont82:                                    ; preds = %invoke.cont80
           to label %unreachable unwind label %ehcleanup85
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches22 = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches22, label %catch57, label %catch.fallthrough23
 
@@ -77708,7 +77705,7 @@ invoke.cont65:                                    ; preds = %invoke.cont63
           to label %unreachable unwind label %ehcleanup68
 
 catch.fallthrough23:                              ; preds = %catch.fallthrough
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches24 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches24, label %catch40, label %catch.fallthrough25
 
@@ -77734,7 +77731,7 @@ invoke.cont48:                                    ; preds = %invoke.cont46
           to label %unreachable unwind label %ehcleanup51
 
 catch.fallthrough25:                              ; preds = %catch.fallthrough23
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches26 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches26, label %catch, label %eh.resume
 
@@ -78120,7 +78117,7 @@ catch.dispatch:                                   ; preds = %lpad29, %lpad5, %eh
   %.pn = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %24, %lpad ], [ %26, %lpad29 ], [ %25, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches, label %catch100, label %catch.fallthrough
 
@@ -78146,7 +78143,7 @@ invoke.cont108:                                   ; preds = %invoke.cont106
           to label %unreachable unwind label %ehcleanup111
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches48 = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches48, label %catch83, label %catch.fallthrough49
 
@@ -78172,7 +78169,7 @@ invoke.cont91:                                    ; preds = %invoke.cont89
           to label %unreachable unwind label %ehcleanup94
 
 catch.fallthrough49:                              ; preds = %catch.fallthrough
-  %33 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches50 = icmp eq i32 %ehselector.slot.0, %33
   br i1 %matches50, label %catch66, label %catch.fallthrough51
 
@@ -78198,7 +78195,7 @@ invoke.cont74:                                    ; preds = %invoke.cont72
           to label %unreachable unwind label %ehcleanup77
 
 catch.fallthrough51:                              ; preds = %catch.fallthrough49
-  %36 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches52 = icmp eq i32 %ehselector.slot.0, %36
   br i1 %matches52, label %catch, label %eh.resume
 
@@ -78392,7 +78389,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %4 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %4
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -78418,7 +78415,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -78444,7 +78441,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -78470,7 +78467,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -78666,7 +78663,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %4 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %4
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -78692,7 +78689,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -78718,7 +78715,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -78744,7 +78741,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -78940,7 +78937,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %4 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %4
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -78966,7 +78963,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -78992,7 +78989,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -79018,7 +79015,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -79212,7 +79209,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %4 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %4
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -79238,7 +79235,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -79264,7 +79261,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -79290,7 +79287,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -79522,7 +79519,7 @@ catch.dispatch:                                   ; preds = %lpad31, %lpad5, %lp
   %.pn = phi { ptr, i32 } [ %3, %lpad ], [ %5, %lpad31 ], [ %4, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %6 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %6
   br i1 %matches, label %catch104, label %catch.fallthrough
 
@@ -79548,7 +79545,7 @@ invoke.cont112:                                   ; preds = %invoke.cont110
           to label %unreachable unwind label %ehcleanup115
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches52 = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches52, label %catch87, label %catch.fallthrough53
 
@@ -79574,7 +79571,7 @@ invoke.cont95:                                    ; preds = %invoke.cont93
           to label %unreachable unwind label %ehcleanup98
 
 catch.fallthrough53:                              ; preds = %catch.fallthrough
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches54 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches54, label %catch70, label %catch.fallthrough55
 
@@ -79600,7 +79597,7 @@ invoke.cont78:                                    ; preds = %invoke.cont76
           to label %unreachable unwind label %ehcleanup81
 
 catch.fallthrough55:                              ; preds = %catch.fallthrough53
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches56 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches56, label %catch, label %eh.resume
 
@@ -79798,7 +79795,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %4 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %4
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -79824,7 +79821,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -79850,7 +79847,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -79876,7 +79873,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -80081,7 +80078,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %4 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %4
   br i1 %matches, label %catch74, label %catch.fallthrough
 
@@ -80107,7 +80104,7 @@ invoke.cont82:                                    ; preds = %invoke.cont80
           to label %unreachable unwind label %ehcleanup85
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches22 = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches22, label %catch57, label %catch.fallthrough23
 
@@ -80133,7 +80130,7 @@ invoke.cont65:                                    ; preds = %invoke.cont63
           to label %unreachable unwind label %ehcleanup68
 
 catch.fallthrough23:                              ; preds = %catch.fallthrough
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches24 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches24, label %catch40, label %catch.fallthrough25
 
@@ -80159,7 +80156,7 @@ invoke.cont48:                                    ; preds = %invoke.cont46
           to label %unreachable unwind label %ehcleanup51
 
 catch.fallthrough25:                              ; preds = %catch.fallthrough23
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches26 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches26, label %catch, label %eh.resume
 
@@ -80715,7 +80712,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc58Datatype14const_iteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(48) %this) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZN4cvc58Datatype14const_iteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(48) %this) local_unnamed_addr #13 align 2 {
 entry:
   %d_idx = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %d_idx, align 8
@@ -81985,7 +81982,7 @@ catch.dispatch:                                   ; preds = %lpad162.body, %lpad
   %.pn12 = phi { ptr, i32 } [ %32, %lpad ], [ %eh.lpad-body49, %lpad162.body ], [ %.pn.pn, %ehcleanup151 ], [ %eh.lpad-body, %lpad92.body ], [ %35, %lpad57 ], [ %34, %lpad27 ], [ %33, %lpad6 ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn12, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn12, 1
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.2, %41
   br i1 %matches, label %catch249, label %catch.fallthrough
 
@@ -82011,7 +82008,7 @@ invoke.cont257:                                   ; preds = %invoke.cont255
           to label %unreachable unwind label %ehcleanup260
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %44 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %44 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches195 = icmp eq i32 %ehselector.slot.2, %44
   br i1 %matches195, label %catch232, label %catch.fallthrough196
 
@@ -82037,7 +82034,7 @@ invoke.cont240:                                   ; preds = %invoke.cont238
           to label %unreachable unwind label %ehcleanup243
 
 catch.fallthrough196:                             ; preds = %catch.fallthrough
-  %47 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %47 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches197 = icmp eq i32 %ehselector.slot.2, %47
   br i1 %matches197, label %catch215, label %catch.fallthrough198
 
@@ -82063,7 +82060,7 @@ invoke.cont223:                                   ; preds = %invoke.cont221
           to label %unreachable unwind label %ehcleanup226
 
 catch.fallthrough198:                             ; preds = %catch.fallthrough196
-  %50 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %50 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches199 = icmp eq i32 %ehselector.slot.2, %50
   br i1 %matches199, label %catch, label %eh.resume
 
@@ -83139,7 +83136,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit, %lpa
   %.pn22.pn.pn = phi { ptr, i32 } [ %.pn22.pn, %ehcleanup175 ], [ %13, %lpad95 ], [ %12, %lpad62 ], [ %eh.lpad-body61, %lpad235.body ], [ %60, %lpad274 ], [ %eh.lpad-body50, %lpad193.body ], [ %11, %lpad27 ], [ %10, %lpad6 ], [ %52, %lpad.i65 ], [ %lpad.loopexit102, %lpad.loopexit ], [ %lpad.loopexit104, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp105, %lpad.loopexit.split-lp.loopexit.split-lp ]
   %exn.slot.3 = extractvalue { ptr, i32 } %.pn22.pn.pn, 0
   %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn22.pn.pn, 1
-  %61 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %61 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.3, %61
   br i1 %matches, label %catch331, label %catch.fallthrough
 
@@ -83165,7 +83162,7 @@ invoke.cont339:                                   ; preds = %invoke.cont337
           to label %unreachable unwind label %ehcleanup342
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %64 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %64 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches277 = icmp eq i32 %ehselector.slot.3, %64
   br i1 %matches277, label %catch314, label %catch.fallthrough278
 
@@ -83191,7 +83188,7 @@ invoke.cont322:                                   ; preds = %invoke.cont320
           to label %unreachable unwind label %ehcleanup325
 
 catch.fallthrough278:                             ; preds = %catch.fallthrough
-  %67 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %67 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches279 = icmp eq i32 %ehselector.slot.3, %67
   br i1 %matches279, label %catch297, label %catch.fallthrough280
 
@@ -83217,7 +83214,7 @@ invoke.cont305:                                   ; preds = %invoke.cont303
           to label %unreachable unwind label %ehcleanup308
 
 catch.fallthrough280:                             ; preds = %catch.fallthrough278
-  %70 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %70 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches281 = icmp eq i32 %ehselector.slot.3, %70
   br i1 %matches281, label %catch, label %eh.resume
 
@@ -83680,7 +83677,7 @@ catch.dispatch:                                   ; preds = %lpad60.body, %lpad2
   %.pn = phi { ptr, i32 } [ %28, %lpad93 ], [ %24, %lpad ], [ %eh.lpad-body, %lpad60.body ], [ %26, %lpad27 ], [ %25, %lpad6 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %29
   br i1 %matches, label %catch147, label %catch.fallthrough
 
@@ -83706,7 +83703,7 @@ invoke.cont155:                                   ; preds = %invoke.cont153
           to label %unreachable unwind label %ehcleanup158
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %32 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches95 = icmp eq i32 %ehselector.slot.0, %32
   br i1 %matches95, label %catch130, label %catch.fallthrough96
 
@@ -83732,7 +83729,7 @@ invoke.cont138:                                   ; preds = %invoke.cont136
           to label %unreachable unwind label %ehcleanup141
 
 catch.fallthrough96:                              ; preds = %catch.fallthrough
-  %35 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches97 = icmp eq i32 %ehselector.slot.0, %35
   br i1 %matches97, label %catch113, label %catch.fallthrough98
 
@@ -83758,7 +83755,7 @@ invoke.cont121:                                   ; preds = %invoke.cont119
           to label %unreachable unwind label %ehcleanup124
 
 catch.fallthrough98:                              ; preds = %catch.fallthrough96
-  %38 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches99 = icmp eq i32 %ehselector.slot.0, %38
   br i1 %matches99, label %catch, label %eh.resume
 
@@ -84176,7 +84173,7 @@ catch.dispatch:                                   ; preds = %lpad60.body, %lpad2
   %.pn = phi { ptr, i32 } [ %20, %lpad ], [ %eh.lpad-body, %lpad60.body ], [ %22, %lpad27 ], [ %21, %lpad6 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches, label %catch142, label %catch.fallthrough
 
@@ -84202,7 +84199,7 @@ invoke.cont150:                                   ; preds = %invoke.cont148
           to label %unreachable unwind label %ehcleanup153
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches90 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches90, label %catch125, label %catch.fallthrough91
 
@@ -84228,7 +84225,7 @@ invoke.cont133:                                   ; preds = %invoke.cont131
           to label %unreachable unwind label %ehcleanup136
 
 catch.fallthrough91:                              ; preds = %catch.fallthrough
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches92 = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches92, label %catch108, label %catch.fallthrough93
 
@@ -84254,7 +84251,7 @@ invoke.cont116:                                   ; preds = %invoke.cont114
           to label %unreachable unwind label %ehcleanup119
 
 catch.fallthrough93:                              ; preds = %catch.fallthrough91
-  %33 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches94 = icmp eq i32 %ehselector.slot.0, %33
   br i1 %matches94, label %catch, label %eh.resume
 
@@ -84459,7 +84456,7 @@ catch.dispatch:                                   ; preds = %lpad.body, %cleanup
   %eh.lpad-body18 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %lpad.body ], [ %eh.lpad-body19, %cleanup.action6 ]
   %2 = extractvalue { ptr, i32 } %eh.lpad-body18, 0
   %3 = extractvalue { ptr, i32 } %eh.lpad-body18, 1
-  %4 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch60, label %catch.fallthrough
 
@@ -84485,7 +84482,7 @@ invoke.cont68:                                    ; preds = %invoke.cont66
           to label %unreachable unwind label %ehcleanup71
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches8 = icmp eq i32 %3, %7
   br i1 %matches8, label %catch43, label %catch.fallthrough9
 
@@ -84511,7 +84508,7 @@ invoke.cont51:                                    ; preds = %invoke.cont49
           to label %unreachable unwind label %ehcleanup54
 
 catch.fallthrough9:                               ; preds = %catch.fallthrough
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches10 = icmp eq i32 %3, %10
   br i1 %matches10, label %catch26, label %catch.fallthrough11
 
@@ -84537,7 +84534,7 @@ invoke.cont34:                                    ; preds = %invoke.cont32
           to label %unreachable unwind label %ehcleanup37
 
 catch.fallthrough11:                              ; preds = %catch.fallthrough9
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches12 = icmp eq i32 %3, %13
   br i1 %matches12, label %catch, label %eh.resume
 
@@ -84735,7 +84732,7 @@ catch.dispatch:                                   ; preds = %lpad2, %lpad
   %.pn = phi { ptr, i32 } [ %7, %lpad2 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches, label %catch53, label %catch.fallthrough
 
@@ -84761,7 +84758,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
           to label %unreachable unwind label %ehcleanup64
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches4 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches4, label %catch36, label %catch.fallthrough5
 
@@ -84787,7 +84784,7 @@ invoke.cont44:                                    ; preds = %invoke.cont42
           to label %unreachable unwind label %ehcleanup47
 
 catch.fallthrough5:                               ; preds = %catch.fallthrough
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches6 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches6, label %catch19, label %catch.fallthrough7
 
@@ -84813,7 +84810,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
           to label %unreachable unwind label %ehcleanup30
 
 catch.fallthrough7:                               ; preds = %catch.fallthrough5
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches8 = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches8, label %catch, label %eh.resume
 
@@ -84999,7 +84996,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4cvc513DriverOptionsC2ERKNS_6SolverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(40) %solver) unnamed_addr #16 align 2 {
+define void @_ZN4cvc513DriverOptionsC2ERKNS_6SolverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(40) %solver) unnamed_addr #15 align 2 {
 entry:
   store ptr %solver, ptr %this, align 8
   ret void
@@ -85062,7 +85059,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4cvc54StatC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4cvc54StatC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_data = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %d_data, align 8
@@ -85520,7 +85517,7 @@ catch.dispatch:                                   ; preds = %lpad23, %lpad4, %lp
   %.pn = phi { ptr, i32 } [ %7, %lpad ], [ %9, %lpad23 ], [ %8, %lpad4 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch94, label %catch.fallthrough
 
@@ -85546,7 +85543,7 @@ invoke.cont102:                                   ; preds = %invoke.cont100
           to label %unreachable unwind label %ehcleanup105
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches42 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches42, label %catch77, label %catch.fallthrough43
 
@@ -85572,7 +85569,7 @@ invoke.cont85:                                    ; preds = %invoke.cont83
           to label %unreachable unwind label %ehcleanup88
 
 catch.fallthrough43:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches44 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches44, label %catch60, label %catch.fallthrough45
 
@@ -85598,7 +85595,7 @@ invoke.cont68:                                    ; preds = %invoke.cont66
           to label %unreachable unwind label %ehcleanup71
 
 catch.fallthrough45:                              ; preds = %catch.fallthrough43
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches46 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches46, label %catch, label %eh.resume
 
@@ -85958,7 +85955,7 @@ catch.dispatch:                                   ; preds = %lpad23, %lpad4, %lp
   %.pn = phi { ptr, i32 } [ %7, %lpad ], [ %9, %lpad23 ], [ %8, %lpad4 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch94, label %catch.fallthrough
 
@@ -85984,7 +85981,7 @@ invoke.cont102:                                   ; preds = %invoke.cont100
           to label %unreachable unwind label %ehcleanup105
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches42 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches42, label %catch77, label %catch.fallthrough43
 
@@ -86010,7 +86007,7 @@ invoke.cont85:                                    ; preds = %invoke.cont83
           to label %unreachable unwind label %ehcleanup88
 
 catch.fallthrough43:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches44 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches44, label %catch60, label %catch.fallthrough45
 
@@ -86036,7 +86033,7 @@ invoke.cont68:                                    ; preds = %invoke.cont66
           to label %unreachable unwind label %ehcleanup71
 
 catch.fallthrough45:                              ; preds = %catch.fallthrough43
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches46 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches46, label %catch, label %eh.resume
 
@@ -86339,7 +86336,7 @@ catch.dispatch:                                   ; preds = %lpad23, %lpad4, %lp
   %.pn = phi { ptr, i32 } [ %6, %lpad ], [ %8, %lpad23 ], [ %7, %lpad4 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches, label %catch94, label %catch.fallthrough
 
@@ -86365,7 +86362,7 @@ invoke.cont102:                                   ; preds = %invoke.cont100
           to label %unreachable unwind label %ehcleanup105
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches42 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches42, label %catch77, label %catch.fallthrough43
 
@@ -86391,7 +86388,7 @@ invoke.cont85:                                    ; preds = %invoke.cont83
           to label %unreachable unwind label %ehcleanup88
 
 catch.fallthrough43:                              ; preds = %catch.fallthrough
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches44 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches44, label %catch60, label %catch.fallthrough45
 
@@ -86417,7 +86414,7 @@ invoke.cont68:                                    ; preds = %invoke.cont66
           to label %unreachable unwind label %ehcleanup71
 
 catch.fallthrough45:                              ; preds = %catch.fallthrough43
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches46 = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches46, label %catch, label %eh.resume
 
@@ -86720,7 +86717,7 @@ catch.dispatch:                                   ; preds = %lpad23, %lpad4, %lp
   %.pn = phi { ptr, i32 } [ %6, %lpad ], [ %8, %lpad23 ], [ %7, %lpad4 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches, label %catch94, label %catch.fallthrough
 
@@ -86746,7 +86743,7 @@ invoke.cont102:                                   ; preds = %invoke.cont100
           to label %unreachable unwind label %ehcleanup105
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches42 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches42, label %catch77, label %catch.fallthrough43
 
@@ -86772,7 +86769,7 @@ invoke.cont85:                                    ; preds = %invoke.cont83
           to label %unreachable unwind label %ehcleanup88
 
 catch.fallthrough43:                              ; preds = %catch.fallthrough
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches44 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches44, label %catch60, label %catch.fallthrough45
 
@@ -86798,7 +86795,7 @@ invoke.cont68:                                    ; preds = %invoke.cont66
           to label %unreachable unwind label %ehcleanup71
 
 catch.fallthrough45:                              ; preds = %catch.fallthrough43
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches46 = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches46, label %catch, label %eh.resume
 
@@ -87043,7 +87040,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(18) ptr @_ZN4cvc510Statistics8iteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(18) %this) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 8 dereferenceable(18) ptr @_ZN4cvc510Statistics8iteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(18) %this) local_unnamed_addr #16 align 2 {
 entry:
   %d_base.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_base.i, align 8
@@ -87162,7 +87159,7 @@ return:                                           ; preds = %land.lhs.true9, %la
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define void @_ZN4cvc510Statistics8iteratorppEi(ptr noalias nocapture writeonly sret(%"class.cvc5::Statistics::iterator") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(18) %this, i32 noundef %0) local_unnamed_addr #17 align 2 {
+define void @_ZN4cvc510Statistics8iteratorppEi(ptr noalias nocapture writeonly sret(%"class.cvc5::Statistics::iterator") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(18) %this, i32 noundef %0) local_unnamed_addr #16 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 24, i1 false)
   %d_base.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -87240,7 +87237,7 @@ do.end:                                           ; preds = %_ZNK4cvc510Statisti
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(18) ptr @_ZN4cvc510Statistics8iteratormmEv(ptr noundef nonnull returned align 8 dereferenceable(18) %this) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 8 dereferenceable(18) ptr @_ZN4cvc510Statistics8iteratormmEv(ptr noundef nonnull returned align 8 dereferenceable(18) %this) local_unnamed_addr #16 align 2 {
 entry:
   %d_base.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_base.i, align 8
@@ -87317,7 +87314,7 @@ do.end:                                           ; preds = %_ZNK4cvc510Statisti
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define void @_ZN4cvc510Statistics8iteratormmEi(ptr noalias nocapture writeonly sret(%"class.cvc5::Statistics::iterator") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(18) %this, i32 noundef %0) local_unnamed_addr #17 align 2 {
+define void @_ZN4cvc510Statistics8iteratormmEi(ptr noalias nocapture writeonly sret(%"class.cvc5::Statistics::iterator") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(18) %this, i32 noundef %0) local_unnamed_addr #16 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 24, i1 false)
   %d_base.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -87413,7 +87410,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define void @_ZN4cvc510Statistics8iteratorC2ESt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4StatEEERKSt3mapIS9_SB_St4lessIS9_ESaISC_EEbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(18) %this, ptr %it.coerce, ptr noundef nonnull align 8 dereferenceable(48) %base, i1 noundef zeroext %internal, i1 noundef zeroext %defaulted) unnamed_addr #17 align 2 {
+define void @_ZN4cvc510Statistics8iteratorC2ESt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4StatEEERKSt3mapIS9_SB_St4lessIS9_ESaISC_EEbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(18) %this, ptr %it.coerce, ptr noundef nonnull align 8 dereferenceable(48) %base, i1 noundef zeroext %internal, i1 noundef zeroext %defaulted) unnamed_addr #16 align 2 {
 entry:
   %frombool = zext i1 %internal to i8
   %frombool1 = zext i1 %defaulted to i8
@@ -87595,7 +87592,7 @@ catch.dispatch:                                   ; preds = %lpad10, %lpad
   %.pn = phi { ptr, i32 } [ %5, %lpad ], [ %6, %lpad10 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches, label %catch78, label %catch.fallthrough
 
@@ -87621,7 +87618,7 @@ invoke.cont86:                                    ; preds = %invoke.cont84
           to label %unreachable unwind label %ehcleanup89
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches26 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches26, label %catch61, label %catch.fallthrough27
 
@@ -87647,7 +87644,7 @@ invoke.cont69:                                    ; preds = %invoke.cont67
           to label %unreachable unwind label %ehcleanup72
 
 catch.fallthrough27:                              ; preds = %catch.fallthrough
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches28 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches28, label %catch44, label %catch.fallthrough29
 
@@ -87673,7 +87670,7 @@ invoke.cont52:                                    ; preds = %invoke.cont50
           to label %unreachable unwind label %ehcleanup55
 
 catch.fallthrough29:                              ; preds = %catch.fallthrough27
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches30 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches30, label %catch, label %eh.resume
 
@@ -88309,14 +88306,14 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4cvc55ProofC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #16 align 2 {
+define void @_ZN4cvc55ProofC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #15 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZN4cvc55ProofC2ESt10shared_ptrINS_8internal9ProofNodeEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %p) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4cvc55ProofC2ESt10shared_ptrINS_8internal9ProofNodeEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %p) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %p, align 8
   store ptr %0, ptr %this, align 8
@@ -88531,7 +88528,7 @@ lpad:                                             ; preds = %if.then
           catch ptr @_ZTISt16invalid_argument
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch54, label %catch.fallthrough
 
@@ -88557,7 +88554,7 @@ invoke.cont62:                                    ; preds = %invoke.cont60
           to label %unreachable unwind label %ehcleanup65
 
 catch.fallthrough:                                ; preds = %lpad
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches6 = icmp eq i32 %3, %7
   br i1 %matches6, label %catch37, label %catch.fallthrough7
 
@@ -88583,7 +88580,7 @@ invoke.cont45:                                    ; preds = %invoke.cont43
           to label %unreachable unwind label %ehcleanup48
 
 catch.fallthrough7:                               ; preds = %catch.fallthrough
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches8 = icmp eq i32 %3, %10
   br i1 %matches8, label %catch20, label %catch.fallthrough9
 
@@ -88609,7 +88606,7 @@ invoke.cont28:                                    ; preds = %invoke.cont26
           to label %unreachable unwind label %ehcleanup31
 
 catch.fallthrough9:                               ; preds = %catch.fallthrough7
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches10 = icmp eq i32 %3, %13
   br i1 %matches10, label %catch, label %eh.resume
 
@@ -88739,7 +88736,7 @@ unreachable:                                      ; preds = %invoke.cont16, %inv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc55Proof12getProofNodeEv(ptr noundef nonnull readnone returned align 8 dereferenceable(16) %this) local_unnamed_addr #18 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc55Proof12getProofNodeEv(ptr noundef nonnull readnone returned align 8 dereferenceable(16) %this) local_unnamed_addr #17 align 2 {
 entry:
   ret ptr %this
 }
@@ -88821,7 +88818,7 @@ catch.dispatch:                                   ; preds = %lpad7, %lpad
   %.pn = phi { ptr, i32 } [ %7, %lpad7 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches, label %catch59, label %catch.fallthrough
 
@@ -88847,7 +88844,7 @@ invoke.cont67:                                    ; preds = %invoke.cont65
           to label %unreachable unwind label %ehcleanup70
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches10 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches10, label %catch42, label %catch.fallthrough11
 
@@ -88873,7 +88870,7 @@ invoke.cont50:                                    ; preds = %invoke.cont48
           to label %unreachable unwind label %ehcleanup53
 
 catch.fallthrough11:                              ; preds = %catch.fallthrough
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches12 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches12, label %catch25, label %catch.fallthrough13
 
@@ -88899,7 +88896,7 @@ invoke.cont33:                                    ; preds = %invoke.cont31
           to label %unreachable unwind label %ehcleanup36
 
 catch.fallthrough13:                              ; preds = %catch.fallthrough11
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches14 = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches14, label %catch, label %eh.resume
 
@@ -89435,7 +89432,7 @@ ehcleanup13:                                      ; preds = %ehcleanup, %lpad
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
   call void @_ZNSt6vectorIN4cvc55ProofESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.result) #30
-  %50 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %50 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %50
   br i1 %matches, label %catch65, label %catch.fallthrough
 
@@ -89461,7 +89458,7 @@ invoke.cont73:                                    ; preds = %invoke.cont71
           to label %unreachable unwind label %ehcleanup76
 
 catch.fallthrough:                                ; preds = %ehcleanup13
-  %53 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %53 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches14 = icmp eq i32 %ehselector.slot.1, %53
   br i1 %matches14, label %catch48, label %catch.fallthrough15
 
@@ -89487,7 +89484,7 @@ invoke.cont56:                                    ; preds = %invoke.cont54
           to label %unreachable unwind label %ehcleanup59
 
 catch.fallthrough15:                              ; preds = %catch.fallthrough
-  %56 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches16 = icmp eq i32 %ehselector.slot.1, %56
   br i1 %matches16, label %catch31, label %catch.fallthrough17
 
@@ -89513,7 +89510,7 @@ invoke.cont39:                                    ; preds = %invoke.cont37
           to label %unreachable unwind label %ehcleanup42
 
 catch.fallthrough17:                              ; preds = %catch.fallthrough15
-  %59 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches18 = icmp eq i32 %ehselector.slot.1, %59
   br i1 %matches18, label %catch, label %eh.resume
 
@@ -89787,7 +89784,7 @@ _ZNSt12_Vector_baseIN4cvc55ProofESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %if.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4cvc55Proof12getArgumentsEv(ptr noalias sret(%"class.std::vector.307") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
@@ -90050,7 +90047,7 @@ catch.dispatch:                                   ; preds = %ehcleanup15, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup15 ], [ %19, %lpad ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.2, %30
   br i1 %matches, label %catch67, label %catch.fallthrough
 
@@ -90076,7 +90073,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
           to label %unreachable unwind label %ehcleanup78
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %33 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches16 = icmp eq i32 %ehselector.slot.2, %33
   br i1 %matches16, label %catch50, label %catch.fallthrough17
 
@@ -90102,7 +90099,7 @@ invoke.cont58:                                    ; preds = %invoke.cont56
           to label %unreachable unwind label %ehcleanup61
 
 catch.fallthrough17:                              ; preds = %catch.fallthrough
-  %36 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches18 = icmp eq i32 %ehselector.slot.2, %36
   br i1 %matches18, label %catch33, label %catch.fallthrough19
 
@@ -90128,7 +90125,7 @@ invoke.cont41:                                    ; preds = %invoke.cont39
           to label %unreachable unwind label %ehcleanup44
 
 catch.fallthrough19:                              ; preds = %catch.fallthrough17
-  %39 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %39 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches20 = icmp eq i32 %ehselector.slot.2, %39
   br i1 %matches20, label %catch, label %eh.resume
 
@@ -91145,7 +91142,7 @@ terminate.lpad.i.i12:                             ; preds = %lpad3
 catch.dispatch:                                   ; preds = %lpad3, %lpad, %lpad.i
   %.pn = phi { ptr, i32 } [ %6, %lpad ], [ %0, %lpad.i ], [ %7, %lpad3 ]
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch, label %eh.resume
 
@@ -96264,7 +96261,7 @@ catch.dispatch:                                   ; preds = %lpad3, %lpad
   %.pn = phi { ptr, i32 } [ %6, %lpad3 ], [ %5, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches, label %catch53, label %catch.fallthrough
 
@@ -96290,7 +96287,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
           to label %unreachable unwind label %ehcleanup64
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches5 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches5, label %catch36, label %catch.fallthrough6
 
@@ -96316,7 +96313,7 @@ invoke.cont44:                                    ; preds = %invoke.cont42
           to label %unreachable unwind label %ehcleanup47
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches7 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches7, label %catch19, label %catch.fallthrough8
 
@@ -96342,7 +96339,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
           to label %unreachable unwind label %ehcleanup30
 
 catch.fallthrough8:                               ; preds = %catch.fallthrough6
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches9 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches9, label %catch, label %eh.resume
 
@@ -96537,7 +96534,7 @@ catch.dispatch:                                   ; preds = %lpad3, %lpad
   %.pn = phi { ptr, i32 } [ %6, %lpad3 ], [ %5, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches, label %catch53, label %catch.fallthrough
 
@@ -96563,7 +96560,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
           to label %unreachable unwind label %ehcleanup64
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches5 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches5, label %catch36, label %catch.fallthrough6
 
@@ -96589,7 +96586,7 @@ invoke.cont44:                                    ; preds = %invoke.cont42
           to label %unreachable unwind label %ehcleanup47
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches7 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches7, label %catch19, label %catch.fallthrough8
 
@@ -96615,7 +96612,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
           to label %unreachable unwind label %ehcleanup30
 
 catch.fallthrough8:                               ; preds = %catch.fallthrough6
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches9 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches9, label %catch, label %eh.resume
 
@@ -96812,7 +96809,7 @@ catch.dispatch:                                   ; preds = %lpad3, %lpad
   %.pn = phi { ptr, i32 } [ %6, %lpad3 ], [ %5, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches, label %catch53, label %catch.fallthrough
 
@@ -96838,7 +96835,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
           to label %unreachable unwind label %ehcleanup64
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches5 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches5, label %catch36, label %catch.fallthrough6
 
@@ -96864,7 +96861,7 @@ invoke.cont44:                                    ; preds = %invoke.cont42
           to label %unreachable unwind label %ehcleanup47
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches7 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches7, label %catch19, label %catch.fallthrough8
 
@@ -96890,7 +96887,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
           to label %unreachable unwind label %ehcleanup30
 
 catch.fallthrough8:                               ; preds = %catch.fallthrough6
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches9 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches9, label %catch, label %eh.resume
 
@@ -97085,7 +97082,7 @@ catch.dispatch:                                   ; preds = %lpad3, %lpad
   %.pn = phi { ptr, i32 } [ %6, %lpad3 ], [ %5, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches, label %catch53, label %catch.fallthrough
 
@@ -97111,7 +97108,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
           to label %unreachable unwind label %ehcleanup64
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches5 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches5, label %catch36, label %catch.fallthrough6
 
@@ -97137,7 +97134,7 @@ invoke.cont44:                                    ; preds = %invoke.cont42
           to label %unreachable unwind label %ehcleanup47
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches7 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches7, label %catch19, label %catch.fallthrough8
 
@@ -97163,7 +97160,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
           to label %unreachable unwind label %ehcleanup30
 
 catch.fallthrough8:                               ; preds = %catch.fallthrough6
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches9 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches9, label %catch, label %eh.resume
 
@@ -97360,7 +97357,7 @@ catch.dispatch:                                   ; preds = %lpad3, %lpad
   %.pn = phi { ptr, i32 } [ %6, %lpad3 ], [ %5, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches, label %catch53, label %catch.fallthrough
 
@@ -97386,7 +97383,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
           to label %unreachable unwind label %ehcleanup64
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches5 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches5, label %catch36, label %catch.fallthrough6
 
@@ -97412,7 +97409,7 @@ invoke.cont44:                                    ; preds = %invoke.cont42
           to label %unreachable unwind label %ehcleanup47
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches7 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches7, label %catch19, label %catch.fallthrough8
 
@@ -97438,7 +97435,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
           to label %unreachable unwind label %ehcleanup30
 
 catch.fallthrough8:                               ; preds = %catch.fallthrough6
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches9 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches9, label %catch, label %eh.resume
 
@@ -97635,7 +97632,7 @@ catch.dispatch:                                   ; preds = %lpad3, %lpad
   %.pn = phi { ptr, i32 } [ %6, %lpad3 ], [ %5, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches, label %catch53, label %catch.fallthrough
 
@@ -97661,7 +97658,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
           to label %unreachable unwind label %ehcleanup64
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches5 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches5, label %catch36, label %catch.fallthrough6
 
@@ -97687,7 +97684,7 @@ invoke.cont44:                                    ; preds = %invoke.cont42
           to label %unreachable unwind label %ehcleanup47
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches7 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches7, label %catch19, label %catch.fallthrough8
 
@@ -97713,7 +97710,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
           to label %unreachable unwind label %ehcleanup30
 
 catch.fallthrough8:                               ; preds = %catch.fallthrough6
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches9 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches9, label %catch, label %eh.resume
 
@@ -98196,7 +98193,7 @@ catch.dispatch:                                   ; preds = %lpad83, %lpad54, %l
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup114 ], [ %23, %lpad ], [ %27, %lpad83 ], [ %26, %lpad54 ], [ %25, %lpad28 ], [ %24, %lpad5 ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.2, %31
   br i1 %matches, label %catch169, label %catch.fallthrough
 
@@ -98222,7 +98219,7 @@ invoke.cont177:                                   ; preds = %invoke.cont175
           to label %unreachable unwind label %ehcleanup180
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches115 = icmp eq i32 %ehselector.slot.2, %34
   br i1 %matches115, label %catch152, label %catch.fallthrough116
 
@@ -98248,7 +98245,7 @@ invoke.cont160:                                   ; preds = %invoke.cont158
           to label %unreachable unwind label %ehcleanup163
 
 catch.fallthrough116:                             ; preds = %catch.fallthrough
-  %37 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches117 = icmp eq i32 %ehselector.slot.2, %37
   br i1 %matches117, label %catch135, label %catch.fallthrough118
 
@@ -98274,7 +98271,7 @@ invoke.cont143:                                   ; preds = %invoke.cont141
           to label %unreachable unwind label %ehcleanup146
 
 catch.fallthrough118:                             ; preds = %catch.fallthrough116
-  %40 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches119 = icmp eq i32 %ehselector.slot.2, %40
   br i1 %matches119, label %catch, label %eh.resume
 
@@ -98655,7 +98652,7 @@ catch.dispatch:                                   ; preds = %lpad4, %lpad27, %lp
   %.pn = phi { ptr, i32 } [ %7, %lpad27 ], [ %5, %lpad ], [ %6, %lpad4 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches, label %catch81, label %catch.fallthrough
 
@@ -98681,7 +98678,7 @@ invoke.cont89:                                    ; preds = %invoke.cont87
           to label %unreachable unwind label %ehcleanup92
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches29 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches29, label %catch64, label %catch.fallthrough30
 
@@ -98707,7 +98704,7 @@ invoke.cont72:                                    ; preds = %invoke.cont70
           to label %unreachable unwind label %ehcleanup75
 
 catch.fallthrough30:                              ; preds = %catch.fallthrough
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches31 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches31, label %catch47, label %catch.fallthrough32
 
@@ -98733,7 +98730,7 @@ invoke.cont55:                                    ; preds = %invoke.cont53
           to label %unreachable unwind label %ehcleanup58
 
 catch.fallthrough32:                              ; preds = %catch.fallthrough30
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches33 = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches33, label %catch, label %eh.resume
 
@@ -99018,7 +99015,7 @@ catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %7, %lpad ], [ %.pn, %ehcleanup ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %13
   br i1 %matches, label %catch87, label %catch.fallthrough
 
@@ -99044,7 +99041,7 @@ invoke.cont95:                                    ; preds = %invoke.cont93
           to label %unreachable unwind label %ehcleanup98
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches33 = icmp eq i32 %ehselector.slot.1, %16
   br i1 %matches33, label %catch70, label %catch.fallthrough34
 
@@ -99070,7 +99067,7 @@ invoke.cont78:                                    ; preds = %invoke.cont76
           to label %unreachable unwind label %ehcleanup81
 
 catch.fallthrough34:                              ; preds = %catch.fallthrough
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches35 = icmp eq i32 %ehselector.slot.1, %19
   br i1 %matches35, label %catch53, label %catch.fallthrough36
 
@@ -99096,7 +99093,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
           to label %unreachable unwind label %ehcleanup64
 
 catch.fallthrough36:                              ; preds = %catch.fallthrough34
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches37 = icmp eq i32 %ehselector.slot.1, %22
   br i1 %matches37, label %catch, label %eh.resume
 
@@ -99391,7 +99388,7 @@ catch.dispatch:                                   ; preds = %lpad32, %lpad4, %lp
   %.pn = phi { ptr, i32 } [ %8, %lpad60 ], [ %5, %lpad ], [ %7, %lpad32 ], [ %6, %lpad4 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches, label %catch114, label %catch.fallthrough
 
@@ -99417,7 +99414,7 @@ invoke.cont122:                                   ; preds = %invoke.cont120
           to label %unreachable unwind label %ehcleanup125
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches62 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches62, label %catch97, label %catch.fallthrough63
 
@@ -99443,7 +99440,7 @@ invoke.cont105:                                   ; preds = %invoke.cont103
           to label %unreachable unwind label %ehcleanup108
 
 catch.fallthrough63:                              ; preds = %catch.fallthrough
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches64 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches64, label %catch80, label %catch.fallthrough65
 
@@ -99469,7 +99466,7 @@ invoke.cont88:                                    ; preds = %invoke.cont86
           to label %unreachable unwind label %ehcleanup91
 
 catch.fallthrough65:                              ; preds = %catch.fallthrough63
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches66 = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches66, label %catch, label %eh.resume
 
@@ -99997,7 +99994,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit, %lpa
   %.pn11.pn.pn = phi { ptr, i32 } [ %.pn11.pn, %ehcleanup172 ], [ %22, %lpad110 ], [ %eh.lpad-body, %lpad80.body ], [ %20, %lpad52 ], [ %19, %lpad27 ], [ %18, %lpad4 ], [ %lpad.loopexit69, %lpad.loopexit ], [ %lpad.loopexit.split-lp70, %lpad.loopexit.split-lp ]
   %exn.slot.4 = extractvalue { ptr, i32 } %.pn11.pn.pn, 0
   %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn11.pn.pn, 1
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.4, %28
   br i1 %matches, label %catch227, label %catch.fallthrough
 
@@ -100023,7 +100020,7 @@ invoke.cont235:                                   ; preds = %invoke.cont233
           to label %unreachable unwind label %ehcleanup238
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches173 = icmp eq i32 %ehselector.slot.4, %31
   br i1 %matches173, label %catch210, label %catch.fallthrough174
 
@@ -100049,7 +100046,7 @@ invoke.cont218:                                   ; preds = %invoke.cont216
           to label %unreachable unwind label %ehcleanup221
 
 catch.fallthrough174:                             ; preds = %catch.fallthrough
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches175 = icmp eq i32 %ehselector.slot.4, %34
   br i1 %matches175, label %catch193, label %catch.fallthrough176
 
@@ -100075,7 +100072,7 @@ invoke.cont201:                                   ; preds = %invoke.cont199
           to label %unreachable unwind label %ehcleanup204
 
 catch.fallthrough176:                             ; preds = %catch.fallthrough174
-  %37 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches177 = icmp eq i32 %ehselector.slot.4, %37
   br i1 %matches177, label %catch, label %eh.resume
 
@@ -100826,7 +100823,7 @@ ehcleanup207:                                     ; preds = %lpad127.loopexit, %
   %exn.slot.5 = extractvalue { ptr, i32 } %.pn23, 0
   %ehselector.slot.5 = extractvalue { ptr, i32 } %.pn23, 1
   call void @_ZNSt6vectorIN4cvc58internal5DTypeESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %datatypes) #30
-  %56 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.5, %56
   br i1 %matches, label %catch262, label %catch.fallthrough
 
@@ -100852,7 +100849,7 @@ invoke.cont270:                                   ; preds = %invoke.cont268
           to label %unreachable unwind label %ehcleanup273
 
 catch.fallthrough:                                ; preds = %ehcleanup207
-  %59 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches208 = icmp eq i32 %ehselector.slot.5, %59
   br i1 %matches208, label %catch245, label %catch.fallthrough209
 
@@ -100878,7 +100875,7 @@ invoke.cont253:                                   ; preds = %invoke.cont251
           to label %unreachable unwind label %ehcleanup256
 
 catch.fallthrough209:                             ; preds = %catch.fallthrough
-  %62 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %62 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches210 = icmp eq i32 %ehselector.slot.5, %62
   br i1 %matches210, label %catch228, label %catch.fallthrough211
 
@@ -100904,7 +100901,7 @@ invoke.cont236:                                   ; preds = %invoke.cont234
           to label %unreachable unwind label %ehcleanup239
 
 catch.fallthrough211:                             ; preds = %catch.fallthrough209
-  %65 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %65 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches212 = icmp eq i32 %ehselector.slot.5, %65
   br i1 %matches212, label %catch, label %eh.resume
 
@@ -101667,7 +101664,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit, %lpa
   %.pn15 = phi { ptr, i32 } [ %10, %lpad108 ], [ %9, %lpad69 ], [ %8, %lpad35 ], [ %.pn, %ehcleanup ], [ %eh.lpad-body, %lpad203.body ], [ %39, %lpad178 ], [ %38, %lpad149 ], [ %7, %lpad4 ], [ %24, %lpad.i39 ], [ %lpad.loopexit75, %lpad.loopexit ], [ %lpad.loopexit.split-lp76, %lpad.loopexit.split-lp ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn15, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn15, 1
-  %43 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %43 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %43
   br i1 %matches, label %catch293, label %catch.fallthrough
 
@@ -101693,7 +101690,7 @@ invoke.cont301:                                   ; preds = %invoke.cont299
           to label %unreachable unwind label %ehcleanup304
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %46 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %46 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches239 = icmp eq i32 %ehselector.slot.1, %46
   br i1 %matches239, label %catch276, label %catch.fallthrough240
 
@@ -101719,7 +101716,7 @@ invoke.cont284:                                   ; preds = %invoke.cont282
           to label %unreachable unwind label %ehcleanup287
 
 catch.fallthrough240:                             ; preds = %catch.fallthrough
-  %49 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %49 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches241 = icmp eq i32 %ehselector.slot.1, %49
   br i1 %matches241, label %catch259, label %catch.fallthrough242
 
@@ -101745,7 +101742,7 @@ invoke.cont267:                                   ; preds = %invoke.cont265
           to label %unreachable unwind label %ehcleanup270
 
 catch.fallthrough242:                             ; preds = %catch.fallthrough240
-  %52 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %52 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches243 = icmp eq i32 %ehselector.slot.1, %52
   br i1 %matches243, label %catch, label %eh.resume
 
@@ -101952,7 +101949,7 @@ catch.dispatch:                                   ; preds = %lpad6, %lpad
   %.pn = phi { ptr, i32 } [ %8, %lpad6 ], [ %7, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches, label %catch56, label %catch.fallthrough
 
@@ -101978,7 +101975,7 @@ invoke.cont64:                                    ; preds = %invoke.cont62
           to label %unreachable unwind label %ehcleanup67
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches8 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches8, label %catch39, label %catch.fallthrough9
 
@@ -102004,7 +102001,7 @@ invoke.cont47:                                    ; preds = %invoke.cont45
           to label %unreachable unwind label %ehcleanup50
 
 catch.fallthrough9:                               ; preds = %catch.fallthrough
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches10 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches10, label %catch22, label %catch.fallthrough11
 
@@ -102030,7 +102027,7 @@ invoke.cont30:                                    ; preds = %invoke.cont28
           to label %unreachable unwind label %ehcleanup33
 
 catch.fallthrough11:                              ; preds = %catch.fallthrough9
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches12 = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches12, label %catch, label %eh.resume
 
@@ -102621,7 +102618,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit, %lpa
   %.pn11 = phi { ptr, i32 } [ %10, %lpad108 ], [ %9, %lpad69 ], [ %8, %lpad35 ], [ %.pn, %ehcleanup ], [ %7, %lpad4 ], [ %20, %lpad.i ], [ %lpad.loopexit59, %lpad.loopexit ], [ %lpad.loopexit.split-lp60, %lpad.loopexit.split-lp ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn11, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn11, 1
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %34
   br i1 %matches, label %catch201, label %catch.fallthrough
 
@@ -102647,7 +102644,7 @@ invoke.cont209:                                   ; preds = %invoke.cont207
           to label %unreachable unwind label %ehcleanup212
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %37 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches147 = icmp eq i32 %ehselector.slot.1, %37
   br i1 %matches147, label %catch184, label %catch.fallthrough148
 
@@ -102673,7 +102670,7 @@ invoke.cont192:                                   ; preds = %invoke.cont190
           to label %unreachable unwind label %ehcleanup195
 
 catch.fallthrough148:                             ; preds = %catch.fallthrough
-  %40 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches149 = icmp eq i32 %ehselector.slot.1, %40
   br i1 %matches149, label %catch167, label %catch.fallthrough150
 
@@ -102699,7 +102696,7 @@ invoke.cont175:                                   ; preds = %invoke.cont173
           to label %unreachable unwind label %ehcleanup178
 
 catch.fallthrough150:                             ; preds = %catch.fallthrough148
-  %43 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %43 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches151 = icmp eq i32 %ehselector.slot.1, %43
   br i1 %matches151, label %catch, label %eh.resume
 
@@ -103169,7 +103166,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc58internal8TypeNodeEESaISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %f) #30
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches, label %catch135, label %catch.fallthrough
 
@@ -103195,7 +103192,7 @@ invoke.cont143:                                   ; preds = %invoke.cont141
           to label %unreachable unwind label %ehcleanup146
 
 catch.fallthrough:                                ; preds = %ehcleanup
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches81 = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches81, label %catch118, label %catch.fallthrough82
 
@@ -103221,7 +103218,7 @@ invoke.cont126:                                   ; preds = %invoke.cont124
           to label %unreachable unwind label %ehcleanup129
 
 catch.fallthrough82:                              ; preds = %catch.fallthrough
-  %33 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches83 = icmp eq i32 %ehselector.slot.0, %33
   br i1 %matches83, label %catch101, label %catch.fallthrough84
 
@@ -103247,7 +103244,7 @@ invoke.cont109:                                   ; preds = %invoke.cont107
           to label %unreachable unwind label %ehcleanup112
 
 catch.fallthrough84:                              ; preds = %catch.fallthrough82
-  %36 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches85 = icmp eq i32 %ehselector.slot.0, %36
   br i1 %matches85, label %catch, label %eh.resume
 
@@ -103650,7 +103647,7 @@ catch.dispatch:                                   ; preds = %lpad28, %lpad5, %eh
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %14, %lpad ], [ %16, %lpad28 ], [ %15, %lpad5 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %19
   br i1 %matches, label %catch106, label %catch.fallthrough
 
@@ -103676,7 +103673,7 @@ invoke.cont114:                                   ; preds = %invoke.cont112
           to label %unreachable unwind label %ehcleanup117
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches52 = icmp eq i32 %ehselector.slot.1, %22
   br i1 %matches52, label %catch89, label %catch.fallthrough53
 
@@ -103702,7 +103699,7 @@ invoke.cont97:                                    ; preds = %invoke.cont95
           to label %unreachable unwind label %ehcleanup100
 
 catch.fallthrough53:                              ; preds = %catch.fallthrough
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches54 = icmp eq i32 %ehselector.slot.1, %25
   br i1 %matches54, label %catch72, label %catch.fallthrough55
 
@@ -103728,7 +103725,7 @@ invoke.cont80:                                    ; preds = %invoke.cont78
           to label %unreachable unwind label %ehcleanup83
 
 catch.fallthrough55:                              ; preds = %catch.fallthrough53
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches56 = icmp eq i32 %ehselector.slot.1, %28
   br i1 %matches56, label %catch, label %eh.resume
 
@@ -104140,7 +104137,7 @@ catch.dispatch:                                   ; preds = %lpad28, %lpad5, %eh
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %14, %lpad ], [ %16, %lpad28 ], [ %15, %lpad5 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %19
   br i1 %matches, label %catch106, label %catch.fallthrough
 
@@ -104166,7 +104163,7 @@ invoke.cont114:                                   ; preds = %invoke.cont112
           to label %unreachable unwind label %ehcleanup117
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches52 = icmp eq i32 %ehselector.slot.1, %22
   br i1 %matches52, label %catch89, label %catch.fallthrough53
 
@@ -104192,7 +104189,7 @@ invoke.cont97:                                    ; preds = %invoke.cont95
           to label %unreachable unwind label %ehcleanup100
 
 catch.fallthrough53:                              ; preds = %catch.fallthrough
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches54 = icmp eq i32 %ehselector.slot.1, %25
   br i1 %matches54, label %catch72, label %catch.fallthrough55
 
@@ -104218,7 +104215,7 @@ invoke.cont80:                                    ; preds = %invoke.cont78
           to label %unreachable unwind label %ehcleanup83
 
 catch.fallthrough55:                              ; preds = %catch.fallthrough53
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches56 = icmp eq i32 %ehselector.slot.1, %28
   br i1 %matches56, label %catch, label %eh.resume
 
@@ -104560,7 +104557,7 @@ catch.dispatch:                                   ; preds = %lpad28, %lpad5, %eh
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %14, %lpad ], [ %16, %lpad28 ], [ %15, %lpad5 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %19
   br i1 %matches, label %catch106, label %catch.fallthrough
 
@@ -104586,7 +104583,7 @@ invoke.cont114:                                   ; preds = %invoke.cont112
           to label %unreachable unwind label %ehcleanup117
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches52 = icmp eq i32 %ehselector.slot.1, %22
   br i1 %matches52, label %catch89, label %catch.fallthrough53
 
@@ -104612,7 +104609,7 @@ invoke.cont97:                                    ; preds = %invoke.cont95
           to label %unreachable unwind label %ehcleanup100
 
 catch.fallthrough53:                              ; preds = %catch.fallthrough
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches54 = icmp eq i32 %ehselector.slot.1, %25
   br i1 %matches54, label %catch72, label %catch.fallthrough55
 
@@ -104638,7 +104635,7 @@ invoke.cont80:                                    ; preds = %invoke.cont78
           to label %unreachable unwind label %ehcleanup83
 
 catch.fallthrough55:                              ; preds = %catch.fallthrough53
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches56 = icmp eq i32 %ehselector.slot.1, %28
   br i1 %matches56, label %catch, label %eh.resume
 
@@ -104958,7 +104955,7 @@ catch.dispatch:                                   ; preds = %lpad7.body, %lpad24
   %.pn = phi { ptr, i32 } [ %22, %lpad24 ], [ %20, %lpad ], [ %eh.lpad-body, %lpad7.body ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches, label %catch78, label %catch.fallthrough
 
@@ -104984,7 +104981,7 @@ invoke.cont86:                                    ; preds = %invoke.cont84
           to label %unreachable unwind label %ehcleanup89
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches26 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches26, label %catch61, label %catch.fallthrough27
 
@@ -105010,7 +105007,7 @@ invoke.cont69:                                    ; preds = %invoke.cont67
           to label %unreachable unwind label %ehcleanup72
 
 catch.fallthrough27:                              ; preds = %catch.fallthrough
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches28 = icmp eq i32 %ehselector.slot.0, %29
   br i1 %matches28, label %catch44, label %catch.fallthrough29
 
@@ -105036,7 +105033,7 @@ invoke.cont52:                                    ; preds = %invoke.cont50
           to label %unreachable unwind label %ehcleanup55
 
 catch.fallthrough29:                              ; preds = %catch.fallthrough27
-  %32 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches30 = icmp eq i32 %ehselector.slot.0, %32
   br i1 %matches30, label %catch, label %eh.resume
 
@@ -105247,7 +105244,7 @@ catch.dispatch:                                   ; preds = %lpad6, %lpad
   %.pn = phi { ptr, i32 } [ %8, %lpad6 ], [ %7, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches, label %catch56, label %catch.fallthrough
 
@@ -105273,7 +105270,7 @@ invoke.cont64:                                    ; preds = %invoke.cont62
           to label %unreachable unwind label %ehcleanup67
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches8 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches8, label %catch39, label %catch.fallthrough9
 
@@ -105299,7 +105296,7 @@ invoke.cont47:                                    ; preds = %invoke.cont45
           to label %unreachable unwind label %ehcleanup50
 
 catch.fallthrough9:                               ; preds = %catch.fallthrough
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches10 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches10, label %catch22, label %catch.fallthrough11
 
@@ -105325,7 +105322,7 @@ invoke.cont30:                                    ; preds = %invoke.cont28
           to label %unreachable unwind label %ehcleanup33
 
 catch.fallthrough11:                              ; preds = %catch.fallthrough9
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches12 = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches12, label %catch, label %eh.resume
 
@@ -105520,7 +105517,7 @@ catch.dispatch:                                   ; preds = %lpad3, %lpad
   %.pn = phi { ptr, i32 } [ %6, %lpad3 ], [ %5, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches, label %catch53, label %catch.fallthrough
 
@@ -105546,7 +105543,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
           to label %unreachable unwind label %ehcleanup64
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches5 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches5, label %catch36, label %catch.fallthrough6
 
@@ -105572,7 +105569,7 @@ invoke.cont44:                                    ; preds = %invoke.cont42
           to label %unreachable unwind label %ehcleanup47
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches7 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches7, label %catch19, label %catch.fallthrough8
 
@@ -105598,7 +105595,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
           to label %unreachable unwind label %ehcleanup30
 
 catch.fallthrough8:                               ; preds = %catch.fallthrough6
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches9 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches9, label %catch, label %eh.resume
 
@@ -105948,7 +105945,7 @@ catch.dispatch:                                   ; preds = %lpad4, %ehcleanup42
   %.pn8 = phi { ptr, i32 } [ %8, %lpad29 ], [ %6, %lpad ], [ %.pn.pn, %ehcleanup42 ], [ %7, %lpad4 ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn8, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn8, 1
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.2, %17
   br i1 %matches, label %catch97, label %catch.fallthrough
 
@@ -105974,7 +105971,7 @@ invoke.cont105:                                   ; preds = %invoke.cont103
           to label %unreachable unwind label %ehcleanup108
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches43 = icmp eq i32 %ehselector.slot.2, %20
   br i1 %matches43, label %catch80, label %catch.fallthrough44
 
@@ -106000,7 +105997,7 @@ invoke.cont88:                                    ; preds = %invoke.cont86
           to label %unreachable unwind label %ehcleanup91
 
 catch.fallthrough44:                              ; preds = %catch.fallthrough
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches45 = icmp eq i32 %ehselector.slot.2, %23
   br i1 %matches45, label %catch63, label %catch.fallthrough46
 
@@ -106026,7 +106023,7 @@ invoke.cont71:                                    ; preds = %invoke.cont69
           to label %unreachable unwind label %ehcleanup74
 
 catch.fallthrough46:                              ; preds = %catch.fallthrough44
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches47 = icmp eq i32 %ehselector.slot.2, %26
   br i1 %matches47, label %catch, label %eh.resume
 
@@ -106372,7 +106369,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit, %lpa
   %.pn = phi { ptr, i32 } [ %7, %lpad78 ], [ %6, %lpad39 ], [ %5, %lpad10 ], [ %lpad.loopexit50, %lpad.loopexit ], [ %lpad.loopexit.split-lp51, %lpad.loopexit.split-lp ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches, label %catch161, label %catch.fallthrough
 
@@ -106398,7 +106395,7 @@ invoke.cont169:                                   ; preds = %invoke.cont167
           to label %unreachable unwind label %ehcleanup172
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches109 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches109, label %catch144, label %catch.fallthrough110
 
@@ -106424,7 +106421,7 @@ invoke.cont152:                                   ; preds = %invoke.cont150
           to label %unreachable unwind label %ehcleanup155
 
 catch.fallthrough110:                             ; preds = %catch.fallthrough
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches111 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches111, label %catch127, label %catch.fallthrough112
 
@@ -106450,7 +106447,7 @@ invoke.cont135:                                   ; preds = %invoke.cont133
           to label %unreachable unwind label %ehcleanup138
 
 catch.fallthrough112:                             ; preds = %catch.fallthrough110
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches113 = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches113, label %catch, label %eh.resume
 
@@ -106654,7 +106651,7 @@ catch.dispatch:                                   ; preds = %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %6, %lpad4 ], [ %5, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches, label %catch54, label %catch.fallthrough
 
@@ -106680,7 +106677,7 @@ invoke.cont62:                                    ; preds = %invoke.cont60
           to label %unreachable unwind label %ehcleanup65
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches6 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches6, label %catch37, label %catch.fallthrough7
 
@@ -106706,7 +106703,7 @@ invoke.cont45:                                    ; preds = %invoke.cont43
           to label %unreachable unwind label %ehcleanup48
 
 catch.fallthrough7:                               ; preds = %catch.fallthrough
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches8 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches8, label %catch20, label %catch.fallthrough9
 
@@ -106732,7 +106729,7 @@ invoke.cont28:                                    ; preds = %invoke.cont26
           to label %unreachable unwind label %ehcleanup31
 
 catch.fallthrough9:                               ; preds = %catch.fallthrough7
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches10 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches10, label %catch, label %eh.resume
 
@@ -106931,7 +106928,7 @@ catch.dispatch:                                   ; preds = %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %6, %lpad4 ], [ %5, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches, label %catch54, label %catch.fallthrough
 
@@ -106957,7 +106954,7 @@ invoke.cont62:                                    ; preds = %invoke.cont60
           to label %unreachable unwind label %ehcleanup65
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches6 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches6, label %catch37, label %catch.fallthrough7
 
@@ -106983,7 +106980,7 @@ invoke.cont45:                                    ; preds = %invoke.cont43
           to label %unreachable unwind label %ehcleanup48
 
 catch.fallthrough7:                               ; preds = %catch.fallthrough
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches8 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches8, label %catch20, label %catch.fallthrough9
 
@@ -107009,7 +107006,7 @@ invoke.cont28:                                    ; preds = %invoke.cont26
           to label %unreachable unwind label %ehcleanup31
 
 catch.fallthrough9:                               ; preds = %catch.fallthrough7
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches10 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches10, label %catch, label %eh.resume
 
@@ -107207,7 +107204,7 @@ catch.dispatch:                                   ; preds = %lpad3, %lpad
   %.pn = phi { ptr, i32 } [ %6, %lpad3 ], [ %5, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches, label %catch53, label %catch.fallthrough
 
@@ -107233,7 +107230,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
           to label %unreachable unwind label %ehcleanup64
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches5 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches5, label %catch36, label %catch.fallthrough6
 
@@ -107259,7 +107256,7 @@ invoke.cont44:                                    ; preds = %invoke.cont42
           to label %unreachable unwind label %ehcleanup47
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches7 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches7, label %catch19, label %catch.fallthrough8
 
@@ -107285,7 +107282,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
           to label %unreachable unwind label %ehcleanup30
 
 catch.fallthrough8:                               ; preds = %catch.fallthrough6
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches9 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches9, label %catch, label %eh.resume
 
@@ -107555,7 +107552,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad3, %lpa
   %.pn = phi { ptr, i32 } [ %16, %lpad5 ], [ %15, %lpad3 ], [ %14, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches, label %catch57, label %catch.fallthrough
 
@@ -107581,7 +107578,7 @@ invoke.cont65:                                    ; preds = %invoke.cont63
           to label %unreachable unwind label %ehcleanup68
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches9 = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches9, label %catch40, label %catch.fallthrough10
 
@@ -107607,7 +107604,7 @@ invoke.cont48:                                    ; preds = %invoke.cont46
           to label %unreachable unwind label %ehcleanup51
 
 catch.fallthrough10:                              ; preds = %catch.fallthrough
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches11 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches11, label %catch23, label %catch.fallthrough12
 
@@ -107633,7 +107630,7 @@ invoke.cont31:                                    ; preds = %invoke.cont29
           to label %unreachable unwind label %ehcleanup34
 
 catch.fallthrough12:                              ; preds = %catch.fallthrough10
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches13 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches13, label %catch, label %eh.resume
 
@@ -107940,7 +107937,7 @@ catch.dispatch:                                   ; preds = %lpad4, %ehcleanup68
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup68 ], [ %4, %lpad ], [ %5, %lpad4 ]
   %exn.slot.3 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 0
   %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.3, %10
   br i1 %matches, label %catch123, label %catch.fallthrough
 
@@ -107966,7 +107963,7 @@ invoke.cont131:                                   ; preds = %invoke.cont129
           to label %unreachable unwind label %ehcleanup134
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches69 = icmp eq i32 %ehselector.slot.3, %13
   br i1 %matches69, label %catch106, label %catch.fallthrough70
 
@@ -107992,7 +107989,7 @@ invoke.cont114:                                   ; preds = %invoke.cont112
           to label %unreachable unwind label %ehcleanup117
 
 catch.fallthrough70:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches71 = icmp eq i32 %ehselector.slot.3, %16
   br i1 %matches71, label %catch89, label %catch.fallthrough72
 
@@ -108018,7 +108015,7 @@ invoke.cont97:                                    ; preds = %invoke.cont95
           to label %unreachable unwind label %ehcleanup100
 
 catch.fallthrough72:                              ; preds = %catch.fallthrough70
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches73 = icmp eq i32 %ehselector.slot.3, %19
   br i1 %matches73, label %catch, label %eh.resume
 
@@ -108204,7 +108201,7 @@ catch.dispatch:                                   ; preds = %lpad2, %lpad
   %.pn = phi { ptr, i32 } [ %3, %lpad ], [ %4, %lpad2 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches, label %catch52, label %catch.fallthrough
 
@@ -108230,7 +108227,7 @@ invoke.cont60:                                    ; preds = %invoke.cont58
           to label %unreachable unwind label %ehcleanup63
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches4 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches4, label %catch35, label %catch.fallthrough5
 
@@ -108256,7 +108253,7 @@ invoke.cont43:                                    ; preds = %invoke.cont41
           to label %unreachable unwind label %ehcleanup46
 
 catch.fallthrough5:                               ; preds = %catch.fallthrough
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches6 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches6, label %catch18, label %catch.fallthrough7
 
@@ -108282,7 +108279,7 @@ invoke.cont26:                                    ; preds = %invoke.cont24
           to label %unreachable unwind label %ehcleanup29
 
 catch.fallthrough7:                               ; preds = %catch.fallthrough5
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches8 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches8, label %catch, label %eh.resume
 
@@ -108577,7 +108574,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad
   %.pn = phi { ptr, i32 } [ %0, %lpad ], [ %1, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %2 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %2 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %2
   br i1 %matches, label %catch79, label %catch.fallthrough
 
@@ -108603,7 +108600,7 @@ invoke.cont87:                                    ; preds = %invoke.cont85
           to label %unreachable unwind label %ehcleanup90
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %5 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %5 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %5
   br i1 %matches27, label %catch62, label %catch.fallthrough28
 
@@ -108629,7 +108626,7 @@ invoke.cont70:                                    ; preds = %invoke.cont68
           to label %unreachable unwind label %ehcleanup73
 
 catch.fallthrough28:                              ; preds = %catch.fallthrough
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches29 = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches29, label %catch45, label %catch.fallthrough30
 
@@ -108655,7 +108652,7 @@ invoke.cont53:                                    ; preds = %invoke.cont51
           to label %unreachable unwind label %ehcleanup56
 
 catch.fallthrough30:                              ; preds = %catch.fallthrough28
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches31 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches31, label %catch, label %eh.resume
 
@@ -108841,7 +108838,7 @@ catch.dispatch:                                   ; preds = %lpad2, %lpad
   %.pn = phi { ptr, i32 } [ %3, %lpad ], [ %4, %lpad2 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches, label %catch52, label %catch.fallthrough
 
@@ -108867,7 +108864,7 @@ invoke.cont60:                                    ; preds = %invoke.cont58
           to label %unreachable unwind label %ehcleanup63
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches4 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches4, label %catch35, label %catch.fallthrough5
 
@@ -108893,7 +108890,7 @@ invoke.cont43:                                    ; preds = %invoke.cont41
           to label %unreachable unwind label %ehcleanup46
 
 catch.fallthrough5:                               ; preds = %catch.fallthrough
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches6 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches6, label %catch18, label %catch.fallthrough7
 
@@ -108919,7 +108916,7 @@ invoke.cont26:                                    ; preds = %invoke.cont24
           to label %unreachable unwind label %ehcleanup29
 
 catch.fallthrough7:                               ; preds = %catch.fallthrough5
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches8 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches8, label %catch, label %eh.resume
 
@@ -109105,7 +109102,7 @@ catch.dispatch:                                   ; preds = %lpad2, %lpad
   %.pn = phi { ptr, i32 } [ %3, %lpad ], [ %4, %lpad2 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches, label %catch52, label %catch.fallthrough
 
@@ -109131,7 +109128,7 @@ invoke.cont60:                                    ; preds = %invoke.cont58
           to label %unreachable unwind label %ehcleanup63
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches4 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches4, label %catch35, label %catch.fallthrough5
 
@@ -109157,7 +109154,7 @@ invoke.cont43:                                    ; preds = %invoke.cont41
           to label %unreachable unwind label %ehcleanup46
 
 catch.fallthrough5:                               ; preds = %catch.fallthrough
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches6 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches6, label %catch18, label %catch.fallthrough7
 
@@ -109183,7 +109180,7 @@ invoke.cont26:                                    ; preds = %invoke.cont24
           to label %unreachable unwind label %ehcleanup29
 
 catch.fallthrough7:                               ; preds = %catch.fallthrough5
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches8 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches8, label %catch, label %eh.resume
 
@@ -109585,7 +109582,7 @@ catch.dispatch:                                   ; preds = %lpad2, %lpad.body
   %.pn = phi { ptr, i32 } [ %18, %lpad2 ], [ %eh.lpad-body, %lpad.body ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches, label %catch54, label %catch.fallthrough
 
@@ -109611,7 +109608,7 @@ invoke.cont62:                                    ; preds = %invoke.cont60
           to label %unreachable unwind label %ehcleanup65
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches6 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches6, label %catch37, label %catch.fallthrough7
 
@@ -109637,7 +109634,7 @@ invoke.cont45:                                    ; preds = %invoke.cont43
           to label %unreachable unwind label %ehcleanup48
 
 catch.fallthrough7:                               ; preds = %catch.fallthrough
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches8 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches8, label %catch20, label %catch.fallthrough9
 
@@ -109663,7 +109660,7 @@ invoke.cont28:                                    ; preds = %invoke.cont26
           to label %unreachable unwind label %ehcleanup31
 
 catch.fallthrough9:                               ; preds = %catch.fallthrough7
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches10 = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches10, label %catch, label %eh.resume
 
@@ -109970,7 +109967,7 @@ catch.dispatch:                                   ; preds = %lpad2, %lpad.body
   %.pn = phi { ptr, i32 } [ %18, %lpad2 ], [ %eh.lpad-body, %lpad.body ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches, label %catch54, label %catch.fallthrough
 
@@ -109996,7 +109993,7 @@ invoke.cont62:                                    ; preds = %invoke.cont60
           to label %unreachable unwind label %ehcleanup65
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches6 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches6, label %catch37, label %catch.fallthrough7
 
@@ -110022,7 +110019,7 @@ invoke.cont45:                                    ; preds = %invoke.cont43
           to label %unreachable unwind label %ehcleanup48
 
 catch.fallthrough7:                               ; preds = %catch.fallthrough
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches8 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches8, label %catch20, label %catch.fallthrough9
 
@@ -110048,7 +110045,7 @@ invoke.cont28:                                    ; preds = %invoke.cont26
           to label %unreachable unwind label %ehcleanup31
 
 catch.fallthrough9:                               ; preds = %catch.fallthrough7
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches10 = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches10, label %catch, label %eh.resume
 
@@ -110355,7 +110352,7 @@ catch.dispatch:                                   ; preds = %lpad2, %lpad.body
   %.pn = phi { ptr, i32 } [ %18, %lpad2 ], [ %eh.lpad-body, %lpad.body ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches, label %catch54, label %catch.fallthrough
 
@@ -110381,7 +110378,7 @@ invoke.cont62:                                    ; preds = %invoke.cont60
           to label %unreachable unwind label %ehcleanup65
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches6 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches6, label %catch37, label %catch.fallthrough7
 
@@ -110407,7 +110404,7 @@ invoke.cont45:                                    ; preds = %invoke.cont43
           to label %unreachable unwind label %ehcleanup48
 
 catch.fallthrough7:                               ; preds = %catch.fallthrough
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches8 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches8, label %catch20, label %catch.fallthrough9
 
@@ -110433,7 +110430,7 @@ invoke.cont28:                                    ; preds = %invoke.cont26
           to label %unreachable unwind label %ehcleanup31
 
 catch.fallthrough9:                               ; preds = %catch.fallthrough7
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches10 = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches10, label %catch, label %eh.resume
 
@@ -110755,7 +110752,7 @@ catch.dispatch:                                   ; preds = %lpad34.body, %lpad5
   %.pn = phi { ptr, i32 } [ %11, %lpad63 ], [ %8, %lpad ], [ %eh.lpad-body22, %lpad34.body ], [ %eh.lpad-body, %lpad5.body ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches, label %catch117, label %catch.fallthrough
 
@@ -110781,7 +110778,7 @@ invoke.cont125:                                   ; preds = %invoke.cont123
           to label %unreachable unwind label %ehcleanup128
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches65 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches65, label %catch100, label %catch.fallthrough66
 
@@ -110807,7 +110804,7 @@ invoke.cont108:                                   ; preds = %invoke.cont106
           to label %unreachable unwind label %ehcleanup111
 
 catch.fallthrough66:                              ; preds = %catch.fallthrough
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches67 = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches67, label %catch83, label %catch.fallthrough68
 
@@ -110833,7 +110830,7 @@ invoke.cont91:                                    ; preds = %invoke.cont89
           to label %unreachable unwind label %ehcleanup94
 
 catch.fallthrough68:                              ; preds = %catch.fallthrough66
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches69 = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches69, label %catch, label %eh.resume
 
@@ -111235,7 +111232,7 @@ catch.dispatch:                                   ; preds = %lpad34.body, %lpad5
   %.pn = phi { ptr, i32 } [ %9, %lpad63 ], [ %6, %lpad ], [ %eh.lpad-body22, %lpad34.body ], [ %eh.lpad-body, %lpad5.body ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch117, label %catch.fallthrough
 
@@ -111261,7 +111258,7 @@ invoke.cont125:                                   ; preds = %invoke.cont123
           to label %unreachable unwind label %ehcleanup128
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches65 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches65, label %catch100, label %catch.fallthrough66
 
@@ -111287,7 +111284,7 @@ invoke.cont108:                                   ; preds = %invoke.cont106
           to label %unreachable unwind label %ehcleanup111
 
 catch.fallthrough66:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches67 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches67, label %catch83, label %catch.fallthrough68
 
@@ -111313,7 +111310,7 @@ invoke.cont91:                                    ; preds = %invoke.cont89
           to label %unreachable unwind label %ehcleanup94
 
 catch.fallthrough68:                              ; preds = %catch.fallthrough66
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches69 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches69, label %catch, label %eh.resume
 
@@ -111665,7 +111662,7 @@ catch.dispatch:                                   ; preds = %lpad5, %lpad3, %lpa
   %.pn = phi { ptr, i32 } [ %16, %lpad5 ], [ %15, %lpad3 ], [ %14, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches, label %catch57, label %catch.fallthrough
 
@@ -111691,7 +111688,7 @@ invoke.cont65:                                    ; preds = %invoke.cont63
           to label %unreachable unwind label %ehcleanup68
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches9 = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches9, label %catch40, label %catch.fallthrough10
 
@@ -111717,7 +111714,7 @@ invoke.cont48:                                    ; preds = %invoke.cont46
           to label %unreachable unwind label %ehcleanup51
 
 catch.fallthrough10:                              ; preds = %catch.fallthrough
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches11 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches11, label %catch23, label %catch.fallthrough12
 
@@ -111743,7 +111740,7 @@ invoke.cont31:                                    ; preds = %invoke.cont29
           to label %unreachable unwind label %ehcleanup34
 
 catch.fallthrough12:                              ; preds = %catch.fallthrough10
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches13 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches13, label %catch, label %eh.resume
 
@@ -112046,7 +112043,7 @@ catch.dispatch:                                   ; preds = %lpad28, %lpad5, %lp
   %.pn = phi { ptr, i32 } [ %16, %lpad46 ], [ %13, %lpad ], [ %15, %lpad28 ], [ %14, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches, label %catch102, label %catch.fallthrough
 
@@ -112072,7 +112069,7 @@ invoke.cont110:                                   ; preds = %invoke.cont108
           to label %unreachable unwind label %ehcleanup113
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches50 = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches50, label %catch85, label %catch.fallthrough51
 
@@ -112098,7 +112095,7 @@ invoke.cont93:                                    ; preds = %invoke.cont91
           to label %unreachable unwind label %ehcleanup96
 
 catch.fallthrough51:                              ; preds = %catch.fallthrough
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches52 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches52, label %catch68, label %catch.fallthrough53
 
@@ -112124,7 +112121,7 @@ invoke.cont76:                                    ; preds = %invoke.cont74
           to label %unreachable unwind label %ehcleanup79
 
 catch.fallthrough53:                              ; preds = %catch.fallthrough51
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches54 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches54, label %catch, label %eh.resume
 
@@ -112306,7 +112303,7 @@ catch.dispatch:                                   ; preds = %if.then.i.i.i.i12, 
   %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad2 ], [ %3, %if.then.i.i.i.i12 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %5 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %5 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %5
   br i1 %matches, label %catch52, label %catch.fallthrough
 
@@ -112332,7 +112329,7 @@ invoke.cont60:                                    ; preds = %invoke.cont58
           to label %unreachable unwind label %ehcleanup63
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches4 = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches4, label %catch35, label %catch.fallthrough5
 
@@ -112358,7 +112355,7 @@ invoke.cont43:                                    ; preds = %invoke.cont41
           to label %unreachable unwind label %ehcleanup46
 
 catch.fallthrough5:                               ; preds = %catch.fallthrough
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches6 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches6, label %catch18, label %catch.fallthrough7
 
@@ -112384,7 +112381,7 @@ invoke.cont26:                                    ; preds = %invoke.cont24
           to label %unreachable unwind label %ehcleanup29
 
 catch.fallthrough7:                               ; preds = %catch.fallthrough5
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches8 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches8, label %catch, label %eh.resume
 
@@ -112643,7 +112640,7 @@ catch.dispatch:                                   ; preds = %if.then.i.i.i.i12, 
   %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad2 ], [ %3, %if.then.i.i.i.i12 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %5 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %5 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %5
   br i1 %matches, label %catch52, label %catch.fallthrough
 
@@ -112669,7 +112666,7 @@ invoke.cont60:                                    ; preds = %invoke.cont58
           to label %unreachable unwind label %ehcleanup63
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches4 = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches4, label %catch35, label %catch.fallthrough5
 
@@ -112695,7 +112692,7 @@ invoke.cont43:                                    ; preds = %invoke.cont41
           to label %unreachable unwind label %ehcleanup46
 
 catch.fallthrough5:                               ; preds = %catch.fallthrough
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches6 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches6, label %catch18, label %catch.fallthrough7
 
@@ -112721,7 +112718,7 @@ invoke.cont26:                                    ; preds = %invoke.cont24
           to label %unreachable unwind label %ehcleanup29
 
 catch.fallthrough7:                               ; preds = %catch.fallthrough5
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches8 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches8, label %catch, label %eh.resume
 
@@ -113079,7 +113076,7 @@ catch.dispatch:                                   ; preds = %lpad28, %lpad5, %eh
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %16, %lpad ], [ %18, %lpad28 ], [ %17, %lpad5 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %22
   br i1 %matches, label %catch107, label %catch.fallthrough
 
@@ -113105,7 +113102,7 @@ invoke.cont115:                                   ; preds = %invoke.cont113
           to label %unreachable unwind label %ehcleanup118
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches53 = icmp eq i32 %ehselector.slot.1, %25
   br i1 %matches53, label %catch90, label %catch.fallthrough54
 
@@ -113131,7 +113128,7 @@ invoke.cont98:                                    ; preds = %invoke.cont96
           to label %unreachable unwind label %ehcleanup101
 
 catch.fallthrough54:                              ; preds = %catch.fallthrough
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches55 = icmp eq i32 %ehselector.slot.1, %28
   br i1 %matches55, label %catch73, label %catch.fallthrough56
 
@@ -113157,7 +113154,7 @@ invoke.cont81:                                    ; preds = %invoke.cont79
           to label %unreachable unwind label %ehcleanup84
 
 catch.fallthrough56:                              ; preds = %catch.fallthrough54
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches57 = icmp eq i32 %ehselector.slot.1, %31
   br i1 %matches57, label %catch, label %eh.resume
 
@@ -113435,7 +113432,7 @@ catch.dispatch:                                   ; preds = %lpad28, %lpad5, %lp
   %.pn = phi { ptr, i32 } [ %12, %lpad47 ], [ %9, %lpad ], [ %11, %lpad28 ], [ %10, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches, label %catch101, label %catch.fallthrough
 
@@ -113461,7 +113458,7 @@ invoke.cont109:                                   ; preds = %invoke.cont107
           to label %unreachable unwind label %ehcleanup112
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches49 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches49, label %catch84, label %catch.fallthrough50
 
@@ -113487,7 +113484,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
           to label %unreachable unwind label %ehcleanup95
 
 catch.fallthrough50:                              ; preds = %catch.fallthrough
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches51 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches51, label %catch67, label %catch.fallthrough52
 
@@ -113513,7 +113510,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
           to label %unreachable unwind label %ehcleanup78
 
 catch.fallthrough52:                              ; preds = %catch.fallthrough50
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches53, label %catch, label %eh.resume
 
@@ -113660,7 +113657,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = extractvalue { ptr, i32 } %0, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %2, %3
   br i1 %matches, label %catch49, label %catch.fallthrough
 
@@ -113686,7 +113683,7 @@ invoke.cont57:                                    ; preds = %invoke.cont55
           to label %unreachable unwind label %ehcleanup60
 
 catch.fallthrough:                                ; preds = %lpad
-  %6 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %6 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches2 = icmp eq i32 %2, %6
   br i1 %matches2, label %catch32, label %catch.fallthrough3
 
@@ -113712,7 +113709,7 @@ invoke.cont40:                                    ; preds = %invoke.cont38
           to label %unreachable unwind label %ehcleanup43
 
 catch.fallthrough3:                               ; preds = %catch.fallthrough
-  %9 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches4 = icmp eq i32 %2, %9
   br i1 %matches4, label %catch15, label %catch.fallthrough5
 
@@ -113738,7 +113735,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
           to label %unreachable unwind label %ehcleanup26
 
 catch.fallthrough5:                               ; preds = %catch.fallthrough3
-  %12 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %12 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches6 = icmp eq i32 %2, %12
   br i1 %matches6, label %catch, label %eh.resume
 
@@ -113885,7 +113882,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = extractvalue { ptr, i32 } %0, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %2, %3
   br i1 %matches, label %catch49, label %catch.fallthrough
 
@@ -113911,7 +113908,7 @@ invoke.cont57:                                    ; preds = %invoke.cont55
           to label %unreachable unwind label %ehcleanup60
 
 catch.fallthrough:                                ; preds = %lpad
-  %6 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %6 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches2 = icmp eq i32 %2, %6
   br i1 %matches2, label %catch32, label %catch.fallthrough3
 
@@ -113937,7 +113934,7 @@ invoke.cont40:                                    ; preds = %invoke.cont38
           to label %unreachable unwind label %ehcleanup43
 
 catch.fallthrough3:                               ; preds = %catch.fallthrough
-  %9 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches4 = icmp eq i32 %2, %9
   br i1 %matches4, label %catch15, label %catch.fallthrough5
 
@@ -113963,7 +113960,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
           to label %unreachable unwind label %ehcleanup26
 
 catch.fallthrough5:                               ; preds = %catch.fallthrough3
-  %12 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %12 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches6 = icmp eq i32 %2, %12
   br i1 %matches6, label %catch, label %eh.resume
 
@@ -114367,7 +114364,7 @@ catch.dispatch:                                   ; preds = %ehcleanup40, %lpad5
   %.pn5.pn = phi { ptr, i32 } [ %18, %lpad ], [ %eh.lpad-body, %lpad5.body ], [ %.pn5, %ehcleanup40 ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn5.pn, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn5.pn, 1
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.2, %30
   br i1 %matches, label %catch95, label %catch.fallthrough
 
@@ -114393,7 +114390,7 @@ invoke.cont103:                                   ; preds = %invoke.cont101
           to label %unreachable unwind label %ehcleanup106
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %33 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches41 = icmp eq i32 %ehselector.slot.2, %33
   br i1 %matches41, label %catch78, label %catch.fallthrough42
 
@@ -114419,7 +114416,7 @@ invoke.cont86:                                    ; preds = %invoke.cont84
           to label %unreachable unwind label %ehcleanup89
 
 catch.fallthrough42:                              ; preds = %catch.fallthrough
-  %36 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches43 = icmp eq i32 %ehselector.slot.2, %36
   br i1 %matches43, label %catch61, label %catch.fallthrough44
 
@@ -114445,7 +114442,7 @@ invoke.cont69:                                    ; preds = %invoke.cont67
           to label %unreachable unwind label %ehcleanup72
 
 catch.fallthrough44:                              ; preds = %catch.fallthrough42
-  %39 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %39 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches45 = icmp eq i32 %ehselector.slot.2, %39
   br i1 %matches45, label %catch, label %eh.resume
 
@@ -115154,7 +115151,7 @@ catch.dispatch:                                   ; preds = %lpad109.body, %lpad
   %.pn13.pn = phi { ptr, i32 } [ %.pn13, %ehcleanup210 ], [ %21, %lpad ], [ %.pn.pn, %ehcleanup164 ], [ %eh.lpad-body, %lpad109.body ], [ %25, %lpad83 ], [ %24, %lpad54 ], [ %23, %lpad28 ], [ %22, %lpad5 ]
   %exn.slot.3 = extractvalue { ptr, i32 } %.pn13.pn, 0
   %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn13.pn, 1
-  %33 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.3, %33
   br i1 %matches, label %catch265, label %catch.fallthrough
 
@@ -115180,7 +115177,7 @@ invoke.cont273:                                   ; preds = %invoke.cont271
           to label %unreachable unwind label %ehcleanup276
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %36 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches211 = icmp eq i32 %ehselector.slot.3, %36
   br i1 %matches211, label %catch248, label %catch.fallthrough212
 
@@ -115206,7 +115203,7 @@ invoke.cont256:                                   ; preds = %invoke.cont254
           to label %unreachable unwind label %ehcleanup259
 
 catch.fallthrough212:                             ; preds = %catch.fallthrough
-  %39 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %39 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches213 = icmp eq i32 %ehselector.slot.3, %39
   br i1 %matches213, label %catch231, label %catch.fallthrough214
 
@@ -115232,7 +115229,7 @@ invoke.cont239:                                   ; preds = %invoke.cont237
           to label %unreachable unwind label %ehcleanup242
 
 catch.fallthrough214:                             ; preds = %catch.fallthrough212
-  %42 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %42 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches215 = icmp eq i32 %ehselector.slot.3, %42
   br i1 %matches215, label %catch, label %eh.resume
 
@@ -115584,7 +115581,7 @@ catch.dispatch:                                   ; preds = %lpad32, %lpad4, %lp
   %.pn = phi { ptr, i32 } [ %4, %lpad61 ], [ %1, %lpad ], [ %3, %lpad32 ], [ %2, %lpad4 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %5 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %5 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %5
   br i1 %matches, label %catch115, label %catch.fallthrough
 
@@ -115610,7 +115607,7 @@ invoke.cont123:                                   ; preds = %invoke.cont121
           to label %unreachable unwind label %ehcleanup126
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches63 = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches63, label %catch98, label %catch.fallthrough64
 
@@ -115636,7 +115633,7 @@ invoke.cont106:                                   ; preds = %invoke.cont104
           to label %unreachable unwind label %ehcleanup109
 
 catch.fallthrough64:                              ; preds = %catch.fallthrough
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches65 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches65, label %catch81, label %catch.fallthrough66
 
@@ -115662,7 +115659,7 @@ invoke.cont89:                                    ; preds = %invoke.cont87
           to label %unreachable unwind label %ehcleanup92
 
 catch.fallthrough66:                              ; preds = %catch.fallthrough64
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches67 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches67, label %catch, label %eh.resume
 
@@ -116016,7 +116013,7 @@ catch.dispatch:                                   ; preds = %lpad32, %lpad4, %lp
   %.pn = phi { ptr, i32 } [ %4, %lpad61 ], [ %1, %lpad ], [ %3, %lpad32 ], [ %2, %lpad4 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %5 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %5 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %5
   br i1 %matches, label %catch115, label %catch.fallthrough
 
@@ -116042,7 +116039,7 @@ invoke.cont123:                                   ; preds = %invoke.cont121
           to label %unreachable unwind label %ehcleanup126
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches63 = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches63, label %catch98, label %catch.fallthrough64
 
@@ -116068,7 +116065,7 @@ invoke.cont106:                                   ; preds = %invoke.cont104
           to label %unreachable unwind label %ehcleanup109
 
 catch.fallthrough64:                              ; preds = %catch.fallthrough
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches65 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches65, label %catch81, label %catch.fallthrough66
 
@@ -116094,7 +116091,7 @@ invoke.cont89:                                    ; preds = %invoke.cont87
           to label %unreachable unwind label %ehcleanup92
 
 catch.fallthrough66:                              ; preds = %catch.fallthrough64
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches67 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches67, label %catch, label %eh.resume
 
@@ -116364,7 +116361,7 @@ catch.dispatch:                                   ; preds = %lpad32, %lpad4, %lp
   %.pn = phi { ptr, i32 } [ %4, %lpad61 ], [ %1, %lpad ], [ %3, %lpad32 ], [ %2, %lpad4 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %5 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %5 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %5
   br i1 %matches, label %catch115, label %catch.fallthrough
 
@@ -116390,7 +116387,7 @@ invoke.cont123:                                   ; preds = %invoke.cont121
           to label %unreachable unwind label %ehcleanup126
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches63 = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches63, label %catch98, label %catch.fallthrough64
 
@@ -116416,7 +116413,7 @@ invoke.cont106:                                   ; preds = %invoke.cont104
           to label %unreachable unwind label %ehcleanup109
 
 catch.fallthrough64:                              ; preds = %catch.fallthrough
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches65 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches65, label %catch81, label %catch.fallthrough66
 
@@ -116442,7 +116439,7 @@ invoke.cont89:                                    ; preds = %invoke.cont87
           to label %unreachable unwind label %ehcleanup92
 
 catch.fallthrough66:                              ; preds = %catch.fallthrough64
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches67 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches67, label %catch, label %eh.resume
 
@@ -116714,7 +116711,7 @@ catch.dispatch:                                   ; preds = %lpad32, %lpad4, %lp
   %.pn = phi { ptr, i32 } [ %4, %lpad61 ], [ %1, %lpad ], [ %3, %lpad32 ], [ %2, %lpad4 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %5 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %5 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %5
   br i1 %matches, label %catch115, label %catch.fallthrough
 
@@ -116740,7 +116737,7 @@ invoke.cont123:                                   ; preds = %invoke.cont121
           to label %unreachable unwind label %ehcleanup126
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches63 = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches63, label %catch98, label %catch.fallthrough64
 
@@ -116766,7 +116763,7 @@ invoke.cont106:                                   ; preds = %invoke.cont104
           to label %unreachable unwind label %ehcleanup109
 
 catch.fallthrough64:                              ; preds = %catch.fallthrough
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches65 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches65, label %catch81, label %catch.fallthrough66
 
@@ -116792,7 +116789,7 @@ invoke.cont89:                                    ; preds = %invoke.cont87
           to label %unreachable unwind label %ehcleanup92
 
 catch.fallthrough66:                              ; preds = %catch.fallthrough64
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches67 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches67, label %catch, label %eh.resume
 
@@ -117064,7 +117061,7 @@ catch.dispatch:                                   ; preds = %lpad32, %lpad4, %lp
   %.pn = phi { ptr, i32 } [ %4, %lpad61 ], [ %1, %lpad ], [ %3, %lpad32 ], [ %2, %lpad4 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %5 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %5 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %5
   br i1 %matches, label %catch115, label %catch.fallthrough
 
@@ -117090,7 +117087,7 @@ invoke.cont123:                                   ; preds = %invoke.cont121
           to label %unreachable unwind label %ehcleanup126
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches63 = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches63, label %catch98, label %catch.fallthrough64
 
@@ -117116,7 +117113,7 @@ invoke.cont106:                                   ; preds = %invoke.cont104
           to label %unreachable unwind label %ehcleanup109
 
 catch.fallthrough64:                              ; preds = %catch.fallthrough
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches65 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches65, label %catch81, label %catch.fallthrough66
 
@@ -117142,7 +117139,7 @@ invoke.cont89:                                    ; preds = %invoke.cont87
           to label %unreachable unwind label %ehcleanup92
 
 catch.fallthrough66:                              ; preds = %catch.fallthrough64
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches67 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches67, label %catch, label %eh.resume
 
@@ -117352,7 +117349,7 @@ lpad:                                             ; preds = %if.then.i.i, %invok
           catch ptr @_ZTISt16invalid_argument
   %11 = extractvalue { ptr, i32 } %10, 0
   %12 = extractvalue { ptr, i32 } %10, 1
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %12, %13
   br i1 %matches, label %catch51, label %catch.fallthrough
 
@@ -117378,7 +117375,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %ehcleanup62
 
 catch.fallthrough:                                ; preds = %lpad
-  %16 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %16 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches3 = icmp eq i32 %12, %16
   br i1 %matches3, label %catch34, label %catch.fallthrough4
 
@@ -117404,7 +117401,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %unreachable unwind label %ehcleanup45
 
 catch.fallthrough4:                               ; preds = %catch.fallthrough
-  %19 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %19 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches5 = icmp eq i32 %12, %19
   br i1 %matches5, label %catch17, label %catch.fallthrough6
 
@@ -117430,7 +117427,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %unreachable unwind label %ehcleanup28
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough4
-  %22 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %22 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches7 = icmp eq i32 %12, %22
   br i1 %matches7, label %catch, label %eh.resume
 
@@ -118106,7 +118103,7 @@ catch.dispatch:                                   ; preds = %lpad84, %lpad51, %l
   %.pn19 = phi { ptr, i32 } [ %27, %lpad204 ], [ %18, %lpad ], [ %.pn17, %ehcleanup196 ], [ %.pn, %ehcleanup ], [ %22, %lpad84 ], [ %21, %lpad51 ], [ %20, %lpad28 ], [ %19, %lpad5 ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn19, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn19, 1
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.2, %28
   br i1 %matches, label %catch261, label %catch.fallthrough
 
@@ -118132,7 +118129,7 @@ invoke.cont269:                                   ; preds = %invoke.cont267
           to label %unreachable unwind label %ehcleanup272
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches207 = icmp eq i32 %ehselector.slot.2, %31
   br i1 %matches207, label %catch244, label %catch.fallthrough208
 
@@ -118158,7 +118155,7 @@ invoke.cont252:                                   ; preds = %invoke.cont250
           to label %unreachable unwind label %ehcleanup255
 
 catch.fallthrough208:                             ; preds = %catch.fallthrough
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches209 = icmp eq i32 %ehselector.slot.2, %34
   br i1 %matches209, label %catch227, label %catch.fallthrough210
 
@@ -118184,7 +118181,7 @@ invoke.cont235:                                   ; preds = %invoke.cont233
           to label %unreachable unwind label %ehcleanup238
 
 catch.fallthrough210:                             ; preds = %catch.fallthrough208
-  %37 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches211 = icmp eq i32 %ehselector.slot.2, %37
   br i1 %matches211, label %catch, label %eh.resume
 
@@ -119382,7 +119379,7 @@ catch.dispatch:                                   ; preds = %ehcleanup418, %lpad
   %.pn32.pn.pn = phi { ptr, i32 } [ %60, %lpad ], [ %78, %lpad389 ], [ %77, %lpad381 ], [ %.pn30, %ehcleanup376 ], [ %.pn28, %ehcleanup334 ], [ %.pn26, %ehcleanup292 ], [ %.pn24, %ehcleanup245 ], [ %.pn, %ehcleanup ], [ %66, %lpad140 ], [ %65, %lpad111 ], [ %64, %lpad83 ], [ %63, %lpad54 ], [ %62, %lpad28 ], [ %61, %lpad5 ], [ %.pn32.pn, %ehcleanup418 ]
   %exn.slot.7 = extractvalue { ptr, i32 } %.pn32.pn.pn, 0
   %ehselector.slot.7 = extractvalue { ptr, i32 } %.pn32.pn.pn, 1
-  %86 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %86 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.7, %86
   br i1 %matches, label %catch473, label %catch.fallthrough
 
@@ -119408,7 +119405,7 @@ invoke.cont481:                                   ; preds = %invoke.cont479
           to label %unreachable unwind label %ehcleanup484
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %89 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %89 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches419 = icmp eq i32 %ehselector.slot.7, %89
   br i1 %matches419, label %catch456, label %catch.fallthrough420
 
@@ -119434,7 +119431,7 @@ invoke.cont464:                                   ; preds = %invoke.cont462
           to label %unreachable unwind label %ehcleanup467
 
 catch.fallthrough420:                             ; preds = %catch.fallthrough
-  %92 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %92 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches421 = icmp eq i32 %ehselector.slot.7, %92
   br i1 %matches421, label %catch439, label %catch.fallthrough422
 
@@ -119460,7 +119457,7 @@ invoke.cont447:                                   ; preds = %invoke.cont445
           to label %unreachable unwind label %ehcleanup450
 
 catch.fallthrough422:                             ; preds = %catch.fallthrough420
-  %95 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %95 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches423 = icmp eq i32 %ehselector.slot.7, %95
   br i1 %matches423, label %catch, label %eh.resume
 
@@ -119991,7 +119988,7 @@ catch.dispatch:                                   ; preds = %ehcleanup, %lpad85,
   %.pn9.pn = phi { ptr, i32 } [ %.pn9, %ehcleanup129 ], [ %20, %lpad ], [ %24, %lpad85 ], [ %eh.lpad-body, %lpad52.body ], [ %22, %lpad28 ], [ %21, %lpad5 ], [ %.pn, %ehcleanup ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn9.pn, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn9.pn, 1
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.2, %31
   br i1 %matches, label %catch184, label %catch.fallthrough
 
@@ -120017,7 +120014,7 @@ invoke.cont192:                                   ; preds = %invoke.cont190
           to label %unreachable unwind label %ehcleanup195
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches130 = icmp eq i32 %ehselector.slot.2, %34
   br i1 %matches130, label %catch167, label %catch.fallthrough131
 
@@ -120043,7 +120040,7 @@ invoke.cont175:                                   ; preds = %invoke.cont173
           to label %unreachable unwind label %ehcleanup178
 
 catch.fallthrough131:                             ; preds = %catch.fallthrough
-  %37 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches132 = icmp eq i32 %ehselector.slot.2, %37
   br i1 %matches132, label %catch150, label %catch.fallthrough133
 
@@ -120069,7 +120066,7 @@ invoke.cont158:                                   ; preds = %invoke.cont156
           to label %unreachable unwind label %ehcleanup161
 
 catch.fallthrough133:                             ; preds = %catch.fallthrough131
-  %40 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches134 = icmp eq i32 %ehselector.slot.2, %40
   br i1 %matches134, label %catch, label %eh.resume
 
@@ -120389,7 +120386,7 @@ catch.dispatch:                                   ; preds = %lpad28, %lpad5, %lp
   %.pn = phi { ptr, i32 } [ %17, %lpad55 ], [ %14, %lpad ], [ %16, %lpad28 ], [ %15, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches, label %catch112, label %catch.fallthrough
 
@@ -120415,7 +120412,7 @@ invoke.cont120:                                   ; preds = %invoke.cont118
           to label %unreachable unwind label %ehcleanup123
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches60 = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches60, label %catch95, label %catch.fallthrough61
 
@@ -120441,7 +120438,7 @@ invoke.cont103:                                   ; preds = %invoke.cont101
           to label %unreachable unwind label %ehcleanup106
 
 catch.fallthrough61:                              ; preds = %catch.fallthrough
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches62 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches62, label %catch78, label %catch.fallthrough63
 
@@ -120467,7 +120464,7 @@ invoke.cont86:                                    ; preds = %invoke.cont84
           to label %unreachable unwind label %ehcleanup89
 
 catch.fallthrough63:                              ; preds = %catch.fallthrough61
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches64 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches64, label %catch, label %eh.resume
 
@@ -120784,7 +120781,7 @@ catch.dispatch:                                   ; preds = %lpad28, %lpad5, %lp
   %.pn = phi { ptr, i32 } [ %17, %lpad55 ], [ %14, %lpad ], [ %16, %lpad28 ], [ %15, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches, label %catch112, label %catch.fallthrough
 
@@ -120810,7 +120807,7 @@ invoke.cont120:                                   ; preds = %invoke.cont118
           to label %unreachable unwind label %ehcleanup123
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches60 = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches60, label %catch95, label %catch.fallthrough61
 
@@ -120836,7 +120833,7 @@ invoke.cont103:                                   ; preds = %invoke.cont101
           to label %unreachable unwind label %ehcleanup106
 
 catch.fallthrough61:                              ; preds = %catch.fallthrough
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches62 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches62, label %catch78, label %catch.fallthrough63
 
@@ -120862,7 +120859,7 @@ invoke.cont86:                                    ; preds = %invoke.cont84
           to label %unreachable unwind label %ehcleanup89
 
 catch.fallthrough63:                              ; preds = %catch.fallthrough61
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches64 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches64, label %catch, label %eh.resume
 
@@ -121013,7 +121010,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch49, label %catch.fallthrough
 
@@ -121039,7 +121036,7 @@ invoke.cont57:                                    ; preds = %invoke.cont55
           to label %unreachable unwind label %ehcleanup60
 
 catch.fallthrough:                                ; preds = %lpad
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches2 = icmp eq i32 %3, %7
   br i1 %matches2, label %catch32, label %catch.fallthrough3
 
@@ -121065,7 +121062,7 @@ invoke.cont40:                                    ; preds = %invoke.cont38
           to label %unreachable unwind label %ehcleanup43
 
 catch.fallthrough3:                               ; preds = %catch.fallthrough
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches4 = icmp eq i32 %3, %10
   br i1 %matches4, label %catch15, label %catch.fallthrough5
 
@@ -121091,7 +121088,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
           to label %unreachable unwind label %ehcleanup26
 
 catch.fallthrough5:                               ; preds = %catch.fallthrough3
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches6 = icmp eq i32 %3, %13
   br i1 %matches6, label %catch, label %eh.resume
 
@@ -121240,7 +121237,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch49, label %catch.fallthrough
 
@@ -121266,7 +121263,7 @@ invoke.cont57:                                    ; preds = %invoke.cont55
           to label %unreachable unwind label %ehcleanup60
 
 catch.fallthrough:                                ; preds = %lpad
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches2 = icmp eq i32 %3, %7
   br i1 %matches2, label %catch32, label %catch.fallthrough3
 
@@ -121292,7 +121289,7 @@ invoke.cont40:                                    ; preds = %invoke.cont38
           to label %unreachable unwind label %ehcleanup43
 
 catch.fallthrough3:                               ; preds = %catch.fallthrough
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches4 = icmp eq i32 %3, %10
   br i1 %matches4, label %catch15, label %catch.fallthrough5
 
@@ -121318,7 +121315,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
           to label %unreachable unwind label %ehcleanup26
 
 catch.fallthrough5:                               ; preds = %catch.fallthrough3
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches6 = icmp eq i32 %3, %13
   br i1 %matches6, label %catch, label %eh.resume
 
@@ -121598,7 +121595,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit, %lpa
   %.pn = phi { ptr, i32 } [ %5, %lpad39 ], [ %4, %lpad10 ], [ %lpad.loopexit46, %lpad.loopexit ], [ %lpad.loopexit.split-lp47, %lpad.loopexit.split-lp ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %6 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %6
   br i1 %matches, label %catch123, label %catch.fallthrough
 
@@ -121624,7 +121621,7 @@ invoke.cont131:                                   ; preds = %invoke.cont129
           to label %unreachable unwind label %ehcleanup134
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches71 = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches71, label %catch106, label %catch.fallthrough72
 
@@ -121650,7 +121647,7 @@ invoke.cont114:                                   ; preds = %invoke.cont112
           to label %unreachable unwind label %ehcleanup117
 
 catch.fallthrough72:                              ; preds = %catch.fallthrough
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches73 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches73, label %catch89, label %catch.fallthrough74
 
@@ -121676,7 +121673,7 @@ invoke.cont97:                                    ; preds = %invoke.cont95
           to label %unreachable unwind label %ehcleanup100
 
 catch.fallthrough74:                              ; preds = %catch.fallthrough72
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches75 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches75, label %catch, label %eh.resume
 
@@ -122021,7 +122018,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit, %lpa
   %.pn10 = phi { ptr, i32 } [ %8, %lpad78 ], [ %7, %lpad44 ], [ %.pn, %cleanup.action27 ], [ %lpad.loopexit52, %lpad.loopexit ], [ %lpad.loopexit.split-lp53, %lpad.loopexit.split-lp ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn10, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn10, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %9
   br i1 %matches, label %catch164, label %catch.fallthrough
 
@@ -122047,7 +122044,7 @@ invoke.cont172:                                   ; preds = %invoke.cont170
           to label %unreachable unwind label %ehcleanup175
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches110 = icmp eq i32 %ehselector.slot.1, %12
   br i1 %matches110, label %catch147, label %catch.fallthrough111
 
@@ -122073,7 +122070,7 @@ invoke.cont155:                                   ; preds = %invoke.cont153
           to label %unreachable unwind label %ehcleanup158
 
 catch.fallthrough111:                             ; preds = %catch.fallthrough
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches112 = icmp eq i32 %ehselector.slot.1, %15
   br i1 %matches112, label %catch130, label %catch.fallthrough113
 
@@ -122099,7 +122096,7 @@ invoke.cont138:                                   ; preds = %invoke.cont136
           to label %unreachable unwind label %ehcleanup141
 
 catch.fallthrough113:                             ; preds = %catch.fallthrough111
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches114 = icmp eq i32 %ehselector.slot.1, %18
   br i1 %matches114, label %catch, label %eh.resume
 
@@ -122455,7 +122452,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit, %lpa
   %.pn = phi { ptr, i32 } [ %9, %lpad94 ], [ %8, %lpad59 ], [ %7, %lpad28 ], [ %6, %lpad5 ], [ %lpad.loopexit52, %lpad.loopexit ], [ %lpad.loopexit.split-lp53, %lpad.loopexit.split-lp ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch179, label %catch.fallthrough
 
@@ -122481,7 +122478,7 @@ invoke.cont187:                                   ; preds = %invoke.cont185
           to label %unreachable unwind label %ehcleanup190
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches127 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches127, label %catch162, label %catch.fallthrough128
 
@@ -122507,7 +122504,7 @@ invoke.cont170:                                   ; preds = %invoke.cont168
           to label %unreachable unwind label %ehcleanup173
 
 catch.fallthrough128:                             ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches129 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches129, label %catch145, label %catch.fallthrough130
 
@@ -122533,7 +122530,7 @@ invoke.cont153:                                   ; preds = %invoke.cont151
           to label %unreachable unwind label %ehcleanup156
 
 catch.fallthrough130:                             ; preds = %catch.fallthrough128
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches131 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches131, label %catch, label %eh.resume
 
@@ -123500,7 +123497,7 @@ catch.dispatch:                                   ; preds = %lpad39, %lpad10, %e
   %.pn16 = phi { ptr, i32 } [ %4, %lpad ], [ %6, %lpad39 ], [ %5, %lpad10 ], [ %.pn13.pn, %ehcleanup119 ]
   %exn.slot.5 = extractvalue { ptr, i32 } %.pn16, 0
   %ehselector.slot.5 = extractvalue { ptr, i32 } %.pn16, 1
-  %85 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %85 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.5, %85
   br i1 %matches, label %catch175, label %catch.fallthrough
 
@@ -123526,7 +123523,7 @@ invoke.cont183:                                   ; preds = %invoke.cont181
           to label %unreachable unwind label %ehcleanup186
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %88 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %88 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches121 = icmp eq i32 %ehselector.slot.5, %88
   br i1 %matches121, label %catch158, label %catch.fallthrough122
 
@@ -123552,7 +123549,7 @@ invoke.cont166:                                   ; preds = %invoke.cont164
           to label %unreachable unwind label %ehcleanup169
 
 catch.fallthrough122:                             ; preds = %catch.fallthrough
-  %91 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches123 = icmp eq i32 %ehselector.slot.5, %91
   br i1 %matches123, label %catch141, label %catch.fallthrough124
 
@@ -123578,7 +123575,7 @@ invoke.cont149:                                   ; preds = %invoke.cont147
           to label %unreachable unwind label %ehcleanup152
 
 catch.fallthrough124:                             ; preds = %catch.fallthrough122
-  %94 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %94 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches125 = icmp eq i32 %ehselector.slot.5, %94
   br i1 %matches125, label %catch, label %eh.resume
 
@@ -128191,7 +128188,7 @@ catch.dispatch:                                   ; preds = %cleanup.action27, %
   %.pn92.pn = phi { ptr, i32 } [ %.pn92, %ehcleanup1250 ], [ %5, %lpad ], [ %.pn, %cleanup.action27 ]
   %exn.slot.5 = extractvalue { ptr, i32 } %.pn92.pn, 0
   %ehselector.slot.5 = extractvalue { ptr, i32 } %.pn92.pn, 1
-  %507 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %507 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.5, %507
   br i1 %matches, label %catch1305, label %catch.fallthrough
 
@@ -128217,7 +128214,7 @@ invoke.cont1313:                                  ; preds = %invoke.cont1311
           to label %unreachable unwind label %ehcleanup1316
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %510 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %510 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches1251 = icmp eq i32 %ehselector.slot.5, %510
   br i1 %matches1251, label %catch1288, label %catch.fallthrough1252
 
@@ -128243,7 +128240,7 @@ invoke.cont1296:                                  ; preds = %invoke.cont1294
           to label %unreachable unwind label %ehcleanup1299
 
 catch.fallthrough1252:                            ; preds = %catch.fallthrough
-  %513 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %513 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches1253 = icmp eq i32 %ehselector.slot.5, %513
   br i1 %matches1253, label %catch1271, label %catch.fallthrough1254
 
@@ -128269,7 +128266,7 @@ invoke.cont1279:                                  ; preds = %invoke.cont1277
           to label %unreachable unwind label %ehcleanup1282
 
 catch.fallthrough1254:                            ; preds = %catch.fallthrough1252
-  %516 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %516 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches1255 = icmp eq i32 %ehselector.slot.5, %516
   br i1 %matches1255, label %catch, label %eh.resume
 
@@ -131715,7 +131712,7 @@ catch.dispatch:                                   ; preds = %cleanup.action67, %
   %.pn11.pn.pn = phi { ptr, i32 } [ %.pn11.pn, %ehcleanup118 ], [ %22, %lpad ], [ %.pn9, %cleanup.action67 ], [ %.pn, %cleanup.action27 ]
   %exn.slot.4 = extractvalue { ptr, i32 } %.pn11.pn.pn, 0
   %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn11.pn.pn, 1
-  %35 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.4, %35
   br i1 %matches, label %catch173, label %catch.fallthrough
 
@@ -131741,7 +131738,7 @@ invoke.cont181:                                   ; preds = %invoke.cont179
           to label %unreachable unwind label %ehcleanup184
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %38 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches119 = icmp eq i32 %ehselector.slot.4, %38
   br i1 %matches119, label %catch156, label %catch.fallthrough120
 
@@ -131767,7 +131764,7 @@ invoke.cont164:                                   ; preds = %invoke.cont162
           to label %unreachable unwind label %ehcleanup167
 
 catch.fallthrough120:                             ; preds = %catch.fallthrough
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches121 = icmp eq i32 %ehselector.slot.4, %41
   br i1 %matches121, label %catch139, label %catch.fallthrough122
 
@@ -131793,7 +131790,7 @@ invoke.cont147:                                   ; preds = %invoke.cont145
           to label %unreachable unwind label %ehcleanup150
 
 catch.fallthrough122:                             ; preds = %catch.fallthrough120
-  %44 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %44 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches123 = icmp eq i32 %ehselector.slot.4, %44
   br i1 %matches123, label %catch, label %eh.resume
 
@@ -132065,7 +132062,7 @@ catch.dispatch:                                   ; preds = %lpad28, %lpad5, %lp
   %.pn = phi { ptr, i32 } [ %12, %lpad48 ], [ %9, %lpad ], [ %11, %lpad28 ], [ %10, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches, label %catch102, label %catch.fallthrough
 
@@ -132091,7 +132088,7 @@ invoke.cont110:                                   ; preds = %invoke.cont108
           to label %unreachable unwind label %ehcleanup113
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches50 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches50, label %catch85, label %catch.fallthrough51
 
@@ -132117,7 +132114,7 @@ invoke.cont93:                                    ; preds = %invoke.cont91
           to label %unreachable unwind label %ehcleanup96
 
 catch.fallthrough51:                              ; preds = %catch.fallthrough
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches52 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches52, label %catch68, label %catch.fallthrough53
 
@@ -132143,7 +132140,7 @@ invoke.cont76:                                    ; preds = %invoke.cont74
           to label %unreachable unwind label %ehcleanup79
 
 catch.fallthrough53:                              ; preds = %catch.fallthrough51
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches54 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches54, label %catch, label %eh.resume
 
@@ -132560,7 +132557,7 @@ catch.dispatch:                                   ; preds = %lpad84, %lpad55, %l
   %.pn12 = phi { ptr, i32 } [ %11, %lpad ], [ %.pn9.pn, %ehcleanup144 ], [ %15, %lpad84 ], [ %14, %lpad55 ], [ %13, %lpad28 ], [ %12, %lpad5 ]
   %exn.slot.3 = extractvalue { ptr, i32 } %.pn12, 0
   %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn12, 1
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.3, %20
   br i1 %matches, label %catch205, label %catch.fallthrough
 
@@ -132586,7 +132583,7 @@ invoke.cont213:                                   ; preds = %invoke.cont211
           to label %unreachable unwind label %ehcleanup216
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches151 = icmp eq i32 %ehselector.slot.3, %23
   br i1 %matches151, label %catch188, label %catch.fallthrough152
 
@@ -132612,7 +132609,7 @@ invoke.cont196:                                   ; preds = %invoke.cont194
           to label %unreachable unwind label %ehcleanup199
 
 catch.fallthrough152:                             ; preds = %catch.fallthrough
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches153 = icmp eq i32 %ehselector.slot.3, %26
   br i1 %matches153, label %catch171, label %catch.fallthrough154
 
@@ -132638,7 +132635,7 @@ invoke.cont179:                                   ; preds = %invoke.cont177
           to label %unreachable unwind label %ehcleanup182
 
 catch.fallthrough154:                             ; preds = %catch.fallthrough152
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches155 = icmp eq i32 %ehselector.slot.3, %29
   br i1 %matches155, label %catch, label %eh.resume
 
@@ -132859,7 +132856,7 @@ catch.dispatch:                                   ; preds = %lpad10, %lpad25, %l
   %.pn = phi { ptr, i32 } [ %7, %lpad25 ], [ %5, %lpad ], [ %6, %lpad10 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches, label %catch79, label %catch.fallthrough
 
@@ -132885,7 +132882,7 @@ invoke.cont87:                                    ; preds = %invoke.cont85
           to label %unreachable unwind label %ehcleanup90
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches27, label %catch62, label %catch.fallthrough28
 
@@ -132911,7 +132908,7 @@ invoke.cont70:                                    ; preds = %invoke.cont68
           to label %unreachable unwind label %ehcleanup73
 
 catch.fallthrough28:                              ; preds = %catch.fallthrough
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches29 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches29, label %catch45, label %catch.fallthrough30
 
@@ -132937,7 +132934,7 @@ invoke.cont53:                                    ; preds = %invoke.cont51
           to label %unreachable unwind label %ehcleanup56
 
 catch.fallthrough30:                              ; preds = %catch.fallthrough28
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches31 = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches31, label %catch, label %eh.resume
 
@@ -133353,7 +133350,7 @@ catch.dispatch:                                   ; preds = %lpad58, %lpad31, %l
   %.pn10 = phi { ptr, i32 } [ %21, %lpad125 ], [ %13, %lpad ], [ %.pn7.pn, %ehcleanup116 ], [ %16, %lpad58 ], [ %15, %lpad31 ], [ %14, %lpad10 ]
   %exn.slot.3 = extractvalue { ptr, i32 } %.pn10, 0
   %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn10, 1
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.3, %22
   br i1 %matches, label %catch182, label %catch.fallthrough
 
@@ -133379,7 +133376,7 @@ invoke.cont190:                                   ; preds = %invoke.cont188
           to label %unreachable unwind label %ehcleanup193
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches128 = icmp eq i32 %ehselector.slot.3, %25
   br i1 %matches128, label %catch165, label %catch.fallthrough129
 
@@ -133405,7 +133402,7 @@ invoke.cont173:                                   ; preds = %invoke.cont171
           to label %unreachable unwind label %ehcleanup176
 
 catch.fallthrough129:                             ; preds = %catch.fallthrough
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches130 = icmp eq i32 %ehselector.slot.3, %28
   br i1 %matches130, label %catch148, label %catch.fallthrough131
 
@@ -133431,7 +133428,7 @@ invoke.cont156:                                   ; preds = %invoke.cont154
           to label %unreachable unwind label %ehcleanup159
 
 catch.fallthrough131:                             ; preds = %catch.fallthrough129
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches132 = icmp eq i32 %ehselector.slot.3, %31
   br i1 %matches132, label %catch, label %eh.resume
 
@@ -134215,7 +134212,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit, %lpa
   %.pn17.pn.pn = phi { ptr, i32 } [ %.pn17.pn, %ehcleanup150 ], [ %17, %lpad70 ], [ %16, %lpad36 ], [ %30, %lpad202 ], [ %29, %lpad172 ], [ %.pn, %ehcleanup232 ], [ %15, %lpad11 ], [ %39, %lpad.i51 ], [ %lpad.loopexit88, %lpad.loopexit ], [ %lpad.loopexit90, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit93, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp94, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %exn.slot.4 = extractvalue { ptr, i32 } %.pn17.pn.pn, 0
   %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn17.pn.pn, 1
-  %50 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %50 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.4, %50
   br i1 %matches, label %catch287, label %catch.fallthrough
 
@@ -134241,7 +134238,7 @@ invoke.cont295:                                   ; preds = %invoke.cont293
           to label %unreachable unwind label %ehcleanup298
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %53 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %53 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches233 = icmp eq i32 %ehselector.slot.4, %53
   br i1 %matches233, label %catch270, label %catch.fallthrough234
 
@@ -134267,7 +134264,7 @@ invoke.cont278:                                   ; preds = %invoke.cont276
           to label %unreachable unwind label %ehcleanup281
 
 catch.fallthrough234:                             ; preds = %catch.fallthrough
-  %56 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %56 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches235 = icmp eq i32 %ehselector.slot.4, %56
   br i1 %matches235, label %catch253, label %catch.fallthrough236
 
@@ -134293,7 +134290,7 @@ invoke.cont261:                                   ; preds = %invoke.cont259
           to label %unreachable unwind label %ehcleanup264
 
 catch.fallthrough236:                             ; preds = %catch.fallthrough234
-  %59 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches237 = icmp eq i32 %ehselector.slot.4, %59
   br i1 %matches237, label %catch, label %eh.resume
 
@@ -134804,7 +134801,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit75, %l
   %.pn17 = phi { ptr, i32 } [ %9, %lpad73 ], [ %8, %lpad39 ], [ %12, %lpad119 ], [ %.pn, %ehcleanup ], [ %7, %lpad4 ], [ %lpad.loopexit77, %lpad.loopexit75 ], [ %lpad.loopexit80, %lpad.loopexit.split-lp76.loopexit ], [ %lpad.loopexit.split-lp81, %lpad.loopexit.split-lp76.loopexit.split-lp ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn17, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn17, 1
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %24
   br i1 %matches, label %catch211, label %catch.fallthrough
 
@@ -134830,7 +134827,7 @@ invoke.cont219:                                   ; preds = %invoke.cont217
           to label %unreachable unwind label %ehcleanup222
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches157 = icmp eq i32 %ehselector.slot.1, %27
   br i1 %matches157, label %catch194, label %catch.fallthrough158
 
@@ -134856,7 +134853,7 @@ invoke.cont202:                                   ; preds = %invoke.cont200
           to label %unreachable unwind label %ehcleanup205
 
 catch.fallthrough158:                             ; preds = %catch.fallthrough
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches159 = icmp eq i32 %ehselector.slot.1, %30
   br i1 %matches159, label %catch177, label %catch.fallthrough160
 
@@ -134882,7 +134879,7 @@ invoke.cont185:                                   ; preds = %invoke.cont183
           to label %unreachable unwind label %ehcleanup188
 
 catch.fallthrough160:                             ; preds = %catch.fallthrough158
-  %33 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches161 = icmp eq i32 %ehselector.slot.1, %33
   br i1 %matches161, label %catch, label %eh.resume
 
@@ -135738,7 +135735,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit, %lpa
   %.pn17 = phi { ptr, i32 } [ %7, %lpad78 ], [ %6, %lpad39 ], [ %5, %lpad10 ], [ %.pn15, %ehcleanup220 ], [ %eh.lpad-body, %lpad173.body ], [ %42, %lpad148 ], [ %41, %lpad119 ], [ %lpad.loopexit126, %lpad.loopexit ], [ %lpad.loopexit.split-lp127, %lpad.loopexit.split-lp ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn17, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn17, 1
-  %59 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %59 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.2, %59
   br i1 %matches, label %catch275, label %catch.fallthrough
 
@@ -135764,7 +135761,7 @@ invoke.cont283:                                   ; preds = %invoke.cont281
           to label %unreachable unwind label %ehcleanup286
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %62 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %62 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches221 = icmp eq i32 %ehselector.slot.2, %62
   br i1 %matches221, label %catch258, label %catch.fallthrough222
 
@@ -135790,7 +135787,7 @@ invoke.cont266:                                   ; preds = %invoke.cont264
           to label %unreachable unwind label %ehcleanup269
 
 catch.fallthrough222:                             ; preds = %catch.fallthrough
-  %65 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %65 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches223 = icmp eq i32 %ehselector.slot.2, %65
   br i1 %matches223, label %catch241, label %catch.fallthrough224
 
@@ -135816,7 +135813,7 @@ invoke.cont249:                                   ; preds = %invoke.cont247
           to label %unreachable unwind label %ehcleanup252
 
 catch.fallthrough224:                             ; preds = %catch.fallthrough222
-  %68 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %68 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches225 = icmp eq i32 %ehselector.slot.2, %68
   br i1 %matches225, label %catch, label %eh.resume
 
@@ -136080,7 +136077,7 @@ catch.dispatch:                                   ; preds = %lpad2, %lpad
   %.pn = phi { ptr, i32 } [ %8, %lpad2 ], [ %7, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches, label %catch54, label %catch.fallthrough
 
@@ -136106,7 +136103,7 @@ invoke.cont62:                                    ; preds = %invoke.cont60
           to label %unreachable unwind label %ehcleanup65
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches6 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches6, label %catch37, label %catch.fallthrough7
 
@@ -136132,7 +136129,7 @@ invoke.cont45:                                    ; preds = %invoke.cont43
           to label %unreachable unwind label %ehcleanup48
 
 catch.fallthrough7:                               ; preds = %catch.fallthrough
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches8 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches8, label %catch20, label %catch.fallthrough9
 
@@ -136158,7 +136155,7 @@ invoke.cont28:                                    ; preds = %invoke.cont26
           to label %unreachable unwind label %ehcleanup31
 
 catch.fallthrough9:                               ; preds = %catch.fallthrough7
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches10 = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches10, label %catch, label %eh.resume
 
@@ -137774,7 +137771,7 @@ catch.dispatch:                                   ; preds = %if.then.i.i.i270, %
   %.pn40.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %28, %lpad ], [ %33, %lpad118 ], [ %32, %lpad89 ], [ %eh.lpad-body, %lpad53.body ], [ %30, %lpad28 ], [ %29, %lpad5 ], [ %.pn40, %invoke.cont.i268 ], [ %.pn40, %if.then.i.i.i270 ]
   %exn.slot.8 = extractvalue { ptr, i32 } %.pn40.pn, 0
   %ehselector.slot.8 = extractvalue { ptr, i32 } %.pn40.pn, 1
-  %135 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %135 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.8, %135
   br i1 %matches, label %catch550, label %catch.fallthrough
 
@@ -137800,7 +137797,7 @@ invoke.cont558:                                   ; preds = %invoke.cont556
           to label %unreachable unwind label %ehcleanup561
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %138 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %138 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches496 = icmp eq i32 %ehselector.slot.8, %138
   br i1 %matches496, label %catch533, label %catch.fallthrough497
 
@@ -137826,7 +137823,7 @@ invoke.cont541:                                   ; preds = %invoke.cont539
           to label %unreachable unwind label %ehcleanup544
 
 catch.fallthrough497:                             ; preds = %catch.fallthrough
-  %141 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %141 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches498 = icmp eq i32 %ehselector.slot.8, %141
   br i1 %matches498, label %catch516, label %catch.fallthrough499
 
@@ -137852,7 +137849,7 @@ invoke.cont524:                                   ; preds = %invoke.cont522
           to label %unreachable unwind label %ehcleanup527
 
 catch.fallthrough499:                             ; preds = %catch.fallthrough497
-  %144 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %144 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches500 = icmp eq i32 %ehselector.slot.8, %144
   br i1 %matches500, label %catch, label %eh.resume
 
@@ -139624,7 +139621,7 @@ catch.dispatch:                                   ; preds = %if.then.i.i.i291, %
   %.pn44.pn = phi { ptr, i32 } [ %.pn32, %ehcleanup237 ], [ %34, %lpad ], [ %eh.lpad-body, %lpad171.body ], [ %42, %lpad145 ], [ %41, %lpad115 ], [ %40, %lpad88 ], [ %39, %lpad60 ], [ %.pn30, %ehcleanup50 ], [ %.pn, %ehcleanup ], [ %.pn44, %invoke.cont.i289 ], [ %.pn44, %if.then.i.i.i291 ]
   %exn.slot.10 = extractvalue { ptr, i32 } %.pn44.pn, 0
   %ehselector.slot.10 = extractvalue { ptr, i32 } %.pn44.pn, 1
-  %145 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %145 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.10, %145
   br i1 %matches, label %catch617, label %catch.fallthrough
 
@@ -139650,7 +139647,7 @@ invoke.cont625:                                   ; preds = %invoke.cont623
           to label %unreachable unwind label %ehcleanup628
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %148 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %148 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches563 = icmp eq i32 %ehselector.slot.10, %148
   br i1 %matches563, label %catch600, label %catch.fallthrough564
 
@@ -139676,7 +139673,7 @@ invoke.cont608:                                   ; preds = %invoke.cont606
           to label %unreachable unwind label %ehcleanup611
 
 catch.fallthrough564:                             ; preds = %catch.fallthrough
-  %151 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %151 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches565 = icmp eq i32 %ehselector.slot.10, %151
   br i1 %matches565, label %catch583, label %catch.fallthrough566
 
@@ -139702,7 +139699,7 @@ invoke.cont591:                                   ; preds = %invoke.cont589
           to label %unreachable unwind label %ehcleanup594
 
 catch.fallthrough566:                             ; preds = %catch.fallthrough564
-  %154 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %154 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches567 = icmp eq i32 %ehselector.slot.10, %154
   br i1 %matches567, label %catch, label %eh.resume
 
@@ -141456,7 +141453,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit264, %
   %.pn46.pn = phi { ptr, i32 } [ %.pn41.pn, %ehcleanup659 ], [ %40, %lpad171 ], [ %76, %lpad572 ], [ %75, %lpad530 ], [ %74, %lpad494 ], [ %eh.lpad-body161, %lpad617.body ], [ %39, %lpad145 ], [ %38, %lpad115 ], [ %37, %lpad88 ], [ %36, %lpad60 ], [ %.pn36, %ehcleanup50 ], [ %.pn, %ehcleanup ], [ %87, %lpad.i165 ], [ %.pn46, %invoke.cont.i128 ], [ %.pn46, %if.then.i.i.i130 ], [ %lpad.loopexit266, %lpad.loopexit264 ], [ %lpad.loopexit.split-lp267, %lpad.loopexit.split-lp265 ]
   %exn.slot.8 = extractvalue { ptr, i32 } %.pn46.pn, 0
   %ehselector.slot.8 = extractvalue { ptr, i32 } %.pn46.pn, 1
-  %118 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %118 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.8, %118
   br i1 %matches, label %catch714, label %catch.fallthrough
 
@@ -141482,7 +141479,7 @@ invoke.cont722:                                   ; preds = %invoke.cont720
           to label %unreachable unwind label %ehcleanup725
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %121 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %121 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches660 = icmp eq i32 %ehselector.slot.8, %121
   br i1 %matches660, label %catch697, label %catch.fallthrough661
 
@@ -141508,7 +141505,7 @@ invoke.cont705:                                   ; preds = %invoke.cont703
           to label %unreachable unwind label %ehcleanup708
 
 catch.fallthrough661:                             ; preds = %catch.fallthrough
-  %124 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %124 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches662 = icmp eq i32 %ehselector.slot.8, %124
   br i1 %matches662, label %catch680, label %catch.fallthrough663
 
@@ -141534,7 +141531,7 @@ invoke.cont688:                                   ; preds = %invoke.cont686
           to label %unreachable unwind label %ehcleanup691
 
 catch.fallthrough663:                             ; preds = %catch.fallthrough661
-  %127 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %127 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches664 = icmp eq i32 %ehselector.slot.8, %127
   br i1 %matches664, label %catch, label %eh.resume
 
@@ -144333,7 +144330,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit526, %
   %.pn68 = phi { ptr, i32 } [ %15, %lpad99 ], [ %14, %lpad65 ], [ %21, %lpad190 ], [ %20, %lpad154 ], [ %76, %lpad391 ], [ %116, %lpad806 ], [ %115, %lpad764 ], [ %114, %lpad728 ], [ %eh.lpad-body340, %lpad851.body ], [ %75, %lpad353 ], [ %74, %lpad313 ], [ %.pn59, %ehcleanup903 ], [ %73, %lpad271 ], [ %72, %lpad236 ], [ %.pn57, %ehcleanup50 ], [ %.pn, %ehcleanup ], [ %.pn4.i272, %cleanup.done.i271 ], [ %.pn4.i292, %cleanup.done.i291 ], [ %.pn4.i317, %cleanup.done.i316 ], [ %127, %lpad.i341 ], [ %.pn66, %invoke.cont.i254 ], [ %.pn66, %if.then.i.i.i256 ], [ %lpad.loopexit528, %lpad.loopexit526 ], [ %lpad.loopexit531, %lpad.loopexit.split-lp527.loopexit ], [ %lpad.loopexit534, %lpad.loopexit.split-lp527.loopexit.split-lp.loopexit ], [ %lpad.loopexit537, %lpad.loopexit.split-lp527.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp538, %lpad.loopexit.split-lp527.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %exn.slot.7 = extractvalue { ptr, i32 } %.pn68, 0
   %ehselector.slot.7 = extractvalue { ptr, i32 } %.pn68, 1
-  %186 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %186 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.7, %186
   br i1 %matches, label %catch959, label %catch.fallthrough
 
@@ -144359,7 +144356,7 @@ invoke.cont967:                                   ; preds = %invoke.cont965
           to label %unreachable unwind label %ehcleanup970
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %189 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %189 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches905 = icmp eq i32 %ehselector.slot.7, %189
   br i1 %matches905, label %catch942, label %catch.fallthrough906
 
@@ -144385,7 +144382,7 @@ invoke.cont950:                                   ; preds = %invoke.cont948
           to label %unreachable unwind label %ehcleanup953
 
 catch.fallthrough906:                             ; preds = %catch.fallthrough
-  %192 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %192 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches907 = icmp eq i32 %ehselector.slot.7, %192
   br i1 %matches907, label %catch925, label %catch.fallthrough908
 
@@ -144411,7 +144408,7 @@ invoke.cont933:                                   ; preds = %invoke.cont931
           to label %unreachable unwind label %ehcleanup936
 
 catch.fallthrough908:                             ; preds = %catch.fallthrough906
-  %195 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %195 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches909 = icmp eq i32 %ehselector.slot.7, %195
   br i1 %matches909, label %catch, label %eh.resume
 
@@ -144809,7 +144806,7 @@ catch.dispatch:                                   ; preds = %ehcleanup.i, %lpad
   %.pn = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %20, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches, label %catch52, label %catch.fallthrough
 
@@ -144835,7 +144832,7 @@ invoke.cont60:                                    ; preds = %invoke.cont58
           to label %unreachable unwind label %ehcleanup63
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches4 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches4, label %catch35, label %catch.fallthrough5
 
@@ -144861,7 +144858,7 @@ invoke.cont43:                                    ; preds = %invoke.cont41
           to label %unreachable unwind label %ehcleanup46
 
 catch.fallthrough5:                               ; preds = %catch.fallthrough
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches6 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches6, label %catch18, label %catch.fallthrough7
 
@@ -144887,7 +144884,7 @@ invoke.cont26:                                    ; preds = %invoke.cont24
           to label %unreachable unwind label %ehcleanup29
 
 catch.fallthrough7:                               ; preds = %catch.fallthrough5
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches8 = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches8, label %catch, label %eh.resume
 
@@ -145082,7 +145079,7 @@ catch.dispatch:                                   ; preds = %lpad6, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %3, %lpad6 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %4 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %4
   br i1 %matches, label %catch76, label %catch.fallthrough
 
@@ -145108,7 +145105,7 @@ invoke.cont84:                                    ; preds = %invoke.cont82
           to label %unreachable unwind label %ehcleanup87
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches24 = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches24, label %catch59, label %catch.fallthrough25
 
@@ -145134,7 +145131,7 @@ invoke.cont67:                                    ; preds = %invoke.cont65
           to label %unreachable unwind label %ehcleanup70
 
 catch.fallthrough25:                              ; preds = %catch.fallthrough
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches26 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches26, label %catch42, label %catch.fallthrough27
 
@@ -145160,7 +145157,7 @@ invoke.cont50:                                    ; preds = %invoke.cont48
           to label %unreachable unwind label %ehcleanup53
 
 catch.fallthrough27:                              ; preds = %catch.fallthrough25
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches28 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches28, label %catch, label %eh.resume
 
@@ -145361,7 +145358,7 @@ lpad:                                             ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr @_ZTIN4cvc58internal15OptionExceptionE
   %2 = extractvalue { ptr, i32 } %1, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %2, %3
   br i1 %matches, label %catch, label %eh.resume
 
@@ -145558,7 +145555,7 @@ catch.dispatch:                                   ; preds = %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %4, %lpad ], [ %5, %lpad4 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %6 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %6
   br i1 %matches, label %catch72, label %catch.fallthrough
 
@@ -145584,7 +145581,7 @@ invoke.cont80:                                    ; preds = %invoke.cont78
           to label %unreachable unwind label %ehcleanup83
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches20 = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches20, label %catch55, label %catch.fallthrough21
 
@@ -145610,7 +145607,7 @@ invoke.cont63:                                    ; preds = %invoke.cont61
           to label %unreachable unwind label %ehcleanup66
 
 catch.fallthrough21:                              ; preds = %catch.fallthrough
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches22 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches22, label %catch38, label %catch.fallthrough23
 
@@ -145636,7 +145633,7 @@ invoke.cont46:                                    ; preds = %invoke.cont44
           to label %unreachable unwind label %ehcleanup49
 
 catch.fallthrough23:                              ; preds = %catch.fallthrough21
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches24 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches24, label %catch, label %eh.resume
 
@@ -145867,7 +145864,7 @@ catch.dispatch:                                   ; preds = %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %3, %lpad ], [ %4, %lpad4 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %5 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %5 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %5
   br i1 %matches, label %catch73, label %catch.fallthrough
 
@@ -145893,7 +145890,7 @@ invoke.cont81:                                    ; preds = %invoke.cont79
           to label %unreachable unwind label %ehcleanup84
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches21 = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches21, label %catch56, label %catch.fallthrough22
 
@@ -145919,7 +145916,7 @@ invoke.cont64:                                    ; preds = %invoke.cont62
           to label %unreachable unwind label %ehcleanup67
 
 catch.fallthrough22:                              ; preds = %catch.fallthrough
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches23, label %catch39, label %catch.fallthrough24
 
@@ -145945,7 +145942,7 @@ invoke.cont47:                                    ; preds = %invoke.cont45
           to label %unreachable unwind label %ehcleanup50
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough22
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches25, label %catch, label %eh.resume
 
@@ -146173,7 +146170,7 @@ catch.dispatch:                                   ; preds = %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %4, %lpad ], [ %5, %lpad4 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %6 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %6
   br i1 %matches, label %catch72, label %catch.fallthrough
 
@@ -146199,7 +146196,7 @@ invoke.cont80:                                    ; preds = %invoke.cont78
           to label %unreachable unwind label %ehcleanup83
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches20 = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches20, label %catch55, label %catch.fallthrough21
 
@@ -146225,7 +146222,7 @@ invoke.cont63:                                    ; preds = %invoke.cont61
           to label %unreachable unwind label %ehcleanup66
 
 catch.fallthrough21:                              ; preds = %catch.fallthrough
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches22 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches22, label %catch38, label %catch.fallthrough23
 
@@ -146251,7 +146248,7 @@ invoke.cont46:                                    ; preds = %invoke.cont44
           to label %unreachable unwind label %ehcleanup49
 
 catch.fallthrough23:                              ; preds = %catch.fallthrough21
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches24 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches24, label %catch, label %eh.resume
 
@@ -146479,7 +146476,7 @@ catch.dispatch:                                   ; preds = %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %4, %lpad ], [ %5, %lpad4 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %6 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %6
   br i1 %matches, label %catch72, label %catch.fallthrough
 
@@ -146505,7 +146502,7 @@ invoke.cont80:                                    ; preds = %invoke.cont78
           to label %unreachable unwind label %ehcleanup83
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches20 = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches20, label %catch55, label %catch.fallthrough21
 
@@ -146531,7 +146528,7 @@ invoke.cont63:                                    ; preds = %invoke.cont61
           to label %unreachable unwind label %ehcleanup66
 
 catch.fallthrough21:                              ; preds = %catch.fallthrough
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches22 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches22, label %catch38, label %catch.fallthrough23
 
@@ -146557,7 +146554,7 @@ invoke.cont46:                                    ; preds = %invoke.cont44
           to label %unreachable unwind label %ehcleanup49
 
 catch.fallthrough23:                              ; preds = %catch.fallthrough21
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches24 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches24, label %catch, label %eh.resume
 
@@ -146785,7 +146782,7 @@ catch.dispatch:                                   ; preds = %lpad4, %lpad
   %.pn = phi { ptr, i32 } [ %4, %lpad ], [ %5, %lpad4 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %6 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %6
   br i1 %matches, label %catch72, label %catch.fallthrough
 
@@ -146811,7 +146808,7 @@ invoke.cont80:                                    ; preds = %invoke.cont78
           to label %unreachable unwind label %ehcleanup83
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches20 = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches20, label %catch55, label %catch.fallthrough21
 
@@ -146837,7 +146834,7 @@ invoke.cont63:                                    ; preds = %invoke.cont61
           to label %unreachable unwind label %ehcleanup66
 
 catch.fallthrough21:                              ; preds = %catch.fallthrough
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches22 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches22, label %catch38, label %catch.fallthrough23
 
@@ -146863,7 +146860,7 @@ invoke.cont46:                                    ; preds = %invoke.cont44
           to label %unreachable unwind label %ehcleanup49
 
 catch.fallthrough23:                              ; preds = %catch.fallthrough21
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches24 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches24, label %catch, label %eh.resume
 
@@ -147579,7 +147576,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = extractvalue { ptr, i32 } %0, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %2, %3
   br i1 %matches, label %catch49, label %catch.fallthrough
 
@@ -147605,7 +147602,7 @@ invoke.cont57:                                    ; preds = %invoke.cont55
           to label %unreachable unwind label %ehcleanup60
 
 catch.fallthrough:                                ; preds = %lpad
-  %6 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %6 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches2 = icmp eq i32 %2, %6
   br i1 %matches2, label %catch32, label %catch.fallthrough3
 
@@ -147631,7 +147628,7 @@ invoke.cont40:                                    ; preds = %invoke.cont38
           to label %unreachable unwind label %ehcleanup43
 
 catch.fallthrough3:                               ; preds = %catch.fallthrough
-  %9 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches4 = icmp eq i32 %2, %9
   br i1 %matches4, label %catch15, label %catch.fallthrough5
 
@@ -147657,7 +147654,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
           to label %unreachable unwind label %ehcleanup26
 
 catch.fallthrough5:                               ; preds = %catch.fallthrough3
-  %12 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %12 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches6 = icmp eq i32 %2, %12
   br i1 %matches6, label %catch, label %eh.resume
 
@@ -148334,7 +148331,7 @@ catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %35, %lpad ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %38 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %38
   br i1 %matches, label %catch86, label %catch.fallthrough
 
@@ -148360,7 +148357,7 @@ invoke.cont94:                                    ; preds = %invoke.cont92
           to label %unreachable unwind label %ehcleanup97
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches32 = icmp eq i32 %ehselector.slot.1, %41
   br i1 %matches32, label %catch69, label %catch.fallthrough33
 
@@ -148386,7 +148383,7 @@ invoke.cont77:                                    ; preds = %invoke.cont75
           to label %unreachable unwind label %ehcleanup80
 
 catch.fallthrough33:                              ; preds = %catch.fallthrough
-  %44 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %44 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches34 = icmp eq i32 %ehselector.slot.1, %44
   br i1 %matches34, label %catch52, label %catch.fallthrough35
 
@@ -148412,7 +148409,7 @@ invoke.cont60:                                    ; preds = %invoke.cont58
           to label %unreachable unwind label %ehcleanup63
 
 catch.fallthrough35:                              ; preds = %catch.fallthrough33
-  %47 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %47 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches36 = icmp eq i32 %ehselector.slot.1, %47
   br i1 %matches36, label %catch, label %eh.resume
 
@@ -148925,7 +148922,7 @@ catch.dispatch:                                   ; preds = %lpad55, %lpad29, %l
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %20, %lpad ], [ %23, %lpad55 ], [ %22, %lpad29 ], [ %21, %lpad6 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %31
   br i1 %matches, label %catch139, label %catch.fallthrough
 
@@ -148951,7 +148948,7 @@ invoke.cont147:                                   ; preds = %invoke.cont145
           to label %unreachable unwind label %ehcleanup150
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches85 = icmp eq i32 %ehselector.slot.1, %34
   br i1 %matches85, label %catch122, label %catch.fallthrough86
 
@@ -148977,7 +148974,7 @@ invoke.cont130:                                   ; preds = %invoke.cont128
           to label %unreachable unwind label %ehcleanup133
 
 catch.fallthrough86:                              ; preds = %catch.fallthrough
-  %37 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches87 = icmp eq i32 %ehselector.slot.1, %37
   br i1 %matches87, label %catch105, label %catch.fallthrough88
 
@@ -149003,7 +149000,7 @@ invoke.cont113:                                   ; preds = %invoke.cont111
           to label %unreachable unwind label %ehcleanup116
 
 catch.fallthrough88:                              ; preds = %catch.fallthrough86
-  %40 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches89 = icmp eq i32 %ehselector.slot.1, %40
   br i1 %matches89, label %catch, label %eh.resume
 
@@ -149344,7 +149341,7 @@ catch.dispatch:                                   ; preds = %lpad28, %lpad6, %eh
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %15, %lpad ], [ %17, %lpad28 ], [ %16, %lpad6 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %19
   br i1 %matches, label %catch115, label %catch.fallthrough
 
@@ -149370,7 +149367,7 @@ invoke.cont123:                                   ; preds = %invoke.cont121
           to label %unreachable unwind label %ehcleanup126
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches60 = icmp eq i32 %ehselector.slot.1, %22
   br i1 %matches60, label %catch98, label %catch.fallthrough61
 
@@ -149396,7 +149393,7 @@ invoke.cont106:                                   ; preds = %invoke.cont104
           to label %unreachable unwind label %ehcleanup109
 
 catch.fallthrough61:                              ; preds = %catch.fallthrough
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches62 = icmp eq i32 %ehselector.slot.1, %25
   br i1 %matches62, label %catch81, label %catch.fallthrough63
 
@@ -149422,7 +149419,7 @@ invoke.cont89:                                    ; preds = %invoke.cont87
           to label %unreachable unwind label %ehcleanup92
 
 catch.fallthrough63:                              ; preds = %catch.fallthrough61
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches64 = icmp eq i32 %ehselector.slot.1, %28
   br i1 %matches64, label %catch, label %eh.resume
 
@@ -149897,7 +149894,7 @@ catch.dispatch:                                   ; preds = %lpad28, %lpad6, %eh
   %.pn = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %24, %lpad ], [ %26, %lpad28 ], [ %25, %lpad6 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches, label %catch100, label %catch.fallthrough
 
@@ -149923,7 +149920,7 @@ invoke.cont108:                                   ; preds = %invoke.cont106
           to label %unreachable unwind label %ehcleanup111
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches48 = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches48, label %catch83, label %catch.fallthrough49
 
@@ -149949,7 +149946,7 @@ invoke.cont91:                                    ; preds = %invoke.cont89
           to label %unreachable unwind label %ehcleanup94
 
 catch.fallthrough49:                              ; preds = %catch.fallthrough
-  %33 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches50 = icmp eq i32 %ehselector.slot.0, %33
   br i1 %matches50, label %catch66, label %catch.fallthrough51
 
@@ -149975,7 +149972,7 @@ invoke.cont74:                                    ; preds = %invoke.cont72
           to label %unreachable unwind label %ehcleanup77
 
 catch.fallthrough51:                              ; preds = %catch.fallthrough49
-  %36 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches52 = icmp eq i32 %ehselector.slot.0, %36
   br i1 %matches52, label %catch, label %eh.resume
 
@@ -150460,7 +150457,7 @@ catch.dispatch:                                   ; preds = %lpad16, %ehcleanup4
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup47 ], [ %33, %lpad ], [ %34, %lpad16 ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
-  %40 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.2, %40
   br i1 %matches, label %catch103, label %catch.fallthrough
 
@@ -150486,7 +150483,7 @@ invoke.cont111:                                   ; preds = %invoke.cont109
           to label %unreachable unwind label %ehcleanup114
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %43 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %43 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches49 = icmp eq i32 %ehselector.slot.2, %43
   br i1 %matches49, label %catch86, label %catch.fallthrough50
 
@@ -150512,7 +150509,7 @@ invoke.cont94:                                    ; preds = %invoke.cont92
           to label %unreachable unwind label %ehcleanup97
 
 catch.fallthrough50:                              ; preds = %catch.fallthrough
-  %46 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %46 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches51 = icmp eq i32 %ehselector.slot.2, %46
   br i1 %matches51, label %catch69, label %catch.fallthrough52
 
@@ -150538,7 +150535,7 @@ invoke.cont77:                                    ; preds = %invoke.cont75
           to label %unreachable unwind label %ehcleanup80
 
 catch.fallthrough52:                              ; preds = %catch.fallthrough50
-  %49 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %49 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches53 = icmp eq i32 %ehselector.slot.2, %49
   br i1 %matches53, label %catch, label %eh.resume
 
@@ -150778,7 +150775,7 @@ catch.dispatch:                                   ; preds = %invoke.cont.i19, %l
   %.pn = phi { ptr, i32 } [ %3, %lpad ], [ %4, %lpad6 ], [ %5, %invoke.cont.i19 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %6 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %6
   br i1 %matches, label %catch72, label %catch.fallthrough
 
@@ -150804,7 +150801,7 @@ invoke.cont80:                                    ; preds = %invoke.cont78
           to label %unreachable unwind label %ehcleanup83
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches20 = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches20, label %catch55, label %catch.fallthrough21
 
@@ -150830,7 +150827,7 @@ invoke.cont63:                                    ; preds = %invoke.cont61
           to label %unreachable unwind label %ehcleanup66
 
 catch.fallthrough21:                              ; preds = %catch.fallthrough
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches22 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches22, label %catch38, label %catch.fallthrough23
 
@@ -150856,7 +150853,7 @@ invoke.cont46:                                    ; preds = %invoke.cont44
           to label %unreachable unwind label %ehcleanup49
 
 catch.fallthrough23:                              ; preds = %catch.fallthrough21
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches24 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches24, label %catch, label %eh.resume
 
@@ -151603,7 +151600,7 @@ catch.dispatch:                                   ; preds = %lpad25, %lpad4, %lp
   %.pn = phi { ptr, i32 } [ %5, %lpad ], [ %7, %lpad25 ], [ %6, %lpad4 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches, label %catch93, label %catch.fallthrough
 
@@ -151629,7 +151626,7 @@ invoke.cont101:                                   ; preds = %invoke.cont99
           to label %unreachable unwind label %ehcleanup104
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches41 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches41, label %catch76, label %catch.fallthrough42
 
@@ -151655,7 +151652,7 @@ invoke.cont84:                                    ; preds = %invoke.cont82
           to label %unreachable unwind label %ehcleanup87
 
 catch.fallthrough42:                              ; preds = %catch.fallthrough
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches43 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches43, label %catch59, label %catch.fallthrough44
 
@@ -151681,7 +151678,7 @@ invoke.cont67:                                    ; preds = %invoke.cont65
           to label %unreachable unwind label %ehcleanup70
 
 catch.fallthrough44:                              ; preds = %catch.fallthrough42
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches45 = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches45, label %catch, label %eh.resume
 
@@ -152239,7 +152236,7 @@ catch.dispatch:                                   ; preds = %lpad28, %lpad6, %eh
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %31, %lpad ], [ %33, %lpad28 ], [ %32, %lpad6 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %36 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %36
   br i1 %matches, label %catch113, label %catch.fallthrough
 
@@ -152265,7 +152262,7 @@ invoke.cont121:                                   ; preds = %invoke.cont119
           to label %unreachable unwind label %ehcleanup124
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %39 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %39 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches59 = icmp eq i32 %ehselector.slot.1, %39
   br i1 %matches59, label %catch96, label %catch.fallthrough60
 
@@ -152291,7 +152288,7 @@ invoke.cont104:                                   ; preds = %invoke.cont102
           to label %unreachable unwind label %ehcleanup107
 
 catch.fallthrough60:                              ; preds = %catch.fallthrough
-  %42 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %42 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches61 = icmp eq i32 %ehselector.slot.1, %42
   br i1 %matches61, label %catch79, label %catch.fallthrough62
 
@@ -152317,7 +152314,7 @@ invoke.cont87:                                    ; preds = %invoke.cont85
           to label %unreachable unwind label %ehcleanup90
 
 catch.fallthrough62:                              ; preds = %catch.fallthrough60
-  %45 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %45 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches63 = icmp eq i32 %ehselector.slot.1, %45
   br i1 %matches63, label %catch, label %eh.resume
 
@@ -152708,7 +152705,7 @@ catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %17, %lpad ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %20
   br i1 %matches, label %catch57, label %catch.fallthrough
 
@@ -152734,7 +152731,7 @@ invoke.cont65:                                    ; preds = %invoke.cont63
           to label %unreachable unwind label %ehcleanup68
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches7 = icmp eq i32 %ehselector.slot.1, %23
   br i1 %matches7, label %catch40, label %catch.fallthrough8
 
@@ -152760,7 +152757,7 @@ invoke.cont48:                                    ; preds = %invoke.cont46
           to label %unreachable unwind label %ehcleanup51
 
 catch.fallthrough8:                               ; preds = %catch.fallthrough
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches9 = icmp eq i32 %ehselector.slot.1, %26
   br i1 %matches9, label %catch23, label %catch.fallthrough10
 
@@ -152786,7 +152783,7 @@ invoke.cont31:                                    ; preds = %invoke.cont29
           to label %unreachable unwind label %ehcleanup34
 
 catch.fallthrough10:                              ; preds = %catch.fallthrough8
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches11 = icmp eq i32 %ehselector.slot.1, %29
   br i1 %matches11, label %catch, label %eh.resume
 
@@ -153194,7 +153191,7 @@ catch.dispatch:                                   ; preds = %lpad38, %lpad6, %eh
   %.pn = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %26, %lpad ], [ %28, %lpad38 ], [ %27, %lpad6 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %29
   br i1 %matches, label %catch110, label %catch.fallthrough
 
@@ -153220,7 +153217,7 @@ invoke.cont118:                                   ; preds = %invoke.cont116
           to label %unreachable unwind label %ehcleanup121
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %32 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches58 = icmp eq i32 %ehselector.slot.0, %32
   br i1 %matches58, label %catch93, label %catch.fallthrough59
 
@@ -153246,7 +153243,7 @@ invoke.cont101:                                   ; preds = %invoke.cont99
           to label %unreachable unwind label %ehcleanup104
 
 catch.fallthrough59:                              ; preds = %catch.fallthrough
-  %35 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches60 = icmp eq i32 %ehselector.slot.0, %35
   br i1 %matches60, label %catch76, label %catch.fallthrough61
 
@@ -153272,7 +153269,7 @@ invoke.cont84:                                    ; preds = %invoke.cont82
           to label %unreachable unwind label %ehcleanup87
 
 catch.fallthrough61:                              ; preds = %catch.fallthrough59
-  %38 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches62 = icmp eq i32 %ehselector.slot.0, %38
   br i1 %matches62, label %catch, label %eh.resume
 
@@ -153723,7 +153720,7 @@ catch.dispatch:                                   ; preds = %lpad79, %lpad52, %l
   %.pn13 = phi { ptr, i32 } [ %7, %lpad ], [ %.pn9.pn.pn, %ehcleanup174 ], [ %.pn, %ehcleanup ], [ %11, %lpad79 ], [ %10, %lpad52 ], [ %9, %lpad28 ], [ %8, %lpad6 ]
   %exn.slot.4 = extractvalue { ptr, i32 } %.pn13, 0
   %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn13, 1
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.4, %18
   br i1 %matches, label %catch231, label %catch.fallthrough
 
@@ -153749,7 +153746,7 @@ invoke.cont239:                                   ; preds = %invoke.cont237
           to label %unreachable unwind label %ehcleanup242
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches177 = icmp eq i32 %ehselector.slot.4, %21
   br i1 %matches177, label %catch214, label %catch.fallthrough178
 
@@ -153775,7 +153772,7 @@ invoke.cont222:                                   ; preds = %invoke.cont220
           to label %unreachable unwind label %ehcleanup225
 
 catch.fallthrough178:                             ; preds = %catch.fallthrough
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches179 = icmp eq i32 %ehselector.slot.4, %24
   br i1 %matches179, label %catch197, label %catch.fallthrough180
 
@@ -153801,7 +153798,7 @@ invoke.cont205:                                   ; preds = %invoke.cont203
           to label %unreachable unwind label %ehcleanup208
 
 catch.fallthrough180:                             ; preds = %catch.fallthrough178
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches181 = icmp eq i32 %ehselector.slot.4, %27
   br i1 %matches181, label %catch, label %eh.resume
 
@@ -154480,7 +154477,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit, %lpa
   %.pn18.pn.pn.pn = phi { ptr, i32 } [ %.pn18.pn.pn, %ehcleanup128 ], [ %.pn16, %ehcleanup ], [ %18, %lpad182 ], [ %17, %lpad148 ], [ %.pn, %ehcleanup230 ], [ %8, %lpad28 ], [ %7, %lpad6 ], [ %lpad.loopexit82, %lpad.loopexit ], [ %lpad.loopexit84, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit87, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp88, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %exn.slot.5 = extractvalue { ptr, i32 } %.pn18.pn.pn.pn, 0
   %ehselector.slot.5 = extractvalue { ptr, i32 } %.pn18.pn.pn.pn, 1
-  %36 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.5, %36
   br i1 %matches, label %catch285, label %catch.fallthrough
 
@@ -154506,7 +154503,7 @@ invoke.cont293:                                   ; preds = %invoke.cont291
           to label %unreachable unwind label %ehcleanup296
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %39 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %39 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches231 = icmp eq i32 %ehselector.slot.5, %39
   br i1 %matches231, label %catch268, label %catch.fallthrough232
 
@@ -154532,7 +154529,7 @@ invoke.cont276:                                   ; preds = %invoke.cont274
           to label %unreachable unwind label %ehcleanup279
 
 catch.fallthrough232:                             ; preds = %catch.fallthrough
-  %42 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %42 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches233 = icmp eq i32 %ehselector.slot.5, %42
   br i1 %matches233, label %catch251, label %catch.fallthrough234
 
@@ -154558,7 +154555,7 @@ invoke.cont259:                                   ; preds = %invoke.cont257
           to label %unreachable unwind label %ehcleanup262
 
 catch.fallthrough234:                             ; preds = %catch.fallthrough232
-  %45 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %45 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches235 = icmp eq i32 %ehselector.slot.5, %45
   br i1 %matches235, label %catch, label %eh.resume
 
@@ -155112,7 +155109,7 @@ catch.dispatch:                                   ; preds = %lpad103, %lpad79, %
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup137 ], [ %26, %lpad ], [ %31, %lpad103 ], [ %30, %lpad79 ], [ %29, %lpad52 ], [ %28, %lpad28 ], [ %27, %lpad6 ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.2, %41
   br i1 %matches, label %catch192, label %catch.fallthrough
 
@@ -155138,7 +155135,7 @@ invoke.cont200:                                   ; preds = %invoke.cont198
           to label %unreachable unwind label %ehcleanup203
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %44 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %44 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches138 = icmp eq i32 %ehselector.slot.2, %44
   br i1 %matches138, label %catch175, label %catch.fallthrough139
 
@@ -155164,7 +155161,7 @@ invoke.cont183:                                   ; preds = %invoke.cont181
           to label %unreachable unwind label %ehcleanup186
 
 catch.fallthrough139:                             ; preds = %catch.fallthrough
-  %47 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %47 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches140 = icmp eq i32 %ehselector.slot.2, %47
   br i1 %matches140, label %catch158, label %catch.fallthrough141
 
@@ -155190,7 +155187,7 @@ invoke.cont166:                                   ; preds = %invoke.cont164
           to label %unreachable unwind label %ehcleanup169
 
 catch.fallthrough141:                             ; preds = %catch.fallthrough139
-  %50 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %50 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches142 = icmp eq i32 %ehselector.slot.2, %50
   br i1 %matches142, label %catch, label %eh.resume
 
@@ -155584,7 +155581,7 @@ catch.dispatch:                                   ; preds = %lpad104, %lpad79, %
   %.pn = phi { ptr, i32 } [ %20, %lpad123 ], [ %14, %lpad ], [ %19, %lpad104 ], [ %18, %lpad79 ], [ %17, %lpad52 ], [ %16, %lpad28 ], [ %15, %lpad6 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches, label %catch178, label %catch.fallthrough
 
@@ -155610,7 +155607,7 @@ invoke.cont186:                                   ; preds = %invoke.cont184
           to label %unreachable unwind label %ehcleanup189
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches126 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches126, label %catch161, label %catch.fallthrough127
 
@@ -155636,7 +155633,7 @@ invoke.cont169:                                   ; preds = %invoke.cont167
           to label %unreachable unwind label %ehcleanup172
 
 catch.fallthrough127:                             ; preds = %catch.fallthrough
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches128 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches128, label %catch144, label %catch.fallthrough129
 
@@ -155662,7 +155659,7 @@ invoke.cont152:                                   ; preds = %invoke.cont150
           to label %unreachable unwind label %ehcleanup155
 
 catch.fallthrough129:                             ; preds = %catch.fallthrough127
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches130 = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches130, label %catch, label %eh.resume
 
@@ -156539,7 +156536,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit, %lpa
   %.pn17 = phi { ptr, i32 } [ %11, %lpad90 ], [ %10, %lpad57 ], [ %12, %lpad138 ], [ %18, %lpad214 ], [ %17, %lpad179 ], [ %19, %lpad270 ], [ %.pn, %ehcleanup ], [ %9, %lpad28 ], [ %8, %lpad6 ], [ %29, %lpad.i ], [ %lpad.loopexit134, %lpad.loopexit ], [ %lpad.loopexit136, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit139, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit142, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp143, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn17, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn17, 1
-  %54 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %54 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %54
   br i1 %matches, label %catch351, label %catch.fallthrough
 
@@ -156565,7 +156562,7 @@ invoke.cont359:                                   ; preds = %invoke.cont357
           to label %unreachable unwind label %ehcleanup362
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %57 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %57 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches297 = icmp eq i32 %ehselector.slot.1, %57
   br i1 %matches297, label %catch334, label %catch.fallthrough298
 
@@ -156591,7 +156588,7 @@ invoke.cont342:                                   ; preds = %invoke.cont340
           to label %unreachable unwind label %ehcleanup345
 
 catch.fallthrough298:                             ; preds = %catch.fallthrough
-  %60 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %60 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches299 = icmp eq i32 %ehselector.slot.1, %60
   br i1 %matches299, label %catch317, label %catch.fallthrough300
 
@@ -156617,7 +156614,7 @@ invoke.cont325:                                   ; preds = %invoke.cont323
           to label %unreachable unwind label %ehcleanup328
 
 catch.fallthrough300:                             ; preds = %catch.fallthrough298
-  %63 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %63 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches301 = icmp eq i32 %ehselector.slot.1, %63
   br i1 %matches301, label %catch, label %eh.resume
 
@@ -156961,7 +156958,7 @@ catch.dispatch:                                   ; preds = %lpad28, %lpad5, %eh
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %15, %lpad ], [ %17, %lpad28 ], [ %16, %lpad5 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %20
   br i1 %matches, label %catch106, label %catch.fallthrough
 
@@ -156987,7 +156984,7 @@ invoke.cont114:                                   ; preds = %invoke.cont112
           to label %unreachable unwind label %ehcleanup117
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches52 = icmp eq i32 %ehselector.slot.1, %23
   br i1 %matches52, label %catch89, label %catch.fallthrough53
 
@@ -157013,7 +157010,7 @@ invoke.cont97:                                    ; preds = %invoke.cont95
           to label %unreachable unwind label %ehcleanup100
 
 catch.fallthrough53:                              ; preds = %catch.fallthrough
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches54 = icmp eq i32 %ehselector.slot.1, %26
   br i1 %matches54, label %catch72, label %catch.fallthrough55
 
@@ -157039,7 +157036,7 @@ invoke.cont80:                                    ; preds = %invoke.cont78
           to label %unreachable unwind label %ehcleanup83
 
 catch.fallthrough55:                              ; preds = %catch.fallthrough53
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches56 = icmp eq i32 %ehselector.slot.1, %29
   br i1 %matches56, label %catch, label %eh.resume
 
@@ -157383,7 +157380,7 @@ catch.dispatch:                                   ; preds = %lpad28, %lpad5, %eh
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %15, %lpad ], [ %17, %lpad28 ], [ %16, %lpad5 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %20
   br i1 %matches, label %catch106, label %catch.fallthrough
 
@@ -157409,7 +157406,7 @@ invoke.cont114:                                   ; preds = %invoke.cont112
           to label %unreachable unwind label %ehcleanup117
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches52 = icmp eq i32 %ehselector.slot.1, %23
   br i1 %matches52, label %catch89, label %catch.fallthrough53
 
@@ -157435,7 +157432,7 @@ invoke.cont97:                                    ; preds = %invoke.cont95
           to label %unreachable unwind label %ehcleanup100
 
 catch.fallthrough53:                              ; preds = %catch.fallthrough
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches54 = icmp eq i32 %ehselector.slot.1, %26
   br i1 %matches54, label %catch72, label %catch.fallthrough55
 
@@ -157461,7 +157458,7 @@ invoke.cont80:                                    ; preds = %invoke.cont78
           to label %unreachable unwind label %ehcleanup83
 
 catch.fallthrough55:                              ; preds = %catch.fallthrough53
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches56 = icmp eq i32 %ehselector.slot.1, %29
   br i1 %matches56, label %catch, label %eh.resume
 
@@ -157929,7 +157926,7 @@ catch.dispatch:                                   ; preds = %lpad112, %lpad83, %
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %20, %lpad ], [ %25, %lpad112 ], [ %24, %lpad83 ], [ %23, %lpad54 ], [ %22, %lpad28 ], [ %21, %lpad5 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %28
   br i1 %matches, label %catch191, label %catch.fallthrough
 
@@ -157955,7 +157952,7 @@ invoke.cont199:                                   ; preds = %invoke.cont197
           to label %unreachable unwind label %ehcleanup202
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %31 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches137 = icmp eq i32 %ehselector.slot.1, %31
   br i1 %matches137, label %catch174, label %catch.fallthrough138
 
@@ -157981,7 +157978,7 @@ invoke.cont182:                                   ; preds = %invoke.cont180
           to label %unreachable unwind label %ehcleanup185
 
 catch.fallthrough138:                             ; preds = %catch.fallthrough
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches139 = icmp eq i32 %ehselector.slot.1, %34
   br i1 %matches139, label %catch157, label %catch.fallthrough140
 
@@ -158007,7 +158004,7 @@ invoke.cont165:                                   ; preds = %invoke.cont163
           to label %unreachable unwind label %ehcleanup168
 
 catch.fallthrough140:                             ; preds = %catch.fallthrough138
-  %37 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches141 = icmp eq i32 %ehselector.slot.1, %37
   br i1 %matches141, label %catch, label %eh.resume
 
@@ -158313,7 +158310,7 @@ catch.dispatch:                                   ; preds = %lpad56, %lpad30, %l
   %.pn = phi { ptr, i32 } [ %15, %lpad75 ], [ %11, %lpad ], [ %14, %lpad56 ], [ %13, %lpad30 ], [ %12, %lpad8 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches, label %catch129, label %catch.fallthrough
 
@@ -158339,7 +158336,7 @@ invoke.cont137:                                   ; preds = %invoke.cont135
           to label %unreachable unwind label %ehcleanup140
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches77 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches77, label %catch112, label %catch.fallthrough78
 
@@ -158365,7 +158362,7 @@ invoke.cont120:                                   ; preds = %invoke.cont118
           to label %unreachable unwind label %ehcleanup123
 
 catch.fallthrough78:                              ; preds = %catch.fallthrough
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches79 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches79, label %catch95, label %catch.fallthrough80
 
@@ -158391,7 +158388,7 @@ invoke.cont103:                                   ; preds = %invoke.cont101
           to label %unreachable unwind label %ehcleanup106
 
 catch.fallthrough80:                              ; preds = %catch.fallthrough78
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches81 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches81, label %catch, label %eh.resume
 
@@ -158695,7 +158692,7 @@ catch.dispatch:                                   ; preds = %lpad56, %lpad30, %l
   %.pn = phi { ptr, i32 } [ %15, %lpad75 ], [ %11, %lpad ], [ %14, %lpad56 ], [ %13, %lpad30 ], [ %12, %lpad8 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches, label %catch129, label %catch.fallthrough
 
@@ -158721,7 +158718,7 @@ invoke.cont137:                                   ; preds = %invoke.cont135
           to label %unreachable unwind label %ehcleanup140
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches77 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches77, label %catch112, label %catch.fallthrough78
 
@@ -158747,7 +158744,7 @@ invoke.cont120:                                   ; preds = %invoke.cont118
           to label %unreachable unwind label %ehcleanup123
 
 catch.fallthrough78:                              ; preds = %catch.fallthrough
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches79 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches79, label %catch95, label %catch.fallthrough80
 
@@ -158773,7 +158770,7 @@ invoke.cont103:                                   ; preds = %invoke.cont101
           to label %unreachable unwind label %ehcleanup106
 
 catch.fallthrough80:                              ; preds = %catch.fallthrough78
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches81 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches81, label %catch, label %eh.resume
 
@@ -159429,7 +159426,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit, %lpa
   %.pn11 = phi { ptr, i32 } [ %9, %lpad94 ], [ %8, %lpad59 ], [ %.pn.pn, %ehcleanup141 ], [ %45, %lpad129 ], [ %7, %lpad28 ], [ %6, %lpad5 ], [ %lpad.loopexit93, %lpad.loopexit ], [ %lpad.loopexit.split-lp94, %lpad.loopexit.split-lp ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn11, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn11, 1
-  %48 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %48 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.2, %48
   br i1 %matches, label %catch196, label %catch.fallthrough
 
@@ -159455,7 +159452,7 @@ invoke.cont204:                                   ; preds = %invoke.cont202
           to label %unreachable unwind label %ehcleanup207
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %51 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %51 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches142 = icmp eq i32 %ehselector.slot.2, %51
   br i1 %matches142, label %catch179, label %catch.fallthrough143
 
@@ -159481,7 +159478,7 @@ invoke.cont187:                                   ; preds = %invoke.cont185
           to label %unreachable unwind label %ehcleanup190
 
 catch.fallthrough143:                             ; preds = %catch.fallthrough
-  %54 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %54 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches144 = icmp eq i32 %ehselector.slot.2, %54
   br i1 %matches144, label %catch162, label %catch.fallthrough145
 
@@ -159507,7 +159504,7 @@ invoke.cont170:                                   ; preds = %invoke.cont168
           to label %unreachable unwind label %ehcleanup173
 
 catch.fallthrough145:                             ; preds = %catch.fallthrough143
-  %57 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %57 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches146 = icmp eq i32 %ehselector.slot.2, %57
   br i1 %matches146, label %catch, label %eh.resume
 
@@ -160618,7 +160615,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit, %lpa
   %.pn21 = phi { ptr, i32 } [ %7, %lpad78 ], [ %6, %lpad39 ], [ %5, %lpad10 ], [ %.pn18.pn, %ehcleanup257 ], [ %48, %lpad210 ], [ %eh.lpad-body, %lpad173.body ], [ %46, %lpad148 ], [ %45, %lpad119 ], [ %lpad.loopexit190, %lpad.loopexit ], [ %lpad.loopexit.split-lp191, %lpad.loopexit.split-lp ]
   %exn.slot.5 = extractvalue { ptr, i32 } %.pn21, 0
   %ehselector.slot.5 = extractvalue { ptr, i32 } %.pn21, 1
-  %95 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %95 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.5, %95
   br i1 %matches, label %catch312, label %catch.fallthrough
 
@@ -160644,7 +160641,7 @@ invoke.cont320:                                   ; preds = %invoke.cont318
           to label %unreachable unwind label %ehcleanup323
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %98 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %98 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches258 = icmp eq i32 %ehselector.slot.5, %98
   br i1 %matches258, label %catch295, label %catch.fallthrough259
 
@@ -160670,7 +160667,7 @@ invoke.cont303:                                   ; preds = %invoke.cont301
           to label %unreachable unwind label %ehcleanup306
 
 catch.fallthrough259:                             ; preds = %catch.fallthrough
-  %101 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %101 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches260 = icmp eq i32 %ehselector.slot.5, %101
   br i1 %matches260, label %catch278, label %catch.fallthrough261
 
@@ -160696,7 +160693,7 @@ invoke.cont286:                                   ; preds = %invoke.cont284
           to label %unreachable unwind label %ehcleanup289
 
 catch.fallthrough261:                             ; preds = %catch.fallthrough259
-  %104 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %104 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches262 = icmp eq i32 %ehselector.slot.5, %104
   br i1 %matches262, label %catch, label %eh.resume
 
@@ -160937,7 +160934,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit, %lpa
   %.pn = phi { ptr, i32 } [ %6, %lpad29 ], [ %5, %lpad6 ], [ %lpad.loopexit41, %lpad.loopexit ], [ %lpad.loopexit.split-lp42, %lpad.loopexit.split-lp ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches, label %catch100, label %catch.fallthrough
 
@@ -160963,7 +160960,7 @@ invoke.cont108:                                   ; preds = %invoke.cont106
           to label %unreachable unwind label %ehcleanup111
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches48 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches48, label %catch83, label %catch.fallthrough49
 
@@ -160989,7 +160986,7 @@ invoke.cont91:                                    ; preds = %invoke.cont89
           to label %unreachable unwind label %ehcleanup94
 
 catch.fallthrough49:                              ; preds = %catch.fallthrough
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches50 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches50, label %catch66, label %catch.fallthrough51
 
@@ -161015,7 +161012,7 @@ invoke.cont74:                                    ; preds = %invoke.cont72
           to label %unreachable unwind label %ehcleanup77
 
 catch.fallthrough51:                              ; preds = %catch.fallthrough49
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches52 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches52, label %catch, label %eh.resume
 
@@ -161405,7 +161402,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i, %l
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %23, %lpad53 ], [ %22, %lpad28 ], [ %21, %lpad5 ], [ %20, %lpad ], [ %7, %lpad.i.i ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %26
   br i1 %matches, label %catch131, label %catch.fallthrough
 
@@ -161431,7 +161428,7 @@ invoke.cont139:                                   ; preds = %invoke.cont137
           to label %unreachable unwind label %ehcleanup142
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches77 = icmp eq i32 %ehselector.slot.1, %29
   br i1 %matches77, label %catch114, label %catch.fallthrough78
 
@@ -161457,7 +161454,7 @@ invoke.cont122:                                   ; preds = %invoke.cont120
           to label %unreachable unwind label %ehcleanup125
 
 catch.fallthrough78:                              ; preds = %catch.fallthrough
-  %32 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches79 = icmp eq i32 %ehselector.slot.1, %32
   br i1 %matches79, label %catch97, label %catch.fallthrough80
 
@@ -161483,7 +161480,7 @@ invoke.cont105:                                   ; preds = %invoke.cont103
           to label %unreachable unwind label %ehcleanup108
 
 catch.fallthrough80:                              ; preds = %catch.fallthrough78
-  %35 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches81 = icmp eq i32 %ehselector.slot.1, %35
   br i1 %matches81, label %catch, label %eh.resume
 
@@ -161808,7 +161805,7 @@ catch.dispatch:                                   ; preds = %lpad53, %lpad28, %l
   %.pn = phi { ptr, i32 } [ %18, %lpad77 ], [ %17, %lpad74 ], [ %13, %lpad ], [ %16, %lpad53 ], [ %15, %lpad28 ], [ %14, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches, label %catch131, label %catch.fallthrough
 
@@ -161834,7 +161831,7 @@ invoke.cont139:                                   ; preds = %invoke.cont137
           to label %unreachable unwind label %ehcleanup142
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches79 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches79, label %catch114, label %catch.fallthrough80
 
@@ -161860,7 +161857,7 @@ invoke.cont122:                                   ; preds = %invoke.cont120
           to label %unreachable unwind label %ehcleanup125
 
 catch.fallthrough80:                              ; preds = %catch.fallthrough
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches81 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches81, label %catch97, label %catch.fallthrough82
 
@@ -161886,7 +161883,7 @@ invoke.cont105:                                   ; preds = %invoke.cont103
           to label %unreachable unwind label %ehcleanup108
 
 catch.fallthrough82:                              ; preds = %catch.fallthrough80
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches83 = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches83, label %catch, label %eh.resume
 
@@ -162157,7 +162154,7 @@ catch.dispatch:                                   ; preds = %lpad29, %lpad6, %lp
   %.pn = phi { ptr, i32 } [ %15, %lpad47 ], [ %12, %lpad ], [ %14, %lpad29 ], [ %13, %lpad6 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches, label %catch101, label %catch.fallthrough
 
@@ -162183,7 +162180,7 @@ invoke.cont109:                                   ; preds = %invoke.cont107
           to label %unreachable unwind label %ehcleanup112
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches49 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches49, label %catch84, label %catch.fallthrough50
 
@@ -162209,7 +162206,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
           to label %unreachable unwind label %ehcleanup95
 
 catch.fallthrough50:                              ; preds = %catch.fallthrough
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches51 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches51, label %catch67, label %catch.fallthrough52
 
@@ -162235,7 +162232,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
           to label %unreachable unwind label %ehcleanup78
 
 catch.fallthrough52:                              ; preds = %catch.fallthrough50
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches53, label %catch, label %eh.resume
 
@@ -162620,7 +162617,7 @@ catch.dispatch:                                   ; preds = %lpad, %lpad.i.i, %l
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %23, %lpad53 ], [ %22, %lpad28 ], [ %21, %lpad5 ], [ %20, %lpad ], [ %7, %lpad.i.i ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %26
   br i1 %matches, label %catch131, label %catch.fallthrough
 
@@ -162646,7 +162643,7 @@ invoke.cont139:                                   ; preds = %invoke.cont137
           to label %unreachable unwind label %ehcleanup142
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches77 = icmp eq i32 %ehselector.slot.1, %29
   br i1 %matches77, label %catch114, label %catch.fallthrough78
 
@@ -162672,7 +162669,7 @@ invoke.cont122:                                   ; preds = %invoke.cont120
           to label %unreachable unwind label %ehcleanup125
 
 catch.fallthrough78:                              ; preds = %catch.fallthrough
-  %32 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches79 = icmp eq i32 %ehselector.slot.1, %32
   br i1 %matches79, label %catch97, label %catch.fallthrough80
 
@@ -162698,7 +162695,7 @@ invoke.cont105:                                   ; preds = %invoke.cont103
           to label %unreachable unwind label %ehcleanup108
 
 catch.fallthrough80:                              ; preds = %catch.fallthrough78
-  %35 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches81 = icmp eq i32 %ehselector.slot.1, %35
   br i1 %matches81, label %catch, label %eh.resume
 
@@ -163023,7 +163020,7 @@ catch.dispatch:                                   ; preds = %lpad53, %lpad28, %l
   %.pn = phi { ptr, i32 } [ %18, %lpad77 ], [ %17, %lpad74 ], [ %13, %lpad ], [ %16, %lpad53 ], [ %15, %lpad28 ], [ %14, %lpad5 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches, label %catch131, label %catch.fallthrough
 
@@ -163049,7 +163046,7 @@ invoke.cont139:                                   ; preds = %invoke.cont137
           to label %unreachable unwind label %ehcleanup142
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches79 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches79, label %catch114, label %catch.fallthrough80
 
@@ -163075,7 +163072,7 @@ invoke.cont122:                                   ; preds = %invoke.cont120
           to label %unreachable unwind label %ehcleanup125
 
 catch.fallthrough80:                              ; preds = %catch.fallthrough
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches81 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches81, label %catch97, label %catch.fallthrough82
 
@@ -163101,7 +163098,7 @@ invoke.cont105:                                   ; preds = %invoke.cont103
           to label %unreachable unwind label %ehcleanup108
 
 catch.fallthrough82:                              ; preds = %catch.fallthrough80
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches83 = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches83, label %catch, label %eh.resume
 
@@ -163372,7 +163369,7 @@ catch.dispatch:                                   ; preds = %lpad29, %lpad6, %lp
   %.pn = phi { ptr, i32 } [ %15, %lpad47 ], [ %12, %lpad ], [ %14, %lpad29 ], [ %13, %lpad6 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches, label %catch101, label %catch.fallthrough
 
@@ -163398,7 +163395,7 @@ invoke.cont109:                                   ; preds = %invoke.cont107
           to label %unreachable unwind label %ehcleanup112
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches49 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches49, label %catch84, label %catch.fallthrough50
 
@@ -163424,7 +163421,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
           to label %unreachable unwind label %ehcleanup95
 
 catch.fallthrough50:                              ; preds = %catch.fallthrough
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches51 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches51, label %catch67, label %catch.fallthrough52
 
@@ -163450,7 +163447,7 @@ invoke.cont75:                                    ; preds = %invoke.cont73
           to label %unreachable unwind label %ehcleanup78
 
 catch.fallthrough52:                              ; preds = %catch.fallthrough50
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches53, label %catch, label %eh.resume
 
@@ -163671,7 +163668,7 @@ catch.dispatch:                                   ; preds = %lpad28, %lpad6, %lp
   %.pn = phi { ptr, i32 } [ %5, %lpad ], [ %7, %lpad28 ], [ %6, %lpad6 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches, label %catch98, label %catch.fallthrough
 
@@ -163697,7 +163694,7 @@ invoke.cont106:                                   ; preds = %invoke.cont104
           to label %unreachable unwind label %ehcleanup109
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches46 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches46, label %catch81, label %catch.fallthrough47
 
@@ -163723,7 +163720,7 @@ invoke.cont89:                                    ; preds = %invoke.cont87
           to label %unreachable unwind label %ehcleanup92
 
 catch.fallthrough47:                              ; preds = %catch.fallthrough
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches48 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches48, label %catch64, label %catch.fallthrough49
 
@@ -163749,7 +163746,7 @@ invoke.cont72:                                    ; preds = %invoke.cont70
           to label %unreachable unwind label %ehcleanup75
 
 catch.fallthrough49:                              ; preds = %catch.fallthrough47
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches50 = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches50, label %catch, label %eh.resume
 
@@ -164346,7 +164343,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit, %lpa
   %.pn = phi { ptr, i32 } [ %14, %lpad120 ], [ %13, %lpad87 ], [ %37, %lpad155 ], [ %12, %lpad51 ], [ %11, %lpad28 ], [ %10, %lpad6 ], [ %28, %lpad.i ], [ %lpad.loopexit63, %lpad.loopexit ], [ %lpad.loopexit65, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp66, %lpad.loopexit.split-lp.loopexit.split-lp ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %38 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %38
   br i1 %matches, label %catch209, label %catch.fallthrough
 
@@ -164372,7 +164369,7 @@ invoke.cont217:                                   ; preds = %invoke.cont215
           to label %unreachable unwind label %ehcleanup220
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches157 = icmp eq i32 %ehselector.slot.0, %41
   br i1 %matches157, label %catch192, label %catch.fallthrough158
 
@@ -164398,7 +164395,7 @@ invoke.cont200:                                   ; preds = %invoke.cont198
           to label %unreachable unwind label %ehcleanup203
 
 catch.fallthrough158:                             ; preds = %catch.fallthrough
-  %44 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %44 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches159 = icmp eq i32 %ehselector.slot.0, %44
   br i1 %matches159, label %catch175, label %catch.fallthrough160
 
@@ -164424,7 +164421,7 @@ invoke.cont183:                                   ; preds = %invoke.cont181
           to label %unreachable unwind label %ehcleanup186
 
 catch.fallthrough160:                             ; preds = %catch.fallthrough158
-  %47 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %47 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches161 = icmp eq i32 %ehselector.slot.0, %47
   br i1 %matches161, label %catch, label %eh.resume
 
@@ -164651,7 +164648,7 @@ catch.dispatch:                                   ; preds = %lpad16, %lpad30, %l
   %.pn = phi { ptr, i32 } [ %6, %lpad30 ], [ %4, %lpad ], [ %5, %lpad16 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches, label %catch85, label %catch.fallthrough
 
@@ -164677,7 +164674,7 @@ invoke.cont93:                                    ; preds = %invoke.cont91
           to label %unreachable unwind label %ehcleanup96
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches33 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches33, label %catch68, label %catch.fallthrough34
 
@@ -164703,7 +164700,7 @@ invoke.cont76:                                    ; preds = %invoke.cont74
           to label %unreachable unwind label %ehcleanup79
 
 catch.fallthrough34:                              ; preds = %catch.fallthrough
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches35 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches35, label %catch51, label %catch.fallthrough36
 
@@ -164729,7 +164726,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %ehcleanup62
 
 catch.fallthrough36:                              ; preds = %catch.fallthrough34
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches37 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches37, label %catch, label %eh.resume
 
@@ -164936,7 +164933,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit, %lpa
   %.pn = phi { ptr, i32 } [ %4, %lpad6 ], [ %lpad.loopexit38, %lpad.loopexit ], [ %lpad.loopexit.split-lp39, %lpad.loopexit.split-lp ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %5 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %5 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %5
   br i1 %matches, label %catch72, label %catch.fallthrough
 
@@ -164962,7 +164959,7 @@ invoke.cont80:                                    ; preds = %invoke.cont78
           to label %unreachable unwind label %ehcleanup83
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches20 = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches20, label %catch55, label %catch.fallthrough21
 
@@ -164988,7 +164985,7 @@ invoke.cont63:                                    ; preds = %invoke.cont61
           to label %unreachable unwind label %ehcleanup66
 
 catch.fallthrough21:                              ; preds = %catch.fallthrough
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches22 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches22, label %catch38, label %catch.fallthrough23
 
@@ -165014,7 +165011,7 @@ invoke.cont46:                                    ; preds = %invoke.cont44
           to label %unreachable unwind label %ehcleanup49
 
 catch.fallthrough23:                              ; preds = %catch.fallthrough21
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches24 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches24, label %catch, label %eh.resume
 
@@ -165165,7 +165162,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch50, label %catch.fallthrough
 
@@ -165191,7 +165188,7 @@ invoke.cont58:                                    ; preds = %invoke.cont56
           to label %unreachable unwind label %ehcleanup61
 
 catch.fallthrough:                                ; preds = %lpad
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches2 = icmp eq i32 %3, %7
   br i1 %matches2, label %catch33, label %catch.fallthrough3
 
@@ -165217,7 +165214,7 @@ invoke.cont41:                                    ; preds = %invoke.cont39
           to label %unreachable unwind label %ehcleanup44
 
 catch.fallthrough3:                               ; preds = %catch.fallthrough
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches4 = icmp eq i32 %3, %10
   br i1 %matches4, label %catch16, label %catch.fallthrough5
 
@@ -165243,7 +165240,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
           to label %unreachable unwind label %ehcleanup27
 
 catch.fallthrough5:                               ; preds = %catch.fallthrough3
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches6 = icmp eq i32 %3, %13
   br i1 %matches6, label %catch, label %eh.resume
 
@@ -165617,7 +165614,7 @@ catch.dispatch:                                   ; preds = %lpad108, %lpad64, %
   %.pn = phi { ptr, i32 } [ %1, %lpad ], [ %4, %lpad108 ], [ %3, %lpad64 ], [ %2, %lpad27 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %5 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %5 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %5
   br i1 %matches, label %catch194, label %catch.fallthrough
 
@@ -165643,7 +165640,7 @@ invoke.cont202:                                   ; preds = %invoke.cont200
           to label %unreachable unwind label %ehcleanup205
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches142 = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches142, label %catch177, label %catch.fallthrough143
 
@@ -165669,7 +165666,7 @@ invoke.cont185:                                   ; preds = %invoke.cont183
           to label %unreachable unwind label %ehcleanup188
 
 catch.fallthrough143:                             ; preds = %catch.fallthrough
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches144 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches144, label %catch160, label %catch.fallthrough145
 
@@ -165695,7 +165692,7 @@ invoke.cont168:                                   ; preds = %invoke.cont166
           to label %unreachable unwind label %ehcleanup171
 
 catch.fallthrough145:                             ; preds = %catch.fallthrough143
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches146 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches146, label %catch, label %eh.resume
 
@@ -165985,7 +165982,7 @@ catch.dispatch:                                   ; preds = %lpad29, %lpad6, %lp
   %.pn = phi { ptr, i32 } [ %9, %lpad49 ], [ %8, %lpad45 ], [ %5, %lpad ], [ %7, %lpad29 ], [ %6, %lpad6 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch103, label %catch.fallthrough
 
@@ -166011,7 +166008,7 @@ invoke.cont111:                                   ; preds = %invoke.cont109
           to label %unreachable unwind label %ehcleanup114
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches51 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches51, label %catch86, label %catch.fallthrough52
 
@@ -166037,7 +166034,7 @@ invoke.cont94:                                    ; preds = %invoke.cont92
           to label %unreachable unwind label %ehcleanup97
 
 catch.fallthrough52:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches53 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches53, label %catch69, label %catch.fallthrough54
 
@@ -166063,7 +166060,7 @@ invoke.cont77:                                    ; preds = %invoke.cont75
           to label %unreachable unwind label %ehcleanup80
 
 catch.fallthrough54:                              ; preds = %catch.fallthrough52
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches55 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches55, label %catch, label %eh.resume
 
@@ -166220,7 +166217,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %2 = extractvalue { ptr, i32 } %1, 0
   %3 = extractvalue { ptr, i32 } %1, 1
-  %4 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %4 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %3, %4
   br i1 %matches, label %catch51, label %catch.fallthrough
 
@@ -166246,7 +166243,7 @@ invoke.cont59:                                    ; preds = %invoke.cont57
           to label %unreachable unwind label %ehcleanup62
 
 catch.fallthrough:                                ; preds = %lpad
-  %7 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %7 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches3 = icmp eq i32 %3, %7
   br i1 %matches3, label %catch34, label %catch.fallthrough4
 
@@ -166272,7 +166269,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %unreachable unwind label %ehcleanup45
 
 catch.fallthrough4:                               ; preds = %catch.fallthrough
-  %10 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %10 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches5 = icmp eq i32 %3, %10
   br i1 %matches5, label %catch17, label %catch.fallthrough6
 
@@ -166298,7 +166295,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
           to label %unreachable unwind label %ehcleanup28
 
 catch.fallthrough6:                               ; preds = %catch.fallthrough4
-  %13 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %13 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches7 = icmp eq i32 %3, %13
   br i1 %matches7, label %catch, label %eh.resume
 
@@ -166525,7 +166522,7 @@ catch.dispatch:                                   ; preds = %lpad6, %lpad21, %lp
   %.pn = phi { ptr, i32 } [ %6, %lpad21 ], [ %4, %lpad ], [ %5, %lpad6 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %7 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %7 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %7
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -166551,7 +166548,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -166577,7 +166574,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -166603,7 +166600,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -166902,7 +166899,7 @@ catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %4, %lpad ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %12
   br i1 %matches, label %catch127, label %catch.fallthrough
 
@@ -166928,7 +166925,7 @@ invoke.cont135:                                   ; preds = %invoke.cont133
           to label %unreachable unwind label %ehcleanup138
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches73 = icmp eq i32 %ehselector.slot.1, %15
   br i1 %matches73, label %catch110, label %catch.fallthrough74
 
@@ -166954,7 +166951,7 @@ invoke.cont118:                                   ; preds = %invoke.cont116
           to label %unreachable unwind label %ehcleanup121
 
 catch.fallthrough74:                              ; preds = %catch.fallthrough
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches75 = icmp eq i32 %ehselector.slot.1, %18
   br i1 %matches75, label %catch93, label %catch.fallthrough76
 
@@ -166980,7 +166977,7 @@ invoke.cont101:                                   ; preds = %invoke.cont99
           to label %unreachable unwind label %ehcleanup104
 
 catch.fallthrough76:                              ; preds = %catch.fallthrough74
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches77 = icmp eq i32 %ehselector.slot.1, %21
   br i1 %matches77, label %catch, label %eh.resume
 
@@ -167432,7 +167429,7 @@ catch.dispatch:                                   ; preds = %lpad53, %lpad28, %l
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %23, %lpad ], [ %26, %lpad53 ], [ %25, %lpad28 ], [ %24, %lpad5 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %29 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %29
   br i1 %matches, label %catch134, label %catch.fallthrough
 
@@ -167458,7 +167455,7 @@ invoke.cont142:                                   ; preds = %invoke.cont140
           to label %unreachable unwind label %ehcleanup145
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %32 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches80 = icmp eq i32 %ehselector.slot.1, %32
   br i1 %matches80, label %catch117, label %catch.fallthrough81
 
@@ -167484,7 +167481,7 @@ invoke.cont125:                                   ; preds = %invoke.cont123
           to label %unreachable unwind label %ehcleanup128
 
 catch.fallthrough81:                              ; preds = %catch.fallthrough
-  %35 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches82 = icmp eq i32 %ehselector.slot.1, %35
   br i1 %matches82, label %catch100, label %catch.fallthrough83
 
@@ -167510,7 +167507,7 @@ invoke.cont108:                                   ; preds = %invoke.cont106
           to label %unreachable unwind label %ehcleanup111
 
 catch.fallthrough83:                              ; preds = %catch.fallthrough81
-  %38 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches84 = icmp eq i32 %ehselector.slot.1, %38
   br i1 %matches84, label %catch, label %eh.resume
 
@@ -168094,7 +168091,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit, %lpa
   %.pn = phi { ptr, i32 } [ %11, %lpad109 ], [ %10, %lpad69 ], [ %9, %lpad36 ], [ %20, %lpad239 ], [ %19, %lpad198 ], [ %18, %lpad163 ], [ %8, %lpad4 ], [ %lpad.loopexit75, %lpad.loopexit ], [ %lpad.loopexit77, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp78, %lpad.loopexit.split-lp.loopexit.split-lp ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches, label %catch328, label %catch.fallthrough
 
@@ -168120,7 +168117,7 @@ invoke.cont336:                                   ; preds = %invoke.cont334
           to label %unreachable unwind label %ehcleanup339
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches276 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches276, label %catch311, label %catch.fallthrough277
 
@@ -168146,7 +168143,7 @@ invoke.cont319:                                   ; preds = %invoke.cont317
           to label %unreachable unwind label %ehcleanup322
 
 catch.fallthrough277:                             ; preds = %catch.fallthrough
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches278 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches278, label %catch294, label %catch.fallthrough279
 
@@ -168172,7 +168169,7 @@ invoke.cont302:                                   ; preds = %invoke.cont300
           to label %unreachable unwind label %ehcleanup305
 
 catch.fallthrough279:                             ; preds = %catch.fallthrough277
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches280 = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches280, label %catch, label %eh.resume
 
@@ -168638,7 +168635,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit, %lpa
   %.pn = phi { ptr, i32 } [ %8, %lpad79 ], [ %7, %lpad39 ], [ %6, %lpad10 ], [ %16, %lpad176 ], [ %15, %lpad149 ], [ %14, %lpad120 ], [ %lpad.loopexit58, %lpad.loopexit ], [ %lpad.loopexit.split-lp59, %lpad.loopexit.split-lp ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches, label %catch244, label %catch.fallthrough
 
@@ -168664,7 +168661,7 @@ invoke.cont252:                                   ; preds = %invoke.cont250
           to label %unreachable unwind label %ehcleanup255
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches192 = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches192, label %catch227, label %catch.fallthrough193
 
@@ -168690,7 +168687,7 @@ invoke.cont235:                                   ; preds = %invoke.cont233
           to label %unreachable unwind label %ehcleanup238
 
 catch.fallthrough193:                             ; preds = %catch.fallthrough
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches194 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches194, label %catch210, label %catch.fallthrough195
 
@@ -168716,7 +168713,7 @@ invoke.cont218:                                   ; preds = %invoke.cont216
           to label %unreachable unwind label %ehcleanup221
 
 catch.fallthrough195:                             ; preds = %catch.fallthrough193
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches196 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches196, label %catch, label %eh.resume
 
@@ -169173,7 +169170,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit, %lpa
   %.pn = phi { ptr, i32 } [ %8, %lpad79 ], [ %7, %lpad39 ], [ %6, %lpad10 ], [ %16, %lpad176 ], [ %15, %lpad149 ], [ %14, %lpad120 ], [ %lpad.loopexit56, %lpad.loopexit ], [ %lpad.loopexit.split-lp57, %lpad.loopexit.split-lp ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches, label %catch244, label %catch.fallthrough
 
@@ -169199,7 +169196,7 @@ invoke.cont252:                                   ; preds = %invoke.cont250
           to label %unreachable unwind label %ehcleanup255
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches192 = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches192, label %catch227, label %catch.fallthrough193
 
@@ -169225,7 +169222,7 @@ invoke.cont235:                                   ; preds = %invoke.cont233
           to label %unreachable unwind label %ehcleanup238
 
 catch.fallthrough193:                             ; preds = %catch.fallthrough
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches194 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches194, label %catch210, label %catch.fallthrough195
 
@@ -169251,7 +169248,7 @@ invoke.cont218:                                   ; preds = %invoke.cont216
           to label %unreachable unwind label %ehcleanup221
 
 catch.fallthrough195:                             ; preds = %catch.fallthrough193
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches196 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches196, label %catch, label %eh.resume
 
@@ -169749,7 +169746,7 @@ catch.dispatch:                                   ; preds = %lpad96, %lpad28, %l
   %.pn8 = phi { ptr, i32 } [ %33, %lpad117 ], [ %26, %lpad ], [ %32, %lpad96 ], [ %.pn.pn, %ehcleanup85 ], [ %28, %lpad28 ], [ %27, %lpad5 ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn8, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn8, 1
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.2, %34
   br i1 %matches, label %catch174, label %catch.fallthrough
 
@@ -169775,7 +169772,7 @@ invoke.cont182:                                   ; preds = %invoke.cont180
           to label %unreachable unwind label %ehcleanup185
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %37 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches120 = icmp eq i32 %ehselector.slot.2, %37
   br i1 %matches120, label %catch157, label %catch.fallthrough121
 
@@ -169801,7 +169798,7 @@ invoke.cont165:                                   ; preds = %invoke.cont163
           to label %unreachable unwind label %ehcleanup168
 
 catch.fallthrough121:                             ; preds = %catch.fallthrough
-  %40 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches122 = icmp eq i32 %ehselector.slot.2, %40
   br i1 %matches122, label %catch140, label %catch.fallthrough123
 
@@ -169827,7 +169824,7 @@ invoke.cont148:                                   ; preds = %invoke.cont146
           to label %unreachable unwind label %ehcleanup151
 
 catch.fallthrough123:                             ; preds = %catch.fallthrough121
-  %43 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %43 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches124 = icmp eq i32 %ehselector.slot.2, %43
   br i1 %matches124, label %catch, label %eh.resume
 
@@ -170140,7 +170137,7 @@ catch.dispatch:                                   ; preds = %ehcleanup.i, %lpad
   %.pn = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %20, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches, label %catch52, label %catch.fallthrough
 
@@ -170166,7 +170163,7 @@ invoke.cont60:                                    ; preds = %invoke.cont58
           to label %unreachable unwind label %ehcleanup63
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches4 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches4, label %catch35, label %catch.fallthrough5
 
@@ -170192,7 +170189,7 @@ invoke.cont43:                                    ; preds = %invoke.cont41
           to label %unreachable unwind label %ehcleanup46
 
 catch.fallthrough5:                               ; preds = %catch.fallthrough
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches6 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches6, label %catch18, label %catch.fallthrough7
 
@@ -170218,7 +170215,7 @@ invoke.cont26:                                    ; preds = %invoke.cont24
           to label %unreachable unwind label %ehcleanup29
 
 catch.fallthrough7:                               ; preds = %catch.fallthrough5
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches8 = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches8, label %catch, label %eh.resume
 
@@ -170718,7 +170715,7 @@ catch.dispatch:                                   ; preds = %lpad96, %lpad28, %l
   %.pn8 = phi { ptr, i32 } [ %33, %lpad117 ], [ %26, %lpad ], [ %32, %lpad96 ], [ %.pn.pn, %ehcleanup85 ], [ %28, %lpad28 ], [ %27, %lpad5 ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn8, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn8, 1
-  %34 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.2, %34
   br i1 %matches, label %catch174, label %catch.fallthrough
 
@@ -170744,7 +170741,7 @@ invoke.cont182:                                   ; preds = %invoke.cont180
           to label %unreachable unwind label %ehcleanup185
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %37 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches120 = icmp eq i32 %ehselector.slot.2, %37
   br i1 %matches120, label %catch157, label %catch.fallthrough121
 
@@ -170770,7 +170767,7 @@ invoke.cont165:                                   ; preds = %invoke.cont163
           to label %unreachable unwind label %ehcleanup168
 
 catch.fallthrough121:                             ; preds = %catch.fallthrough
-  %40 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches122 = icmp eq i32 %ehselector.slot.2, %40
   br i1 %matches122, label %catch140, label %catch.fallthrough123
 
@@ -170796,7 +170793,7 @@ invoke.cont148:                                   ; preds = %invoke.cont146
           to label %unreachable unwind label %ehcleanup151
 
 catch.fallthrough123:                             ; preds = %catch.fallthrough121
-  %43 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %43 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches124 = icmp eq i32 %ehselector.slot.2, %43
   br i1 %matches124, label %catch, label %eh.resume
 
@@ -171107,7 +171104,7 @@ catch.dispatch:                                   ; preds = %ehcleanup.i, %lpad
   %.pn = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %20, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches, label %catch52, label %catch.fallthrough
 
@@ -171133,7 +171130,7 @@ invoke.cont60:                                    ; preds = %invoke.cont58
           to label %unreachable unwind label %ehcleanup63
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches4 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches4, label %catch35, label %catch.fallthrough5
 
@@ -171159,7 +171156,7 @@ invoke.cont43:                                    ; preds = %invoke.cont41
           to label %unreachable unwind label %ehcleanup46
 
 catch.fallthrough5:                               ; preds = %catch.fallthrough
-  %27 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches6 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches6, label %catch18, label %catch.fallthrough7
 
@@ -171185,7 +171182,7 @@ invoke.cont26:                                    ; preds = %invoke.cont24
           to label %unreachable unwind label %ehcleanup29
 
 catch.fallthrough7:                               ; preds = %catch.fallthrough5
-  %30 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches8 = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches8, label %catch, label %eh.resume
 
@@ -172924,7 +172921,7 @@ catch.dispatch:                                   ; preds = %lpad197, %lpad168, 
   %.pn39.pn.pn = phi { ptr, i32 } [ %.pn39.pn, %ehcleanup468 ], [ %56, %lpad ], [ %.pn, %ehcleanup ], [ %64, %lpad197 ], [ %63, %lpad168 ], [ %62, %lpad140 ], [ %61, %lpad111 ], [ %60, %lpad83 ], [ %59, %lpad54 ], [ %58, %lpad28 ], [ %57, %lpad5 ]
   %exn.slot.11 = extractvalue { ptr, i32 } %.pn39.pn.pn, 0
   %ehselector.slot.11 = extractvalue { ptr, i32 } %.pn39.pn.pn, 1
-  %153 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %153 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.11, %153
   br i1 %matches, label %catch523, label %catch.fallthrough
 
@@ -172950,7 +172947,7 @@ invoke.cont531:                                   ; preds = %invoke.cont529
           to label %unreachable unwind label %ehcleanup534
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %156 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %156 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches469 = icmp eq i32 %ehselector.slot.11, %156
   br i1 %matches469, label %catch506, label %catch.fallthrough470
 
@@ -172976,7 +172973,7 @@ invoke.cont514:                                   ; preds = %invoke.cont512
           to label %unreachable unwind label %ehcleanup517
 
 catch.fallthrough470:                             ; preds = %catch.fallthrough
-  %159 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %159 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches471 = icmp eq i32 %ehselector.slot.11, %159
   br i1 %matches471, label %catch489, label %catch.fallthrough472
 
@@ -173002,7 +172999,7 @@ invoke.cont497:                                   ; preds = %invoke.cont495
           to label %unreachable unwind label %ehcleanup500
 
 catch.fallthrough472:                             ; preds = %catch.fallthrough470
-  %162 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %162 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches473 = icmp eq i32 %ehselector.slot.11, %162
   br i1 %matches473, label %catch, label %eh.resume
 
@@ -173292,7 +173289,7 @@ catch.dispatch:                                   ; preds = %lpad6, %lpad
   %.pn = phi { ptr, i32 } [ %4, %lpad ], [ %5, %lpad6 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %6 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %6 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %6
   br i1 %matches, label %catch75, label %catch.fallthrough
 
@@ -173318,7 +173315,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
           to label %unreachable unwind label %ehcleanup86
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches23 = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches23, label %catch58, label %catch.fallthrough24
 
@@ -173344,7 +173341,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough24:                              ; preds = %catch.fallthrough
-  %12 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches25 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches25, label %catch41, label %catch.fallthrough26
 
@@ -173370,7 +173367,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough26:                              ; preds = %catch.fallthrough24
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches27 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches27, label %catch, label %eh.resume
 
@@ -173605,7 +173602,7 @@ catch.dispatch:                                   ; preds = %lpad29, %lpad6, %lp
   %.pn = phi { ptr, i32 } [ %7, %lpad ], [ %9, %lpad29 ], [ %8, %lpad6 ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch102, label %catch.fallthrough
 
@@ -173631,7 +173628,7 @@ invoke.cont110:                                   ; preds = %invoke.cont108
           to label %unreachable unwind label %ehcleanup113
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches50 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches50, label %catch85, label %catch.fallthrough51
 
@@ -173657,7 +173654,7 @@ invoke.cont93:                                    ; preds = %invoke.cont91
           to label %unreachable unwind label %ehcleanup96
 
 catch.fallthrough51:                              ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches52 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches52, label %catch68, label %catch.fallthrough53
 
@@ -173683,7 +173680,7 @@ invoke.cont76:                                    ; preds = %invoke.cont74
           to label %unreachable unwind label %ehcleanup79
 
 catch.fallthrough53:                              ; preds = %catch.fallthrough51
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches54 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches54, label %catch, label %eh.resume
 
@@ -174042,7 +174039,7 @@ catch.dispatch:                                   ; preds = %lpad28, %lpad5, %eh
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %13, %lpad ], [ %15, %lpad28 ], [ %14, %lpad5 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %19
   br i1 %matches, label %catch156, label %catch.fallthrough
 
@@ -174068,7 +174065,7 @@ invoke.cont164:                                   ; preds = %invoke.cont162
           to label %unreachable unwind label %ehcleanup167
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %22 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches102 = icmp eq i32 %ehselector.slot.1, %22
   br i1 %matches102, label %catch139, label %catch.fallthrough103
 
@@ -174094,7 +174091,7 @@ invoke.cont147:                                   ; preds = %invoke.cont145
           to label %unreachable unwind label %ehcleanup150
 
 catch.fallthrough103:                             ; preds = %catch.fallthrough
-  %25 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches104 = icmp eq i32 %ehselector.slot.1, %25
   br i1 %matches104, label %catch122, label %catch.fallthrough105
 
@@ -174120,7 +174117,7 @@ invoke.cont130:                                   ; preds = %invoke.cont128
           to label %unreachable unwind label %ehcleanup133
 
 catch.fallthrough105:                             ; preds = %catch.fallthrough103
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches106 = icmp eq i32 %ehselector.slot.1, %28
   br i1 %matches106, label %catch, label %eh.resume
 
@@ -174714,7 +174711,7 @@ catch.dispatch:                                   ; preds = %lpad.loopexit79, %l
   %.pn15 = phi { ptr, i32 } [ %8, %lpad69 ], [ %7, %lpad36 ], [ %.pn.pn, %ehcleanup175 ], [ %6, %lpad4 ], [ %lpad.loopexit81, %lpad.loopexit79 ], [ %lpad.loopexit.split-lp82, %lpad.loopexit.split-lp80 ]
   %exn.slot.2 = extractvalue { ptr, i32 } %.pn15, 0
   %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn15, 1
-  %38 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.2, %38
   br i1 %matches, label %catch230, label %catch.fallthrough
 
@@ -174740,7 +174737,7 @@ invoke.cont238:                                   ; preds = %invoke.cont236
           to label %unreachable unwind label %ehcleanup241
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %41 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches176 = icmp eq i32 %ehselector.slot.2, %41
   br i1 %matches176, label %catch213, label %catch.fallthrough177
 
@@ -174766,7 +174763,7 @@ invoke.cont221:                                   ; preds = %invoke.cont219
           to label %unreachable unwind label %ehcleanup224
 
 catch.fallthrough177:                             ; preds = %catch.fallthrough
-  %44 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %44 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches178 = icmp eq i32 %ehselector.slot.2, %44
   br i1 %matches178, label %catch196, label %catch.fallthrough179
 
@@ -174792,7 +174789,7 @@ invoke.cont204:                                   ; preds = %invoke.cont202
           to label %unreachable unwind label %ehcleanup207
 
 catch.fallthrough179:                             ; preds = %catch.fallthrough177
-  %47 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %47 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches180 = icmp eq i32 %ehselector.slot.2, %47
   br i1 %matches180, label %catch, label %eh.resume
 
@@ -175153,7 +175150,7 @@ catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %12, %lpad ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %15 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %15
   br i1 %matches, label %catch58, label %catch.fallthrough
 
@@ -175179,7 +175176,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
           to label %unreachable unwind label %ehcleanup69
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %18 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches7 = icmp eq i32 %ehselector.slot.1, %18
   br i1 %matches7, label %catch41, label %catch.fallthrough8
 
@@ -175205,7 +175202,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
           to label %unreachable unwind label %ehcleanup52
 
 catch.fallthrough8:                               ; preds = %catch.fallthrough
-  %21 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches9 = icmp eq i32 %ehselector.slot.1, %21
   br i1 %matches9, label %catch24, label %catch.fallthrough10
 
@@ -175231,7 +175228,7 @@ invoke.cont32:                                    ; preds = %invoke.cont30
           to label %unreachable unwind label %ehcleanup35
 
 catch.fallthrough10:                              ; preds = %catch.fallthrough8
-  %24 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches11 = icmp eq i32 %ehselector.slot.1, %24
   br i1 %matches11, label %catch, label %eh.resume
 
@@ -175452,7 +175449,7 @@ catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %7, %lpad ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
   %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
-  %10 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.1, %10
   br i1 %matches, label %catch59, label %catch.fallthrough
 
@@ -175478,7 +175475,7 @@ invoke.cont67:                                    ; preds = %invoke.cont65
           to label %unreachable unwind label %ehcleanup70
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %13 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches8 = icmp eq i32 %ehselector.slot.1, %13
   br i1 %matches8, label %catch42, label %catch.fallthrough9
 
@@ -175504,7 +175501,7 @@ invoke.cont50:                                    ; preds = %invoke.cont48
           to label %unreachable unwind label %ehcleanup53
 
 catch.fallthrough9:                               ; preds = %catch.fallthrough
-  %16 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches10 = icmp eq i32 %ehselector.slot.1, %16
   br i1 %matches10, label %catch25, label %catch.fallthrough11
 
@@ -175530,7 +175527,7 @@ invoke.cont33:                                    ; preds = %invoke.cont31
           to label %unreachable unwind label %ehcleanup36
 
 catch.fallthrough11:                              ; preds = %catch.fallthrough9
-  %19 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches12 = icmp eq i32 %ehselector.slot.1, %19
   br i1 %matches12, label %catch, label %eh.resume
 
@@ -175727,7 +175724,7 @@ catch.dispatch:                                   ; preds = %lpad2, %lpad
   %.pn = phi { ptr, i32 } [ %7, %lpad2 ], [ %6, %lpad ]
   %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
   %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %8 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %8 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %ehselector.slot.0, %8
   br i1 %matches, label %catch53, label %catch.fallthrough
 
@@ -175753,7 +175750,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
           to label %unreachable unwind label %ehcleanup64
 
 catch.fallthrough:                                ; preds = %catch.dispatch
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches4 = icmp eq i32 %ehselector.slot.0, %11
   br i1 %matches4, label %catch36, label %catch.fallthrough5
 
@@ -175779,7 +175776,7 @@ invoke.cont44:                                    ; preds = %invoke.cont42
           to label %unreachable unwind label %ehcleanup47
 
 catch.fallthrough5:                               ; preds = %catch.fallthrough
-  %14 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %14 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches6 = icmp eq i32 %ehselector.slot.0, %14
   br i1 %matches6, label %catch19, label %catch.fallthrough7
 
@@ -175805,7 +175802,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
           to label %unreachable unwind label %ehcleanup30
 
 catch.fallthrough7:                               ; preds = %catch.fallthrough5
-  %17 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches8 = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches8, label %catch, label %eh.resume
 
@@ -175962,7 +175959,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
   %1 = landingpad { ptr, i32 }
           catch ptr @_ZTIN4cvc58internal9ExceptionE
   %2 = extractvalue { ptr, i32 } %1, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches = icmp eq i32 %2, %3
   br i1 %matches, label %catch, label %eh.resume
 
@@ -176081,7 +176078,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
   %1 = landingpad { ptr, i32 }
           catch ptr @_ZTIN4cvc58internal9ExceptionE
   %2 = extractvalue { ptr, i32 } %1, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches = icmp eq i32 %2, %3
   br i1 %matches, label %catch, label %eh.resume
 
@@ -176166,7 +176163,7 @@ lpad:                                             ; preds = %entry
           catch ptr @_ZTISt16invalid_argument
   %1 = extractvalue { ptr, i32 } %0, 0
   %2 = extractvalue { ptr, i32 } %0, 1
-  %3 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
+  %3 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
   %matches = icmp eq i32 %2, %3
   br i1 %matches, label %catch49, label %catch.fallthrough
 
@@ -176192,7 +176189,7 @@ invoke.cont57:                                    ; preds = %invoke.cont55
           to label %unreachable unwind label %ehcleanup60
 
 catch.fallthrough:                                ; preds = %lpad
-  %6 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
+  %6 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
   %matches2 = icmp eq i32 %2, %6
   br i1 %matches2, label %catch32, label %catch.fallthrough3
 
@@ -176218,7 +176215,7 @@ invoke.cont40:                                    ; preds = %invoke.cont38
           to label %unreachable unwind label %ehcleanup43
 
 catch.fallthrough3:                               ; preds = %catch.fallthrough
-  %9 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
+  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
   %matches4 = icmp eq i32 %2, %9
   br i1 %matches4, label %catch15, label %catch.fallthrough5
 
@@ -176244,7 +176241,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
           to label %unreachable unwind label %ehcleanup26
 
 catch.fallthrough5:                               ; preds = %catch.fallthrough3
-  %12 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #30
+  %12 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
   %matches6 = icmp eq i32 %2, %12
   br i1 %matches6, label %catch, label %eh.resume
 
@@ -176372,14 +176369,14 @@ unreachable:                                      ; preds = %invoke.cont11, %inv
 declare void @_ZN4cvc58internal13Configuration16getVersionStringB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i64 -2147483648, 2147483648) i64 @_ZNKSt4hashIN4cvc54KindEEclES1_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, i32 noundef %k) local_unnamed_addr #18 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZNKSt4hashIN4cvc54KindEEclES1_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, i32 noundef %k) local_unnamed_addr #17 align 2 {
 entry:
   %conv = sext i32 %k to i64
   ret i64 %conv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i64 -2147483648, 2147483648) i64 @_ZNKSt4hashIN4cvc58SortKindEEclES1_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, i32 noundef %k) local_unnamed_addr #18 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZNKSt4hashIN4cvc58SortKindEEclES1_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, i32 noundef %k) local_unnamed_addr #17 align 2 {
 entry:
   %conv = sext i32 %k to i64
   ret i64 %conv
@@ -176869,7 +176866,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef i32 @_ZSt19uncaught_exceptionsv() local_unnamed_addr #20
+declare noundef i32 @_ZSt19uncaught_exceptionsv() local_unnamed_addr #19
 
 declare void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
@@ -177007,7 +177004,7 @@ declare void @__gmpz_clear(ptr noundef) local_unnamed_addr #0
 declare void @_ZN4cvc58internal17FloatingPointSizeC1ERKS1_(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @__gmpz_cmp_ui(ptr noundef, i64 noundef) local_unnamed_addr #20
+declare i32 @__gmpz_cmp_ui(ptr noundef, i64 noundef) local_unnamed_addr #19
 
 declare void @_ZNK4cvc58internal4expr9NodeValue8toStreamERSo(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
@@ -177112,7 +177109,7 @@ terminate.lpad:                                   ; preds = %entry
 declare void @__gmp_get_memory_functions(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #21
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeIN4cvc54TermES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -177282,10 +177279,10 @@ _ZNSt12_Vector_baseISt10shared_ptrIN4cvc58internal13DTypeSelectorEESaIS4_EED2Ev.
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #22
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #21
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #22
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #21
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
@@ -181501,7 +181498,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_l
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #22
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -185778,7 +185775,7 @@ _ZNSt15__new_allocatorIN4cvc58internal8TypeNodeEE7destroyIS2_EEvPT_.exit: ; pred
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #22
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKN4cvc58internal8TypeNodeEPS2_ET0_T_S7_S6_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) local_unnamed_addr #6 comdat personality ptr @__gxx_personality_v0 {
@@ -189450,7 +189447,7 @@ _ZNSt12_Vector_baseIN4cvc54TermESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_
 declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #22
+declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #21
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
@@ -189587,7 +189584,7 @@ _ZNSt8_Rb_treeIN4cvc54TermES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_Auto_nodeD
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #20
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -189597,7 +189594,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4cvc58internal4expr
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #20
+declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN4cvc58internal16DTypeConstructorEEET_(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %__p) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -191449,7 +191446,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZNSt6vectorIN4cvc5
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #21
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE10_M_emplaceIJRKNS2_ILb1EEEEEESt4pairINS5_14_Node_iteratorIS3_Lb1ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -192034,7 +192031,7 @@ unreachable:                                      ; preds = %invoke.cont19
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #20
+declare noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #19
 
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -192504,7 +192501,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #20
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN4cvc55ProofESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(16) %__args) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -194604,10 +194601,10 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @_ZN4cvc58internal10safe_printImEEviRKT_(i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #23
+declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #22
 
 ; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #24
+declare void @abort() local_unnamed_addr #23
 
 declare noundef ptr @_ZN4cvc58internal8toStringENS0_12TypeConstantE(i32 noundef) local_unnamed_addr #0
 
@@ -196996,7 +196993,7 @@ sw.epilog:                                        ; preds = %"_ZZNK4cvc56Solver1
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #22
+declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #21
 
 ; Function Attrs: nounwind
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
@@ -197639,6 +197636,9 @@ __cxx_global_var_init.283.exit:                   ; preds = %arraydestroy.body15
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #24
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #25
 
@@ -197671,20 +197671,20 @@ attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nosync nounwind memory(none) }
-attributes #12 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree norecurse nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #20 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #19 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { nofree nosync nounwind memory(none) }
 attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #26 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #27 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

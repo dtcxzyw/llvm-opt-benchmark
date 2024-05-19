@@ -385,7 +385,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
           catch ptr @_ZTI26trap_load_guest_page_fault
   %105 = extractvalue { ptr, i32 } %104, 0
   %106 = extractvalue { ptr, i32 } %104, 1
-  %107 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI28trap_load_address_misaligned) #17
+  %107 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI28trap_load_address_misaligned) #17
   %108 = icmp eq i32 %106, %107
   br i1 %108, label %109, label %137
 
@@ -435,7 +435,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
           to label %249 unwind label %242
 
 137:                                              ; preds = %103
-  %138 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI20trap_load_page_fault) #17
+  %138 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI20trap_load_page_fault) #17
   %139 = icmp eq i32 %106, %138
   br i1 %139, label %140, label %168
 
@@ -485,7 +485,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
           to label %249 unwind label %237
 
 168:                                              ; preds = %137
-  %169 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI22trap_load_access_fault) #17
+  %169 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI22trap_load_access_fault) #17
   %170 = icmp eq i32 %106, %169
   br i1 %170, label %171, label %199
 
@@ -535,7 +535,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
           to label %249 unwind label %232
 
 199:                                              ; preds = %168
-  %200 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI26trap_load_guest_page_fault) #17
+  %200 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI26trap_load_guest_page_fault) #17
   %201 = icmp eq i32 %106, %200
   br i1 %201, label %202, label %245
 
@@ -883,7 +883,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
           catch ptr @_ZTI26trap_load_guest_page_fault
   %105 = extractvalue { ptr, i32 } %104, 0
   %106 = extractvalue { ptr, i32 } %104, 1
-  %107 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI28trap_load_address_misaligned) #17
+  %107 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI28trap_load_address_misaligned) #17
   %108 = icmp eq i32 %106, %107
   br i1 %108, label %109, label %137
 
@@ -933,7 +933,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
           to label %249 unwind label %242
 
 137:                                              ; preds = %103
-  %138 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI20trap_load_page_fault) #17
+  %138 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI20trap_load_page_fault) #17
   %139 = icmp eq i32 %106, %138
   br i1 %139, label %140, label %168
 
@@ -983,7 +983,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
           to label %249 unwind label %237
 
 168:                                              ; preds = %137
-  %169 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI22trap_load_access_fault) #17
+  %169 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI22trap_load_access_fault) #17
   %170 = icmp eq i32 %106, %169
   br i1 %170, label %171, label %199
 
@@ -1033,7 +1033,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
           to label %249 unwind label %232
 
 199:                                              ; preds = %168
-  %200 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI26trap_load_guest_page_fault) #17
+  %200 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI26trap_load_guest_page_fault) #17
   %201 = icmp eq i32 %106, %200
   br i1 %201, label %202, label %245
 
@@ -1363,7 +1363,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
           catch ptr @_ZTI26trap_load_guest_page_fault
   %105 = extractvalue { ptr, i32 } %104, 0
   %106 = extractvalue { ptr, i32 } %104, 1
-  %107 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI28trap_load_address_misaligned) #17
+  %107 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI28trap_load_address_misaligned) #17
   %108 = icmp eq i32 %106, %107
   br i1 %108, label %109, label %137
 
@@ -1413,7 +1413,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
           to label %248 unwind label %242
 
 137:                                              ; preds = %103
-  %138 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI20trap_load_page_fault) #17
+  %138 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI20trap_load_page_fault) #17
   %139 = icmp eq i32 %106, %138
   br i1 %139, label %140, label %168
 
@@ -1463,7 +1463,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
           to label %248 unwind label %237
 
 168:                                              ; preds = %137
-  %169 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI22trap_load_access_fault) #17
+  %169 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI22trap_load_access_fault) #17
   %170 = icmp eq i32 %106, %169
   br i1 %170, label %171, label %199
 
@@ -1513,7 +1513,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
           to label %248 unwind label %232
 
 199:                                              ; preds = %168
-  %200 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI26trap_load_guest_page_fault) #17
+  %200 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI26trap_load_guest_page_fault) #17
   %201 = icmp eq i32 %106, %200
   br i1 %201, label %202, label %common.resume
 
@@ -1902,7 +1902,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
           catch ptr @_ZTI26trap_load_guest_page_fault
   %105 = extractvalue { ptr, i32 } %104, 0
   %106 = extractvalue { ptr, i32 } %104, 1
-  %107 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI28trap_load_address_misaligned) #17
+  %107 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI28trap_load_address_misaligned) #17
   %108 = icmp eq i32 %106, %107
   br i1 %108, label %109, label %137
 
@@ -1952,7 +1952,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
           to label %248 unwind label %242
 
 137:                                              ; preds = %103
-  %138 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI20trap_load_page_fault) #17
+  %138 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI20trap_load_page_fault) #17
   %139 = icmp eq i32 %106, %138
   br i1 %139, label %140, label %168
 
@@ -2002,7 +2002,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
           to label %248 unwind label %237
 
 168:                                              ; preds = %137
-  %169 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI22trap_load_access_fault) #17
+  %169 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI22trap_load_access_fault) #17
   %170 = icmp eq i32 %106, %169
   br i1 %170, label %171, label %199
 
@@ -2052,7 +2052,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %17
           to label %248 unwind label %232
 
 199:                                              ; preds = %168
-  %200 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI26trap_load_guest_page_fault) #17
+  %200 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI26trap_load_guest_page_fault) #17
   %201 = icmp eq i32 %106, %200
   br i1 %201, label %202, label %common.resume
 
@@ -2474,7 +2474,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
           catch ptr @_ZTI26trap_load_guest_page_fault
   %119 = extractvalue { ptr, i32 } %118, 0
   %120 = extractvalue { ptr, i32 } %118, 1
-  %121 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI28trap_load_address_misaligned) #17
+  %121 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI28trap_load_address_misaligned) #17
   %122 = icmp eq i32 %120, %121
   br i1 %122, label %123, label %151
 
@@ -2524,7 +2524,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
           to label %263 unwind label %256
 
 151:                                              ; preds = %117
-  %152 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI20trap_load_page_fault) #17
+  %152 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI20trap_load_page_fault) #17
   %153 = icmp eq i32 %120, %152
   br i1 %153, label %154, label %182
 
@@ -2574,7 +2574,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
           to label %263 unwind label %251
 
 182:                                              ; preds = %151
-  %183 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI22trap_load_access_fault) #17
+  %183 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI22trap_load_access_fault) #17
   %184 = icmp eq i32 %120, %183
   br i1 %184, label %185, label %213
 
@@ -2624,7 +2624,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
           to label %263 unwind label %246
 
 213:                                              ; preds = %182
-  %214 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI26trap_load_guest_page_fault) #17
+  %214 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI26trap_load_guest_page_fault) #17
   %215 = icmp eq i32 %120, %214
   br i1 %215, label %216, label %259
 
@@ -3007,7 +3007,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
           catch ptr @_ZTI26trap_load_guest_page_fault
   %119 = extractvalue { ptr, i32 } %118, 0
   %120 = extractvalue { ptr, i32 } %118, 1
-  %121 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI28trap_load_address_misaligned) #17
+  %121 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI28trap_load_address_misaligned) #17
   %122 = icmp eq i32 %120, %121
   br i1 %122, label %123, label %151
 
@@ -3057,7 +3057,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
           to label %263 unwind label %256
 
 151:                                              ; preds = %117
-  %152 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI20trap_load_page_fault) #17
+  %152 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI20trap_load_page_fault) #17
   %153 = icmp eq i32 %120, %152
   br i1 %153, label %154, label %182
 
@@ -3107,7 +3107,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
           to label %263 unwind label %251
 
 182:                                              ; preds = %151
-  %183 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI22trap_load_access_fault) #17
+  %183 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI22trap_load_access_fault) #17
   %184 = icmp eq i32 %120, %183
   br i1 %184, label %185, label %213
 
@@ -3157,7 +3157,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
           to label %263 unwind label %246
 
 213:                                              ; preds = %182
-  %214 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI26trap_load_guest_page_fault) #17
+  %214 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI26trap_load_guest_page_fault) #17
   %215 = icmp eq i32 %120, %214
   br i1 %215, label %216, label %259
 
@@ -3538,7 +3538,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
           catch ptr @_ZTI26trap_load_guest_page_fault
   %119 = extractvalue { ptr, i32 } %118, 0
   %120 = extractvalue { ptr, i32 } %118, 1
-  %121 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI28trap_load_address_misaligned) #17
+  %121 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI28trap_load_address_misaligned) #17
   %122 = icmp eq i32 %120, %121
   br i1 %122, label %123, label %151
 
@@ -3588,7 +3588,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
           to label %262 unwind label %256
 
 151:                                              ; preds = %117
-  %152 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI20trap_load_page_fault) #17
+  %152 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI20trap_load_page_fault) #17
   %153 = icmp eq i32 %120, %152
   br i1 %153, label %154, label %182
 
@@ -3638,7 +3638,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
           to label %262 unwind label %251
 
 182:                                              ; preds = %151
-  %183 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI22trap_load_access_fault) #17
+  %183 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI22trap_load_access_fault) #17
   %184 = icmp eq i32 %120, %183
   br i1 %184, label %185, label %213
 
@@ -3688,7 +3688,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
           to label %262 unwind label %246
 
 213:                                              ; preds = %182
-  %214 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI26trap_load_guest_page_fault) #17
+  %214 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI26trap_load_guest_page_fault) #17
   %215 = icmp eq i32 %120, %214
   br i1 %215, label %216, label %common.resume
 
@@ -4128,7 +4128,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
           catch ptr @_ZTI26trap_load_guest_page_fault
   %119 = extractvalue { ptr, i32 } %118, 0
   %120 = extractvalue { ptr, i32 } %118, 1
-  %121 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI28trap_load_address_misaligned) #17
+  %121 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI28trap_load_address_misaligned) #17
   %122 = icmp eq i32 %120, %121
   br i1 %122, label %123, label %151
 
@@ -4178,7 +4178,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
           to label %262 unwind label %256
 
 151:                                              ; preds = %117
-  %152 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI20trap_load_page_fault) #17
+  %152 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI20trap_load_page_fault) #17
   %153 = icmp eq i32 %120, %152
   br i1 %153, label %154, label %182
 
@@ -4228,7 +4228,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
           to label %262 unwind label %251
 
 182:                                              ; preds = %151
-  %183 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI22trap_load_access_fault) #17
+  %183 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI22trap_load_access_fault) #17
   %184 = icmp eq i32 %120, %183
   br i1 %184, label %185, label %213
 
@@ -4278,7 +4278,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit.i:  ; preds = %28
           to label %262 unwind label %246
 
 213:                                              ; preds = %182
-  %214 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI26trap_load_guest_page_fault) #17
+  %214 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI26trap_load_guest_page_fault) #17
   %215 = icmp eq i32 %120, %214
   br i1 %215, label %216, label %common.resume
 
@@ -4686,9 +4686,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; pr
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #7
 
 declare void @_ZN5mmu_t15store_slow_pathEmmPKh13xlate_flags_tbb(ptr noundef nonnull align 8 dereferenceable(43168), i64 noundef, i64 noundef, ptr noundef, i8, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #0
-
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN27trap_store_guest_page_faultD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
@@ -5160,11 +5157,14 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_amoor_w.cc() #13 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_amoor_w.cc() #12 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #17
   ret void
 }
+
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14
@@ -5193,8 +5193,8 @@ attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-m
 attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nofree nosync nounwind memory(none) }
-attributes #13 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nosync nounwind memory(none) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

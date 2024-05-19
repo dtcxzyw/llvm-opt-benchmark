@@ -19812,7 +19812,7 @@ define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__
 178:                                              ; preds = %177, %108
   %.pn62.pn = phi { ptr, i32 } [ %.pn62, %177 ], [ %109, %108 ]
   %.1435 = extractvalue { ptr, i32 } %.pn62.pn, 1
-  %179 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #23
+  %179 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #23
   %180 = icmp eq i32 %.1435, %179
   br i1 %180, label %181, label %224
 
@@ -23499,7 +23499,7 @@ _ZSt8_DestroyIPN2mu6ParserES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIP
   %.68 = extractvalue { ptr, i32 } %.pn260.pn, 0
   %.68122 = extractvalue { ptr, i32 } %.pn260.pn, 1
   call void @_ZNSt6vectorIN2mu6ParserESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %185) #23
-  %911 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %911 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %912 = icmp eq i32 %.68122, %911
   br i1 %912, label %913, label %988
 
@@ -23670,7 +23670,7 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EED2Ev.exit419: ; preds = %.
   %.3502 = phi i32 [ 0, %.thread494 ], [ %.145, %988 ], [ %.145, %_ZNKSt14default_deleteIN2mu6ParserEEclEPS1_.exit.i418 ], [ 0, %.thread503 ]
   %.71501 = phi ptr [ %511, %.thread494 ], [ %.69, %988 ], [ %.69, %_ZNKSt14default_deleteIN2mu6ParserEEclEPS1_.exit.i418 ], [ %514, %.thread503 ]
   %.71125500 = phi i32 [ %512, %.thread494 ], [ %.69123, %988 ], [ %.69123, %_ZNKSt14default_deleteIN2mu6ParserEEclEPS1_.exit.i418 ], [ %515, %.thread503 ]
-  %992 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #23
+  %992 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #23
   %993 = icmp eq i32 %.71125500, %992
   br i1 %993, label %994, label %1008
 
@@ -23699,7 +23699,7 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EED2Ev.exit419: ; preds = %.
           to label %.invoke unwind label %1040
 
 1008:                                             ; preds = %_ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EED2Ev.exit419
-  %1009 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %1009 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %1010 = icmp eq i32 %.71125500, %1009
   %1011 = call ptr @__cxa_begin_catch(ptr %.71501) #23
   br i1 %1010, label %1012, label %1028
@@ -24144,7 +24144,7 @@ define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester11EqnTestBulkERKNSt
   %.2 = phi i32 [ %.1, %131 ], [ 0, %44 ]
   %.6 = extractvalue { ptr, i32 } %.pn55.pn, 1
   %.643 = extractvalue { ptr, i32 } %.pn55.pn, 0
-  %133 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #23
+  %133 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #23
   %134 = icmp eq i32 %.6, %133
   %135 = call ptr @__cxa_begin_catch(ptr %.643) #23
   br i1 %134, label %136, label %149
@@ -24499,7 +24499,7 @@ define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7
   %.2 = phi i32 [ %.1, %93 ], [ 0, %42 ]
   %.6 = extractvalue { ptr, i32 } %.pn46.pn, 1
   %.633 = extractvalue { ptr, i32 } %.pn46.pn, 0
-  %95 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #23
+  %95 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #23
   %96 = icmp eq i32 %.6, %95
   %97 = call ptr @__cxa_begin_catch(ptr %.633) #23
   br i1 %96, label %98, label %111
@@ -24732,7 +24732,7 @@ define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester20EqnTestWithVarCha
   %.pn22.pn = phi { ptr, i32 } [ %.pn22, %47 ], [ %27, %26 ]
   %.2 = extractvalue { ptr, i32 } %.pn22.pn, 1
   %.219 = extractvalue { ptr, i32 } %.pn22.pn, 0
-  %49 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #23
+  %49 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #23
   %50 = icmp eq i32 %.2, %49
   br i1 %50, label %51, label %66
 
@@ -24767,7 +24767,7 @@ define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester20EqnTestWithVarCha
   br label %100
 
 66:                                               ; preds = %48
-  %67 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %67 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %68 = icmp eq i32 %.2, %67
   %69 = call ptr @__cxa_begin_catch(ptr %.219) #23
   br i1 %68, label %70, label %86
@@ -25512,7 +25512,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester3RunEv(ptr noundef nonnull align 8 
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
   %37 = extractvalue { ptr, i32 } %35, 1
-  %38 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN2mu11ParserErrorE) #23
+  %38 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2mu11ParserErrorE) #23
   %39 = icmp eq i32 %37, %38
   br i1 %39, label %40, label %58
 
@@ -25561,7 +25561,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester3RunEv(ptr noundef nonnull align 8 
   br label %84
 
 58:                                               ; preds = %34
-  %59 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #23
+  %59 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
   %60 = icmp eq i32 %37, %59
   %61 = tail call ptr @__cxa_begin_catch(ptr %36) #23
   br i1 %60, label %62, label %71
@@ -25642,11 +25642,8 @@ define noundef i32 @_ZN2mu4Test12ParserTester3RunEv(ptr noundef nonnull align 8 
   unreachable
 }
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #12
-
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZNK2mu4Test12ParserTester5AbortEv(ptr nocapture nonnull readnone align 8 %0) local_unnamed_addr #13 align 2 {
+define void @_ZNK2mu4Test12ParserTester5AbortEv(ptr nocapture nonnull readnone align 8 %0) local_unnamed_addr #12 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.661)
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   br label %4
@@ -26041,7 +26038,7 @@ declare void @_ZN2mu14ParserCallbackC1EPFdPKcddddEb(ptr noundef nonnull align 8 
 declare void @_ZN2mu14ParserCallbackC1EPFdPKcdddddEb(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #14
+declare double @llvm.fabs.f64(double) #13
 
 declare void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #0
 
@@ -26880,13 +26877,13 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK2mu11ParserError7Ge
 declare void @_ZN2mu10ParserBase4EvalEPdi(ptr noundef nonnull align 8 dereferenceable(596), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getchar() local_unnamed_addr #15
+declare noundef i32 @getchar() local_unnamed_addr #14
 
 ; Function Attrs: noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #16
+declare void @exit(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_muParserTest.cpp() #17 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_muParserTest.cpp() #16 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::allocator", align 1
   %2 = alloca %"class.std::allocator", align 1
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
@@ -26928,6 +26925,9 @@ __cxx_global_var_init.2.exit:                     ; preds = %__cxx_global_var_in
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #17
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18
 
@@ -26952,12 +26952,12 @@ attributes #8 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nosync nounwind memory(none) }
-attributes #13 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree nosync nounwind memory(none) }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { builtin allocsize(0) }

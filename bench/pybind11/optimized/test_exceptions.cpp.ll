@@ -9160,7 +9160,7 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit: ; preds = %1
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %5, %10
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
   %12 = icmp eq i32 %8, %11
   br i1 %12, label %13, label %19
 
@@ -9176,7 +9176,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %5, %10
           to label %.sink.split unwind label %170
 
 19:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
-  %20 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8pybind1117builtin_exceptionE) #25
+  %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8pybind1117builtin_exceptionE) #25
   %21 = icmp eq i32 %8, %20
   br i1 %21, label %22, label %25
 
@@ -9186,7 +9186,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %5, %10
   br i1 %24, label %.thread, label %161
 
 25:                                               ; preds = %19
-  %26 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9bad_alloc) #25
+  %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #25
   %27 = icmp eq i32 %8, %26
   br i1 %27, label %28, label %38
 
@@ -9205,7 +9205,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %5, %10
           to label %.sink.split unwind label %159
 
 38:                                               ; preds = %25
-  %39 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt12domain_error) #25
+  %39 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12domain_error) #25
   %40 = icmp eq i32 %8, %39
   br i1 %40, label %41, label %51
 
@@ -9224,7 +9224,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %5, %10
           to label %.sink.split unwind label %157
 
 51:                                               ; preds = %38
-  %52 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16invalid_argument) #25
+  %52 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #25
   %53 = icmp eq i32 %8, %52
   br i1 %53, label %54, label %64
 
@@ -9243,7 +9243,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %5, %10
           to label %.sink.split unwind label %155
 
 64:                                               ; preds = %51
-  %65 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt12length_error) #25
+  %65 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12length_error) #25
   %66 = icmp eq i32 %8, %65
   br i1 %66, label %67, label %77
 
@@ -9262,7 +9262,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %5, %10
           to label %.sink.split unwind label %153
 
 77:                                               ; preds = %64
-  %78 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt12out_of_range) #25
+  %78 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #25
   %79 = icmp eq i32 %8, %78
   br i1 %79, label %80, label %90
 
@@ -9281,7 +9281,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %5, %10
           to label %.sink.split unwind label %151
 
 90:                                               ; preds = %77
-  %91 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt11range_error) #25
+  %91 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt11range_error) #25
   %92 = icmp eq i32 %8, %91
   br i1 %92, label %93, label %103
 
@@ -9300,7 +9300,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %5, %10
           to label %.sink.split unwind label %149
 
 103:                                              ; preds = %90
-  %104 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt14overflow_error) #25
+  %104 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt14overflow_error) #25
   %105 = icmp eq i32 %8, %104
   br i1 %105, label %106, label %116
 
@@ -9319,7 +9319,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %5, %10
           to label %.sink.split unwind label %147
 
 116:                                              ; preds = %103
-  %117 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9exception) #25
+  %117 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
   %118 = icmp eq i32 %8, %117
   br i1 %118, label %119, label %129
 
@@ -9338,7 +9338,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %5, %10
           to label %.sink.split unwind label %145
 
 129:                                              ; preds = %116
-  %130 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt16nested_exception) #25
+  %130 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16nested_exception) #25
   %131 = icmp eq i32 %8, %130
   %132 = call ptr @__cxa_begin_catch(ptr %7) #25
   br i1 %131, label %133, label %138
@@ -12393,9 +12393,6 @@ declare i32 @PyObject_SetItem(ptr noundef, ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: noreturn
 declare void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr noundef) local_unnamed_addr #11
 
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #13
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail9raise_errEP7_objectPKc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 comdat {
   %3 = tail call ptr @PyErr_Occurred()
@@ -12609,7 +12606,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail23handle_neste
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #14
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail23handle_nested_exceptionINS_17error_already_setETnNSt9enable_ifIXntsr3std7is_sameISt16nested_exceptionNS0_12remove_cvrefIT_E4typeEEE5valueEiE4typeELi0EEEbRKS6_RKNSt15__exception_ptr13exception_ptrE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #1 comdat {
@@ -19350,7 +19347,7 @@ _ZN8pybind116detail19loader_life_supportC2Ev.exit: ; preds = %.noexc491
   %.pn259 = phi { ptr, i32 } [ %720, %719 ], [ %718, %717 ], [ %712, %711 ]
   %.1176 = extractvalue { ptr, i32 } %.pn259, 0
   %.1180 = extractvalue { ptr, i32 } %.pn259, 1
-  %721 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8pybind1120reference_cast_errorE) #25
+  %721 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8pybind1120reference_cast_errorE) #25
   %722 = icmp eq i32 %.1180, %721
   br i1 %722, label %723, label %.loopexit771
 
@@ -19617,7 +19614,7 @@ _ZN8pybind116detail19loader_life_supportC2Ev.exit512: ; preds = %.noexc509
   %.pn264 = phi { ptr, i32 } [ %813, %812 ], [ %811, %810 ], [ %805, %804 ]
   %.5 = extractvalue { ptr, i32 } %.pn264, 0
   %.5184 = extractvalue { ptr, i32 } %.pn264, 1
-  %814 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8pybind1120reference_cast_errorE) #25
+  %814 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8pybind1120reference_cast_errorE) #25
   %815 = icmp eq i32 %.5184, %814
   br i1 %815, label %816, label %.loopexit727
 
@@ -19682,7 +19679,7 @@ _ZNSt6vectorIN8pybind116detail13function_callESaIS2_EED2Ev.exit: ; preds = %_ZSt
   %.6185 = phi i32 [ %174, %172 ], [ %.4183, %789 ], [ %.5184, %.body510 ]
   %.6 = phi ptr [ %173, %172 ], [ %.4, %789 ], [ %.5, %.body510 ]
   call void @_ZNSt6vectorIN8pybind116detail13function_callESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #25
-  %828 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
+  %828 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
   %829 = icmp eq i32 %.6185, %828
   br i1 %829, label %830, label %834
 
@@ -19698,7 +19695,7 @@ _ZN8pybind1117error_already_set7restoreEv.exit:   ; preds = %830
   br label %1243
 
 834:                                              ; preds = %.loopexit727
-  %835 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #25
+  %835 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN10__cxxabiv115__forced_unwindE) #25
   %836 = icmp eq i32 %.6185, %835
   %837 = call ptr @__cxa_begin_catch(ptr %.6) #25
   br i1 %836, label %838, label %839
@@ -20360,7 +20357,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %_ZN8pybind113strD2E
   call void @_ZN8pybind116detail8accessorINS0_17accessor_policies10tuple_itemEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #25
   %.16 = extractvalue { ptr, i32 } %.pn283.pn.pn, 0
   %.16195 = extractvalue { ptr, i32 } %.pn283.pn.pn, 1
-  %1064 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
+  %1064 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
   %1065 = icmp eq i32 %.16195, %1064
   br i1 %1065, label %1066, label %.loopexit715
 
@@ -20650,7 +20647,7 @@ _ZN8pybind113strD2Ev.exit570:                     ; preds = %_ZN8pybind113strD2E
   %.pn279.pn = phi { ptr, i32 } [ %.pn279, %1156 ], [ %1151, %1150 ], [ %1129, %1128 ]
   %.20 = extractvalue { ptr, i32 } %.pn279.pn, 0
   %.20199 = extractvalue { ptr, i32 } %.pn279.pn, 1
-  %1157 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
+  %1157 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
   %1158 = icmp eq i32 %.20199, %1157
   br i1 %1158, label %1159, label %.loopexit709
 
@@ -20978,10 +20975,10 @@ _ZN8pybind117capsule35initialize_with_void_ptr_destructorEPKvPKcPFvPvE.exit: ; p
 declare ptr @PyCMethod_New(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #15
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #16
+declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #15
 
 declare ptr @PyInstanceMethod_New(ptr noundef) local_unnamed_addr #4
 
@@ -26453,7 +26450,7 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i: ; preds = %1
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i: ; preds = %8, %4
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI11MyException) #25
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI11MyException) #25
   %10 = icmp eq i32 %6, %9
   br i1 %10, label %11, label %21
 
@@ -26525,7 +26522,7 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i: ; preds = %1
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i: ; preds = %8, %4
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI36MyExceptionUseDeprecatedOperatorCall) #25
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI36MyExceptionUseDeprecatedOperatorCall) #25
   %10 = icmp eq i32 %6, %9
   br i1 %10, label %11, label %22
 
@@ -26598,7 +26595,7 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i: ; preds = %1
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i: ; preds = %8, %4
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI12MyException2) #25
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI12MyException2) #25
   %10 = icmp eq i32 %6, %9
   br i1 %10, label %11, label %21
 
@@ -26670,7 +26667,7 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i: ; preds = %1
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i: ; preds = %8, %4
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI12MyException4) #25
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI12MyException4) #25
   %10 = icmp eq i32 %6, %9
   br i1 %10, label %11, label %25
 
@@ -26833,7 +26830,7 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit.i: ; preds = %1
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i: ; preds = %8, %4
-  %9 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI12MyException6) #25
+  %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI12MyException6) #25
   %10 = icmp eq i32 %6, %9
   br i1 %10, label %11, label %21
 
@@ -26996,7 +26993,7 @@ declare void @__once_proxy() #4
 declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #17
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #16
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN8pybind1128gil_safe_call_once_and_storeINS3_6objectEE26call_once_and_store_resultIZ25test_submodule_exceptionsRNS3_7module_EE3$_1EERS6_OT_EUlvE_JEEvRS_SD_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv"() #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -28586,7 +28583,7 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit: ; preds = %2
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %6, %10
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI12MyException5) #25
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI12MyException5) #25
   %12 = icmp eq i32 %8, %11
   br i1 %12, label %13, label %24
 
@@ -29157,7 +29154,7 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit: ; preds = %2
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %6, %10
-  %11 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI14MyException5_1) #25
+  %11 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI14MyException5_1) #25
   %12 = icmp eq i32 %8, %11
   br i1 %12, label %13, label %24
 
@@ -30439,7 +30436,7 @@ _ZN8pybind116detail8accessorINS0_17accessor_policies12generic_itemEED2Ev.exit.i.
 51:                                               ; preds = %49, %47
   %.pn.i.i.i = phi { ptr, i32 } [ %50, %49 ], [ %48, %47 ]
   %.05.i.i.i = extractvalue { ptr, i32 } %.pn.i.i.i, 1
-  %52 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
+  %52 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
   %53 = icmp eq i32 %.05.i.i.i, %52
   br i1 %53, label %54, label %76
 
@@ -30735,7 +30732,7 @@ _ZN8pybind116detail8accessorINS0_17accessor_policies12generic_itemEED2Ev.exit.i.
 51:                                               ; preds = %49, %47
   %.pn.i.i.i = phi { ptr, i32 } [ %50, %49 ], [ %48, %47 ]
   %.05.i.i.i = extractvalue { ptr, i32 } %.pn.i.i.i, 1
-  %52 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
+  %52 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
   %53 = icmp eq i32 %.05.i.i.i, %52
   br i1 %53, label %54, label %76
 
@@ -30880,7 +30877,7 @@ _ZN8pybind117module_6importEPKc.exit.i.i.i:       ; preds = %.noexc.i.i.i
 .body.i.i.i:                                      ; preds = %17, %9
   %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %18, %17 ], [ %10, %9 ]
   %19 = extractvalue { ptr, i32 } %eh.lpad-body.i.i.i, 1
-  %20 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
+  %20 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %34
 
@@ -31051,7 +31048,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJbEE4callIvN
 15:                                               ; preds = %13, %11
   %.pn.i.i = phi { ptr, i32 } [ %14, %13 ], [ %12, %11 ]
   %.026.i.i = extractvalue { ptr, i32 } %.pn.i.i, 1
-  %16 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt13runtime_error) #25
+  %16 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt13runtime_error) #25
   %17 = icmp eq i32 %.026.i.i, %16
   br i1 %17, label %18, label %48
 
@@ -31245,7 +31242,7 @@ _ZN8pybind119set_errorERKNS_6handleEPKc.exit.i.i.i: ; preds = %_ZN22PythonCallIn
   %.pn.i.i.i = phi { ptr, i32 } [ %24, %23 ], [ %26, %25 ]
   call void @_ZN22PythonCallInDestructorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #25
   %.1.i.i.i = extractvalue { ptr, i32 } %.pn.i.i.i, 1
-  %28 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
+  %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
   %29 = icmp eq i32 %.1.i.i.i, %28
   br i1 %29, label %"_ZNO8pybind116detail15argument_loaderIJRKNS_4dictEEE9call_implIbRZ25test_submodule_exceptionsRNS_7module_EE4$_23JLm0EENS0_9void_typeEEET_OT0_St16integer_sequenceImJXspT1_EEEOT2_.exit.i", label %.body
 
@@ -31707,7 +31704,7 @@ _ZN8pybind116detail8accessorINS0_17accessor_policies12generic_itemEED2Ev.exit: ;
   %.pn = phi { ptr, i32 } [ %48, %47 ], [ %46, %45 ]
   %.0 = extractvalue { ptr, i32 } %.pn, 0
   %.04 = extractvalue { ptr, i32 } %.pn, 1
-  %50 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
+  %50 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
   %51 = icmp eq i32 %.04, %50
   br i1 %51, label %52, label %79
 
@@ -31898,7 +31895,7 @@ _ZN8pybind116detail15argument_loaderIJRKNS_6objectERKNS_8functionERKNS_4argsEEE9
           cleanup
           catch ptr @_ZTIN8pybind1117error_already_setE
   %22 = extractvalue { ptr, i32 } %21, 1
-  %23 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
+  %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
   %24 = icmp eq i32 %22, %23
   br i1 %24, label %25, label %.body
 
@@ -33688,7 +33685,7 @@ _ZN8pybind116detail8accessorINS0_17accessor_policies8str_attrEED2Ev.exit109: ; p
   %.pn.pn = phi { ptr, i32 } [ %234, %233 ], [ %232, %231 ], [ %206, %205 ]
   %.3 = extractvalue { ptr, i32 } %.pn.pn, 1
   %.334 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %235 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
+  %235 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
   %236 = icmp eq i32 %.3, %235
   br i1 %236, label %237, label %416
 
@@ -35466,7 +35463,7 @@ _ZN8pybind119set_errorERKNS_6handleEPKc.exit.i.i: ; preds = %0
 8:                                                ; preds = %6, %4
   %.pn.i.i = phi { ptr, i32 } [ %5, %4 ], [ %7, %6 ]
   %.04.i.i = extractvalue { ptr, i32 } %.pn.i.i, 1
-  %9 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
+  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
   %10 = icmp eq i32 %.04.i.i, %9
   br i1 %10, label %11, label %23
 
@@ -35556,7 +35553,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJEE4callIvNS
 8:                                                ; preds = %6, %4
   %.pn.i.i = phi { ptr, i32 } [ %7, %6 ], [ %5, %4 ]
   %.03.i.i = extractvalue { ptr, i32 } %.pn.i.i, 1
-  %9 = tail call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt13runtime_error) #25
+  %9 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt13runtime_error) #25
   %10 = icmp eq i32 %.03.i.i, %9
   br i1 %10, label %11, label %20
 
@@ -35651,7 +35648,7 @@ define linkonce_odr void @_ZNSt17_Nested_exceptionISt13runtime_errorED0Ev(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn16_NSt17_Nested_exceptionISt13runtime_errorED1Ev(ptr noundef %0) unnamed_addr #18 comdat align 2 {
+define linkonce_odr void @_ZThn16_NSt17_Nested_exceptionISt13runtime_errorED1Ev(ptr noundef %0) unnamed_addr #17 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZNSt16nested_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
   tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #25
@@ -35659,7 +35656,7 @@ define linkonce_odr void @_ZThn16_NSt17_Nested_exceptionISt13runtime_errorED1Ev(
 }
 
 ; Function Attrs: nounwind uwtable
-define linkonce_odr void @_ZThn16_NSt17_Nested_exceptionISt13runtime_errorED0Ev(ptr noundef %0) unnamed_addr #18 comdat align 2 {
+define linkonce_odr void @_ZThn16_NSt17_Nested_exceptionISt13runtime_errorED0Ev(ptr noundef %0) unnamed_addr #17 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZNSt16nested_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
   tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #25
@@ -36845,7 +36842,7 @@ _ZN8pybind117module_D2Ev.exit.i.i:                ; preds = %34, %_ZN8pybind116d
 .body.i.i:                                        ; preds = %40, %38, %9
   %.pn.pn.i.i = phi { ptr, i32 } [ %41, %40 ], [ %39, %38 ], [ %10, %9 ]
   %.15.i.i = extractvalue { ptr, i32 } %.pn.pn.i.i, 1
-  %42 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
+  %42 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8pybind1117error_already_setE) #25
   %43 = icmp eq i32 %.15.i.i, %42
   br i1 %43, label %44, label %53
 
@@ -37685,10 +37682,13 @@ declare ptr @PyNumber_Long(ptr noundef) local_unnamed_addr #4
 declare i32 @PyIndex_Check(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_test_exceptions.cpp() #19 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_test_exceptions.cpp() #18 section ".text.startup" {
   tail call void @_ZN16test_initializerC1EPKcPFvRN8pybind117module_EE(ptr noundef nonnull align 1 dereferenceable(1) @exceptions, ptr noundef nonnull @.str, ptr noundef nonnull @_Z25test_submodule_exceptionsRN8pybind117module_E)
   ret void
 }
+
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #20
@@ -37727,13 +37727,13 @@ attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #10 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nosync nounwind memory(none) }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #15 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(read) }
+attributes #14 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nofree nosync nounwind memory(none) }
 attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #22 = { nofree nounwind willreturn memory(argmem: read) }

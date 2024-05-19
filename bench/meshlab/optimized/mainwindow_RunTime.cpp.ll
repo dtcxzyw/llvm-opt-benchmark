@@ -11741,7 +11741,7 @@ _ZNSt6vectorIP9MeshModelSaIS1_EEaSEOS3_.exit:     ; preds = %333
           catch ptr @_ZTI11MLException
   %347 = extractvalue { ptr, i32 } %346, 0
   %348 = extractvalue { ptr, i32 } %346, 1
-  %349 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI11MLException) #26
+  %349 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI11MLException) #26
   %350 = icmp eq i32 %348, %349
   br i1 %350, label %351, label %.thread
 
@@ -16069,7 +16069,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit726:           ; preds = %.lr.ph.i.i.i723, %.
   %.pn208.pn = phi { ptr, i32 } [ %.pn208, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit726 ], [ %802, %801 ]
   %.45 = extractvalue { ptr, i32 } %.pn208.pn, 0
   %.45124 = extractvalue { ptr, i32 } %.pn208.pn, 1
-  %1061 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI11MLException) #26
+  %1061 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI11MLException) #26
   %1062 = icmp eq i32 %.45124, %1061
   br i1 %1062, label %1063, label %.loopexit865
 
@@ -17317,7 +17317,7 @@ _ZNK10MainWindow3GLAEv.exit145:                   ; preds = %285
   %.117 = phi ptr [ %.016, %303 ], [ %230, %307 ], [ %230, %305 ]
   %.5 = extractvalue { ptr, i32 } %.pn41, 0
   %.525 = extractvalue { ptr, i32 } %.pn41, 1
-  %310 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI11MLException) #26
+  %310 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI11MLException) #26
   %311 = icmp eq i32 %.525, %310
   br i1 %311, label %312, label %.loopexit
 
@@ -19877,7 +19877,7 @@ _ZN7QStringD2Ev.exit180:                          ; preds = %_ZN10QByteArrayD2Ev
 .body:                                            ; preds = %.loopexit222, %.loopexit.split-lp223.loopexit.split-lp, %.loopexit.split-lp223.loopexit, %283, %common.resume.sink.split.i, %288, %294, %300, %212, %214, %409, %200, %166
   %.pn100 = phi { ptr, i32 } [ %.pn97, %409 ], [ %.pn87216, %214 ], [ %213, %212 ], [ %.pn.pn, %200 ], [ %167, %166 ], [ %lpad.phi, %283 ], [ %289, %288 ], [ %295, %294 ], [ %301, %300 ], [ %common.resume.op.ph.i, %common.resume.sink.split.i ], [ %lpad.loopexit224, %.loopexit222 ], [ %lpad.loopexit234, %.loopexit.split-lp223.loopexit ], [ %lpad.loopexit.split-lp235, %.loopexit.split-lp223.loopexit.split-lp ]
   %.468 = extractvalue { ptr, i32 } %.pn100, 1
-  %410 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI11MLException) #26
+  %410 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI11MLException) #26
   %411 = icmp eq i32 %.468, %410
   br i1 %411, label %412, label %460
 
@@ -21434,9 +21434,6 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %1, %_ZN9QtPrivate8R
 }
 
 declare void @_ZN21MultiViewer_Container32updateAllDecoratorsForAllViewersEv(ptr noundef nonnull align 8 dereferenceable(272)) local_unnamed_addr #0
-
-; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for(ptr) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZplPKcRK7QString(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #9 comdat personality ptr @__gxx_personality_v0 {
@@ -23016,7 +23013,7 @@ define linkonce_odr void @_ZN3vcg6vertex15CurvatureDirOcfINS0_19CurvatureDirType
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN3vcg6vertex11TexCoordOcfINS_9TexCoord2IfLi1EEENS_6Arity8INS0_9EmptyCoreI11CUsedTypesOEENS0_7InfoOcfENS0_7Coord3mENS0_8BitFlagsENS0_8Normal3mENS0_8QualitymENS0_7Color4bENS0_8VFAdjOcfENS0_7MarkOcfEEEE10ImportDataI8CVertexOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(44) %1) local_unnamed_addr #14 comdat align 2 {
+define linkonce_odr void @_ZN3vcg6vertex11TexCoordOcfINS_9TexCoord2IfLi1EEENS_6Arity8INS0_9EmptyCoreI11CUsedTypesOEENS0_7InfoOcfENS0_7Coord3mENS0_8BitFlagsENS0_8Normal3mENS0_8QualitymENS0_7Color4bENS0_8VFAdjOcfENS0_7MarkOcfEEEE10ImportDataI8CVertexOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(44) %1) local_unnamed_addr #13 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 247
   %5 = load i8, ptr %4, align 1
@@ -23718,7 +23715,7 @@ _ZNSt12_Vector_baseI8CVertexOSaIS0_EE13_M_deallocateEPS0_m.exit38: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -26998,7 +26995,7 @@ _ZNSt6vectorIN3vcg9TetraSimpINS0_9UsedTypesINS0_3UseI8CVertexOE12AsVertexTypeENS
 declare void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #16
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #15
 
 declare void @_ZN11GLLogStream3logEiPKc(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -28477,7 +28474,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i278: ; preds = %_ZN9QtPrivate8RefCo
   %.pn143 = phi { ptr, i32 } [ %.pn141, %.body268 ], [ %.pn127.pn, %351 ], [ %313, %312 ], [ %.pn123, %298 ], [ %lpad.loopexit336, %.loopexit334 ], [ %lpad.loopexit.split-lp337, %.loopexit.split-lp335 ]
   %.7 = extractvalue { ptr, i32 } %.pn143, 0
   %.794 = extractvalue { ptr, i32 } %.pn143, 1
-  %537 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTISt9bad_alloc) #26
+  %537 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #26
   %538 = icmp eq i32 %.794, %537
   br i1 %538, label %539, label %588
 
@@ -28601,7 +28598,7 @@ _ZN5QListIP9MeshModelED2Ev.exit:                  ; preds = %.invoke, %_ZN9QtPri
           to label %673 unwind label %164
 
 588:                                              ; preds = %536
-  %589 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI11MLException) #26
+  %589 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI11MLException) #26
   %590 = icmp eq i32 %.794, %589
   br i1 %590, label %591, label %674
 
@@ -29599,7 +29596,7 @@ declare noundef ptr @_ZN9QListData6appendEv(ptr noundef nonnull align 8 derefere
 declare noundef ptr @_ZN9QListData11detach_growEPii(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #17
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #16
 
 declare void @_ZN17RichParameterListC1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
 
@@ -32816,7 +32813,7 @@ _ZN7QStringD2Ev.exit258:                          ; preds = %_ZNSt4pairI7QString
   %.pn126.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn126.pn.pn.pn.pn.pn, %393 ], [ %142, %141 ]
   %.37 = extractvalue { ptr, i32 } %.pn126.pn.pn.pn.pn.pn.pn, 0
   %.3756 = extractvalue { ptr, i32 } %.pn126.pn.pn.pn.pn.pn.pn, 1
-  %395 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI11MLException) #26
+  %395 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI11MLException) #26
   %396 = icmp eq i32 %.3756, %395
   br i1 %396, label %397, label %.loopexit331
 
@@ -34958,7 +34955,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i323: ; preds = %_ZN9QtPrivate8RefCo
   %.pn99 = phi { ptr, i32 } [ %535, %534 ], [ %475, %474 ], [ %533, %532 ], [ %531, %530 ]
   %.14 = extractvalue { ptr, i32 } %.pn99, 0
   %.1461 = extractvalue { ptr, i32 } %.pn99, 1
-  %537 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI11MLException) #26
+  %537 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI11MLException) #26
   %538 = icmp eq i32 %.1461, %537
   br i1 %538, label %539, label %594
 
@@ -37204,7 +37201,7 @@ _ZN7QStringD2Ev.exit362:                          ; preds = %659, %_ZN9QtPrivate
   %.pn121.pn.pn.pn = phi { ptr, i32 } [ %.pn121.pn.pn, %684 ], [ %591, %590 ]
   %.16 = extractvalue { ptr, i32 } %.pn121.pn.pn.pn, 0
   %.1685 = extractvalue { ptr, i32 } %.pn121.pn.pn.pn, 1
-  %686 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI11MLException) #26
+  %686 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI11MLException) #26
   %687 = icmp eq i32 %.1685, %686
   br i1 %687, label %688, label %771
 
@@ -40417,7 +40414,7 @@ declare void @_ZN7meshlab10loadRasterERK7QStringR11RasterModelP11GLLogStreamPFbi
 declare noundef zeroext i1 @_ZN12MeshDocument9delRasterEj(ptr noundef nonnull align 8 dereferenceable(192), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @atanf(float noundef) local_unnamed_addr #18
+declare float @atanf(float noundef) local_unnamed_addr #17
 
 declare noundef ptr @_ZN21MultiViewer_Container9getViewerEi(ptr noundef nonnull align 8 dereferenceable(272), i32 noundef) local_unnamed_addr #0
 
@@ -40993,7 +40990,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %47, %40
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit82 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %88 = extractvalue { ptr, i32 } %lpad.phi, 0
   %89 = extractvalue { ptr, i32 } %lpad.phi, 1
-  %90 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI11MLException) #26
+  %90 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI11MLException) #26
   %91 = icmp eq i32 %89, %90
   br i1 %91, label %92, label %.loopexit83
 
@@ -41744,7 +41741,7 @@ _ZN6GLArea3LogEiPKc.exit:                         ; preds = %.noexc, %128
   %.pn26 = phi { ptr, i32 } [ %.pn.pn, %137 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.3 = extractvalue { ptr, i32 } %.pn26, 0
   %.316 = extractvalue { ptr, i32 } %.pn26, 1
-  %139 = call i32 @llvm.eh.typeid.for(ptr nonnull @_ZTI11MLException) #26
+  %139 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI11MLException) #26
   %140 = icmp eq i32 %.316, %139
   br i1 %140, label %141, label %185
 
@@ -42230,7 +42227,7 @@ declare void @_ZN7QString14toLower_helperERS_(ptr dead_on_unwind writable sret(%
 declare void @_ZN9QtPrivate18QStringList_filterEPK11QStringListRK7QStringN2Qt15CaseSensitivityE(ptr dead_on_unwind writable sret(%class.QStringList) align 8, ptr noundef, ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold
-declare void @_ZNK14QMessageLogger7warningEPKcz(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ...) local_unnamed_addr #19
+declare void @_ZNK14QMessageLogger7warningEPKcz(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ...) local_unnamed_addr #18
 
 declare void @_ZNK9QFileInfo16absoluteFilePathEv(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
@@ -48334,7 +48331,7 @@ define void @_ZN10MainWindow20closeCurrentDocumentEv(ptr noundef nonnull align 8
 declare void @_ZN8QMdiArea20closeActiveSubWindowEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_mainwindow_RunTime.cpp() #20 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @_GLOBAL__sub_I_mainwindow_RunTime.cpp() #19 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = alloca [5 x %"struct.std::pair"], align 8
   %2 = alloca %"struct.std::less", align 1
   %3 = alloca %"class.std::allocator.11", align 1
@@ -48676,6 +48673,9 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
   ret void
 }
 
+; Function Attrs: nofree nosync nounwind memory(none)
+declare i32 @llvm.eh.typeid.for.p0(ptr) #20
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #21
 
@@ -48713,14 +48713,14 @@ attributes #9 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #10 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nosync nounwind memory(none) }
-attributes #14 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #18 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn memory(read) }
+attributes #17 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nofree nosync nounwind memory(none) }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
