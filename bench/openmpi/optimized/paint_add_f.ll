@@ -19,11 +19,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ompi_aint_add_f(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load i64, ptr %0, align 8
-  %4 = inttoptr i64 %3 to ptr
-  %5 = load i64, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 %5
-  %7 = ptrtoint ptr %6 to i64
-  ret i64 %7
+  %4 = load i64, ptr %1, align 8
+  %5 = add i64 %4, %3
+  ret i64 %5
 }
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

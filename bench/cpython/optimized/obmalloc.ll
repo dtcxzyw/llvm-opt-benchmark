@@ -23054,21 +23054,21 @@ mi_span_queue_for.exit.i:                         ; preds = %if.end3.i.i.i.i, %e
   %arrayidx.i.i = getelementptr [36 x %struct.mi_span_queue_s], ptr %tld, i64 0, i64 %retval.0.i.i.i.i
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %div13, i64 1)
   %arrayidx.i = getelementptr i8, ptr %tld, i64 840
-  %cmp1.not50.i = icmp ugt ptr %arrayidx.i.i, %arrayidx.i
-  br i1 %cmp1.not50.i, label %if.then, label %for.cond.preheader.lr.ph.i
+  %cmp1.not52.i = icmp ugt ptr %arrayidx.i.i, %arrayidx.i
+  br i1 %cmp1.not52.i, label %if.then, label %for.cond.preheader.lr.ph.i
 
 for.cond.preheader.lr.ph.i:                       ; preds = %mi_span_queue_for.exit.i
   %cmp.i2.i.i = icmp eq i32 %0, 0
   br i1 %cmp.i2.i.i, label %for.cond.preheader.us.i, label %for.cond.preheader.i
 
 for.cond.preheader.us.i:                          ; preds = %for.cond.preheader.lr.ph.i, %for.end.us.i
-  %sq.051.us.i = phi ptr [ %incdec.ptr.us.i, %for.end.us.i ], [ %arrayidx.i.i, %for.cond.preheader.lr.ph.i ]
-  %slice.035.us.i = load ptr, ptr %sq.051.us.i, align 8
+  %sq.053.us.i = phi ptr [ %incdec.ptr.us.i, %for.end.us.i ], [ %arrayidx.i.i, %for.cond.preheader.lr.ph.i ]
+  %slice.035.us.i = load ptr, ptr %sq.053.us.i, align 8
   %cmp2.not36.us.i = icmp eq ptr %slice.035.us.i, null
   br i1 %cmp2.not36.us.i, label %for.end.us.i, label %for.body.us.us.i
 
 for.end.us.i:                                     ; preds = %for.inc.us.us.i, %for.cond.preheader.us.i
-  %incdec.ptr.us.i = getelementptr i8, ptr %sq.051.us.i, i64 24
+  %incdec.ptr.us.i = getelementptr i8, ptr %sq.053.us.i, i64 24
   %cmp1.not.us.i = icmp ugt ptr %incdec.ptr.us.i, %arrayidx.i
   br i1 %cmp1.not.us.i, label %if.then, label %for.cond.preheader.us.i, !llvm.loop !117
 
@@ -23106,8 +23106,8 @@ for.inc.us.us.i:                                  ; preds = %if.then.i.us.us.i, 
   br i1 %cmp2.not.us.us.i, label %for.end.us.i, label %for.body.us.us.i, !llvm.loop !118
 
 for.cond.preheader.i:                             ; preds = %for.cond.preheader.lr.ph.i, %for.end.i
-  %sq.051.i = phi ptr [ %incdec.ptr.i, %for.end.i ], [ %arrayidx.i.i, %for.cond.preheader.lr.ph.i ]
-  %slice.035.i = load ptr, ptr %sq.051.i, align 8
+  %sq.053.i = phi ptr [ %incdec.ptr.i, %for.end.i ], [ %arrayidx.i.i, %for.cond.preheader.lr.ph.i ]
+  %slice.035.i = load ptr, ptr %sq.053.i, align 8
   %cmp2.not36.i = icmp eq ptr %slice.035.i, null
   br i1 %cmp2.not36.i, label %for.end.i, label %for.body.i
 
@@ -23136,46 +23136,47 @@ if.then.i.i:                                      ; preds = %if.then6.i
 
 if.then9.i:                                       ; preds = %if.then.i.i, %if.then.i.us.us.i, %if.then6.us.us.i
   %14 = phi ptr [ %slice.035.us.i, %if.then6.us.us.i ], [ %slice.035.us.i, %if.then.i.us.us.i ], [ %slice.035.i, %if.then.i.i ]
-  %.us-phi.i = phi ptr [ %sq.051.us.i, %if.then6.us.us.i ], [ %sq.051.us.i, %if.then.i.us.us.i ], [ %sq.051.i, %if.then.i.i ]
-  %.us-phi38.i = phi i64 [ %4, %if.then6.us.us.i ], [ %4, %if.then.i.us.us.i ], [ %10, %if.then.i.i ]
-  %.us-phi39.i = phi ptr [ %5, %if.then6.us.us.i ], [ %5, %if.then.i.us.us.i ], [ %11, %if.then.i.i ]
-  %.us-phi40.i = phi ptr [ %slice.037.us.us.i, %if.then6.us.us.i ], [ %slice.037.us.us.i, %if.then.i.us.us.i ], [ %slice.037.i, %if.then.i.i ]
-  %prev.i.i = getelementptr inbounds i8, ptr %.us-phi40.i, i64 64
+  %.us-phi.i = phi i64 [ %and.i.us.us.i, %if.then6.us.us.i ], [ %and.i.us.us.i, %if.then.i.us.us.i ], [ %and.i.i, %if.then.i.i ]
+  %.us-phi38.i = phi ptr [ %sq.053.us.i, %if.then6.us.us.i ], [ %sq.053.us.i, %if.then.i.us.us.i ], [ %sq.053.i, %if.then.i.i ]
+  %.us-phi39.i = phi i64 [ %4, %if.then6.us.us.i ], [ %4, %if.then.i.us.us.i ], [ %10, %if.then.i.i ]
+  %.us-phi40.i = phi ptr [ %5, %if.then6.us.us.i ], [ %5, %if.then.i.us.us.i ], [ %11, %if.then.i.i ]
+  %.us-phi41.i = phi ptr [ %slice.037.us.us.i, %if.then6.us.us.i ], [ %slice.037.us.us.i, %if.then.i.us.us.i ], [ %slice.037.i, %if.then.i.i ]
+  %prev.i.i = getelementptr inbounds i8, ptr %.us-phi41.i, i64 64
   %15 = load ptr, ptr %prev.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %15, null
-  %next5.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %.us-phi40.i, i64 56
-  %.pre70.i = load ptr, ptr %next5.i.phi.trans.insert.i, align 8
+  %next5.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %.us-phi41.i, i64 56
+  %.pre74.i = load ptr, ptr %next5.i.phi.trans.insert.i, align 8
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i24.i
 
 if.then.i24.i:                                    ; preds = %if.then9.i
   %next2.i.i = getelementptr inbounds i8, ptr %15, i64 56
-  store ptr %.pre70.i, ptr %next2.i.i, align 8
-  %.pre.i = load ptr, ptr %.us-phi.i, align 8
+  store ptr %.pre74.i, ptr %next2.i.i, align 8
+  %.pre.i = load ptr, ptr %.us-phi38.i, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i24.i, %if.then9.i
   %16 = phi ptr [ %.pre.i, %if.then.i24.i ], [ %14, %if.then9.i ]
-  %cmp3.i.i = icmp eq ptr %16, %.us-phi40.i
+  %cmp3.i.i = icmp eq ptr %16, %.us-phi41.i
   br i1 %cmp3.i.i, label %if.then4.i.i, label %if.end7.i.i
 
 if.then4.i.i:                                     ; preds = %if.end.i.i
-  store ptr %.pre70.i, ptr %.us-phi.i, align 8
+  store ptr %.pre74.i, ptr %.us-phi38.i, align 8
   br label %if.end7.i.i
 
 if.end7.i.i:                                      ; preds = %if.then4.i.i, %if.end.i.i
-  %cmp9.not.i.i = icmp eq ptr %.pre70.i, null
+  %cmp9.not.i.i = icmp eq ptr %.pre74.i, null
   br i1 %cmp9.not.i.i, label %if.end14.i.i, label %if.then10.i.i
 
 if.then10.i.i:                                    ; preds = %if.end7.i.i
   %17 = load ptr, ptr %prev.i.i, align 8
-  %prev13.i.i = getelementptr inbounds i8, ptr %.pre70.i, i64 64
+  %prev13.i.i = getelementptr inbounds i8, ptr %.pre74.i, i64 64
   store ptr %17, ptr %prev13.i.i, align 8
   br label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.then10.i.i, %if.end7.i.i
-  %last.i.i = getelementptr inbounds i8, ptr %.us-phi.i, i64 8
+  %last.i.i = getelementptr inbounds i8, ptr %.us-phi38.i, i64 8
   %18 = load ptr, ptr %last.i.i, align 8
-  %cmp15.i.i = icmp eq ptr %18, %.us-phi40.i
+  %cmp15.i.i = icmp eq ptr %18, %.us-phi41.i
   br i1 %cmp15.i.i, label %if.then16.i.i, label %mi_span_queue_delete.exit.i
 
 if.then16.i.i:                                    ; preds = %if.end14.i.i
@@ -23184,28 +23185,27 @@ if.then16.i.i:                                    ; preds = %if.end14.i.i
   br label %mi_span_queue_delete.exit.i
 
 mi_span_queue_delete.exit.i:                      ; preds = %if.then16.i.i, %if.end14.i.i
-  %xblock_size.i.i = getelementptr inbounds i8, ptr %.us-phi40.i, i64 28
+  %xblock_size.i.i = getelementptr inbounds i8, ptr %.us-phi41.i, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next5.i.phi.trans.insert.i, i8 0, i64 16, i1 false)
   store i32 1, ptr %xblock_size.i.i, align 4
-  %20 = load i32, ptr %.us-phi40.i, align 8
+  %20 = load i32, ptr %.us-phi41.i, align 8
   %conv11.i = zext i32 %20 to i64
   %cmp12.i = icmp ult i64 %spec.store.select.i, %conv11.i
+  %reass.sub = sub i64 %.us-phi39.i, %.us-phi.i
+  %sub.ptr.sub.i.i.i = add i64 %reass.sub, -264
+  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 80
   br i1 %cmp12.i, label %if.end.i26.i, label %if.end15.i
 
 if.end.i26.i:                                     ; preds = %mi_span_queue_delete.exit.i
-  %slices.i.i.i = getelementptr inbounds i8, ptr %.us-phi39.i, i64 264
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %slices.i.i.i to i64
-  %sub.ptr.sub.i.i.i = sub i64 %.us-phi38.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 80
   %add.i.i = add nsw i64 %sub.ptr.div.i.i.i, %spec.store.select.i
   %sub.i29.i = sub nsw i64 %conv11.i, %spec.store.select.i
-  %kind.i.i.i = getelementptr inbounds i8, ptr %.us-phi39.i, i64 240
+  %kind.i.i.i = getelementptr inbounds i8, ptr %.us-phi40.i, i64 240
   %21 = load i32, ptr %kind.i.i.i, align 8
   %cmp.i.i30.i = icmp eq i32 %21, 1
   br i1 %cmp.i.i30.i, label %cond.end.i.i.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.end.i26.i
-  %thread_id.i.i.i.i = getelementptr inbounds i8, ptr %.us-phi39.i, i64 256
+  %thread_id.i.i.i.i = getelementptr inbounds i8, ptr %.us-phi40.i, i64 256
   %atomic-load.i.i.i.i = load atomic i64, ptr %thread_id.i.i.i.i seq_cst, align 8
   %cmp.i.i.i.i = icmp eq i64 %atomic-load.i.i.i.i, 0
   br i1 %cmp.i.i.i.i, label %cond.end.i.i.i, label %cond.false.i.i.i
@@ -23234,6 +23234,7 @@ mi_span_queue_for.exit.i.i.i:                     ; preds = %if.end3.i.i.i.i.i.i
 cond.end.i.i.i:                                   ; preds = %mi_span_queue_for.exit.i.i.i, %lor.lhs.false.i.i.i, %if.end.i26.i
   %cond.i.i.i = phi ptr [ %arrayidx.i.i.i.i, %mi_span_queue_for.exit.i.i.i ], [ null, %lor.lhs.false.i.i.i ], [ null, %if.end.i26.i ]
   %spec.store.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.i29.i, i64 1)
+  %slices.i.i.i = getelementptr inbounds i8, ptr %.us-phi40.i, i64 264
   %arrayidx.i.i.i = getelementptr [513 x %struct.mi_page_s], ptr %slices.i.i.i, i64 0, i64 %add.i.i
   %conv.i.i.i = trunc i64 %spec.store.select.i.i.i to i32
   store i32 %conv.i.i.i, ptr %arrayidx.i.i.i, align 8
@@ -23278,23 +23279,19 @@ mi_segment_slice_split.exit.i:                    ; preds = %if.then20.i.i.i, %i
   %27 = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 28
   store i32 0, ptr %27, align 4
   %conv5.i.i = trunc nuw i64 %spec.store.select.i to i32
-  store i32 %conv5.i.i, ptr %.us-phi40.i, align 8
+  store i32 %conv5.i.i, ptr %.us-phi41.i, align 8
   br label %if.end15.i
 
-if.end15.i:                                       ; preds = %mi_span_queue_delete.exit.i, %mi_segment_slice_split.exit.i
+if.end15.i:                                       ; preds = %mi_segment_slice_split.exit.i, %mi_span_queue_delete.exit.i
   %conv18.pre-phi.i = phi i64 [ %spec.store.select.i, %mi_segment_slice_split.exit.i ], [ %conv11.i, %mi_span_queue_delete.exit.i ]
-  %slices.i.i = getelementptr inbounds i8, ptr %.us-phi39.i, i64 264
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %slices.i.i to i64
-  %sub.ptr.sub.i.i = sub i64 %.us-phi38.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 80
   %28 = getelementptr i8, ptr %tld, i64 896
   %tld.val.i = load ptr, ptr %28, align 8
-  %call19.i = tail call fastcc ptr @mi_segment_span_allocate(ptr noundef nonnull %.us-phi39.i, i64 noundef %sub.ptr.div.i.i, i64 noundef %conv18.pre-phi.i, ptr %tld.val.i)
+  %call19.i = tail call fastcc ptr @mi_segment_span_allocate(ptr noundef nonnull %.us-phi40.i, i64 noundef %sub.ptr.div.i.i.i, i64 noundef %conv18.pre-phi.i, ptr %tld.val.i)
   %cmp20.i = icmp eq ptr %call19.i, null
   br i1 %cmp20.i, label %if.then22.i, label %if.end
 
 if.then22.i:                                      ; preds = %if.end15.i
-  %call23.i = tail call fastcc ptr @mi_segment_span_free_coalesce(ptr noundef nonnull %.us-phi40.i, ptr noundef nonnull %tld)
+  %call23.i = tail call fastcc ptr @mi_segment_span_free_coalesce(ptr noundef nonnull %.us-phi41.i, ptr noundef nonnull %tld)
   br label %if.then
 
 for.inc.i:                                        ; preds = %if.then.i.i, %if.then6.i, %for.body.i
@@ -23304,7 +23301,7 @@ for.inc.i:                                        ; preds = %if.then.i.i, %if.th
   br i1 %cmp2.not.i, label %for.end.i, label %for.body.i, !llvm.loop !118
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
-  %incdec.ptr.i = getelementptr i8, ptr %sq.051.i, i64 24
+  %incdec.ptr.i = getelementptr i8, ptr %sq.053.i, i64 24
   %cmp1.not.i = icmp ugt ptr %incdec.ptr.i, %arrayidx.i
   br i1 %cmp1.not.i, label %if.then, label %for.cond.preheader.i, !llvm.loop !117
 
@@ -30149,10 +30146,8 @@ if.end32:                                         ; preds = %if.then24, %mi_segm
   %24 = ptrtoint ptr %slice.addr.0 to i64
   %sub.i.i = add i64 %24, -1
   %and.i.i = and i64 %sub.i.i, -33554432
-  %25 = inttoptr i64 %and.i.i to ptr
-  %slices.i58 = getelementptr inbounds i8, ptr %25, i64 264
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %slices.i58 to i64
-  %sub.ptr.sub.i = sub i64 %24, %sub.ptr.rhs.cast.i
+  %sub.ptr.rhs.cast.neg.i = add i64 %24, -264
+  %sub.ptr.sub.i = sub i64 %sub.ptr.rhs.cast.neg.i, %and.i.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 80
   tail call fastcc void @mi_segment_span_free(ptr noundef nonnull %1, i64 noundef %sub.ptr.div.i, i64 noundef %slice_count.1, i1 noundef zeroext true, ptr noundef %tld)
   br label %return

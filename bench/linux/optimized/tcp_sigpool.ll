@@ -28,13 +28,13 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_tcp_sigpool_
 %union.anon.36 = type { %struct.anon.37, [16 x i8] }
 %struct.anon.37 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.scatterlist = type { i64, i32, i32, i64, i32, i32 }
+%struct.bio_vec = type { ptr, i32, i32 }
 %struct.page = type { i64, %union.anon.3, %union.anon.11, %struct.atomic_t, [8 x i8] }
 %union.anon.3 = type { %struct.anon.4 }
 %struct.anon.4 = type { %union.anon.5, ptr, %union.anon.7, i64 }
 %union.anon.5 = type { %struct.list_head }
 %union.anon.7 = type { i64 }
 %union.anon.11 = type { %struct.atomic_t }
-%struct.bio_vec = type { ptr, i32, i32 }
 
 @cpool_mutex = internal global %struct.mutex { %struct.atomic64_t zeroinitializer, %struct.raw_spinlock zeroinitializer, %struct.optimistic_spin_queue zeroinitializer, %struct.list_head { ptr getelementptr (i8, ptr @cpool_mutex, i64 16), ptr getelementptr (i8, ptr @cpool_mutex, i64 16) } }, align 8
 @cpool_populated = internal unnamed_addr global i32 0, align 4
@@ -566,136 +566,135 @@ define dso_local noundef range(i32 0, 2) i32 @tcp_sigpool_hash_skb_data(ptr noca
   %14 = getelementptr i8, ptr %10, i64 %13
   %15 = getelementptr inbounds i8, ptr %1, i64 178
   %16 = load i16, ptr %15, align 2
-  %17 = zext i16 %16 to i64
-  %18 = getelementptr i8, ptr %10, i64 %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = load ptr, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !39
   call void @sg_init_table(ptr noundef nonnull %4, i32 noundef 1) #8
-  %21 = zext i32 %2 to i64
-  %22 = getelementptr i8, ptr %18, i64 %21
-  %23 = load i64, ptr @vmemmap_base, align 8
-  %24 = inttoptr i64 %23 to ptr
-  %25 = ptrtoint ptr %22 to i64
-  %26 = add i64 %25, 2147483648
-  %27 = icmp ugt ptr %22, inttoptr (i64 -2147483649 to ptr)
-  %28 = load i64, ptr @phys_base, align 8
-  %29 = load i64, ptr @page_offset_base, align 8
-  %30 = sub i64 -2147483648, %29
-  %31 = select i1 %27, i64 %28, i64 %30
-  %32 = add i64 %26, %31
-  %33 = lshr i64 %32, 12
-  %34 = getelementptr %struct.page, ptr %24, i64 %33
-  %35 = ptrtoint ptr %34 to i64
-  %36 = and i64 %35, 3
-  %37 = icmp eq i64 %36, 0
-  br i1 %37, label %39, label %38, !prof !16
+  %19 = load i64, ptr @vmemmap_base, align 8
+  %20 = and i64 %19, 3
+  %21 = icmp eq i64 %20, 0
+  br i1 %21, label %23, label %22, !prof !16
 
-38:                                               ; preds = %3
+22:                                               ; preds = %3
   call void asm sideeffect "378: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 378b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 378) #8, !srcloc !40
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 115, i32 0, i64 12) #8, !srcloc !41
   unreachable
 
-39:                                               ; preds = %3
-  %40 = sub i32 %6, %8
-  %41 = call i32 @llvm.usub.sat.i32(i32 %40, i32 %2)
-  %42 = trunc i64 %25 to i32
-  %43 = and i32 %42, 4095
-  %44 = load i64, ptr %4, align 8
-  %45 = and i64 %44, 3
-  %46 = or disjoint i64 %45, %35
-  store i64 %46, ptr %4, align 8
-  %47 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 %43, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %4, i64 12
-  store i32 %41, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %20, i64 56
-  store ptr %4, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %20, i64 48
-  store i32 %41, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %20, i64 64
-  store ptr null, ptr %51, align 8
-  %52 = call i32 @crypto_ahash_update(ptr noundef %20) #8
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %.loopexit
+23:                                               ; preds = %3
+  %24 = zext i16 %16 to i64
+  %25 = getelementptr i8, ptr %10, i64 %24
+  %26 = zext i32 %2 to i64
+  %27 = getelementptr i8, ptr %25, i64 %26
+  %28 = ptrtoint ptr %27 to i64
+  %29 = add i64 %28, 2147483648
+  %30 = icmp ugt ptr %27, inttoptr (i64 -2147483649 to ptr)
+  %31 = load i64, ptr @phys_base, align 8
+  %32 = load i64, ptr @page_offset_base, align 8
+  %33 = sub i64 -2147483648, %32
+  %34 = select i1 %30, i64 %31, i64 %33
+  %35 = add i64 %29, %34
+  %36 = lshr i64 %35, 6
+  %.idx = and i64 %36, 288230376151711680
+  %37 = add i64 %.idx, %19
+  %38 = sub i32 %6, %8
+  %39 = call i32 @llvm.usub.sat.i32(i32 %38, i32 %2)
+  %40 = trunc i64 %28 to i32
+  %41 = and i32 %40, 4095
+  %42 = load i64, ptr %4, align 8
+  %43 = and i64 %42, 3
+  %44 = or disjoint i64 %37, %43
+  store i64 %44, ptr %4, align 8
+  %45 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 %41, ptr %45, align 8
+  %46 = getelementptr inbounds i8, ptr %4, i64 12
+  store i32 %39, ptr %46, align 4
+  %47 = getelementptr inbounds i8, ptr %18, i64 56
+  store ptr %4, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %18, i64 48
+  store i32 %39, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %18, i64 64
+  store ptr null, ptr %49, align 8
+  %50 = call i32 @crypto_ahash_update(ptr noundef %18) #8
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %.loopexit
 
-54:                                               ; preds = %39
-  %55 = getelementptr inbounds i8, ptr %14, i64 2
-  %56 = load i8, ptr %55, align 2
-  %57 = icmp eq i8 %56, 0
-  br i1 %57, label %.loopexit3, label %58
+52:                                               ; preds = %23
+  %53 = getelementptr inbounds i8, ptr %14, i64 2
+  %54 = load i8, ptr %53, align 2
+  %55 = icmp eq i8 %54, 0
+  br i1 %55, label %.loopexit3, label %56
 
-58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %14, i64 48
-  br label %65
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds i8, ptr %14, i64 48
+  br label %63
 
-60:                                               ; preds = %78
-  %61 = add nuw nsw i64 %66, 1
-  %62 = load i8, ptr %55, align 2
-  %63 = zext i8 %62 to i64
-  %64 = icmp ult i64 %61, %63
-  br i1 %64, label %65, label %.loopexit3, !llvm.loop !42
+58:                                               ; preds = %76
+  %59 = add nuw nsw i64 %64, 1
+  %60 = load i8, ptr %53, align 2
+  %61 = zext i8 %60 to i64
+  %62 = icmp ult i64 %59, %61
+  br i1 %62, label %63, label %.loopexit3, !llvm.loop !42
 
-65:                                               ; preds = %60, %58
-  %66 = phi i64 [ 0, %58 ], [ %61, %60 ]
-  %67 = getelementptr [17 x %struct.bio_vec], ptr %59, i64 0, i64 %66
-  %68 = getelementptr inbounds i8, ptr %67, i64 12
-  %69 = load i32, ptr %68, align 4
-  %70 = load ptr, ptr %67, align 8
-  %71 = lshr i32 %69, 12
-  %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr %struct.page, ptr %70, i64 %72
-  %74 = ptrtoint ptr %73 to i64
-  %75 = and i64 %74, 3
-  %76 = icmp eq i64 %75, 0
-  br i1 %76, label %78, label %77, !prof !16
+63:                                               ; preds = %58, %56
+  %64 = phi i64 [ 0, %56 ], [ %59, %58 ]
+  %65 = getelementptr [17 x %struct.bio_vec], ptr %57, i64 0, i64 %64
+  %66 = getelementptr inbounds i8, ptr %65, i64 12
+  %67 = load i32, ptr %66, align 4
+  %68 = load ptr, ptr %65, align 8
+  %69 = lshr i32 %67, 12
+  %70 = zext nneg i32 %69 to i64
+  %71 = getelementptr %struct.page, ptr %68, i64 %70
+  %72 = ptrtoint ptr %71 to i64
+  %73 = and i64 %72, 3
+  %74 = icmp eq i64 %73, 0
+  br i1 %74, label %76, label %75, !prof !16
 
-77:                                               ; preds = %65
+75:                                               ; preds = %63
   call void asm sideeffect "378: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 378b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 378) #8, !srcloc !40
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 115, i32 0, i64 12) #8, !srcloc !41
   unreachable
 
-78:                                               ; preds = %65
-  %79 = and i32 %69, 4095
-  %80 = getelementptr inbounds i8, ptr %67, i64 8
-  %81 = load i32, ptr %80, align 8
-  %82 = load i64, ptr %4, align 8
-  %83 = and i64 %82, 3
-  %84 = or disjoint i64 %83, %74
-  store i64 %84, ptr %4, align 8
-  store i32 %79, ptr %47, align 8
-  store i32 %81, ptr %48, align 4
-  store ptr %4, ptr %49, align 8
-  store i32 %81, ptr %50, align 8
-  store ptr null, ptr %51, align 8
-  %85 = call i32 @crypto_ahash_update(ptr noundef %20) #8
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %60, label %.loopexit
+76:                                               ; preds = %63
+  %77 = and i32 %67, 4095
+  %78 = getelementptr inbounds i8, ptr %65, i64 8
+  %79 = load i32, ptr %78, align 8
+  %80 = load i64, ptr %4, align 8
+  %81 = and i64 %80, 3
+  %82 = or disjoint i64 %81, %72
+  store i64 %82, ptr %4, align 8
+  store i32 %77, ptr %45, align 8
+  store i32 %79, ptr %46, align 4
+  store ptr %4, ptr %47, align 8
+  store i32 %79, ptr %48, align 8
+  store ptr null, ptr %49, align 8
+  %83 = call i32 @crypto_ahash_update(ptr noundef %18) #8
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %58, label %.loopexit
 
-.loopexit3:                                       ; preds = %60, %54
-  %87 = load ptr, ptr %9, align 8
-  %88 = load i32, ptr %11, align 4
-  %89 = zext i32 %88 to i64
-  %90 = getelementptr i8, ptr %87, i64 %89
-  %91 = getelementptr inbounds i8, ptr %90, i64 8
-  br label %92
+.loopexit3:                                       ; preds = %58, %52
+  %85 = load ptr, ptr %9, align 8
+  %86 = load i32, ptr %11, align 4
+  %87 = zext i32 %86 to i64
+  %88 = getelementptr i8, ptr %85, i64 %87
+  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  br label %90
 
-92:                                               ; preds = %96, %.loopexit3
-  %93 = phi ptr [ %91, %.loopexit3 ], [ %94, %96 ]
-  %94 = load ptr, ptr %93, align 8
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %.loopexit, label %96
+90:                                               ; preds = %94, %.loopexit3
+  %91 = phi ptr [ %89, %.loopexit3 ], [ %92, %94 ]
+  %92 = load ptr, ptr %91, align 8
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %.loopexit, label %94
 
-96:                                               ; preds = %92
-  %97 = call i32 @tcp_sigpool_hash_skb_data(ptr noundef %0, ptr noundef nonnull %94, i32 noundef 0)
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %92, label %.loopexit, !llvm.loop !43
+94:                                               ; preds = %90
+  %95 = call i32 @tcp_sigpool_hash_skb_data(ptr noundef %0, ptr noundef nonnull %92, i32 noundef 0)
+  %96 = icmp eq i32 %95, 0
+  br i1 %96, label %90, label %.loopexit, !llvm.loop !43
 
-.loopexit:                                        ; preds = %78, %96, %92, %39
-  %99 = phi i32 [ 1, %39 ], [ 0, %92 ], [ 1, %96 ], [ 1, %78 ]
+.loopexit:                                        ; preds = %76, %94, %90, %23
+  %97 = phi i32 [ 1, %23 ], [ 0, %90 ], [ 1, %94 ], [ 1, %76 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #8
-  ret i32 %99
+  ret i32 %97
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

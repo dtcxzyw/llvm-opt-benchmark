@@ -237,15 +237,14 @@ define dso_local void @___pud_free_tlb(ptr noundef %0, ptr noundef %1) local_unn
   %34 = select i1 %7, i64 %31, i64 %33
   %35 = add i64 %34, %6
   %36 = load i64, ptr @vmemmap_base, align 8
-  %37 = inttoptr i64 %36 to ptr
-  %38 = lshr i64 %35, 12
-  %39 = getelementptr %struct.page, ptr %37, i64 %38
-  %40 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %41 = ptrtoint ptr %0 to i64
-  %42 = ptrtoint ptr %39 to i64
-  %43 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{di},{si},{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) getelementptr inbounds (%struct.paravirt_patch_template, ptr @pv_ops, i64 0, i32 2, i32 4), i64 %41, i64 %42, i64 %40) #14, !srcloc !6
-  %44 = extractvalue { i64, i64, i64, i64, i64 } %43, 4
-  tail call void @llvm.write_register.i64(metadata !0, i64 %44)
+  %37 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %38 = ptrtoint ptr %0 to i64
+  %39 = lshr i64 %35, 6
+  %.idx = and i64 %39, 288230376151711680
+  %40 = add i64 %.idx, %36
+  %41 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{di},{si},{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) getelementptr inbounds (%struct.paravirt_patch_template, ptr @pv_ops, i64 0, i32 2, i32 4), i64 %38, i64 %40, i64 %37) #14, !srcloc !6
+  %42 = extractvalue { i64, i64, i64, i64, i64 } %41, 4
+  tail call void @llvm.write_register.i64(metadata !0, i64 %42)
   ret void
 }
 
@@ -260,15 +259,14 @@ define dso_local void @___p4d_free_tlb(ptr noundef %0, ptr noundef %1) local_unn
   %9 = select i1 %5, i64 %6, i64 %8
   %10 = add i64 %4, %9
   %11 = load i64, ptr @vmemmap_base, align 8
-  %12 = inttoptr i64 %11 to ptr
-  %13 = lshr i64 %10, 12
-  %14 = getelementptr %struct.page, ptr %12, i64 %13
-  %15 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %16 = ptrtoint ptr %0 to i64
-  %17 = ptrtoint ptr %14 to i64
-  %18 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{di},{si},{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) getelementptr inbounds (%struct.paravirt_patch_template, ptr @pv_ops, i64 0, i32 2, i32 4), i64 %16, i64 %17, i64 %15) #14, !srcloc !6
-  %19 = extractvalue { i64, i64, i64, i64, i64 } %18, 4
-  tail call void @llvm.write_register.i64(metadata !0, i64 %19)
+  %12 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %13 = ptrtoint ptr %0 to i64
+  %14 = lshr i64 %10, 6
+  %.idx = and i64 %14, 288230376151711680
+  %15 = add i64 %.idx, %11
+  %16 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{di},{si},{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) getelementptr inbounds (%struct.paravirt_patch_template, ptr @pv_ops, i64 0, i32 2, i32 4), i64 %13, i64 %15, i64 %12) #14, !srcloc !6
+  %17 = extractvalue { i64, i64, i64, i64, i64 } %16, 4
+  tail call void @llvm.write_register.i64(metadata !0, i64 %17)
   ret void
 }
 

@@ -62,12 +62,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.scatterlist = type { i64, i32, i32, i64, i32, i32 }
 %struct.completion = type { i32, %struct.swait_queue_head }
 %struct.swait_queue_head = type { %struct.raw_spinlock, %struct.list_head }
-%struct.page = type { i64, %union.anon.25, %union.anon.33, %struct.atomic_t, [8 x i8] }
-%union.anon.25 = type { %struct.anon.26 }
-%struct.anon.26 = type { %union.anon.27, ptr, %union.anon.29, i64 }
-%union.anon.27 = type { %struct.list_head }
-%union.anon.29 = type { i64 }
-%union.anon.33 = type { %struct.atomic_t }
 
 @__param_str_usbfs_snoop = internal constant [20 x i8] c"usbcore.usbfs_snoop\00", align 16
 @param_ops_bool = external dso_local constant %struct.kernel_param_ops, align 8
@@ -6544,38 +6538,37 @@ declare dso_local void @sg_init_table(ptr noundef, i32 noundef) local_unnamed_ad
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc void @sg_set_buf(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #13 align 16 {
   %4 = load i64, ptr @vmemmap_base, align 8
-  %5 = inttoptr i64 %4 to ptr
-  %6 = ptrtoint ptr %1 to i64
-  %7 = add i64 %6, 2147483648
-  %8 = icmp ugt ptr %1, inttoptr (i64 -2147483649 to ptr)
-  %9 = load i64, ptr @phys_base, align 8
-  %10 = load i64, ptr @page_offset_base, align 8
-  %11 = sub i64 -2147483648, %10
-  %12 = select i1 %8, i64 %9, i64 %11
-  %13 = add i64 %7, %12
-  %14 = lshr i64 %13, 12
-  %15 = getelementptr %struct.page, ptr %5, i64 %14
-  %16 = ptrtoint ptr %15 to i64
-  %17 = and i64 %16, 3
-  %18 = icmp eq i64 %17, 0
-  br i1 %18, label %20, label %19, !prof !9
+  %5 = and i64 %4, 3
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %8, label %7, !prof !9
 
-19:                                               ; preds = %3
+7:                                                ; preds = %3
   tail call void asm sideeffect "350: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 350b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 350) #17, !srcloc !80
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.58, i32 115, i32 0, i64 12) #17, !srcloc !81
   unreachable
 
-20:                                               ; preds = %3
-  %21 = trunc i64 %6 to i32
-  %22 = and i32 %21, 4095
-  %23 = load i64, ptr %0, align 8
-  %24 = and i64 %23, 3
-  %25 = or disjoint i64 %24, %16
-  store i64 %25, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %22, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %2, ptr %27, align 4
+8:                                                ; preds = %3
+  %9 = ptrtoint ptr %1 to i64
+  %10 = add i64 %9, 2147483648
+  %11 = icmp ugt ptr %1, inttoptr (i64 -2147483649 to ptr)
+  %12 = load i64, ptr @phys_base, align 8
+  %13 = load i64, ptr @page_offset_base, align 8
+  %14 = sub i64 -2147483648, %13
+  %15 = select i1 %11, i64 %12, i64 %14
+  %16 = add i64 %10, %15
+  %17 = lshr i64 %16, 6
+  %.idx = and i64 %17, 288230376151711680
+  %18 = add i64 %.idx, %4
+  %19 = trunc i64 %9 to i32
+  %20 = and i32 %19, 4095
+  %21 = load i64, ptr %0, align 8
+  %22 = and i64 %21, 3
+  %23 = or disjoint i64 %18, %22
+  store i64 %23, ptr %0, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %20, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %2, ptr %25, align 4
   ret void
 }
 

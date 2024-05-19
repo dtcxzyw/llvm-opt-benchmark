@@ -1562,7 +1562,7 @@ define internal i32 @iommu_dma_mmap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %13 = tail call i64 @dma_pgprot(ptr noundef %0, i64 %12, i64 noundef %5) #15
   store i64 %13, ptr %11, align 8
   %14 = icmp ult i64 %10, %8
-  br i1 %14, label %15, label %55
+  br i1 %14, label %15, label %49
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1572,7 +1572,7 @@ define internal i32 @iommu_dma_mmap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %20 = lshr i64 %19, 12
   %21 = sub nsw i64 %8, %10
   %22 = icmp ugt i64 %20, %21
-  br i1 %22, label %55, label %23
+  br i1 %22, label %49, label %23
 
 23:                                               ; preds = %15
   %24 = tail call zeroext i1 @is_vmalloc_addr(ptr noundef %2) #15
@@ -1585,43 +1585,37 @@ define internal i32 @iommu_dma_mmap(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 .thread:                                          ; preds = %25
   %28 = tail call i64 @vmalloc_to_pfn(ptr noundef %2) #15
-  br label %47
+  br label %41
 
 29:                                               ; preds = %25
   %30 = tail call i32 @vm_map_pages(ptr noundef %1, ptr noundef nonnull %26, i64 noundef %8) #15
-  br label %55
+  br label %49
 
 31:                                               ; preds = %23
-  %32 = load i64, ptr @vmemmap_base, align 8
-  %33 = inttoptr i64 %32 to ptr
-  %34 = ptrtoint ptr %2 to i64
-  %35 = add i64 %34, 2147483648
-  %36 = icmp ugt ptr %2, inttoptr (i64 -2147483649 to ptr)
-  %37 = load i64, ptr @phys_base, align 8
-  %38 = load i64, ptr @page_offset_base, align 8
-  %39 = sub i64 -2147483648, %38
-  %40 = select i1 %36, i64 %37, i64 %39
-  %41 = add i64 %35, %40
-  %42 = lshr i64 %41, 12
-  %43 = getelementptr %struct.page, ptr %33, i64 %42
-  %44 = ptrtoint ptr %43 to i64
-  %45 = sub i64 %44, %32
-  %46 = ashr exact i64 %45, 6
-  br label %47
+  %32 = ptrtoint ptr %2 to i64
+  %33 = add i64 %32, 2147483648
+  %34 = icmp ugt ptr %2, inttoptr (i64 -2147483649 to ptr)
+  %35 = load i64, ptr @phys_base, align 8
+  %36 = load i64, ptr @page_offset_base, align 8
+  %37 = sub i64 -2147483648, %36
+  %38 = select i1 %34, i64 %35, i64 %37
+  %39 = add i64 %33, %38
+  %40 = lshr i64 %39, 12
+  br label %41
 
-47:                                               ; preds = %.thread, %31
-  %48 = phi i64 [ %46, %31 ], [ %28, %.thread ]
-  %49 = load i64, ptr %1, align 8
-  %50 = add i64 %48, %10
-  %51 = load i64, ptr %16, align 8
-  %52 = sub i64 %51, %49
-  %53 = load i64, ptr %11, align 8
-  %54 = tail call i32 @remap_pfn_range(ptr noundef %1, i64 noundef %49, i64 noundef %50, i64 noundef %52, i64 %53) #15
-  br label %55
+41:                                               ; preds = %.thread, %31
+  %42 = phi i64 [ %40, %31 ], [ %28, %.thread ]
+  %43 = load i64, ptr %1, align 8
+  %44 = add i64 %42, %10
+  %45 = load i64, ptr %16, align 8
+  %46 = sub i64 %45, %43
+  %47 = load i64, ptr %11, align 8
+  %48 = tail call i32 @remap_pfn_range(ptr noundef %1, i64 noundef %43, i64 noundef %44, i64 noundef %46, i64 %47) #15
+  br label %49
 
-55:                                               ; preds = %29, %47, %15, %6
-  %56 = phi i32 [ %54, %47 ], [ %30, %29 ], [ -6, %15 ], [ -6, %6 ]
-  ret i32 %56
+49:                                               ; preds = %29, %41, %15, %6
+  %50 = phi i32 [ %48, %41 ], [ %30, %29 ], [ -6, %15 ], [ -6, %6 ]
+  ret i32 %50
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -207,12 +207,10 @@ if.end24.i:                                       ; preds = %if.end.i
 if.then28.i:                                      ; preds = %if.end24.i
   %pc.i = getelementptr inbounds i8, ptr %fn.0.i, i64 32
   %27 = load i64, ptr %pc.i, align 8
-  %28 = inttoptr i64 %27 to ptr
-  %add.ptr32.i = getelementptr inbounds i8, ptr %28, i64 4
-  %29 = ptrtoint ptr %add.ptr32.i to i64
-  %30 = load ptr, ptr %cframe, align 8
-  %add.ptr33.i = getelementptr inbounds i8, ptr %30, i64 24
-  store i64 %29, ptr %add.ptr33.i, align 8
+  %28 = add nuw i64 %27, 4
+  %29 = load ptr, ptr %cframe, align 8
+  %add.ptr33.i = getelementptr inbounds i8, ptr %29, i64 24
+  store i64 %28, ptr %add.ptr33.i, align 8
   %.pre.i = load ptr, ptr %top.i, align 8
   %.pre78.i = ptrtoint ptr %.pre.i to i64
   br label %if.end35.i
@@ -220,8 +218,8 @@ if.then28.i:                                      ; preds = %if.end24.i
 if.end35.i:                                       ; preds = %if.then28.i, %if.end24.i
   %sub.ptr.rhs.cast.i.pre-phi.i = phi i64 [ %.pre78.i, %if.then28.i ], [ %sub.ptr.lhs.cast.i, %if.end24.i ]
   %maxstack.i.i = getelementptr inbounds i8, ptr %0, i64 48
-  %31 = load i64, ptr %maxstack.i.i, align 8
-  %sub.ptr.sub.i.i = sub i64 %31, %sub.ptr.rhs.cast.i.pre-phi.i
+  %30 = load i64, ptr %maxstack.i.i, align 8
+  %sub.ptr.sub.i.i = sub i64 %30, %sub.ptr.rhs.cast.i.pre-phi.i
   %cmp.i.i = icmp slt i64 %sub.ptr.sub.i.i, 161
   br i1 %cmp.i.i, label %if.then.i.i, label %lj_state_checkstack.exit.i
 
@@ -230,14 +228,14 @@ if.then.i.i:                                      ; preds = %if.end35.i
   br label %lj_state_checkstack.exit.i
 
 lj_state_checkstack.exit.i:                       ; preds = %if.then.i.i, %if.end35.i
-  %32 = load ptr, ptr %base.i, align 8
+  %31 = load ptr, ptr %base.i, align 8
   %fid.0.in.in65.i = getelementptr inbounds i8, ptr %ct.0.i, i64 8
   %fid.0.in66.i = load i16, ptr %fid.0.in.in65.i, align 8
   %tobool38.not67.i = icmp eq i16 %fid.0.in66.i, 0
   br i1 %tobool38.not67.i, label %while.end.thread.i, label %while.body.lr.ph.i
 
 while.end.thread.i:                               ; preds = %lj_state_checkstack.exit.i
-  store ptr %32, ptr %top.i, align 8
+  store ptr %31, ptr %top.i, align 8
   br label %callback_conv_args.exit
 
 while.body.lr.ph.i:                               ; preds = %lj_state_checkstack.exit.i
@@ -246,35 +244,35 @@ while.body.lr.ph.i:                               ; preds = %lj_state_checkstack
 
 while.body.i:                                     ; preds = %if.end79.i, %while.body.lr.ph.i
   %fid.0.in73.i = phi i16 [ %fid.0.in66.i, %while.body.lr.ph.i ], [ %fid.0.in.i, %if.end79.i ]
-  %o.072.i = phi ptr [ %32, %while.body.lr.ph.i ], [ %o.1.i, %if.end79.i ]
+  %o.072.i = phi ptr [ %31, %while.body.lr.ph.i ], [ %o.1.i, %if.end79.i ]
   %nfpr.071.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %nfpr.2.i, %if.end79.i ]
   %gcsteps.070.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %gcsteps.1.i, %if.end79.i ]
   %nsp.069.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %nsp.2.i, %if.end79.i ]
   %ngpr.068.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %ngpr.2.i, %if.end79.i ]
-  %33 = load ptr, ptr %cts, align 8
+  %32 = load ptr, ptr %cts, align 8
   %idxprom.i.i = zext i16 %fid.0.in73.i to i64
-  %arrayidx.i.i = getelementptr inbounds %struct.CType, ptr %33, i64 %idxprom.i.i
-  %34 = load i32, ptr %arrayidx.i.i, align 8
-  %shr.mask.i = and i32 %34, -268435456
+  %arrayidx.i.i = getelementptr inbounds %struct.CType, ptr %32, i64 %idxprom.i.i
+  %33 = load i32, ptr %arrayidx.i.i, align 8
+  %shr.mask.i = and i32 %33, -268435456
   %cmp41.i = icmp eq i32 %shr.mask.i, -2147483648
   br i1 %cmp41.i, label %if.end79.i, label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %while.body.i, %do.body.i.i
-  %35 = phi i32 [ %36, %do.body.i.i ], [ %34, %while.body.i ]
-  %and.i.i = and i32 %35, 65535
+  %34 = phi i32 [ %35, %do.body.i.i ], [ %33, %while.body.i ]
+  %and.i.i = and i32 %34, 65535
   %idxprom.i.i.i = zext nneg i32 %and.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds %struct.CType, ptr %33, i64 %idxprom.i.i.i
-  %36 = load i32, ptr %arrayidx.i.i.i, align 8
-  %shr.i.mask.i = and i32 %36, -268435456
+  %arrayidx.i.i.i = getelementptr inbounds %struct.CType, ptr %32, i64 %idxprom.i.i.i
+  %35 = load i32, ptr %arrayidx.i.i.i, align 8
+  %shr.i.mask.i = and i32 %35, -268435456
   %cmp.i108.i = icmp eq i32 %shr.i.mask.i, -2147483648
   br i1 %cmp.i108.i, label %do.body.i.i, label %ctype_rawchild.exit.i, !llvm.loop !4
 
 ctype_rawchild.exit.i:                            ; preds = %do.body.i.i
-  %and46.i = and i32 %36, -201326592
+  %and46.i = and i32 %35, -201326592
   %cmp47.i = icmp eq i32 %and46.i, 67108864
   %size.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 4
-  %37 = load i32, ptr %size.i, align 4
-  %sub.i = add i32 %37, 7
+  %36 = load i32, ptr %size.i, align 4
+  %sub.i = add i32 %36, 7
   %div64.i = lshr i32 %sub.i, 3
   br i1 %cmp47.i, label %if.then52.i, label %if.else62.i
 
@@ -337,13 +335,13 @@ while.body86.lr.ph.i:                             ; preds = %while.end.i
 while.body86.i:                                   ; preds = %if.end98.i, %while.body86.lr.ph.i
   %dec77.in.i = phi i32 [ %gcsteps.1.i, %while.body86.lr.ph.i ], [ %dec77.i, %if.end98.i ]
   %dec77.i = add nsw i32 %dec77.in.i, -1
-  %38 = load i64, ptr %glref.i, align 8
-  %39 = inttoptr i64 %38 to ptr
-  %gc.i = getelementptr inbounds i8, ptr %39, i64 16
-  %40 = load i64, ptr %gc.i, align 8
-  %threshold.i = getelementptr inbounds i8, ptr %39, i64 24
-  %41 = load i64, ptr %threshold.i, align 8
-  %cmp91.not.i = icmp ult i64 %40, %41
+  %37 = load i64, ptr %glref.i, align 8
+  %38 = inttoptr i64 %37 to ptr
+  %gc.i = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = load i64, ptr %gc.i, align 8
+  %threshold.i = getelementptr inbounds i8, ptr %38, i64 24
+  %40 = load i64, ptr %threshold.i, align 8
+  %cmp91.not.i = icmp ult i64 %39, %40
   br i1 %cmp91.not.i, label %if.end98.i, label %if.then96.i
 
 if.then96.i:                                      ; preds = %while.body86.i

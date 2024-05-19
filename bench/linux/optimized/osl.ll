@@ -53,12 +53,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_acpi_resourc
 %struct.static_call_key = type { ptr, %union.anon.11 }
 %union.anon.11 = type { i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.page = type { i64, %union.anon.2, %union.anon.10, %struct.atomic_t, [8 x i8] }
-%union.anon.2 = type { %struct.anon.3 }
-%struct.anon.3 = type { %union.anon.4, ptr, %union.anon.6, i64 }
-%union.anon.4 = type { %struct.list_head }
-%union.anon.6 = type { i64 }
-%union.anon.10 = type { %struct.atomic_t }
 
 @acpi_sci_irq = dso_local local_unnamed_addr global i32 -1, align 4
 @acpi_permanent_mmap = dso_local local_unnamed_addr global i8 0, align 1
@@ -460,7 +454,7 @@ define dso_local ptr @acpi_os_map_iomem(i64 noundef %0, i64 noundef %1) #1 secti
 
 5:                                                ; preds = %2
   %6 = tail call ptr @__acpi_map_table(i64 noundef %0, i64 noundef %1) #20
-  br label %78
+  br label %76
 
 7:                                                ; preds = %2
   tail call void @mutex_lock(ptr noundef nonnull @acpi_ioremap_lock) #20
@@ -497,7 +491,7 @@ define dso_local ptr @acpi_os_map_iomem(i64 noundef %0, i64 noundef %1) #1 secti
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, 1
   store i64 %28, ptr %26, align 8
-  br label %70
+  br label %68
 
 .thread:                                          ; preds = %20, %7, %23
   %29 = load ptr, ptr getelementptr inbounds ([3 x [14 x ptr]], ptr @kmalloc_caches, i64 0, i64 0, i64 1), align 8
@@ -507,13 +501,13 @@ define dso_local ptr @acpi_os_map_iomem(i64 noundef %0, i64 noundef %1) #1 secti
 
 32:                                               ; preds = %.thread
   tail call void @mutex_unlock(ptr noundef nonnull @acpi_ioremap_lock) #20
-  br label %78
+  br label %76
 
 33:                                               ; preds = %.thread
   %34 = lshr i64 %0, 12
   %35 = tail call i32 @page_is_ram(i64 noundef %34) #20
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %51, label %37
+  br i1 %36, label %49, label %37
 
 37:                                               ; preds = %33
   %38 = icmp ugt i64 %1, 4096
@@ -521,74 +515,73 @@ define dso_local ptr @acpi_os_map_iomem(i64 noundef %0, i64 noundef %1) #1 secti
 
 39:                                               ; preds = %37
   %40 = load i64, ptr @vmemmap_base, align 8
-  %41 = inttoptr i64 %40 to ptr
-  %42 = getelementptr %struct.page, ptr %41, i64 %34
-  %43 = tail call i32 @__SCT__might_resched() #20
-  %44 = load i64, ptr @vmemmap_base, align 8
-  %45 = ptrtoint ptr %42 to i64
-  %46 = sub i64 %45, %44
-  %47 = shl i64 %46, 6
-  %48 = load i64, ptr @page_offset_base, align 8
-  %49 = add i64 %47, %48
-  %50 = inttoptr i64 %49 to ptr
-  br label %53
+  %41 = tail call i32 @__SCT__might_resched() #20
+  %42 = load i64, ptr @vmemmap_base, align 8
+  %.idx = shl nuw nsw i64 %34, 6
+  %43 = add i64 %40, %.idx
+  %44 = sub i64 %43, %42
+  %45 = shl i64 %44, 6
+  %46 = load i64, ptr @page_offset_base, align 8
+  %47 = add i64 %45, %46
+  %48 = inttoptr i64 %47 to ptr
+  br label %51
 
-51:                                               ; preds = %33
-  %52 = tail call ptr @ioremap_cache(i64 noundef %0, i64 noundef %1) #20
-  br label %53
+49:                                               ; preds = %33
+  %50 = tail call ptr @ioremap_cache(i64 noundef %0, i64 noundef %1) #20
+  br label %51
 
-53:                                               ; preds = %51, %39
-  %54 = phi ptr [ %50, %39 ], [ %52, %51 ]
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %.thread6, label %56
+51:                                               ; preds = %49, %39
+  %52 = phi ptr [ %48, %39 ], [ %50, %49 ]
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %.thread6, label %54
 
-.thread6:                                         ; preds = %37, %53
+.thread6:                                         ; preds = %37, %51
   tail call void @mutex_unlock(ptr noundef nonnull @acpi_ioremap_lock) #20
   tail call void @kfree(ptr noundef nonnull %30) #20
-  br label %78
+  br label %76
 
-56:                                               ; preds = %53
-  %57 = add i64 %8, -1
-  %58 = or i64 %57, 4095
-  %59 = and i64 %0, -4096
-  %reass.sub = sub i64 %58, %59
-  %60 = add i64 %reass.sub, 1
+54:                                               ; preds = %51
+  %55 = add i64 %8, -1
+  %56 = or i64 %55, 4095
+  %57 = and i64 %0, -4096
+  %reass.sub = sub i64 %56, %57
+  %58 = add i64 %reass.sub, 1
   store volatile ptr %30, ptr %30, align 8
-  %61 = getelementptr inbounds i8, ptr %30, i64 8
-  store volatile ptr %30, ptr %61, align 8
-  %62 = ptrtoint ptr %54 to i64
-  %63 = and i64 %62, -4096
-  %64 = inttoptr i64 %63 to ptr
-  %65 = getelementptr inbounds i8, ptr %30, i64 16
-  store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %30, i64 24
-  store i64 %59, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %30, i64 32
-  store i64 %60, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %30, i64 40
-  store i64 1, ptr %68, align 8
-  %69 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @acpi_ioremaps, i64 0, i32 1), align 8
+  %59 = getelementptr inbounds i8, ptr %30, i64 8
+  store volatile ptr %30, ptr %59, align 8
+  %60 = ptrtoint ptr %52 to i64
+  %61 = and i64 %60, -4096
+  %62 = inttoptr i64 %61 to ptr
+  %63 = getelementptr inbounds i8, ptr %30, i64 16
+  store ptr %62, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %30, i64 24
+  store i64 %57, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %30, i64 32
+  store i64 %58, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %30, i64 40
+  store i64 1, ptr %66, align 8
+  %67 = load ptr, ptr getelementptr inbounds (%struct.list_head, ptr @acpi_ioremaps, i64 0, i32 1), align 8
   store ptr @acpi_ioremaps, ptr %30, align 8
-  store ptr %69, ptr %61, align 8
+  store ptr %67, ptr %59, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !11
-  store volatile ptr %30, ptr %69, align 8
+  store volatile ptr %30, ptr %67, align 8
   store ptr %30, ptr getelementptr inbounds (%struct.list_head, ptr @acpi_ioremaps, i64 0, i32 1), align 8
-  br label %70
+  br label %68
 
-70:                                               ; preds = %56, %25
-  %71 = phi ptr [ %11, %25 ], [ %30, %56 ]
+68:                                               ; preds = %54, %25
+  %69 = phi ptr [ %11, %25 ], [ %30, %54 ]
   tail call void @mutex_unlock(ptr noundef nonnull @acpi_ioremap_lock) #20
-  %72 = getelementptr inbounds i8, ptr %71, i64 16
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %71, i64 24
-  %75 = load i64, ptr %74, align 8
-  %76 = sub i64 %0, %75
-  %77 = getelementptr i8, ptr %73, i64 %76
-  br label %78
+  %70 = getelementptr inbounds i8, ptr %69, i64 16
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %69, i64 24
+  %73 = load i64, ptr %72, align 8
+  %74 = sub i64 %0, %73
+  %75 = getelementptr i8, ptr %71, i64 %74
+  br label %76
 
-78:                                               ; preds = %70, %.thread6, %32, %5
-  %79 = phi ptr [ %77, %70 ], [ null, %.thread6 ], [ null, %32 ], [ %6, %5 ]
-  ret ptr %79
+76:                                               ; preds = %68, %.thread6, %32, %5
+  %77 = phi ptr [ %75, %68 ], [ null, %.thread6 ], [ null, %32 ], [ %6, %5 ]
+  ret ptr %77
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -294,36 +294,35 @@ define dso_local void @sg_init_one(ptr nocapture noundef writeonly %0, ptr nound
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   store i64 2, ptr %0, align 8
   %5 = load i64, ptr @vmemmap_base, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %7 = ptrtoint ptr %1 to i64
-  %8 = add i64 %7, 2147483648
-  %9 = icmp ugt ptr %1, inttoptr (i64 -2147483649 to ptr)
-  %10 = load i64, ptr @phys_base, align 8
-  %11 = load i64, ptr @page_offset_base, align 8
-  %12 = sub i64 -2147483648, %11
-  %13 = select i1 %9, i64 %10, i64 %12
-  %14 = add i64 %8, %13
-  %15 = lshr i64 %14, 12
-  %16 = getelementptr %struct.page, ptr %6, i64 %15
-  %17 = ptrtoint ptr %16 to i64
-  %18 = and i64 %17, 3
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %21, label %20, !prof !6
+  %6 = and i64 %5, 3
+  %7 = icmp eq i64 %6, 0
+  br i1 %7, label %9, label %8, !prof !6
 
-20:                                               ; preds = %3
+8:                                                ; preds = %3
   tail call void asm sideeffect "323: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 323b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 323) #16, !srcloc !15
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 115, i32 0, i64 12) #16, !srcloc !16
   unreachable
 
-21:                                               ; preds = %3
-  %22 = trunc i64 %7 to i32
-  %23 = and i32 %22, 4095
-  %24 = or disjoint i64 %17, 2
-  store i64 %24, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %23, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %2, ptr %26, align 4
+9:                                                ; preds = %3
+  %10 = ptrtoint ptr %1 to i64
+  %11 = add i64 %10, 2147483648
+  %12 = icmp ugt ptr %1, inttoptr (i64 -2147483649 to ptr)
+  %13 = load i64, ptr @phys_base, align 8
+  %14 = load i64, ptr @page_offset_base, align 8
+  %15 = sub i64 -2147483648, %14
+  %16 = select i1 %12, i64 %13, i64 %15
+  %17 = add i64 %11, %16
+  %18 = lshr i64 %17, 6
+  %.idx = and i64 %18, 288230376151711680
+  %19 = add i64 %.idx, %5
+  %20 = trunc i64 %10 to i32
+  %21 = and i32 %20, 4095
+  %22 = or disjoint i64 %19, 2
+  store i64 %22, ptr %0, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %21, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %2, ptr %24, align 4
   ret void
 }
 
