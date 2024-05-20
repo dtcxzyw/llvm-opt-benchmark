@@ -42913,9 +42913,7 @@ invoke.cont46:                                    ; preds = %_ZNKSt14default_del
   %coerce2.sroa.2.0.insert.shift.i = shl nuw i128 %coerce2.sroa.2.0.insert.ext.i, 64
   %coerce2.sroa.0.0.insert.ext.i = zext i64 %7 to i128
   %coerce2.sroa.0.0.insert.insert.i = or disjoint i128 %coerce2.sroa.2.0.insert.shift.i, %coerce2.sroa.0.0.insert.ext.i
-  %coerce.sroa.0.0.insert.insert.i.frozen = freeze i128 %coerce.sroa.0.0.insert.insert.i
-  %coerce2.sroa.0.0.insert.insert.i.frozen = freeze i128 %coerce2.sroa.0.0.insert.insert.i
-  %div.i = sdiv i128 %coerce.sroa.0.0.insert.insert.i.frozen, %coerce2.sroa.0.0.insert.insert.i.frozen
+  %div.i = sdiv i128 %coerce.sroa.0.0.insert.insert.i, %coerce2.sroa.0.0.insert.insert.i
   %coerce3.sroa.2.0.extract.shift.i = lshr i128 %div.i, 64
   %coerce3.sroa.2.0.extract.trunc.i = trunc nuw i128 %coerce3.sroa.2.0.extract.shift.i to i64
   %retval.sroa.0.0.extract.trunc.i = trunc i128 %div.i to i64
@@ -43158,8 +43156,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 invoke.cont88:                                    ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i193, %if.end82
   store ptr null, ptr %message_.i.i175, align 8
-  %40 = mul i128 %div.i, %coerce2.sroa.0.0.insert.insert.i.frozen
-  %rem.i.decomposed = sub i128 %coerce.sroa.0.0.insert.insert.i.frozen, %40
+  %40 = mul i128 %div.i, %coerce2.sroa.0.0.insert.insert.i
+  %rem.i.decomposed = sub i128 %coerce.sroa.0.0.insert.insert.i, %40
   %coerce3.sroa.2.0.extract.shift.i203 = lshr i128 %rem.i.decomposed, 64
   %coerce3.sroa.2.0.extract.trunc.i204 = trunc nuw i128 %coerce3.sroa.2.0.extract.shift.i203 to i64
   %retval.sroa.0.0.extract.trunc.i205 = trunc i128 %rem.i.decomposed to i64

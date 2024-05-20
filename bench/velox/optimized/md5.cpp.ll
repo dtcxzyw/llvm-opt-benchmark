@@ -1286,10 +1286,9 @@ if.then:                                          ; preds = %entry
   %x.sroa.2.0.insert.ext = zext i64 %x.coerce1 to i128
   %x.sroa.2.0.insert.shift = shl nuw i128 %x.sroa.2.0.insert.ext, 64
   %x.sroa.0.0.insert.insert = or disjoint i128 %x.sroa.2.0.insert.shift, %x.sroa.0.0.insert.ext
-  %x.sroa.0.0.insert.insert.frozen = freeze i128 %x.sroa.0.0.insert.insert
-  %div = udiv i128 %x.sroa.0.0.insert.insert.frozen, 10000000000000000000
+  %div = udiv i128 %x.sroa.0.0.insert.insert, 10000000000000000000
   %0 = mul i128 %div, 10000000000000000000
-  %rem2.decomposed = sub i128 %x.sroa.0.0.insert.insert.frozen, %0
+  %rem2.decomposed = sub i128 %x.sroa.0.0.insert.insert, %0
   %conv = trunc nuw i128 %rem2.decomposed to i64
   %cmp4.not = icmp ult i128 %x.sroa.0.0.insert.insert, -155814926183842947303374607431768211456
   br i1 %cmp4.not, label %if.end, label %if.then5

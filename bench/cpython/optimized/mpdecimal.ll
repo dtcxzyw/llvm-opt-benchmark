@@ -28258,10 +28258,9 @@ entry:
   %shl.i = shl nuw i128 %conv.i, 64
   %conv1.i = zext i64 %lo to i128
   %add.i = or disjoint i128 %shl.i, %conv1.i
-  %add.i.frozen = freeze i128 %add.i
-  %div.i = udiv i128 %add.i.frozen, 10000000000000000000
+  %div.i = udiv i128 %add.i, 10000000000000000000
   %1 = mul i128 %div.i, 10000000000000000000
-  %rem.i.decomposed = sub i128 %add.i.frozen, %1
+  %rem.i.decomposed = sub i128 %add.i, %1
   %conv2.i = trunc nuw i128 %rem.i.decomposed to i64
   store i64 %conv2.i, ptr %data, align 16
   %div3.i = udiv i128 %add.i, 100000000000000000000000000000000000000

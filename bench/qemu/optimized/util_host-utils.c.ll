@@ -120,11 +120,10 @@ entry:
 
 if.then:                                          ; preds = %entry
   %.frozen = freeze i128 %1
-  %divisor.sroa.0.0.insert.insert.frozen = freeze i128 %divisor.sroa.0.0.insert.insert
-  %div.i = udiv i128 %.frozen, %divisor.sroa.0.0.insert.insert.frozen
+  %div.i = udiv i128 %.frozen, %divisor.sroa.0.0.insert.insert
   store i128 %div.i, ptr %plow, align 16
   store i128 0, ptr %phigh, align 16
-  %2 = mul i128 %div.i, %divisor.sroa.0.0.insert.insert.frozen
+  %2 = mul i128 %div.i, %divisor.sroa.0.0.insert.insert
   %rem.i.decomposed = sub i128 %.frozen, %2
   %extract.t248 = trunc i128 %rem.i.decomposed to i64
   %extract251 = lshr i128 %rem.i.decomposed, 64
@@ -282,10 +281,9 @@ entry:
   %a.sroa.2.0.insert.shift.i = shl nuw i128 %a.sroa.2.0.insert.ext.i, 64
   %a.sroa.0.0.insert.ext.i = zext i64 %n1.coerce0 to i128
   %a.sroa.0.0.insert.insert.i = or disjoint i128 %a.sroa.2.0.insert.shift.i, %a.sroa.0.0.insert.ext.i
-  %a.sroa.0.0.insert.insert.i.frozen = freeze i128 %a.sroa.0.0.insert.insert.i
-  %div.i = udiv i128 %a.sroa.0.0.insert.insert.i.frozen, %coerce.sroa.2.0.extract.shift
+  %div.i = udiv i128 %a.sroa.0.0.insert.insert.i, %coerce.sroa.2.0.extract.shift
   %0 = mul i128 %div.i, %coerce.sroa.2.0.extract.shift
-  %rem.i.decomposed = sub i128 %a.sroa.0.0.insert.insert.i.frozen, %0
+  %rem.i.decomposed = sub i128 %a.sroa.0.0.insert.insert.i, %0
   %retval.sroa.0.0.extract.trunc.i = trunc nuw i128 %rem.i.decomposed to i64
   %retval.sroa.0.0.extract.trunc.i91 = trunc i128 %div.i to i64
   %1 = and i128 %d, 18446744073709551615
